@@ -2,3 +2,4 @@ syntax: glob
 *~
 _site
 .sass-cache
+.DS_Store
