@@ -1,43 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ site.title }} - {{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Solita Oy">
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      [alt=center] {
-  		display: block;
-  		margin: auto;
-	}
-    </style>
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-  </head>
+---
+layout: base
+---
+<div class="header wrapper">
+  <a href="/" class="brand">
+    <img src="/img/solita-logo.png" alt="Solita Dev" />
+  </a>
+  <p class="description">This is the blog of developers from <a href="http://www.solita.fi/">Solita</a></p>
+</div>
 
-  <body>
+<div class="wrapper">
+  {{ content }}
+</div>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-      	<div class="container">
-          <a class="brand" href="/">{{ site.title }}</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="well well-large">
-        <h1>{{ page.title }}</h1>
-        {{ content }}
-      </div>
-    </div>
-  </body>
-</html>
+<div class="footer wrapper">
+  <p>Copyright &copy; 2012 <a href="http://www.solita.fi/">Solita</a></p>
+</div>
