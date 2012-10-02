@@ -1,0 +1,8 @@
+---
+layout: default
+title: Solita Dev
+---
+<ul>
+{% for post in site.posts %}
+  <li>{{ post.date | date: "%d.%m.%Y" }} – <a href="{{post.url}}">{{post.title}}</a></li>
+{% endfor %}
