@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Syntax hilight demo
+author: ajk
 ---
 
 Happy fun highlighting.
