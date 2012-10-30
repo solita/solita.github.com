@@ -60,5 +60,3 @@ Diversity in the codebase was addressed by employing [this style guide](https://
 
 ### An empty cup ###
 Using CS has been a rocky road but a fun one. It's fun to write and easy to debug. It gives its wielder a terse, expressive syntax with exceedingly many ways to do things. Unfortunately it's also easy to shoot yourself and other developers in the feet.
-
-Many of CoffeeScript's features (and more) will be incorporated into [EC6](http://brendaneich.github.com/Strange-Loop-2012/). New compile-to-JS languages are popping up, such as: [Fay](http://fay-lang.org) and [ClojureScript](https://github.com/clojure/clojurescript). Both of these look really interesting, but still not valid replacements for CS as Source maps is in the works.
