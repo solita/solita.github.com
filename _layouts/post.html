@@ -1,13 +1,24 @@
 ---
 layout: default
 ---
+{% assign author = site.authors[page.author] %}
 
 <div class="post">
     <h1 class="title">{{ page.title }}</h1>
     <p class="meta">
-        Posted <span class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</span>
+        <span class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}">{{ page.author }}</a></span>
     </p>
 
     {{ content }}
 
+   <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'solitadev';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
