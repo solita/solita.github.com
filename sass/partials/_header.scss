@@ -1,0 +1,24 @@
+.site-header {
+    margin-bottom:$baseline*3;
+}
+
+.site-title {
+    margin-top:$baseline*2;
+    margin-bottom:0;
+
+    a {
+        border:0;
+        color: $color-gray;
+
+        &:hover {
+            color: $color-black;
+        }
+    }
+}
+
+.site-description {
+    font-size:0.75em;
+    font-weight:400;
+    line-height:$baseline;
+    margin-bottom:0;
+}
