@@ -1,2 +1,2 @@
-jekyll: jekyll --server --auto
+jekyll: jekyll --pygments --server --auto
 compass: compass watch config/

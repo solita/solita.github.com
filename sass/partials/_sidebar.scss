@@ -20,7 +20,17 @@
         width:auto;
     }
 
-    .elsewhere {
-        font-size:12px;
+    .elsewhere { 
+        i {
+            display: block;
+            margin: 0 !important;
+            font-size: 30px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
     }
 }
