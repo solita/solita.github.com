@@ -1,0 +1,26 @@
+.sidebar {
+    *:first-child {
+        margin-top:0;
+    }
+
+    h5 {
+        margin-bottom:0;
+    }
+
+    .none {
+        text-align: center;
+    }
+
+    .empty {
+        border:2px dashed $color-gray;
+        border-radius:6px;
+        font-size:0.75em;
+        line-height: $baseline;
+        padding:($baseline - 4px)/2 0;
+        width:auto;
+    }
+
+    .elsewhere {
+        font-size:12px;
+    }
+}

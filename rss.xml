@@ -4,10 +4,10 @@ layout: nil
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dev.solita.fi</title>
+    <title>/dev/solita</title>
     <link>http://dev.solita.fi/</link>
-    <atom:link href="http://dev.solilita.fi/rss.xml" rel="self" type="application/rss+xml" />
-    <description>Solita - Dev</description>
+    <atom:link href="http://dev.solita.fi/rss.xml" rel="self" type="application/rss+xml" />
+    <description>{{ site.description }}</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
@@ -23,5 +23,5 @@ layout: nil
     </item>
     {% endfor %}
 
-  </channel> 
+  </channel>
 </rss>

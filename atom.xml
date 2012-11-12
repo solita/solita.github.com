@@ -3,9 +3,9 @@ layout: nil
 ---
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
-  <title>dev.solita.fi</title>
-  <link href="http://www.solita.fi/"/>
+
+  <title>/dev/solita</title>
+  <link href="http://dev.solita.fi/"/>
   <link type="application/atom+xml" rel="self" href="http://dev.solita.fi/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>http://dev.solita.fi/</id>
@@ -28,5 +28,5 @@ layout: nil
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
- 
+
 </feed>
