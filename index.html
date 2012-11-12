@@ -2,16 +2,21 @@
 layout: default
 ---
 
-<h2>Posts</h2>
-<ul>
+<h2 class="list-title">Posts</h2>
+
+<ul class="posts">
 {% for post in site.posts %}
-    <li>
-        <p class="title"><a href="{{post.url}}">{{post.title}}</a></p>
+    <li class="post">
+        <h2 class="post-title"><a href="{{ post.url }}">{{post.title}}</a></h2>
 
         {% assign author = site.authors[post.author] %}
-        <p class="meta">
+        <p class="post-meta">
             <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}">{{ post.author }}</a></span>
         </p>
+
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+
+        <p><a href="{{ post.url }}" class="more-link">Continue reading&hellip;</a></p>
     </li>
 {% endfor %}
 </ul>

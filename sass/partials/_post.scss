@@ -1,0 +1,58 @@
+.post {
+    margin-bottom:$baseline*2;
+    position:relative;
+
+    @media (min-width: $breakpoint-3) {
+        padding-left: $primary-width - 520px;
+        width: 520px;
+    }
+}
+
+.post-title {
+    font-size:1.5em;
+    line-height:$baseline*1.5;
+    margin:0;
+
+    a {
+        border:0;
+    }
+}
+.post-meta {
+    font-size:0.75em;
+
+    @media (min-width: $breakpoint-3) {
+        line-height:$baseline;
+        position:absolute;
+        left:0;
+        top:5px;
+
+        .date {
+            display:block;
+        }
+    }
+}
+
+.post-excerpt, .post-content p, .post-content pre, .post-content li {
+    font-size:0.75em;
+    line-height:$baseline;
+}
+
+.more-link {
+    background:#f1f1f1;
+    border:0;
+    color: $color-gray;
+    font-size:0.75em;
+    line-height:$baseline;
+    margin-bottom:$baseline*1.25;
+    padding:$baseline/4 10px;
+
+    &:hover {
+        background:$color-gray;
+        color:#fff;
+    }
+}
+
+.post-content {
+    margin-bottom: $baseline*2;
+}
+

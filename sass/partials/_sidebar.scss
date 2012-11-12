@@ -1,0 +1,14 @@
+.sidebar {
+
+    .none {
+        text-align: center;
+    }
+    .empty {
+        border:2px dashed $color-gray;
+        border-radius:6px;
+        font-size:0.75em;
+        line-height: $baseline;
+        padding:($baseline - 4px)/2 0;
+        width:auto;
+    }
+}

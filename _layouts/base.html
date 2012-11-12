@@ -4,28 +4,91 @@
     <meta charset="utf-8">
     <title>{{ site.title }}{% if page.title %} - {% endif %}{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solita developer blog">
+    <meta name="description" content="{{ site.description }}">
     <meta name="author" content="Solita Oy">
     <link href="/css/main.css" rel="stylesheet">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed - dev.solita.fi" href="/rss.xml" />
     <script type="text/javascript">
-    
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-35431188-1']);
       _gaq.push(['_trackPageview']);
-    
+
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    
-    </script>    
+    </script>
   </head>
 
   <body>
 
-    {{ content }}
+    <div class="wrap">
+
+      <header class="site-header">
+        <div class="wrapper">
+          <h1 class="site-title">
+            <a href="/">{{ site.title }}</a>
+          </h1>
+          <p class="site-description">A place where the developers from <a href="http://www.solita.fi/">Solita</a> share their knowledge</p>
+        </div>
+      </header>
+
+      <div class="main wrapper" role="main">
+        <div class="primary">
+          {{ content }}
+        </div>
+
+        <div class="sidebar">
+          {% include sidebar.html %}
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+
+        <div class="row four-col">
+          <div class="col">
+            <h3 class="blog-title">
+              <a href="http://blogit.solita.fi/tyopoydalla">Työpöydällä</a>
+            </h3>
+            <p>
+              <a href="http://blogit.solita.fi/tyopoydalla">http://blogit.solita.fi/tyopoydalla</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/liiketoimintaverkossa">Liiketoiminta verkossa</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/liiketoimintaverkossa">http://blogit.solita.fi/liiketoimintaverkossa</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/rajapinnalla">Rajapinnalla</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/rajapinnalla">http://blogit.solita.fi/rajapinnalla</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/alykasjohtaminen">Älykäs johtaminen</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/alykasjohtaminen">http://blogit.solita.fi/alykasjohtaminen</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="footer-slogan">Kaikki mikä voi, digitalisoituu.</p>
+
+        <p>
+          <a href="http://www.solita.fi">
+            <img class="logo" src="http://blogit.solita.fi/solita-logo.png" alt="Solita" />
+          </a>
+          Copyright &copy; <a href="http://www.solita.fi">Solita Oy</a> - <a href="http://dev.solita.fi/">/dev/solita</a>.
+        </p>
+
+      </div>
+    </footer>
 
   </body>
 </html>

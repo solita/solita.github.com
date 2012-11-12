@@ -1,202 +1,27 @@
 /*!
- * Solita Dev CSS
+ * /dev/solita/css
+ * http://dev.solita.fi/
  */
 
 @import "compass/css3";
 
-
-// Style wide settings
-$color-text: #333;
-
-$font-body: 'chaparral-pro', 'Georgia', serif;
-$font-heading: $font-body;
-
-$baseline: 24px;
+@import "vars";
+@import "mixins";
 
 
-// Mixins
-@mixin image-replacement {
-    text-indent:100%;
-    overflow:hidden;
-    white-space:nowrap;
-}
-
-@mixin clearfix {
-    *zoom: 1;
-
-    &:before, &:after {
-        content: "";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
-@mixin disable-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+@import "partials/frameless";
 
 
-/* RESET
------------------------------------------------------------------------------ */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-[hidden] {
-  display: none;
-}
-
-img {
-  border: 0;
-  max-width:100%;
-  -ms-interpolation-mode: bicubic;
-}
-
-img, embed, object, video {
-  height: inherit;
-  max-width: 100%;
-  _width: 100%; /* IE6 fix */
-}
-
-/* Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 */
-sub, sup {
-    font-size: 0.625em;
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-sup {
-    top: -0.5em;
-}
-sub {
-    bottom: -0.25em;
-}
+/* Reset */
+@import "partials/reset";
 
 
-/* BASE
------------------------------------------------------------------------------ */
-html {
-    background:#fff;
-    font-size: 100%;
-    overflow-y:scroll; /* Force scrollbars 100% of the time */
-    -webkit-font-smoothing: antialiased;
-
-    /* Inflate text size on mobiles by full increments only */
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
-
-/* Sam's Grid System: http://samsoff.es/posts/my-grid-system */
-.wrapper, .row {
-    overflow: hidden;
-    margin:0 auto;
-    max-width:640px;
-}
-.row > div {
-    float:right;
-    width:300px;
-}
-.row > div:first-child {
-    float:left;
-}
+/* Base */
+@import "partials/base";
 
 
-/* TYPOGRAPHY
------------------------------------------------------------------------------ */
-body {
-    /* 16px/24px --> $baseline: 24px */
-    font:100%/1.5 $font-body;
-}
-body, input, textarea {
-    color:$color-text;
-}
-h1, h2, h3, h4, h5, h6 {
-    margin: $baseline 0;
-}
-ol, ul, p, pre, table, form {
-    margin:0 0 $baseline;
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-    color:#101010;
-    font-family: $font-heading;
-    font-weight: 700;
-    line-height: $baseline;
-}
-h1, .fake-h1 {
-    font-size: 2.625em;
-    line-height: $baseline*2;
-}
-h2, .fake-h2 {
-    font-size: 1.5em;
-    line-height:$baseline*1.5;
-}
-h3, .fake-h3 {
-    font-size: 1.25em;
-}
-h4, .fake-h4 {
-    font-size: 1em;
-}
-h5, .fake-h5 {
-    font-size: 1em;
-}
-h6, .fake-h6 {
-    font-size: 0.75em;
-}
-h5, h6 {
-    letter-spacing: 0.0625em;
-    text-transform:uppercase;
-}
-
-a {
-    border-bottom:1px solid #ced2df;
-    color:#17c;
-    text-decoration: none;
-}
-a:hover {
-    border-color:#a53;
-    color:#a53;
-}
-a:active, a:focus {
-    opacity: .7;
-}
-
-blockquote {
-    border-left:2px solid #bbb;
-    color:#888;
-    margin: 0 0 1.6em;
-    padding-left: 2em;
-}
-
-pre {
-    white-space: pre;                      /* ? */
-    white-space: pre-wrap;                 /* CSS3 browsers  */
-    white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
-    white-space: -pre-wrap;                /* Opera 4 thru 6 */
-    white-space: -o-pre-wrap;              /* Opera 7 and up */
-    word-wrap: break-word;                 /* IE 5.5+ and up */
-    -ms-word-break: normal;
-    word-break: normal;
-    word-break: normal; /* old webkit */
-}
-
-pre, code, kbd, samp {
-    font: 1em/1.625em Menlo, Consolas, 'DejaVu Sans Mono', Monaco, 'Courier New', Courier, monospace;
-}
-
-ul, ol {
-    padding: 0 0 0 1.4em;
-}
+/* Typography */
+@import "partials/typography";
 
 
 /* TABLES
@@ -214,48 +39,28 @@ fieldset {
 }
 
 
-/* HEADER
------------------------------------------------------------------------------ */
-.header {
-    border-top:3px solid #666;
-    color:#666;
-    padding:$baseline 0 0;
-}
-.brand {
-    border:0;
-    margin-bottom:$baseline*0.5;
-}
+/* Sidebar */
+@import "partials/sidebar";
 
 
-/* POST
------------------------------------------------------------------------------ */
-.title {
-    margin-bottom:0;
-}
-.meta {
-    color:#666;
-    font-size:0.875em;
-}
-.post .title {
-    font-size:1.5em;
-    line-height:$baseline*1.5;
-}
+/* Header */
+@import "partials/header";
 
 
-/* FOOTER
------------------------------------------------------------------------------ */
-.footer {
-    border-top:1px solid #bbb;
-    color:#666;
-    font-size:0.75em;
-    margin:$baseline*2 auto 0;
-    padding-top:$baseline;
-    text-align:center;
+/* Footer */
+@import "partials/footer";
 
-    a {
-        color:#666;
-    }
-}
+
+/* Post */
+@import "partials/post";
+
+
+/* Home */
+@import "partials/home";
+
+
+/* Common elements */
+@import "partials/common";
 
 
 /* PYGMENTS
