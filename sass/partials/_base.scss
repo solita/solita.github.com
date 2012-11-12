@@ -27,10 +27,10 @@ body {
     padding:0 10px;
 
     @media (min-width: $breakpoint-2) {
-        width: 700px;
+        max-width: 700px;
     }
     @media (min-width: $breakpoint-3) {
-        width: 1000px;
+        max-width: 1000px;
     }
 }
 
@@ -69,7 +69,7 @@ body {
     @media (min-width: $breakpoint-3) {
         float:left;
         margin-bottom: 0;
-        width: 700px;
+        width: $primary-width;
     }
 }
 

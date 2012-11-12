@@ -1,6 +1,9 @@
 .post {
+    margin-bottom:$baseline*2;
+    position:relative;
+
     @media (min-width: $breakpoint-3) {
-        float:right;
+        padding-left: $primary-width - 520px;
         width: 520px;
     }
 }
@@ -40,7 +43,8 @@
     color: $color-gray;
     font-size:0.75em;
     line-height:$baseline;
-    padding:$baseline/2 15px;
+    margin-bottom:$baseline*1.25;
+    padding:$baseline/4 10px;
 
     &:hover {
         background:$color-gray;
