@@ -19,15 +19,35 @@
 }
 .post-meta {
     font-size:0.75em;
+    padding:6px 0 0 0;
+    position:relative;
 
     @media (min-width: $breakpoint-3) {
         line-height:$baseline;
+        padding: 0 0 0 57px;
         position:absolute;
         left:0;
         top:5px;
 
         .date {
             display:block;
+        }
+    }
+
+    .avatar {
+        @media (min-width: $breakpoint-3) {
+            position:absolute;
+            left:0;
+            top:3px;
+        }
+
+        .img {
+            max-width:24px;
+            vertical-align: middle;
+
+            @media (min-width: $breakpoint-3) {
+                max-width:42px;
+            }
         }
     }
 }
