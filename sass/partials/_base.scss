@@ -1,0 +1,81 @@
+html {
+    font-size: 100%;
+    overflow-y:scroll; /* Force scrollbars 100% of the time */
+    -webkit-font-smoothing: antialiased;
+
+    /* Inflate text size on mobiles by full increments only */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    border-top:8px solid $color-gray;
+    background:$color-gray;
+}
+
+.wrap {
+    background:#fff;
+    @include clearfix;
+}
+
+.wrapper, .row {
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.wrapper {
+    padding:0 10px;
+
+    @media (min-width: $breakpoint-2) {
+        max-width: 700px;
+    }
+    @media (min-width: $breakpoint-3) {
+        max-width: 1000px;
+    }
+}
+
+
+/* Columns */
+.row .col {
+    display:inline-block;
+    float:left;
+}
+.four-col .col {
+    width:100%;
+
+    @media (min-width: $breakpoint-3) {
+        margin-left:$gutter;
+        overflow: hidden;
+        @include break-words;
+
+        &:first-child {
+            margin:0;
+        }
+
+        width: (1000px - 3*$gutter) / 4;
+    }
+}
+
+
+/* Main */
+.main {
+    margin-bottom:$baseline*3;
+}
+
+.primary {
+    margin-bottom: $baseline*2;
+    position:relative;
+
+    @media (min-width: $breakpoint-3) {
+        float:left;
+        margin-bottom: 0;
+        width: $primary-width;
+    }
+}
+
+.sidebar {
+    @media (min-width: $breakpoint-3) {
+        float:right;
+        width: 260px;
+    }
+}

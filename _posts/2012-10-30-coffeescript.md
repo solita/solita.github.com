@@ -2,6 +2,7 @@
 layout: post
 title: On CoffeeScript
 author: massimo
+excerpt: CoffeeScript - if you aren't yet familiar with it - is a nice little language that compiles to readable, "safe" JavaScript (everything wrapped in an anonymous function, variables are lexically scoped). It swaps curly braces for indentation, arrows for function definitions and adds a few features such as classes and array comprehensions.
 ---
 
 ### A sip ###
@@ -43,7 +44,7 @@ arr = n for n in [1, 2, 3]   # arr contains just 3
 {% endhighlight %}
 
 {% highlight coffeescript %}
-doSomething() -> 'hello' 
+doSomething() -> 'hello'
 # above calls the result of doSomething() with an anonymous function
 doSomething () -> 'hello'
 # above calls doSomething with an anonymous function
