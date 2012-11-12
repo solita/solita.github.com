@@ -50,6 +50,18 @@
             }
         }
     }
+
+    .icon {
+        display:none;
+        position:absolute;
+
+        @media (min-width: $breakpoint-3) {
+            display: block;
+            left:-44px;
+            top:-37px;
+            z-index:2;
+        }
+    }
 }
 
 .post-excerpt, .post-content p, .post-content pre, .post-content li {

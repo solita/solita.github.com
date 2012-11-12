@@ -26,7 +26,7 @@
 
     function get_gravatar(email, size) {
         size = size || AVATAR_SIZE;
-        return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?s=' + size;
+        return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg';
     }
 
 }());
