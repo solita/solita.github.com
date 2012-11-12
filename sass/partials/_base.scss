@@ -19,8 +19,8 @@ body {
 }
 
 .wrapper, .row {
-    overflow: hidden;
     margin:0 auto;
+    @include clearfix;
 }
 
 .wrapper {
