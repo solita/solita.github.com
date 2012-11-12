@@ -3,10 +3,13 @@ description: Solita developer blog
 authors:
   jarno:
     name: Jarno Peltoniemi
+    email: jarno.peltoniemi@solita.fi
     url: mailto:jarno.peltoniemi@solita.fi
   ajk:
     name: Antti-Jussi Kovalainen
+    email: ajk@solita.fi
     url: http://ajk.fi/
   massimo:
     name: Massimo Prencipe
+    email: massimo.prencipe@solita.fi
     url: mailto:massimo.prencipe@solita.fi
