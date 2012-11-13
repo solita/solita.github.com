@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Interactive Javascript testing
-author: niklas
+author: empperi
 ---
 
 **tldr;** PhantomRunner is a Java based testing library which provides integration between JUnit and Jasmine via PhantomJS headless browser and it is hosted at [https://github.com/solita/phantom-runner](https://github.com/solita/phantom-runner)
