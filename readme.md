@@ -37,7 +37,9 @@ For OSX, the instructions are not yet done. If you have installed Xcode, you mig
 2. Make sure ruby is active by typing in `ruby -v`
 3. Type: `gem install jekyll`
 4. Make sure the installation succeeds
-5. To run Jekyll, go to 
+5. To run Jekyll, go to your working copy of solita.github.com
+6. Type in: `jekyll --server --auto`
+7. Open browser to: http://localhost:4000/ (or some other address?)
 
 
 ## Development
