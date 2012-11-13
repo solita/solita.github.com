@@ -12,7 +12,7 @@ If you want to write a post, here's how:
   - You need a Github account to do this
 2. Clone your own fork to your computer (git clone)
 3. Add your author info to `_config.yml`
-4. Create a new post under the `_posts` folder, look at other posts for example of what to write there
+4. Write a new post under the `_posts` folder using Markdown, look at other posts for example of what to write there
 5. If you have Ruby and Jekyll, preview your post locally (instructions below)
 6. Create a pull request at https://github.com/solita/solita.github.com/pull/new/master
   - Choose your fork on the right
@@ -22,7 +22,7 @@ If you want to write a post, here's how:
 
 ## Previewing posts
 
-You need Ruby and Jekyll if you want to preview your posts locally (or develop the blog).
+You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview).
 
 ### Installing Ruby
 
