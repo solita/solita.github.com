@@ -3,7 +3,7 @@
         margin-top:0;
     }
 
-    h5 {
+    h4, h5 {
         margin-bottom:0;
     }
 
@@ -20,17 +20,27 @@
         width:auto;
     }
 
-    .elsewhere { 
-        i {
-            display: block;
-            margin: 0 !important;
+    .elsewhere {
+        a {
+            border:0;
+            color: $color-gray;
             font-size: 30px;
-            width: 100px;
-            text-align: center;
+
+            &:hover {
+                color: $color-hover;
+            }
         }
 
-        .hidden {
-            display: none;
+        a + a {
+            margin-left:15px;
+        }
+
+        i {
+            display:inline-block;
+        }
+
+        span {
+            display:none;
         }
     }
 }

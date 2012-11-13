@@ -46,12 +46,12 @@ h6, .fake-h6 {
 
 a {
     border-bottom:1px solid #ced2df;
-    color:#17c;
+    color:$color-link;
     text-decoration: none;
 }
 a:hover {
-    border-color:#a53;
-    color:#a53;
+    border-color:$color-hover;
+    color:$color-hover;
 }
 a:active, a:focus {
     opacity: .7;
