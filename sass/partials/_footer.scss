@@ -2,7 +2,7 @@
     background: $color-gray;
     color:#fff;
     font-size:0.8em;
-    padding-top:$baseline;
+    padding-top:$baseline/2;
 
     a {
         border:0;
@@ -13,7 +13,11 @@
         }
     }
 
-    h3 {
+    h2 {
+        margin-bottom: $baseline/2;
+    }
+
+    .col h3 {
         margin-bottom:0;
     }
 
