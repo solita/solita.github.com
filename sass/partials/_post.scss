@@ -64,7 +64,7 @@
     }
 }
 
-.post-excerpt, .post-content p, .post-content pre, .post-content li {
+.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote {
     font-size:0.75em;
     line-height:$baseline;
 }
