@@ -69,6 +69,10 @@
     line-height:$baseline;
 }
 
+.post-content > .highlight pre, .post-content > pre {
+    font-size: 0.85em;
+}
+
 .more-link {
     background:#f1f1f1;
     border:0;
