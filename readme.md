@@ -58,4 +58,4 @@ For development, you need Ruby and Jekyll. If you want to tweak the CSS, you nee
 
 Solita's development blog is built using all the hippiest hip technologies available! Like:
 
-    git, Github Pages, Ruby, Jekyll, Sass, Compass, foreman, jQuery, Gravatar
+    git, Github Pages, Ruby, Jekyll, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics
