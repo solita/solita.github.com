@@ -71,7 +71,7 @@ require(["some/module"], function(module) {
 		});
 	});
 });
-{% endhighlight}
+{% endhighlight %}
 
 In addition to easy integration to other testing frameworks PhantomRunner supports multiple server implementations to be used for communication between PhantomRunner and PhantomJs browser.
 
