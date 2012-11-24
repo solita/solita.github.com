@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>On CoffeeScript - /dev/solita</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solita developer blog">
+    <meta name="author" content="Solita Oy">
+    <link href="/css/main.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed - dev.solita.fi" href="/rss.xml" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35431188-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+    <div class="wrap">
+
+      <header class="site-header">
+        <div class="wrapper">
+          <h1 class="site-title">
+            <a href="/">/dev/solita</a>
+          </h1>
+          <p class="site-description"><a href="http://www.solita.fi/">Solita</a> developer blog</p>
+        </div>
+      </header>
+
+      <div class="main wrapper" role="main">
+        <div class="primary">
+          
+
+<div class="post single">
+    <h1 class="post-title">On CoffeeScript</h1>
+    <p class="post-meta">
+        <span class="date" title="2012-10-30T00:00:00+02:00">30 Oct 2012</span> by <span class="author"><a href="mailto:massimo.prencipe@solita.fi" title="massimo.prencipe@solita.fi">massimo</a></span>
+    </p>
+
+    <div class="post-content">
+        <h3 id='a_sip'>A sip</h3>
+
+<p><a href='http://coffeescript.org'>CoffeeScript</a> - if you aren&#8217;t yet familiar with it - is a nice little language that compiles to readable, &#8220;safe&#8221; JavaScript (everything wrapped in an anonymous function, variables are lexically scoped). It swaps curly braces for indentation, arrows for function definitions and adds a few features such as classes and array comprehensions.</p>
+
+<p>Basically, it looks like this. Note how there&#8217;s no explicit return statement and how the conditional is an expression. <div>
+  <pre><code class='coffeescript'>isFoo: (x) -&gt; if x is 'foo' then true else false
+getFoos: (xs) -&gt; (x for x in xs when isFoo x)</code></pre>
+</div></p>
+
+<p>Another example. Compared to JS prototypes, the syntax is really nice. <div>
+  <pre><code class='coffeescript'>class Cat
+  constructor: (@name) -&gt;
+  meow: -&gt; console.log &quot;I'm #{@name}! Hear me roar!&quot;
+class NyanCat extends Cat
+  constructor: (name) -&gt; super name
+  meow: -&gt;
+    super()
+    console.log 'Nyan!'</code></pre>
+</div></p>
+
+<h3 id='aroma'>Aroma</h3>
+
+<p>Not being a JS ninja, using CS seemed like a great chance to leverage the full power of JS in a UI-heavy project. Having written a few lines of Python and Haskell in the past, the clean, parenthesis-free syntax was enticing and the concept of classes was familiar to a Java developer.</p>
+
+<p>After a few weeks I was in evangelization mode.</p>
+
+<h3 id='bitterness'>Bitterness</h3>
+
+<p>Soon, however, everyone&#8217;s code started to look a little different. Some used parentheses in function invocations while others didn&#8217;t. Classes were used when a simple object literal would have sufficed.</p>
+
+<p>The team found that the CS compiler doesn&#8217;t always follow the <a href='http://en.wikipedia.org/wiki/Principle_of_least_astonishment'>principle of least astonishment</a>, even if the behavior is documented.</p>
+<div>
+  <pre><code class='coffeescript'>arr = (n for n in [1, 2, 3]) # arr contains 1, 2, 3
+arr = n for n in [1, 2, 3]   # arr contains just 3</code></pre>
+</div><div>
+  <pre><code class='coffeescript'>doSomething() -&gt; 'hello'
+# above calls the result of doSomething() with an anonymous function
+doSomething () -&gt; 'hello'
+# above calls doSomething with an anonymous function</code></pre>
+</div>
+<p>I also noticed that writing new code was accompanied by a feeling of undecidedness, not knowing whether my approach is <em>the</em> idiomatic way to solve a problem. Later I found an article that summarized my feelings about CS, <a href='http://ceronman.com/2012/09/17/coffeescript-less-typing-bad-readability/'>Less typing, bad readability</a> by Manuel Cerón.</p>
+
+<p>As our codebase grew, our makeshift <a href='https://developer.mozilla.org/en-US/docs/Rhino'>Rhino</a> compiler started to stagger and build times grew to half a minute (with just a few files and a total of &lt; 1000 LOC).</p>
+
+<h3 id='sweetener'>Sweetener</h3>
+
+<p>A clever developer on our team wired up <a href='http://nodejs.org'>Node.js</a> to an Eclipse builder resulting in compilation times of less than a second. <a href='http://www.sublimetext.com/'>Sublime Text 2</a> emerged as a great CS editor.</p>
+
+<p>Diversity in the codebase was addressed by employing <a href='https://github.com/polarmobile/coffeescript-style-guide'>this style guide</a> with some minor modifications. We started ditching classes in favor of simple object literals and revealing modules. In general we were using CS as it should be used: a simpler way to write JS.</p>
+
+<h3 id='an_empty_cup'>An empty cup</h3>
+
+<p>Using CS has been a rocky road but a fun one. It&#8217;s fun to write and easy to debug. It gives its wielder a terse, expressive syntax with exceedingly many ways to do things. Unfortunately it&#8217;s also easy to shoot yourself and other developers in the feet.</p>
+    </div>
+
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_pinterest_pinit"></a>
+        <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fc649c87892c488"></script>
+    <!-- AddThis Button END -->
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'solitadev';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="sidebar">
+          <div class="elsewhere">
+    <h4>Solita elsewhere</h4>
+    <a href="/rss.xml" rel="external" class="rss"><i class="icon-rss"></i><span class="hidden">RSS</span></a>
+    <a href="https://twitter.com/SolitaOy" rel="external" class="twitter"><i class="icon-twitter"></i><span class="hidden">Twitter</span></a>
+    <a href="http://www.linkedin.com/company/15589" rel="external" class="linkedin"><i class="icon-linkedin"></i><span class="hidden">LinkedIn</span></a>
+    <a href="http://www.facebook.com/Solita" rel="external" class="facebook"><i class="icon-facebook"></i><span class="hidden">Facebook</span></a>
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+
+        <h2>More from us</h2>
+        <div class="row four-col">
+          <div class="col">
+            <h3 class="blog-title">
+              <a href="http://blogit.solita.fi/tyopoydalla">Työpöydällä</a>
+            </h3>
+            <p>
+              <a href="http://blogit.solita.fi/tyopoydalla">http://blogit.solita.fi/tyopoydalla</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/liiketoimintaverkossa">Liiketoiminta verkossa</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/liiketoimintaverkossa">http://blogit.solita.fi/liiketoimintaverkossa</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/rajapinnalla">Rajapinnalla</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/rajapinnalla">http://blogit.solita.fi/rajapinnalla</a>
+            </p>
+          </div>
+          <div class="col">
+            <h3 class="blog-title"><a href="http://blogit.solita.fi/alykasjohtaminen">Älykäs johtaminen</a></h3>
+            <p>
+              <a href="http://blogit.solita.fi/alykasjohtaminen">http://blogit.solita.fi/alykasjohtaminen</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="footer-slogan">Kaikki mikä voi, digitalisoituu.</p>
+
+        <p>
+          <a href="http://www.solita.fi">
+            <img class="logo" src="/img/solita-logo.png" alt="Solita" />
+          </a>
+          Copyright &copy; <a href="http://www.solita.fi">Solita Oy</a> - <a href="http://dev.solita.fi/">/dev/solita</a>
+        </p>
+
+      </div>
+    </footer>
+
+    <div id="templates" style="display: none;">
+      <a href="#" class="avatar" title="">
+        <img class="img" src="/img/anonymous.png" alt="" />
+        <i class="icon christmas-hats-ahoy"></i>
+      </a>
+    </div>
+
+    <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/js/transparency.min.js"></script>
+    <script type="text/javascript" src="/js/webtoolkit.md5.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+
+  </body>
+</html>

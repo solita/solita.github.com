@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>/dev/solita</title>
+    <link>http://dev.solita.fi/</link>
+    <atom:link href="http://dev.solita.fi/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Solita developer blog</description>
+    <language>en-us</language>
+    <pubDate>Sat, 24 Nov 2012 10:36:57 +0200</pubDate>
+    <lastBuildDate>Sat, 24 Nov 2012 10:36:57 +0200</lastBuildDate>
+
+    
+    <item>
+      <title>Solita Codecamp 2012</title>
+      <link>http://dev.solita.fi/2012/11/23/codecamp.html</link>
+      <pubDate>Fri, 23 Nov 2012 00:00:00 +0200</pubDate>
+      <author>open@solita.fi (Solita Oy)</author>
+      <guid>http://dev.solita.fi/2012/11/23/codecamp</guid>
+      <description>&lt;h3 id='in_the_beginng'&gt;In the beginng&lt;/h3&gt;
+
+&lt;p&gt;Solita has been hosting internal (and semi-internal) &lt;a href='http://codingdojo.org/cgi-bin/wiki.pl?WhatIsCodingDojo'&gt;Coding Dojo&amp;#8217;s&lt;/a&gt; for many years now. It has been great fun and and an awesome way to learn new things together.&lt;/p&gt;
+
+&lt;p&gt;If you aren&amp;#8217;t familiar with the concept of Coding Dojo&amp;#8217;s it basicly goes like this:&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre&gt;&lt;code class='java'&gt;Set&amp;lt;Programmers&amp;gt; coders = gatherPeople();
+while (beerLasts &amp;amp;&amp;amp; eyesStayOpen) {
+	tryToResolveChallengeBrilliantly(coders);
+}
+representSolutions(coders);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;If you still don&amp;#8217;t know what Coding Dojo is about take a look at the &lt;a href='http://codingdojo.org/cgi-bin/wiki.pl?WhatIsCodingDojo'&gt;this&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id='so_what_is_this_codecamp_you_are_talking_about'&gt;So what is this Codecamp you are talking about?&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://en.wikipedia.org/wiki/Code_Camp'&gt;Codecamp&lt;/a&gt; could be simplified as an extended Coding Dojo. The main principles are the same; programming challenge, bunch of programmers having fun, beer, food, relaxing. But where Coding Dojo is a fun way to spend a evening, Codecamp is great way to spend a day.&lt;/p&gt;
+
+&lt;p&gt;What you need for your own Codecamp? Basicly some kind of idea of an challenge. It could be related to a subject (&lt;a href='www.justinbiebermusic.com'&gt;Justin Bieber&lt;/a&gt;, &lt;a href='www.hasbro.com/mylittlepony'&gt;Ponies&lt;/a&gt; or maybe technology (&lt;a href='http://esolangs.org/wiki/brainfuck'&gt;Brainfuck&lt;/a&gt;, &lt;a href='http://www.fortran.com/'&gt;Fortran&lt;/a&gt;, &lt;a href='http://www.webopedia.com/TERM/C/COBOL.html'&gt;COBOL&lt;/a&gt;). Just make sure the idea is something will be exciting for all the people taking part in the Codecamp.&lt;/p&gt;
+
+&lt;p&gt;So you got a brilliant idea and people wanting to participate? Well next you need to able to host it. I would suggest you pick a venue that is not affliatiated with you organisation. For example we rented a cabin in the woods. It helps different the happening from work(/studies) and participants can relax.&lt;/p&gt;
+
+&lt;p&gt;The next thing you need is basic infrastracture for the challenge. You probably need atleast these:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Network stuff&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Internet (meaning somekind of uplink)&lt;/li&gt;
+
+&lt;li&gt;DHCP/DNS -services&lt;/li&gt;
+
+&lt;li&gt;Switches, WLAN AP&amp;#8217;s etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Revision control system (&lt;a href='http://git-scm.com/'&gt;git&lt;/a&gt; etc.)&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Workstations&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chairs&lt;/li&gt;
+
+&lt;li&gt;Tables&lt;/li&gt;
+
+&lt;li&gt;Remember team work is gold, so plan these accordingly!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And most likely also these:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Projector (for showing those awesome softwares people built)&lt;/li&gt;
+
+&lt;li&gt;Post-Its&amp;#8217;s, Pens, Drawing boards&lt;/li&gt;
+
+&lt;li&gt;Spare machines, mouses etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Remember to test the IT stuff beforehand, especially if you took my advice and are planning to host the event in a cabin or otherwise unfamiliar place. Our network stuff looked like this :&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='network_stuffzzz' src='http://n1ko.salaliitto.com/codecamp_interweb.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;Also make sure you have enough food and &lt;a href='http://xkcd.com/323/'&gt;drinks&lt;/a&gt; so that everyone can focus 100% on the task on hand. While energy drinks and snacks are nice, dont forget about real food either.&lt;/p&gt;
+
+&lt;h3 id='solita_codecamp_2012_success_delivered_almost'&gt;Solita Codecamp 2012: Success delivered. Almost.&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>Why does EPiServer Add-On Store matter?</title>
+      <link>http://dev.solita.fi/2012/11/12/episerver-add-on-store.html</link>
+      <pubDate>Mon, 12 Nov 2012 00:00:00 +0200</pubDate>
+      <author>open@solita.fi (Solita Oy)</author>
+      <guid>http://dev.solita.fi/2012/11/12/episerver-add-on-store</guid>
+      <description>&lt;p&gt;&lt;a href='http://www.episerver.com'&gt;EPiServer 7&lt;/a&gt; was released last week. One of the features I have a good feeling about is the &lt;a href='http://www.episerver.com/Products/EPiServer-7-CMS/CMS-functions/'&gt;add-on store&lt;/a&gt;. In theory it would allow non-techies to install new site features using a web user interface. Actually it sounds quite scary at first. On the other hand Wordpress and its kin have had similar features for ages.&lt;/p&gt;
+
+&lt;h3 id='feature_packaging'&gt;Feature packaging&lt;/h3&gt;
+
+&lt;p&gt;In the past we&amp;#8217;ve had a customer ask us to reuse a blog module from the EPiServer templates. It makes perfect sense not to implement everything from scratch. Unfortunately there isn&amp;#8217;t a real blog module available from EPiServer. You can only install &amp;#8220;Demo Templates&amp;#8221; and have a lot of garbage installed at the same time. It&amp;#8217;s not something we want on a production site.&lt;/p&gt;
+
+&lt;p&gt;In the future we could have a couple of alternative Blog Add-Ons to choose from in a similar situation. The Add-On store encourages developers to package the modules as sane-sized bundles so we wouldn&amp;#8217;t have too much garbage to get rid of. If the Add-On installation is as easy as clicking &amp;#8220;install&amp;#8221; in the Add-On store, we get better results with less hassle.&lt;/p&gt;
+
+&lt;h3 id='its_all_about_prototyping'&gt;It&amp;#8217;s all about Prototyping&lt;/h3&gt;
+
+&lt;p&gt;The Add-On store will give us feature packaging to manage the solution better. But it&amp;#8217;s not the real reason I like the concept. &lt;em&gt;The main benefit of the Add-On store is fast prototyping.&lt;/em&gt; There are many typical website features we discuss in every project. With the Add-On store we can install a basic implementation and start the discussion from there. It&amp;#8217;s a lot more concrete, more visual and more immediate way to drive the design process. Most likely the need is a bit different than what the Add-On provides, but sometimes we might get lucky.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Great times ahead with EPiServer 7</title>
+      <link>http://dev.solita.fi/2012/11/11/episerver7.html</link>
+      <pubDate>Sun, 11 Nov 2012 00:00:00 +0200</pubDate>
+      <author>open@solita.fi (Solita Oy)</author>
+      <guid>http://dev.solita.fi/2012/11/11/episerver7</guid>
+      <description>&lt;p&gt;&lt;a href='http://www.episerver.com'&gt;EPiServer 7&lt;/a&gt; was released recently. We&amp;#8217;re accustomed to using a new product version every year so it&amp;#8217;s right on schedule. However this one is different. Version 7 is a redesign of a great product. Content editors are empowered with a more intuitive user interface and developers are treated to better ways of building the solution. I&amp;#8217;ll save the content editor perspective for a later post and concentrate on the development side.&lt;/p&gt;
+
+&lt;h3 id='front_end'&gt;Front end&lt;/h3&gt;
+
+&lt;p&gt;With EPiServer 7 we&amp;#8217;re finally able to move from legacy &lt;a href='http://www.asp.net/web-forms'&gt;Web Forms&lt;/a&gt; to &lt;a href='http://www.asp.net/mvc'&gt;MVC&lt;/a&gt;. Web Forms has never felt the right way to build dynamic web sites. So, we&amp;#8217;re now up to date with MVC and &lt;a href='http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx'&gt;Razor markup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What does this mean for the development team? We achieve a better separation of concerns. View templating is cleaner and more compact. The team will be more productive for sure.&lt;/p&gt;
+
+&lt;h3 id='rendering_of_content'&gt;Rendering of content&lt;/h3&gt;
+
+&lt;p&gt;Previous versions of EPiServer tied a template to a page type. Now we are able to create renderers to be used with multiple models and to vary the renderer according to the context the content is displayed in. Of course we have hacked together similar functionality many times before. It&amp;#8217;s a nice thing to be supported by the product.&lt;/p&gt;
+
+&lt;p&gt;EPiServer&amp;#8217;s Johan Björnfot has written &lt;a href='http://world.episerver.com/Blogs/Johan-Bjornfot/Dates1/2012/9/EPiServer-7--Rendering-of-content/'&gt;a thorough introduction to content rendering in EPiServer 7&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id='page_type_definitions'&gt;Page type definitions&lt;/h3&gt;
+
+&lt;p&gt;The previous versions of vanilla EPiServer CMS made you define the page types using Admin web interface. It&amp;#8217;s a pain during both development and deployment. In theory you could add new page properties on a live site using the Admin interface but these wouldn&amp;#8217;t be rendered on the pages without deploying new page templates. &lt;a href='http://pagetypebuilder.codeplex.com/'&gt;PageTypeBuilder&lt;/a&gt; has been the de facto way of defining page types in EPiServer projects. At Solita we haven&amp;#8217;t built a single EPiServer solution without PageTypeBuilder.&lt;/p&gt;
+
+&lt;p&gt;EPiServer 7 has built-in support for defining page types with code. Pages are strongly-typed first-class citizens. Hooray! Less dependencies for the solution is always a good thing.&lt;/p&gt;
+
+&lt;h3 id='content_modeling'&gt;Content modeling&lt;/h3&gt;
+
+&lt;p&gt;The EPiServer content model has been built around pages. Up until now everything has been a page in the page hierarchy – or a file in the file manager. To reuse content across pages you had to model the shared data as a separate page with no template for rendering. The shared data still lived in the same page hierarchy. The new content model is built on a generic IContent interface. The product ships with page and block content types. Block is a new content type to share and reuse content across pages.&lt;/p&gt;
+
+&lt;p&gt;You can find &lt;a href='http://joelabrahamsson.com/entry/episerver-cms-7-content-pages-and-blocks'&gt;a great and detailed introduction to the CMS 7 content model&lt;/a&gt; on Joel Abrahamsson&amp;#8217;s blog.&lt;/p&gt;
+
+&lt;h3 id='comparison_of_cms_7_blocks_and_composer_blocks'&gt;Comparison of CMS 7 Blocks and Composer Blocks.&lt;/h3&gt;
+
+&lt;p&gt;It seems that one purpose of the CMS 7 Blocks is to replace the &lt;a href='http://www.episerver.com/Products/EPiServer-Composer/'&gt;EPiServer Composer&lt;/a&gt; extension. Unfortunately there&amp;#8217;s still a major gap between the new Block model and the previous Composer extension. Composer has support for three different types of blocks: content, layout and personalization. EPiServer 7 has real support only for content blocks. Getting rid of layout blocks is probably the right thing to do with the current trend of fluid layouts and the support for multiple block renderers. I haven&amp;#8217;t seen a single reference to Personalization blocks in CMS 7. Personalization was one of the most powerful features in Composer and will be dearly missed if it&amp;#8217;s gone.&lt;/p&gt;
+
+&lt;p&gt;Composer defaults to page-local Block instances with support to share Global blocks. EPiServer 7 supports shared blocks that are similar to Global blocks in Composer. The page-local Block instances of a Composer solution are not convertible to Local blocks in CMS 7. These are entirely different concepts.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m afraid the new Block model will end up a mess on a large-scale site without good governance and a change of habits. Upgrading a Composer site to CMS 7 is not yet supported. There seem to be quite a few obstacles before Composer customers can upgrade to CMS 7.&lt;/p&gt;
+
+&lt;h3 id='summary'&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;EPiServer 7 is great. It really is! The developers are treated to modern tools such as ASP.NET MVC and Razor markup. The content model gives us built-in strong typing and clean APIs.&lt;/p&gt;
+
+&lt;p&gt;If your site is using Composer I recommend you to wait patiently until EPiServer provides a supported migration path. Blocks aren&amp;#8217;t ready for the prime time as a replacement of a full-blown Composer solution. The new Block model is a fresh way of thinking.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On CoffeeScript</title>
+      <link>http://dev.solita.fi/2012/10/30/coffeescript.html</link>
+      <pubDate>Tue, 30 Oct 2012 00:00:00 +0200</pubDate>
+      <author>open@solita.fi (Solita Oy)</author>
+      <guid>http://dev.solita.fi/2012/10/30/coffeescript</guid>
+      <description>&lt;h3 id='a_sip'&gt;A sip&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://coffeescript.org'&gt;CoffeeScript&lt;/a&gt; - if you aren&amp;#8217;t yet familiar with it - is a nice little language that compiles to readable, &amp;#8220;safe&amp;#8221; JavaScript (everything wrapped in an anonymous function, variables are lexically scoped). It swaps curly braces for indentation, arrows for function definitions and adds a few features such as classes and array comprehensions.&lt;/p&gt;
+
+&lt;p&gt;Basically, it looks like this. Note how there&amp;#8217;s no explicit return statement and how the conditional is an expression. &lt;div&gt;
+  &lt;pre&gt;&lt;code class='coffeescript'&gt;isFoo: (x) -&amp;gt; if x is 'foo' then true else false
+getFoos: (xs) -&amp;gt; (x for x in xs when isFoo x)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Another example. Compared to JS prototypes, the syntax is really nice. &lt;div&gt;
+  &lt;pre&gt;&lt;code class='coffeescript'&gt;class Cat
+  constructor: (@name) -&amp;gt;
+  meow: -&amp;gt; console.log &amp;quot;I'm #{@name}! Hear me roar!&amp;quot;
+class NyanCat extends Cat
+  constructor: (name) -&amp;gt; super name
+  meow: -&amp;gt;
+    super()
+    console.log 'Nyan!'&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;h3 id='aroma'&gt;Aroma&lt;/h3&gt;
+
+&lt;p&gt;Not being a JS ninja, using CS seemed like a great chance to leverage the full power of JS in a UI-heavy project. Having written a few lines of Python and Haskell in the past, the clean, parenthesis-free syntax was enticing and the concept of classes was familiar to a Java developer.&lt;/p&gt;
+
+&lt;p&gt;After a few weeks I was in evangelization mode.&lt;/p&gt;
+
+&lt;h3 id='bitterness'&gt;Bitterness&lt;/h3&gt;
+
+&lt;p&gt;Soon, however, everyone&amp;#8217;s code started to look a little different. Some used parentheses in function invocations while others didn&amp;#8217;t. Classes were used when a simple object literal would have sufficed.&lt;/p&gt;
+
+&lt;p&gt;The team found that the CS compiler doesn&amp;#8217;t always follow the &lt;a href='http://en.wikipedia.org/wiki/Principle_of_least_astonishment'&gt;principle of least astonishment&lt;/a&gt;, even if the behavior is documented.&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre&gt;&lt;code class='coffeescript'&gt;arr = (n for n in [1, 2, 3]) # arr contains 1, 2, 3
+arr = n for n in [1, 2, 3]   # arr contains just 3&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;div&gt;
+  &lt;pre&gt;&lt;code class='coffeescript'&gt;doSomething() -&amp;gt; 'hello'
+# above calls the result of doSomething() with an anonymous function
+doSomething () -&amp;gt; 'hello'
+# above calls doSomething with an anonymous function&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;I also noticed that writing new code was accompanied by a feeling of undecidedness, not knowing whether my approach is &lt;em&gt;the&lt;/em&gt; idiomatic way to solve a problem. Later I found an article that summarized my feelings about CS, &lt;a href='http://ceronman.com/2012/09/17/coffeescript-less-typing-bad-readability/'&gt;Less typing, bad readability&lt;/a&gt; by Manuel Cerón.&lt;/p&gt;
+
+&lt;p&gt;As our codebase grew, our makeshift &lt;a href='https://developer.mozilla.org/en-US/docs/Rhino'&gt;Rhino&lt;/a&gt; compiler started to stagger and build times grew to half a minute (with just a few files and a total of &amp;lt; 1000 LOC).&lt;/p&gt;
+
+&lt;h3 id='sweetener'&gt;Sweetener&lt;/h3&gt;
+
+&lt;p&gt;A clever developer on our team wired up &lt;a href='http://nodejs.org'&gt;Node.js&lt;/a&gt; to an Eclipse builder resulting in compilation times of less than a second. &lt;a href='http://www.sublimetext.com/'&gt;Sublime Text 2&lt;/a&gt; emerged as a great CS editor.&lt;/p&gt;
+
+&lt;p&gt;Diversity in the codebase was addressed by employing &lt;a href='https://github.com/polarmobile/coffeescript-style-guide'&gt;this style guide&lt;/a&gt; with some minor modifications. We started ditching classes in favor of simple object literals and revealing modules. In general we were using CS as it should be used: a simpler way to write JS.&lt;/p&gt;
+
+&lt;h3 id='an_empty_cup'&gt;An empty cup&lt;/h3&gt;
+
+&lt;p&gt;Using CS has been a rocky road but a fun one. It&amp;#8217;s fun to write and easy to debug. It gives its wielder a terse, expressive syntax with exceedingly many ways to do things. Unfortunately it&amp;#8217;s also easy to shoot yourself and other developers in the feet.&lt;/p&gt;</description>
+    </item>
+    
+
+  </channel>
+</rss>
