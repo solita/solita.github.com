@@ -1,15 +1,14 @@
 ---
 layout: post
-title: A quick quide for TUT MATHM-37200 Hypermediajärjestelmät students for installing EPiServer to a cloud server.
+title: EPiServer in the Cloud - a quick start guide
 author: timole
-excerpt: This is a short guide for installing EPiServer. The target audience is TUT students on course MATHM-37200 Hypermediajärjestelmät, where a visiting lecture was held on Wed 28.11.2012. Please feel free to ask questions on installing EPiServer, if you have any problems.
+excerpt: This is a short guide for installing EPiServer to a cloud server. The target audience is TUT students on course MATHM-37200 Hypermediajärjestelmät, where a visiting lecture was held on Wed 28.11.2012. Please feel free to ask questions on installing EPiServer, if you have any problems.
 tags: episerver cms TUT
 ---
 
-This is a short guide for installing EPiServer. The target audience is TUT students on course MATHM-37200 Hypermediajärjestelmät, where
-a visiting lecture was held on Wed 28.11.2012. If you have any problems , please feel free to ask questions on the bottom of the page!
+This is a short guide for installing EPiServer 7 to a cloud server. If you have any problems, please feel free to ask questions on the bottom of the page!
 
-The goal is to put EPiServer up and running to a Windows 2008 cloud server. The URL address of your server will be http://yourownaccount.no-ip.org . What you need to do is:
+The goal is to put EPiServer 7 up and running to a Windows 2008 cloud server. The URL address of your server will be http://yourownaccount.no-ip.org . What you need to do is:
 
 1. Get a free DNS name from No-IP.com
 2. Get a free Windows 2008 cloud server from Upcloud
