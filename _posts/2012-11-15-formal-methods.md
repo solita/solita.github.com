@@ -20,7 +20,7 @@ of universities, but I will provide some practical arguments and reasons here.
 ### Why it matters ###
 
 1. 
-Serious study of this dry and heavyweight subject will develop your analytical skills. If you
+Serious study of this dry and heavyweight stuff will develop your analytical skills. If you
 want to be good at analyzing and solving logical problems, there is no shortcut. Flipping 
 through a proof is not the same as actually understanding it.
 
@@ -62,7 +62,7 @@ not particularly difficult to understand or implement, but you have to know abou
 
 Your customer wants a solution to this problem. They have thousands of vehicles, pickup locations and warehouses.
 
-> A number of goods need to be moved from certain pickup locations to their delivery locations. The goal is to find the optimal routes for a fleet of vehicles to visit the pickup and drop-off locations.
+> A number of goods need to be moved from certain pickup locations to their delivery locations. The goal is to find optimal routes for a fleet of vehicles to visit the pickup and drop-off locations.
 
 Is it immediately obvious to you how to approach this problem? Can you explain your approach to the customer who knows nothing about programming or NP?
 
