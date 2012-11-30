@@ -10,7 +10,7 @@ This is a short guide for getting familiar with Clojure programming language and
 
 ### Let's install Eclipse with Clojure support ###
 
-1. Download [zipped Eclipse with Clojure support](/files/eclipse-4.2-classic-with-clojure.zip)
+1. Download [zipped Eclipse with Clojure support](http://tasting.solita.fi/eclipse-4.2-classic-with-clojure.zip)
 2. Unzip the package and start Eclipse by double-clicking **eclipse.exe**
 3. Choose a location for the workspace. It can be any directory and will contain the source files.
 4. Create a new Leiningen project by choosing **File -> New -> Leiningen Project** and give it a name like "testi" or anything. (Leiningen is a build tool built on top of Maven)

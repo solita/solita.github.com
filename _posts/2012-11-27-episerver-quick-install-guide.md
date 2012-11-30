@@ -6,7 +6,7 @@ excerpt: This is a short guide for installing EPiServer on a cloud server. The t
 tags: episerver cms TUT
 ---
 
-This is a short guide for installing EPiServer 7 on a cloud server. If you have any problems, please feel free to ask questions at the bottom of the page! This articles target group is students of TUT that parricipated the guest lecture ([.ppt slides](/files/episerver/Solita%20-%20Vierailuluento%20-%20TTY%20-%20EPiServer%20.NET-asiakasprojekteissa.pptx))
+This is a short guide for installing EPiServer 7 on a cloud server. If you have any problems, please feel free to ask questions at the bottom of the page! This articles target group is students of TUT that parricipated the guest lecture ([.ppt slides](http://tasting.solita.fi/Solita%20-%20Vierailuluento%20-%20TTY%20-%20EPiServer%20.NET-asiakasprojekteissa.pptx))
 
 The goal is to get EPiServer 7 up and running on a Windows 2008 cloud server. The URL of your server will be http://yourownaccount.no-ip.org. What you need to do is:
 
