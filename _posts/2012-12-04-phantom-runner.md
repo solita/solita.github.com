@@ -6,10 +6,11 @@ excerpt: "Introducing PhantomRunner: a Java based, open source testing library t
 ---
 
 **tl;dr:** PhantomRunner lets you run your in-browser JavaScript tests
-from your IDE or any other platform that supports JUnit. PhantomRunner is
-a Java based, open source testing library that provides integration
-between JUnit and Jasmine via the PhantomJS headless browser. You can
-find it [on GitHub](https://github.com/solita/phantom-runner).
+from your IDE (Eclipse, Intellij IDEA and others) or any other platform
+that supports JUnit. PhantomRunner is a Java based, open source testing
+library that provides integration between JUnit and Jasmine via the
+PhantomJS headless browser. You can find it
+[on GitHub](https://github.com/solita/phantom-runner).
 
 ### The pain of JavaScript ###
 
