@@ -2,27 +2,27 @@
 layout: post
 title: "Solita Code Tasting 2012: Code Behind the Event"
 author: orfjackal
-excerpt: Explaining the platform for the programming competition in Solita Code Tasting 2012. It was implemented with Clojure and was designed to encourage good software development practices in the competition. Not surprisingly, those who wrote tests won.
+excerpt: Explaining the platform for the programming competition in Solita Code Tasting 2012. It was implemented with Clojure and was designed to encourage good software development practices among the participants. Not surprisingly, those who wrote tests won.
 ---
 
-For the [Solita Code Tasting 2012](/2012/12/10/codetasting.html) programming competition I implemented the [rpi-challenger](https://github.com/solita/rpi-challenger) platform, which bombards the participants' machines with challenges and checks for right answers. The participants had to implement a HTTP server and deploy it on their production environment, a [Raspberry Pi](http://www.raspberrypi.org/), to which the challenger then sent the challenges in the body of a POST request.
+For the [Solita Code Tasting 2012](/2012/12/10/codetasting.html) programming competition I implemented the [rpi-challenger](https://github.com/solita/rpi-challenger) platform, which bombards the participants' machines with challenges and checks for right answers. The participants had to implement a HTTP server and deploy it on their production environment: a [Raspberry Pi](http://www.raspberrypi.org/). The challenges were sent in the body of a POST request as newline-separated plain text and the answers were also in plain text.
 
-The challenges were newline-seprated plain text and the answers were also in plain text. A challenge was for example:
+For example, one of the challenges was:
 
     +
     23
     94
 
-and if the participant responded with `117`, the challenger accepted the answer and started sending more difficult challenges. All the arguments of challenges were randomized to prevent hard-coding. The way how points were given from passing the challenges was designed to encourage good development practices such as writing tests, releasing early and high availability.
+and if the participant's server responded with `117`, the challenger accepted the answer and started sending more difficult challenges. All the arguments of challenges were randomized to prevent hard-coding. The way how points were given from passing the challenges was designed to encourage good development practices such as writing tests, releasing early and high availability.
 
 In this article I'll first describe how the competition was devised to reach these goals. Afterwards I'll tell about my experiences of writing rpi-challenger in Clojure.
 
 
 ## Punishing for Bad Practices
 
-Though the types of challenges encouraged the writing of a long if-else chain (the challenges were quite decoupled so there was not much need for good design), the way how the challenges were scored was brutal against bad software development practices.
+Due to the challenges being the way they were, there was barely any need for good design - a long if-else chain that switched based on the challenge's keyword was enough. But the way of *scoring* the challenges was *brutal* against bad software development practices.
 
-The participants in Solita Code Tasting were university students, and apparently they don't teach good software development practices in university - SNAFU. Most of the participants had a [developmestruction environment](http://thedailywtf.com/Articles/The_Developmestuction_Environment.aspx) - they were developing and testing in the production environment. In the first Code Tasting there was only one team who wrote tests for their software and deployed it only after the code was working. Thanks to the challenger's scoring function, they won with 2 times more points than the team which came second.
+The participants in Solita Code Tasting were university students, and apparently they don't teach good software development practices in university - [SNAFU](http://en.wikipedia.org/wiki/List_of_military_slang_terms). Most of the participants had a [developmestruction environment](http://thedailywtf.com/Articles/The_Developmestuction_Environment.aspx) - they were developing and testing in the production environment. In the first Code Tasting there was only one team who wrote tests for their software and deployed it only after the code was working. Thanks to the challenger's scoring function, they won with 2 times more points than the team which came second.
 
 
 ### Developmestruction vs. The Scoring Function
@@ -60,7 +60,7 @@ The first team wrote tests and deployed (by restarting the server) when a featur
 
 ### Abandon Buggy Technologies
 
-There was one more difference between the top 2 teams. Both of them started with the [Bottle](http://bottlepy.org/) web framework for Python, and both of them were able to crash the challenger so that it would not anymore send requests to their server - it was necessary to restart challenger, but it would happen again soon. Probably there was some incompatibility between Bottle's HTTP server and the HTTP client used by challenger ([http.async.client](https://github.com/neotyk/http.async.client) which is based on [Async Http Client](https://github.com/AsyncHttpClient/async-http-client)). The problem did not happen with the other teams who were using different HTTP servers.
+There was one more difference between the top 2 teams. Both of them started with the [Bottle](http://bottlepy.org/) web framework for Python, and both of them were able to crash the challenger so that it would not send requests anymore to their server - it was necessary to restart challenger, but it would happen again soon. Probably there was some incompatibility between Bottle's HTTP server and the HTTP client used by challenger ([http.async.client](https://github.com/neotyk/http.async.client) which is based on [Async Http Client](https://github.com/AsyncHttpClient/async-http-client)). The problem did not happen with the other teams who were using different HTTP servers.
 
 The team which came first quickly decided to drop Bottle and switch to some other HTTP server. The team which came second persistently kept on using Bottle, even though they had to many times come tell the organizers to restart the challenger, so that they would again start receiving points.
 
@@ -71,7 +71,7 @@ This kinda reminds me of many projects where Oracle DB, Liferay or some other te
 
 There were a couple of challenges which were designed to produce regressions. This was to see who wrote tests for their software. The challenger keeps on sending also already completed challenges, in order to reveal any regressions.
 
-For example one of the first challenges had to do with summing two integers. Then much later there came another challenge required summing 0 to N integers. Since the operator (the first line of the challenge) was the same for both, there was a good chance that without tests somebody would break the old implementation.
+For example one of the first challenges had to do with summing two integers. Then, much later, we introduced another challenge requiring summing 0 to N integers. Since the operator (the first line of the challenge) was the same for both, there was a good chance that without tests somebody would break the old implementation.
 
 Another sadistic challenge was calculating Fibonacci numbers. Normally it would ask for one of the first 30 Fibonacci numbers, but there is a less than 1% probability that it will ask for a Fibonacci number that is over 9000 - that's a [big number](http://www.bigprimes.net/archive/fibonacci/9000/). So that challenge required an efficient solution and also the use of big integers, or else there would be an occasional regression.
 
@@ -85,9 +85,9 @@ One easy solution would have been to use a technology that supports reloading th
 Another solution, which will work with any technology and is more reliable and flexible, is to have a proxy server that routes the challenges to backend servers. That could even enable running multiple versions of backend servers simultaneously. Implementing that would have been only a dozen lines of code. Even a generic load balancer might have fared well.
 
 
-## Joys and Tears of Clojure
+## Building the Challenger
 
-Before this project I had barely used Clojure - just done some small exercises and implemented Conway's Game of Life - so I was quite clueless as to Clojure's idioms and how to structure the code. Getting started required learning a bunch of technologies for creating web applications ([Leiningen](https://github.com/technomancy/leiningen), [Ring](https://github.com/ring-clojure/ring), [Compojure](https://github.com/weavejester/compojure), [Moustache](https://github.com/cgrand/moustache), [Enlive](https://github.com/cgrand/enlive) etc.) which took about one or two hours per technology of reading tutorials and documentation. Here are some things that I learned.
+Before this project I had barely used Clojure - just done some small exercises and implemented Conway's Game of Life - so I was quite clueless as to Clojure's idioms and how to structure the code. Getting started required learning a bunch of technologies for creating web applications ([Leiningen](https://github.com/technomancy/leiningen), [Ring](https://github.com/ring-clojure/ring), [Compojure](https://github.com/weavejester/compojure), [Moustache](https://github.com/cgrand/moustache), [Enlive](https://github.com/cgrand/enlive) etc.) which took about one or two hours per technology of reading tutorials and documentation. When implementing the challenger, I had much more trial and error than if I had used a familiar platform. Here are some things that I learned.
 
 
 ### Code Reloading
@@ -105,7 +105,7 @@ That upgraded the application on every commit without restarting the server. Als
 
 ### Dynamic Bindings Won't Scale
 
-Coming from an OO background, I used test doubles to test some components in isolation. I'm not familiar with all the [seams](http://www.informit.com/articles/article.aspx?p=359417&seqNum=2) enabled by the Clojure language, so I went ahead with [dynamic vars](http://clojure.org/vars) and the `binding` function. That approach proved to be unsustainable.
+Coming from an object-oriented background, I used test doubles to test some components in isolation. I'm not familiar with all the [seams](http://www.informit.com/articles/article.aspx?p=359417&seqNum=2) enabled by the Clojure language, so I went ahead with [dynamic vars](http://clojure.org/vars) and the `binding` function. That approach proved to be unsustainable.
 
 I had up to 4 rebindings in some tests, so that I could write tests for higher level components without having to care about lower level details. For example in this tests I simplified the low-level "strike" rules, so that I can easier write tests for the "round" layer above it:
 
