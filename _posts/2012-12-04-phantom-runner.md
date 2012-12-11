@@ -5,10 +5,11 @@ author: empperi
 excerpt: "Introducing PhantomRunner: a Java based, open source testing library that provides integration between JUnit and Jasmine via the PhantomJS headless browser."
 ---
 
-**tl;dr:** PhantomRunner is a Java based, open source testing library
-that provides integration between JUnit and Jasmine via the PhantomJS
-headless browser. You can find it
-[on GitHub](https://github.com/solita/phantom-runner).
+**tl;dr:** PhantomRunner lets you run your in-browser JavaScripts tests
+from Eclipse, any other platform that supports JUnit. PhantomRunner is
+a Java based, open source testing library that provides integration
+between JUnit and Jasmine via the PhantomJS headless browser. You can
+find it [on GitHub](https://github.com/solita/phantom-runner).
 
 ### The pain of JavaScript ###
 
@@ -41,10 +42,10 @@ with a dilemma: all the available testing libraries expect you to run
 your tests in a browser. This is a reasonable requirement since
 browsers have the most up to date JavaScript interpreters, and if you
 are writing JavaScript code, you are more than likely to run it in
-a browser, where you have stuff like DOM available. But really, who
+a browser, where you have stuff like DOM available. But really, **who
 wants to continuously switch between their programming environment and
 a browser when they are developing software test-first? You want to be
-able to run your tests *all the time* without context switches.
+able to run your tests *all the time* without context switches.**
 
 #### jsTestDriver ####
 
