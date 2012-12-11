@@ -2,7 +2,7 @@
 layout: post
 title: "Solita Code Tasting 2012: Raspberry Pi"
 author: n1ko
-excerpt: Last week we had the pleasure to host two open Coding Dojos for 30 enthustiatic programmers. The theme was Raspberry Pi and creating your own web-server that could service our demanding challenger.
+excerpt: Last week we had the pleasure of hosting two open Coding Dojos for 30 enthustiatic programmers. The theme was Raspberry Pi and creating your own web-server that could service our demanding challenger.
 ---
 
 ### The theme ###
