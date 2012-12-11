@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Solita Code Tasting 2012 - Raspberry
+title: "Solita Code Tasting 2012: Raspberry Pi"
 author: n1ko
 excerpt: Last week we had the pleasure to host two open Coding Dojos for 30 enthustiatic programmers. The theme was Raspberry Pi and creating your own web-server that could service our demanding challenger.
 ---
@@ -53,7 +53,7 @@ After the official brainwashing session we toured the participant's around our o
 
 [Esko](http://github.org/orfjackal) started off with explaining how the [rpi-challenger](http://github.com/solita/rpi-challenger) worked and what the participants' challenge would be.
 
-You can read more about [rpi-challenger](http://github.com/solita/rpi-challenger) and the challenge in [Esko's post](http://dev.solita.fi/2012/12/07/tasting-code-beind-the-event.html).
+You can read more about [rpi-challenger](http://github.com/solita/rpi-challenger) and the challenge in [Esko's post](/2012/12/11/codetasting-code-behind-the-event.html).
 
 ### Coding in Helsinki ###
 
