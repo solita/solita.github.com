@@ -53,7 +53,7 @@ After the official brainwashing session, we toured the participants around our o
 
 [Esko](http://github.org/orfjackal) started off by explaining how the [rpi-challenger](http://github.com/solita/rpi-challenger) worked and what the participants' challenge would be.
 
-You can read more about [rpi-challenger](http://github.com/solita/rpi-challenger) and the challenge in [Esko's post](/2012/12/11/codetasting-code-behind-the-event.html).
+You can read more about [rpi-challenger](http://github.com/solita/rpi-challenger) and the challenge in [Esko's post](/2012/12/13/codetasting-code-behind-the-event.html).
 
 ### Coding in Helsinki ###
 

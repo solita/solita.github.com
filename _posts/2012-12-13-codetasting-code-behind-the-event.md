@@ -5,7 +5,7 @@ author: orfjackal
 excerpt: Explaining the platform for the programming competition in Solita Code Tasting 2012. It was implemented with Clojure and designed to encourage good software development practices among the participants. Not surprisingly, those who wrote tests won.
 ---
 
-For the [Solita Code Tasting 2012](/2012/12/10/codetasting.html) programming competition I implemented the [rpi-challenger](https://github.com/solita/rpi-challenger) platform, which bombards the participants' machines with challenges and checks that the answers are correct. The participants had to implement an HTTP server and deploy it on their production environment: a [Raspberry Pi](http://www.raspberrypi.org/). The challenges were sent in the body of a POST request as newline-separated plain text. The answers were plain text as well.
+For the [Solita Code Tasting 2012](/2012/12/13/codetasting.html) programming competition I implemented the [rpi-challenger](https://github.com/solita/rpi-challenger) platform, which bombards the participants' machines with challenges and checks that the answers are correct. The participants had to implement an HTTP server and deploy it on their production environment: a [Raspberry Pi](http://www.raspberrypi.org/). The challenges were sent in the body of a POST request as newline-separated plain text. The answers were plain text as well.
 
 For example, one of the challenges was:
 
