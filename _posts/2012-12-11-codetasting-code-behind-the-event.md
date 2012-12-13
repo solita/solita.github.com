@@ -40,22 +40,15 @@ or as it is implemented:
 {% highlight clojure %}
 (def acceleration 1)
 
-(defn points-based-on-acceleration [round previous-round]
+(defn points-based-on-acceleration [previous-round round]
   (let [max-points (:points round)
-        previous-points (or (:points previous-round) 0)]
-    (-> round
-      (assoc :max-points max-points)
-      (assoc :points (min max-points
-                          (+ acceleration
-                             previous-points))))))
+        previous-points (:points previous-round 0)]
+    (assoc round
+      :max-points max-points
+      :points (min max-points (+ acceleration previous-points)))))
 
 (defn apply-point-acceleration [rounds]
-  (reduce
-   (fn [previous-rounds round]
-     (conj previous-rounds
-           (points-based-on-acceleration
-            round (last previous-rounds))))
-   [] rounds))
+  (rest (reductions points-based-on-acceleration nil rounds)))
 {% endhighlight %}
 
 We had about ten challenges, each worth 1-35 points. If the responses to all the challenges worth *n* or less points are correct, then the maximum score for the round is *n* points. For example, if a server passes challenges worth 1, 2, 3, 5 and 6 points, but fails a challenge worth 4 points, the maximum score for the round is 3 points.
