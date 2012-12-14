@@ -4,11 +4,11 @@ layout: nil
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>/dev/solita</title>
-  <link href="http://dev.solita.fi/"/>
-  <link type="application/atom+xml" rel="self" href="http://dev.solita.fi/atom.xml"/>
+  <title>{{ site.title }}</title>
+  <link href="{{ site.url }}"/>
+  <link type="application/atom+xml" rel="self" href="{{ site.url }}/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://dev.solita.fi/</id>
+  <id>{{ site.url }}</id>
   <author>
     <name>Solita Oy</name>
     <email>open@solita.fi</email>
@@ -16,8 +16,8 @@ layout: nil
 
   {% for post in site.posts limit:10 %}
   <entry>
-    <id>http://dev.solita.fi{{ post.id }}</id>
-    <link type="text/html" rel="alternate" href="http://dev.solita.fi{{ post.url }}"/>
+    <id>{{ site.url }}{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="{{ site.url }}{{ post.url }}"/>
     <title>{{ post.title }}</title>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
