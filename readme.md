@@ -1,6 +1,6 @@
 # /dev/solita/greetings
 
-Here are some developer-oriented thoughts from [Solita Oy](http://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at [http://dev.solita.fi/](http://dev.solita.fi/).
+Here are some developer-oriented thoughts from [Solita Oy](http://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at <http://dev.solita.fi>.
 
 ## Writing
 
@@ -56,6 +56,6 @@ For development, you need Ruby and Jekyll. If you want to tweak the CSS, you nee
 
 ## Technology stack
 
-dev.solita.fi is built using all the hippiest hip technologies available:
+/dev/solita is built using all the hippiest hip technologies available:
 
     git, Github Pages, Ruby, Jekyll, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics
