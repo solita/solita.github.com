@@ -29,7 +29,9 @@ Fjeldberg defines and expands the previously described polyglot programming with
 
 In addition, a degree of polyglotism is suggested to differentiate use of polyglot programming. Presented levels of polyglotism are integration, organization of code, the processes within languages run, and the data being manipulated. Integration is either networked or non-networked, the organization of code differentiate the code within same or different files. Either the same or different processes can be used, and the languages manipulate either the same object or the same data.
 
-Example architectures for utilizing polyglot programming are service oriented architecture (SOA), managed runtime, continuous integration (CI) and embedded polyglotism where different languages are presented in the same file. HTML in conjunction with CSS, JavaScript and a server side language is an example of a polyglot program (referred as HTML++ for abbreviation). The level of polyglot programming of the presented architectures are shown in Table.
+Example architectures for utilizing polyglot programming are service oriented architecture (SOA), managed runtime, continuous integration (CI) and embedded polyglotism where different languages are presented in the same file. HTML in conjunction with CSS, JavaScript and a server side language is an example of a polyglot program (referred as HTML++ for abbreviation). The level of polyglot programming of the presented architectures are shown in Table below.
+
+[![levels_of_polyglot_programming_in_different_architectures](/img/polyglot/levels_of_polyglot_programming_in_different_architectures.jpg)](/img/polyglot/levels_of_polyglot_programming_in_different_architectures.jpg)
 
 ### Associated advantages ###
 
