@@ -16,16 +16,13 @@ Polyglot programming has also been known as multi language programming. Lately i
 
 The term polyglot programming was [first introduced](http://www.drdobbs.com/polyglot-programming/184414854) in software development context in 2002. A hypothesis was made for several programming languages within one environment. Latter authors tend to use slightly [different approaches](http://olabini.com/blog/2008/06/fractal-programming/) describing polyglot programming. The best description to work with was given by [Watts](http://thewonggei.wordpress.com/2008/01/22/even-more-than-polyglot-programming/) as programming in more than one language within the same context.
 
->``programming in more than one language within the same context''.
-
-
 Though this just postpones the definition onto what the context is. Definition of using a different languages on the same managed runtime was suggested. Means of managed runtime is definitely polyglot programming, but the definition should not restrict the architecture.
 
 From a business perspective as well as from the developers perspective, the context can be seen around the people working on the project. And more so, the context depends on the number of teams and the way the produced applications are integrated. Polyglot programming is constituted even if one team uses different language regardless of architecture. If the integration between application parts developed by two separate teams using different languages is tight it will constitute as polyglot programming. However, when the different teams do not require information about the languages the other teams are using, the application is no longer considered as polyglot. Denoting that the application parts could be seen as distinct. An example would be a service-to-service application where knowledge of the interfaces between are the only requirements.
 
 Fjeldberg defines and expands the previously described polyglot programming within a context for the first time in academic field in 2008. The formal definition of polyglot programming is considered as
 
->``programming in more than one language within the same context, where the context is either within one team, or several teams where the integration between the resulting applications require knowledge of the languages involved''.
+>programming in more than one language within the same context, where the context is either within one team, or several teams where the integration between the resulting applications require knowledge of the languages involved.
 
 In addition, a degree of polyglotism is suggested to differentiate use of polyglot programming. Presented levels of polyglotism are integration, organization of code, the processes within languages run, and the data being manipulated. Integration is either networked or non-networked, the organization of code differentiate the code within same or different files. Either the same or different processes can be used, and the languages manipulate either the same object or the same data.
 
