@@ -8,7 +8,7 @@ tags: Polyglot programming, poly-paradigm programming, multi language programmin
 
 ### Motivation and background ###
 
-Software composed of artifacts written in multiple programming languages is pervasive in modern-day software business. The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms, thus polyglot programming is also a poly-paradigm programming. Polyglot programming is mainly about the realization that there is ``No Silver Bullet'', a tool best at solving all problems. In software development this raises an examination of languages, frameworks and development tools most suitable for the task at hand.
+Software composed of artifacts written in multiple programming languages is pervasive in modern-day software business. The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms, thus polyglot programming is also poly-paradigm programming. Polyglot programming is mainly about the realization that there is ``No Silver Bullet''. In software development this raises an examination of languages, frameworks and development tools most suitable for the task at hand.
 
 Polyglot programming has also been known as multi language programming. Lately it has also been referred as cross-language programming merely in the field of code analysis and refactoring. Similar ideas are also expressed in language oriented programming as a development methodology focusing on creation of domain specific languages.
 
