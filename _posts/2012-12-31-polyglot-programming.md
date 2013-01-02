@@ -2,29 +2,27 @@
 layout: post
 title: Polyglot programming
 author: harmia
-excerpt: The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms.
+excerpt: To render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms.
 tags: Polyglot programming, poly-paradigm programming, multi language programming, cross-language programming
 ---
 
-### Motivation and background ###
+### Need for it? ###
 
-Software composed of artifacts written in multiple programming languages is pervasive in modern-day software business. The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms, thus polyglot programming is also poly-paradigm programming. Polyglot programming is mainly about the realization that there is ``No Silver Bullet''. In software development this raises an examination of languages, frameworks and development tools most suitable for the task at hand.
+Software composed of artifacts written in multiple programming languages is pervasive in modern-day software business. The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms, thus polyglot programming is also poly-paradigm programming. Polyglot programming is mainly about the realization that there is ``No Silver Bullet''. This raises an examination of languages, frameworks and development tools most suitable for the task at hand.
 
-Polyglot programming has also been known as multi language programming. Lately it has also been referred as cross-language programming merely in the field of code analysis and refactoring. Similar ideas are also expressed in language oriented programming as a development methodology focusing on creation of domain specific languages.
+### What is it? ###
 
-### Definition ###
+Polyglot programming was [first introduced](http://www.drdobbs.com/polyglot-programming/184414854) around 2002 as a hypothesis for several programming languages within one environment. The developer buzz around it hit its peak at 2008 [by the works of Ola Bini](http://olabini.com/blog/2008/06/fractal-programming/). The best description to work with was given by [Watts](http://thewonggei.wordpress.com/2008/01/22/even-more-than-polyglot-programming/) as programming in more than one language within the same context. Though this just postponed the definition onto what the context is?
 
-The term polyglot programming was [first introduced](http://www.drdobbs.com/polyglot-programming/184414854) in software development context in 2002. A hypothesis was made for several programming languages within one environment. Latter authors tend to use slightly [different approaches](http://olabini.com/blog/2008/06/fractal-programming/) describing polyglot programming. The best description to work with was given by [Watts](http://thewonggei.wordpress.com/2008/01/22/even-more-than-polyglot-programming/) as programming in more than one language within the same context.
+From the developers perspective, the context can be seen around the people working on the project. And more so, the context depends on the number of teams and the way the produced applications are integrated. Polyglot programming is constituted even if one team uses different language regardless of architecture. If the integration between application parts developed by two separate teams using different languages is tight it will constitute as polyglot programming. However, when the different teams do not require information about the languages the other teams are using, the application is no longer considered as polyglot. Denoting that the application parts could be seen as distinct. An example would be a service-to-service application where knowledge of the interfaces between are the only requirements.
 
-Though this just postpones the definition onto what the context is. Definition of using a different languages on the same managed runtime was suggested. Means of managed runtime is definitely polyglot programming, but the definition should not restrict the architecture.
-
-From a business perspective as well as from the developers perspective, the context can be seen around the people working on the project. And more so, the context depends on the number of teams and the way the produced applications are integrated. Polyglot programming is constituted even if one team uses different language regardless of architecture. If the integration between application parts developed by two separate teams using different languages is tight it will constitute as polyglot programming. However, when the different teams do not require information about the languages the other teams are using, the application is no longer considered as polyglot. Denoting that the application parts could be seen as distinct. An example would be a service-to-service application where knowledge of the interfaces between are the only requirements.
-
-Fjeldberg defines and expands the previously described polyglot programming within a context for the first time in academic field in 2008. The formal definition of polyglot programming is considered as
+The formal definition of polyglot programming was coined by Fjeldberg in 2008:
 
 >programming in more than one language within the same context, where the context is either within one team, or several teams where the integration between the resulting applications require knowledge of the languages involved.
 
-In addition, a degree of polyglotism is suggested to differentiate use of polyglot programming. Presented levels of polyglotism are integration, organization of code, the processes within languages run, and the data being manipulated. Integration is either networked or non-networked, the organization of code differentiate the code within same or different files. Either the same or different processes can be used, and the languages manipulate either the same object or the same data.
+### Levels of polyglot programming ###
+
+A degree of polyglotism is suggested to differentiate use of polyglot programming: integration, organization of code, the processes within languages run, and the data being manipulated. Integration is either networked or non-networked, the organization of code differentiate the code within same or different files. Either the same or different processes can be used, and the languages manipulate either the same object or the same data.
 
 Example architectures for utilizing polyglot programming are service oriented architecture (SOA), managed runtime, continuous integration (CI) and embedded polyglotism where different languages are presented in the same file. HTML in conjunction with CSS, JavaScript and a server side language is an example of a polyglot program (referred as HTML++ for abbreviation).
 
@@ -95,3 +93,5 @@ A conceptual hierarchy with more expressive and succinct programming languages a
 Sufficient knowledge of the language used is required in the administration phase to conduct maintenance. The administration of a large application with a long life cycle spanning from 5 to 10 years is likely conducted by different developers or even by a different company than that who developed the application. This is further enhanced every time a new language is added, resulting in decrease in the pool of developers with enough knowledge to maintain the application. Also using a new paradigm parallel to a previously used will render following the application code even harder.
 
 Developers using Java and .NET are accustomed having a diverse and comprehensive IDE support with integrated and plugin features like version control, syntax highlighting, refactoring, debugging et cetera. A support for a new programming language will normally only be implemented if it gains enough traction and popularity, because adding a support requires usually a tremendous amount of work. Therefore the overhead using different programming languages will increase if the tools do not offer interoperability, and different tools must be configured and used.
+
+
