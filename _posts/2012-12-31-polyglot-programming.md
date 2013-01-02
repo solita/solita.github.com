@@ -26,9 +26,57 @@ Fjeldberg defines and expands the previously described polyglot programming with
 
 In addition, a degree of polyglotism is suggested to differentiate use of polyglot programming. Presented levels of polyglotism are integration, organization of code, the processes within languages run, and the data being manipulated. Integration is either networked or non-networked, the organization of code differentiate the code within same or different files. Either the same or different processes can be used, and the languages manipulate either the same object or the same data.
 
-Example architectures for utilizing polyglot programming are service oriented architecture (SOA), managed runtime, continuous integration (CI) and embedded polyglotism where different languages are presented in the same file. HTML in conjunction with CSS, JavaScript and a server side language is an example of a polyglot program (referred as HTML++ for abbreviation). The level of polyglot programming of the presented architectures are shown in Table below.
+Example architectures for utilizing polyglot programming are service oriented architecture (SOA), managed runtime, continuous integration (CI) and embedded polyglotism where different languages are presented in the same file. HTML in conjunction with CSS, JavaScript and a server side language is an example of a polyglot program (referred as HTML++ for abbreviation).
 
-[![levels_of_polyglot_programming_in_different_architectures](/img/polyglot/levels_of_polyglot_programming_in_different_architectures.jpg)](/img/polyglot/levels_of_polyglot_programming_in_different_architectures.jpg)
+<table border="1" rules="groups">
+<caption>Levels of polyglot programming of the presented architectures.</caption>
+<thead style="background-color:#D0D0D0">
+	<tr>
+		<th style="padding-right:30px">Architecture</th>
+		<th style="padding-right:30px">Integration</th>
+		<th style="padding-right:30px">Organization</th>
+		<th style="padding-right:30px">Process</th>
+		<th style="padding-right:30px">Data/object</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>SOA</td>
+		<td>Networked</td>
+		<td>Different files</td>
+		<td>Different</td>
+		<td>Same data</td>
+	</tr>
+	<tr>
+		<td>Managed runtime</td>
+		<td>Non-networked</td>
+		<td>Different files</td>
+		<td>Same</td>
+		<td>Same object</td>
+	</tr>
+	<tr>
+		<td>HTML++ server</td>
+		<td>Non-networked</td>
+		<td>Different files</td>
+		<td>Different</td>
+		<td>Same data</td>
+	</tr>
+	<tr>
+		<td>HTML++ client</td>
+		<td>Non-networked</td>
+		<td>Same file</td>
+		<td>Same</td>
+		<td>Same object</td>
+	</tr>
+	<tr>
+		<td>CI</td>
+		<td>Non-networked</td>
+		<td>Different files</td>
+		<td>Different</td>
+		<td>Same data</td>
+	</tr>
+</tbody>
+</table>
 
 ### Associated advantages ###
 
