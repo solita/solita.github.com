@@ -6,8 +6,6 @@ excerpt: The idea of polyglot programming is to render more natural and simpler 
 tags: Polyglot programming, poly-paradigm programming, multi-language programming, cross-language programming
 ---
 
-### Need for it? ###
-
 Software composed of artifacts written in multiple programming languages is pervasive in modern-day software business. The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms, thus polyglot programming is also poly-paradigm programming. Polyglot programming is mainly about the realization that there is ``No Silver Bullet``. This raises an examination of languages, frameworks and development tools most suitable for the task at hand.
 
 ### What is it? ###
