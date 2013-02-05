@@ -179,7 +179,7 @@ public class InMemoryMeetingHistoryTest { // ...
 
 @Component
 public class InMemoryMeetingHistory implements MeetingHistory, MeetingListener {
-    Private HashMap<String, Integer> meetingCount = new HashMap<String, Integer>();
+    private HashMap<String, Integer> meetingCount = new HashMap<String, Integer>();
 
     @Override
     public synchronized int timesMet(String name) {
