@@ -212,7 +212,7 @@ The point of this exercise was to demonstrate an approach to the design process 
 
 * The classes have high cohesion and low coupling, so we can modify each aspect of the system in isolation without risk of breaking the others.
 
-* The tests provide us with a safety net that makes sure we don't introduce regressions into the code we modify.
+* The tests provide us with a safety net that makes sure we don't introduce regressions into the code we modify. They also serve as a form of documentation by providing examples of how the classes behave in different situations.
 
 * The classes are shielded from their collaborators' internal complexity (I'm using that word very loosely) by simple interfaces, which only expose the aspects relevant to the client. This means we can read and understand each class without having to think about who its collaborators are and how they are implemented.
 
