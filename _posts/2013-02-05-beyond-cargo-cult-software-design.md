@@ -131,13 +131,13 @@ public class SlowlyWarmingGreeter implements Greeter {
 
 #### Keeping count
 
-Once I add a third type of greeting, `SlowlyWarmingGreeter` is complete and I can move on to implementing the `MeetingHistory`. Again, there are many valid ways in which the interface can be implemented, so naming the implementation `meetingHistoryImpl` would be dishonest. To keep this example simple, I decide against using a database and will keep the `MeetingHistory` in memory, so I'll call my implementation `InMemoryMeetingHistory`. A database-backed implementation would have to be tested with integrated tests using a real database, but `InMemoryMeetingHistory` is self-contained and regular unit tests will do.
+Once I add a third type of greeting, `SlowlyWarmingGreeter` is complete and I can move on to implementing the `MeetingHistory`. Again, there are many valid ways in which the interface can be implemented, so naming the implementation `MeetingHistoryImpl` would be dishonest. To keep this example simple, I decide against using a database and will keep the `MeetingHistory` in memory, so I'll call my implementation `InMemoryMeetingHistory`. A database-backed implementation would have to be tested with integrated tests using a real database, but `InMemoryMeetingHistory` is self-contained and regular unit tests will do.
 
 The First test, `InMemoryMeetingHistoryTest.shouldContainZeroMeetingsWithUnknownPeople`, is easily passed by returning `0` from the `timesMet` method. I name the next test `shouldIncreaseMeetingCountWhenPersonMet`, but before I can write it, I need to decide how `InMemoryMeetingHistory` is notified of a person being met. A `Greeter` can't notify the `MeetingHistory` from its `greet` method (it's a query and not a command), so that leaves it up to the `GreetingController`.
 
 #### Ignorance is bliss
 
-The most straightforward way to proceed would be to add a notification method to the `MeetingHistory` interface, and add a `meetingHistory` reference to the `GreetingController`, but I feel uneasy about it for two reasons. First, adding a command method to the `MeetingHistory` interface would mean that anyone with a `MeetingHistory` reference could change its state and thus affect the operation of every component that uses the history, which would make the system harder to reason about. Second, the `GreetingController` does not need the `MeetingHistory` to fulfill its task and I want the code to communicate this fact. I decide to add a separate `MeetingListener` interface that the controller can use to notify anyone who wants to know when a meeting takes place. In this case there's only one `MeetingListener`, but the controller shouldn't even know how many there are, so I'll make it notify a collection of listeners.
+The most straightforward way to proceed would be to add a notification method to the `MeetingHistory` interface, and add a `MeetingHistory` reference to the `GreetingController`, but I feel uneasy about it for two reasons. First, adding a command method to the `MeetingHistory` interface would mean that anyone with a `MeetingHistory` reference could change its state and thus affect the operation of every component that uses the history, which would make the system harder to reason about. Second, the `GreetingController` does not need the `MeetingHistory` to fulfill its task and I want the code to communicate this fact. I decide to add a separate `MeetingListener` interface that the controller can use to notify anyone who wants to know when a meeting takes place. In this case there's only one `MeetingListener`, but the controller shouldn't even know how many there are, so I'll make it notify a collection of listeners.
 
 {% highlight java %}
 public interface MeetingListener {
@@ -178,7 +178,7 @@ public class InMemoryMeetingHistoryTest { // ...
 }
 
 @Component
-public class InMemoryMeetingHistory implements meetingHistory, MeetingListener {
+public class InMemoryMeetingHistory implements MeetingHistory, MeetingListener {
     Private HashMap<String, Integer> meetingCount = new HashMap<String, Integer>();
 
     @Override
