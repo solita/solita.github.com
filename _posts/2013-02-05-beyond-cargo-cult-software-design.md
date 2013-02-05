@@ -13,7 +13,7 @@ Cargo cult programming is a common metaphor in software development. [Eric Lippe
 
 > During the Second World War, the Americans set up airstrips on various tiny islands in the Pacific.  After the war was over and the Americans went home, the natives did a perfectly sensible thing -- they dressed themselves up as ground traffic controllers and waved those sticks around.  They mistook cause and effect -- they assumed that the guys waving the sticks were the ones making the planes full of supplies appear, and that if only they could get it right, they could pull the same trick.  From our perspective, we know that it's the other way around -- the guys with the sticks are there **because** the planes need them to land.  No planes, no guys.
 
-[![Cargo cult plane](http://tentpegs.patrickmead.net/wp-content/uploads/2012/08/cargoplane.jpg)](/img/beyond-cargo-cult-software-design/cargoplane.jpg)
+[![Cargo cult plane](/img/beyond-cargo-cult-software-design/cargoplane.jpg)](http://tentpegs.patrickmead.net/wp-content/uploads/2012/08/cargoplane.jpg)
 
 > The cargo cultists had the unimportant surface elements right, but did not see enough of the whole picture to succeed. They understood the **form** but not the **content**.  There are lots of cargo cult programmers -- **programmers who understand what the code does, but not how it does it**.  Therefore, they cannot make meaningful changes to the program.  They tend to proceed by making random changes, testing, and changing again until they manage to come up with something that works.
 
