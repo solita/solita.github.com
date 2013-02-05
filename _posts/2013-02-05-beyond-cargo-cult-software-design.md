@@ -27,7 +27,7 @@ Whereas cargo cult programming is easy to spot and universally frowned upon, car
 
 > Programming is the art of telling another human being what one wants the computer to do. --Donald Knuth
 
-A well-designed program makes clear how the program fulfills its current requirements and easy to change the program when the requirements change. Thus the quality of a design can only be evaluated in the context of the program's current and future requirements. It only makes sense to write programs whose requirements differ from others' in non-trivial ways (otherwise we'd just use or adapt an existing program), so each program's design needs to be evaluated by unique criteria. Cargo cult design means deciding on an answer before hearing the question and holding on to that answer when the question changes. To make our programs clear, we need to start the design process from the requirements and see where they lead us.
+A well-designed program makes it obvious how it fulfills its current requirements and is easy to modify when requirements change. Thus the quality of a design can only be evaluated in the context of the program's current and future requirements. It only makes sense to write programs whose requirements differ from others' in non-trivial ways (otherwise we'd just use or adapt an existing program), so each program's design needs to be evaluated by unique criteria. Cargo cult design means deciding on an answer before hearing the question and holding on to that answer when the question changes. To make our programs clear, we need to start the design process from the requirements and see where they lead us.
 
 ### Growing software guided by tests
 
