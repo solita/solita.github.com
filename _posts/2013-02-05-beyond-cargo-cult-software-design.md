@@ -166,13 +166,15 @@ public class GreetingController { // ...
 Now I can finish writing the test, and once I've seen it fail, I implement the `InMemoryMeetingHistory` using a `HashMap`.
 
 {% highlight java %}
-@Test
-public void shouldIncreaseMeetingCountWhenPersonMet() {
-    // When
-    inMemoryMeetingHistory.personMet("Bob");
+public class InMemoryMeetingHistoryTest { // ...
+    @Test
+    public void shouldIncreaseMeetingCountWhenPersonMet() {
+        // When
+        inMemoryMeetingHistory.personMet("Bob");
 
-    // Then
-    assertEquals(1, inMemoryMeetingHistory.timesMet("Bob"));
+        // Then
+        assertEquals(1, inMemoryMeetingHistory.timesMet("Bob"));
+    }
 }
 
 @Component
