@@ -58,4 +58,4 @@ For development, you need Ruby and Jekyll. If you want to tweak the CSS, you nee
 
 /dev/solita is built using all the hippiest hip technologies available:
 
-    git, Github Pages, Ruby, Jekyll, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics
+    git, Github Pages, Ruby, Jekyll, Markdown, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics, AddThis
