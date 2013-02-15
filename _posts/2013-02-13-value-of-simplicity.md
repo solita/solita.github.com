@@ -137,7 +137,7 @@ essential lessons how people can create a complex mess inadvertently:
 * While [Knuth](http://en.wikipedia.org/wiki/Donald_Knuth) is certainly one of the Great Old Ones, even a demigod may make misguided design decisions:
 [Knuth versus Unix shell](http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/)
 
-### There is the Light side too
+## There is the Light side too
 
 Rich Hickey has been thinking about these issues a lot and given birth to [Clojure](http://clojure.org/) and [Datomic](http://www.datomic.com/).
 Here are some of his thoughts related to the topic of this blog post:
@@ -152,9 +152,18 @@ Is it better to have twenty software systems integrated together or just one? I 
 structure any day, but some people prefer the latter. 
 
 In the UK, a project to replace many healthcare systems with a big "do-it-all" system was canceled in 2011.
-[NHS project cancelled, money wasted](http://www.dailymail.co.uk/news/article-2040259/NHS-IT-project-failure-Labours-12bn-scheme-scrapped.html#axzz2KmFYBloG)
+See [NHS project cancelled, money wasted](http://www.dailymail.co.uk/news/article-2040259/NHS-IT-project-failure-Labours-12bn-scheme-scrapped.html#axzz2KmFYBloG) for reference. 
+The new approach proposed by the ICT industry is very different. Industry proposes that the
+[new NHS system should be modular](http://www.intellectuk.org/blog/2011/05/26/debating-the-future-of-nhs-ict-local-proven-and-user-led/).
 
-The new approach proposed by the ICT industry is very different. 
-[New NHS system should be modular](http://www.intellectuk.org/blog/2011/05/26/debating-the-future-of-nhs-ict-local-proven-and-user-led/)
+### The recipe
 
-Good luck to [Apotti](http://www.hel.fi/hki/apotti/fi/Apotti-hanke/English) and other monolith projects when the requirements change, as they inevitably will.
+It is very hard to steer a big monolith to a new course when the requirements change, as they inevitably will. 
+Much better if you:
+
+* Create small **modular pieces** and let the system **grow incrementally**. 
+* **Compose** bigger pieces from the smaller ones.
+* Specify and **enforce boundaries**. (This forms the "architecture" of the design.)
+* Focus on the **most important things first**. (Prioritize the backlog in agile-speak.)
+
+Easier said than done!
