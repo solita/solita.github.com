@@ -68,29 +68,21 @@ blockquote {
     padding-left: 2em;
 }
 
-pre {
-    white-space: pre;                      /* ? */
-    white-space: pre-wrap;                 /* CSS3 browsers  */
-    white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
-    white-space: -pre-wrap;                /* Opera 4 thru 6 */
-    white-space: -o-pre-wrap;              /* Opera 7 and up */
-    word-wrap: break-word;                 /* IE 5.5+ and up */
-    -ms-word-break: normal;
-    word-break: normal;
-    word-break: normal; /* old webkit */
-}
-
 pre, code, kbd, samp {
     font: 1em/1.625em $font-code;
 }
 
-pre code {
+pre {
     background: #fafafa;
     border: 1px solid #ddd;
     border-radius: 3px;
-    display: block;
     font-size: 0.75em;
+    overflow-x: auto;
     padding: $baseline/2 $baseline/2;
+}
+
+code {
+    display: inline;
 }
 
 ul, ol {
