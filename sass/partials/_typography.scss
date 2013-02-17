@@ -10,10 +10,13 @@ body, input, textarea {
 h1, h2, h3, h4, h5, h6 {
     margin: $baseline 0;
 }
-ol, ul, p, pre, table, form {
+ol, ul, p, pre, table, form, caption {
     margin:0 0 $baseline;
 }
 
+caption {
+    font-style: italic;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
@@ -79,6 +82,15 @@ pre {
 
 pre, code, kbd, samp {
     font: 1em/1.625em $font-code;
+}
+
+pre code {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: block;
+    font-size: 0.75em;
+    padding: $baseline/2 $baseline/2;
 }
 
 ul, ol {
