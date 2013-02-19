@@ -64,13 +64,9 @@
     }
 }
 
-.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote {
+.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
     font-size:0.75em;
     line-height:$baseline;
-}
-
-.post-content > .highlight pre, .post-content > pre {
-    font-size: 0.85em;
 }
 
 .more-link {
