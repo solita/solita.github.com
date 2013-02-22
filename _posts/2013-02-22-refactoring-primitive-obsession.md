@@ -12,3 +12,44 @@ You can see an example of refactoring Primitive Obsession in James Shore's [Let'
 The sooner the Primitive Obsession is fixed, the easier it is. In the above videos it takes just a couple of minutes to plug in the TaxRate class, but the Dollars class takes over half an hour. James does the code changes manually, without automated refactorings. For a big project with rampant Primitive Obsession it will easily take many hours, even days, to fix the problem of a missing core domain type.
 
 Here I'm presenting some tips of using fully automated refactorings to solve Primitive Obsession. I'm using IntelliJ IDEA's Java refactorings, but the ideas should, to some extent, be applicable also to IDEs with inferior refactoring support.
+
+
+## The Example
+
+Let's assume that we have a project that uses lots of thingies which are saved in a database. The thingies each have an ID that at the moment is just an integer. To avoid the thingy IDs getting mixed with other kinds of IDs, we create the following value object:
+
+{% highlight java %}
+public final class ThingyId {
+
+    private final int id;
+
+    public ThingyId(int id) {
+        this.id = id;
+    }
+
+    public int toInt() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof ThingyId)) {
+            return false;
+        }
+        ThingyId that = (ThingyId) obj;
+        return this.id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" + id + ")";
+    }
+}
+{% endhighlight %}
+
+Creating such a class is easy, but putting it to use is not so when the primitive ID is used in a couple of hundred places...
