@@ -53,3 +53,39 @@ public final class ThingyId {
 {% endhighlight %}
 
 Creating such a class is easy, but putting it to use is not so when the primitive ID is used in a couple of hundred places...
+
+
+## Pushing Arguments Out
+
+- extract parameter
+
+
+## Pushing Return Values
+
+- inline method
+
+
+## Pushing Return Values of Interface Methods
+
+- inline interface method
+
+
+## Pushing Arguments In
+
+- push from inside the class to change, remove reduncancy afterwards
+
+
+## Removing Redundancy
+
+- replace structurally: new Foo(foo.toInt())
+
+
+## Updating Test Constants
+
+- extract new constant, reorder definitions, inline old constant
+
+
+## Finding the Loose Ends
+
+- usages of constructor
+- usages of toInt()
