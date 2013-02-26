@@ -82,7 +82,9 @@ First extract a method that does the same as the old method, but does not unwrap
 
 ## Pushing Return Values of Interface Methods
 
-- inline interface method
+A variation of the previous refactoring is required when the method is part of an interface. IntelliJ IDEA 12 doesn't support inlining abstract methods (I would like it to ask that which of the implementations to inline), but since IDEA can refactor code that doesn't compile, we can copy and paste the implementation into the interface and then inline it:
+
+![Animation](/img/refactoring-primitive-obsession/push-retval-interface.gif)
 
 
 ## Pushing Arguments In
