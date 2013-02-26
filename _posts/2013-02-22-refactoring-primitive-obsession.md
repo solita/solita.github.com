@@ -103,12 +103,15 @@ In the following example we use the search template "`new ThingyId($x$.toInt())`
 ![Animation](/img/refactoring-primitive-obsession/redundancy.gif)
 
 
-## Updating Test Constants
+## Updating Constants
 
-- extract new constant, reorder definitions, inline old constant
+When there are constants of the old type, as is common in tests, those can be updated by extracting a new constant of the new type, redefining the old constant to be an unwrapping of the new constant, and finally inlining the old constant:
+
+![Animation](/img/refactoring-primitive-obsession/constants.gif)
 
 
 ## Finding the Loose Ends
 
-- usages of constructor
-- usages of toInt()
+The aforementioned refactorings must be repeated many times until the whole codebase has been upgraded. To find out what refactoring to do next, search for the usages of the new type's constructor and its unwrapping method (e.g. `ThingyId.toInt()`). Use an appropriate refactoring to push that usage one step further. Repeat until all the usages are at the edges of the application (e.g. saving `ThingyId` to database) and cannot be pushed any further.
+
+And as always, run all your tests after every step. If the tests fail and you can't fix them within one minute, you're about to enter [Refactoring Hell](http://c2.com/cgi/wiki?RefactoringHell) and it's the fastest that you revert your changes to the last time when all tests passed. Reverting is the easiest with IntelliJ IDEA's [Local History](http://www.jetbrains.com/idea/features/local_history.html) which shows every time that you ran your tests and whether they passed or failed. The other option is to commit frequently, after every successful change (preferably [rebased before pushing](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)), and revert using `git reset --hard`.
