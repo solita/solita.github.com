@@ -55,14 +55,29 @@ public final class ThingyId {
 Creating such a class is easy, but putting it to use is not so when the primitive ID is used in a couple of hundred places...
 
 
+## Starting Small
+
+This kinds of refactorings are quite mechanical, but because they require cascading changes, it's very easy to mess things up. So it's best to start small and proceed in small steps.
+
+It makes sense to start from a central place from where the change can be propagated to the whole application. For example by starting to use ThingyId inside this one class, without changing its public interface:
+
+![Animation](/img/refactoring-primitive-obsession/start.gif)
+
+
 ## Pushing Arguments Out
 
-- extract parameter
+When there is a method which wraps one of its arguments into ThingyId, we can propagate it by pushing that argument wrapping outside the method. In IntelliJ IDEA this can be done with the *Extract Parameter* (Ctrl+Alt+P) refactoring:
+
+![Animation](/img/refactoring-primitive-obsession/push-args-out.gif)
 
 
 ## Pushing Return Values
 
-- inline method
+When there is a method which unwraps its return value from ThingyId to int, we can propagate the unwrapping outside the method. There is no pre-made refactoring that, but fortunately we can use a combination of *Extract Method* (Ctrl+Alt+M) and *Inline* (Ctrl+Alt+N) for doing that.
+
+First extract a method that does the same as the old method, but does not unwrap ThingyId. Then inline the original method and rename the new method to be the same as the original method.
+
+![Animation](/img/refactoring-primitive-obsession/push-retval.gif)
 
 
 ## Pushing Return Values of Interface Methods
