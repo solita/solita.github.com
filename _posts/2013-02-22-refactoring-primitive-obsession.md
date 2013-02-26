@@ -89,12 +89,18 @@ A variation of the previous refactoring is required when the method is part of a
 
 ## Pushing Arguments In
 
-- push from inside the class to change, remove reduncancy afterwards
+Instead of trying to refactor a method's arguments from the method caller's side, it's better to go inside the method and use *Extract Parameter* (Ctrl+Alt+P) as described above. This leaves us with some redundant code, as can be seen in this example. We'll handle that in the next section.
+
+![Animation](/img/refactoring-primitive-obsession/push-args-in.gif)
 
 
 ## Removing Redundancy
 
-- replace structurally: new Foo(foo.toInt())
+By following the above tips you will probably end up with some redundant wrapping and unwrapping such as `new ThingyId(thingyId.toInt())` which is the same as `thingyId`. Changing one such thing manually would be easy, but the problem is that there are potentially tens or hundreds of places to change. In IntelliJ IDEA those can be fixed with one command: *Replace Structurally* (Ctrl+Shift+M).
+
+In the following example we use the search template "`new ThingyId($x$.toInt())`" and replacement template "`$x$`" (for extra safety we define the `x` variable to be an expression of type `ThingyId`).
+
+![Animation](/img/refactoring-primitive-obsession/redundancy.gif)
 
 
 ## Updating Test Constants
