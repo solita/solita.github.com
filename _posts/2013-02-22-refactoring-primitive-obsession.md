@@ -61,14 +61,24 @@ Refactoring Primitive Obsession is quite mechanical, but because it requires cas
 
 It makes sense to start from a central place from where the change can be propagated to the whole application. For example by starting to use `ThingyId` inside this one class, without changing its public interface:
 
-![Animation](/img/refactoring-primitive-obsession/start.gif)
+<video width="600" height="248" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/start.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/start.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/start.gif))
 
 
 ## Pushing Arguments Out
 
 When there is a method which wraps one of its arguments into `ThingyId`, we can propagate it by pushing the act of wrapping outside the method. In IntelliJ IDEA this can be done with the *Extract Parameter* (Ctrl+Alt+P) refactoring:
 
-![Animation](/img/refactoring-primitive-obsession/push-args-out.gif)
+<video width="600" height="416" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/push-args-out.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/push-args-out.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/push-args-out.gif))
 
 
 ## Pushing Return Values
@@ -77,21 +87,36 @@ When there is a method which unwraps its return value from `ThingyId` to `int`, 
 
 First extract a method that does the same as the old method, but does not unwrap `ThingyId`. Then inline the original method and rename the new method to be the same as the original method.
 
-![Animation](/img/refactoring-primitive-obsession/push-retval.gif)
+<video width="600" height="400" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/push-retval.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/push-retval.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/push-retval.gif))
 
 
 ## Pushing Return Values of Interface Methods
 
 A variation of the previous refactoring is required when the method is part of an interface. IntelliJ IDEA 12 does not support inlining abstract methods (I would like it to ask that which of the implementations to inline), but since IDEA can refactor code that doesn't compile, we can copy and paste the implementation into the interface and then inline it:
 
-![Animation](/img/refactoring-primitive-obsession/push-retval-interface.gif)
+<video width="600" height="416" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/push-retval-interface.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/push-retval-interface.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/push-retval-interface.gif))
 
 
 ## Pushing Arguments In
 
 Instead of trying to refactor a method's arguments from the method caller's side, it's better to go inside the method and use *Extract Parameter* (Ctrl+Alt+P) as described earlier. This leaves us with some redundant code, as can be seen in this example. We'll handle that next.
 
-![Animation](/img/refactoring-primitive-obsession/push-args-in.gif)
+<video width="600" height="232" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/push-args-in.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/push-args-in.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/push-args-in.gif))
 
 
 ## Removing Redundancy
@@ -100,14 +125,24 @@ By following the above tips you will probably end up with some redundant wrappin
 
 In the following example we use the search template "`new ThingyId($x$.toInt())`" and replacement template "`$x$`". For extra type safety, the `$x$` variable can be defined (under the *Edit Variables* menu) to be an expression of type `ThingyId`.
 
-![Animation](/img/refactoring-primitive-obsession/redundancy.gif)
+<video width="600" height="392" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/redundancy.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/redundancy.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/redundancy.gif))
 
 
 ## Updating Constants
 
 When there are constants of the old type, as is common in tests, those can be updated by extracting a new constant of the new `ThingyId` type, redefining the old constant to be an unwrapping of the new constant, and finally inlining the old constant:
 
-![Animation](/img/refactoring-primitive-obsession/constants.gif)
+<video width="600" height="216" controls="controls">
+  <source src="/img/refactoring-primitive-obsession/constants.webm" type="video/webm"></source>
+  <source src="/img/refactoring-primitive-obsession/constants.mp4" type="video/mp4"></source>
+</video>
+
+(Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/constants.gif))
 
 
 ## Finding the Loose Ends
