@@ -68,6 +68,8 @@ It makes sense to start from a central place from where the change can be propag
 
 (Cannot see the video? [Watch it as GIF](/img/refactoring-primitive-obsession/start.gif))
 
+This example refactoring had to be done manually, because the field was mutable (we must update all reads and writes to the field in one step), but the following refactorings can be done with the help of automatic refactorings.
+
 
 ## Pushing Arguments Out
 
@@ -109,7 +111,7 @@ A variation of the previous refactoring is required when the method is part of a
 
 ## Pushing Arguments In
 
-Instead of trying to refactor a method's arguments from the method caller's side, it's better to go inside the method and use *Extract Parameter* (Ctrl+Alt+P) as described earlier. This leaves us with some redundant code, as can be seen in this example. We'll handle that next.
+Instead of trying to refactor a method's arguments from the method caller's side, it's better to go inside the method and use *Extract Parameter* (Ctrl+Alt+P) as described earlier. Likewise for a method's return value. This leaves us with some redundant code, as can be seen in this example. We'll handle that next.
 
 <video width="600" height="232" controls="controls">
   <source src="/img/refactoring-primitive-obsession/push-args-in.webm" type="video/webm"></source>
@@ -135,7 +137,7 @@ In the following example we use the search template "`new ThingyId($x$.toInt())`
 
 ## Updating Constants
 
-When there are constants of the old type, as is common in tests, those can be updated by extracting a new constant of the new `ThingyId` type, redefining the old constant to be an unwrapping of the new constant, and finally inlining the old constant:
+When there are constants (or final fields) of the old type, as is common in tests, those can be updated by extracting a new constant of the new `ThingyId` type, redefining the old constant to be an unwrapping of the new constant, and finally inlining the old constant:
 
 <video width="600" height="216" controls="controls">
   <source src="/img/refactoring-primitive-obsession/constants.webm" type="video/webm"></source>
