@@ -17,3 +17,7 @@ Because the eye detection algorithm provided by OpenCV does not always find two 
 By checking statistics we find that the average age of Solita employee is 34 years and five months. She has been working 54 months at Solita. We have 82 % of men and 18 % of women in our staff so the result looks like androgyne.
 In Finnish there are some forenames, which can be given to both boys and girls. One of them is [Kaino](http://fi.wikipedia.org/wiki/Kaino). So I call the result person as Kaino Solita. And this is how (s)he looks like when 140 faces were successfully processed.
 [![kaino_solita](/img/the-average-joe/small/average_solita_140.jpg)](/img/the-average-joe/average_solita_140.jpg)
+
+### Try it yourself ###
+Grab the [sources](https://github.com/ruoat/averageface) and try it yourself. I have used high quality images with the size of 787x1181 pixels. If you want to use lower quality or smaller images you may want to tweak parameters in detectMultiScale function to improve the eye detection.
+After I had created the the tool I found that there are some tools, which are more [sophisticated](http://faceresearch.org/demos/average) in merging faces but I had some fun when coding it by myself! :)
