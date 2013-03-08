@@ -9,8 +9,8 @@
 }
 
 .post-title {
-    font-size:1.5em;
-    line-height:$baseline*1.5;
+    font-size:1.75em;
+    line-height:$baseline*2;
     margin:0;
 
     a {
@@ -65,7 +65,7 @@
 }
 
 .post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
-    font-size:0.75em;
+    font-size:0.875em;
     line-height:$baseline;
 }
 
@@ -73,7 +73,7 @@
     background:#f1f1f1;
     border:0;
     color: $color-gray;
-    font-size:0.75em;
+    font-size: 0.875em;
     line-height:$baseline;
     margin-bottom:$baseline*1.25;
     padding:$baseline/4 10px;
