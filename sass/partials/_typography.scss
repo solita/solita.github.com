@@ -30,18 +30,21 @@ h1, .fake-h1 {
 h2, .fake-h2 {
     font-size: 1.5em;
     line-height:$baseline*1.5;
-    margin: $baseline 0 $baseline*1.5;
+    margin: $baseline 0 $baseline;
 }
 h3, .fake-h3 {
     font-size: 1.25em;
 }
 h4, .fake-h4 {
     font-size: 1em;
-    margin:$baseline/2 0;
+    margin:$baseline 0 0;
 }
 h5, .fake-h5 {
     font-family: $font-body;
-    font-size: 0.75em;
+    font-size: 1em;
+    margin:$baseline 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 h6, .fake-h6 {
     font-family: $font-body;
