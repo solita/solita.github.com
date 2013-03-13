@@ -1,16 +1,17 @@
 ---
 layout: post
-title: How to make an average image of people faces?
+title: Our Faces Combined
 author: ruoat
 excerpt: I wanted to check what an average Solita employee looks like. I had images of all Solita employees' faces, OpenCV-library, Python and some free time.
 tags: opencv python solita
 ---
-At Solita we had taken photos of every employee face when they joined our staff. Those images were used for the intranet, badges etc. Because some of us have been working over 10 years at Solita the photos might look quite different than the current habitus.
-Recently we had photo shootings where staff images were updated. Now those images were taken in good lightning and homogenous set up. I wanted to know what would and average Solita person look like.
-First I tried to use [ImageMagick](http://www.imagemagick.org) to make an average image but the result was blurry because people faces weren't perfectly in the same position.
-After a brief googling I found [OpenCV](http://opencv.org/).
-OpenCV is an open source computer vision and machine learning software library. It has interfaces for C/C++, Java and Python. First I wanted to test the library with Scala but encountered some problems so I chose Python instead. Later I found out that the problems were probably caused by bad (non-existing) error messages in OpenCV and classpath problems.
-I don't have a lot of experience in Python but the samples provided seemed to be simple enough so I could get some results quickly.
+When a new person joins Solita, they naturally get their photo taken. Recently, we had a company-wide staff photo update, where all the photos were taken in a standardized environment and the resulting photos all have identical lighting, colors, etc. This springed an idea: I could combine the photos and see what an average Solitan would look like.
+
+First I tried to use [ImageMagick](http://www.imagemagick.org) to make an average image, but the result was blurry because people faces weren't perfectly in the same position.
+
+After a brief googling I found [OpenCV](http://opencv.org/). OpenCV is an open source computer vision and machine learning software library. It has interfaces for C/C++, Java and Python. First I wanted to test the library with Scala but encountered some problems, so I chose Python instead. Later I found out that the problems were probably caused by bad (non-existing) error messages in OpenCV and classpath problems.
+
+I don't have a lot of experience in Python but the provided samples seemed simple enough so I could get some results quickly.
 
 ### How it works ###
 First, the program goes through all images, locates the eyes and calculates their average positions. In the second phase, images are scaled so that the distance of the eyes in the image matches those average values. When the scaling is done eye positions are detected again.
