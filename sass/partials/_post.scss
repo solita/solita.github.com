@@ -69,6 +69,15 @@
     line-height:$baseline;
 }
 
+.caption {
+    font-style: italic;
+    text-align: center;
+}
+
+p + .caption {
+    margin-top: -$baseline/2;
+}
+
 .more-link {
     background:#f1f1f1;
     border:0;
