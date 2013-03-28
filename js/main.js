@@ -6,20 +6,22 @@
         var avatarTemplate = $('#templates .avatar').detach();
 
         $('.post-meta').each(function () {
-            var $this = $(this);
-            var email = $this.find('.author a').attr('title');
-            console.log(email);
-            var avatar = avatarTemplate.clone();
+            var $this = $(this),
+                authorLink = $this.find('.author a'),
+                url = authorLink.attr('href'),
+                username = authorLink.text(),
+                email = authorLink.attr('title'),
+                avatar = avatarTemplate.clone(),
 
-            var directives = {
+            directives = {
                 img: {
                     src: function () { return get_gravatar(email); },
-                    alt: function () { return 'alt test'; }
+                    alt: function () { return username; }
                 }
             };
 
-            avatar.render({ href: 'yes' }, directives);
-
+            avatar.render({}, directives);
+            avatar.attr('href', url);
             $this.append(avatar);
         });
     });
