@@ -91,12 +91,3 @@ code {
 ul, ol {
     padding: 0 0 0 1.4em;
 }
-
-.caption {
-    font-style: italic;
-    text-align: center;
-}
-
-p + .caption {
-    margin-top: -$baseline/2;
-}
