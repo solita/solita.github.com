@@ -12,7 +12,7 @@ The goal now is to implement [continuous delivery](http://en.wikipedia.org/wiki/
 As a proof of concept I created the interdependent build pipelines for three of these projects using [ThoughtWorks Go](http://www.thoughtworks-studios.com/go-continuous-delivery). I got all working in one day, but the other team members didn't consider Go's free edition adequate and considered the price tag too high (we have 20+ team members and multiple build agents), so I set to do a proof of concept using [Jenkins](http://jenkins-ci.org/). After a couple of days of research and experimentation I think I found a compromise that might work.
 
 
-## My God, it's full of plugins!
+![My God, it's full of plugins!](/img/jenkins-build-pipelines/full-of-plugins.jpg)
 
 Though there are [many](http://antagonisticpleiotropy.blogspot.com.au/2012/02/implementing-real-build-pipeline-with.html) [build](http://www.agitech.co.uk/implementing-a-deployment-pipeline-with-jenkins/) [pipeline](http://java.dzone.com/articles/how-build-true-pipelines) [articles](http://www.lordofthejars.com/2012/08/build-flow-jenkins-plugin.html) about Jenkins, none of those I found matched our use case of multiple interdependent projects. Most of them just had a simple linear pipeline, maybe with a [diamond dependency](http://stackoverflow.com/questions/9012310/how-do-i-make-a-jenkins-job-start-after-multiple-simultaneous-upstream-jobs-succ) here and there. Even Stack Overflow [gave no answer](http://stackoverflow.com/questions/16420402/parameterizing-a-jenkins-job-with-the-versions-of-multiple-upstream-jobs).
 
