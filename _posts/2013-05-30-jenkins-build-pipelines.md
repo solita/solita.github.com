@@ -36,7 +36,7 @@ Then in a downstream project you would use the [Copy Artifact Plugin](https://wi
 Here is how you would configure the downstream project:
 
 1. Use the [Copy Artifact Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin) to copy the `*.version` artifacts from the upstream projects. Select the *Upstream build that triggered this project* and *Use "Last successful build" as fallback* options.
-2. Read the version number from the file, e.g. ``FOO_VERSION=`cat foo.version```
+2. Read the version number from the file, e.g. `` FOO_VERSION=`cat foo.version` ``
 3. Set the version number to the project's dependency information. If you need to edit XML, prefer using a real scripting language's XML libraries, but when everything else fails, there are regular expressions: `sed -e "s/<foo-version>.*<\/foo-version>/<foo-version>$FOO_VERSION<\/foo-version>/" pom.xml > pom.xml.new && mv pom.xml.new pom.xml`
 4. Build the project so that the build tool retrieves the dependencies from whatever repository you put them in.
 
