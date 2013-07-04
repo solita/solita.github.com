@@ -74,3 +74,4 @@ I've never understood the reasoning behind committing code that's been commented
 Why was the code commented out? Does it work? Should it work? Has it ever worked? Is it something we should strive towards or run away from? Code that's been commented out is worse than useless, because every time it's read, it raises questions like these without providing any answers. It only serves to confuse and distract from the code in use.
 
 There's only one rule when it comes to committing commented-out code: ![NO!](/img/whats-in-a-good-commit/no.gif)
+
