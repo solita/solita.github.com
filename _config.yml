@@ -1,7 +1,9 @@
 url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
-pygments: true
+pygments: true 
+markdown: rdiscount
+
 authors:
   jarno:
     name: Jarno Peltoniemi

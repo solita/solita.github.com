@@ -34,11 +34,11 @@ For OSX, the instructions are not yet done. If you have installed Xcode, you mig
 ### Installing Jekyll (and Foreman)
 
 1. Open a command prompt or terminal
-2. Make sure ruby is active by typing in `ruby -v`
-3. Type: `gem install jekyll`
-4. Make sure the installation succeeds
-5. To run Jekyll, go to your working copy of solita.github.com
-6. Type in: `jekyll --server --auto`
+2. Make sure ruby is active by typing in `ruby -v` (rvm.io ftw)
+3. To run Jekyll, go to your working copy of solita.github.com
+4. Run bundle install for depencies
+5. Make sure the installation succeeds
+6. Type in: `jekyll serve --watch`
 7. Open browser to: http://localhost:4000/ (or some other address?)
 
 
