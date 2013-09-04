@@ -91,7 +91,7 @@ The time is now ripe. The voice of Rich Hickey booms:
 	  
 Nobody listens.
 	  
-### 2010 (let \[Datomic\] (loose :on :the :world)
+### 2010 (let \[datomic (loose :on :the :world)\]
       
 Rich Hickey's hammer and anvil are steaming hot. With some friends he forges a new database which combines
 Prolog's fact based view of data with a practical implementation and powerful query language. 
