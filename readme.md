@@ -32,17 +32,15 @@ For Windows, download & install the latest Ruby 1.9.x and Development Kit from h
 For OSX(/Linux), use the instructions below. If you have installed Xcode, you might have ruby (1.9.2 or something like that) already. No guarantinees about this working with that so use RVM
 
 
-1. \curl -L https://get.rvm.io | bash
-2. rvm install 1.9.3
-3. fork this repo
-4. go to dir
-5. rvm use 1.9.3
-6. verify that 1.9.3 used by ruby -v
-7. gem install bundler
-8. bundle install
-9. done
-10. Type in: `jekyll serve --watch`
-11. Open browser to: http://localhost:4000/ (or some other address?)
+1. \curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
+2. fork this repo
+3. go to dir
+4. rvm use 1.9.3
+5. verify that 1.9.3 used by ruby -v
+6. gem install bundler
+7. bundle install
+8. Type in: `jekyll serve --watch`
+9. Open browser to: http://localhost:4000/ (or some other address?)
 
 ### Installing Jekyll (and Foreman)
 
