@@ -49,8 +49,8 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (= 4.2.9)
-  compass
-  foreman
+  compass (= 0.12.2)
+  foreman (= 0.61.0)
   jekyll (= 1.0.3)
   liquid (= 2.5.0)
   maruku (= 0.6.1)

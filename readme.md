@@ -29,7 +29,20 @@ You need Ruby and Jekyll if you want to preview your posts locally on the blog. 
 For Windows, download & install the latest Ruby 1.9.x and Development Kit from http://rubyinstaller.org/downloads/.  
 **Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or something)
 
-For OSX, the instructions are not yet done. If you have installed Xcode, you might have ruby already.
+For OSX(/Linux), use the instructions below. If you have installed Xcode, you might have ruby (1.9.2 or something like that) already. No guarantinees about this working with that so use RVM
+
+
+1. \curl -L https://get.rvm.io | bash
+2. rvm install 1.9.3
+3. fork this repo
+4. go to dir
+5. rvm use 1.9.3
+6. verify that 1.9.3 used by ruby -v
+7. gem install bundler
+8. bundle install
+9. done
+10. Type in: `jekyll serve --watch`
+11. Open browser to: http://localhost:4000/ (or some other address?)
 
 ### Installing Jekyll (and Foreman)
 
