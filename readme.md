@@ -27,31 +27,23 @@ You need Ruby and Jekyll if you want to preview your posts locally on the blog. 
 ### Installing Ruby
 
 For Windows, download & install the latest Ruby 1.9.x and Development Kit from http://rubyinstaller.org/downloads/.  
-**Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or something)
+**Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or something). You can also try: https://github.com/vertiginous/pik/
 
 For OSX(/Linux), use the instructions below. If you have installed Xcode, you might have ruby (1.9.2 or something like that) already. No guarantinees about this working with that so use RVM
 
-
 1. \curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
 2. fork this repo
-3. go to dir
+3. go to your working copy of solita.github.com
 4. rvm use 1.9.3
 5. verify that 1.9.3 used by ruby -v
+(On linux you might need to fix gnome-termina: http://rvm.io/integration/gnome-terminal)
 6. gem install bundler
-7. bundle install
-8. Type in: `jekyll serve --watch`
-9. Open browser to: http://localhost:4000/ (or some other address?)
+7. Run bundle install for depencies
+8. Make sure the installation succeeds
+9. Type in: `jekyll serve --watch`
+10. Open browser to: http://localhost:4000/
 
-### Installing Jekyll (and Foreman)
-
-1. Open a command prompt or terminal
-2. Make sure ruby is active by typing in `ruby -v` (rvm.io ftw)
-3. To run Jekyll, go to your working copy of solita.github.com
-4. Run bundle install for depencies
-5. Make sure the installation succeeds
-6. Type in: `jekyll serve --watch`
-7. Open browser to: http://localhost:4000/ (or some other address?)
-
+Also seems to be working with Ruby 2.0.0p0/247 
 
 ## Development
 
