@@ -9,5 +9,5 @@ gem 'RedCloth',   '=4.2.9'
 
 group :development do
   gem 'compass', '=0.12.2'
-  gem 'foreman', '=0.61.0'
+  gem 'foreman', '=0.63.0'
 end
