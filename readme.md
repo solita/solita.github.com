@@ -51,7 +51,7 @@ For development, you need Ruby and Jekyll. If you want to tweak the CSS, you nee
 
 1. Install Ruby (above)
 2. To install Jekyll, Compass and foreman, type into a command prompt or terminal:  
-`gem install jekyll compass foreman`
+`gem install jekyll compass foreman rdiscount`
 3. Make sure the install succeeds
 4. Go to your cloned copy of solita.github.com
 5. Type in: `foreman start`
