@@ -1,6 +1,9 @@
 url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
+pygments: true 
+markdown: rdiscount
+
 authors:
   jarno:
     name: Jarno Peltoniemi
@@ -38,3 +41,11 @@ authors:
     name: Juhana Harmanen
     email: juhana.harmanen@solita.fi
     url: mailto:juhana.harmanen@solita.fi
+  noidi:
+    name: Timo Mihaljov
+    email: timo.mihaljov@solita.fi
+    url: https://twitter.com/noidi
+  ruoat:
+    name: Ari Ruotsalainen
+    email: ari.ruotsalainen@solita.fi
+    url: mailto:ari.ruotsalainen@solita.fi

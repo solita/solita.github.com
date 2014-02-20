@@ -10,10 +10,13 @@ body, input, textarea {
 h1, h2, h3, h4, h5, h6 {
     margin: $baseline 0;
 }
-ol, ul, p, pre, table, form {
+ol, ul, p, pre, table, form, caption {
     margin:0 0 $baseline;
 }
 
+caption {
+    font-style: italic;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
@@ -27,18 +30,21 @@ h1, .fake-h1 {
 h2, .fake-h2 {
     font-size: 1.5em;
     line-height:$baseline*1.5;
-    margin: $baseline 0 $baseline*1.5;
+    margin: $baseline 0 $baseline;
 }
 h3, .fake-h3 {
     font-size: 1.25em;
 }
 h4, .fake-h4 {
     font-size: 1em;
-    margin:$baseline/2 0;
+    margin:$baseline 0 0;
 }
 h5, .fake-h5 {
     font-family: $font-body;
-    font-size: 0.75em;
+    font-size: 1em;
+    margin:$baseline 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 h6, .fake-h6 {
     font-family: $font-body;
@@ -65,23 +71,23 @@ blockquote {
     padding-left: 2em;
 }
 
-pre {
-    white-space: pre;                      /* ? */
-    white-space: pre-wrap;                 /* CSS3 browsers  */
-    white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
-    white-space: -pre-wrap;                /* Opera 4 thru 6 */
-    white-space: -o-pre-wrap;              /* Opera 7 and up */
-    word-wrap: break-word;                 /* IE 5.5+ and up */
-    -ms-word-break: normal;
-    word-break: normal;
-    word-break: normal; /* old webkit */
-}
-
 pre, code, kbd, samp {
     font: 1em/1.625em $font-code;
+}
+
+pre {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 0.75em;
+    overflow-x: auto;
+    padding: $baseline/2 $baseline/2;
+}
+
+code {
+    display: inline;
 }
 
 ul, ol {
     padding: 0 0 0 1.4em;
 }
-

@@ -9,8 +9,8 @@
 }
 
 .post-title {
-    font-size:1.5em;
-    line-height:$baseline*1.5;
+    font-size:1.75em;
+    line-height:$baseline*2;
     margin:0;
 
     a {
@@ -64,20 +64,25 @@
     }
 }
 
-.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote {
-    font-size:0.75em;
+.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
+    font-size:0.875em;
     line-height:$baseline;
 }
 
-.post-content > .highlight pre, .post-content > pre {
-    font-size: 0.85em;
+.caption {
+    font-style: italic;
+    text-align: center;
+}
+
+p + .caption {
+    margin-top: -$baseline/2;
 }
 
 .more-link {
     background:#f1f1f1;
     border:0;
     color: $color-gray;
-    font-size:0.75em;
+    font-size: 0.875em;
     line-height:$baseline;
     margin-bottom:$baseline*1.25;
     padding:$baseline/4 10px;
