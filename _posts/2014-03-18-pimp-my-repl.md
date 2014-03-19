@@ -217,7 +217,7 @@ To install debug-repl, add the following lines to your `~/.lein/profiles.clj`.
     {:user {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]]
             :injections [(require 'alex-and-georges.debug-repl)
                          (vinyasa.inject/inject 'clojure.core '>
-                           '[[alex-and-georges.debug-repl debug-repl]]}}
+                           '[[alex-and-georges.debug-repl debug-repl]])]}}
 
 Now insert `(>debug-repl)` anywhere in your code. When the execution hits that point, it's given over to the REPL. Once you're done, enter `()`, and the regular execution is resumed.
 
@@ -247,7 +247,7 @@ Difform couldn't be simpler to use. First, add it to your `~/.lein/profiles.clj`
     {:user {:dependencies [[difform "1.1.2"]]
             :injections [(require 'com.georgejahad.difform)
                          (vinyasa.inject/inject 'clojure.core '>
-                           '[[com.georgejahad.difform difform]]}}
+                           '[[com.georgejahad.difform difform]])]}}
 
 Then just call `>difform` with the two values to compare!
 
@@ -285,4 +285,4 @@ To install clj-ns-browser, add the following to your `~/.lein/profiles.clj`.
     {:user {:dependencies [[clj-ns-browser "1.3.1"]]
             :injections [(require 'clj-ns-browser.sdoc)
                          (vinyasa.inject/inject 'clojure.core '>
-                           '[[clj-ns-browser.sdoc sdoc]]}}
+                           '[[clj-ns-browser.sdoc sdoc]])]}}
