@@ -2,10 +2,10 @@
 layout: post
 title: Communication in library design, a user's perpective
 author: pvto
-excerpt: Everyone has encountered a software library that is hard to use.  From the designer's perspective, the user can be always educated a bit more, but sometimes user training misses the point.
+excerpt: Everyone has encountered a software library that is hard to use.  From the designer's perspective, the user can always be educated a bit more, but sometimes user training misses the point.
 ---
 
-Everyone has encountered a software library that is hard to use.  From the designer's perspective, the user can be always educated a bit more, but sometimes user training misses the point. This post touches on some problems in library documentation.  We can insist on simple things that require no major effort on the part of a library designer, but could beautifully facilitate usage and user satisfaction.  Examples in this post, unhip as they are, spring from the Java ecosystem.  We use established libraries mainly for the reason that they are not likely to receive any damage from our reference.
+Everyone has encountered a software library that is hard to use.  From the designer's perspective, the user can always be educated a bit more, but sometimes user training misses the point. This post touches on some problems in library documentation.  We can insist on simple things that require no major effort on the part of a library designer, but could beautifully facilitate usage and user satisfaction.  Examples in this post, unhip as they are, spring from the Java ecosystem.  We use established libraries mainly for the reason that they are not likely to receive any damage from our reference.
 
 ##Good library design principles (from a library user's perpective)
 
