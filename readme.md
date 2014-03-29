@@ -24,6 +24,21 @@ If you want to write a post, here's how:
 
 You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview).
 
+
+### Running a virtual machine (standardized environment)
+
+1. Install Vagrant
+2. Install Virtualbox
+3. cd vagrant
+4. vagrant up blag
+5. Wait patiently as the ruby goodness is downloaded and configured
+6. http://localhost:4444 now should serve your version of the blog 
+
+If anything goes wrong, good luck. vagrant ssh blag and try figure it out.
+
+When you're done you might want to shutdown the virtual machine. vagrant destroy or something like that.
+
+
 ### Installing Ruby
 
 For Windows, download & install the latest Ruby 1.9.x and Development Kit from http://rubyinstaller.org/downloads/.  
