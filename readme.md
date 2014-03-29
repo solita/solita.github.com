@@ -39,7 +39,7 @@ If anything goes wrong, good luck. vagrant ssh blag and try figure it out.
 When you're done you might want to shutdown the virtual machine. vagrant destroy or something like that.
 
 
-### Installing Ruby
+### Installing Ruby (Ruby on your workstation)
 
 For Windows, download & install the latest Ruby 1.9.x and Development Kit from http://rubyinstaller.org/downloads/.  
 **Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or something). You can also try: https://github.com/vertiginous/pik/
