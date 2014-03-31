@@ -6,7 +6,7 @@ excerpt: You may have heard already that Clojure is great and going to dominate 
 ---
 
 
-You may have heard already that Clojure is great and going to dominate the world this year.
+You may have heard already that [Clojure](http://clojure.org/) is great and going to dominate the world this year.
 But will it? In this article I will dig deep into one of our Clojure projects so that you can 
 see what a real world Clojure project looks like and decide for yourself. 
 I will try to offer as objective a view on the matter as I can, but I will cover many things where we benefit from the Clojure way of doing things.
