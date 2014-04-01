@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # blogin kirjoituksen työasema
+  config.vm.define "blag" do |blag|
+    blag.vm.box = "CentOS-6.4-x86_64-v20131103.box"
+    blag.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
+
+    blag.vm.synced_folder "../", "/env"
+    blag.vm.provision "shell", inline: "cd /env/vagrant && ./makeitso.sh"
+
+    # local port 4444 -> vm port 4000
+    blag.vm.network "forwarded_port", host: 4444, guest: 4000
+  end
+end
