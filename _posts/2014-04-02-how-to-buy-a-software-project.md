@@ -30,4 +30,12 @@ However there is a problem. The way most of the projects are bought do not suppo
 
  ## What's wrong with this?
 
- The described process drives off the road (and badly) right in the beginning: when the customer starts a project to create a requirements specification.
+ The described process drives off the road (and badly) right in the beginning: when the customer starts a project to create a requirements specification. There's nothing wrong about requirements but this is a wrong way and time to do those. In the perfect world this would be just the right way to do it but in reality there is no one who can create a requirements specification so detailed and without conflicts in requirements that it could be used as it is in the actual development. And even if it could be made there is no human who could interpret it fully and create a reliable estimate. There is a name for this kind of perfect requirements specification without discrepancies which can be interpreted always the same way: a computer program.
+
+ So the vendors are given a lacking requirements specification which is full of discrepancies and they are expected to give work estimates based on those requirements and then commit to those estimates. Sounds like a bad deal, huh? The situation is made worse by competition which forces the estimates unnaturally low thus ending with unrealistic estimates which will end up hurting both the vendor and the client.
+
+ And if we are truly honest this whole requirements spefication made beforehand sounds awfully lot like waterfall model. And we all know it is a bad choice.
+
+ ## Well wiseguy, what's the better way then?
+
+ 
