@@ -2,13 +2,13 @@
 layout: post
 title: Writing Compact Java: working with functions and data
 author: pvto
-excerpt: Rethinking stylistic issues could help us in dealing with complex problems, while computation, after all, is not all about ownership.
+excerpt: Rethinking stylistic issues could help us in dealing with complex problems, while computation, after all, is not all about ownership of things.
 ---
 
 
 In this post I reiterate some well-known things to shorten [Java](http://www.oracle.com/technetwork/java/index.html) source code and to make it more readable.
 
-Motivation for this is an observation that style is fun.  Rethinking stylistic issues could also help in dealing with complex problems.  This is to provide for the future.  And computation, after all, is not all about ownership.
+Motivation for this is an observation that style is fun.  Rethinking stylistic issues could help in dealing with complex problems.  This is to provide for the future, while computation, after all, is not all about ownership of things.
 
 
 ##Index is structure
