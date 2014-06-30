@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Writing Compact Java: working with functions and data
+title: Writing Compact Java with functions and data
 author: pvto
 excerpt: Rethinking stylistic issues could help us in dealing with complex problems. Computation is not all about ownership.
 ---
@@ -29,6 +29,7 @@ Creating complex structures, maps, or lists of objects, may be verbose or semi-f
     }
 {% endhighlight %}
 
+I have restricted the hard-to-read part of code to minimum, giving reader possibility to focus on the data and its internal relations.  This will be useful especially when the amount of structural data within the program increases.
 
 ##Instance initialisers
 
@@ -73,7 +74,7 @@ Getters may be required by frameworks like EJB and Spring, but otherwise they ar
         int how = 1, why = 2;
         List<Node> children;
     }
-    static class Node0 extends Node {{how = 0;}}
+    static class Node0 extends Node { {how = 0; } }
 {% endhighlight %}
 
 In the above example we have a class that is used, say, in a traversable tree structure.  The *Node0* subclass then is static and therefore there is no extra complexity in its construction or garbage collection.
@@ -87,8 +88,7 @@ If our object is constructed infrequently, we could use a dynamic subclass, alon
 
 {% highlight java %}
     final int myValue = 1;
-    Node dyn = new Node(){{how = myValue;}}
-    // . . .  
+    Node dyn = new Node(){ {how = myValue;} }
 {% endhighlight %}
 
 
@@ -103,7 +103,9 @@ Here are two examples in Java (a bad and a good one).
     class NaughtyComputer {
         int age;
         static int sumAge(List<NaughtyComputer> list) {
-            int sum = 0;            for { . . . }            return sum;
+            int sum = 0;            
+            for { . . . }            
+            return sum;
         }
     }
 {% endhighlight %}
@@ -112,12 +114,10 @@ Here are two examples in Java (a bad and a good one).
     class DeNaughtifiedComputer {
         int age;
     }
-    static List<Integer> extractAge(List<DeNaughtifiedComputer> list) { 
-        List<Integer> list = new ArrayList<>(list.size());
-        for { . . . }
-        return list;
+    static Iterable<Integer> extractAge(Iterable<DeNaughtifiedComputer> list) { 
+        . . .
     }
-    static int sum(List<Integer> list) { . . . }
+    static int sum(Iterable<Integer> list) { . . . }
 
 {% endhighlight %}
 
