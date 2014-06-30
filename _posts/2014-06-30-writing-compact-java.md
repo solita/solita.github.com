@@ -23,7 +23,7 @@ Creating complex structures, maps, or lists of objects, may be verbose or semi-f
         2, "y", 4
         3, "z", 5
     };
-    for(int i = 0; i &lt; template.length(); ) {
+    for(int i = 0; i < template.length(); ) {
         list.add(new MyThing((int)templ[i++], 
             new NameEntity((String)templ[i++]), (int)templ[i++])));
     }
@@ -71,7 +71,7 @@ Getters may be required by frameworks like EJB and Spring, but otherwise they ar
 {% highlight java %}
     class Node {
         int how = 1, why = 2;
-        List&lt;Node&gt; children;
+        List<Node> children;
     }
     static class Node0 extends Node {{how = 0;}}
 {% endhighlight %}
@@ -102,7 +102,7 @@ Here are two examples in Java (a bad and a good one).
 {% highlight java %}
     class NaughtyComputer {
         int age;
-        static int sumAge(List&lt;NaughtyComputer&gt; list) {
+        static int sumAge(List<NaughtyComputer> list) {
             int sum = 0;            for { . . . }            return sum;
         }
     }
@@ -112,12 +112,12 @@ Here are two examples in Java (a bad and a good one).
     class DeNaughtifiedComputer {
         int age;
     }
-    static List&lt;Integer&gt; extractAge(List&lt;DeNaughtifiedComputer&gt; list) { 
-        List&lt;Integer&gt; list = new ArrayList&lt;&gt;(list.size());
+    static List<Integer> extractAge(List<DeNaughtifiedComputer> list) { 
+        List<Integer> list = new ArrayList<>(list.size());
         for { . . . }
         return list;
     }
-    static int sum(List&lt;Integer&gt; list) { . . . }
+    static int sum(List<Integer> list) { . . . }
 
 {% endhighlight %}
 
