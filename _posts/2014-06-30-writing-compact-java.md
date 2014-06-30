@@ -55,7 +55,7 @@ A [block](http://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.2)
     }
 {% endhighlight %}
 
-Those statements within a { } block are executed while an InIn is constructed, after the instantiation of the preceding list and before any constructor-methods.  Notice how from reading this piece of code it is obvious what MyThing is parameterised with. The reader/maintainer does not have to remember a constructor signature to intuitively understand what happens, and we avoided creating two non-default constructors, those of InIn and MyThing.
+Statements within the { } block are executed while an InIn is constructed, after the instantiation of the preceding list and before any constructor-methods.  Notice how from reading this piece of code it is obvious what MyThing is parameterised with. The reader/maintainer does not have to remember a constructor signature to intuitively understand what happens, and we avoided creating two non-default constructors, those of InIn and MyThing.
 
 Such an instance initialiser block does look a bit lonely, but then it could alleviate us from extensive [constructor overloading](http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.8.8) or other contagious aesthetic maladies.  This I'll cover with another example later on.
 
@@ -64,7 +64,7 @@ However this pattern may lead to code deterioration in certain cases; keep in mi
 ![Scissors](/img/scissors.png)
 ##Remove unnecessary getters
 
-Getters may be required by frameworks like EJB and Spring, but otherwise they are seldom necessary.  Especially getter-less data classes are more conscise and more beautiful than getter-ified ones.
+Getters may be required by frameworks like EJB and Spring, but otherwise they are seldom necessary.  Especially getter-less data classes are more concise and more beautiful than getter-ified ones.
 
 ##Template data classing
 
@@ -83,7 +83,7 @@ The field *how*, however, would be set twice, first to *1* and then to *0*.  Imp
 
 ##... with a dynamic subclass (double brace initialisation)
 
-If our object is construed infrequently, we could use a dynamic subclass, along with a [double brace initialisation pattern](http://www.ayp-sd.blogspot.fi/2012/12/double-brace-initialization-in-java.html) which is somewhat infamous.  Beware of any implicit references that would prevent garbage collection of such an object, so mix this with builders or other inner classes only if you understand everything.
+If our object is constructed infrequently, we could use a dynamic subclass, along with a [double brace initialisation pattern](http://www.ayp-sd.blogspot.fi/2012/12/double-brace-initialization-in-java.html) which is somewhat infamous.  Beware of any implicit references that would prevent garbage collection of such an object, so mix this with builders or other inner classes only if you understand everything.
 
 {% highlight java %}
     final int myValue = 1;
