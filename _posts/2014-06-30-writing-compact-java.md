@@ -158,10 +158,11 @@ If you *absolutely* need to implement complex stateful behaviour that references
     }
     // . . .
     new Thread(new Runnable() {  public void run() {
-        ComplexNode node;
+        ComplexNode node = ...;
         synchronized(node) {
             if (node.unsafe1 == 1) {
-                node.unsafe1 = 2;            node.unsafe2 = 3;
+                node.unsafe1 = 2;            
+                node.unsafe2 = 3;
             }
         }
     }});
