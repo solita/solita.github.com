@@ -23,7 +23,7 @@ Creating complex structures, maps, or lists of objects, may be verbose or semi-f
         2, "y", 4
         3, "z", 5
     };
-    for(int i = 0; i < template.length(); ) {
+    for(int i = 0; i < templ.length(); ) {
         list.add(new MyThing((int)templ[i++], 
             new NameEntity((String)templ[i++]), (int)templ[i++])));
     }
