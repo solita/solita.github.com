@@ -73,7 +73,7 @@ As graphing goes, the relevant question is how to show a graph and pass minimal 
 
 Preprocessing an image on the server side may often be the right thing to do.  However many other situations favor the data itself.  There are d3js based frameworks for dynamic graphing that help make use of accumulated data ([1][ref4], [2][ref5], [3][ref3]).  [D3js](https://github.com/mbostock/d3/wiki) itself supports merging.
 
-And if the amount of data to pass is smaller than the amount of data that goes into the image, selection would favor client side graphing in that case, always.
+And if the amount of data to pass in bytes is smaller than that of the image, selection would favor client side graphing in that case, always.
 
 ![note](/img/note.png)
 
