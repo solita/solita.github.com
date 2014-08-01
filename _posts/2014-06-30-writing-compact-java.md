@@ -23,7 +23,7 @@ Creating complex structures, maps, or lists of objects, may be verbose or semi-f
         2, "y", 4
         3, "z", 5
     };
-    for(int i = 0; i < template.length(); ) {
+    for(int i = 0; i < templ.length(); ) {
         list.add(new MyThing((int)templ[i++], 
             new NameEntity((String)templ[i++]), (int)templ[i++])));
     }
@@ -158,10 +158,11 @@ If you *absolutely* need to implement complex stateful behaviour that references
     }
     // . . .
     new Thread(new Runnable() {  public void run() {
-        ComplexNode node;
+        ComplexNode node = ...;
         synchronized(node) {
             if (node.unsafe1 == 1) {
-                node.unsafe1 = 2;            node.unsafe2 = 3;
+                node.unsafe1 = 2;            
+                node.unsafe2 = 3;
             }
         }
     }});
