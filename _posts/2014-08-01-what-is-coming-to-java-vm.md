@@ -5,9 +5,12 @@ author: orfjackal
 excerpt: There are a bunch of improvements that are currently being investigated for the Java VM and language. Most of them won't make it into Java 9, but maybe a couple of years later we can enjoy them.
 ---
 
-Though people are still migrating to Java 8, there are already many new developments for future Java versions. One of them is [Project Valhalla](http://mail.openjdk.java.net/pipermail/valhalla-dev/2014-July/000000.html), which is an incubation ground for a bunch of interesting improvements to both the Java VM and language, such as Value Types and Generics Specialization. This article lists some features that you can expect to be added into Java in a few years.
+Though people are still migrating to Java 8, there are already many new developments for future Java versions. Especially keep an eye out for the vikings in [Project Valhalla](http://mail.openjdk.java.net/pipermail/valhalla-dev/2014-July/000000.html) who are experimenting with a bunch of interesting improvements to both the Java VM and language, such as Value Types and Generics Specialization.
 
-Let's start with some smaller updates that will probably make it into Java 9, and then move on to the bigger changes which may come later.
+This article lists some features that you can expect to be added into Java in a few years. Let's start with some smaller updates that will probably make it into Java 9, and then move on to the bigger changes which may come later.
+
+
+![](/img/what-is-coming-to-java-vm/memory.jpg =300x)
 
 
 ## Java Memory Model Update ([JEP 188](http://openjdk.java.net/jeps/188))
@@ -35,9 +38,12 @@ The article [All Fields Are Final](http://shipilev.net/blog/2014/all-fields-are-
 P.S. If you read the previous articles or [other articles](http://shipilev.net/) on the same site, you might have noticed some handy new tools for benchmarking and analyzing performance: [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and [JOL](http://openjdk.java.net/projects/code-tools/jol/).
 
 
-### Enhanced Volatiles ([JEP 193](http://openjdk.java.net/jeps/193))
+![](/img/what-is-coming-to-java-vm/vikings.jpg =300x)
 
-This aims to give `volatile` fields the same operations as `AtomicInteger` et al. by adding some new syntax to the Java language. This will help to avoid the overhead of the atomic wrapper classes, while being safer and easier than using the `Unsafe` class for those operations.
+
+## Enhanced Volatiles ([JEP 193](http://openjdk.java.net/jeps/193))
+
+Related to the JMM, though part of Project Valhalla, this proposal aims to give `volatile` fields the same operations as `AtomicInteger` et al. by adding some new syntax to the Java language. This will help to avoid the overhead of the atomic wrapper classes, while being safer and easier than using the `Unsafe` class for those operations.
 
 
 ## Value Types ([JEP 169](http://openjdk.java.net/jeps/169))
@@ -63,6 +69,10 @@ This will nicely complement the value types proposal.
 Currently Java's arrays are limited to the size of `int`, multi-dimensional arrays are implemented as nested one-dimensional arrays (which harms cache locality), they cannot be resized, their elements cannot be `volatile` etc.
 
 There is a [proposal for improved Java arrays](http://cr.openjdk.java.net/~jrose/pres/201207-Arrays-2.pdf) that would allow developers to create custom array types. For example it would be possible to customize the width and number of indexes (e.g. `array[i,j,k]`), even the *type* of index (making it more like a `Map`). Basically the proposal suggests that custom collections can be used with the same syntax as arrays. Even at the bytecode level, array specific instructions (`arraylength`, `aaload`, `iastore` etc.) will be interpreted as normal `invokevirtual` calls.
+
+
+![](/img/what-is-coming-to-java-vm/panama.jpg =400x)  
+[<small>Panama Canal by Roger Wollstadt</small>](http://www.flickr.com/photos/24736216@N07/3166075815/)
 
 
 ## Foreign Function Interface ([JEP 191](http://openjdk.java.net/jeps/191))
