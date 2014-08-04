@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Infographs with d3.js
+title: Why infographs have an edge?
 author: pvto
 excerpt: I explain 3+1 aspects that make interactive infographs superior to traditional document based reporting.
 ---
@@ -24,7 +24,7 @@ The implications of a set of data are painful to grasp from any textual represen
 
 ![Big data oh the probs](img/infographs-with-d3js/big-data-oh-the-problems.jpg)  
 
-Now when looking at a graph we employ our visual faculties, which incorporate sophisticated heuristics to extract information from the world.  Visual understanding may operate on a horizontal level, too.  A visual impression within the visual memory will help memory to hold.
+Now when looking at a graph we employ our visual faculties with their sophisticated heuristics to extract information from the world.  Visual understanding may operate on a horizontal level, too.  A visual impression within the visual memory will help memory to hold.
 
 ![bars info](img/infographs-with-d3js/bars-info.png)
 
@@ -49,7 +49,7 @@ There may be a tradeoff however between graph interaction time and time spent re
 
 ### 2. Memorisation
 
-View time is a commonly measured web user statistic.  Researchers ([1][ref1] [2][ref2]) suggest that time of exposure is related to the degree of correctness of memories, as well as to ability to recall specific memories after periods of time.
+View time is a commonly measured web user statistic.  Researchers ([1][ref1], [2][ref2]) suggest that time of exposure is related to the degree of correctness of memories, as well as to the ability to recall specific memories after different periods of time.
 
 ![exposure-focus](img/infographs-with-d3js/RF.png)
 
@@ -59,7 +59,7 @@ We find [suggestions](http://www.ted.com/talks/alison_gopnik_what_do_babies_thin
 
 [Hypothesis-formation](http://en.wikipedia.org/wiki/Scientific_method#Hypothesis_development) operates by [query](http://en.wikipedia.org/wiki/Query_(complexity)), and to do, we need a view on the target domain.  That an interactive graph provides.
 
-Representational ethics dictates that the one representing should inform their reader of any shortages and discrepancies of data in question.
+Representational ethics dictates that the one representing should inform their reader of any shortages and discrepancies of the data in question.
 
 ![bar noise](img/infographs-with-d3js/bar-noise.png)
 
@@ -67,17 +67,17 @@ Representational ethics dictates that the one representing should inform their r
 
 From the [engineer](http://en.wikipedia.org/wiki/Engineer)'s perspective, latency may not be all, but low latencies and short wait times are actually indispensable.
 
-As graphing goes, the relevant question is how to show a graph and pass minimal data over the connection so that the reader still get the information they need.
+As graphing goes, the relevant question is how to show a graph and pass minimal data over the connection so that the reader still gets the information they need.
 
 ![arrows right](img/infographs-with-d3js/arrows-flow.png)
 
-Preprocessing an image on the server side may often be the right thing to do.  However many other situations favor the data itself.  There are d3js based frameworks for dynamic graphing that help make use of accumulated data ([1][ref4], [2][ref5], [3][ref3]).  [D3js](https://github.com/mbostock/d3/wiki) itself supports merging.
+Preprocessing an image on the server side may often be the right thing to do.  Nevertheless if the amount of data to pass is smaller in bytes than that of the generated image, selection would favor client side graphing without exception.
 
-And if the amount of data to pass in bytes is smaller than that of the image, selection would favor client side graphing in that case, always.
+Where online graphing is needed, there are d3js based frameworks available that help make use of accumalating online data ([1][ref4], [2][ref5], [3][ref3]).  [D3js](https://github.com/mbostock/d3/wiki) itself supports merging.
 
 ![note](/img/note.png)
 
-All this has probably been a change for the better, more solid, both in terms of reinforced information sharing from the human perspective and of reduced data transfer from the technical perspective.
+The shift from static to dynamic graphing has been a change for the better and more solid, both in terms of reinforced information sharing from the human perspective and of reduced data transfer from the technical perspective.  What do you think?
 
 We do these things at [Solita](http://www.solita.fi/).
 
