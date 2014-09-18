@@ -14,7 +14,7 @@ Enter [Bower](http://bower.io), the client-side package manager. Bower is instal
 
 **npm install -g bower**
 
-Bower works in ways familiar to users of npm. Dependencies are listed in a json file and installed to a project subdirectory (bower_components). Bower commands are also familiar to npm users: **init, install, update** etc.
+Bower works in a way familiar to npm users. Dependencies are listed in a json file and installed to a project subdirectory (bower_components). Bower commands are also familiar to npm users: **init, install, update** etc.
 
 Bower has a central registry that contains most common client side libraries and frameworks. It can also be used without publishing your code to the registry, here's how.
 
@@ -54,7 +54,7 @@ File system references don't allow you to specify a version. In this mode Bower 
 }
 ```
 
-When pulling packages from a git repository Bower uses git tags (e.g. 1.0.0, 1.0.1) to determine the specified version for a dependency. This offers nice fine-grained control if projects use different versions of your component. The git repository can be local or remote, e.g. GitHub. A git repository reference for show:
+When pulling packages from a git repository Bower uses git tags (e.g. 1.0.0, 1.0.1) to determine the specified version for a dependency. This offers nice fine-grained control if projects use different versions of your component. The git repository can be local or remote, e.g. GitHub. Here's a git repository reference:
 
 ```javascript
 {
@@ -67,7 +67,7 @@ When pulling packages from a git repository Bower uses git tags (e.g. 1.0.0, 1.0
 ```
 
 ## Bundleweed magic
-Browserify allows you to require() files. It then creates a bundle based on the abstract syntax tree using magic.
+Browserify allows you to require() files. It then creates a bundle based on abstract syntax tree magic.
 
 ![Browserify](/img/sharing-client-side-components-with-bower/wizard.jpg)
 *Image by [TheGiantVermin](http://www.flickr.com/photos/tudor/9201416844/)*
