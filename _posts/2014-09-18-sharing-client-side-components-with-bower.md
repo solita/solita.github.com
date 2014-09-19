@@ -74,4 +74,6 @@ Browserify allows you to require() files. It then creates a bundle based on abst
 
 **Browserify transforms** process source code before parsing it for require() calls. A useful transform is [debowerify](https://github.com/eugeneware/debowerify) which uses the _main_ property in bower.json files to determine the correct file to be included in the bundle. This allows us to simply write ```require('map');``` in our app. Awsumap's dependency on Leaflet is handled correctly by Browserify and debowerify.
 
+The Bower/Browserify combo offers a nice way to manage both internal and external dependencies in a modern JavaScript build.
+
 [An example app](https://github.com/mprencipe/somemapapp) can be found on GitHub.
