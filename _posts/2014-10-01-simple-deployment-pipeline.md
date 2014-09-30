@@ -2,10 +2,10 @@
 layout: post
 title: Simple Deployment Pipeline
 author: lokori
-excerpt: It is possible to create a professional deployment pipeline and do continuous delivery with few simple tools. When you remove the hype, CD and DevOps are not magic. I will present a real example from our project to show what can be achieved with a minimal effort by normal developers. Quite a lot actually.
+excerpt: It is possible to create a professional deployment pipeline and do Continuous Delivery (CD) with few simple tools. When you remove the hype, CD and DevOps are not magic. I will present a real example from our project to show what can be achieved with a minimal effort by ordinary developers. Quite a lot actually.
 ---
 
-This article shows how we created a simple deployment pipeline using open source components, but this is not a detailed tutorial. Obviously you must first do Continuous Integration to enable DevOps and [Continuous Delivery](http://en.wikipedia.org/wiki/Continuous_delivery), but then what? What is between [the elite](http://codeascraft.com/) and a simple CI arrangement? Here's one answer.
+This article shows how we created a simple deployment pipeline using open source components. Obviously you must first do Continuous Integration (CI) to enable DevOps and [Continuous Delivery](http://en.wikipedia.org/wiki/Continuous_delivery), but then what? What is between [the elite CD practices](http://codeascraft.com/) and a plain CI arrangement? Here's one answer.
 
 ## The first rule of DevOps is you don't talk about 'DevOps'
 
@@ -14,13 +14,13 @@ It is good to remember that [DevOps is about culture, not tools](http://www.acti
 ## We are not Twitter. Neither are you. 
 
 Some of the "best practice" references come from famous product shops, such as Twitter, Etsy, Google and Facebook. Their context is very different from
-average project team's context. Most of the software teams are not running hundreds of servers with dozens of applications. My context is basically
-handling few applications, one team and perhaps a dozen servers or so. Still, I prefer that installations are automated and servers do not break arbitrarily
+average project team's context. Most of the software teams are not running hundreds of servers with dozens of applications. Our context is basically
+handling a couple applications, one team and perhaps a dozen servers or so. Still, I prefer that installations are automated and servers do not break arbitrarily
 because of human errors.
 
 ## [Shipping is a feature!](http://www.joelonsoftware.com/items/2009/09/23.html)
 
-Let's separate the concerns of this fundamental feature. Let's stick with the basics:
+As Joel Spolsky succintly put it, Shipping is indeed a important feature. Let's separate the concerns of this fundamental feature. The basic problems are these:
 
 * how to use version control to manage changes in source code (branching model/process)
 * building the package (compilation and dependency management)
@@ -28,7 +28,7 @@ Let's separate the concerns of this fundamental feature. Let's stick with the ba
 * storing and distributing installation packages 
 * running automated test suites
 * configuring the environment
-* deploying software
+* deploying the software
 * monitoring
 
 There are a number of companies and products who promise to take care of most or all of these problems. Easy and quick is a tempting proposal, but is it a *enabling platform* or a *framework solution*? What happens if you need to go beyond the planned roadmap? With frameworks, Pain happens. 
