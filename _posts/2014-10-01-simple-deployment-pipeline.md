@@ -5,7 +5,7 @@ author: lokori
 excerpt: It is possible to create a professional deployment pipeline and do continuous delivery with few simple tools. When you remove the hype, CD and DevOps are not magic. I will present a real example from our project to show what can be achieved with a minimal effort by normal developers. Quite a lot actually.
 ---
 
-This artice shows how we created a simple deployment pipeline using open source components, but is not a detailed tutorial. Obviously you must first do Continuous Integration to enable DevOps and [Continuous Delivery](http://en.wikipedia.org/wiki/Continuous_delivery), but then what? What is between [the elite](http://codeascraft.com/) and simple CI? That will be shown.
+This article shows how we created a simple deployment pipeline using open source components, but this is not a detailed tutorial. Obviously you must first do Continuous Integration to enable DevOps and [Continuous Delivery](http://en.wikipedia.org/wiki/Continuous_delivery), but then what? What is between [the elite](http://codeascraft.com/) and a simple CI arrangement? Here's one answer.
 
 ## The first rule of DevOps is you don't talk about 'DevOps'
 
@@ -20,9 +20,9 @@ because of human errors.
 
 ## [Shipping is a feature!](http://www.joelonsoftware.com/items/2009/09/23.html)
 
-Let's separate the concerns of this fundamental feature. We need to decide about many basic things:
+Let's separate the concerns of this fundamental feature. Let's stick with the basics:
 
-* how to use version control to manage changes in source code
+* how to use version control to manage changes in source code (branching model/process)
 * building the package (compilation and dependency management)
 * tagging the installation package with version number
 * storing and distributing installation packages 
@@ -47,12 +47,11 @@ Here's how our delivery pipeline looks like in Jenkins.
 
 ![Delivery pipeline in action...](/img/simple-cd/aipal-pipeline.png)
 
-2. As suggested by [The Book](http://www.amazon.com/dp/0321601912) we have separate [git](http://git-scm.com/) repositories for appplication source code, data and server configurations. [Our source code](https://github.com/Opetushallitus/aitu) is public, but data is not. [Multi SCM plugin](https://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin) was needed to make multi repository checkouts work properly. 
-
+2. As suggested by [The Book](http://www.amazon.com/dp/0321601912) we have separate [git](http://git-scm.com/) repositories for appplication source code, data and server configurations. [Our source code](https://github.com/Opetushallitus/aitu) is public, but data is not. Checkouts from multiple repositories didn't work properly without the [Multiple SCMs plugin](https://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin). 
 
 ### Build promotion
 
-Here's our pipeline start. Jenkins doesn't know it, but the script creates version numbers for our binaries to enable proper build promotion. Our version numbers are not Maven component versions, but simply Git hashes. It could be simpler, but the version number has additional use which is beoynd the scope of this article.
+Here's our pipeline start. Jenkins doesn't know it, but the script creates version numbers for our binaries to enable proper build promotion. Our version numbers are not Maven component versions, but simply Git hashes. We combine Jenkins build number and current date with a git hash, but reasons for this are outside the scope of this article.
 
 ![Jenkins isolated](/img/simple-cd/jenkins-job.png)
 
@@ -60,12 +59,11 @@ For simplicity, Jenkins also hosts the packages. This solution is not ideal for 
 
 ### After packaging
 
-1. Jenkins runs automated test suites. For fast failure the test suites are separated to multiple Jenkins jobs which run in a sequence. 
+1. Jenkins runs automated test suites. For fast failure the test suites are separated to multiple Jenkins jobs which run in a sequence.
 
-2. Environment configuration is handled with [Ansible](http://www.ansible.com/home). Jenkins polls git repository and asks Ansible to do things. Cloud provisioning happens with a few shell commands.
+2. Environment configuration is handled with [Ansible](http://www.ansible.com/home). Jenkins polls our git repository and asks Ansible to do things. Cloud provisioning happens with a few shell commands.
 
-3. Deployment happens with Ansible. Again, Jenkins is used to call Ansible whenever necessary. Only packages which have passed the test suites
-can be deployed. 
+3. Ansible deploys the packaged software. Jenkins calls Ansible whenever necessary, but Ansible handles the actual deployment process. Only packages which have passed the test suites can be deployed.
 
 ### Poor man's monitoring
 
@@ -101,6 +99,7 @@ I do not know how our pipeline evolves, but we are using a small subset of Jenki
 * support for build promotion. 
 * plugins/API for provisioning with Ansible or other tools. 
 * better support for radiators. Provide sane templates for radiators out-of-the box.
+* installable. SaaS clouds ([CircleCI](https://circleci.com/) and others) are great for some teams, but for us this requirement is absolute.
 
 ## Getting things done
 
