@@ -31,14 +31,14 @@ Let's separate the concerns of this fundamental feature. We need to decide about
 * deploying software
 * monitoring
 
-There are a number of companies and products who promise to take care of most or all of these problems. Easy and quick is a tempting proposal, but is it an *enabling solution* or a *framework solution*? What happens if you need to go beyond the planned roadmap? With frameworks, Pain happens.
+There are a number of companies and products who promise to take care of most or all of these problems. Easy and quick is a tempting proposal, but is it a *enabling platform* or a *framework solution*? What happens if you need to go beyond the planned roadmap? With frameworks, Pain happens. 
 
 You shouldn't take for granted anything said about the "optimal" tool or solution. The context of the project defines what is appropriate and valuable.
 
-## A simple solution
+## Jenkins is a hammer
 
 Our solution provides automated configuration management, automated deployments and build promotion. Our only special "DevOps tool" is currently 
-[Ansible](http://www.ansible.com/home). Here's how it works.
+[Ansible](http://www.ansible.com/home). Jenkins is our hammer. 
 
 1. [Jenkins](http://jenkins-ci.org/) is used as a nice `cron` UI and dependency orchestrator. It glues together the steps of the deployment pipeline, but doesn't really know that it's even building a software package or doing any deployment. We use freestyle project + shell commands instead of Jenkins "Maven project". 
 [Build pipeline plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin) allows visualization of the pipeline and dependency graph shows the trigger paths. 
@@ -47,12 +47,12 @@ Here's how our delivery pipeline looks like in Jenkins.
 
 ![Delivery pipeline in action...](/img/simple-cd/aipal-pipeline.png)
 
-2. As suggested by [The Book](http://www.amazon.com/dp/0321601912) we have separate [git](http://git-scm.com/) repositories for appplication source code, data and server configurations. [Our source code](https://github.com/Opetushallitus/aitu) is public, but data is not. [Multi SCM plugin](https://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin) is needed to make multi repository checkouts work properly. 
+2. As suggested by [The Book](http://www.amazon.com/dp/0321601912) we have separate [git](http://git-scm.com/) repositories for appplication source code, data and server configurations. [Our source code](https://github.com/Opetushallitus/aitu) is public, but data is not. [Multi SCM plugin](https://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin) was needed to make multi repository checkouts work properly. 
 
 
 ### Build promotion
 
-Here's our pipeline start. Jenkins doesn't know it, but the script creates version numbers for our binaries to enable proper build promotion. Our version numbers are not Maven component versions, but simply Git hashes. It could be simpler but the version number has additional use which is beoynd the scope of this article.
+Here's our pipeline start. Jenkins doesn't know it, but the script creates version numbers for our binaries to enable proper build promotion. Our version numbers are not Maven component versions, but simply Git hashes. It could be simpler, but the version number has additional use which is beoynd the scope of this article.
 
 ![Jenkins isolated](/img/simple-cd/jenkins-job.png)
 
@@ -85,15 +85,24 @@ echo "FAILED"
 exit 1
 {% endhighlight %}
 
-## Do you want to know more?
+## I want a cordless screwdriver
+
+Jenkins is our hammer and shell scripts are nails, but I don't actually want a hammer. 
 
 ![Future awaits...](/img/simple-cd/future-grimlock.jpg)
 
 (Photo from the mighty and most awesome [FAKEGRIMLOCK](http://fakegrimlock.com/))
 
-I do not know how our pipeline evolves, but we are using a small subset of Jenkins features currently. In this manner, Jenkins has become our *enabling platform* for continuous delivery. It wasn't designed to be that and I believe a better replacement will soon emerge.
+I do not know how our pipeline evolves, but we are using a small subset of Jenkins features currently. Used in this manner, Jenkins has become our *enabling platform* for continuous delivery. It wasn't designed to be that and I believe a better replacement will soon emerge. The replacement should have these qualities:
 
-Meanwhile, the strenght of this solution is that there is nothing really complicated about it. One doesn't need special tools and skills to maintain it. There are other projects in Solita with zero downtime deployments, SMS alarms and other Etsy-style blingbling practices, but they operate in a different context. DevOps blingbling has a price tag - more tools, more complexity, more maintenance work. Seek the sweet spot which maximizes the value in your context and go there.
+* better implementation of security and access control. 
+* pipeline view, multi SCM, parallel jobs available as default.
+* jobs and configuration as code. Jenkins stores them in XML files. This makes automated configuration and provisioning of Jenkins difficult.
+* support for build promotion. 
+* plugins/API for provisioning with Ansible or other tools. 
+* better support for radiators. Provide sane templates for radiators out-of-the box.
 
+## Getting things done
 
+The strength of this solution is that there is nothing really complicated about it. One doesn't need special tools and skills to maintain it. Understanding basic linux administration does not count as a special skill in my opinion. There are other projects in Solita with zero downtime deployments, SMS alarms and other Etsy-style blingbling practices, but they operate in a different context. The bells and whistles have a price tag - more tools, more complexity, more maintenance work. Seek the sweet spot which maximizes the value in your context and go there.
 
