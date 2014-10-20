@@ -36,7 +36,7 @@ An easy way to configure the necessary Maven plugins for producing those artifac
 
 ### Deployment Configuration ###
 
-With Maven you can use the [Nexus Staging Maven Plugin](http://books.sonatype.com/nexus-book/reference/staging-sect-deployment.html). The deployment works so that (1) the build artifacts are uploaded to OSSRH's Nexus into a temporary staging repository, (2) the staging repository is closed for modifications, and finally (3) the staging repository is either dropped or released into the Central Repository. At step 2 the artifacts are available under a temporary URL to allow integration testing it.
+[To deploy with Maven](http://central.sonatype.org/pages/apache-maven.html) you can use the [Nexus Staging Maven Plugin](http://books.sonatype.com/nexus-book/reference/staging-sect-deployment.html). The deployment works so that (1) the build artifacts are uploaded to OSSRH's Nexus into a temporary staging repository, (2) the staging repository is closed for modifications, and finally (3) the staging repository is either dropped or released into the Central Repository. At step 2 the artifacts are available under a temporary URL to allow integration testing it.
 
 You will need to store your Sonatype username and password (the same ones as when logging into the Sonatype JIRA) in Maven's user-specific `~/.m2/settings.xml` file, under the `<servers>` element.
 
@@ -84,8 +84,8 @@ When everything is configured as shown above, releasing a new version happens li
 1. [Set the release version number](http://mojo.codehaus.org/versions-maven-plugin/set-mojo.html)
 2. `mvn clean deploy -P sonatype-oss-release`
 3. Login to <https://oss.sonatype.org>
-4. Select the new staging repository under Staging Repositories
-5. Click the Release button to release it
+4. Select your just created staging repository under Staging Repositories
+5. [Click the Release button to release it](http://central.sonatype.org/pages/releasing-the-deployment.html)
 
 The artifacts will be immediately available under <https://oss.sonatype.org/content/groups/public/> and in a couple of hours it will be synced into the Central Repository (assuming you have done the one-time setup of commenting on the JIRA ticket on your first release).
 
