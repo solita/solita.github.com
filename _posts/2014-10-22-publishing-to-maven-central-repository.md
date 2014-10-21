@@ -2,23 +2,23 @@
 layout: post
 title: Publishing to Maven Central Repository
 author: orfjackal
-excerpt: The Central Repository is the de facto place for publishing JVM-based open source libraries. Publishing your own libraries there is not hard and it'll make the life of all your users easier.
+excerpt: The Central Repository is the de facto place for publishing JVM-based open source libraries. Publishing your own libraries there is not hard and it will benefit your users.
 ---
 
-One of the core contributions of the Maven ecosystem is the [Central Repository](http://central.sonatype.org/) which is the de facto place for publishing JVM-based libraries. It lets you just say in your project file that which version of a library your project depends on, and then all the tools will automatically find it for you. It's easy to [check for new versions](http://mojo.codehaus.org/versions-maven-plugin/) of your dependencies and maybe your IDE even provides [code completion](https://www.jetbrains.com/idea/features/build_tools.html) for the dependency IDs and versions.
+One of the core contributions of the Maven ecosystem is the [Central Repository](http://central.sonatype.org/) which is the de facto place for publishing JVM-based libraries. It lets you declare in a project file those library versions you depend on, and then all the tools will automatically find them for you. It's easy to [check for new versions](http://mojo.codehaus.org/versions-maven-plugin/) of your dependencies and maybe your IDE even provides [code completion](https://www.jetbrains.com/idea/features/build_tools.html) for dependency IDs and versions.
 
-The benefit of the Central Repository over other Maven repositories is that is has some minimum requirements to ensure [good quality artifacts](http://blog.sonatype.com/2010/01/nexus-oss-ecosystem/) and the confidence that it won't disappear in the future, unlike many other repositories which have disappeared in the past. Thankfully at least some of the biggest long-buried repositories have been migrated into the Central Repository, for example [Java.net](http://blog.sonatype.com/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/) and [Scala-tools.org](http://blog.sonatype.com/2012/02/scala-artifacts-now-on-central/), keeping the artifacts available and also [improving their meta data](http://blog.sonatype.com/2011/08/java-net-moves-to-central/).
+The benefits of the Central Repository over other Maven repositories are that it has some minimum requirements to ensure [good quality artifacts](http://blog.sonatype.com/2010/01/nexus-oss-ecosystem/), and the confidence that it won't disappear in the future, unlike many other repositories which have disappeared in the past. Thankfully some of the biggest long-buried repositories have been migrated into the Central Repository, for example [Java.net](http://blog.sonatype.com/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/) and [Scala-tools.org](http://blog.sonatype.com/2012/02/scala-artifacts-now-on-central/), keeping the artifacts available and also [improving their meta data](http://blog.sonatype.com/2011/08/java-net-moves-to-central/).
 
-Now if you have an open source library that you would like to publish to the Central Repository, how should you proceed? The [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) will tell you everything about using Sonatype's OSS Repository Hosting, but some have found the documentation hard to read, so I'm writing this article in hopes of explaining it more simply.
+Now if you have an open source library that you would like to publish to the Central Repository, how should you proceed? The [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) will tell you everything about using Sonatype's OSS Repository Hosting, but some have found its documentation hard to read, so I'm writing this article in hopes of explaining it more simply.
 
 
 ## One-Time Setup ##
 
-At first you will need to [register](http://central.sonatype.org/pages/ossrh-guide.html#initial-setup) at Sonatype's JIRA and create a ticket for claiming [your groupId](http://central.sonatype.org/pages/choosing-your-coordinates.html). If you own the domain `example.com`, just register the top-level groupId `com.example` and you can use any sub-groupIds for your projects (e.g. `com.example.foo` and `com.example.bar`) without needing a ticket for each of them.
+At first you will need to [register](http://central.sonatype.org/pages/ossrh-guide.html#initial-setup) at Sonatype's JIRA and create a ticket for claiming [your groupId](http://central.sonatype.org/pages/choosing-your-coordinates.html). If you own the domain `example.com`, just register the top-level groupId `com.example` and you can use any sub-groupIds for your projects without needing a ticket for each of them (e.g. `com.example.foo` and `com.example.bar`).
 
 You will need to wait for a human to respond to your ticket, because Sonatype wants to make sure that nobody will claim your domain or project address without your permission.
 
-After your first release is ready, you will need to go write a comment to the same JIRA ticket, so that Sonatype will do some final manual checks before activating syncing your groupId to the Central Repository.
+After your first release is ready, you will need to go write a comment to the same JIRA ticket, so that Sonatype will do some final manual checks before enabling the automatic syncing of your groupId to the Central Repository.
 
 
 ## Per-Project/User Setup ##
