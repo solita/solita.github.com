@@ -9,7 +9,7 @@ One of the core contributions of the Maven ecosystem is the [Central Repository]
 
 The benefits of the Central Repository over other Maven repositories are that it has some minimum requirements to ensure [good quality artifacts](http://blog.sonatype.com/2010/01/nexus-oss-ecosystem/), and the confidence that it won't disappear in the future, unlike many other repositories which have disappeared in the past. Thankfully some of the biggest long-buried repositories have been migrated into the Central Repository, for example [Java.net](http://blog.sonatype.com/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/) and [Scala-tools.org](http://blog.sonatype.com/2012/02/scala-artifacts-now-on-central/), keeping the artifacts available and also [improving their meta data](http://blog.sonatype.com/2011/08/java-net-moves-to-central/).
 
-Now if you have an open source library that you would like to publish to the Central Repository, how should you proceed? The [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) will tell you everything about using Sonatype's OSS Repository Hosting, but some have found its documentation hard to read, so I'm writing this article in hopes of explaining it more simply.
+Now if you have an open source library that you would like to publish to the Central Repository, how should you proceed? The [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) will tell you everything about using Sonatype's OSS Repository Hosting, but some have found its documentation hard to read, so I'm writing this article in hopes of explaining it more simply. This article gives an overview of what is needed - for more details follow the links to the official OSSRH documentation.
 
 
 ## One-Time Setup ##
@@ -36,9 +36,9 @@ An easy way to configure the necessary Maven plugins for producing those artifac
 
 ### Deployment Configuration ###
 
-[To deploy with Maven](http://central.sonatype.org/pages/apache-maven.html) you can use the [Nexus Staging Maven Plugin](http://books.sonatype.com/nexus-book/reference/staging-sect-deployment.html). The deployment works so that (1) the build artifacts are uploaded to OSSRH's Nexus into a temporary staging repository, (2) the staging repository is closed for modifications, and finally (3) the staging repository is either dropped or released into the Central Repository. At step 2 the artifacts are available under a temporary URL to allow integration testing it.
+[Deploying to OSSRH](http://central.sonatype.org/pages/ossrh-guide.html#deployment) can be done with all the major build tools. [To deploy with Maven](http://central.sonatype.org/pages/apache-maven.html) you can use the [Nexus Staging Maven Plugin](http://books.sonatype.com/nexus-book/reference/staging-sect-deployment.html). The deployment works so that (1) the build artifacts are uploaded to OSSRH's Nexus into a temporary staging repository, (2) the staging repository is closed for modifications, and finally (3) the staging repository is either dropped or released into the Central Repository. At step 2 the artifacts are available under a temporary URL to allow integration testing them.
 
-You will need to store your Sonatype username and password (the same ones as when logging into the Sonatype JIRA) in Maven's user-specific `~/.m2/settings.xml` file, under the `<servers>` element.
+You will need to store your Sonatype username and password (the ones for logging into the Sonatype JIRA) in Maven's user-specific `~/.m2/settings.xml` file, under the `<servers>` element.
 
 ```xml
 <servers>
@@ -74,7 +74,7 @@ The `<stagingProfileId>` in the above code sample is specific to your groupId an
 
 ![How to find your stagingProfileId](/img/publishing-to-maven-central-repository/staging-profile-id.png)
 
-The plugin will hook into Maven's `deploy` command and stage the artifacts automatically. Additionally it provides goals for releasing or dropping the staging repositories. To find out the Nexus plugin's available goals and parameters, use the `mvn nexus-staging:help` and `mvn nexus-staging:help -Ddetail=true -Dgoal=<goal-name>` commands.
+The plugin will hook into Maven's `deploy` command and stage the artifacts automatically. Additionally it provides goals for releasing or dropping the staging repositories, so that you can fully automate the release. To find out the Nexus plugin's available goals and parameters, use the `mvn nexus-staging:help` and `mvn nexus-staging:help -Ddetail=true -Dgoal=<goal-name>` commands.
 
 
 ## Per-Release Actions ##
@@ -103,17 +103,17 @@ mvn clean deploy \
     -P sonatype-oss-release \
     -DaltDeploymentRepository="staging::default::file:staging"
 
-# upload everything from the "staging" directory into Nexus staging repository
+# upload everything from the "staging" directory into a Nexus staging repository
 mvn nexus-staging:deploy-staged-repository \
     --errors \
     -DrepositoryDirectory=staging \
-    -DstagingDescription="$DESCRIPTION"
+    -DstagingDescription="any description of the release"
 
 # release the Nexus staging repository (reads repository ID from 'staging/*.properties' under altStagingDirectory, as generated by deploy-staged-repository)
 mvn nexus-staging:release \
     --errors \
     -DaltStagingDirectory=. \
-    -DstagingDescription="$DESCRIPTION"
+    -DstagingDescription="any description of the release"
 ```
 
 
