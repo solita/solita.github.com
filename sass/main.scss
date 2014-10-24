@@ -46,6 +46,15 @@ fieldset {
 }
 
 
+/* CUSTOM STYLES
+----------------------------------------------------------------------------- */
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* Sidebar */
 @import "partials/sidebar";
 
