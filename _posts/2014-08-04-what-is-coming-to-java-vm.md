@@ -10,7 +10,7 @@ Though people are still migrating to Java 8, there are already many new developm
 This article lists some features that you can expect to be added into Java in a few years. Let's start with some smaller updates that will probably make it into Java 9, and then move on to the bigger changes which may come later.
 
 
-![](/img/what-is-coming-to-java-vm/memory.jpg =300x)
+<img src="/img/what-is-coming-to-java-vm/memory.jpg" alt="" style="width: 300px;">
 
 
 ## Java Memory Model Update ([JEP 188](http://openjdk.java.net/jeps/188))
@@ -38,7 +38,7 @@ The article [All Fields Are Final](http://shipilev.net/blog/2014/all-fields-are-
 P.S. If you read the previous articles or [other articles](http://shipilev.net/) on the same site, you might have noticed some handy new tools for benchmarking and analyzing performance: [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and [JOL](http://openjdk.java.net/projects/code-tools/jol/).
 
 
-![](/img/what-is-coming-to-java-vm/vikings.jpg =300x)
+<img src="/img/what-is-coming-to-java-vm/vikings.jpg" alt="" style="width: 300px;">
 
 
 ## Enhanced Volatiles ([JEP 193](http://openjdk.java.net/jeps/193))
@@ -71,8 +71,10 @@ Currently Java's arrays are limited to the size of `int`, multi-dimensional arra
 There is a [proposal for improved Java arrays](http://cr.openjdk.java.net/~jrose/pres/201207-Arrays-2.pdf) that would allow developers to create custom array types. For example it would be possible to customize the width and number of indexes (e.g. `array[i,j,k]`), even the *type* of index (making it more like a `Map`). Basically the proposal suggests that custom collections can be used with the same syntax as arrays. Even at the bytecode level, array specific instructions (`arraylength`, `aaload`, `iastore` etc.) will be interpreted as normal `invokevirtual` calls.
 
 
-![](/img/what-is-coming-to-java-vm/panama.jpg =400x)  
-[<small>Panama Canal by Roger Wollstadt</small>](http://www.flickr.com/photos/24736216@N07/3166075815/)
+<div style="font-size: 70%;">
+<img src="/img/what-is-coming-to-java-vm/panama.jpg" alt="" style="width: 400px;">
+<br><a href="http://www.flickr.com/photos/24736216@N07/3166075815/">Panama Canal by Roger Wollstadt</a>
+</div>
 
 
 ## Foreign Function Interface ([JEP 191](http://openjdk.java.net/jeps/191))

@@ -71,7 +71,7 @@ Simple monitoring can be arranged with Jenkins, [wget](http://www.gnu.org/softwa
 
 To see that our demo environment is responding we use this simple script triggered with Jenkins cron. If the ping fails, Jenkins sends an email to the team and the ping job turns red on our information radiator.
 
-{% highlight bash %}
+```bash
 #!/bin/bash
 
 if wget -q --user=xx --password=yy "http://1.2.3.4/demo/" > /dev/null; then
@@ -81,7 +81,7 @@ fi
 
 echo "FAILED"
 exit 1
-{% endhighlight %}
+```
 
 ### Simple radiator setup
 

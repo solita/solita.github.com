@@ -33,9 +33,7 @@ A well-designed program makes it obvious how it fulfills its current requirement
 
 There are many ways to move from the requirements to a design. [Some only need a hammock](http://www.youtube.com/watch?v=f84n5oFoZBc). My preferred approach is usually called [Test-driven or Behavior-driven development](http://hadihariri.com/2012/04/11/what-bdd-has-taught-me/), but its spirit is best captured by the metaphor [Nat Pryce](https://twitter.com/natpryce) and [Steve Freeman](https://twitter.com/sf105) coined in their book: [Growing Object-Oriented Software, Guided by Tests](http://www.growing-object-oriented-software.com/). *Growing* implies a working software system that evolves incrementally instead of something that only becomes operational once built to a plan. *Guided* implies that tests are only a form of feedback, and coming up with a good design still requires experience, intuition, and knowledge of design principles and patterns.
 
-<div style="text-align: center" markdown="1">
 [![Growing Object-Oriented Software](/img/beyond-cargo-cult-software-design/goos.jpg)](http://www.growing-object-oriented-software.com/)
-</div>
 
 I'll demonstrate the TDD/BDD approach to software design with a minimal example. The specification is to write a browser-based "hello world" program with a twist. The program takes a person's name as input and prints a greeting. The greetings start out cold, but become friendlier as the program keeps "meeting" the person. The friendliness level is determined per person, so the program may be friendly towards "John" but still be rude towards anyone it hasn't met before. For the example I'll use Java, the Spring IoC container, the Spring MVC web framework, and the Mockito mocking framework, but the approach is applicable to any language. The finished example [can be found on Github](https://github.com/noidi/goosdemo).
 

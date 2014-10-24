@@ -55,9 +55,11 @@ Presumably there's always a good reason for every change made to a codebase. If 
 
 If you need to break the project's conventions, or if there's a subtle reason why your code must be the way it is, document the reason in the code with a comment:
 
-    -  xyzzy(bars);
-    +  // Our bars are already sorted, so bleh is much faster than xyzzy
-    +  bleh(bars);
+```diff
+-  xyzzy(bars);
++  // Our bars are already sorted, so bleh is much faster than xyzzy
++  bleh(bars);
+```
 
 If your code adheres to conventions and there are no subtleties to it, there's no need for inline documentation. It's still valuable to know why the new code is preferred over the old (especially if the change happens to introduce a new problem), so document the reason in the commit message:
 
