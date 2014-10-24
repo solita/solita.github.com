@@ -55,7 +55,7 @@ For OSX(/Linux), use the instructions below. If you have installed Xcode, you mi
 6. `gem install bundler`
 7. Run `bundle install` for depencies
 8. Make sure the installation succeeds
-9. Type in: `jekyll serve --watch`
+9. Type in: `bundle exec jekyll serve --watch`
 10. Open browser to: http://localhost:4000/
 
 Also seems to be working with Ruby 2.0.0p0/247
@@ -65,11 +65,10 @@ Also seems to be working with Ruby 2.0.0p0/247
 For development, you need Ruby and Jekyll. If you want to tweak the CSS, you need Compass. Also, if you want to make stuff easier, install foreman.
 
 1. Install Ruby (above)
-2. To install Jekyll, Compass and foreman, type into a command prompt or terminal:  
-`gem install jekyll compass foreman rdiscount`
-3. Make sure the install succeeds
-4. Go to your cloned copy of solita.github.com
-5. Type in: `foreman start`
+2. Go to your cloned copy of solita.github.com
+3. To install Jekyll, Compass and foreman, type into a command prompt or terminal: `bundle install`
+4. Make sure the install succeeds
+5. Type in: `bundle exec foreman start`
 6. Jekyll and Compass should start!
 
 ## Technology stack
