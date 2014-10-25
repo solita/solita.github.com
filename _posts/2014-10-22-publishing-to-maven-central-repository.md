@@ -31,7 +31,7 @@ There are some [minimum requirements](http://central.sonatype.org/pages/requirem
 * In addition to the binary artifact you must also publish the source code and Javadocs as separate artifacts.
 * All the artifacts must be signed with GPG/PGP, which requires [generating and distributing a key](http://central.sonatype.org/pages/working-with-pgp-signatures.html).
 
-An easy way to configure the necessary Maven plugins for producing those artifacts is to extend the [org.sonatype.oss:oss-parent](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.sonatype.oss%22%20AND%20a%3A%22oss-parent%22) POM which contains the profile `sonatype-oss-release` for activation on release.
+An easy way to configure the necessary Maven plugins for producing those artifacts is to extend the [org.sonatype.oss:oss-parent](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.sonatype.oss%22%20AND%20a%3A%22oss-parent%22) POM which contains the profile `sonatype-oss-release` for activation on release. Or for added flexibility, [enable the Source, Javadoc and GPG plugins yourself](http://central.sonatype.org/pages/apache-maven.html#javadoc-and-sources-attachments).
 
 
 ### Deployment Configuration ###
