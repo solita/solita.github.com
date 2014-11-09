@@ -1,7 +1,7 @@
 url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
-paginate: 5
+paginate: 10
 paginate_path: "/:num"
 highlighter: pygments
 markdown: redcarpet
