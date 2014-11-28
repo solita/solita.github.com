@@ -2,7 +2,7 @@
 layout: post
 title: When to Refactor
 author: orfjackal
-excerpt: TODO
+excerpt: How to maintain the balance between adding new features and refactoring existing code? Here are some rules of thumb for choosing when to refactor and how much.
 ---
 
 Refactoring is the process of improving the code's design without affecting its functionality. Is it possible to over-refactor? I don't think that code can ever be "too clean" and following the [four elements of Simple Design](http://www.jbrains.ca/permalink/the-four-elements-of-simple-design) should not result in over-engineering, but certainly some code needs more cleaning up than others and we rarely have enough time to do all we want. Prioritization is needed.
