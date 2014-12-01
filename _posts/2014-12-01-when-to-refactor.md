@@ -28,7 +28,7 @@ When the difficulty of adding a feature hits you right away like a ton of bricks
 
 When we start developing a program, we have only partial understanding of the problem being solved, but we'll do our best to make the code reflect our current understanding of the problem. As the program grows over months and years, we will learn more and inevitably there will be parts of the code that we would have designed differently, if we only had then known what we know today. This is the [original definition](https://www.youtube.com/watch?v=pqeJFYwnkjE) of the Technical Debt metaphor and the ability to pay back the debt depends on how clean the code is.
 
-For big refactorings, it is unpractical to block adding new features while the design is being changed. So working towards a new design should be done [incrementally at the same time as developing new features](http://continuousdelivery.com/2011/05/make-large-scale-changes-incrementally-with-branch-by-abstraction/). Whenever a developer touches a class that does not yet conform to the target design, they should refactor it there and then, before implementing the feature at hand. This kind of refactoring might take many weeks or months to completion, but it is done incrementally in small steps, maybe at most a couple of hours at a time, so that the software keeps working at all times.
+For big refactorings, it is unpractical to block adding new features while the design is being changed. So working towards a new design should be done [incrementally at the same time as developing new features](http://continuousdelivery.com/2011/05/make-large-scale-changes-incrementally-with-branch-by-abstraction/). Whenever a developer needs to change code that does not yet conform to the target design, they should refactor that part of the codebase there and then, before implementing the feature at hand. This way it might take many weeks or months for the whole codebase to be refactored, but it is done incrementally in small steps, a class or a method at a time (which should not take more than a couple of hours), so that the software keeps working at all times.
 
 
 ## When trying to understand what some piece of code does
@@ -36,6 +36,11 @@ For big refactorings, it is unpractical to block adding new features while the d
 If you need to understand some code, even if you're not going to change it, refactoring the code is one means for understanding it better. Extract methods and variables, give them better names and move things around until the code says clearly what it does. You may combine this with writing unit tests, [which likewise helps to understand the code](http://www.jbrains.ca/permalink/does-unit-testing-add-value-when-were-not-doing-tdd).
 
 If the code has good test coverage, you might as well commit the changes you just did, in hopes of the next reader understanding the code faster <a name="note-2-ref"></a>[[2]](#note-2). But even if the code has no tests, you can do some refactoring to understand it and then throw away your changes - your understanding will remain. If you know that you're going to throw away your changes, you can even do the throwaway refactoring faster with less care. And for complex refactorings, when you're not sure about what sequence of steps would bring you safely to your goal, prodding around the code can help you to get a feel for the correct refactoring sequence.
+
+
+## TL;DR
+
+Refactoring does not have to be, nor should be, its own development phase which takes weeks or months. Instead it can be done incrementally in small steps, interleaved with feature development.
 
 
 <hr>
