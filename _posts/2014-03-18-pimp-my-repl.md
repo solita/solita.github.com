@@ -28,18 +28,22 @@ How can we add things to the classpath during development and still keep them ou
 
 Let's change our `project.clj` to add a development-time source directory called `dev`.
 
-    (defproject myproject "0.5.0-SNAPSHOT"
-      :description "A project for doing things."
-      :dependencies [[org.clojure/clojure "1.5.1"]]
-      :profiles {:dev {:source-paths ["dev"]}})
+```clojure
+(defproject myproject "0.5.0-SNAPSHOT"
+  :description "A project for doing things."
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :profiles {:dev {:source-paths ["dev"]}})
+```
 
 Now we can create `dev/user.clj`.
 
-    (ns user
-      (:require [myproject.core :refer :all]))
+```clojure
+(ns user
+  (:require [myproject.core :refer :all]))
 
-    (defn my-repl-util []
-      ...)
+(defn my-repl-util []
+  ...)
+```
 
 With that, we're done!
 
@@ -47,26 +51,32 @@ With that, we're done!
 
 Here's a snag I'm sure you've hit if you've spent any time in the Clojure REPL. Say we have two functions with one calling the other.
 
-    (defn foo []
-      (println "foo"))
+```clojure
+(defn foo []
+  (println "foo"))
 
-    (defn bar []
-      (foo))
+(defn bar []
+  (foo))
+```
 
 Let's rename `foo` to `xyzzy`.
 
-    (defn xyzzy []
-      (println "the artist formerly known as foo"))
+```clojure
+(defn xyzzy []
+  (println "the artist formerly known as foo"))
 
-    (defn bar []
-      (foo))
+(defn bar []
+  (foo))
+```
 
 When we evaluate the namespace, it compiles without errors. All our tests pass when we run them from the REPL.
 
 Now let's restart the REPL and try to evaluate the namespace again.
 
-    CompilerException java.lang.RuntimeException:
-    Unable to resolve symbol: foo in this context
+```
+CompilerException java.lang.RuntimeException:
+Unable to resolve symbol: foo in this context
+```
 
 It took us a restart to notice we'd made a mistake because the state of our REPL had diverged from the source code: we removed `foo`'s *definition* from the source, but `foo` itself continued its existence in our REPL.
 
@@ -79,30 +89,34 @@ To solve this problem, [Stuart Sierra](https://twitter.com/stuartsierra) wrote [
 
 Stuart has written [an excellent description of his workflow][sierra] with `tools.namespace`, and you should absolutely read it, but here's the gist of it. First you need to add `tools.namespace` to your `project.clj` as a development-time dependency.
 
-    (defproject myproject "0.5.0-SNAPSHOT"
-      :description "A project for doing things."
-      :dependencies [[org.clojure/clojure "1.5.1"]]
-      :profiles {:dev {:source-paths ["dev"]
-                       :dependencies [[org.clojure/tools.namespace "0.2.4"]]}})
+```clojure
+(defproject myproject "0.5.0-SNAPSHOT"
+  :description "A project for doing things."
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]}})
+```
 
 Then you can call `clojure.tools.namespace.repl/refresh` to reset your REPL. Note that this ensures that all your namespaces match their source, but your application itself may be in a state that's impossible with the new code! To make sure this never happens, you'll typically want to combine the call to `refresh` with a complete restart of your application.
 
-    (ns user
-      (:require [clojure.tools.namespace.repl :refer [refresh]]))
+```clojure
+(ns user
+  (:require [clojure.tools.namespace.repl :refer [refresh]]))
 
-    (defn start
-      "Start the application"
-      []
-      ...)
+(defn start
+  "Start the application"
+  []
+  ...)
 
-    (defn stop
-      "Stop the application"
-      []
-      ...)
+(defn stop
+  "Stop the application"
+  []
+  ...)
 
-    (defn reset []
-      (stop)
-      (refresh :after 'user/start))
+(defn reset []
+  (stop)
+  (refresh :after 'user/start))
+```
 
 This is all explained in much more detail in [Stuart's article][sierra], so go read it!
 
@@ -125,7 +139,9 @@ In case of name collisions, the project-wide profiles take precedence over user-
 
 Say you want to make `debug-repl` available in all your projects. (We'll take a closer look at `debug-repl` in a bit.) Just create the file `~/.lein/profiles.clj` and add the dependency into the `:user` profile.
 
-    {:user {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]]}}
+```clojure
+{:user {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]]}}
+```
 
 Now, no matter which project you're working on, `debug-repl` is on the classpath, just a `require` away!
 
@@ -142,11 +158,13 @@ This is all very handy, but there's a catch: the namespace I'm switching to typi
 
 To enable Vinyasa's injection feature, we need to modify the `:user` profile in `~/.lein/profiles.clj`. First we add Vinyasa as a dependency. Then we use a Leiningen feature that's, confusingly enough, called *injections* (no relation to Vinyasa's injection):  forms that are evaluated once whenever Leiningen needs to evaluate some code within your project's context, e.g. when running your tests with `lein test` or starting a new REPL with `lein repl`. Using Leiningen's injections we `require` `vinyasa.inject` and use it to inject our utilities into `clojure.core`, prefixed with ">".
 
-    {:user {:dependencies [[im.chit/vinyasa "0.1.8"]]
-            :injections [(require 'vinyasa.inject)
-                         (vinyasa.inject/inject 'clojure.core '>
-                           '[[clojure.repl doc source]
-                             [clojure.pprint pprint pp]])]}}
+```clojure
+{:user {:dependencies [[im.chit/vinyasa "0.1.8"]]
+        :injections [(require 'vinyasa.inject)
+                     (vinyasa.inject/inject 'clojure.core '>
+                       '[[clojure.repl doc source]
+                         [clojure.pprint pprint pp]])]}}
+```
 
 Now, no matter which namespace we're in, we can look up docstrings and sources with `(>doc ...)` and `(>source ...)` or pretty-print forms with `(>pprint ...)` and `(>pp)`!
 
@@ -164,8 +182,10 @@ If that was all Vinyasa did, it would already be worth the price tag, but it has
 
 One of the annoyances of using the stock Clojure REPL is that you have to restart it every time you add a new library to your dependencies. Vinyasa provides [`vinyasa.pull/pull`](https://github.com/zcaudate/vinyasa#pull), a simple interface to [`pomegranate`](https://github.com/cemerick/pomegranate), which you can use to add new dependencies on the fly. You can even leave out the version number to download the latest release. `pull` returns the Leiningen coordinates of the version it downloaded so you can add them to your `project.clj`'s `:dependencies`.
 
-    (>pull 'robert/hooke)
-    ;= {[robert/hooke "1.3.0"] nil}
+```clojure
+(>pull 'robert/hooke)
+;= {[robert/hooke "1.3.0"] nil}
+```
 
 Vinyasa also has a couple of features which I haven't needed myself, but which you might find useful. [`vinyasa.reimport/reimport`](https://github.com/zcaudate/vinyasa#reimport) allows you to recompile and reimport all your Java classes without restarting the REPL. With [`vinyasa.lein/lein`](https://github.com/zcaudate/vinyasa#lein) you can call Leiningen from your REPL without opening a new terminal. Note that both of these functions expect to find the correct version of Leiningen on the classpath, as described in [Vinyasa's installation instructions](https://github.com/zcaudate/vinyasa#installation).
 
@@ -178,29 +198,41 @@ Often a couple of well placed `println` (or even better, `pprint`) calls are all
 
 To install Spyscope, add the following lines to your `~/.lein/profiles.clj`.
 
-    {:user {:dependencies [[spyscope "0.1.4"]]
-            :injections [(require 'spyscope.core)]}}
+```clojure
+{:user {:dependencies [[spyscope "0.1.4"]]
+        :injections [(require 'spyscope.core)]}}
+```
 
 Let's say we want to inspect the result of the `range` call in this piece of code.
 
-    (apply + (range 11 20 2))
+```clojure
+(apply + (range 11 20 2))
+```
 
 We can do this by prefixing it with the tag `#spy/p`.
 
-    (apply + #spy/p (range 11 20 2))
+```clojure
+(apply + #spy/p (range 11 20 2))
+```
 
 This causes Spyscope to rewrite the form into the following.
 
-    ;; Prints (11 13 15 17 19)
-    (apply + (doto (range 11 20 2) clojure.pprint/pprint))
+```clojure
+;; Prints (11 13 15 17 19)
+(apply + (doto (range 11 20 2) clojure.pprint/pprint))
+```
 
 The fancier tag [`#spy/d`](https://github.com/dgrnbrg/spyscope#spyd) gives you more context and allows you to customize the debugging output. Let's ask Spyscope to add a timestamp to the output.
 
-    (apply + #spy/d ^{:time true} (range 11 20 2))
+```clojure
+(apply + #spy/d ^{:time true} (range 11 20 2))
+```
 
 If the above form is placed in the function `asdf.core/foo`, calling the function produces the following output.
 
-    asdf.core$foo.invoke(core.clj:4) 2014-03-14T10:16:47 (range 11 20 2) => (11 13 15 17 19)
+```
+asdf.core$foo.invoke(core.clj:4) 2014-03-14T10:16:47 (range 11 20 2) => (11 13 15 17 19)
+```
 
 As you can see, in addition to the result, `#spy/d` shows us the top of the call stack, the form being inspected, the source line it came from and the timestamp we requested.
 
@@ -214,29 +246,33 @@ If you find yourself changing a piece of code and re-running it just to see how 
 
 To install debug-repl, add the following lines to your `~/.lein/profiles.clj`.
 
-    {:user {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]]
-            :injections [(require 'alex-and-georges.debug-repl)
-                         (vinyasa.inject/inject 'clojure.core '>
-                           '[[alex-and-georges.debug-repl debug-repl]])]}}
+```clojure
+{:user {:dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]]
+        :injections [(require 'alex-and-georges.debug-repl)
+                     (vinyasa.inject/inject 'clojure.core '>
+                       '[[alex-and-georges.debug-repl debug-repl]])]}}
+```
 
 Now insert `(>debug-repl)` anywhere in your code. When the execution hits that point, it's given over to the REPL. Once you're done, enter `()`, and the regular execution is resumed.
 
-    (defn foo [a b]
-      (>debug-repl)
-      (+ a b))
+```clojure
+(defn foo [a b]
+  (>debug-repl)
+  (+ a b))
 
-    user=> (foo 1 2)
-    dr-1-1001 => a
-    1
-    dr-1-1001 => b
-    2
-    dr-1-1001 => (+ a b)
-    3
-    dr-1-1001 => (- a b)
-    -1
-    dr-1-1001 => ()
-    3
-    user=>
+user=> (foo 1 2)
+dr-1-1001 => a
+1
+dr-1-1001 => b
+2
+dr-1-1001 => (+ a b)
+3
+dr-1-1001 => (- a b)
+-1
+dr-1-1001 => ()
+3
+user=>
+```
 
 ## Comparing forms with difform
 
@@ -244,31 +280,35 @@ I recently broke a function I was refactoring, but luckily the unit tests caught
 
 Difform couldn't be simpler to use. First, add it to your `~/.lein/profiles.clj`.
 
-    {:user {:dependencies [[difform "1.1.2"]]
-            :injections [(require 'com.georgejahad.difform)
-                         (vinyasa.inject/inject 'clojure.core '>
-                           '[[com.georgejahad.difform difform]])]}}
+```clojure
+{:user {:dependencies [[difform "1.1.2"]]
+        :injections [(require 'com.georgejahad.difform)
+                     (vinyasa.inject/inject 'clojure.core '>
+                       '[[com.georgejahad.difform difform]])]}}
+```
 
 Then just call `>difform` with the two values to compare!
 
-    user=> (>difform {:first-name "John", :last-name "Doe"}
-                     {:first-name "Jane", :last-name "Doe"})
-       {:first-name "J
-     - oh
-     + a
-       n
-     + e
-       ", :last-name "Doe"}
+```clojure
+user=> (>difform {:first-name "John", :last-name "Doe"}
+                 {:first-name "Jane", :last-name "Doe"})
+   {:first-name "J
+ - oh
+ + a
+   n
+ + e
+   ", :last-name "Doe"}
 
-    user=> (>difform {:foo {:value [13 3 54 5 323 44]}
-                      :bar {:value [13 3 54 5 323 44]}}
-                     {:foo {:value [13 35 4 5 323 44]}
-                      :bar {:value [13 3 54 5 323 44]}})
-       {:bar {:value [13 3 54 5 323 44]}, :foo {:value [13 3
-     + 5
+user=> (>difform {:foo {:value [13 3 54 5 323 44]}
+                  :bar {:value [13 3 54 5 323 44]}}
+                 {:foo {:value [13 35 4 5 323 44]}
+                  :bar {:value [13 3 54 5 323 44]}})
+   {:bar {:value [13 3 54 5 323 44]}, :foo {:value [13 3
+ + 5
 
-     - 5
-       4 5 323 44]}}
+ - 5
+   4 5 323 44]}}
+```
 
 Remember that the Clojure REPL remembers the last three printed values as `*1`, `*2` and `*3`, so when you're [golfing](http://en.wikipedia.org/wiki/Code_golf) a form in the REPL, you don't have to eyeball the printouts to see if and how the result changed: difform can do that for you with `(>difform *2 *1)`.
 
@@ -282,7 +322,9 @@ It's especially useful for exploring an unfamiliar library. No more do you have 
 
 To install clj-ns-browser, add the following to your `~/.lein/profiles.clj`.
 
-    {:user {:dependencies [[clj-ns-browser "1.3.1"]]
-            :injections [(require 'clj-ns-browser.sdoc)
-                         (vinyasa.inject/inject 'clojure.core '>
-                           '[[clj-ns-browser.sdoc sdoc]])]}}
+```clojure
+{:user {:dependencies [[clj-ns-browser "1.3.1"]]
+        :injections [(require 'clj-ns-browser.sdoc)
+                     (vinyasa.inject/inject 'clojure.core '>
+                       '[[clj-ns-browser.sdoc sdoc]])]}}
+```

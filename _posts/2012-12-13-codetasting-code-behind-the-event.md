@@ -37,7 +37,7 @@ The participants' answers to a round of challenges do not directly determine the
 
 or as it is implemented:
 
-{% highlight clojure %}
+```clojure
 (def acceleration 1)
 
 (defn points-based-on-acceleration [previous-round round]
@@ -49,7 +49,7 @@ or as it is implemented:
 
 (defn apply-point-acceleration [rounds]
   (rest (reductions points-based-on-acceleration nil rounds)))
-{% endhighlight %}
+```
 
 We had about ten challenges, each worth 1-35 points. If the responses to all the challenges worth *n* or less points are correct, then the maximum score for the round is *n* points. For example, if a server passes challenges worth 1, 2, 3, 5 and 6 points, but fails a challenge worth 4 points, the maximum score for the round is 3 points.
 
@@ -104,7 +104,9 @@ The challenges that the challenger uses are stored in a separate source code rep
 
 The challenger itself also supports upgrading on-the-fly through [Ring](https://github.com/ring-clojure/ring)'s `wrap-reload`. When we had our first internal coding dojo, where we were beta testing rpi-challenger and this whole Code Tasting concept, I implemented continuous deployment with the following command line one-liner:
 
-    while true; do git fetch origin; git reset --hard origin/master; sleep 60; done
+```bash
+while true; do git fetch origin; git reset --hard origin/master; sleep 60; done
+```
 
 That upgraded the application on every commit without restarting the server. Also the challenges, which were in a separate Git repository, were upgraded on-the-fly using a similar command. That made it possible for some people to create more challenges (and make bug fixes to the challenger) while others were playing the role of participants trying to make those challenges pass.
 
@@ -115,7 +117,7 @@ Coming from an object-oriented background, I used test doubles to test some comp
 
 I had up to 4 rebindings in some tests, so that I could write tests for higher level components without having to care about lower level details. For example, in this test I simplified the low-level "strike" rules, so that I can easier write tests for the "round" layer above it:
 
-{% highlight clojure %}
+```clojure
 ; dummy strikes
 (defn- hit [price]   {:hit true,  :error false, :price price})
 (defn- miss [price]  {:hit false, :error false, :price price})
@@ -126,7 +128,7 @@ I had up to 4 rebindings in some tests, so that I could write tests for higher l
             strike/error? :error
             strike/price :price]
      ...))
-{% endhighlight %}
+```
 
 The problem here is that from the external interface of the system under test (the `round` namespace) it's not obvious that what its dependencies are. Instead you must know its implementation and that it calls those methods in the `strike` namespace, and that `strike/miss?` is implemented as `(defn miss? [strike] (not (hit? strike)))` so rebinding `strike/hit?` is enough, and that nothing else needs to be rebound – and if the implementation changes in the future, whoever does that change will remember to update these tests and all other places which depend on that implementation.
 
@@ -139,12 +141,12 @@ You might think that since Clojure is a functional programming language, it woul
 
 Though there are workarounds, the tutorials of those frameworks don't teach any good practices for managing state. The only place where I found good practices being encouraged was the documentation of [clojure.tools.namespace](https://github.com/clojure/tools.namespace), where there is a section called [No Global State](https://github.com/clojure/tools.namespace#no-global-state), which tells you to avoid this anti-pattern (though it only glances over *how* to avoid it). The solution is to use [dependency injection](http://misko.hevery.com/2008/11/11/clean-code-talks-dependency-injection/), for example like this:
 
-{% highlight clojure %}
+```clojure
 (defn make-routes [app]
   (routes
     (GET "/" [] (the-handler-for-index-page app))
     ...))
-{% endhighlight %}
+```
 
 This is almost the same as what the `defroutes` macro would produce, except that instead of the route being a global, we define it as a factory function that takes the application state as a parameter and adapts it into a web application. Now we can unit test the routing by creating a new instance of the application (possibly a test double) for each test.
 
