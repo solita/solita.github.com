@@ -12,7 +12,7 @@ Motivation for this is an observation that style is fun.  Rethinking stylistic i
 
 
 ##Index is structure
-![Index is structure](/img/index-is-structure.png)
+![Index is structure](/img/writing-compact-java/index-is-structure.png)
 
 Creating complex structures, maps, or lists of objects, may be verbose or semi-fluent in Java.  To forestall needless new code, big constructors, [builders](http://en.wikipedia.org/wiki/Builder_pattern) and whatnots, code should use built in data structures cleverly.  One such pattern is a plain array and a loop over it, allowing the data itself be laid out pleasantly.
 
@@ -62,7 +62,7 @@ Such an instance initialiser block does look a bit lonely, but then it could all
 
 However this pattern may lead to code deterioration in certain cases; keep in mind as always that a stylistic choice should lead to improved code clarity.
 
-![Scissors](/img/scissors.png)
+![Scissors](/img/writing-compact-java/scissors.png)
 ##Remove unnecessary getters
 
 Getters may be required by frameworks like EJB and Spring, but otherwise they are seldom necessary.  Especially getter-less data classes are more concise and more beautiful than getter-ified ones.
@@ -93,7 +93,7 @@ If our object is constructed infrequently, we could use a dynamic subclass, alon
 
 
 ##Methods away
-![do](/img/do.png)
+![do](/img/writing-compact-java/do.png)
 
 If we operate on data types that are not overtly specialised, it is extremely fast to accumulate common behaviors into helper methods, and using them will be a whiz.  This is a philosophy behind [Python](https://www.python.org/), [R](http://www.r-project.org/), [Matlab](http://www.mathworks.se/products/matlab/) and other environments that were designed for scientific use:  they offer easy access to computation, and undermine the notion and value of class structure per se.  One interesting asset is that the simpler structures you use, the more portable your computations become.  (Consider the [Rootbeer project](https://github.com/pcpratts/rootbeer1).)
 
@@ -169,7 +169,7 @@ If you *absolutely* need to implement complex stateful behaviour that references
 {% endhighlight %}
 If we are uncertain of over what to synchronise, our program is likely to break, so it is good to keep to simple and thoroughly understood behaviours while we process data.
 
-![note](/img/note.png)
+![note](/img/writing-compact-java/note.png)
 
 In finis, to summarise: it may pay to avoid any interfering idioms that boldly stand between a need and a clear solution.  This post provided assorted ideas for that end.  Resulting compact patterning will render Java an ok language.  And while correctness and readability are necessary aspects of good code, fit and skinny structuring will assist us to get there.
 

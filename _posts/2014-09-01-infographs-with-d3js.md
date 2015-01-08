@@ -75,7 +75,7 @@ Preprocessing an image on the server side may often be the right thing to do.  N
 
 Where online graphing is needed, there are d3js based frameworks available that help make use of accumalated online data ([1][ref4], [2][ref5], [3][ref3]).  [D3js](https://github.com/mbostock/d3/wiki) itself supports merging.
 
-![note](/img/note.png)
+![note](/img/infographs-with-d3js/note.png)
 
 The shift from static to dynamic graphing has been a change for the better and more solid, both in terms of reinforced information sharing, from the human perspective, and of reduced data transfer, from the technical perspective.
 
