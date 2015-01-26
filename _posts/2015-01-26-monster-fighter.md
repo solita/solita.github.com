@@ -5,7 +5,7 @@ author: pvto
 excerpt: A developer's guide for surviving a large and long running project.
 ---
 
-Working with **a large** and **long running** project can be devastating.  More so, if in production and striving to maintain **a good service level** while at the same time **continuously shipping new features**.  As a side effect, you see **technologies aging** and you may start to worry about your professional competence in the wild.
+Working with **a large** and **long running** project can be devastating.  More so, if it is in production and you're striving to maintain **a good service level**, while at the same time **continuously shipping new features**.  As a side effect, you see **technologies aging** and you may start to worry about your professional competence in the wild.
 
 This is a five cent guide for surviving such a situation.  Do feel free to share your experiences (as a developer).  My target values are:
 
@@ -51,11 +51,11 @@ My life is full of surprise boxes (haha)!
 
 On an ordinary workday, one might be solving a problem like this:  <font color='DarkBlue'>can I trust a source of information, or should I look for some other source to be sure</font>?  In the end, it could boil down to asking somebody's opinion, or if one remains the prima professional, reading or debugging some code, searching for documentation or incident reports, and querying a database.  Documentation is nice, but you don't generally speaking trust it unless somebody affirms that it is trustful and up to date.  **Code itself can get outdated in a large system**, since how a thing was implemented is neither the absolute truth nor should it be a *ground de facto* for business insight.
 
-Or:  <font color='DarkBlue'>what does this business concept *y* would mean and (exhaustively) what does it relate to</font>?  Now a big part of the game goes in asking, and you can tell a pro by the way they ask questions.  Maintaining a good communication channel to other parties is an art in itself.  Basically, feeling stupid is a good, constructive sign of personal human potential (unless you burnout, of course)... 
+Or:  <font color='DarkBlue'>what this business concept *y* would mean, and (exhaustively) what does it relate to</font>?  Now a big part of the game goes in asking, and you can tell a pro by the way they ask questions.  Maintaining a good communication channel to other parties is an art in itself.  Basically, feeling stupid is a good, constructive sign of personal human potential (unless you burnout, of course).
 
-So I have this motto in progress that **if one feels stupid to ask a question, one should definitely ask it...**  A project group on a large system should aim to reduce communication costs, and to decrease work related anxiety.  
+So I have this motto in progress that **if one feels stupid to ask a question, is should be asked.**  A project group on a large system should aim to reduce communication costs, and to decrease work related anxiety.  
 
-I list here some things that seem to work in different situations.  But one note first!  An interesting observation...  The optimal level of communication depends on communication channel and its properties (for further details on this one, consult some classic texts on the field of communication theory <span style="vertical-align:super;">[1][ref-shannon] [2][ref-lippmann]</span>).
+I list here some things that seem to work in different situations.  But one note first!  The optimal level of communication depends on communication channel and its properties (for further details on this one, consult some classic texts on the field of communication theory <span style="vertical-align:super;">[1][ref-shannon] [2][ref-lippmann]</span>).
 
 ![shannon-weaver](/img/monster-fighter/shannon.png)
 
@@ -98,7 +98,7 @@ Here are some little starter tips.
 * Asking good questions from business professionals helps
 * <font color='green'>Asking what they did from end users helps</font>
 * Reading the code may help if you have sufficient background information (if your starting point is good)
-* <font color='green'>Kowing how to search exhaustively helps a lot</font> (develop your search strategies!)
+* <font color='green'>Knowing how to search exhaustively helps a lot</font> (develop your search strategies!)
 * Taking breaks helps
 * Sleeping well is a real must
 
