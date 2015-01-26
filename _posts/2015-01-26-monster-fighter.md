@@ -53,7 +53,7 @@ On an ordinary workday, one might be solving a problem like this:  <font color='
 
 Or:  <font color='DarkBlue'>what this business concept *y* would mean, and (exhaustively) what does it relate to</font>?  Now a big part of the game goes in asking, and you can tell a pro by the way they ask questions.  Maintaining a good communication channel to other parties is an art in itself.  Basically, feeling stupid is a good, constructive sign of personal human potential (unless you burnout, of course).
 
-So I have this motto in progress that **if one feels stupid to ask a question, is should be asked.**  A project group on a large system should aim to reduce communication costs, and to decrease work related anxiety.  
+So I have this motto in progress that **if one feels stupid to ask a question, it should be asked.**  A project group on a large system should aim to reduce communication costs, and to decrease work related anxiety.  
 
 I list here some things that seem to work in different situations.  But one note first!  The optimal level of communication depends on communication channel and its properties (for further details on this one, consult some classic texts on the field of communication theory <span style="vertical-align:super;">[1][ref-shannon] [2][ref-lippmann]</span>).
 
