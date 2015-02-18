@@ -11,9 +11,11 @@ Every new employee in the development will need/get to do an exercise in coding,
 
 I am pretty experienced in all things Java, and recently also in Angular, so I wanted a mix of something familiar - but also something new, to raise the bar a bit and learn something new. For the familiar base I chose Spring Boot and AngularJS - I'm pretty experienced with Spring after training it for major companies in Finland, and also using in various production systems along the way. I chose to base everything on Spring Boot because that part still has something new for me to learn. Maven was the solid basis for my builds, while Grunt handled whatever automation JavaScript side required.
 
+Spring Boot will get you a nice EE environment and servies in embedded container with just a little bit of Maven/Gradle build script. It can be deployed as a .jar file, and only requirement then is to have Java installed.
+
 ![Microservices container is up and running in 5 seconds](/img/microservices/springbootrun.png)
 
-I chose to mix things up by not using Bootstrap as my UI library, but instead to go for more mobile-like and puristic approach with Google Material Design philosophy and libraries. I also chose to use Java EE standards as much as possible, instead of coding against implementations.
+I chose to mix things up by not using Bootstrap as my UI library, but instead to go for more mobile-like and puristic approach with Google Material Design philosophy and libraries. I also chose to use Java EE standards and generic APIs as much as possible, instead of coding against specific third party implementations.
 
 To make things more difficult/fun I chose a Macbook Pro as my laptop - being a veteran Windows/Linux user, this is a new experience and actually much fun. On the other hand I find myself often in the ever so familiar terminal window when things get hairy.
 
@@ -53,3 +55,15 @@ But still... It's beautiful, and what I was missing from Material I implemented 
 - I'm sold on topic of Microservices. I used to be a fan of good open source application servers like Glassfish and Wildfly - because they come equipped with pretty much any services you might need. But having an embedded container has its uses, too, and there are many places where it's a superior solution. Simple is good, fast journey from vision to product is good, too. That gets early feedback cycle going. Using Spring means there's more configuration that can be done programmatically, and less unique environment-specific configuration work to set up a server. Hello, Chaos Monkey!
 
 So, what do you think is a hot stack right now? What's coming and what's going?
+
+### Some links to resources mentioned here:
+
+[Spring Boot](http://projects.spring.io/spring-boot/)
+
+[AngularJS](https://angularjs.org/)
+
+[Material Design](http://www.google.com/design/spec/material-design/introduction.html)
+
+[Angular Material](https://material.angularjs.org/)
+
+[Bootiful Java EE Support in Spring Boot 1.2](http://spring.io/blog/2014/11/23/bootiful-java-ee-support-in-spring-boot-1-2)
