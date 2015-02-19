@@ -7,11 +7,11 @@ excerpt: How to boot up and get some feedback fast
 
 My name is Arto Santala. I've worked in many roles, including software developer, engineer, project manager, scrum master, and architect, as well as a trainer/coach - in companies like Tieturi, ICL, Finnair, and many others. While I've been involved in producing software since the mid-90's, and even before that, I came as new employee in Solita early this year, so it's an exciting new step for me.
 
-Every new employee in the development will need/get to do an exercise in coding, no matter what they will end up doing here. Idea is to pass on knowledge and ideas both ways, on tools, technologies and architecture, and I think it's a great idea. So I wanted to write a little blog post on my experiences.
+Whenever there's a new employee in Software Development department, they will need/get to do an exercise in coding, no matter what they will end up doing here. Idea is to pass on knowledge and ideas both ways, on tools, technologies and architecture, and I think it's a great idea. Equally important is to get to know people, habits, and ways of working together - these also go both ways, since everybody bring along unique set of skills and experiences. So I wanted to write a little blog post on my experiences.
 
 I am pretty experienced in all things Java, and recently also in Angular, so I wanted a mix of something familiar - but also something new, to raise the bar a bit and learn something new. For the familiar base I chose Spring Boot and AngularJS - I'm pretty experienced with Spring after training it for major companies in Finland, and also using in various production systems along the way. I chose to base everything on Spring Boot because that part still has something new for me to learn. Maven was the solid basis for my builds, while Grunt handled whatever automation JavaScript side required.
 
-Spring Boot will get you a nice EE environment and servies in embedded container with just a little bit of Maven/Gradle build script. It can be deployed as a .jar file, and only requirement then is to have Java installed.
+Spring Boot will get you a nice EE environment and services in embedded container with just a little bit of Maven/Gradle build script. It can be deployed as a .jar file, and only requirement then is to have Java installed.
 
 ![Microservices container is up and running in 5 seconds](/img/microservices/springbootrun.png)
 
@@ -19,7 +19,7 @@ I chose to mix things up by not using Bootstrap as my UI library, but instead to
 
 To make things more difficult/fun I chose a Macbook Pro as my laptop - being a veteran Windows/Linux user, this is a new experience and actually much fun. On the other hand I find myself often in the ever so familiar terminal window when things get hairy.
 
-I also made transition from Netbeans to IntelliJ - now I love netbeans, but IntelliJ is more common here, and I've heard a lot of great things about it, too. So Idea it is.
+I also made transition from NetBeans to IntelliJ Idea - now I love NetBeans, but IntelliJ is more common here, and I've heard a lot of great things about it, too. So Idea it is.
 
 Topic of the exercise was to build a simple application with a few key domain objects and requirements listed. In my case, they are employees, departments, and municipalities, with nearly CRUD-like services - but with some more specific points like which fields are mandatory, and where there needs to be specific validation rules.
 
