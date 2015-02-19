@@ -5,7 +5,7 @@ author: arto
 excerpt: How to boot up and get some feedback fast
 ---
 
-My name is Arto Santala. I've worked in many roles, including software developer, engineer, project manager, scrum master, and architect, as well as a trainer/coach. I've worked for companies such as Tieturi, ICL, Finnair, and many others. While I've been involved in producing software since the mid-90's, and even before that, I came as new employee to Solita early this year, so it's an exciting new step for me.
+My name is Arto Santala. I've worked in many roles, including software developer, engineer, project manager, scrum master, and architect, as well as a trainer/coach. I've worked for companies such as Tieturi, ICL, Finnair, and many others. While I've been involved in producing software since the mid-90's, and even before that, I joined Solita as a new employee early this year, so it's an exciting new step for me.
 
 A new software designer in Solita will first get to do an exercise in coding, no matter what they will end up doing here. The idea is to pass on knowledge and ideas both ways, on tools, technologies and architecture, and I think it's a great idea. Equally important is to get to know people, habits, and ways of working together - these also go both ways, since everybody brings along unique set of skills and experiences. So I wanted to write a little blog post on my experiences.
 
