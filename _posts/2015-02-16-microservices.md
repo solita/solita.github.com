@@ -5,13 +5,13 @@ author: arto
 excerpt: How to boot up and get some feedback fast
 ---
 
-My name is Arto Santala. I've worked in many roles, including software developer, engineer, project manager, scrum master, and architect, as well as a trainer/coach - in companies like Tieturi, ICL, Finnair, and many others. While I've been involved in producing software since the mid-90's, and even before that, I came as new employee in Solita early this year, so it's an exciting new step for me.
+My name is Arto Santala. I've worked in many roles, including software developer, engineer, project manager, scrum master, and architect, as well as a trainer/coach. I've worked for companies such as Tieturi, ICL, Finnair, and many others. While I've been involved in producing software since the mid-90's, and even before that, I came as new employee to Solita early this year, so it's an exciting new step for me.
 
-Whenever there's a new employee in Software Development department, they will need/get to do an exercise in coding, no matter what they will end up doing here. Idea is to pass on knowledge and ideas both ways, on tools, technologies and architecture, and I think it's a great idea. Equally important is to get to know people, habits, and ways of working together - these also go both ways, since everybody bring along unique set of skills and experiences. So I wanted to write a little blog post on my experiences.
+A new software designer in Solita will first get to do an exercise in coding, no matter what they will end up doing here. The idea is to pass on knowledge and ideas both ways, on tools, technologies and architecture, and I think it's a great idea. Equally important is to get to know people, habits, and ways of working together - these also go both ways, since everybody brings along unique set of skills and experiences. So I wanted to write a little blog post on my experiences.
 
 I am pretty experienced in all things Java, and recently also in Angular, so I wanted a mix of something familiar - but also something new, to raise the bar a bit and learn something new. For the familiar base I chose Spring Boot and AngularJS - I'm pretty experienced with Spring after training it for major companies in Finland, and also using in various production systems along the way. I chose to base everything on Spring Boot because that part still has something new for me to learn. Maven was the solid basis for my builds, while Grunt handled whatever automation JavaScript side required.
 
-Spring Boot will get you a nice EE environment and services in embedded container with just a little bit of Maven/Gradle build script. It can be deployed as a .jar file, and only requirement then is to have Java installed.
+Spring Boot will get you a nice EE environment and services in an embedded container with just a little bit of Maven/Gradle build script. It can be deployed as a .jar file, and the only requirement then is to have Java installed.
 
 ![Microservices container is up and running in 5 seconds](/img/microservices/springbootrun.png)
 
@@ -21,7 +21,7 @@ To make things more difficult/fun I chose a Macbook Pro as my laptop - being a v
 
 I also made transition from NetBeans to IntelliJ Idea - now I love NetBeans, but IntelliJ is more common here, and I've heard a lot of great things about it, too. So Idea it is.
 
-Topic of the exercise was to build a simple application with a few key domain objects and requirements listed. In my case, they are employees, departments, and municipalities, with nearly CRUD-like services - but with some more specific points like which fields are mandatory, and where there needs to be specific validation rules.
+Topic of the exercise was to build a simple application with a few key domain objects and requirements listed. In my case, they are employees, departments, and municipalities, with nearly CRUD-like services - but with some more specific points like which fields are mandatory, and where specific validation rules are needed.
 
 I wanted to have great test coverage, and for me that typically means unit tests as specifications, and API/integration/system/e2e tests to prove the features and service API. I ended up doing unit tests for Java, unit tests for JavaScript, RestAssured tests to prove the REST API, and Protractor tests to prove the requirements/features that were in the initial specification.
 
@@ -31,7 +31,7 @@ So, what went well? Due to having familiar basis and especially knowing what can
 
 ![Material design is bold and simplistic, and scales well to and from mobile devices](/img/microservices/employeesapp.png)
 
-Actually, the microcontainer approach worked so well that a devil went into me and I decided to see if I can run the app inside Raspberry Pi v2 that I recently purchased. And it was lovely! ;) Just install Java into Pi, and run the packaged .jar - and Spring Boot takes care of everything. Gotta love the simplicity and elegance. It's just somewhat  different experience to deploying a J2EE .ear into Websphere Application Server....
+Actually, the microcontainer approach worked so well that a devil went into me and I decided to see if I can run the app inside Raspberry Pi v2 that I recently purchased. And it was lovely! ;) Just install Java into Pi, and run the packaged .jar - and Spring Boot takes care of everything. Gotta love the simplicity and elegance. It's just somewhat  different an experience to deploying a J2EE .ear into Websphere Application Server....
 
 I also love good test coverage, it gives the instant feedback I want when I make changes.
 
@@ -67,3 +67,5 @@ So, what do you think is a hot stack right now? What's coming and what's going?
 [Angular Material](https://material.angularjs.org/)
 
 [Bootiful Java EE Support in Spring Boot 1.2](http://spring.io/blog/2014/11/23/bootiful-java-ee-support-in-spring-boot-1-2)
+
+[Definition of Microservices by Victor Klang](http://klangism.tumblr.com/post/80087171446/microservices)
