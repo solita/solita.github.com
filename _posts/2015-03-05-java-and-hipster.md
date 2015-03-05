@@ -49,7 +49,7 @@ And now I had a running Java Hipster application.
 
 The generated backend seemed to follow a typical layout of a Spring MVC application. The configuration of the application was done using the programmatic configuration http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-java instead of the previously more common XML configuration which I was more familiar with. Other notable addition to what I had used and seen previously was the use of the new Java 8 Optional in controllers:
 
-{% highlight java %}
+```java
 @RequestMapping(value = "/departments/{id}/employees",
         method = RequestMethod.GET,
         produces = ResourceMediaType.JSON_UTF8)
@@ -60,16 +60,16 @@ public ResponseEntity<List<Employee>> getEmployees(@PathVariable Long id) {
                     department, HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 }
-{% endhighlight %}
+```
 
 Because the backend was simplistic, I decided to try out something new and extended my JPA repositories with [Querydsl](http://www.querydsl.com/) [PredicateExecutors]( http://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-five-querydsl/). The predicates were simple to implement:
 
-{% highlight java %}
+```java
 public static Predicate municipalityNameIsLike(final String searchTerm) {
         QMunicipality municipality = QMunicipality.municipality;
         return municipality.name.startsWithIgnoreCase(searchTerm);
     }
-{% endhighlight %}
+```
 
 This is what my queries looked like after implementing Querydsl predicates:
 
