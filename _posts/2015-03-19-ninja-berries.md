@@ -2,7 +2,7 @@
 layout: post
 title: Ninja berries – how continuous learning works @here
 author: pvto
-excerpt: Here's a small peek internal educational sessions given at our company.
+excerpt: How our internal educational sessions are arranged.
 ---
 My employer allows me to attend to any available educational session on company time.  Great, isn't it, and perhaps a bit naive?
 
@@ -23,7 +23,7 @@ Solita is a Finnish mid-size (300+) organisation that specialises in services.  
 
 These are slightly abbreviated for clarity, but the Hunt & Thomas book is solid; read it.
 
-Getting back to Solita, its practices were not born out of the blue.  Particularly our current and ex coordinators of trainings [Timo Lehtonen](https://www.linkedin.com/profile/view?id=144187910) and [Anna Rautiainen](https://www.linkedin.com/profile/view?id=11016302) deserve a mention here, first and foremost.  Cheers and thank you!
+Getting back to Solita, its practices were not born out of the blue.  Particularly our current and ex coordinators of trainings [Timo Lehtonen](https://www.linkedin.com/profile/view?id=144187910) and [Anna Rautiainen](https://www.linkedin.com/profile/view?id=11016302) deserve a mention here, first and foremost.  Our culture was shaped by their personal passion.  Cheers and thank you!
 
 Timo and Anna would confirm that the topic of trainings is a bit controversial in the corporate world.  To cut a long story short, employer and employee interests diverge by definition.  Learning is not directly productive in the traditional sense.
 
