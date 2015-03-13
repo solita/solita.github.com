@@ -2,7 +2,7 @@
 layout: post
 title: Ninja berries – how continuous learning works @here
 author: pvto
-excerpt: How our internal educational sessions are arranged.
+excerpt: My employer allows me to attend to any available educational session on company time.
 ---
 My employer allows me to attend to any available educational session on company time.  Great, isn't it, and perhaps a bit naive?
 
