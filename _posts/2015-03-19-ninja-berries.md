@@ -1,14 +1,16 @@
 ---
 layout: post
-title: Ninja berries – how continuous learning works @here
+title: Ninja berries – how continuous learning works at Solita
 author: pvto
 excerpt: My employer allows me to attend to any available educational session on company time.
 ---
 My employer allows me to attend to any available educational session on company time.  Great, isn't it, and perhaps a bit naive?
 
-##A sneak peek
+![agile cycling](/img/ninja-berries/cloj_handson_small.png)
 
-Here's a snapshot from the past two weeks and the week to follow, listing internal educational sessions given at our largest meeting room, in one of our three offices.  Sessions given at other locations are missing from this list (but we share sittings over video between different offices).
+Solita is a Finnish 300+ employee company that specialises in services.  We design and code for money.
+
+Here's a snapshot from the past two weeks and the week to follow, listing internal educational sessions given at our largest meeting room, in one of our three offices.  Sessions given at other locations are missing from this list (we share sittings over video though).
 
 - Data visualisations with Clojurescript
 - 50 new things in Java 8
@@ -28,29 +30,25 @@ Here's a snapshot from the past two weeks and the week to follow, listing intern
 
 I've marked the ones I attended to with a + sign.
 
-Now more than 15 professionals chose to voluntarily take the trouble and prepare a meeting of 30 minutes up to two hours.  Why did they care – and did they gain something from it?
+Now more than 15 professionals chose to take the trouble and arrange a meeting.  Did they gain something from it?
 
-![digital handshake](/img/ninja-berries/handshake.png)
+##Learning on company time
 
-##A community of responsible grown-ups?
+Like I mentioned in [a previous post](/2015/01/26/monster-fighter.html), we have a company policy that intra–company educational sessions can be freely attended to.  There is a reserved amount of time for self studies too; watching educational videos, [Coursera](https://www.coursera.org/) and so on.
 
-Solita is a 300+ employee company that specialises in services.  We design and code for money.  You could say that, perhaps due to this branch of business, we are somewhat closer to a collective of individual professionals than a traditional company is.
+You could say that we are somewhat closer to a collective than a traditional company is.  This perhaps is affected by our branch of business.
 
-Learning here can be done on company time, if it happens within specific bounds.  Like I mentioned in [a previous post](/2015/01/26/monster-fighter.html), intra–company educational sessions can be freely attended to at Solita, and there is a reserved amount of time for self studies too; watching educational videos, [Coursera](https://www.coursera.org/) and so on.
+![digital handshake](/img/ninja-berries/TL_kouluttaa_small.png)
 
 To counteract excessive educational temptations, as they would appear, there is a personalised target utilisation percentage at place, triggering some dreaded "Only so much billed work on week x" mails every now and then.  This of course is based on employee work hour records, which are written down to the accuracy of ```0.5h``` – an invaluable dataset if you look at it from that perspective.
 
 Preparing an educational session for others then is settled from a separate cost pool, so it need not consume your personal study hours, although it shows up in your organisational unit's costs.
 
-In this way we have aimed for some level of coincidence of the separate interests of employee, employer and their customer.
-
-![agile cycling](/img/ninja-berries/cycling.png)
+In this way Solita aims for a level of coincidence of the separate interests of employee, employer and their customer.
 
 ##Discussion
 
-The resources of an organisation must largely determine its internal educational policy.
-
-The structuring of learning at Solita resembles the structure of the internet to some extent.  We do things that we find leading to other things.  There are some evolving protocols and boundary rules which enable this system keep rolling.
+Learning at Solita resembles the structure of the internet to some extent.  We do things that we find leading to other things.  There are some evolving protocols and boundary rules which enable this system keep rolling.
 
 Our interest in continuous learning springs from many sources, but one of them is competence.
 
@@ -71,9 +69,11 @@ These are slightly abbreviated for clarity, but the Hunt & Thomas book is solid;
 
 Getting back to Solita, its practices are partly a community effort, partly developed by our current and ex coordinators of trainings [Timo Lehtonen](https://www.linkedin.com/profile/view?id=144187910) and [Anna Rautiainen](https://www.linkedin.com/profile/view?id=11016302), who deserve a mention here, first and foremost.  Cheers and thank you!
 
-Timo and Anna would confirm that the topic of trainings is a bit controversial in the corporate world.  To cut a long story short, employer and employee interests diverge by definition.  Learning is not directly productive in the traditional sense.
+Timo and Anna would confirm that the topic of trainings is a bit controversial in the corporate world.  To cut a long story short, employer and employee interests diverge by definition.  Learning is not directly productive in the traditional sense.  Also the resources of an organisation must largely determine its educational policy.
 
-Whereas learning is an immediate investment for the employer, its results are hard to measure.  An easy solution would be to regard professional knowledge as the employee's private property, and channel company money to other ends.  This is the common solution.  
+![problem cycling](/img/ninja-berries/cycling.png)
+
+Learning is an immediate investment for the employer, but its results vary, being hard to measure.  An easy solution would be to regard professional knowledge as the employee's private property, and channel company money to other ends.  This is the common solution.  
 
 I think it takes some trouble, case by case, to argue how learning this or that would benefit a company's immediate concerns.  And as the general case goes, it seems totally impossible to give anything more than generalisations like "learning is good".  Solita has chosen to trust its employees and let them choose.  This gives a borderline between personal and shared different to the traditional solution, with totally new pros and cons.
 
@@ -81,9 +81,9 @@ An employee then is expected to choose those topics that will benefit their comp
 
 Now looping back to Hunt's & Thomas' *Diversify* principle, it may benefit me personally in the long run if I learn something quite unrelated to my current tasks, cutting down the risks of my other investments. But then again productivity in my current main responsibilities may often feel more desirable.  In my personal experience, a choice between interesting new topics and established topics is very hard.  It can feel a little selfish to look at something interesting if I could be doing concrete and useful work with that time.
 
-But then again my professional competence and problem solving skills will certainly benefit from an occasional break.
+But then again my professional competence and problem solving skills will benefit from an occasional break.
 
-It seems that at Solita the benefits of sharing are estimated higher than the opportunity cost that goes with it.
+Here the positive consequences of sharing are estimated higher than the opportunity cost that goes with it.
 
 ![drops](/img/ninja-berries/drops.png)
 
@@ -95,7 +95,7 @@ Going through these personal headaches, it is super great that I can do my own p
 
 This relative freedom of decision was trumpeted in the past by Agile, Scrum, and other production methodologies.  Their common premise is to avoid micromanagement and let the "resource" itself decide its next step.  (Let's provide the cage, management said...)  This same idea, of individual choice within a target driven environment, is transported to the realm of learning here, and it seems to be working fairly well at Solita from what I can judge.
 
-Here are the symptoms:
+Here are some symptoms:
 
 - an increasing number of professionals kick up short educational meetings, "info strikes"
 - there is a positive feeling about sharing and communication in the company
