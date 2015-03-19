@@ -97,7 +97,7 @@ This relative freedom of decision was trumpeted in the past by Agile, Scrum, and
 
 Here are some symptoms:
 
-- an increasing number of professionals kick up short educational meetings, "info strikes"
+- an increasing number of professionals kick up short educational meetings and bulletins
 - there is a positive feeling about sharing and communication in the company
 - meetings end up with discussion and questions, leading to short problem solving discussions at best
 - there is cross department interaction, which is nice
