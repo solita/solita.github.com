@@ -79,9 +79,9 @@ Now looping back to Hunt's & Thomas' *Diversify* principle, it may benefit me pe
 
 But then again my professional competence and problem solving skills will benefit from an occasional break.
 
-To counteract excessive educational temptations, as they would appear, there is a personalised target utilisation percentage at place at Solita, triggering email alarms every now and then when an employer has not been doing enough real work (as we traditionally define it!).  This is based on employee work hour records, recorded to the accuracy of ```0.5h```.
+To counteract excessive educational temptations, as they would appear, we have company wide open access to all work records (excluding legislated personal information).  I can freely compare my work to that of other individuals or teams in the company.  In addition, there are some alarm systems in place that inform about my current ratio of customer work vs. my non-billable work.
 
-Preparing an educational session for others then is settled from a separate cost pool, so it need not consume your personal study hours, although it shows up in your organisational unit's costs, and also as "non-productive" work in your personal record.
+Preparing an educational session for others then is settled from a separate cost pool, so it need not consume my personal study hours.  It shows up in my organisational unit's costs, though, and naturally it does not show as billable work in my personal record.
 
 In this way Solita aims for a level of coincidence of the separate interests of employee, employer and customer.
 
