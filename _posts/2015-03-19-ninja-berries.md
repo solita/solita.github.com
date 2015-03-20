@@ -69,7 +69,7 @@ These are slightly abbreviated for clarity, but the Hunt & Thomas book is solid;
 
 Getting back to Solita, its practices are partly a community effort, partly developed by our current and ex coordinators of trainings.  Timo Lehtonen (Tampere), Patrik Marjanen (Helsinki), and Anna Rautiainen (ex-coordinator) deserve a mention here, first and foremost.  Cheers and thank you!
 
-Timo and Anna, who is now working with community culture at [Great place to work institution](http://www.greatplacetowork.fi/), would confirm that the topic of trainings is a bit controversial in the corporate world.  To cut a long story short, employer and employee interests diverge by definition.  Learning is not directly productive in the traditional sense.  Also, resources of an organisation must limit its available educational policies.
+Our coordinators would confirm that the topic of trainings is a bit controversial in the corporate world.  To cut a long story short, employer and employee interests diverge by definition.  Learning is not directly productive in the traditional sense.  Also, resources of an organisation must limit its available educational policies.
 
 ![problem cycling](/img/ninja-berries/cycling.png)
 
