@@ -16,7 +16,7 @@ What fascinates me about Aurelia? Many things. One core thing is that it's based
 
 Don't believe me? Take a look at this:
 
-{% highlight javascript %}
+{% highlight js %}
 import {HttpClient} from 'aurelia-http-client';
 import _ from 'underscore';
 
@@ -55,7 +55,7 @@ Aurelia uses view-viewmodel architecture, and what we see here is a viewmodel na
 </code>
 {% endhighlight %}
 
-Here we can see an example of another powerful Aurelia feature - binding. There's a whole binding engine at work to figure out what's the best way to implement the binding based on your code. There are several options. Any html attribute may be bound, in this case you can see repeat.for, but similarly you can bind with ```value.bind="somevalue"```, or ```href.bind="somehref"``` - you can also use one-way binds or two-way binds by replacing '.bind' part with '.one-way', or '.two-way', to be more precise.
+Here we can see an example of another powerful Aurelia feature - binding. There's a whole binding engine at work to figure out what's the best way to implement the binding based on your code. There are several options. Any html attribute may be bound, in this case you can see repeat.for, but similarly you can bind with `value.bind="somevalue"`, or `href.bind="somehref"` - you can also use one-way binds or two-way binds by replacing `.bind` part with `.one-way`, or `.two-way`, to be more precise.
 
 To me it seems like Aurelia is very clean and pure code, compared to the mess that Angular 1 and 2 very easily tend to become. Using strong points of ES6 is definitely a plus, since ECMAScript 6 will come, one day. Starting the transition now will be valuable for me.
 
