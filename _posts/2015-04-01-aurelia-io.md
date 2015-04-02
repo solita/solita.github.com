@@ -4,15 +4,15 @@ title: Aurelia.io
 author: arto
 excerpt: Coding with Aurelia JavaScript framework and ECMAScript 6 - right now
 ---
-I've always been fond of keeping my eyes at the horizon, constantly watching what new technologies will emerge, what useful tools will we have in the years to come. With this mindset I recently started a quest to learn Angular 2 - before it will be mainstream. I had studied it a bit earlier, too, but then it felt way too ugly and early to have anything to do with project work. Working in [Solita](http://www.solita.fi) - there is no excuse to let your skills or knowledge go stagnant - or letting your toolbox to be outdated. So I went looking for Angular 2 - but ended up finding something else.
+I've always been fond of keeping an eye on the horizon, to watch what new technologies will emerge, and what useful tools we will have in the years to come. With this mindset I recently started a quest to learn Angular 2, before it will be mainstream. I had studied it a bit earlier, too, but then it felt way too ugly and early to have anything to do with project work. Working for [Solita](http://www.solita.fi) - there is no excuse to let your skills or knowledge go stagnant, or letting your toolbox to be outdated. So I went looking for Angular 2 - but ended up finding something else.
 
 ### What is Aurelia? ###
 
-Aurelia is a framework that is relatively new and not many have heard of it - or used it. It's not stable for production use yet - but it is looking pretty good already. It's also looking a lot like Angular 2, just much better. This is of course no big surprise, since one of the key developers is Rob Eisenberg, previously a member of Angular 2 team.
+Aurelia is a framework that is relatively new and not many have heard of it - or used it. It's not stable for production use yet - but it is looking pretty good already. It's also looking a lot like Angular 2, just much better. This is of course no big surprise, since one of the key developers is Rob Eisenberg, previously a member of the Angular 2 team.
 
 ### What's cool about Aurelia? ###
 
-What fascinates me about Aurelia? Many things. One core thing is that it's based on using ECMAScript 6 - and 7. This means you are able to code with future languages - right now. But it still works in todays browsers - thanks to Babel 6to5 transpiler, that forms a core part of this framework. This means support for all current Evergreen browsers, and there's even some work being done for IE10 and IE9 support. It's beautiful, and applicable today.
+What fascinates me about Aurelia? Many things. One core thing is that it's based on using ECMAScript 6 - and 7. This means you are able to code with future languages - right now. But it still works in todays browser, thanks to Babel 6to5 transpiler that forms a core part of this framework. This means support for all current Evergreen browsers, and there's even some work being done for IE10 and IE9 support. It's beautiful, and applicable today.
 
 Don't believe me? Take a look at this:
 
@@ -38,7 +38,7 @@ What is happening here? A lot. Aurelia uses ES6 module system so import becomes 
 
 ### How's the view? ###
 
-Aurelia uses view-viewmodel architecture, and what we see here is viewmodel named App. The view for this viewmodel would be named app.html, and it looks like this:
+Aurelia uses view-viewmodel architecture, and what we see here is a viewmodel named App. The view for this viewmodel would be named app.html, and it looks like this:
 
 {% highlight html %}
 <template>
@@ -55,9 +55,9 @@ Aurelia uses view-viewmodel architecture, and what we see here is viewmodel name
 </code>
 {% endhighlight %}
 
-Here we can see example of another powerful Aurelia feature - binding. There's a whole binding engine at work to figure out what's the best way to implement the binding based on your code. There are several options. Any html attribute may be bound, in this case you can see repeat.for, but similarly you can bind with value.bind="somevalue", or href.bind="somehref" - you can also use one-way binds or two-way binds by replacing '.bind' part with '.one-way', or '.two-way', to be more precise.
+Here we can see an example of another powerful Aurelia feature - binding. There's a whole binding engine at work to figure out what's the best way to implement the binding based on your code. There are several options. Any html attribute may be bound, in this case you can see repeat.for, but similarly you can bind with ```value.bind="somevalue"```, or ```href.bind="somehref"``` - you can also use one-way binds or two-way binds by replacing '.bind' part with '.one-way', or '.two-way', to be more precise.
 
-To me it seems like Aurelia is very clean and pure code, compared to the mess that Angular 1 and 2 very easily tend to become. Using strong points of ES6 is definitely a plus, since ECMAScript 6 will come, one day. Being able to already start making transition and learning to apply it will be valuable.
+To me it seems like Aurelia is very clean and pure code, compared to the mess that Angular 1 and 2 very easily tend to become. Using strong points of ES6 is definitely a plus, since ECMAScript 6 will come, one day. Starting the transition now will be valuable for me.
 
 ### What else is there? ###
 
@@ -76,11 +76,15 @@ So, other impressive things about aurelia are:
 
 Aurelia still has a long way to go - it's not even claimed to be production-ready yet, and there are other cool and emerging JavaScript frameworks so only time will tell if this framework will be the One. But having tried it a little bit I have to say I love the simplicity, and would consider using it for real work - mostly for the ES6 future-proofing and support. Can't wait to see what becomes of it.
 
-### Links (check them out!) ###
+### Links and further details ###
 
 [Aurelia.io](http://aurelia.io/)
 
+[Aurelia routing](http://aurelia.io/docs.html#routing)
+
 [Aurelia vs AngularJS](http://ilikekillnerds.com/2015/01/aurelia-vs-angularjs-round-one-fight/)
+
+[Aurelia vs React](http://ilikekillnerds.com/2015/03/aurelia-vs-react-js-based-on-actual-use/)
 
 [Aurelia vs Angular 2](http://blog.durandal.io/2015/03/16/aurelia-and-angular-2-code-side-by-side/)
 
