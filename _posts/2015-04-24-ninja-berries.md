@@ -6,13 +6,13 @@ excerpt: Solita has a policy of fostering educational sessions on company time. 
 ---
 **Tl;dr**:  *Our 300+ employees can cherry pick from and kick up educational sessions at work time, which seems to work well.*
 
-In [a previous post](/2015/01/26/monster-fighter.html), I mentioned that my employer has a policy of fostering educational sessions on company time.  This one discusses the arrangement.
+In [a previous post](/2015/01/26/monster-fighter.html), I mentioned that my employer has a policy of fostering educational sessions on company time.  In this post I discuss the arrangement.
 
 ![clojure handson](/img/ninja-berries/cloj_handson_small.png)
 
 Solita is a Finnish 300+ employee company that specialises in services; tech consulting, design, code, analytics.  
 
-Here's a listing of sessions given at one of our meeting rooms, from a span of three weeks.
+Here's a listing of internal sessions given at one of our meeting rooms, from a span of three weeks this spring.
 
 - Data visualisations with Clojurescript
 - 50 new things in Java 8
@@ -32,9 +32,9 @@ Here's a listing of sessions given at one of our meeting rooms, from a span of t
 
 I've marked the ones I attended to with a + sign.  They were employee powered short talks or technical hands-ons.  
 
-So, intra–company educational sessions can be freely attended to.  There is a reserved amount of time for self studies too, for watching educational videos, [Coursera](https://www.coursera.org/) and so on.  Thirdly, my employer buys external education and consulting in situations which require it.
+In addition to internal educational session, we have some other educational assets in place.  There is a personally reserved amount of time for self studies, for watching educational videos, [Coursera](https://www.coursera.org/) and so on, and thirdly, we get external education and consulting in situations which require it.
 
-This is somewhat different from my earlier employers, and I confess that it agrees well with my personal interests (largely those of a developer).  [Andrew Hunt and David Thomas](http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X) list the following principles for managing your professional knowledge portfolio:
+This is somewhat different from my earlier employers, and I confess that it agrees well with my personal interests (which are largely those of a developer).  [Andrew Hunt and David Thomas](http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X) list the following principles for managing your professional knowledge portfolio:
 
 > Invest regularly.
 
@@ -52,13 +52,15 @@ These are slightly abbreviated for clarity, but the Hunt & Thomas book is solid;
 
 ##Learning on company time
 
-Firstly, then, you could say that my employer is somewhat closer to a collective than a traditional company is.  And due to this culture of relative individualism, more likely to invest freely in its employees than an average company.  This bias could be fed by the branch of business, because the services market requires a wide range of competencies to compete in it.
+Firstly, then, you could say that my employer is somewhat closer to a collective than a traditional company is.  And due to this culture of relative individualism, also more likely to invest freely in its employees than an average company is.  This bias could be fed by the branch of business, the services market requiring a wide range of competencies to compete in it.
 
 From a more humane point of view, my employer has chosen to trust its employees and let them choose.  An employee then is expected to learn topics that will benefit their skills development and work competence.
 
 ![digital handshake](/img/ninja-berries/TL_kouluttaa_small.png)
 
-What then are the downsides of education, if one may ask that?  First and foremost, learning is an immediate investment for an employer, and its results vary, being even hard to measure.  Learning is a double cost, because an employee both loses the opportunity to do work and is then paid for that (I'm stating this bluntly, but this is how it basically goes).  Now an easy solution would be to regard professional knowledge as the employee's private property, and channel company money to other ends.  This is the common solution.
+What then are the downsides of education (if one may ask that)?
+
+First and foremost, learning is an immediate investment for an employer, and its results vary, being somewhat hard to measure.  Learning is a double cost, because an employee both loses the opportunity to do work and is then paid for that (I'm stating this bluntly, but this is how it basically goes).  Now an easy solution would be to regard professional knowledge as the employee's private property, and channel company money to other ends.  This is the common solution.
 
 A more modern solution is to invest in a company culture that will attract talented employees.  In such a culture, the positive consequences of sharing can be estimated higher than the opportunity cost that goes with it.  This gives a borderline between personal and shared that is different to the traditional solution, with totally new pros and cons.
 
@@ -71,7 +73,7 @@ These practices are partly a community effort, partly developed by our current a
 
 ![problem cycling](/img/ninja-berries/merisiili.png)
 
-I think it takes some trouble, case by case, to argue how learning this or that would benefit a company's immediate concerns.  And as the general case goes, it seems totally impossible to give anything more than generalisations like "learning is good".
+I think it takes some trouble, case by case, to argue how learning this or that would benefit somebody.  And as the general case goes, it seems totally impossible to give anything more than generalisations like "learning is good".
 
 Now looping back to Hunt's & Thomas' *Diversify* principle, it may benefit me personally in the long run if I learn something quite unrelated to my current tasks, cutting down the risks of my other investments. But then again productivity in my current main responsibilities may often feel more desirable.  In my personal experience, a choice between interesting new topics and established topics is very hard.  It can feel a little selfish to look at something interesting if I could be doing concrete and useful work with that time.
 
