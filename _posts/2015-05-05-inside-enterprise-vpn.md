@@ -166,4 +166,4 @@ if I could just use a simple VPN client instead. Or just a [SOCKS proxy](http://
 
 It would be nice if a software component did just one thing and did it well. Alas, outside unix ecosystem this will not
 happen anytime soon. Many software products do a huge number of different things. Even if they happen to do these
-things well, as demonstrated, you may got much more than you bargained for.
+things well, as demonstrated, you may get much more than you bargained for.
