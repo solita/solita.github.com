@@ -8,9 +8,9 @@ excerpt: Intelligent practices of software testing creates guildelines to make s
 Intelligent practices of software testing
 -----------------------------------------
 
-Note! I am not using the term “best practice” here. *Intelligent practice* is something that helps people develop their practices into more suitable for their need. We actually should stop using “best practice” term. Instead use whatever helps us solve the problems at hand. The problem solving should come from people and their skills. Influences should be taken from everywhere! Practices should be molded to facilitate problem solving in YOUR context.
+Note! I am not using the term “best practice” here. *Intelligent practice* is something that helps people develop their practices into more suitable for their need. We actually should stop using “best practice” term. Instead we should use whatever helps us solve the problems at hand. The problem solving should come from people and their skills. Influences should be taken from everywhere! Practices should be molded to facilitate problem solving in YOUR context.
 
-Very well. I came up with the following guidelines to help create a better testing environment for me and my colleagues. I am not trying to invalidate your practices that have been found to be best fitting for you. You should keep the practices you deem appropriate for your context. I encourage to revise your practices based on my own findings. it is up to you to change what ever you see reasonable, if anything.
+Very well. I came up with the following guidelines to help create a better testing environment for me and my colleagues. I am not trying to invalidate your practices that have been found to be best fitting for you. You should keep the practices you deem appropriate for your context. I encourage to revise your practices based on my own findings. It is up to you to change what ever you see reasonable, if anything.
 
 
 Fight ambiguity with openness and communication
@@ -29,7 +29,7 @@ Fight ignorance with eagerness
 
 Ignorance comes in many forms. One can claim she doesn’t know enough about the product to test it. Ignorance might paralyze us. Tasks can be daunting and we might procrastinate because we do not know some specific thing about the subject. 
 
-**Enter eagerness!** Try Proof of Concept type of actions. Try sandboxing the test area. Try having fun. Try getting a group of people who might already know about the domain, the product or the like, and test with them. Try walkthroughs. Try anything and everything to solve the problem. Be eager to to solve issues. If you can't solve them, be eager to get issues solved. Ignoring issues rarely leads to abything positive.
+**Enter eagerness!** Try Proof of Concept type of actions. Try sandboxing the test area. Try having fun. Try getting a group of people who might already know about the domain, the product or the like, and test with them. Try walkthroughs. Try anything and everything to solve the problem. Be eager to to solve issues. If you can't solve them, be eager to get issues solved. Ignoring issues rarely leads to anything positive.
 
 
 Fight über control with good-enough documentation and reliance to skills
@@ -39,7 +39,7 @@ Sometimes the aforementioned (ambiguity and ignorance) might lead into not trust
 
 When doing good testing, it requires some planning to remove inefficiencies. That planning should be done in advance, albeit on a higher level. We must be able to plan our testing while we test, because we learn about the product, the project and everything surrounding us *while we test*. By timing our planning in sync with our testing, we can react to changes and discoveries more efficiently. The planning should happen as close as possible to the actual execution of the plan. Documents and plans deprecate quickly when new things are added. For example, Rapid Software Testing encourages planning and designing tests during testing. I have found out that a brief planning session before testing session is usually in order to be able to tackle the most important topic during that testing session.
 
-We are chosen to perform the tasks because people expect we can do the task. There is little reason to stupefy the intelligent people that do things for us. Writing test cases, that basically make our brains redundant, is stupefying. In fact, it is stupid to write something that creates stupidity. “Stupid is as stupid does.” In order to be intelligent and harness out intelligent to our testing, it is wiser to write inspiring testing documentation. Missions, threads, ideas, broad descriptions, etc. encourage the use of our brains. I’d say “skill before process” and encourage to constant learning and teaching. Autonomy increases motivation ([see this post](http://how-do-i-test.blogspot.com/2012/01/motivation-30.html)) to do the best possible job. Critical thinking enables you to challenge your biases. Lateral thinking helps uncover possible issues. Thinking is the key, not the process nor tools. 
+We are chosen to perform the tasks because people expect we can do the task. There is little reason to stupefy the intelligent people that do things for us. Writing test cases, that basically make our brains redundant, is stupefying. In fact, it is stupid to write something that creates stupidity. “Stupid is as stupid does.” In order to be intelligent and harness out intelligent to our testing, it is wiser to write inspiring testing documentation. Missions, threads, ideas, broad descriptions, etc. encourage the use of our brains. I’d say “skill before process” and encourage to constant learning and teaching. Autonomy increases motivation ([see this post](http://how-do-i-test.blogspot.com/2012/01/motivation-30.html)) to do the best possible job. Critical thinking enables you to challenge your biases. Lateral thinking helps uncover possible issues. Thinking is the key, not the process or tools. 
 
 We also need good reporting off of our testing. Reports may be bug reports, testing transcripts, etc. An important thing to remember here is to focus on relevance and sufficiency of our reporting. The report should be a tool to improve and to facilitate discussion within our testing, development and/or project management. Thus I feel that reporting should be done in ways that support our cause, not because we want reports to begin with. Tools may vary from video recordings and screen captures to notebook scribbles. Anything is fair game as long as it supports the cause. 
 
@@ -71,7 +71,7 @@ To summarize, my intelligent practices for software testing might include the fo
 
 There might be more and I shall keep looking. The most important thing about these practices (or statements or whatever one might call them) is to communicate with people. Discuss your expectations and goals in testing. Discuss procedures and skills, how they can be improved. Whatever challenges you face, communication is the first step to solving the problem. An umbrella practice might go something like this:
 
-- Fight <choose challenges> with <choose solutions> and communication
+- Fight \<choose challenges\> with \<choose solutions\> and communication
 
 If you feel I need to clarify some of the practices, give more examples or add a fundamental practice to my list, please drop me a line. I’m more than eager to discuss. ;)
 
