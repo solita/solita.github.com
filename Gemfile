@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'github-pages'
+gem 'therubyracer'
 
 group :development do
-  gem 'compass', '=1.0.1'
-  gem 'foreman', '=0.75.0'
+  gem 'compass'
+  gem 'foreman'
 end

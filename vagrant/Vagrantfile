@@ -5,8 +5,8 @@ Vagrant.configure("2") do |config|
 
   # blogin kirjoituksen työasema
   config.vm.define "blag" do |blag|
-    blag.vm.box = "CentOS-6.4-x86_64-v20131103.box"
-    blag.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
+    blag.vm.box = "CentOS-7.0"
+    blag.vm.box_url = "https://s3-eu-west-1.amazonaws.com/solita-images/centos-7.0-x86_64.box"
 
     blag.vm.synced_folder "../", "/env"
     blag.vm.provision "shell", inline: "cd /env/vagrant && ./makeitso.sh"
