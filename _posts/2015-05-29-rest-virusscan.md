@@ -26,7 +26,7 @@ Even so, the file may contain something nasty and should be scanned for problems
 
 File system based scanners are good for workstations. They scan for new files in the system
 and report the results. This can be done on a web server by saving the files to some 
-temporary directory and calling System.exec before they are accepted.
+temporary directory and calling ```System.exec``` before they are accepted.
 
 This is a bit complicated to test and deploy, files must be saved on disk needlessly and it's not
 real time. It scales poorly.
@@ -40,6 +40,11 @@ deploy one scanner server for dozens of applications this way.
 
 In this case the virus scanner is [ClamAV](http://www.clamav.net/index.html), which is a open source
 virus scanner. Installing ClamAV on Linux is [a few simple commands](https://github.com/solita/clamav-java/blob/master/env/clamd.sh). 
+
+The diagram may look complicated as there are separate servers for the application, scanner and logging. You could run everything with just
+one server, but then you wouldn't need a REST service. The REST service makes sense when you deploy one scanner service used from multiple
+applications. The log server is optional, ClamAV doesn't require it.
+
 
 ## Setting up the REST service
 
@@ -58,7 +63,7 @@ provide some reference. The REST server of course doesn't care if the client is 
 
 ## Is it any good?
 
-According to [https://www.shadowserver.org/wiki/pmwiki.php/Stats/Viruses](Shadow server statistics) ClamAV has one of the 
+According to [Shadow server statistics](https://www.shadowserver.org/wiki/pmwiki.php/Stats/Viruses) ClamAV has one of the 
 best detection rates and beats many commercially available scanners in this regard.
 
 We have deployed the solution we present here for few of our clients last year and everything has been running smoothly,
