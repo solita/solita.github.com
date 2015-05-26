@@ -12,7 +12,7 @@ setting up the virus scanner as a REST service, free of charge.
 
 ## Handling file attachments
 
-Malicious users can supply compromised files on purpose or the user's can upload them unintentionally. Whatever
+Malicious users can supply compromised files on purpose or the users can upload them unintentionally. Whatever
 the system is, it's usually a good idea to set certain limits for attachments. As an example I might recommend
 these sort of limitations:
 
