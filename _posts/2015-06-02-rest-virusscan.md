@@ -9,7 +9,7 @@ Every time we deal with user supplied content, such as file attachments, we must
 to make sure they are free of viruses and trojans. The traditional solution in our projects has been a commercial file system based scanner, but it turns out we can do better. Here's a recipe for setting up the virus scanner as a REST service, free of charge.
 
 
-![Virus](/img/rest-virusscan/virii.png)
+![Virus](/img/rest-virusscan/virii.jpg)
 
 
 ## Handling file attachments
