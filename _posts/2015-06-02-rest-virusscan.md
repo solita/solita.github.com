@@ -6,7 +6,7 @@ excerpt: How to setup a open source virusscanner as a REST service.
 ---
 
 Every time we deal with user supplied content, such as file attachments, we must take precautions
-to make sure they are free of virii and trojans. The traditional solution in our projects has been
+to make sure they are free of viruses and trojans. The traditional solution in our projects has been
 a commercial file system based scanner, but it turns out we can do better. Here's a recipe for
 setting up the virus scanner as a REST service, free of charge.
 
@@ -38,8 +38,8 @@ deploy one scanner server for dozens of applications this way.
 
 ![Deployment](/img/rest-virusscan/virusscanner-deployment.png)
 
-In this case the virus scanner is [ClamAV](http://www.clamav.net/index.html), which is a open source
-virus scanner. Installing ClamAV on Linux is [a few simple commands](https://github.com/solita/clamav-java/blob/master/env/clamd.sh). 
+In this case the virus scanner is [ClamAV](http://www.clamav.net/index.html), which is an open source
+virus scanner. Installing ClamAV on Linux takes [a few simple commands](https://github.com/solita/clamav-java/blob/master/env/clamd.sh). 
 
 The diagram may look complicated as there are separate servers for the application, scanner and logging. You could run everything with just
 one server, but then you wouldn't need a REST service. The REST service makes sense when you deploy one scanner service used from multiple
@@ -71,5 +71,5 @@ no problems.
 
 So yeah, this is good in my book.
 
-To test yourself, you can use our [Vagrant configuration](https://github.com/solita/clamav-java/blob/master/vagrant/Vagrantfile) on Github to set up a virtual server. Of course you need [Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtualbox.org/) to take it for a spin.
+To test it yourself, you can use our [Vagrant configuration](https://github.com/solita/clamav-java/blob/master/vagrant/Vagrantfile) on Github to set up a virtual server. Of course you need [Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtualbox.org/) to take it for a spin.
 
