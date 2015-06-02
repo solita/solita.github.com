@@ -6,9 +6,11 @@ excerpt: How to setup a open source virusscanner as a REST service.
 ---
 
 Every time we deal with user supplied content, such as file attachments, we must take precautions
-to make sure they are free of viruses and trojans. The traditional solution in our projects has been
-a commercial file system based scanner, but it turns out we can do better. Here's a recipe for
-setting up the virus scanner as a REST service, free of charge.
+to make sure they are free of viruses and trojans. The traditional solution in our projects has been a commercial file system based scanner, but it turns out we can do better. Here's a recipe for setting up the virus scanner as a REST service, free of charge.
+
+
+![Virus](/img/rest-virusscan/virii.png)
+
 
 ## Handling file attachments
 
@@ -56,10 +58,8 @@ In order to set it up as a REST service we need a web server application. A mimi
 With [Spring Boot](http://projects.spring.io/spring-boot/) the code is pretty straightforward and short. It is possible to use it as it is, but it was intended
 as an example. 
 
-## A word about Clojure
-
-As the code is Java, it's not difficult to use it from Clojure. For reference, [ClamAV Clojure](https://github.com/Opetushallitus/aitu/blob/master/ttk/src/clj/aitu/integraatio/clamav.clj) should
-provide some reference. The REST server of course doesn't care if the client is Java, Clojure or something else.
+We also have a Clojure wrapper in use. [ClamAV Clojure](https://github.com/Opetushallitus/aitu/blob/master/ttk/src/clj/aitu/integraatio/clamav.clj) should
+provide some reference. 
 
 ## Is it any good?
 
