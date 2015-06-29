@@ -102,19 +102,21 @@ Looks like a pure function, sweet! And using it would be something like:
                                ;; a 10% tax rate
                                (* 0.10 (:price row)))}]
 
-         [{:item "Shoes" :price 25}
-          {:item "Fine leather jacket" :price 599}]]
+         [{:item "Jamaican cigars" :price 25}
+          {:item "Water fluoridation formula" :price 599}
+          {:item "Doomsday device" :price 999999}]]
 ```
 
 I think our functional approach is very readable, it looks more like data than behaviour. The pure data approach is also very concise without losing readability or power. We can also easily have dynamic listing columns and use all the functional data processing operations to create the columns.
 
-Some might argue that this approach is missing some flexibility of the interface based approach. We usually don't just list out our items in code, but we actually fetch them from somewhere. We might have different strategies for coming up with the data, some listings might have local data, others might fetch them from a server asynchronously. We need to have an interface that can be used in both cases!
+Some might argue that this approach is missing some flexibility of the interface based approach. *We must not allow a feature gap!*
+We usually don't just list out our items in code, but we actually fetch them from somewhere. We might have different strategies for coming up with the data, some listings might have local data, others might fetch them from a server asynchronously. We need to have an interface that can be used in both cases!
 Designing such an OO interface is not a trivial matter, but luckily in ClojureScript and Reagent we have atoms and reactions.
 
 Atoms are simply a "place for data" which can be read, reset or swapped. Atoms can also be watched and Reagent handles atoms automatically. When atoms are read inside a component, that component is automatically re-rendered when the data held by the atom changes.
 Atoms are an extremely simple (and elegant) interface for data. Reactions on the other hand are like Excel formulas, they are atoms that are calculated (and automatically re-calculated) based on data from other atoms.
 
-We only change our component to dereference an atom instead of taking a raw vector of items. Now we can provide this data from anywhere, be it local data or asynchronously fetched data. Our component does not care how the data is fetched and how it is processed. We could add things like filtering the listing (for example "show only items where price > 100") without touching the listing component at all. We simply create a reaction on the initial data atom and pass that in instead. No need for new concrete FilteredListingData class!
+We only change our component to dereference an atom instead of taking a raw vector of items. Now we can provide this data from anywhere, be it local data or asynchronously fetched data. Our component does not care how the data is fetched and how it is processed. We could add things like filtering the listing (for example "show only items where price > 100") without touching the listing component at all. We simply create a reaction on the initial data atom and pass that in instead. No need for new concrete FilteredListingData class to sap and impurify *all of our precious functional code*!
 
 ```clojure
 (def sales (atom nil)) ;; initially empty vector of sales
