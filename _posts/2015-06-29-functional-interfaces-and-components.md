@@ -2,15 +2,15 @@
 layout: post
 title: Interfaces and components in a functional world... or "how I stopped worrying and let Clojure into my heart"
 author: tatut
-excerpt: Functional programming encourages using data and functions instead of creating new concrete types.
+excerpt: Functional programming encourages the use of data and functions instead of creating new concrete types.
 ---
 
-Reusability of code is something most programmers would probably agree is a good thing. At least in the small scale.
+Reusability of code is something most programmers would probably agree is a good thing. At least on a small scale.
 Often reusability is achieved by using design patterns (eg. Gang of Four) and abstracting things that vary behind
 interfaces.
 
-We all know how interfaces and classes are used in Object Oriented languages to create reausable code.
-But how does functional programming accomplish the same when we mostly only use functions and data?
+We all know how interfaces and classes are used in object-oriented languages to create reausable code.
+But how does functional programming accomplish the same when we mostly use functions and data?
 Well, by using functions and data.
 
 OOP interfaces are but one tool for reusability. In this post I will try to show that a simpler way exists.
@@ -21,8 +21,10 @@ interface using Clojure.
 ## What is an interface?
 
 A brief digression on the meaning of interfaces. We Clojurists like to ponder on the definitions of words.
+Programming is not only about making the computer do what we want, but also to communicate the intent of our
+code to other humans. 
 What actually is an interface? As a non-native English speaker, I've only used the word interface in programming
-and never bothered to look it up.
+and never bothered to look it up. 
 
 A dictionary definition says that an interface is "a point where two systems, subjects, organizations, etc. meet and interact".
 That definition suggests to me that interfaces are something quite primitive and abstract.
@@ -45,9 +47,9 @@ class Listing extends Widget {
 }
 ```
 
-That defines a basic component, with a constructor that takes in the definition of the columns to list and a way to access the actual data to show. The render() method is obviously the actual meet of the component and will render the data we passed in.
+This defines a basic component, with a constructor that takes in the definition of the columns to list and a way to access the actual data to show. The render() method is obviously the actual meat of the component and will render the data we passed in.
 
-Well now we have 2 new interfaces to consider, perhaps they could be something like:
+Well now we have two new interfaces to consider, perhaps they could be something like:
 
 ```java
 interface ListingColumns {
@@ -78,7 +80,7 @@ The above code looks completely reasonable and if we design our interfaces right
 
 The above code, while looking perfectly readable, is decidedly not what most functional programmers would come up with. Functional programming values data over creating new concrete types. Instead of going down the rabbit hole of creating new types for every possible interaction, we can use the most general thing we have: data and functions.
 
-What is the essence of a "column definition", I would argue it is a mapping of attributes. The aggregation of listing columns is simply a sequence (or vector) of maps.
+What is the essence of a "column definition"? I would argue it is a mapping of attributes. The aggregation of listing columns is simply a sequence (or vector) of maps.
 
 In the same vein, the essence of a row is also a mapping of attributes and the aggregate is a vector of rows. Now it becomes clear that the data is just data and we don't want data to have behaviour. Does a sales record row have behaviour? No, so a logical place for our accessing logic is in the column definitions.
 
@@ -106,13 +108,13 @@ Looks like a pure function, sweet! And using it would be something like:
 
 I think our functional approach is very readable, it looks more like data than behaviour. The pure data approach is also very concise without losing readability or power. We can also easily have dynamic listing columns and use all the functional data processing operations to create the columns.
 
-Some might argue that this is missing some flexibility of the interface based approach. We usually don't just list out our items in code, but we actually fetch them from somewhere. We might have different strategies for coming up with the data, some listings might have local data, others might fetch them from a server asynchronously. We need to have an interface that can be used in both cases!
+Some might argue that this approach is missing some flexibility of the interface based approach. We usually don't just list out our items in code, but we actually fetch them from somewhere. We might have different strategies for coming up with the data, some listings might have local data, others might fetch them from a server asynchronously. We need to have an interface that can be used in both cases!
 Designing such an OO interface is not a trivial matter, but luckily in ClojureScript and Reagent we have atoms and reactions.
 
 Atoms are simply a "place for data" which can be read, reset or swapped. Atoms can also be watched and Reagent handles atoms automatically. When atoms are read inside a component, that component is automatically re-rendered when the data held by the atom changes.
 Atoms are an extremely simple (and elegant) interface for data. Reactions on the other hand are like Excel formulas, they are atoms that are calculated (and automatically re-calculated) based on data from other atoms.
 
-We only change our component to dereference an atom instead of taking a raw vector of items. Now we can provide this data from anywhere, be it local data or asynchronously fetched data. Our component does not care how the data is fetched and how it is processed. We could add things like filtering the listing (like "show only items where price > 100") without touching the listing component at all. We simply create a reaction on the initial data atom and pass that in instead. No need for new concrete FilteredListingData class!
+We only change our component to dereference an atom instead of taking a raw vector of items. Now we can provide this data from anywhere, be it local data or asynchronously fetched data. Our component does not care how the data is fetched and how it is processed. We could add things like filtering the listing (for example "show only items where price > 100") without touching the listing component at all. We simply create a reaction on the initial data atom and pass that in instead. No need for new concrete FilteredListingData class!
 
 ```clojure
 (def sales (atom nil)) ;; initially empty vector of sales
