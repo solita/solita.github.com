@@ -125,12 +125,12 @@ We only change our component to dereference an atom instead of taking a raw vect
   ;; the sales data, filtered by price
   (reaction (let [all-sales @sales
                   min-price @min-price]
-        ;; whenever either sales or min-price atoms change,
-        ;; this is automatically run and set as value of
-        ;; filtered sales
-         (if min-price
-            (filter #(>= (:price %) min-price) all-sales)
-       all-sales))))
+              ;; whenever either sales or min-price atoms change,
+              ;; this is automatically run and set as value of
+              ;; filtered sales
+              (if min-price
+                (filter #(>= (:price %) min-price) all-sales)
+                all-sales))))
 
 (defn sales-listing []
   [:div.sales-listing-ui
