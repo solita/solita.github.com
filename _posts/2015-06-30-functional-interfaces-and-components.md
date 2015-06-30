@@ -183,7 +183,7 @@ Another option is [core.typed](https://github.com/clojure/core.typed) or simply 
 
 If you have an interface where you need to pass data that you can think in terms of the usual maps, sets, list and primitives,
 don't contort it to a byzantine maze of abstract interfaces and their interactions. Using simple data and describing its shape is
-usually much more straightforward, at least in languages with good data processing capabilities and easy to use data literals.
+usually much more straightforward, at least in languages with good data processing capabilities and easy-to-use data literals.
 
 When you create interfaces, you are locking up your data. You can no longer use the usual functions (map, filter, etc...) to
 create variations of it. Every trick you need to do, you have to explicitly support.
