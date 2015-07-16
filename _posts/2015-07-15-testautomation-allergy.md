@@ -22,7 +22,7 @@ Test automation should be used to automate *checks*. Assert(A==A). Then add fles
 
 Of course there are different granularities in test automation. From unit-testing individual classes and methods to full blown user simulations. And they all have some importance to some task in developing software. Not always but often enough, people talk about test automation as a replacement for all other testing. They try to automate testing and then happily watch the machine do all the work. Sadly, test automation cannot perform the following check:
 
-"Check that nothing happens that shouldn’t happen and everything else happens that should happen for all variations of this scenario and all possible states of systems and all possible visual/audio/tangible things user might observe and all possible states of the backend and all possible states of the system as a whole, and anything happening in the surrounding systems that should not matter but might matter."
+> "Check that nothing happens that shouldn’t happen and everything else happens that should happen for all variations of this scenario and all possible states of systems and all possible visual/audio/tangible things user might observe and all possible states of the backend and all possible states of the system as a whole, and anything happening in the surrounding systems that should not matter but might matter."
 
 A human cannot test that on one go, but I bet my year’s salary that humans fare better at the task than a machine. Of course contexts vary and there might be occasions where a test automation can test absolutely everything. I (nor anyone whose opinion I value) have ever seen that.
 
@@ -36,7 +36,7 @@ See how silly it is? If you think about it, there are many variables we don't kn
 
 Actor Frank Langella said in a New York Times [article](http://www.nytimes.com/2014/01/05/theater/frank-langella-steps-into-king-lear-at-bam.html?hpw&rref=theater&_r=0)
 
-“There’s a tendency to value consistency over creativity. You get it, you nail it, you repeat it. I’d rather hang myself. To me, every night within a certain framework — the framework of integrity — you must forget what you did the night before and create it anew every single time you walk out on the stage.”
+> “There’s a tendency to value consistency over creativity. You get it, you nail it, you repeat it. I’d rather hang myself. To me, every night within a certain framework — the framework of integrity — you must forget what you did the night before and create it anew every single time you walk out on the stage.”
 
 This is what test automation does: it finds a way that doesn't break the system and then repeats it. As a tester - as a thinking individual - I choose creativity and ideas before repeatability. I try not to do stupid things, but do the best possible testing every time I do testing. I don't fake it, I try to do the most important thing and I try to communicate my work to other people in a way that makes sense. Test automation doesn't strive for perfection, it settles for acceptable, meager existence.
 
@@ -44,7 +44,7 @@ This is what test automation does: it finds a way that doesn't break the system 
 Passion for good testing
 ------------------------
 
-"Doing your best work includes having the courage to let go of pretty good work that you’ve done before." - [James Bach](http://www.satisfice.com/blog/archives/1343)
+> "Doing your best work includes having the courage to let go of pretty good work that you’ve done before." - [James Bach](http://www.satisfice.com/blog/archives/1343)
 
 In Solita we take pride in having the courage to do things in ways that are perhaps new and daring. We have passion for what we do. We care about people our work affects. 
 
