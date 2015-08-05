@@ -138,7 +138,7 @@ to try if you don't know about [the XCPlayground framework](http://nshipster.com
 A playground can show you the values of variables and more. Here you can see
 the previous summing example as it appears in the playground:
 
-(insert screenshot of playground with summing example)
+![Tools](/img/swift-ly-moving-forward/swift-playground.png)
 
 ## Functional Swift
 
