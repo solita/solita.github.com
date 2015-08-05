@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Swift-ly Moving Forward
-author: jereka
+author: jerekapyaho
 excerpt: Apple's Swift language is getting ready for prime time.
 ---
 
