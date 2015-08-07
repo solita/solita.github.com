@@ -5,7 +5,7 @@ author: jessek
 excerpt: Thoughts on how we designed and implemented the Open Rail Data RESTful API.
 ---
 
-This past winter we worked together with the [Finnish Transport Agency (FTA)](http://portal.liikennevirasto.fi/sivu/www/e/) to release railway traffic data into the wild. The resulting Open Data API can be found [here](http://rata.digitraffic.fi/). I feel the project was a moderate success for all parties involved, so I thought I'd share some thoughts.
+This past winter we worked together with the [Finnish Transport Agency (FTA)](http://portal.liikennevirasto.fi/sivu/www/e/) to release railway traffic data into the wild. The resulting open data API can be found [here](http://rata.digitraffic.fi/). I feel the project was a moderate success for all parties involved, so I thought I'd share some thoughts.
 
 ## Background
 
