@@ -30,7 +30,7 @@ Typically when thinking about versioning in a REST API, the first thing that com
 
 ## Layer cake
 
-We used Docker to contain our services, because it's the future. Docker allowed us to contain and separate all of components in a kind-of-microservices-way. On the outside we have Nginx in its own container functioning as a reverse proxy. Nginx directs all requests to Open Data Server, which is a Spring application with Jetty serving the actual API. Open Data Server gets the data from the Open Data database (MySQL). On the originating system side (LIIKE), we have the Open Data Updater which keeps reading all the updates from the actual LIIKE-database and pushing them to the Open Data database.
+We used Docker to contain our services, because [it's the future](http://blog.circleci.com/its-the-future/). Docker allowed us to contain and separate all of components in a kind-of-microservices-way. On the outside we have Nginx in its own container functioning as a reverse proxy. Nginx directs all requests to Open Data Server, which is a Spring application with Jetty serving the actual API. Open Data Server gets the data from the Open Data database (MySQL). On the originating system side (LIIKE), we have the Open Data Updater which keeps reading all the updates from the actual LIIKE-database and pushing them to the Open Data database.
 
 ![Architecture](/img/open-train-data/architecture.png)
 
