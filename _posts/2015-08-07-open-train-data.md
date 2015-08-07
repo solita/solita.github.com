@@ -34,7 +34,7 @@ We used Docker to contain our services, because [it's the future](http://blog.ci
 
 ![Architecture](/img/open-train-data/architecture.png)
 
-I think this is all very neat! The public API is separated from our originating system through several layers. The only component with write-access is the Open Data Updater. Everything else only needs a read-only access to one port in another service. From a DevOps perspective, it's super easy to update, since we can shut down any service without affecting others and update it independently (as long as the Database schema stays the same). This was my first time running containerization in a product environment and I'm impressed how convenient everything has been. Nice and simple.
+I think this is all very neat! The public API is separated from our originating system through several layers. The only component with write-access is the Open Data Updater. Everything else only needs a read-only access to one port in another service. From a DevOps perspective, it's super easy to update, since we can shut down any service without affecting others and update it independently (as long as the Database schema stays the same). This was my first time running containerization in a production environment and I'm impressed how convenient everything has been. Nice and simple.
 
 And since we are aiming for simplicity, all the data is immutable. Once a train has been updated in any way in the original database, the Open Data Updater replaces this train in the Open Data database. And with Java 8 streams, (almost) everything is immutable in the code as well.
 
