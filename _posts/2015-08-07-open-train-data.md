@@ -15,7 +15,14 @@ The rail traffic data is based on the data in [LIIKE-system](http://portal.liike
 
 The train data is served through a RESTful JSON API (well, [it's not REALLY RESTful](http://timelessrepo.com/haters-gonna-hateoas), it's just kinda RESTful). Let's take a look at the API design.
 
-First of all, RESTful URIs are about resources and nouns, as opposed to verbs in RPC. In our API, trains were a no-brainer for resources. So you can get the train number 1 for today's departure from [http://rata.digitraffic.fi/api/v1/live-trains/1](http://rata.digitraffic.fi/api/v1/live-trains/1). We have four end-points: [/live-trains](http://rata.digitraffic.fi/api/v1/live-trains) for live data, [/schedules](http://rata.digitraffic.fi/api/v1/schedules?date=2015-03-01) for schedule data without live updates, [/history](http://rata.digitraffic.fi/api/v1/history?date=2015-03-01) for schedules and actual times and [/compositions](http://rata.digitraffic.fi/api/v1/compositions?date=2015-03-06) for train compositions, configuration and vehicle information. These end-points are also resources, so you can query them without the train number. That would give you a list of trains.
+First of all, RESTful URIs are about resources and nouns, as opposed to verbs in RPC. In our API, trains were a no-brainer for resources. So you can get the train number 1 for today's departure from [http://rata.digitraffic.fi/api/v1/live-trains/1](http://rata.digitraffic.fi/api/v1/live-trains/1). We have four end-points:
+
+1. [/live-trains](http://rata.digitraffic.fi/api/v1/live-trains) for live data
+2. [/schedules](http://rata.digitraffic.fi/api/v1/schedules?date=2015-03-01) for schedule data without live updates
+3. [/history](http://rata.digitraffic.fi/api/v1/history?date=2015-03-01) for schedules and actual times
+4. [/compositions](http://rata.digitraffic.fi/api/v1/compositions?date=2015-03-06) for train compositions, configuration and vehicle information.
+
+These end-points are also resources, so you can query them without the train number. That would give you a list of trains.
 
 All the endpoints support some kind of date query parameters, usually these are departure dates for trains. In Finland, a train number is unique for each departure date. Live-trains and schedules also support querying by [train station](http://rata.digitraffic.fi/api/v1/live-trains?station=HKI), e.g. trains arriving/departing to/from a station or [trains connecting two stations](http://rata.digitraffic.fi/api/v1/schedules?departure_station=HKI&arrival_station=TPE). Now, shouldn't a train station also be a resource? The answer is: it's debatable. In our case, since all of our endpoints essentially return a list of trains, the station is just a filter applied to this list. Filters are better suited as query parameters as opposed to resources/locators.
 
