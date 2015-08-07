@@ -9,11 +9,11 @@ This past winter we worked together with the [Finnish Transport Agency (FTA)](ht
 
 ## Background
 
-The rail traffic data is based on the data in [LIIKE-system](http://portal.liikennevirasto.fi/sivu/www/f/ammattiliikenteen_palvelut/rataverkolla_liikennointi/ratakapasiteetin_hallinta/liike) (link in Finnish), which is developed and maintained by Solita. LIIKE mainly used by FTA and [Finrail](http://www.finrail.fi/) for planning rail capacity usage, controlling rail traffic etc. Briefly: it has all the train data that we could dream of.
+The rail traffic data is based on the data in [LIIKE-system](http://portal.liikennevirasto.fi/sivu/www/f/ammattiliikenteen_palvelut/rataverkolla_liikennointi/ratakapasiteetin_hallinta/liike) (link in Finnish), which is developed and maintained by Solita. LIIKE is mainly used by FTA and [Finrail](http://www.finrail.fi/) for planning rail capacity usage, controlling rail traffic etc. Briefly: it has all the train data that we could dream of.
 
-## Keep you API simple, stupid
+## Keep your API simple, stupid
 
-The train data is served through a RESTful JSON API (well, [it's not REALLY RESTful](http://timelessrepo.com/haters-gonna-hateoas), it's just kinda RESTful. Let's take a look at the API design.
+The train data is served through a RESTful JSON API (well, [it's not REALLY RESTful](http://timelessrepo.com/haters-gonna-hateoas), it's just kinda RESTful). Let's take a look at the API design.
 
 First of all, RESTful URIs are about resources and nouns, as opposed to verbs in RPC. In our API, trains were a no-brainer for resources. So you can get the train number 1 for today's departure from [http://rata.digitraffic.fi/api/v1/live-trains/1](http://rata.digitraffic.fi/api/v1/live-trains/1). We have four end-points: /live-trains for live data, /schedules for schedule data without live updates, /history for schedules and actual times and /compositions for train compositions, configuration and vehicle information. These end-points are also resources, so you can query them without the train number. That would give you a list of trains.
 
