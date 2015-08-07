@@ -5,11 +5,11 @@ author: jessek
 excerpt: Thoughts on how we designed and implemented the Open Rail Data RESTful API.
 ---
 
-This past winter we worked together with the [Finnish Transport Agency (FTA)](http://portal.liikennevirasto.fi/sivu/www/e/) to release railway traffic data into the wild. The result of this labor can be found [here](http://rata.digitraffic.fi/). I feel the project was a moderate success for all parties involved, so I thought I'd share some thoughts.
+This past winter we worked together with the [Finnish Transport Agency (FTA)](http://portal.liikennevirasto.fi/sivu/www/e/) to release railway traffic data into the wild. The resulting Open Data API can be found [here](http://rata.digitraffic.fi/). I feel the project was a moderate success for all parties involved, so I thought I'd share some thoughts.
 
 ## Background
 
-The rail traffic data is based on the data in [LIIKE-system](http://portal.liikennevirasto.fi/sivu/www/f/ammattiliikenteen_palvelut/rataverkolla_liikennointi/ratakapasiteetin_hallinta/liike) (link in Finnish), which is developed and maintained by Solita. LIIKE is mainly used by FTA and [Finrail](http://www.finrail.fi/) for planning rail capacity usage, controlling rail traffic etc. Briefly: it has all the train data that we could dream of.
+The rail traffic data is based on the data in [LIIKE-system](http://portal.liikennevirasto.fi/sivu/www/f/ammattiliikenteen_palvelut/rataverkolla_liikennointi/ratakapasiteetin_hallinta/liike) (link in Finnish), which is developed and maintained by Solita. LIIKE is mainly used by FTA and [Finrail](http://www.finrail.fi/) for planning rail capacity usage, controlling rail traffic etc. Briefly: it has all the train data that we could dream of. This project was part of a larger initiative in Finnish governmental organizations to release more open data.
 
 ## Keep your API simple, stupid
 
@@ -22,7 +22,7 @@ First of all, RESTful URIs are about resources and nouns, as opposed to verbs in
 3. [/history](http://rata.digitraffic.fi/api/v1/history?date=2015-03-01) for schedules and actual times
 4. [/compositions](http://rata.digitraffic.fi/api/v1/compositions?date=2015-03-06) for train compositions, configuration and vehicle information.
 
-These end-points are also resources, so you can query them without the train number. That would give you a list of trains.
+These end-points are also resources, so you can query them without the train number. That would give you a list of trains. There is also a 5th end-point for metadata, e.g. for retrieving a [list of all the stations](http://rata.digitraffic.fi/api/v1/metadata/station).
 
 All the endpoints support some kind of date query parameters, usually these are departure dates for trains. In Finland, a train number is unique for each departure date. Live-trains and schedules also support querying by [train station](http://rata.digitraffic.fi/api/v1/live-trains?station=HKI), e.g. trains arriving/departing to/from a station or [trains connecting two stations](http://rata.digitraffic.fi/api/v1/schedules?departure_station=HKI&arrival_station=TPE). Now, shouldn't a train station also be a resource? The answer is: it's debatable. In our case, since all of our endpoints essentially return a list of trains, the station is just a filter applied to this list. Filters are better suited as query parameters as opposed to resources/locators.
 
@@ -33,7 +33,6 @@ However, the resulting JSON responses from our API are quite big. Right now /liv
 Another dilemma is how to serve train updates to users. Polling the full /live-trains end-point every 10 seconds isn't viable. I also don't like the idea of having separate streams for updates (this is how they did it [in UK](http://nrodwiki.rockshore.net/index.php/About_the_feeds)). We opted to go with something along the lines of "give me all the trains that have had updates since last query". Each train in /live-trains has a version number. If you query the end-point with the version number, you get all the trains that have been updated since that version (i.e. their version number is bigger). This works nice and easy. We even get the version number directly from the Oracle database in the LIIKE-system using [ORA_ROWSCN](http://docs.oracle.com/cd/B19306_01/server.102/b14200/pseudocolumns007.htm) for no extra cost. Sweet!
 
 Typically when thinking about versioning in a REST API, the first thing that comes to mind is to put the version in the URI (as in /api/v1/resource). All the cool kids say that's just wrong and that you should use content negotiation and [put the version in the accept-header](http://blog.steveklabnik.com/posts/2011-07-03-nobody-understands-rest-or-http#i_want_my_api_to_be_versioned). I agree with this in principle, but we still chose to go with versioned URIs. Why? Well, mostly because [almost no one actually uses the accept-header style](http://www.lexicalscope.com/blog/2012/03/12/how-are-rest-apis-versioned/). Also because we again wanted to keep things simple. Having the version explicitly in the URI is neat and simple and it makes debugging easier (rather than having to use plug-ins in browser to insert the accept header). Concerning backwards-compatibility, our plan is to keep supporting old versions as long as they work with the newest database schema. Maybe we dug our own grave with versioned URIs, but YOLO.
-
 
 ## Layer cake
 
@@ -49,7 +48,6 @@ Early on during the project I was playing around with the idea of storing the fi
 
 Immutability on database level also makes migrations super easy. If we update the schema, we can just drop the whole database and let Open Data Updater populate it again.
 
-
 ## Your data is bad and you should feel bad
 
 Obviously, when moving to open data, you are coming from a closed environment (well, duh!). Our data was coming from the LIIKE-system, which is used by railway professionals for planning and operating the railway capacity. Previously closed data becoming open all of sudden is bound run into some issues.
@@ -63,7 +61,6 @@ Another issue with opening previously closed professional data, is that the need
 These are small problems, however. One the absolutely positive results from this project has been that we were actually able to improve our data thanks to active users. After releasing the data, train enthusiasts have pointed out several erroneous data points which would have been hard to catch otherwise. I believe these kind of results can be seen in any open data projects where closed data, previously available to a small group of people, is suddenly exposed to thousands of keen eyes.
 
 Over the course of the project we have gotten awesome help from the users. It has been an absolute blast working with technologically adept end-users who actively give constructive feedback and point out bugs. Thanks y'all!
-
 
 ## Cool apps for everyone!
 
