@@ -13,7 +13,7 @@ The rail traffic data is based on the data in [LIIKE-system](http://portal.liike
 
 ## Keep your API simple, stupid
 
-The train data is served through a RESTful JSON API (well, [it's not REALLY RESTful](http://timelessrepo.com/haters-gonna-hateoas), it's just kinda RESTful). Let's take a look at the API design.
+The train data is served through a RESTful JSON API (well, [it's not REALLY RESTful, it's just kinda RESTful](http://timelessrepo.com/haters-gonna-hateoas)). Let's take a look at the API design.
 
 First of all, RESTful URIs are about resources and nouns, as opposed to verbs in RPC. In our API, trains were a no-brainer for resources. So you can get the train number 1 for today's departure from [http://rata.digitraffic.fi/api/v1/live-trains/1](http://rata.digitraffic.fi/api/v1/live-trains/1). We have four end-points:
 
