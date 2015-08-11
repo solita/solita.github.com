@@ -5,7 +5,7 @@ author: jerekapyaho
 excerpt: Apple's Swift language is getting ready for prime time.
 ---
 
-With iOS and Android sharing most of the smartphone market share (and Windows Phone
+With iOS and Android sharing most of the smartphone market (and Windows Phone
 relegated to marginal status with a few other players) there is ever less incentive to create
 cross-platform applications. Rather, it is better to pick a lead platform and 
 do your first implementation on that to collect feedback. The best features can then
@@ -24,26 +24,27 @@ and you can raise the minimum required iOS version of your application.
 ## Stuck with Objective-C
 
 Until very recently, almost all iOS (and OS X) applications have been developed
-in Objective-C using Apple's Xcode. Other tools like RealBASIC and Xamarin
-have found some success, but ultimately the platform and Xcode are so deeply
-entwined that learning Objective-C has been the path of least resistance if
+in Objective-C using Apple's Xcode. Other tools like REALbasic (now Xojo)
+and Xamarin have found some success, but ultimately the platform and Xcode are so deeply
+entwined that learning Objective-C has been the path of least resistance, especially if
 you want to stay abreast of the latest developments.
 
-My first brush with Objective-C for the Mac in 2005 was bewildering. Here was
+My first brush with Objective-C for the Mac in 2005 was a little bewildering. Here was
 a language that was C-compatible but object-oriented, with a weird, verbose
 syntax reminiscent of Smalltalk. It also had a quirky manual memory management
 system requiring intense concentration. Still, after using it a while something
 kind of clicked, and I began to like it. That may have also been due to the fact
-that it was the only feasible way to develop applications for the Mac (and later
-for the iPhone).
+that it was the only feasible way to develop applications for the Mac, and would be
+even more important for the iPhone in 2008.
 
-Over the years Apple made a lot of improvements to Objective-C, including
+Over the years Apple made many improvements to Objective-C, including
 Automatic Reference Counting (ARC) for memory management, 
 a nicer syntax for object literals in version
-2.0, a new compiler, the block syntax (not actually an improvement)
+2.0, a new compiler, the block syntax (well, maybe not actually an improvement)
 and a Java-like iterative for loop syntax and dot notation. Still you couldn't help 
 thinking that Objective-C was gradually getting a little long in the tooth.
-Some 10,000 lines of Objective-C later, it's time for something else.
+At least I thought that after thousands of lines of Objective-C it was time for 
+something else.
 
 ## Enter Swift
 
@@ -52,13 +53,14 @@ a little puzzled, by Apple's announcement of the [Swift programming language](ht
 last year's World Wide Developer Conference (WWDC 2014). There have been
 concerns that Objective-C is hard to learn, even though there is no problem in
 supporting large production apps using the Foundation and Cocoa frameworks.
-However, there are many arcane features, and the occasional need to use
-frameworks that are not even Objective-C, but plain old C (like Core Foundation)
-may be a little too much for some app developers.
+However, the language is a little arcane by modern standards, 
+and the occasional need to use frameworks that are not even Objective-C, 
+but plain old C (like Core Foundation) may be a little too much for new and casual
+app developers, which the iOS platform continues to attract.
 
-The latter half of 2014 was a mad scramble to get acquainted with Swift, and to get
+For many iOS developers the latter half of 2014 was a mad scramble to get acquainted with Swift, and to get
 popular iOS frameworks to play ball with Swith projects, or rewrite them in Swift.
-Tools like [CocoaPods](https://cocoapods.org) took their time to gain Swift compatibility, while Apple kept
+Tools like [CocoaPods](https://cocoapods.org) took some time to gain Swift compatibility, while Apple kept
 refining the language with successive releases of Xcode. Especially [Swift 1.2](https://developer.apple.com/swift/blog/?id=22),
 which shipped with Xcode 6.3 in February 2015, was a major, somewhat 
 backwards-incompatible release. It fixed a lot of annoyances and brought Swift
@@ -66,7 +68,7 @@ closer to prime time.
 
 In [WWDC 2015](https://developer.apple.com/videos/wwdc/2015/) this past June, 
 Apple announced the customary new versions of OS X, iOS and
-Swift, along with a new Xcode. Currently iOS 9 and Xcode 7 are in beta, and the final versions
+Swift, along with a new Xcode toolset. Currently iOS 9 and Xcode 7 are in beta, and the final versions
 will ship in the fall - with [Swift 2.0](https://developer.apple.com/swift/blog/?id=29), 
 which will also be open sourced. Apple
 has made it very clear that Swift is the future for iOS and OS X development.
@@ -77,9 +79,9 @@ As programming languages go, Swift is both radical and conservative. It takes th
 best ideas and paradigms from many existing programming languages, and mixes them
 together into a distinctly Apple-flavored cocktail. The most radical ideas of Swift 
 relate to the type system. There is strong type checking with powerful type
-inference (both concepts straight out of [Haskell](https://www.haskell.org)).
+inference (both concepts almost straight out of [Haskell](https://www.haskell.org)).
 Indeed, the influences and design decisions behind Swift have been documented
-by Chris Lattner, the lead designer of Swift and LLVM.
+by Chris Lattner (Swift and [LLVM](http://llvm.org) lead).
 
 Most newcomers to Swift will struggle with the most forward-thinking concept of
 the language: [optionals](http://commandshift.co.uk/blog/2014/06/11/understanding-optionals-in-swift/). 
@@ -153,10 +155,11 @@ pervasive use of immutable values in Swift. Indeed, you should take a page
 from the functional programming playbook and start using structs and `let` 
 as much as possible, instead
 of classes and `var`, since it helps to keep things straight in an increasingly
-multithreaded environment.
+multithreaded environment. Immutability is a paradigm you can use even if you 
+don't do full-blown functional programming (yet).
 
 The [Swift standard library](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/SwiftStandardLibraryReference/) 
-has a number of functions providing basic functional
+has a number of functions providing basic functional-style
 replacements for traditional loop-based iteration of array-like structures, 
 namely `map`, `filter` and `reduce`. By internalising these concepts you can 
 make your code more elegant and less cluttered.
@@ -177,7 +180,10 @@ quite verbose in comparison:
         }
     }
 
-For a functional way of summing the odd numbers like above, try this:
+You could also use an `NSPredicate` and a block, but that introduces two new concepts
+and does not make the source code any more concise.
+
+For a functional way of summing the odd numbers like above in Swift, try this:
 
     let series = [ 0, 1, 1, 2, 3, 5, 8, 13, 21,
                    34, 55, 89, 144, 233, 377, 610 ]
@@ -217,9 +223,9 @@ The app utilises new third-party Swift open source projects like [XCGLogger](htt
 [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults). (I just wish that everybody would stop using
 the Swift name or a derivative of it as part of the project name.)
 
-At this time, I would not hesitate at all to start any new iOS development project with
+At this time, I would not hesitate to start a new iOS development project with
 Swift, even though Objective-C projects are still supported in Xcode, and will be
 for a long time. New Objective-C code continues to be written, and there is no harm
 in that, but most of the instructional material from Apple and others is moving
 forward and over to Swift, so if you want to learn about new frameworks added to iOS 9
-and OS X, you will have an advantage if you know Swift.
+and OS X -- and write applications for watchOS -- you will have an advantage if you know Swift.
