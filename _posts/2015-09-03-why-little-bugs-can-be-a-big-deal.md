@@ -115,7 +115,7 @@ are just some of them:
 -   Fixing the defect would require deep architectural changes, making it too
     expensive.
 
-What all these reasons have is common is that to make an informed decision
+What all these reasons have in common is that, to make an informed decision
 about whether or not to fix a bug, you have to know what the defect is and
 where it is located. For most bugs, at that point you've done 95% of the work
 and might as well just fix the defect. (In fact, until you've changed the code
@@ -184,7 +184,7 @@ amount of defects ending up in the software. And if they're doing a
 half-hearted job, it's probably the system that's discouraging them.
 
 If we make a bug go away but leave in the defect, the defect will soon manifest
-as another bug. If we fix defects but never touch the conditions to gave rise
+as another bug. If we fix defects but never touch the conditions that gave rise
 to them, it's just a matter of time before someone adds new defects just like
 the ones we fixed, perhaps in a place where they can do even more damage.
 
