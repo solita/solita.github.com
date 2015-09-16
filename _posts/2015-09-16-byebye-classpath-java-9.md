@@ -54,6 +54,8 @@ module fi.solita.crawlingturtle @ 0.1 {
 
 So, as you can see, new keywords being added: module, requires, exports. I hope you haven't used them as variable names ;) Unfortunately, it seems current build of JDK 9 does not yet process the module keyword, so we have to wait a bit further to really play with it.
 
+The extension mechanism has been removed - so any earlier hacks that rely on lib/ext folder will stop working. So this will be fun time for IDEs and application servers, but there's still plenty of time to prepare of course ;)
+
 ## What else is there?
 
 Obviously it's not just about Jigsaw - there's dozens of other updates to APIs all over. Some that interest me are:
@@ -63,6 +65,7 @@ Obviously it's not just about Jigsaw - there's dozens of other updates to APIs a
 - Some project coin refinements, one of them means underscore is not just frowned upon in idenfitifer names, it's now an error
 - **JShell** and **REPL** (Read-Eval-Print-Loop) enable you to play with and test code earlier and easier 
 - Better access to OS level details such as process level
+- Currently it seems that JEP 198: Light-Weight JSON API does not make the cut, so it will not be part of Java 9. Which is sad, since JSON handling could truly use some improvements. However, this is possible to resolve using libraries where we have a lot of choises!
 
 Some of the changes are pretty big, and will break some existing code. So if you intend to keep up to date and not use trusty old Java 1.6 (or later ones) forever, it's time to start planning and testing for the future. See you there!
 
