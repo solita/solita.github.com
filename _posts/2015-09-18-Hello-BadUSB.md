@@ -17,7 +17,7 @@ The device itself looks just like an USB drive
 From inside the Ducky is actually embedded device with microSD reader
 
 ## How to script Ducky
-Ducky has its own script language called [DuckyScript](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript). It is simple language which allows you to define what keyboard actions you want to script. There is no actual IDE for it but community has created an User Defined Language for Notepad++ which can be found from [hak5 forums](https://forums.hak5.org/index.php?/topic/21045-encoder-duckyscript-notepad-userdefinedlanguage/). My first payload script simply opened PowerShell with Win-R shortcut and downloaded an exe which was then executed. 
+Ducky has its own script language called [DuckyScript](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript). It is simple language which allows you to define what keyboard actions you want to script. There is no actual IDE for it but community has created an User Defined Language for Notepad++ which can be found from [hak5 forums](https://forums.hak5.org/index.php?/topic/21045-encoder-duckyscript-notepad-userdefinedlanguage/). My first payload script simply opened PowerShell with Win-R shortcut and downloaded an executable which was then executed. 
 
 ![Tools](/img/hello-badusb/duckyscript.png)
 
@@ -27,7 +27,7 @@ The script itself is quite self-explanatory.
 3. WINDOWS r opens the run prompt and yet again delay is added for waiting the prompt to truly open. 
 4. Then PowerShell is written to prompt following with ENTER. 
 5. PowerShell is used to invoke a webclient command to download a file and store it under temp folder. 
-6. Finally the exe is started with Start-Process command in PowerShell. 
+6. Finally the executable is started with Start-Process command in PowerShell. 
 
 There are plenty of ready scripts available. [Here](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads) are few samples. There is also community made toolkit available. You should [check it out](http://www.ducktoolkit.com) since it allows you to generate scripts with certain payload. Toolkit also allows you to compile scripts on the internet but my precautioness didn't let me to test it out. 
 
@@ -38,7 +38,7 @@ This was for me the trickiest part. Wiki tells you to download [this Duck Encode
 java -jar duckencoder.jar -i exploit.txt -o /media/microsdcard/inject.bin
 ```
 
-Although there were one huge problem. It only supported US layout. The script didn't work unless you chose the correct keyboard layout from Windows first. Luckily community has solved this problem. There were newer versions of [commandline compiler](https://github.com/midnitesnake/USB-Rubber-Ducky) available. I just needed to pass new parameter for the encoder!
+Although there was an annoying problem. It only supported US layout. The script didn't work unless you chose the correct keyboard layout from Windows first. Luckily community has solved this problem. There were newer versions of [commandline compiler](https://github.com/midnitesnake/USB-Rubber-Ducky) available. I just needed to pass new parameter for the encoder!
 
 ```powershell
 java -jar encoder.jar -i exploit.txt -o inject.bin -l resources\fi.properties
@@ -55,11 +55,11 @@ Run prompt is shown and "powershell" is typed to it
 
 ![Tools](/img/hello-badusb/ducky_powershell.png)
 
-Once PowerShell has started the script downloads an exe and runs it
+Once PowerShell has started the script downloads an executable and runs it
 
 ![Tools](/img/hello-badusb/ducky_exe.png)
 
-The exe itself was this time a pretty harmless one that opens notepad and prints an adorable ascii dragon.
+The executable itself was this time a pretty harmless one that opens notepad and prints an adorable ascii dragon.
 
 ## Wait there is more
 Dangerousness of Human Interface Device USB is that all the user actions are always trusted. How do you bypass UAC in Windows? With user action.
