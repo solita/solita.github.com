@@ -7,6 +7,9 @@ excerpt: Introduction to USB Rubber Ducky keystroke injection platform
 
 There was a big security flaw in a 2014 Jeep Cherokee. Chrysler didn't have a way to patch cars over the air so [they mailed 1.4 million USB drives](http://www.wired.com/2015/09/chrysler-gets-flak-patching-hack-via-mailed-usb/) via the US Postal Service. By doing that they teached their customers to trust USB drives that are delivered by mail. What security professionals are fearing is of course malicious USB devices. Let's peek into world of BadUSB.
 
+## What is BadUSB?
+BadUSB can be any USB device. It is possible for hackers to reprogram micro-controllers of normal devices or cloak their malicious devices to look like regular ones. BadUSB can for example upload a virus to your computer, redirect your internet traffic or pretend to be a keyboard. 
+
 ## How do I get one?
 I ordered my BadUSB from [hakshop](http://hakshop.myshopify.com/). It is called USB Rubber Ducky Deluxe and it is build for penetration testing purposes for security professionals. In short it is a USB drive that acts as a USB Human Interface Device. When you plug it into your device it presents itself as a keyboard. Within a package there is the BadUSB itself, microSD card and microSD card reader. Because it is a keyboard it works with any device that supports USB keyboard (Windows, Mac, Linux, Android, etc). The payload has to be chosen by knowing the target system because the same keyboard injection won't do desired things in different operating systems. 
 
@@ -39,10 +42,10 @@ The script itself is quite self-explanatory.
 6. Finally the executable is started with Start-Process command in PowerShell. 
 
 
-There are plenty of ready scripts available. [Here](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads) are few samples. There is also community made toolkit available. You should [check it out](http://www.ducktoolkit.com) since it allows you to generate scripts with certain payload. Toolkit also allows you to compile scripts on the internet but my precautioness didn't let me to test it out. 
+There are plenty of ready scripts available. [Here](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads) are few samples. There is also [community made toolkit](http://www.ducktoolkit.com) available. You should check it out since it allows you to generate scripts with certain payload. Toolkit also allows you to compile scripts on the internet but my precautioness didn't let me to test it out. 
 
 ## Building the script for Ducky
-This was for me the trickiest part. Wiki tells you to download [this Duck Encoder](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Downloads). It was straightforwart to use.
+This was for me the trickiest part. Wiki tells you to download [Duck Encoder](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Downloads). It was straightforwart to use.
 
 ```powershell
 java -jar duckencoder.jar -i exploit.txt -o /media/microsdcard/inject.bin
@@ -75,13 +78,13 @@ The executable itself was this time a pretty harmless one that opens notepad and
 
 
 ## Why BadUSB is so dangerous?
-Dangerousness of Human Interface Device USB is that all the user actions are always trusted. How do you bypass UAC in Windows? With user action.
+Dangerousness of Human Interface Device USB is that all the user actions are always trusted. How do you bypass UAC in Windows? With user action. Also if the malicious code is injected into USB micro-controller there is no way to antivirus software to be able to scan it.
 
 This kind of BadUSB device is pretty easy to notice because it didn't do what user expected (it wasn't a USB drive). With Ducky there are community made firmwares that can be both USB Drive and USB Keyboard at the same time. This way the victim could download e.g. PDF document from USB drive and after that you could just disrupt him when the HID keyboard starts to build a backdoor for you. 
 
 ## How to protect yourself from BadUSB?
-Once your car manufacturer sends you an USB drive via email do not plug it in! It is simple as that. You should go to meet your local car service company and ask them to do the needed job. 
+Once your car manufacturer sends you an USB drive via postal service do not plug it in! It is simple as that. You should go to meet your local car service company and ask them to do the needed job. Also you should of course always lock your computer when not using it and never leave it into unsafe location unattended. In an open-plan office it could be pretty easy to add for example keylogger in between your keyboard and computer without you ever noticing it. Modern keyloggers are able to broadcast keypresses through WiFi to the attacker.
 
-Another way around would be to whitelist the allowed devices and deny all others. This might be burdensome especially if user does not have privileges to bypass this restriction. It is also common action to disable USB ports from devices that do not need them (e.g. servers). Although that is a bit extreme action and if somebody is in your server room with malicious USB devices the USB device itself is most likely least of your concerns. 
+One way around would be to whitelist the allowed devices and deny all others. This might be burdensome especially if user does not have privileges to bypass this restriction. It is also common action to disable USB ports from devices that do not need them (e.g. servers). Although that is a bit extreme action and if somebody is in your server room with malicious USB devices the USB device itself is most likely least of your concerns. 
 
-Nevertheless the most important thing is to educate your personnel to be aware of this kind of threats. 
+Nevertheless the most important thing is to educate your personnel to be aware of this kind of threats. You should also support secure ways to transfer from files from computer to another to ensure that use of USB drives is minimized.
