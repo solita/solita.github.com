@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Goodbye classpath - or how about a cup of steaming Java 9?
+title: Goodbye classpath - welcome Java 9
 author: arto
-excerpt: Java 9 is coming - are you ready?
+excerpt: Java 9 module system is going to kick out the old classpath
 ---
 
-Java 9 is on schedule to be published late 2016 - and feature complete by end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about some things that interest me there.
+Java 9 is on schedule to be published late 2016 - and feature complete by end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about the upcoming module system, project Jigsaw.
 
 I like to get a view of what's to be expected in the future so in addition to reading about Java 9 I installed prerelease in my machine to have a spin. It's also useful to test-compile your legacy software with upcoming JDK just to see what might break.
 
@@ -54,11 +54,11 @@ module fi.solita.crawlingturtle @ 0.1 {
 
 So, as you can see, new keywords being added: module, requires, exports. I hope you haven't used them as variable names ;) Unfortunately, it seems current build of JDK 9 does not yet process the module keyword, so we have to wait a bit further to really play with it.
 
-The extension mechanism has been removed - so any earlier hacks that rely on lib/ext folder will stop working. So this will be fun time for IDEs and application servers, but there's still plenty of time to prepare of course ;)
+The endorsed/extension mechanism has been removed - so any earlier hacks that rely on lib/ext folder will stop working. So this will be fun time for IDEs and application servers, but there's still plenty of time to prepare of course ;)
 
 ## What else is there?
 
-Obviously it's not just about Jigsaw - there's dozens of other updates to APIs all over. Some that interest me are:
+Obviously Java 9 is not just about Jigsaw - there's dozens of other updates and changes coming up. Some that interest me are:
 
 - **G1 garbage collector** becomes the new default for server virtual machines - finally. This mainly means improved support for large heap memories, and more toggles for tuning gc pauses etc. This has of course been available for long time, but going to default setting implies certain level of maturity.
 - **HTTP 2.0 client** offers improved/simplified API with asynchronous calls and websocket support. Byebye HttpURLConnection! ;)
