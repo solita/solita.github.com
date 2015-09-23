@@ -5,15 +5,9 @@ author: arto
 excerpt: Java 9 module system is going to kick out the old classpath
 ---
 
-Java 9 is on schedule to be published late 2016 - and feature complete by end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about the upcoming module system, project Jigsaw.
+Java 9 is on schedule to be published late 2016 - and feature complete by end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about the upcoming module system, project Jigsaw. Early access build of JDK 9 is out there already, sadly it doesn't support major things like Jigsaw or REPL yet.
 
-I like to get a view of what's to be expected in the future so in addition to reading about Java 9 I installed prerelease in my machine to have a spin. It's also useful to test-compile your legacy software with upcoming JDK just to see what might break.
-
-## Managing multiple JVMs with Jenv
-
-A recommendation first: Having multiple virtual machines in your computer can be a mess. I used to run Windows, and there you can play with environment variables, but registry still messes things up now and then. With OSX, I've been quite happy with tool called jenv, which allows me to set up multiple installations of Java, and swap between them. It will also change JAVA_HOME, so many command line tools work properly. Highly recommended! (As is also nvm tools for Node development - that immediately also supports Node 4.0). Anyways, I digress. But jenv makes it very easy to experiment with the latest and greatest, then go back to warm and fuzzy, safe old Java 8.
-
-## What puzzles me about classpath
+## From classpath to puzzles
 
 So what's coming up next year when Java 9 is released? Well, a major thing is going to be Jigsaw - yes the modularity system that was supposed to be released already with Java 7. It's taken so long (8 years) for a few reasons. One is certain corporate buyout and changes in the way things are done. Second is because Jigsaw has ambitious goal of modularizing core of JRE - and the dependency map between different parts is crazy!
 
@@ -54,7 +48,9 @@ module fi.solita.crawlingturtle @ 0.1 {
 
 So, as you can see, new keywords being added: module, requires, exports. I hope you haven't used them as variable names ;) Unfortunately, it seems current build of JDK 9 does not yet process the module keyword, so we have to wait a bit further to really play with it.
 
-The endorsed/extension mechanism has been removed - so any earlier hacks that rely on lib/ext folder will stop working. So this will be fun time for IDEs and application servers, but there's still plenty of time to prepare of course ;)
+There's also a host of new j* tools coming up, for example jlink linker, that links modules together, and jmod tool for packaging modules in a bit of jar-like format. These are mostly for IDE vendors to worry about, but expect to see/create ANT and Maven plug-ins at some point for build automation.
+
+Folder structure inside jdk will change, and the endorsed/extension mechanism has been removed - so any earlier hacks that rely on tool jar locations or lib/ext folder will stop working. So this will be fun time for IDEs and application servers, but there's still plenty of time to prepare of course ;) 
 
 ## What else is there?
 
@@ -87,4 +83,4 @@ Some of the changes are pretty big, and will break some existing code. So if you
 
 [Module declaration grammar](http://openjdk.java.net/projects/jigsaw/doc/lang-vm.html#jigsaw-1)
 
-
+[Changes proposed to javac for module compilation support](http://openjdk.java.net/projects/jigsaw/doc/ModulesAndJavac.pdf)
