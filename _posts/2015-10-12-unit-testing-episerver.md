@@ -22,7 +22,7 @@ That said, having some of those end-to-end tests is definitely a good idea, but 
 the more difficult writing and maintaining such tests becomes, so there can't be too many of those complex tests. 
 Good tests, especially unit tests, are very simple, quick to write and execute, as well as easy to maintain.
 
-Some examples of good candidates for automated tests are:
+On a typical CMS website, some examples of good candidates for automated tests are:
 
 * Algorithms, such as calculating store opening hours based on a set of rules.
 * Systems integration code, such as XML/JSON/CSV parsing and processing.
@@ -32,23 +32,71 @@ Some examples of good candidates for automated tests are:
 ## Testing EPiServer-specific code
 
 When working with EPiServer websites, I've noticed that large parts of the code tend to be tightly tied to the EPiServer content repository, 
-either by creating and saving content, or by traversing the content tree. I have to admit I don't have much experience with other CMS systems, but I can imagine this will apply to
+either by creating and saving content, or by traversing the content tree. I have to admit I don't have much experience with other CMS systems, but I can imagine this applies to
 most of them, or to any other complex software platform. 
 The main problem with testing such code is that, similar to having a database backend, initializing the whole system complicates the tests unnecessarily and can't be considered very testable.
 
-The content repository (IContentRepository), as well as most of the core types in EPiServer, are nowadays provided as interfaces, 
+The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces, 
 so mocking them either by hand or by using a mock framework (such as [Moq](https://github.com/Moq/moq4)) is fairly easy. 
-However, I dislike mocking such low-level general purpose interfaces, because as the code is refactored and new features added, it tends to be those low level details that change the most frequently,
-and if your tests are tied to too low level details that makes those tests very fragile.
+However, I dislike mocking such low-level general purpose interfaces, because as the code is refactored and new features added, 
+it tends to be those low level details that change the most frequently, making those tests very fragile. 
+Mocking more complex interfaces such as EPiServer Find or Entity Framework is even worse.
 
-In order to make such code testable, I've used two different strategies:
+For example, consider code that loads content with *Get<T>(ContentReference)* and you mock that method to return a fixed value. 
+That call in code could easily be changed to *TryGet* or even *GetItems*, breaking your test setups. Even worse, the code might make multiple calls to that *Get* method
+with different parameters so you'd have multiple setups returning different values based on the parameter, which easily becomes complicated.
+
+In order to make such code more testable, I've used two different strategies:
 
 * Creating another layer of abstraction between the code and the content repository.
 * Using a simplified in-memory implementation of the content repository that mimics the behavior of the original EPiServer content repository. This is also called a "fake".
 
 ## Writing an abstraction layer
 
-Creating another layer of abstraction is a common method of mocking a general purpose interface. 
-For example, a code that deals with product pages on an EPiServer website can manage those pages through an interface called IProductPageRepository, 
-with methods for listing, loading and saving those pages. 
-Testing against such a simplified, per-task interface is a lot more straighforward than mocking the general purpose interface.
+For example, let's say you have code that deals with product pages on an EPiServer website. 
+You can make that code manage product pages through an interface called *IProductPageRepository*, with methods for listing, loading and saving those pages. 
+This interface should be easier to mock since it contains a limited number of higher level methods. Additionally, the implementation of this page repository could be changed
+to use EPiServer Find or a custom SQL database instead of the EPiServer content repository.
+
+The main drawback of course is that writing such abstraction layers is additional work and you're going to need a lot of them if you have plenty of content types.
+
+## Faking the content repository
+
+Majority of the methods provided by the *IContentRepository* interface are relatively straighforward CRUD (Create, Read, Update, Delete) operations.
+I decided to write a fake implementation of that interface that persists the saved content in memory and attempts to mimic the behavior of EPiServer's content repository as
+closely as possible, without actually requiring the EPiServer context to be initialized.
+
+The contents in my FakeContentRepository are saved in a dictionary, where the key is the content ID. 
+
+When saving content using the the save method, it checks if the content to be saved already has an ID, and if not, a new unique ID is assigned.
+
+`
+public ContentReference Save(IContent content, SaveAction action, AccessLevel access)
+{
+    if (content.ContentLink != null && contents.ContainsKey(content.ContentLink)) {
+        // Update content
+        contents[content.ContentLink] = content;
+    } else
+    {            
+        bool isNew = false;
+
+        if (ContentReference.IsNullOrEmpty(content.ContentLink))
+        {
+            content.ContentLink = new ContentReference(id++);
+            isNew = true;
+        }
+
+        contents.Add(content.ContentLink, content);
+
+        if (isNew)
+            contentEvents.OnCreatedContent(ContentEventArgs(content));
+        else if (action == SaveAction.Save)
+            contentEvents.OnSavedContent(ContentEventArgs(content));
+
+    }
+
+    return content.ContentLink;
+}
+`
+
+Implementing GetItems and Delete methods was very simple.
