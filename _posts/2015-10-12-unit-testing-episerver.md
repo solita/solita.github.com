@@ -2,11 +2,11 @@
 layout: post
 title: Automated testing of EPiServer websites
 author: riipah
-excerpt: How to make it feasible by using mocks and fakes
+excerpt: What to test on the server side and how to deal with the content repository
 ---
 
 I'm a big fan of automated testing, having had good experiences with keeping complex pieces of software maintainable by having a comprehensive automated test suite. 
-When developing websites based on a complex CMS platform such as [EPiServer CMS](http://www.episerver.com/), I often hear opinions saying it's too difficult and not worth the effort. 
+When developing websites based on a CMS platform such as [EPiServer CMS](http://www.episerver.com/), or another similarly complex platform, I often hear opinions saying it's too difficult and not worth the effort. 
 However, almost all CMS-based sites have some custom business logic, some more than others, and whenever there's custom logic, there's code that can break when changes are made, 
 so regression tests are needed.
 
@@ -17,14 +17,12 @@ Note: if you already know enough about automated testing and EPiServer you can s
 The point of this post is not to explain why automated testing should be done, or how to write tests in general. 
 I'm also not going to talk about the technical differences between various types of testing, such as unit vs. integration testing. 
 
-That said, I will start by saying that not all code needs to be tested.
-When working on any piece of code, but especially one based on a CMS platform, there's plenty of "trivial" code, such as class constructors, accessors and loops in views for example.
-Achieving 100% code coverage by testing such trivial code is usually pointless - it's better tested as part of other tests such as end-to-end (system) tests, if at all. 
-Having some of those end-to-end tests is definitely a good idea, as long as you keep in mind that the more layers your test covers 
-the more difficult writing and maintaining such tests becomes, so you have to limit the number of those complex tests. 
-Good tests, especially unit tests, are very simple and quick to write and execute, as well as easy to maintain.
+That said, I will start by saying that there's a lot of code that doesn't need to be tested directly:
+Anything that can be considered trivial or boilerplate code, such as class constructors, accessors and loops in views for example.
+On a CMS website this includes the content type definitions. This code is unlikely to contain bugs by itself, 
+and it will get tested indirectly together with other tests.
 
-On a typical CMS website, some examples of good candidates for automated tests are:
+On a typical CMS website, some examples of good candidates for automated tests on the server side are:
 
 * Algorithms, such as calculating store opening hours based on a set of rules.
 * Systems integration code, such as XML/JSON/CSV parsing and processing.
@@ -33,15 +31,15 @@ On a typical CMS website, some examples of good candidates for automated tests a
 
 ## Testing EPiServer-specific code
 
-When working with EPiServer websites, I've noticed that large parts of the code tend to be tightly tied to the EPiServer content repository, 
-either by creating and saving content, or by traversing the content tree. 
-To some extent, this should apply to other CMS systems as well, and to any other complex software framework.
-Testing against the full CMS is slow and fragile - there's simply too much initialization and too many moving parts.
+When working with EPiServer websites, large parts of the code tend to be involved with the EPiServer database, 
+which is managed through the content repository. Usually this consists of creating and saving content, or traversing the content tree. 
+Testing against the full CMS, as with any system that contains a database, is slow and fragile - there's simply too much initialization and too many moving parts.
+For majority of your tests, you need to break dependencies to that database and any other external interfaces such as web APIs.
 
-The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces, 
-so mocking them either by hand or by using a mock framework (such as [Moq](https://github.com/Moq/moq4)) is fairly easy. 
+The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces,
+and injected to wherever they are needed, so they can be mocked, either by hand or by using a mock framework (such as [Moq](https://github.com/Moq/moq4)). 
 However, I dislike mocking such low-level general purpose interfaces, because as the code is refactored and new features added, 
-it tends to be those low level details that change the most frequently, making those tests very fragile. 
+it tends to be those low level details that change the most frequently, making such tests fragile. 
 Mocking more complex interfaces such as EPiServer Find or Entity Framework is even worse.
 
 For example, consider code that loads content with *Get<T>(ContentReference)* and you mock that method to return a fixed value. 
