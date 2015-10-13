@@ -73,7 +73,6 @@ The contents in my *FakeContentRepository* are saved in a dictionary, where the 
 ```
 public class FakeContentRepository : IContentRepository
 {
-
     private readonly Dictionary<ContentReference, IContent> contents 
         = new Dictionary<ContentReference, IContent>();    
     ...
@@ -134,4 +133,19 @@ With these methods you have a sufficiently working implementation of EPiServer's
 pages and shared blocks. You can then inject this fake implementation into your code under test, possibly through that abstraction layer mentioned earlier.
 Compared to simply mocking the content repository, you can now use the standard Save method for providing your test data, and it doesn't matter whether the
 code under tests loads that data using the *Get*, *GetItems* or *TryGet* methods. Then after test, instead of recording which method was called, you can simply
-check the contents collection.
+check the contents of the repository, because that's what we're really interested in: the end result. Everything happening in between is just implementation details.
+
+For example, testing article import that saves the articles as ArticlePages in the content repository:
+
+```
+[TestMethod]
+public void TestArticleImport()
+{            
+    var contentRepository = new FakeContentRepository();
+    var importer = new ArticleImporter(contentRepository, ...);
+    importer.Import(stream);
+
+    var articles = contentRepository.Contents.OfType<ArticlePage>();
+    Assert.AreEqual(2, articles.Count(), "Number of articles imported");
+}    
+```
