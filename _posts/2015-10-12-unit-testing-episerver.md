@@ -18,11 +18,11 @@ The point of this post is not to explain why automated testing should be done, o
 I'm also not going to talk about the technical differences between various types of testing, such as unit vs. integration testing. 
 
 That said, I will start by saying that not all code needs to be tested.
-When working on any piece of code, but especially one based on a CMS platform, there's plenty of "trivial" code, such as class constructors and accessors, and loops in views for example.
-Achieving 100% code coverage by testing such trivial code is usually pointless - it's better tested with end-to-end (system) tests, if at all. 
-That said, having some of those end-to-end tests is definitely a good idea, but you have to understand that the more layers your test covers, 
-the more difficult writing and maintaining such tests becomes, so there can't be too many of those complex tests. 
-Good tests, especially unit tests, are very simple, quick to write and execute, as well as easy to maintain.
+When working on any piece of code, but especially one based on a CMS platform, there's plenty of "trivial" code, such as class constructors, accessors and loops in views for example.
+Achieving 100% code coverage by testing such trivial code is usually pointless - it's better tested as part of other tests such as end-to-end (system) tests, if at all. 
+Having some of those end-to-end tests is definitely a good idea, as long as you keep in mind that the more layers your test covers 
+the more difficult writing and maintaining such tests becomes, so you have to limit the number of those complex tests. 
+Good tests, especially unit tests, are very simple and quick to write and execute, as well as easy to maintain.
 
 On a typical CMS website, some examples of good candidates for automated tests are:
 
@@ -34,8 +34,7 @@ On a typical CMS website, some examples of good candidates for automated tests a
 ## Testing EPiServer-specific code
 
 When working with EPiServer websites, I've noticed that large parts of the code tend to be tightly tied to the EPiServer content repository, 
-either by creating and saving content, or by traversing the content tree. I have to admit I don't have much experience with other CMS systems, but I can imagine this applies to
-most of them, or to any other complex software platform. 
+either by creating and saving content, or by traversing the content tree. This should apply to other CMS systems as well, and to any other complex software platform. 
 The main problem with testing such code is that, similar to having a database backend, initializing the whole system complicates the tests unnecessarily and can't be considered very testable.
 
 The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces, 
@@ -57,10 +56,11 @@ In order to make such code more testable, I've used two different strategies:
 
 For example, let's say you have code that deals with product pages on an EPiServer website. 
 You can make that code manage product pages through an interface called *IProductPageRepository*, with methods for listing, loading and saving those pages. 
-This interface should be easier to mock since it contains a limited number of higher level methods. Additionally, the implementation of this page repository could be changed
-to use EPiServer Find or a custom SQL database instead of the EPiServer content repository.
+This interface should be easier to mock since it contains a limited number of higher level methods. Additionally, since the actual method of persisting the pages is now abstracted,
+the implementation of this page repository could be changed to use EPiServer Find or a custom SQL database instead of the EPiServer content repository.
 
-The main drawback of course is that writing such abstraction layers is additional work and you're going to need a lot of them if you have plenty of content types.
+The main drawback of course is that writing such abstraction layers is additional work, it might complicate your overall architecture, 
+and you're going to need a lot of them if you have plenty of content types.
 
 ## Faking the content repository (finally some code)
 
@@ -130,4 +130,8 @@ in [EPiAbstractions](https://github.com/MikeHook/EPiAbstractions).
 Additionally, I implemented a similar CreateSharedBlock class for creating instances of shared blocks using EPiServer's 
 [SharedBlockFactory](http://world.episerver.com/documentation/Class-library/?documentId=cms/9/B79494A8).
 
-With these methods I have a sufficiently working implementation of EPiServer's content repository.
+With these methods you have a sufficiently working implementation of EPiServer's content repository which is able to create, save, load and delete
+pages and shared blocks. You can then inject this fake implementation into your code under test, possibly through that abstraction layer mentioned earlier.
+Compared to simply mocking the content repository, you can now use the standard Save method for providing your test data, and it doesn't matter whether the
+code under tests loads that data using the *Get*, *GetItems* or *TryGet* methods. Then after test, instead of recording which method was called, you can simply
+check the contents collection.
