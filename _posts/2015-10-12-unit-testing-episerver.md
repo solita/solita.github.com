@@ -10,6 +10,8 @@ When developing websites based on a complex CMS platform such as [EPiServer CMS]
 However, almost all CMS-based sites have some custom business logic, some more than others, and whenever there's custom logic, there's code that can break when changes are made, 
 so regression tests are needed.
 
+Note: if you already know enough about automated testing and EPiServer you can skip straight to the last chapter.
+
 ## What to test?
 
 The point of this post is not to explain why automated testing should be done, or how to write tests in general. 
@@ -60,43 +62,72 @@ to use EPiServer Find or a custom SQL database instead of the EPiServer content 
 
 The main drawback of course is that writing such abstraction layers is additional work and you're going to need a lot of them if you have plenty of content types.
 
-## Faking the content repository
+## Faking the content repository (finally some code)
 
 Majority of the methods provided by the *IContentRepository* interface are relatively straighforward CRUD (Create, Read, Update, Delete) operations.
-I decided to write a fake implementation of that interface that persists the saved content in memory and attempts to mimic the behavior of EPiServer's content repository as
-closely as possible, without actually requiring the EPiServer context to be initialized.
+I decided to write a fake implementation of that interface which persists the saved content in memory and attempts to mimic the behavior of EPiServer's content repository as
+closely as needed, without actually requiring the EPiServer context to be initialized.
 
-The contents in my FakeContentRepository are saved in a dictionary, where the key is the content ID. 
+The contents in my *FakeContentRepository* are saved in a dictionary, where the key is the content ID. 
+
+```
+public class FakeContentRepository : IContentRepository
+{
+
+    private readonly Dictionary<ContentReference, IContent> contents 
+        = new Dictionary<ContentReference, IContent>();    
+    ...
+}
+```
 
 When saving content using the the save method, it checks if the content to be saved already has an ID, and if not, a new unique ID is assigned.
 
-`
+```
 public ContentReference Save(IContent content, SaveAction action, AccessLevel access)
-{
-    if (content.ContentLink != null && contents.ContainsKey(content.ContentLink)) {
-        // Update content
+{            
+    if (ContentReference.IsNullOrEmpty(content.ContentLink))
+    {
+        content.ContentLink = new ContentReference(id++);
+    }
+
+    if (contents.ContainsKey(content.ContentLink)) {
         contents[content.ContentLink] = content;
     } else
-    {            
-        bool isNew = false;
-
-        if (ContentReference.IsNullOrEmpty(content.ContentLink))
-        {
-            content.ContentLink = new ContentReference(id++);
-            isNew = true;
-        }
-
+    {
         contents.Add(content.ContentLink, content);
-
-        if (isNew)
-            contentEvents.OnCreatedContent(ContentEventArgs(content));
-        else if (action == SaveAction.Save)
-            contentEvents.OnSavedContent(ContentEventArgs(content));
-
     }
 
     return content.ContentLink;
 }
-`
+```
 
-Implementing GetItems and Delete methods was very simple.
+Obviously this is skipping things like content events and versioning, which might need to be added as well if your code depends on those.
+
+Implementing (simplified versions) of GetItems, Delete and GetChildren methods was very straightforward.
+
+```
+public void Delete(ContentReference contentLink, bool forceDelete, AccessLevel access)
+{
+    if (contents.ContainsKey(contentLink))
+        contents.Remove(contentLink);
+}  
+    
+public IEnumerable<T> GetChildren<T>(ContentReference contentLink) where T : IContentData
+{
+    return contents.Values.Where(c => c.ParentLink == contentLink).OfType<T>();
+}
+
+public IEnumerable<IContent> GetItems(IEnumerable<ContentReference> contentLinks, CultureInfo language)
+{
+    var items = contents.Values.Where(c => contentLinks.Contains(c.ContentLink));
+    return items;
+}      
+```
+
+Creating new content with the GetDefault method is a bit more interesting. 
+For that I took inspiration from the [CreatePage class](https://github.com/MikeHook/EPiAbstractions/blob/master/EPiAbstractions.FixtureSupport/CreatePage.cs) 
+in [EPiAbstractions](https://github.com/MikeHook/EPiAbstractions). 
+Additionally, I implemented a similar CreateSharedBlock class for creating instances of shared blocks using EPiServer's 
+[SharedBlockFactory](http://world.episerver.com/documentation/Class-library/?documentId=cms/9/B79494A8).
+
+With these methods I have a sufficiently working implementation of EPiServer's content repository.
