@@ -34,8 +34,9 @@ On a typical CMS website, some examples of good candidates for automated tests a
 ## Testing EPiServer-specific code
 
 When working with EPiServer websites, I've noticed that large parts of the code tend to be tightly tied to the EPiServer content repository, 
-either by creating and saving content, or by traversing the content tree. This should apply to other CMS systems as well, and to any other complex software platform. 
-The main problem with testing such code is that, similar to having a database backend, initializing the whole system complicates the tests unnecessarily and can't be considered very testable.
+either by creating and saving content, or by traversing the content tree. 
+To some extent, this should apply to other CMS systems as well, and to any other complex software framework.
+Testing against the full CMS is slow and fragile - there's simply too much initialization and too many moving parts.
 
 The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces, 
 so mocking them either by hand or by using a mock framework (such as [Moq](https://github.com/Moq/moq4)) is fairly easy. 
@@ -79,7 +80,7 @@ public class FakeContentRepository : IContentRepository
 }
 ```
 
-When saving content using the the save method, it checks if the content to be saved already has an ID, and if not, a new unique ID is assigned.
+When saving content using the the save method, it checks if the content to be saved already has an ID, and if not, a new ID is assigned.
 
 ```
 public ContentReference Save(IContent content, SaveAction action, AccessLevel access)
@@ -135,7 +136,7 @@ Compared to simply mocking the content repository, you can now use the standard 
 code under tests loads that data using the *Get*, *GetItems* or *TryGet* methods. Then after test, instead of recording which method was called, you can simply
 check the contents of the repository, because that's what we're really interested in: the end result. Everything happening in between is just implementation details.
 
-For example, testing article import that saves the articles as ArticlePages in the content repository:
+For example, consider testing article import that saves the articles as ArticlePages in the content repository:
 
 ```
 [TestMethod]
@@ -143,7 +144,7 @@ public void TestArticleImport()
 {            
     var contentRepository = new FakeContentRepository();
     var importer = new ArticleImporter(contentRepository, ...);
-    importer.Import(stream);
+    importer.Import(fileStream);
 
     var articles = contentRepository.Contents.OfType<ArticlePage>();
     Assert.AreEqual(2, articles.Count(), "Number of articles imported");
