@@ -64,7 +64,7 @@ and you're going to need a lot of them if you have plenty of content types.
 
 ## Faking the content repository (finally some code)
 
-Majority of the methods provided by the *IContentRepository* interface are relatively straighforward CRUD (Create, Read, Update, Delete) operations.
+Majority of the methods provided by the *IContentRepository* interface are relatively straightforward CRUD (Create, Read, Update, Delete) operations.
 I decided to write a fake implementation of that interface which persists the saved content in memory and attempts to mimic the behavior of EPiServer's content repository as
 closely as needed, without actually requiring the EPiServer context to be initialized.
 
