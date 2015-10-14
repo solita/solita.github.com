@@ -36,8 +36,8 @@ which is managed through the content repository. Usually this consists of creati
 Testing against the full CMS, as with any system that contains a database, is slow and fragile - there's simply too much initialization and too many moving parts.
 For majority of your tests, you need to break dependencies to that database and any other external interfaces such as web APIs.
 
-The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces,
-and injected to wherever they are needed, so they can be mocked, either by hand or by using a mock framework (such as [Moq](https://github.com/Moq/moq4)). 
+The content repository (*IContentRepository*), as well as most of the core types in EPiServer, are nowadays provided as interfaces.
+They are injected to wherever they are needed, so they can be mocked, either by hand or by using a mock framework such as [Moq](https://github.com/Moq/moq4).
 However, I dislike mocking such low-level general purpose interfaces, because as the code is refactored and new features added, 
 it tends to be those low level details that change the most frequently, making such tests fragile. 
 Mocking more complex interfaces such as EPiServer Find or Entity Framework is even worse.
