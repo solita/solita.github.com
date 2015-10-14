@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Automated testing of EPiServer websites
+title: Writing automated tests for EPiServer websites
 author: riipah
-excerpt: What to test on the server side and how to deal with the content repository
+excerpt: What to test on the server side and how to test code interacting with the content repository
 ---
 
 I'm a big fan of automated testing, having had good experiences with keeping complex pieces of software maintainable by having a comprehensive automated test suite. 
@@ -59,11 +59,16 @@ This interface should be easier to mock since it contains a limited number of hi
 the implementation of this page repository could be changed to use EPiServer Find or a custom SQL database instead of the EPiServer content repository.
 
 The main drawback of course is that writing such abstraction layers is additional work, it might complicate your overall architecture, 
-and you're going to need a lot of them if you have plenty of content types.
+and you're going to need a lot of them if you have plenty of content types. Additionally, you're still tied to how the interface is
+being called (such as whether the code requests a single item or a list), even if it's higher abstraction level with less options. 
+
+The earlier EPiServer testing libraries I've seen ([EPiAbstractions](https://github.com/MikeHook/EPiAbstractions) 
+and [EPiServer-FakeMaker](https://github.com/DavidVujic/EPiServer-FakeMaker)) are mainly based on mocking and abstractions, 
+so to overcome the limitations mentioned above I decided to try faking the content repository instead.
 
 ## Faking the content repository (finally some code)
 
-Majority of the methods provided by the *IContentRepository* interface are relatively straightforward CRUD (Create, Read, Update, Delete) operations.
+Majority of the methods provided by the *IContentRepository* interface are pretty straightforward CRUD (Create, Read, Update, Delete) operations.
 I decided to write a fake implementation of that interface which persists the saved content in memory and attempts to mimic the behavior of EPiServer's content repository as
 closely as needed, without actually requiring the EPiServer context to be initialized.
 
@@ -99,7 +104,7 @@ public ContentReference Save(IContent content, SaveAction action, AccessLevel ac
 }
 ```
 
-Obviously this is skipping things like content events and versioning, which might need to be added as well if your code depends on those.
+Obviously this is skipping things like content events and versioning, but you can easily extend the method if your code depends on those features.
 
 Implementing (simplified versions) of GetItems, Delete and GetChildren methods was very straightforward.
 
@@ -131,7 +136,8 @@ Additionally, I implemented a similar CreateSharedBlock class for creating insta
 With these methods you have a sufficiently working implementation of EPiServer's content repository which is able to create, save, load and delete
 pages and shared blocks. You can then inject this fake implementation into your code under test, possibly through that abstraction layer mentioned earlier.
 Compared to simply mocking the content repository, you can now use the standard Save method for providing your test data, and it doesn't matter whether the
-code under tests loads that data using the *Get*, *GetItems* or *TryGet* methods. Then after test, instead of recording which method was called, you can simply
+code under tests loads that data using the *Get*, *GetItems* or *TryGet* methods. Or if the code first adds items and then deletes those items, the results are updated correctly. 
+Then after test, instead of recording which method was called, you can simply
 check the contents of the repository, because that's what we're really interested in: the end result. Everything happening in between is just implementation details.
 
 For example, consider testing article import that saves the articles as ArticlePages in the content repository:
