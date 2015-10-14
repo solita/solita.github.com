@@ -5,7 +5,10 @@ author: riipah
 excerpt: What to test on the server side and how to test code interacting with the content repository
 ---
 
-I'm a big fan of automated testing, having had good experiences with keeping complex pieces of software maintainable by having a comprehensive automated test suite. 
+The point of this post is not to explain why automated testing should be done, or how to write tests in general. 
+I'm also not going to talk about the technical differences between various types of testing, such as unit vs. integration testing. 
+
+I've had good experiences with keeping complex pieces of software maintainable by having a comprehensive automated test suite. 
 When developing websites based on a CMS platform such as [EPiServer CMS](http://www.episerver.com/), or another similarly complex platform, I often hear opinions saying it's too difficult and not worth the effort. 
 However, almost all CMS-based sites have some custom business logic, some more than others, and whenever there's custom logic, there's code that can break when changes are made, 
 so regression tests are needed.
@@ -14,10 +17,7 @@ Note: if you already know enough about automated testing and EPiServer you can s
 
 ## What to test?
 
-The point of this post is not to explain why automated testing should be done, or how to write tests in general. 
-I'm also not going to talk about the technical differences between various types of testing, such as unit vs. integration testing. 
-
-That said, I will start by saying that there's a lot of code that doesn't need to be tested directly:
+I will start by saying that there's a lot of code that doesn't need to be tested directly:
 Anything that can be considered trivial or boilerplate code, such as class constructors, accessors and loops in views for example.
 On a CMS website this includes the content type definitions. This code is unlikely to contain bugs by itself, 
 and it will get tested indirectly together with other tests.
