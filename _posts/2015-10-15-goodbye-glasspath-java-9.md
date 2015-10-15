@@ -5,13 +5,13 @@ author: arto
 excerpt: Java 9 module system is going to kick out the old classpath
 ---
 
-Java 9 is on schedule to be published late 2016 - and feature complete by end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about the upcoming module system, project Jigsaw. 
+Java 9 is on schedule to be published late 2016 - and feature complete by the end of this year. There are still around 10 million Java developers around, who will sooner or later be interested in what's coming up next, so I decided to sit down and write about the upcoming module system, project Jigsaw. 
 
 ## From classpath to puzzles
 
 So what's coming up next year when Java 9 is released? Well, a major thing is going to be Jigsaw - yes the modularity system that was supposed to be released already with Java 7. It's taken **8 years** of work for a few reasons. One is certain corporate buyout and changes in the way things are done. Second is because Jigsaw has ambitious goal of modularizing core of JRE - and the dependency map between different parts is crazy!
 
-Current JDK has more than 20 000 classes which are not needed for every project - so one core goal of Jigsaw is to bring a modular JDK that would scale up to big environments where size is not an issue - but also to scale down to what is actually needed. In effect, the Java kernel is becoming lighter and more defined, more flexible, better prepared for IoT devices. But it will take a lot of work to get there.
+Current JDK has more than 20 000 classes, which are not needed for every project. One core goal of Jigsaw is to bring a modular JDK that would scale up to big environments where size is not an issue - but also to scale down to what is actually needed. In effect, the Java kernel is becoming lighter and more defined, more flexible, better prepared for IoT devices. But it will take a lot of work to get there.
 
 It's not all about JDK - module concept is useful for developers as well. Even if you would feel you don't need it, there's no way to avoid it. One way to explain the structure is this: class <- package <- module. Module is a collection of code that can refer to other modules or be referred to. Module is described by a module descriptor, and with this descriptor file, you are able to export a module, or require any number of modules. Yes, this is reminiscent of OSGI - and not by accident. But there are some differences, too. For example the require-model works purely on module layer, not on package level. 
 
@@ -62,14 +62,14 @@ Jigwsaw build doesn't come with a cool installer, but if you are really interest
 
 ## What else is there?
 
-Obviously Java 9 is not just about Jigsaw - there's dozens of other updates and changes coming up. Some that interest me are:
+Obviously Java 9 is not just about Jigsaw - there are dozens of other updates and changes coming up. Some that interest me are:
 
-- **G1 garbage collector** becomes the new default for server virtual machines - finally. This mainly means improved support for large heap memories, and more toggles for tuning gc pauses etc. This has of course been available for long time, but going to default setting implies certain level of maturity.
+- **G1 garbage collector** becomes the new default for server virtual machines - finally. This mainly means improved support for larger amounts of heap memory, and more toggles for tuning gc pauses etc. This has of course been available for long time, but going to default setting implies certain level of maturity.
 - **HTTP 2.0 client** offers improved/simplified API with asynchronous calls and websocket support. Byebye HttpURLConnection! ;)
 - Some project coin refinements, one of them means underscore is not just frowned upon in idenfitifer names, it's now an error
 - **JShell** and **REPL** (Read-Eval-Print-Loop) enable you to play with and test code earlier and easier 
 - Better access to OS level details such as process level
-- Currently it seems that JEP 198: Light-Weight JSON API does not make the cut, so it will not be part of Java 9. Which is sad, since JSON handling could truly use some improvements. However, this is possible to resolve using libraries where we have a lot of choises!
+- Currently it seems that JEP 198: Light-Weight JSON API does not make the cut, so it will not be part of Java 9. Which is sad, since JSON handling could truly use some improvements. However, this is possible to resolve using libraries where we have a lot of choices!
 
 Some of the changes are pretty big, and will break some existing code. So if you intend to keep up to date and not use trusty old Java 1.6 (or later ones) forever, it's time to start planning and testing for the future. See you there!
 
