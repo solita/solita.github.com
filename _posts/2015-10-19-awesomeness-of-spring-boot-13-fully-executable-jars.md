@@ -5,9 +5,6 @@ author: ruoat
 excerpt: Spring boot 1.3 provides easy way to run Java programs as unix service
 ---
 
-Awesomeness of Spring Boot 1.3 Fully Executable Jars
-----------------------------------------------------
-
 Since [Spring Boot](https://github.com/spring-projects/spring-boot) and Java 8 the world has been a better place for a Java developer. Java 8 Streams and Spring Boot's conventions 
 have simplified the code and made programming more enjoyable.
 
@@ -58,7 +55,7 @@ warning [myapplication.jar]:  5251 extra bytes at beginning or within zipfile
 
 ```
 
-The startup script does some clever things. It reads `myapplication.conf` where you can specify things like JAVA_HOME and JAVA_OPTS. It also runs the jar with
+The startup script does some clever things. It reads `myapplication.conf` where you can specify things like `JAVA_HOME` and `JAVA_OPTS`. It also runs the jar with
 the same user as the owner of the file. Just link the init script `sudo ln -s /var/myapplication/myapplication.jar /etc/init.d/myapplication`
 and you are able to start the application as service with `service myapplication start`. Awesome!
 
