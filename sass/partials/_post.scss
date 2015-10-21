@@ -10,11 +10,15 @@
 
 .post-title {
     font-size:1.75em;
-    line-height:$baseline*2;
+    line-height: 1.25;
     margin:0;
 
     a {
         border:0;
+    }
+
+    .single & {
+        margin-bottom: 24px;
     }
 }
 .post-meta {
