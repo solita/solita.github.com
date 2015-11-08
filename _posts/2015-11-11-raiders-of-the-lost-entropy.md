@@ -5,7 +5,7 @@ author: lokori
 excerpt: When entropy runs low, things are amiss. What, why and how to rectify the situation.
 ---
 
-*Entropy* is in this context essentially randomness. A source of entropy is a magic fountain which
+*Entropy* in this context is essentially randomness. A source of entropy is a magic fountain which
 pours forth a stream of random bits. This is intentionally a practical, not a scientific definition. When a modern
 computer runs out of entropy things stop working and fail in a mysterious way. Why does this happen in our 
 cloud based virtual servers and what can one do about it?
@@ -15,7 +15,7 @@ cloud based virtual servers and what can one do about it?
 Entropy (randomness) is essential to cryptography as keys need to be generated so that no one can predict
 the next generated key or deduce previous keys by working backwards from the last generated keys. 
 
-Any PSRNG solution is essentially deterministic based on the initial seed number and algorithm
+Any [pseudorandom number generator (PRNG)](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) solution is essentially deterministic based on the initial seed number and algorithm
 and therefore the whole sequence can be deduced by looking at a small part of the generated 
 "random" number sequence. This is prevented by mixing random bits (entropy) to the sequence so that
 the next number on the sequence is not a direct result of the previous. Even a small number
@@ -46,7 +46,7 @@ magically wakes up and starts working for a while. *Hnngh*.
 
 ## Rise of the virtual machines
 
-The rise of the virtual machines and various hypervisor technologies such as Docker has 
+The rise of the virtual machines and various hypervisor technologies such as [Docker](https://www.docker.com/) has 
 made this a major concern. I was unaware of the whole thing when I started programming server 
 backend with Java as the software was running in a real physical computer. Entropy was just 
 a curious theoretical concept in the university lecture materials.
@@ -105,7 +105,7 @@ grinds everything to a halt.
 
 ## Tempting the dark side is
 
-You could get some entropy from PSNRG. This is what `/dev/urandom` does if entropy runs low. 
+You could get some entropy from [PRNG](https://en.wikipedia.org/wiki/Pseudorandom_number_generator). This is what `/dev/urandom` does if entropy runs low. 
 So the common wisdom of internet is to do some linux magic and sample entropy from `/dev/urandom`
 and push it to `/dev/random` with rngd.
 
