@@ -27,6 +27,8 @@ a source of randomness not directly linked to the current state of the system. C
 are I/O based: keystrokes, mouse movements, network events and such. This works fine on a
 typical workstation or laptop. 
 
+![Indiana](img/raiders-of-the-lost-entropy/indiana_jones.png)
+
 ## Server side is different
 
 Entropy can be drained quickly on a back-end server. Many keys are required for various events all the time.
