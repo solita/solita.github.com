@@ -121,9 +121,7 @@ random, and puts the result to `/dev/random`. Entropy appears from thin air.
 
 Well, this works if some real entropy is available. This magic trick can stretch the 
 threshold where things stop working, but a deterministic algorithm does not really generate
-any randomness.
-
-rngd is meant to sample random bits from a hardware source, not from /dev/urandom. It's the
+any randomness. `rngd` is meant to sample random bits from a hardware source, not from /dev/urandom. It's the
 linux "driver" for solution 1 mentioned earlier. Using it in this manner is very clever,
 but beware of black voodoo magic.
 
@@ -143,11 +141,11 @@ this happens.
 
 You can "patch" Java systems. JVM parameter can be used to change the source of SecureRandom
 from `/dev/random` to `/dev/urandom`. This affects everything running in the JVM which uses 
-SecureRandom. In our case, SSL handshake came from Tomcat and database connections are handled
+[SecureRandom](http://docs.oracle.com/javase/7/docs/api/java/security/SecureRandom.html). In our case, SSL handshake came from Tomcat and database connections are handled
 by JDBC. This still drains entropy, but JVM actions no longer block. 
 
 This is still quick&dirty fix, not a long term solution I would recommend. 
-SecureRandom is not very secure if it reads bits which we know would fail the FIPS test. Depending
+`SecureRandom` is not very secure if it reads bits which we know would fail the FIPS test. Depending
 on the situation this may not be a real concern, but this is definitely not a "best practice".
 
 
