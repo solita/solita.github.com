@@ -111,7 +111,9 @@ and push it to `/dev/random` with rngd.
 
 This internet "wisdom" works, after a fashion:
 
+```
   rngd -r /dev/urandom -o /dev/random -t 1
+```
 
 But it's not real magic, just a cheap trick of a conjurer. Reading from `/dev/urandom` in this
 manner will consume all entropy. Then `/dev/urandom` makes up a bunch of bits, which look 
@@ -127,9 +129,11 @@ but beware of black voodoo magic.
 
 It worked for a while but soon this happened:
 
-  "Aug 24 14:29:10 xxgsovt23l rngd: failed fips test
+```
+  Aug 24 14:29:10 xxgsovt23l rngd: failed fips test
   Aug 24 14:29:10 xxgsovt23l rngd: too many FIPS failures, disabling entropy source
   Aug 24 14:29:10 xxgsovt23l rngd: No entropy sources working, exiting rngd
+```
 
 [FIPS test](https://en.wikipedia.org/wiki/FIPS_140-2) is a mathematical test to ensure that random looking bits are actually 
 random. The test failed because real random bits didn't turn up in the system and rngd was just recycling it's own pseudorandom bits. By design, rngd quits when
