@@ -69,12 +69,11 @@ The result is that entropy runs out easily in a virtual machine.
 
 There are few known and researched ways to generate entropy if I/O events are not suitable:
 
-1. Hardware based devices. Sample some noise from radio waves or digital camera photo cell. Simple A/D 
- converter + a sensor and plenty of entropy is available. Costs less than 50 eur to make. Some PC chipsets
-have a built-in HW generator which can be utilized with [rng-tools](https://www.gnu.org/software/hurd/user/tlecarrour/rng-tools.html).
+1. [Hardware based random number generators](https://en.wikipedia.org/wiki/Hardware_random_number_generator). Sample some noise from radio waves, radioactive decay or noise from a digital camera photo cell. Simple A/D  converter + a sensor and plenty of entropy is available. Costs less than 50 eur to make since you don't require NSA-proof entropy (if you did, you wouldn't be reading this). Some PC chipsets have a built-in HW generator which can be utilized with [rng-tools](https://www.gnu.org/software/hurd/user/tlecarrour/rng-tools.html).
 
 2. Randomness of timing. Linux has [Haveged](http://www.issihosts.com/haveged/), which works by generating randomness from the reasonably
-random small differences in clock cycles. See [HAVEGE algorithm](http://www.irisa.fr/caps/projects/hipsor/) for detailed explanation. The 
+random small differences in timing of system interrupts. See [HAVEGE algorithm](http://www.irisa.fr/caps/projects/hipsor/) for detailed explanation. 
+Another interesting trick is to sample clock drift of system clocks, called [Dakarand](http://dankaminsky.com/2012/08/15/dakarand/). The 
 computers are deterministic, but modern computers never operate from a single hardware timer clock in a perfectly deterministic way. 
 ([Original IBM PC actually did just that](https://news.ycombinator.com/item?id=2729571), nice engineering trick there.)
 
@@ -89,8 +88,7 @@ There are limitations on each of these
 device to the host machine and then somehow make it visible to virtual machines, but to do this
 you need more than root access to virtual server.
 
-2. [Haveged](http://www.issihosts.com/haveged/) does work. The principle even works in Jàvascript (see [POC||GTFO](https://www.alchemistowl.org/pocorgtfo/)). It does not generate
-bits very fast though and is CPU intensive.
+2. [Haveged](http://www.issihosts.com/haveged/) does work. The Dakarand trick is dead simple and works even removed from the HW, in Jàvascript! See [POC||GTFO issue 1](https://www.alchemistowl.org/pocorgtfo/) for further information. It does not generate bits very fast though and is CPU intensive.
 
 3. Many systems do not have access to internet. The backend is secured behind a firewall for a
 good reason. Also availability may be compromised if you require some third party service to operate.
