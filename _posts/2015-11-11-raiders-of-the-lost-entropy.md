@@ -36,38 +36,38 @@ Oracle JDBC driver needs some random bits for opening a database connection. HTT
 web server require SSL handshake, which consumes some random bits. And so on. 
 
 Usually there is no direct user I/O like keystrokes or mouse events, which means the server 
-needs more entropy than a typical workstation, but actually has less of good random bits available. 
+needs more entropy than a typical workstation, but actually has fewer random bits available. 
 
 ## How big a problem is this?
 
 When entropy runs low, reading  from `/dev/random` blocks until entropy is generated. It's designed
 to block infinitely. This means opening a connection to Oracle database can take arbitrarily long
 as it happens to consume some entropy. No error message appears in a log as this works as designed. 
-Ugh. And when you log in with SSH to investigate this happens to generate entropy and the system 
+*Ugh.* And when you log in with SSH to investigate this happens to generate entropy and the system 
 magically wakes up and starts working for a while. *Hnngh*.
 
 ## Rise of the virtual machines
 
 The rise of the virtual machines and various hypervisor technologies such as [Docker](https://www.docker.com/) has 
 made this a major concern. I was unaware of the whole thing when I started programming server 
-backend with Java as the software was running in a real physical computer. Entropy was just 
+backend with Java years ago as the software used to run in a real physical computer. Entropy was just 
 a curious theoretical concept in the university lecture materials.
 
 Virtual machines do not have a physical interface, like keyboard or mouse. The same physical machine
 can run many virtual servers so even if the physical server does have some small entropy available,
 does the virtual server get much? VM's are hidden behind firewalls and routers so no arbitrary
-packets arrive from the vast internet. The file systems are not physical and can be quite 
-deterministic. 
+packets arrive from the vast internet. The file systems are not physical and can be quite
+deterministic.
 
 Many systems now have small embedded microservices each running on their own server which further
 reduces the randomness of execution. No human ever logs in with SSH. Unnecessary daemon processes
 are not running these days.
 
-The result is that entropy runs out easily in a virtual machine. 
+The result of these developments is that the entropy easily runs low in a virtual machine. 
 
 ## Generating entropy
 
-There are few known and researched ways to generate entropy if I/O events are not suitable:
+There are some known and researched ways to generate entropy if I/O events are not suitable. Such as:
 
 1. [Hardware based random number generators](https://en.wikipedia.org/wiki/Hardware_random_number_generator). Sample some noise from radio waves, radioactive decay or noise from a digital camera photo cell. Simple A/D  converter + a sensor and plenty of entropy is available. Costs less than 50 eur to make since you don't require NSA-proof entropy (if you did, you wouldn't be reading this). Some PC chipsets have a built-in HW generator which can be utilized with [rng-tools](https://www.gnu.org/software/hurd/user/tlecarrour/rng-tools.html).
 
