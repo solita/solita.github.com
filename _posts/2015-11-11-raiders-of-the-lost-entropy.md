@@ -70,13 +70,15 @@ The result is that entropy runs out easily in a virtual machine.
 There are few known and researched ways to generate entropy if I/O events are not suitable:
 
 1. Hardware based devices. Sample some noise from radio waves or digital camera photo cell. Simple A/D 
- converter + a sensor and plenty of entropy is available. Costs less than 50 eur to make.
+ converter + a sensor and plenty of entropy is available. Costs less than 50 eur to make. Some PC chipsets
+have a built-in HW generator which can be utilized with [rng-tools](https://www.gnu.org/software/hurd/user/tlecarrour/rng-tools.html).
 
 2. Randomness of timing. Linux has [Haveged](http://www.issihosts.com/haveged/), which works by generating randomness from the reasonably
-random small differences in clock cycles. Modern computers never operated from a single hardware
-timer clock. ([Original IBM PC actually did just that](https://news.ycombinator.com/item?id=2729571), nice engineering trick there.)
+random small differences in clock cycles. See [HAVEGE algorithm](http://www.irisa.fr/caps/projects/hipsor/) for detailed explanation. The 
+computers are deterministic, but modern computers never operate from a single hardware timer clock in a perfectly deterministic way. 
+([Original IBM PC actually did just that](https://news.ycombinator.com/item?id=2729571), nice engineering trick there.)
 
-3. Get some from the internet. There are servers which supply supposedly random bits.
+3. Get some from the internet. There are servers which supply supposedly random bits, for example [NIST Randomness Beacon](http://www.nist.gov/itl/csd/ct/nist_beacon.cfm).
 
 4. You could also sample entropy by sending various packets around and measure their roundtrip times, but
 this is I/O based method. Essentially not much different from sampling keyboard or mouse movement timings.
@@ -87,8 +89,8 @@ There are limitations on each of these
 device to the host machine and then somehow make it visible to virtual machines, but to do this
 you need more than root access to virtual server.
 
-2. [Haveged](http://www.issihosts.com/haveged/) does work. The method even works in Jàvascript (see [POC||GTFO](https://www.alchemistowl.org/pocorgtfo/)). It does not generate
-bits very fast though. CPU intensive.
+2. [Haveged](http://www.issihosts.com/haveged/) does work. The principle even works in Jàvascript (see [POC||GTFO](https://www.alchemistowl.org/pocorgtfo/)). It does not generate
+bits very fast though and is CPU intensive.
 
 3. Many systems do not have access to internet. The backend is secured behind a firewall for a
 good reason. Also availability may be compromised if you require some third party service to operate.
@@ -105,11 +107,11 @@ So, we encountered precisely this situation some time ago yet again. This time e
 running out mostly because of HTTPS protocol. The SSL handshake consumes entropy, which then
 grinds everything to a halt. 
 
-## Tempting the dark side is
+## Beware of voodoo tricks
 
 You could get some entropy from [PRNG](https://en.wikipedia.org/wiki/Pseudorandom_number_generator). This is what `/dev/urandom` does if entropy runs low. 
 So the common wisdom of internet is to do some linux magic and sample entropy from `/dev/urandom`
-and push it to `/dev/random` with rngd.
+and push it to `/dev/random` with [rngd](http://linux.die.net/man/8/rngd).
 
 This internet "wisdom" works, after a fashion:
 
@@ -121,13 +123,11 @@ But it's not real magic, just a cheap trick of a conjurer. Reading from `/dev/ur
 manner will consume all entropy. Then `/dev/urandom` makes up a bunch of bits, which look 
 random, and puts the result to `/dev/random`. Entropy appears from thin air. 
 
-Well, this works if some real entropy is available. This magic trick can stretch the 
-threshold where things stop working, but a deterministic algorithm does not really generate
-any randomness. `rngd` is meant to sample random bits from a hardware source, not from /dev/urandom. It's the
-linux "driver" for solution 1 mentioned earlier. Using it in this manner is very clever,
-but beware of black voodoo magic.
+However, `rngd` is intended to sample real entropy from a hardware source, not fake entropy from `/dev/urandom`. It's the linux "driver" for solution 1 mentioned earlier.
+This magic trick can stretch the  threshold where things stop working, but a deterministic algorithm does not really generate
+any randomness.  Using it in this manner is very clever, but not safe.
 
-It worked for a while but soon this happened:
+In a real world setting it worked for a while, but soon this happened:
 
 ```
   Aug 24 14:29:10 xxgsovt23l rngd: failed fips test
@@ -157,8 +157,7 @@ on the situation this may not be a real concern, but this is definitely not a "b
 * Make sure server monitoring includes entropy level. Very important in addition to 
  traditional CPU, disk, memory etc. Remember that manual checking with a remote shell
  will add some entropy while you do it.
-* Ensure that your virtual servers have access to real source of entropy. Ask your vendor
- and demand they install rngd + HW device.
+* Ensure that your virtual servers have access to real source of entropy. Ask your vendor and demand they install rngd + HW device.
 * Beware that your development environment may behave differently than the production environment.
 * Try to understand some theoretical background.
 * Check the practical side. Which operations consume entropy? Which produce entropy?
