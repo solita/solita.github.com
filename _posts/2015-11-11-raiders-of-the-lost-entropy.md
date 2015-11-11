@@ -6,14 +6,16 @@ excerpt: When entropy runs low, things are amiss. What, why and how to rectify t
 ---
 
 *Entropy* in this context is essentially randomness. A source of entropy is a magic fountain which
-pours forth a stream of random bits. This is intentionally a practical, not a scientific definition. When a modern
+pours forth a stream of random bits. This is intentionally a practical definition, not related to science and physics. When a modern
 computer runs out of entropy things stop working and fail in a mysterious way. Why does this happen in our 
 cloud based virtual servers and what can one do about it?
 
-## What is entropy and why do we need it?
+## Why do we need entropy?
 
-Entropy (randomness) is essential to cryptography as keys need to be generated so that no one can predict
-the next generated key or deduce previous keys by working backwards from the last generated keys. 
+We want certain things to be practically *unpredictable* in software systems. All cryptographic keys need to be generated safely, 
+so that no one can predict the next generated key or deduce previous keys by working backwards from the last generated keys. The same applies to other domains,
+for example, it would be awkward if one could deduce the next card from the deck in a poker game simply by looking on the cards dealt.
+This has actually happened, see [Poker exploit tale from 1999](https://www.cigital.com/papers/download/developer_gambling.php). 
 
 Any [pseudorandom number generator (PRNG)](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) solution is essentially deterministic based on the initial seed number and algorithm
 and therefore the whole sequence can be deduced by looking at a small part of the generated 
