@@ -18,7 +18,7 @@ the next generated key or deduce previous keys by working backwards from the las
 Any [pseudorandom number generator (PRNG)](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) solution is essentially deterministic based on the initial seed number and algorithm
 and therefore the whole sequence can be deduced by looking at a small part of the generated 
 "random" number sequence. This is prevented by mixing random bits (entropy) to the sequence so that
-the next number on the sequence is not a direct result of the previous. Even a small number
+the next number in the sequence is not a direct result of the previous. Even a small number
 of entropy makes the stream essentially unpredictable (assuming the attacker does not see or 
 control the contents of the entropy source).
 
@@ -43,8 +43,11 @@ needs more entropy than a typical workstation, but actually has fewer random bit
 When entropy runs low, reading  from `/dev/random` blocks until entropy is generated. It's designed
 to block infinitely. This means opening a connection to Oracle database can take arbitrarily long
 as it happens to consume some entropy. No error message appears in a log as this works as designed. 
-*Ugh.* And when you log in with SSH to investigate this happens to generate entropy and the system 
-magically wakes up and starts working for a while. *Hnngh*.
+
+All sort of unpredictable and strange things can happen if entropy runs low. One important symptom that low entropy
+is the cause of weird problems is that when you log in with SSH to investigate, things suddenly work fine. 
+Some entropy is generated when a client logs in with SSH and this releases the waiting processes, at least temporarily. Further, when a human
+interacts using remote shell, more entropy becomes available and everything is normal for a while. 
 
 ## Rise of the virtual machines
 
@@ -56,10 +59,10 @@ a curious theoretical concept in the university lecture materials.
 Virtual machines do not have a physical interface, like keyboard or mouse. The same physical machine
 can run many virtual servers so even if the physical server does have some small entropy available,
 does the virtual server get much? VM's are hidden behind firewalls and routers so no arbitrary
-packets arrive from the vast internet. The file systems are not physical and can be quite
+packets arrive from the vast internet. The storage devices are not physical and can be quite
 deterministic.
 
-Many systems now have small embedded microservices each running on their own server which further
+Many systems now have small embedded microservices each running in their own servers which further
 reduces the randomness of execution. No human ever logs in with SSH. Unnecessary daemon processes
 are not running these days.
 
@@ -134,7 +137,7 @@ In a real world setting it worked for a while, but soon this happened:
 ```
 
 [FIPS test](https://en.wikipedia.org/wiki/FIPS_140-2) is a mathematical test to ensure that random looking bits are actually 
-random. The test failed because real random bits didn't turn up in the system and rngd was just recycling it's own pseudorandom bits. By design, rngd quits when
+random. The test failed because real random bits didn't turn up in the system and rngd was just recycling its own pseudorandom bits. By design, rngd quits when
 this happens.
 
 ## Ugly Java trick
