@@ -28,6 +28,8 @@ Our awesome IT department (you guys are really awesome!) has of course workstati
 To solve this issue we created a PowerShell Chocolatey script that installs all the wanted tools for .NET developers (others can do their own scripts). Developer can himself comment out unwatend tools or add some others. 
 
 Here is an example of it: 
+
+
 ![Tools](/img/powershell-is-backbone-of-dotnet-devops/chocoscript.png)
 
 ## Enchancement 2: Project specific environment setup
@@ -41,7 +43,9 @@ We have currently many EPiServer projects going on. Common for these projects is
 * Certificate installation
 * Test that all mandatory .NET and IIS stuff is installed correctly
 
-And here is how it looks like: 
+And here is how it looks like:
+
+ 
 ![Tools](/img/powershell-is-backbone-of-dotnet-devops/sitecreation.png)
 
 ## What next
