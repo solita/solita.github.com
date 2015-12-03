@@ -48,6 +48,8 @@ module fi.solita.crawlingturtle @ 0.1 {
 }
 ```
 
+[edit: It seems information on version features is now marked obsolete, and Mark Reinhold also recently posted on Jigsaw not supporting versioning - although in same document there were references to version numbering. I suppose we have to wait until end of this year to see the final decision.]
+
 So, as you can see, new keywords being added: module, requires, exports. I hope you haven't used them as variable names ;) Unfortunately, it seems current build of JDK 9 does not yet process the module keyword, so we have to wait a bit further to really play with it.
 
 There's also a host of new j* tools coming up, for example jlink linker, that links modules together, and jmod tool for packaging modules in a bit of jar-like format. These are mostly for IDE vendors to worry about, but expect to see/create ANT and Maven plug-ins at some point for build automation.
