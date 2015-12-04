@@ -5,9 +5,10 @@ author: Rinorragi
 excerpt: Few ideas how to use .NET to ease the everyday burden of your .NET developers
 categories: 
 - EPiServer
-- .NET
-- PowerShell
 - Joona Immonen
+- .NET 
+- PowerShell
+- EPiServerJoonaImmonen
 tags: 
 - EPiServer 
 - .NET 

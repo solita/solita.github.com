@@ -1,0 +1,36 @@
+---
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ site.title }}</title>
+  <link href="{{ site.url }}"/>
+  <link type="application/atom+xml" rel="self" href="{{ site.url }}/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}</id>
+  <author>
+    <name>Solita Oy</name>
+    <email>open@solita.fi</email>
+  </author>
+
+  {% for post in site.posts %}
+  {% if post.author == "Rinorragi" %}
+  <entry>
+    <id>{{ site.url }}{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="{{ site.url }}{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+	{% for category in post.categories %}
+	<category term="{{ category }}" label="{{ category }}"/>
+	{% endfor %}
+    <author>
+      <name>Solita Oy</name>
+      <uri>http://www.solita.fi/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endif %}
+  {% endfor %}
+
+</feed>
