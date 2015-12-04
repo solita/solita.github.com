@@ -5,15 +5,10 @@ author: Rinorragi
 excerpt: Few ideas how to use .NET to ease the everyday burden of your .NET developers
 categories: 
 - EPiServer
-- Joona Immonen
-- .NET 
-- PowerShell
-- EPiServerJoonaImmonen
 tags: 
 - EPiServer 
 - .NET 
 - PowerShell
-- Joona Immonen
 ---
 
 I will not lie: I love PowerShell! Lately I have been trying to figure out how we can ease the life of .NET developers in EPiServer projetcs. PowerShell and NuGet has been keywords on that topic. Now I want to show you how PowerShell can ease your life! Open your hearth and let the PowerShell flow within!
