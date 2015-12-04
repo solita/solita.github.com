@@ -13,7 +13,8 @@
     <email>open@solita.fi</email>
   </author>
 
-  {% for post in site.posts limit:10 %}
+  {% for post in site.posts %}
+  {% if post.author == "Rinorragi" %}
   <entry>
     <id>{{ site.url }}{{ post.id }}</id>
     <link type="text/html" rel="alternate" href="{{ site.url }}{{ post.url }}"/>
@@ -29,6 +30,7 @@
     </author>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
+  {% endif %}
   {% endfor %}
 
 </feed>
