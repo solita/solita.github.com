@@ -11,7 +11,7 @@
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 
-    {% for post in site.posts %}
+    {% for post in site.categories.episerver %}
 	{% if post.author == "Rinorragi" %}
     <item>
       <title>{{ post.title }}</title>
@@ -19,8 +19,8 @@
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>open@solita.fi (Solita Oy)</author>
       <guid>{{ site.url }}{{ post.id }}</guid>
-	  {% for category in post.categories %}
-	  <category>{{ category }}</category> 
+	  {% for tag in post.tags %}
+	  <category>{{ tag }}</category> 
 	  {% endfor %}
       <description>{{ post.content | xml_escape }}</description>
     </item>
