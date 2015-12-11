@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Need 4 Speed Rovaniemi and CI security controls
+title: Security controls in continuous integration
 author: Rinorragi
 excerpt: Solita was at Need 4 Speed Rovaniemi and talked about continuous integration security controls among other things. 
 categories: 
