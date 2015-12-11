@@ -22,7 +22,7 @@ In continuous integration we want to find possible security vulnerabilities and 
 ## Security testing as whole 
 ![Tools](/img/n4s-q4-and-ci-security-controls/owasp_sdlc.png)
 
-Diagram above is from [OWASP Testing guide 4](https://www.owasp.org/images/5/52/OWASP_Testing_Guide_v4.pdf). It presents secure development lifecycle (Microsoft has its [own](https://www.microsoft.com/en-us/sdl/) too). There are many things that can't be handled with automatisation like going through customer security policies, learning industrial standards and creating security architecture but nevertheless there areas that can be partly automated. 
+Diagram above is from [OWASP Testing guide 4](https://www.owasp.org/images/5/52/OWASP_Testing_Guide_v4.pdf). It presents secure development lifecycle (Microsoft has its [own](https://www.microsoft.com/en-us/sdl/) too). There are many things that can't be handled with automatisation like going through customer security policies, learning industrial standards and creating security architecture but nevertheless there are areas that can be partly automated. 
 
 ## Different tools tested 
 
@@ -90,7 +90,7 @@ Also when using only OWASP TOP 10 and CSA Notorious nine the usefulness of tools
 ![Tools](/img/n4s-q4-and-ci-security-controls/sonarqube.png)
 In the picture there is example of SonarQube dashboard. You might think that there is a great deal of major issues in the code in the project that was scanned with SonarQube. I used three different static code analysis to get that dashboard (ReSharper commandlinetools, FxCop and SonarQubes own static code analysis). 600 of major issues are because of our software didn't have good enough commentation ratio (above 25% of code should be comments). I personally don't trust that having that much comments is a good thing; instead readability of code should be embraced and only necessary things should be commented. This way the comments won't become noise in your eyes and you will keep on reading them.
 
-Well the bottom line is that from the around 6000 reported issues there maybe few dozen real ones. With all the automized tools you need to spare some time to tune the tools to only report about issues you are really interested on. 
+Well the bottom line is that from the around 6000 reported issues there was maybe few dozen real ones. With all the automized tools you need to spare some time to tune the tools to only report about issues you are really interested on. 
 
 ## Recommendation for implementing continuous security
 Try to run static code analysis with few different tools. See what they can find and reflect that to your security needs. Take atleast one into your CI build after tuning it into your needs. 
@@ -99,4 +99,4 @@ Calculate code metrics and see what they say about your software. My recommendat
 
 Try to scan your application manually with few different tools (MSBA, OWASP ZAP, Burp suite, nmap, nessus) and again see what they can find and think if you want to make these checks continuous. You should for example create nightly builds and/or continuous security checks separated from development if they are taking too much time. By learning the tools you can also make only specific tests in CI which would make sure that critical parts of application are secure. 
 
-Above all else remember to educate your personnel!
+Above all else remember to educate your personnel! 
