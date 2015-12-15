@@ -3,7 +3,9 @@ layout: post
 title: Clojure introduction
 author: timole
 excerpt: This is a short guide for getting familiar with Clojure programming language and its basic development tools. This article is targeted to the students at TAMK that participated the visiting lecture on Thu 29.11.2012. Please feel free to ask questions, if you have any problems setting up Clojure.
-tags: episerver cms TUT
+tags: 
+- Clojure
+- TUT
 ---
 
 This is a short guide for getting familiar with Clojure programming language and its basic development tools. This article is targeted to the students at TAMK that participated the visiting lecture on Thu 29.11.2012. Please feel free to ask questions, if you have any problems setting up the Clojure development environment.

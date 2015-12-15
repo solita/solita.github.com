@@ -3,7 +3,12 @@ layout: post
 title: A case for formal computer science
 author: lokori
 excerpt: To write great programs, one needs to know the theory of programming. Hacking is the fun part, but mastery requires more.
-tags: NP, Turing, graph, algorithm, computer science
+tags: 
+- NP
+- Turing
+- graph
+- algorithm
+- computer science
 ---
 
 ### Practical programming over theory of programming? ###
