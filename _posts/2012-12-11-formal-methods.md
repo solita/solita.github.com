@@ -8,7 +8,7 @@ tags:
 - Turing
 - graph
 - algorithm
-- computer science
+- computer-science
 ---
 
 ### Practical programming over theory of programming? ###
