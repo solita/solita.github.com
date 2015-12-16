@@ -4,7 +4,6 @@ title: Hello BadUSB
 author: Rinorragi
 excerpt: Introduction to USB Rubber Ducky keystroke injection platform
 tags:  
-- DOTNET 
 - Security
 ---
 
