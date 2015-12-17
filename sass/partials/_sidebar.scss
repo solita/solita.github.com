@@ -44,3 +44,15 @@
         }
     }
 }
+
+.tag-cloud {
+    font-size: 1rem;
+
+    .tag {
+        display: inline-block;
+        margin-right: 0.25em;
+
+        color: hsl(207, 85, 43);
+        vertical-align: bottom;
+    }
+}

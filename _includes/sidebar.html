@@ -10,13 +10,7 @@
     <a href="http://www.solita.fi/hae-meille/" rel="external">Work and write with us.</a>
 </p>
 
-<h1>Tags</h1>
-{% assign tags = site.tags | sort %}
-{% for tag in tags %}
- <span class="site-tag">
-    <a href="/tag/{{ tag | first | slugify }}/"
-        style="font-size: {{ tag | last | size  |  times: 4 | plus: 80  }}%">
-            {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
-    </a>
-</span>
-{% endfor %}
+<h4>Tags</h4>
+<div class="tag-cloud">
+    {% tag_cloud %}
+</div>
