@@ -12,6 +12,7 @@ If you want to write a post, here's how:
   - You need a Github account to do this
 2. Clone your own fork to your computer (git clone)
 3. Add your author info to `_config.yml`
+  - The email value is a MD5 hash of your email
 4. Write a new post under the `_posts` folder using Markdown, look at other posts for example of what to write there
 5. If you have Ruby and Jekyll, preview your post locally (instructions below)
 6. Create a pull request at https://github.com/solita/solita.github.com/pull/new/master
