@@ -7,7 +7,13 @@ excerpt: >
   do *not* cover very well, or at all.  That is the case where we want
   to have a varying number of WHERE conditions in a database query.
 tags:
-categories:
+- programming
+- Clojure
+- SQL
+- security
+- simplicity
+- orthogonality
+- Python
 ---
 
 If you're like me, you might have thought that there is something smelly
@@ -106,23 +112,25 @@ you want to use some database specific features.
 > Handling the dynamic part on the SQL side.
 {: .sidebar}
 
-Usually, however, we can trust the SQL server to behave sensibly when we
-shift the condition logic to the SQL side.  Every database I know
-optimises away conditions whose truth value can be proved (such as ``3 <
-5`` or, more usefully, ``NULL IS NULL``).  In practice, this means that
-unwanted search parameters can be passed in a NULLs, and their value can
-be checked in the SQL so that they never affect the search when they are
-NULL.
+However, there is a simpler solution &ndash; so simple that it is easy
+to overlook.  Usually, we can trust the SQL server to behave sensibly
+when we shift the condition logic to the SQL side.  Every database I
+know optimises away conditions whose truth value can be proved (such as
+``3 < 5`` or, more usefully, ``NULL IS NULL``).  In practice, this means
+that unwanted search parameters can be passed in a NULLs, and their
+value can be checked in the SQL so that they never affect the search
+when they are NULL.
 
-I recently found out about
+As a sidenote, I recently found out about
 [Yesql](https://github.com/krisajenkins/yesql), which very well appeals
 to my aesthetic taste.  Because SQL is a domain-specific language, I
 don't want to embed it in strings in another language; rather I would
 like to keep it in a separate file, so that I can tell my text editor to
 use SQL syntax highlighting for editing that file, and I won't need to
 bother with the indentation of my host language (currently Clojure) when
-I write my SQL excerpts.  Yesql embeds query metadata in SQL comments.
-This is an actual example of a PostgreSQL query in my Yesql query file.
+I write longish SQL excerpts.  Yesql embeds query metadata in SQL
+comments.  This is an actual example of a PostgreSQL query in my Yesql
+query file.
 
 ```sql
 -- name: db-points-near
