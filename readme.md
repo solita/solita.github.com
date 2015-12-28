@@ -42,10 +42,21 @@ When you're done you might want to shutdown the virtual machine. vagrant destroy
 
 ### Option B, Installing Ruby on your workstation
 
-For Windows, download & install the latest Ruby 1.9.x and Development Kit from http://rubyinstaller.org/downloads/  
-**Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or something). You can also try: https://github.com/vertiginous/pik/
+For Windows, download & install the latest Ruby 1.9.x and Development
+Kit from http://rubyinstaller.org/downloads/   (Ruby 2.x also seems to
+work.)
+**Note:** Make sure to tick the checkbox "Add Ruby to PATH" (or
+something). You can also try: https://github.com/vertiginous/pik/
 
-For OSX(/Linux), use the instructions below. If you have installed Xcode, you might have ruby (1.9.2 or something like that) already. No guarantees about this working with that so use RVM
+For Debian (Jessie), the easiest path seems to be:
+
+1. ``sudo apt-get install bundler zlib1g-dev``
+2. ``bundle install``
+3. ``bundle exec jekyll serve --watch``
+
+For OSX, use the instructions below. If you have installed Xcode, you
+might have ruby (1.9.2 or something like that) already. No guarantees
+about this working with that so use RVM
 
 1. `curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3`
 2. fork this repo
@@ -58,8 +69,6 @@ For OSX(/Linux), use the instructions below. If you have installed Xcode, you mi
 8. Make sure the installation succeeds
 9. Type in: `bundle exec jekyll serve --watch`
 10. Open browser to: http://localhost:4000/
-
-Also seems to be working with Ruby 2.0.0p0/247
 
 ## Development
 
