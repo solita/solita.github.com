@@ -3,9 +3,11 @@ layout: post
 author: pkalliok
 title: Dynamic SQL in applications: how to handle dynamic WHERE clauses
 excerpt: >
-  There is a very common need for dynamic SQL that textual SQL templates
-  do *not* cover very well, or at all.  That is the case where we want
-  to have a varying number of WHERE conditions in a database query.
+  The only way to make efficient SQL database queries is to somehow
+  generate their code dynamically in your application.  There is a very
+  common need for dynamic SQL that textual SQL templates do *not* cover
+  very well, or at all.  That is the case where we want to have a
+  varying number of WHERE conditions in a database query.
 tags:
 - programming
 - Clojure
