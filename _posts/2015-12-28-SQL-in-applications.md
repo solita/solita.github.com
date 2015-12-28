@@ -1,13 +1,14 @@
 ---
 layout: post
 author: pkalliok
-title: Dynamic SQL in applications: how to handle dynamic WHERE clauses
+title: >
+  Dynamic SQL in applications: how to handle dynamic WHERE clauses
 excerpt: >
-  The only way to make efficient SQL database queries is to somehow
-  generate their code dynamically in your application.  There is a very
-  common need for dynamic SQL that textual SQL templates do *not* cover
-  very well, or at all.  That is the case where we want to have a
-  varying number of WHERE conditions in a database query.
+  The only way to make efficient SQL database queries is to include
+  their SQL code in your application.  There is a very common need for
+  dynamic SQL that textual SQL templates do not cover very well, or at
+  all.  That is the case where we want to have a varying number of WHERE
+  conditions in a database query.
 tags:
 - programming
 - Clojure
@@ -18,7 +19,7 @@ tags:
 - Python
 ---
 
-## What is so difficult when using SQL in applications?
+## What is so difficult about using SQL in applications?
 
 If you're like me, you might have thought that there is something smelly
 if not outright wrong in the way applications interact with SQL
@@ -36,16 +37,16 @@ databases than to construct code on the fly.
 > WHERE name LIKE '%$namepart%'
 > ```
 > Whoopsie, what happens if $namepart contains a quote character?
-{: .sidebar}
 
 Of course, every modern database interface provides some facilities to
 interpolate values from our application language to the generated SQL in
 a safe way.  This handles the vast majority of cases where you need to
-take care your dynamically generated SQL doesn't end up being something
-completely different you meant it to be.  The SQL is generated from some
-kind of (textual) SQL templates, and the templating library &ndash;
-often integrated with the programming language's database interface
-&ndash; takes care that the generated SQL is always structurally sound.
+take care that your dynamically generated SQL doesn't end up being
+something completely different you meant it to be.  The SQL is generated
+from some kind of (textual) SQL templates, and the templating library
+&ndash; often integrated with the programming language's database
+interface library &ndash; takes care that the generated SQL is always
+structurally sound.
 
 > ```sql
 > SELECT users.username, people.email
@@ -55,7 +56,6 @@ often integrated with the programming language's database interface
 >   AND users.last_login > :lastdate
 > ```
 > This is what it usually looks like, with modern database interfaces.
-{: .sidebar}
 
 ## The problem of dynamic WHERE clauses
 
@@ -79,7 +79,6 @@ SQL.
 >   params["minpop"] = minpopulation
 > ```
 > One (bad) way to dynamically construct WHERE clauses (in Python).
-{: .sidebar}
 
 There are a couple of solutions to this situation without inducing code
 duplication between the two queries.  One of them (and sadly common) is
@@ -87,18 +86,6 @@ to construct SQL *templates* by hand, adding more AND conditions when
 needed, and also updating the list of template parameters.  This is
 error prone and wastes working time every time one needs to update the
 query construction logic.
-
-> ```clojure
-> (-> (select :*)
->     (from :cities)
->     (merge-where (if-not (nil? namepattern)
->       [:like :name namepattern]))
->     (merge-where (if-not (nil? minpopulation)
->       [:> :population minpopulation]))
->     sql/format)
-> ```
-> Dynamic SQL construction in Clojure and HoneySQL.
-{: .sidebar}
 
 Because code generation is error prone, some have solved this problem by
 making a more powerful templating language.
@@ -110,15 +97,29 @@ language used to express SQL.  It might be more portable across
 databases, but it also requires you to extend the template language if
 you want to use some database specific features.
 
-## Solving the dynamic WHERE clause problem in SQL
-
-> ```sql
-> SELECT * FROM cities
-> WHERE (lng - :x) * (lng - :x) + (lat - :y) * (lat - :y) < 100
->   AND :minpop IS NULL OR population > :minpop
+> ```clojure
+> (-> (select :*)
+>     (from :cities)
+>     (merge-where (if-not (nil? namepattern)
+>       [:like :name namepattern]))
+>     (merge-where (if-not (nil? minpopulation)
+>       [:> :population minpopulation]))
+>     sql/format)
 > ```
-> Handling the dynamic part on the SQL side.
-{: .sidebar}
+> Dynamic SQL construction in Clojure and HoneySQL.
+
+Yet another approach to dynamic SQL generation is the ORM, or
+object-relational mapper.  ORM is a technique which adorns native data
+structures with the ability to be database-backed.  All changes to those
+objects' state will be synced into the database, and vice versa.  ORMs
+are superb for data updates, but outright horrible for complex queries.
+They shift data query logic from the database side to the application
+side, which makes it harder to use the database for what it excels in,
+and in practice results in all kinds of performance problems.  However,
+when and how to use ORMs is a very complicated question well worthy its
+own blog post or several.
+
+## Solving the dynamic WHERE clause problem in SQL
 
 However, there is a simpler solution &ndash; so simple that it is easy
 to overlook.  Usually, we can trust the SQL server to behave sensibly
@@ -129,10 +130,17 @@ that unwanted search parameters can be passed in a NULLs, and their
 value can be checked in the SQL so that they never affect the search
 when they are NULL.
 
+> ```sql
+> SELECT * FROM cities
+> WHERE (lng - :x) * (lng - :x) + (lat - :y) * (lat - :y) < 100
+>   AND :minpop IS NULL OR population > :minpop
+> ```
+> Handling the dynamic part on the SQL side.
+
 As a sidenote, I recently found out about
 [Yesql](https://github.com/krisajenkins/yesql), which very well appeals
-to my aesthetic taste.  Because SQL is a domain-specific language, I
-don't want to embed it in strings in another language; rather I would
+to my &aelig;sthetic taste.  Because SQL is a domain-specific language,
+I don't want to embed it in strings in another language; rather I would
 like to keep it in a separate file, so that I can tell my text editor to
 use SQL syntax highlighting for editing that file, and I won't need to
 bother with the indentation of my host language (currently Clojure) when
@@ -160,5 +168,9 @@ WHERE loc.id = l.location
 ORDER BY loc.coord <-> :point;
 ```
 
-Neat, right?
+Neat, right?  Although I find it somewhat worrying that I have to
+type-annotate parameters in almost all contexts, having the full query
+logic in SQL is very pleasing and makes my application code more
+straightforward.  After having the query defined thus, I only need to
+construct the parameter map to pass to the query.
 
