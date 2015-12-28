@@ -16,6 +16,8 @@ tags:
 - Python
 ---
 
+## What is so difficult when using SQL in applications?
+
 If you're like me, you might have thought that there is something smelly
 if not outright wrong in the way applications interact with SQL
 databases.  The ubiquitous practice of sending practically executable
@@ -52,6 +54,8 @@ often integrated with the programming language's database interface
 > ```
 > This is what it usually looks like, with modern database interfaces.
 {: .sidebar}
+
+## The problem of dynamic WHERE clauses
 
 But, there is a very common need for dynamic SQL that textual SQL
 templates do *not* cover very well, or at all.  That is the case where
@@ -103,6 +107,8 @@ stupid to learn yet another database language &ndash; the data structure
 language used to express SQL.  It might be more portable across
 databases, but it also requires you to extend the template language if
 you want to use some database specific features.
+
+## Solving the dynamic WHERE clause problem in SQL
 
 > ```sql
 > SELECT * FROM cities
