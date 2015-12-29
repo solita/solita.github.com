@@ -174,7 +174,8 @@ logic in SQL is very pleasing and makes my application code more
 straightforward.  After having the query defined thus, I only need to
 construct the parameter map to pass to the query.
 
-Further reading:
+## Further reading
+
 - [Common Cases when (not) to Use Dynamic
   SQL](http://www.sommarskog.se/dynamic_sql.html#Common_cases): The need
   for dynamic SQL generation arises from various reasons, some good and
