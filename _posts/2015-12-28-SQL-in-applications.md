@@ -174,3 +174,22 @@ logic in SQL is very pleasing and makes my application code more
 straightforward.  After having the query defined thus, I only need to
 construct the parameter map to pass to the query.
 
+Further reading:
+- [Common Cases when (not) to Use Dynamic
+  SQL](http://www.sommarskog.se/dynamic_sql.html#Common_cases): The need
+  for dynamic SQL generation arises from various reasons, some good and
+  some bad.  This article, even if written for Microsoft SQL Server, has
+  a lot of ideas and analysis that applies quite well to other SQL
+  backends.
+- [The two top performance problems caused by ORM
+  tools](http://use-the-index-luke.com/blog/2013-04/the-two-top-performance-problems-caused-by-ORM-tools):
+  Usually, you do not want to optimise before you can verify that
+  performance problems exist (by profiling or similar techniques).
+  However, ORM performance problems are especially difficult to tackle
+  and sometimes require restructuring of your application.  Here are
+  also two articles about ORM optimisation for
+  [nHibernate](http://geekswithblogs.net/Optikal/archive/2013/03/10/152371.aspx)
+  (Java) and
+  [SQLAlchemy](https://pythonguy.wordpress.com/2011/08/17/sqlalchemy-tips-performance/)
+  (Python).
+
