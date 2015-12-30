@@ -1,7 +1,7 @@
 ---
 layout: post
 author: riipah
-title: Active directory integration with Episerver
+title: Things to be aware of while integrating Active Directory with Episerver
 excerpt: TODO
 tags:
 - programming
@@ -13,19 +13,18 @@ tags:
 ## The problem
 
 Recently I was tasked with enabling our customer to log in to Episerver (version 8) using their Windows Active Directory credentials. 
-During the implementation I encountered multiple issues that aren't mentioned in the official documentation.
-In the end, I ended up rewriting large parts of both the [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider) (built-in to .NET SDK) 
+During the implementation I encountered multiple issues that aren't mentioned in the [official documentation](http://world.episerver.com/documentation/Items/Developers-Guide/EPiServer-CMS/8/Security/Configuring-Active-Directory-membership-provider/).
+In the end, I ended up rewriting large parts of both [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider) (built-in to .NET API) 
 and [ActiveDirectoryRoleProvider](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/49807A1D) (provided by Episerver).
 
-In general, the documentation regarding AD integration seems to be spread in different blogs, so I decided to write about my experiences here, 
-and hopefully it will be useful to someone else in the same situation
-
-Now, about the issues encountered:
+The official documentation already does good job at explaining the general steps needed for the integration so I won't repeat those here. 
+Instead, I'll focus on the issues I encountered and how to solve those. 
+Some of these issues have been reported by others already, but the solutions are spread around different blogs, 
+so hopefully compiling those into one post will be useful to someone else in the same situation.
 
 ## Firewall ports
 
-[The official documentation](http://world.episerver.com/documentation/Items/Developers-Guide/EPiServer-CMS/8/Security/Configuring-Active-Directory-membership-provider/) 
-says that ports 389 and 445 both need to be opened. 
+The official documentation says that ports 389 and 445 both need to be opened. 
 This was somewhat confusing. Port 389 is the main port for LDAP communication so that one is to be expected, but 445 is the port for SMB file transfer, 
 usually only needed in LAN environments, and opening it could possibly be a security issue, so IT departments are generally very reluctant about opening that port. 
 However, as expected, for one reason or another, that port really needs to be opened. 
@@ -34,7 +33,7 @@ First we tried with just the port 389, but this led to an error message "Worksta
 
 ## Searching users
 
-Next, we noticed that searching users by name or email doesn't work at all. 
+We noticed that searching users by name or email doesn't work at all. 
 
 After some debugging it turned out that Episerver surrounds the keyword with SQL wildcards '%', which obviously doesn't work. 
 In LDAP you need to use '** instead. You need to override the query methods in ActiveDirectoryMembershipProvider, 
@@ -52,21 +51,19 @@ public override MembershipUserCollection FindUsersByName(string usernameToMatch,
 LDAP (at least the Active Directory implementation) has a limit of 1000 entries per query. 
 We hit that limit with groups, which led to Episerver not listing all groups in the AD, because ActiveDirectoryRoleProvider tries to load all groups 
 and do the searching/pagination client side. 
-I solved this by tweaking the LDAP query so that only specific groups are loaded, which also made it faster since a smaller number of entries is returned.
-
-In general, searching for users and groups can be very slow if your AD has a large number of users and groups. 
-At least the groups are cached after the first query, which unfortunately leads to...
+I solved this by tweaking the LDAP query so that only specific groups are loaded, which also made it a lot faster since a smaller number of entries is returned.
+Loading the full list of groups was painfully slow, even though the result is cached after the first query.
 
 ## Caching problems with multiple active directories
 
-As mentioned, Episerver caches results of AD queries, in a class called [AdsiDataFactory](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/EEDB98B2).
+To improve performance, the AD role provider in Episerver caches results of AD queries, in a class called [AdsiDataFactory](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/EEDB98B2).
 
 Looking in decompiler, the cache key looks like this:
 ```
 string cacheKey = "EPiServer:DirectoryServiceFindAll:" + filter + scope.ToString();
 ```
 where *scope* is an enum value. It uses the query itself as the cache key, which works fine if you have just one AD.
-But in our case, we had two ADs, which means two providers, and since the same queries are issued to both ADs, the results get cached only for the first one.
+We had two ADs, which means two providers, and since the same queries are issued to both ADs, the results get cached only for the first one.
 
 My solution was to override GetAllRoles in ActiveDirectoryRoleProvider.
 
@@ -86,7 +83,8 @@ public override string[] GetAllRoles()
 }
 ```
 where *groupsToGet* is a list of AD group names to be loaded. We're generating a custom LDAP query that filters by group names, and also appends the
-provider name to the LDAP query so that it gets cached **per provider**.
+provider name to the LDAP query so that it gets cached **per provider**. 
+This appended part doesn't match to anything (it's always false), but since it's an OR operation, the comparison is effectively ignored.
 
 ## Group names with special characters
 
