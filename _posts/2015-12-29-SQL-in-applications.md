@@ -133,7 +133,7 @@ when they are NULL.
 > ```sql
 > SELECT * FROM cities
 > WHERE (lng - :x) * (lng - :x) + (lat - :y) * (lat - :y) < 100
->   AND :minpop IS NULL OR population > :minpop
+>   AND (:minpop IS NULL OR population > :minpop)
 > ```
 > Handling the dynamic part on the SQL side.
 
