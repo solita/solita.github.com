@@ -2,7 +2,7 @@
 layout: post
 author: riipah
 title: Things to be aware of while integrating Active Directory with Episerver
-excerpt: TODO
+excerpt: Episerver comes with built-in functionality for AD integration, but while working on the integration I ran into multiple issues that would likely affect others as well, so I compiled those issues and their solutions into a blog post
 tags:
 - programming
 - Episerver
@@ -18,25 +18,28 @@ In the end, I ended up rewriting large parts of both [ActiveDirectoryMembershipP
 and [ActiveDirectoryRoleProvider](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/49807A1D) (provided by Episerver).
 
 The official documentation already does good job at explaining the general steps needed for the integration so I won't repeat those here. 
-Instead, I'll focus on the issues I encountered and how to solve those. 
-Some of these issues have been reported by others already, but the solutions are spread around different blogs, 
-so hopefully compiling those into one post will be useful to someone else in the same situation.
+Instead, I'll focus on the issues I encountered and how those could be solved. 
+Some of these issues have been reported elsewhere by others already, but the solutions are spread around different blogs, 
+so hopefully collecting those into one post will be useful to someone else in the same situation.
 
 ## Firewall ports
 
-The official documentation says that ports 389 and 445 both need to be opened. 
-This was somewhat confusing. Port 389 is the main port for LDAP communication so that one is to be expected, but 445 is the port for SMB file transfer, 
+The official documentation says that ports 389 and 445 both need to be opened, but it's not explained why.
+Port 389 is the main port for LDAP communication so that one is to be expected, but 445 is the port for SMB file transfer, 
 usually only needed in LAN environments, and opening it could possibly be a security issue, so IT departments are generally very reluctant about opening that port. 
-However, as expected, for one reason or another, that port really needs to be opened. 
 
-First we tried with just the port 389, but this led to an error message "Workstation service is not started". Opening port 445 in the firewall fixed that.
+However, as expected, for one reason or another, that port really needs to be open in firewall. 
+We first tried with just the port 389, but this led to an error message "Workstation service is not started". 
+Opening port 445 in the firewall fixed that.
+Just make sure that it's limited to allowing traffic only from certain IPs.
+The reason is still a bit uncertain, but I saw suggestions [that it has something to do with establishing trust between the computers](http://www.windowsnetworking.com/kbase/WindowsTips/Windows2003/AdminTips/Security/Port445andtrustcreation.html).
 
 ## Searching users
 
-We noticed that searching users by name or email doesn't work at all. 
+We noticed that searching users by name or email doesn't work at all. This is apparently a common issue.
 
 After some debugging it turned out that Episerver surrounds the keyword with SQL wildcards '%', which obviously doesn't work. 
-In LDAP you need to use '** instead. You need to override the query methods in ActiveDirectoryMembershipProvider, 
+In LDAP you need to use '** instead. The fix is to override the query methods in ActiveDirectoryMembershipProvider, 
 replacing the '%' in the query with '*'.
 
 ```
@@ -63,7 +66,7 @@ Looking in decompiler, the cache key looks like this:
 string cacheKey = "EPiServer:DirectoryServiceFindAll:" + filter + scope.ToString();
 ```
 where *scope* is an enum value. It uses the query itself as the cache key, which works fine if you have just one AD.
-We had two ADs, which means two providers, and since the same queries are issued to both ADs, the results get cached only for the first one.
+We had two ADs, which means two providers. Since the same queries are issued to both ADs, the results get cached only for the first one.
 
 My solution was to override GetAllRoles in ActiveDirectoryRoleProvider.
 
@@ -116,4 +119,4 @@ You need to override this method as well and somehow make it not double encode t
 Others told me they have implemented the integration using Active Directory Federation Services (ADFS) with better luck, so I'd look into that if possible. 
 In our case the customer wasn't ready for ADFS quite yet, so we had to do the integration with LDAP. 
 It's also possible to integrate with the AD using [WindowsMembershipProvider](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/C3725E6D), 
-if your frontend server is a member of the AD, which wasn't true in our case. I heard this is even more simple, but I have no first hand experience.
+if your webserver is a member of the AD, which wasn't true in our case. I heard this is even more simple, but I have no first hand experience.
