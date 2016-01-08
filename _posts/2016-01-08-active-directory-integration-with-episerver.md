@@ -40,8 +40,8 @@ The reason is still a bit uncertain, but I saw suggestions [that it has somethin
 We noticed that searching users by name or email doesn't work at all. This is apparently a common issue.
 
 After some debugging it turned out that Episerver surrounds the keyword with SQL wildcards '%', which obviously doesn't work. 
-In LDAP you need to use '*' instead. The fix is to override the query methods in ActiveDirectoryMembershipProvider, 
-replacing the '%' in the query with '*'.
+In LDAP you need to use '\*' instead. The fix is to override the query methods in ActiveDirectoryMembershipProvider, 
+replacing the '%' in the query with '\*'.
 
 ```
 public override MembershipUserCollection FindUsersByName(
