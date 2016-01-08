@@ -67,9 +67,11 @@ Loading the full list of groups was painfully slow, even though the result is ca
 To improve performance, the AD role provider in Episerver caches results of AD queries, in a class called [AdsiDataFactory](http://world.episerver.com/documentation/Class-library/?documentId=cms/8/EEDB98B2).
 
 Looking in decompiler, the cache key looks like this:
+
 ```
 string cacheKey = "EPiServer:DirectoryServiceFindAll:" + filter + scope.ToString();
 ```
+
 Where *scope* is an enum value. It uses the query itself as the cache key, which works fine if you have just one AD.
 We had two ADs, which means two providers. Since the same queries are issued to both ADs, the results get cached only for the first one.
 
@@ -99,6 +101,7 @@ This appended part doesn't match to anything (it's always false), but since it's
 The last problem I encountered was about commas in AD group names, for example a group called "Cats, dogs and sheep" would not be identified.
 
 I pinpointed the problem to how the names are encoded. In ActiveDirectoryRoleProvider there's this code:
+
 ```
 private void GetRolesForUserRecursive(DirectoryData entry, List<string> roles, HashSet<string> visitedDirectoryEntry)
 {
