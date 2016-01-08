@@ -8,6 +8,7 @@ tags:
 - Episerver
 - Active Directory
 - LDAP
+- DOTNET
 ---
 
 ## The problem
@@ -39,11 +40,15 @@ The reason is still a bit uncertain, but I saw suggestions [that it has somethin
 We noticed that searching users by name or email doesn't work at all. This is apparently a common issue.
 
 After some debugging it turned out that Episerver surrounds the keyword with SQL wildcards '%', which obviously doesn't work. 
-In LDAP you need to use '** instead. The fix is to override the query methods in ActiveDirectoryMembershipProvider, 
+In LDAP you need to use '*' instead. The fix is to override the query methods in ActiveDirectoryMembershipProvider, 
 replacing the '%' in the query with '*'.
 
 ```
-public override MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords)
+public override MembershipUserCollection FindUsersByName(
+    string usernameToMatch, 
+    int pageIndex, 
+    int pageSize, 
+    out int totalRecords)
 {
     return base.FindUsersByName(usernameToMatch.Replace("%", "*"), pageIndex, pageSize, out totalRecords);
 }
@@ -65,7 +70,7 @@ Looking in decompiler, the cache key looks like this:
 ```
 string cacheKey = "EPiServer:DirectoryServiceFindAll:" + filter + scope.ToString();
 ```
-where *scope* is an enum value. It uses the query itself as the cache key, which works fine if you have just one AD.
+Where *scope* is an enum value. It uses the query itself as the cache key, which works fine if you have just one AD.
 We had two ADs, which means two providers. Since the same queries are issued to both ADs, the results get cached only for the first one.
 
 My solution was to override GetAllRoles in ActiveDirectoryRoleProvider.
@@ -85,7 +90,7 @@ public override string[] GetAllRoles()
     // The rest is copied from the base class
 }
 ```
-where *groupsToGet* is a list of AD group names to be loaded. We're generating a custom LDAP query that filters by group names, and also appends the
+Where *groupsToGet* is a list of AD group names to be loaded. We're generating a custom LDAP query that filters by group names, and also appends the
 provider name to the LDAP query so that it gets cached **per provider**. 
 This appended part doesn't match to anything (it's always false), but since it's an OR operation, the comparison is effectively ignored.
 
