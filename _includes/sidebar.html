@@ -12,5 +12,13 @@
 
 <h4>Tags</h4>
 <div class="tag-cloud">
-    {% tag_cloud %}
+	{% assign tags = site.tags | sort %} 
+	{% for tag in tags %}
+	 <span class="site-tag">
+		<a href="/tags.html#{{ tag | first | slugify }}-ref"
+			style="font-size: {{ tag | last | size  |  times: 4 | plus: 80  }}%">
+				{{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+		</a>
+	</span>
+	{% endfor %}
 </div>
