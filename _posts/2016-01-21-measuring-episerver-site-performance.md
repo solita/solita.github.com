@@ -64,7 +64,7 @@ You can enable grayed out nodes by left-clicking and choosing _Enable_ in the co
 * **View Results in Tree**: Very detailed results per request. It contains HTTP request and response details, thus making this a great help when debugging site access and errors.
 
 ### Testing static resources
-JMeter-perfotrator donwloads only the HTML, whereas stylesheets, scripts and other embedded resources are ignored. 
+JMeter-perfotrator downloads only the HTML, whereas stylesheets, scripts and other embedded resources are ignored. 
 Static resources do not affect CPU usage much at all, but use a huge amount of bandwidth, which will hinder the testing.
 Furthermore, static resources are easily cached by browsers and proxies, so I normally do not consider them an issue. 
 
