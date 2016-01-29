@@ -22,14 +22,14 @@ As with all assumptions, there should be a way to verify it.
 ## Measuring made simple 
 The best tool I have found to measure Episerver read-only performance is [**JMeter**](http://jmeter.apache.org/), which is an extremely versatile tool, 
 but also abhorrent to configure without prior experience. 
-I am no JMeter expert, yet time and determination yielded something useful I wish to share: [**JMeter-perfotrator**](https://github.com/dratini/jmeter-perfotrator)
+I am no JMeter expert, yet time and determination yielded something useful I wish to share: [**JMeter-perfotrator**](https://github.com/solita/jmeter-perfotrator)
 
 It is a ready-to-use JMeter project for simple performance testing with the aim to minimize manual work, the only required configurable part being the test URL list. 
-You can download the GitHub repository as a [ZIP file](https://github.com/dratini/jmeter-perfotrator/archive/master.zip) for convenience, and it should work right out-of-the box.
+You can download the GitHub repository as a [ZIP file](https://github.com/solita/jmeter-perfotrator/archive/master.zip) for convenience, and it should work right out-of-the box.
 Java is required, sorry for that.
 
 First, grab some URLs for testing. 
-Add the URLs to file [_project\urls.txt_](https://github.com/dratini/jmeter-perfotrator/blob/master/project/urls.txt), one URL per line. 
+Add the URLs to file [_project\urls.txt_](https://github.com/solita/jmeter-perfotrator/blob/master/project/urls.txt), one URL per line. 
 Fire up JMeter with _start-gui.bat_ and you should see the JMeter UI.
 It might look like a control panel out of a Soviet power plant, but the only buttons you need to know for basic use are these.
 
