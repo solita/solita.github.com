@@ -5,32 +5,32 @@ author: jarzka
 excerpt: Web workers make it possible to create real multi-threaded web applications but they can be pain to work with. Does ClojureScript make it any easier?
 ---
 
-Although the performance of JavaScript applications has increased considerably over the past few years, the language still suffers from one important limitation: all executable code is processed in one single thread. JavaScript can make asynchronous function calls, which may seem to act like they were run in a separate thread, but in fact asynchronous function calls are enqueued for the [JavaScript event loop](http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/). The function is dequeued when ever the main UI thread is ready to process it.
+Although the performance of JavaScript applications has increased considerably over the past few years, the language still suffers from one important limitation: all executable code is processed in a single thread. JavaScript can make asynchronous function calls, which may seem to act like they were run in a separate thread, but in fact asynchronous function calls are enqueued for the [JavaScript event loop](http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/). The function is dequeued whenever the main UI thread is ready to process it.
 
 Single-threaded JavaScript is easy to work with as long as there are not too many callback functions that fire at the same time. However, single-threading also makes it impossible to execute long running tasks on the web browser without making the UI unresponsive. Do you remember ever seeing the error message below?
 
 ![Long-running tasks block the UI](/img/testing-clojurescript-concurrency-with-servant/ui_block.png)
 *Long-running tasks block the UI*
 
-This message is basically always originated from the single-threaded nature JavaScript; executing long running tasks on the main UI thread always causes the UI to freeze. You simply have to wait for the main UI thread to finish its job, while at the same time the rest of your 7 logical CPU cores are resting without a job.
+This message is basically always originated from the single-threaded nature of JavaScript; executing long running tasks on the main UI thread always causes the UI to freeze. You simply have to wait for the main UI thread to finish its job, while at the same time the rest of your 7 logical CPU cores are resting without a job.
 
-But why do we need concurrency anyway? I believe most of the current JavaScript applications don't contain and not necessarily need a multi-threaded architecture. However, the possibility to develop modern web application has introduced a need to execute heavy computational tasks on the frontend that were previously executed on the server side. Examples of these are real-time image processing, encryption and processing big server payloads.
+But why do we need concurrency anyway? I believe most of the current JavaScript applications don't contain and do not necessarily need a multi-threaded architecture. However, the possibilities of modern web applications have introduced a need to execute heavy computational tasks on the frontend that were previously executed on the server side. Examples of these are real-time image processing, encryption and processing big server payloads.
 
 ## Web workers save the day!
 
-Luckily things are getting better. HTML5 provides a facility to create real multi-threaded applications in JavaScript. This concept is named Web workers and it is already [well supported in all major web browsers](http://caniuse.com/#feat=webworkers). Creating web workers allows you to handle large tasks while ensuring your app still remains responsive.
+Luckily things are getting better. HTML5 provides a facility to create real multi-threaded applications in JavaScript. This concept is called Web workers and it is already [well supported in all major web browsers](http://caniuse.com/#feat=webworkers). Creating web workers allows you to handle large tasks while ensuring that your app still remains responsive.
 
-Problem solved? Not quite. There are some important limitations in web workers. Web worker scripts are almost completely separated from the main thread. In fact, they normally run in a separate JavaScript file (although it is possible to create [inline workers](http://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers)). This makes it difficult to share context, for example web workers cannot directly access the DOM or share data between each other. They also heavily rely on callback functions on sending and receiving messages between them and the main UI thread, which can sometimes be difficult to handle properly.
+Problem solved? Not quite. There are some important limitations in web workers. Web worker scripts are almost completely separated from the main thread. In fact, they normally run in a separate JavaScript file (although it is possible to create [inline workers](http://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers)). This makes it difficult to share context; for example web workers cannot directly access the DOM or share data between each other. They also heavily rely on callback functions on sending and receiving messages between them and the main UI thread, which can sometimes be difficult to handle properly.
 
 ## Concurrency and ClojureScript
 
-I have used [ClojureScript](https://github.com/clojure/clojurescript), a [Clojure](http://clojure.org) to JavaScript compiler, almost one year to development web applications. I have seen how it smartly abstracts away many of the pitfalls that JavaScript has. When it comes to making asynchronous function calls, ClojureScript has almost eliminated the need for callback functions using [go blocks and channels](http://www.infoq.com/news/2013/07/core-async), which act like a new threads but are internally implemented using JavaScript's regular timeouts and callback functions.
+I have used [ClojureScript](https://github.com/clojure/clojurescript), a [Clojure](http://clojure.org) to JavaScript compiler, almost one year to develop web applications. I have seen how it smartly abstracts away many of the pitfalls that JavaScript has. When it comes to making asynchronous function calls, ClojureScript has almost eliminated the need for callback functions using [go blocks and channels](http://www.infoq.com/news/2013/07/core-async), which act like new threads but are internally implemented using JavaScript's regular timeouts and callback functions.
 
 ClojureScript does not natively provide real multi-threading capability due to the single-threaded architecture of is host environment. As we saw, regular JavaScript Web workers have their pitfalls, which is why I wanted to find out if there is a way to do real concurrency with ClojureScript using Web workers under the hood.
 
 ## Enter Servant
 
-Perhaps the best known library for using Web workers in ClojureScript is [Servant](https://github.com/MarcoPolo/servant), which "seeks to give you the good parts (of web workers), without any of the bad parts". Web workers are indeed called servants in Servant library. To start using servants, we first have to define a web worker pool:
+Perhaps the best known library for using Web workers in ClojureScript is [Servant](https://github.com/MarcoPolo/servant), which "seeks to give you the good parts (of web workers), without any of the bad parts". Web workers are indeed called servants in the Servant library. To start using servants, we first have to define a web worker pool:
 
 ```clojure
 (ns app.workers
@@ -118,7 +118,7 @@ To spawn threads for running the algorithms, the following code is used:
   (set! (.-onload js/window) window-load))
 ```
 
-For those who have used ClojureScript's go blocks this should look familiar to you. On the bottom we separate the main UI thread and worker thread from each other. If a worker thread executes this file, we simply ask it to run its setup code. For the main UI thread we give a task to kick off the servants by spawning a new thread for each primary number calculation algorithm. We also measure the time it takes to execute each of the algorithms. Once servant thread finishes its calculation, it returns the answer to a channel, which the main UI thread then uses to read the answer and put in to an atom.
+For those who have used ClojureScript's go blocks this should look familiar to you. On the bottom we separate the main UI thread and worker thread from each other. If a worker thread executes this file, we simply ask it to run its setup code. For the main UI thread we give a task to kick off the servants by spawning a new thread for each prime number calculation algorithm. We also measure the time it takes to execute each of the algorithms. Once servant thread finishes its calculation, it returns the answer to a channel, which the main UI thread then uses to read the answer and put in to an atom.
 
 Let's take a look at the calculate-prime-numbers function that we give to the servants.
 
