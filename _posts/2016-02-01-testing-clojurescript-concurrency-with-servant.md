@@ -148,7 +148,7 @@ With all the code presented above we have a working multi-threaded ClojureScript
 
 ## How it went
 
-To be honest, developing this test application required me a lot of trial and error before I I was able to get it working. I believe most of the problems I faced were not directly related to Servant itself but were caused by the limitations of the underlying JavaScript technology. For example, I noticed that I was unable to return a normal Clojure vector from servants simply because Clojure vectors are represented as JavaScript Objects and Web workers cannot return Objects to the main UI thread. The same problem happened when I tried to directly give the algorithm function to servants.  
+To be honest, developing this test application required a lot of trial and error before I was able to get it working. I believe most of the problems I faced were not directly related to Servant itself but were caused by the limitations of the underlying JavaScript technology. For example, I noticed that I was unable to return a normal Clojure vector from servants simply because Clojure vectors are represented as JavaScript Objects and Web workers cannot return Objects to the main UI thread. The same problem happened when I tried to directly give the algorithm function to servants.  
 
 At the early stages of the development I also noticed that I was unable to get the app working in a development mode with :optimizations set to :none. A few users on the project's GitHub page also confirmed this problem. Because of this I was unable to use Figwheel which made the development process a bit slow.
 
