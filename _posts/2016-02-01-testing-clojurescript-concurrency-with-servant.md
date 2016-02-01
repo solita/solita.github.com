@@ -3,9 +3,6 @@ layout: post
 title: Testing ClojureScript Concurrency with Servant
 author: jarzka
 excerpt: Web workers make it possible to create real multi-threaded web applications but they can be pain to work with. Does ClojureScript make it any easier?
-categories:
-- Web Workers
-- Multithreading
 tags:
 - Web Workers
 - Multithreading
