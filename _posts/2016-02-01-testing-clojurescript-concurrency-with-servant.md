@@ -3,6 +3,15 @@ layout: post
 title: Testing ClojureScript Concurrency with Servant
 author: jarzka
 excerpt: Web workers make it possible to create real multi-threaded web applications but they can be pain to work with. Does ClojureScript make it any easier?
+categories:
+- Web Workers
+- Multithreading
+tags:
+- Web Workers
+- Multithreading
+- Clojure
+- ClojureScript
+- Servant
 ---
 
 Although the performance of JavaScript applications has increased considerably over the past few years, the language still suffers from one important limitation: all executable code is processed in a single thread. JavaScript can make asynchronous function calls, which may seem to act like they were run in a separate thread, but in fact asynchronous function calls are enqueued for the [JavaScript event loop](http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/). The function is dequeued whenever the main UI thread is ready to process it.
