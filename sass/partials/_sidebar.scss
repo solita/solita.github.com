@@ -50,9 +50,13 @@
 
     .tag {
         display: inline-block;
-        margin-right: 0.25em;
+        margin-right: 0.5em;
 
-        color: hsl(207, 85, 43);
         vertical-align: bottom;
+
+        &:hover {
+            color: $color-hover !important;
+        }
     }
 }
+
