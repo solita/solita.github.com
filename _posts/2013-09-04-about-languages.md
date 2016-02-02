@@ -3,7 +3,11 @@ layout: post
 title: Clojure world domination 2014
 author: lokori
 excerpt: Form follows function in great design. Interestingly we can now eliminate annoying barriers between data, form and function. The Clojure train is accelerating!
-tags: Clojure, Lisp, Datomic, Prolog
+tags: 
+- Clojure
+- Lisp
+- Datomic
+- Prolog
 ---
 <p></p>
 

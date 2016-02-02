@@ -44,3 +44,19 @@
         }
     }
 }
+
+.tag-cloud {
+    font-size: 1rem;
+
+    .tag {
+        display: inline-block;
+        margin-right: 0.5em;
+
+        vertical-align: bottom;
+
+        &:hover {
+            color: $color-hover !important;
+        }
+    }
+}
+

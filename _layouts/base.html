@@ -70,8 +70,13 @@
 
     <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="/js/transparency.min.js"></script>
+    <script type="text/javascript" src="/js/tagcloud.js"></script>
     <script type="text/javascript" src="/js/webtoolkit.md5.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
 
+    <script>
+      var tags = document.querySelectorAll('.tag');
+      new TagCloud(tags, 120, 80, '%', 207, 85, 43);
+    </script>
   </body>
 </html>
