@@ -7,7 +7,7 @@ categories:
 - Episerver
 tags:
 - programming
-- Episerver
+- EPiServer
 - Active Directory
 - LDAP
 - DOTNET
