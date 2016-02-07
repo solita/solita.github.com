@@ -35,7 +35,7 @@ Here is my list what I would do for new Windows Server
 
 
 ## How stuff is installed 
-If you are familiar with Windows Server installation you might notice that there are multiple different types of installation involved in the process. 
+If you are familiar with Windows Server installation you might notice that there are multiple different types of installation involved in the process. Windows features, executables, msi files and software specific plugins are all in the same process. This is the part where I wish that Windows PackageManagement (aka OneGet) or chocolatey can one day solve unifying installation. Chocolatey is pretty good already but it is missing a lot of software and I'm still sceptical about security of software packages. So instead of using Chocolatey I provide examples how to do silent installations with different type of software packages.
 
 #### Windows features (e.g. IIS)
 #### Executables (newest .NET)
@@ -46,6 +46,9 @@ If you are familiar with Windows Server installation you might notice that there
 
 #### WebDeploy
 #### IIS website 
+
+## Summing up 
+Instead of huge scripts I like to put my PowerShell stuff to modules and also I like to be able to configure my installations. Thus I created few modules, an example script and an example configuration. I am using XML configuration because it was way to go earlier with the PowerShell (it was easy to load unlike json). Now newer PowerShell has "ConvertFrom-JSON" function that makes it possible to use also JSON configuration. 
 
 ## Cool! I want to do that too!
 Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools)
