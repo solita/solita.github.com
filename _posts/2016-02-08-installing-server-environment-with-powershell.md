@@ -41,23 +41,111 @@ If you are familiar with Windows Server installation you might notice that there
 
 #### Windows features (e.g. IIS)
 The first question you should be looking is "what are the windows features"? To be able to install the features you must first learn how to find them. Here is a oneliner that will give the available features to you. 
+
 ```
 Get-WindowsOptionalFeature -Online 
 ```
-Great! Now we know how to find the windows features. Now we just need to change the oneliner a bit to be able to Install them. 
+
+Great! Now we know how to find the windows features. Now we just need to change the oneliner a bit to be able to Install them. This is a oneliner for .NET:  
+
 ```
-Enable-WindowsOptionalFeature -Online -All -FeatureName $task
+Enable-WindowsOptionalFeature -Online -All -FeatureName NetFx4
 ```
 
+All flag means that it will also install required dependencies if any. 
 
 #### Executables (newest .NET)
-#### MSI files (WebPi)
-#### WebPI modules (WebDeploy)
+With windows feature we were able to install the .NET version that is delivered with the operating system. Although that is not most likely the newest one. Instead we need to fetch the newest one from [the internet](https://download.microsoft.com/download/E/4/1/E4173890-A24A-4936-9FC9-AF930FE3FA40/NDP461-KB3102436-x86-x64-AllOS-ENU.exe). With executables you never can be quite sure how they should be installed because there is no stricly unified commandline parameters. Here is an example how your executable installation might looklike. 
+
+```
+$arguments = @(
+        "/qn" # display no interface 
+        "/norestart"
+        "/passive"
+		"/S")
+Start-Process $exe  -Wait -PassThru -Verb runAs -ArgumentList $arguments
+```
+
+I chose an approach where I just guess what kind of parameters executable will need for silent installation. I found out that /S is pretty common, but sometimes also /passive is used too. Most likely your executables needs to be run elevated, that can be achieved with "-Verb runAs" parameter for Start-Process function. So even if this worked for my executables, this might be terrible mess for yours (for example if there is checks for arguments being eligible). 
+
+#### MSI files 
+MSI files are really common way to install stuff in Microsoft environment. They are also unified so we can be more certain that silent installation can be achieved. The installation looks really similar to installation of executables. 
+
+```
+$arguments = @(
+        "/i" #install product
+        "`"$msiFile`""
+        "/qn" # display no interface 
+        "/norestart"
+        "/passive")
+Start-Process msiexec.exe -Wait -PassThru -Verb runAs -ArgumentList $arguments
+```
+
+File that is wanted to be installed is given as an parameter to msiexec.exe among some other flags. Installer is again run as elevated process to make sure that it can make all the configuration changes it wants. 
+
+#### WebPI modules
+To be able to install WebPI modules you needs to first [install it](http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi). After installation you are able to use its cmdline tools to install modules. Before you know what to install you of course need some knowledge how to list all the available ones. Here is an example oneliner for listing:
+
+```
+& (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /List /ListOption:All
+```
+
+Once we get all the available modules we can find out that the name of the needed WebDeploy package is WDeploy3NoSmo. Here we install WebDeploy with oneliner: 
+```
+& (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /Install /Products:"WDeploy36NoSmo" /AcceptEula
+```
+AcceptEula flag basicly gives you silent installation. You might want to elevate this process too, but I didn't feel that it was necessary. 
 
 ## How stuff is configured
+Once we got our IIS, .NET, WebPI and WebDeploy successfully installed there is still few steps before machine is ready to host our applications. First we need to make sure that the IIS website is set to be able to make deployments. 
+
+#### IIS website 
+First of all we need a folder for IIS website. We can create like this: 
+
+```
+$folderPath = "C:\MySite"
+if(!(Test-Path -Path $folderPath )){
+	Write-Verbose "Creating installation folder $folderPath"
+	$Null = New-Item -ItemType directory -Path $folderPath
+}
+```
+
+Then we need to setup an application pool for the website. It is also good idea to make sure few defaults are changed to better meet the purpose. We like to disable application pool idle timeout to get rid off unexpected expensive first hits. Instead we are using periodic restart to restart the pool when we are not expecting many customers.  
+
+```
+Import-Module WebAdministration
+New-WebAppPool -Name $appPoolName
+# .NET runtime 
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name "managedRuntimeVersion" -Value $appPoolDotNetVersion
+# recycling
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.time -value ([TimeSpan]::FromMinutes(1440)) # 1 day (default: 1740)
+Clear-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule # Clear existing values if any
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule -Value @{value="$appPoolRestartTime"}
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name processModel.idleTimeout -value ([TimeSpan]::FromMinutes(0)) # Disabled (default: 20)
+# logs from recycling to event log
+$recycleLogEvents = "Time,Requests,Schedule,Memory,IsapiUnhealthy,OnDemand,ConfigChange,PrivateMemory"
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.logEventOnRecycle -Value $recycleLogEvents
+```
+
+After that we can create the website. Below there is an example how to create website with possible multiple bindings:
+
+```
+New-WebSite -Name $siteName  -Port 80 -HostHeader $siteName -PhysicalPath $physicalPath  
+Set-ItemProperty IIS:\Sites\$siteName -name applicationPool -value $appPoolName
+# set bindings (go through all the bindings and create new webbinding for each)
+foreach($binding in $bindings)
+{
+	Write-Verbose "Adding binding $binding"
+	$bindingProtocol = "http"
+	$bindingIP = "*"
+	$bindingPort = "80"
+	$bindingHostHeader = $binding.Hostname
+	$bindingCreationInfo = New-WebBinding -Protocol $binding.protocol -Name $siteName -IPAddress $bindingIP -Port $bindingPort -HostHeader $bindingHostHeader
+}
+```
 
 #### WebDeploy
-#### IIS website 
+Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. 
 
 ## Summing up 
 Instead of huge scripts I like to put my PowerShell stuff to modules and also I like to be able to configure my installations. Thus I created few modules, an example script and an example configuration. I am using XML configuration because it was way to go earlier with the PowerShell (it was easy to load unlike json). Now newer PowerShell has "ConvertFrom-JSON" function that makes it possible to use also JSON configuration. 
@@ -65,7 +153,7 @@ Instead of huge scripts I like to put my PowerShell stuff to modules and also I 
 ## Cool! I want to do that too!
 Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools) Here is more specific list of things mentioned before.
 
-* (IIS tools module)[https://github.com/solita/powershell-webdevelopertools/blob/master/solita-iistools.psm1]
-* (Server tools module)[https://github.com/solita/powershell-webdevelopertools/blob/master/solita-servertools.psm1]
-* (Example script using modules)[https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1]
-* (Config used by example script)[https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml]
+* [IIS tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-iistools.psm1)
+* [Server tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-servertools.psm1)
+* [Example script using modules](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1)
+* [Config used by example script](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml)
