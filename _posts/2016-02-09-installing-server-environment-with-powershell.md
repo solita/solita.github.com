@@ -10,7 +10,7 @@ tags:
 - DOTNET 
 - PowerShell
 ---
-Most likely as a reader you are mostly interested about my scripts. Without any bullshit here are our scripts for setting up Windows Server 2012 R2 ready for WebDeployments and running EPiServer ASP.NET site!
+Most likely as a reader you are mostly interested about my scripts. Here are our scripts for setting up Windows Server 2012 R2 ready for WebDeployments and running EPiServer ASP.NET site!
 
 * [Example script using modules below](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1)
 * [Config used by example script](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml)
