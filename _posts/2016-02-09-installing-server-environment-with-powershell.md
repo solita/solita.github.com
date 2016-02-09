@@ -10,6 +10,14 @@ tags:
 - DOTNET 
 - PowerShell
 ---
+If you opened this blog post I bet that you are man of action! Without any bullshit here are our scripts for setting up Windows Server ready for WebDeployments and running EPiServer ASP.NET site!
+
+* [Example script using modules below](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1)
+* [Config used by example script](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml)
+* [IIS tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-iistools.psm1)
+* [Server tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-servertools.psm1)
+
+## Why automate the installation?
 
 This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still people are often encountering situations where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
 
@@ -189,11 +197,3 @@ After the variable with XML file contents is loaded it is easy to access differe
 ```
 
 With all this done you could also enable PowerShell remoting on your server and do all the installations without using any RDP connection at all. 
-
-## Cool! I want to do that too!
-Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools). Here is more specific list of things mentioned before.
-
-* [IIS tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-iistools.psm1)
-* [Server tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-servertools.psm1)
-* [Example script using modules](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1)
-* [Config used by example script](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml)
