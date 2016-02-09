@@ -43,13 +43,13 @@ If you are familiar with Windows Server installation you might notice that there
 #### Windows features (e.g. IIS)
 The first question you should be looking is "what are the windows features"? To be able to install the features you must first learn how to find them. Here is a oneliner that will give the available features to you. 
 
-```
+```powershell
 Get-WindowsOptionalFeature -Online 
 ```
 
 Great! Now we know how to find the windows features. Now we just need to change the oneliner a bit to be able to Install them. This is a oneliner for .NET:  
 
-```
+```powershell
 Enable-WindowsOptionalFeature -Online -All -FeatureName NetFx4
 ```
 
@@ -58,7 +58,7 @@ All flag means that it will also install required dependencies if any. The .NET 
 #### Executables 
 With windows feature we were able to install the .NET version that is delivered with the operating system. Although that is not most likely the newest one. Instead we need to fetch the newest one from [the internet](https://download.microsoft.com/download/E/4/1/E4173890-A24A-4936-9FC9-AF930FE3FA40/NDP461-KB3102436-x86-x64-AllOS-ENU.exe). With executables you never can be quite sure how they should be installed because there is no stricly unified commandline parameters. Here is an example how your executable installation might looklike. 
 
-```
+```powershell
 $arguments = @(
         "/qn" # display no interface 
         "/norestart"
@@ -72,7 +72,7 @@ I chose an approach where I just guess what kind of parameters executable will n
 #### MSI files 
 MSI files are really common way to install stuff in Microsoft environment. They are also unified so we can be more certain that silent installation can be achieved. The installation looks really similar to installation of executables. 
 
-```
+```powershell
 $arguments = @(
         "/i" #install product
         "`"$msiFile`""
@@ -87,13 +87,13 @@ File that is wanted to be installed is given as an parameter to msiexec.exe amon
 #### WebPI modules
 To be able to install WebPI modules you needs to first [install it](http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi). After installation you are able to use its cmdline tools to install modules. Before you know what to install you of course need some knowledge how to list all the available ones. Here is an example oneliner for listing:
 
-```
+```powershell
 & (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /List /ListOption:All
 ```
 
 Once we get all the available modules we can find out that the name of the needed WebDeploy package is WDeploy36NoSmo. Here we install WebDeploy with oneliner: 
 
-```
+```powershell
 & (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /Install /Products:"WDeploy36NoSmo" /AcceptEula
 ```
 
@@ -105,7 +105,7 @@ Once we got our IIS, .NET, WebPI and WebDeploy successfully installed there is s
 #### IIS website 
 First of all we need a folder for IIS website. We can create like this: 
 
-```
+```powershell
 $folderPath = "C:\MySite"
 if(!(Test-Path -Path $folderPath )){
 	Write-Verbose "Creating installation folder $folderPath"
@@ -115,7 +115,7 @@ if(!(Test-Path -Path $folderPath )){
 
 Then we need to setup an application pool for the website. It is also good idea to make sure few defaults are changed to better meet the purpose. We like to disable application pool idle timeout to get rid off unexpected expensive first hits. Instead we are using periodic restart to restart the pool when we are not expecting many customers.  
 
-```
+```powershell
 Import-Module WebAdministration
 New-WebAppPool -Name $appPoolName
 # .NET runtime 
@@ -138,7 +138,7 @@ Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.logEventOnRecycle 
 
 After that we can create the website. Below there is an example how to create website with possible multiple bindings:
 
-```
+```powershell
 New-WebSite -Name $siteName  `
 	-Port 80 `
 	-HostHeader $siteName `
@@ -164,7 +164,7 @@ foreach($binding in $bindings)
 #### WebDeploy
 Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. Scripts for WebDeploy can be found under the installation directory of the product. The scripts take care of problems like giving permissions to the iis site folder for webdeploy, creating user if it does not exist and setting up the WebDeploy configurations. Hree is how to use the script with one long oneliner: 
 
-```
+```powershell
 & (Join-Path "$env:programfiles" "IIS\Microsoft Web Deploy V3\scripts\SetupSiteForPublish.ps1") `
 	-siteName $siteName `
 	-siteAppPoolName $appPoolName `
@@ -178,13 +178,13 @@ Instead of huge scripts I like to put my PowerShell stuff to modules and also I 
 
 Here is how to load an XML file: 
 
-```
+```powershell
 [xml]$myXml = get-content $configFile 
 ```
 
 After the variable with XML file contents is loaded it is easy to access different elements inside it. For example if you would like to access the name of the WebDeploy user it might look something like this:
 
-``` 
+```powershell
  $config.Root.IIS.WebDeploy.GetAttribute("Name")
 ```
 
