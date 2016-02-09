@@ -170,7 +170,7 @@ foreach($binding in $bindings)
 ```
 
 #### WebDeploy
-Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. Scripts for WebDeploy can be found under the installation directory of the product. The scripts take care of problems like giving permissions to the iis site folder for webdeploy, creating user if it does not exist and setting up the WebDeploy configurations. Hree is how to use the script with one long oneliner: 
+Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. Scripts for WebDeploy can be found under the installation directory of the product. The scripts take care of problems like giving permissions to the iis site folder for webdeploy, creating user if it does not exist and setting up the WebDeploy configurations. Here is how to use the script with one long oneliner: 
 
 ```powershell
 & (Join-Path "$env:programfiles" "IIS\Microsoft Web Deploy V3\scripts\SetupSiteForPublish.ps1") `
