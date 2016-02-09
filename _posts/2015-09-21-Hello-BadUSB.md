@@ -5,6 +5,7 @@ author: Rinorragi
 excerpt: Introduction to USB Rubber Ducky keystroke injection platform
 tags:  
 - Security
+- PowerShell
 ---
 
 There was a big security flaw in a 2014 Jeep Cherokee. Chrysler didn't have a way to patch cars over the air so [they mailed 1.4 million USB drives](http://www.wired.com/2015/09/chrysler-gets-flak-patching-hack-via-mailed-usb/) via the US Postal Service. By doing that they teached their customers to trust USB drives that are delivered by mail. What security professionals are fearing is of course malicious USB devices. Let's peek into world of BadUSB.
