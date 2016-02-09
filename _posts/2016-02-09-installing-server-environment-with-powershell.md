@@ -187,7 +187,7 @@ Instead of huge scripts I like to put my PowerShell stuff to modules and also I 
 Here is how to load an XML file: 
 
 ```powershell
-[xml]$myXml = get-content $configFile 
+[xml]$config = get-content $configFile 
 ```
 
 After the variable with XML file contents is loaded it is easy to access different elements inside it. For example if you would like to access the name of the WebDeploy user it might look something like this:
