@@ -19,6 +19,7 @@ This blog is about how to make your brand new Windows Server ready for webdeploy
 * Base of the installations does not differ much from project to project 
 * After few years when your windows server needs upgrade you will need to repeat this
 * There is no way to test "clickety click" installations 
+* Windows Server Core installations are rare because people is not used to manage Windows Servers without GUI 
 
 One could argue that documentation and clear processes would take care of all the problems above. Maybe they could but I have never seen installation documentation that has 100% coverage over how the installation has been done. Installation script works as document and developers are more likely to update it! 
 
@@ -186,6 +187,8 @@ After the variable with XML file contents is loaded it is easy to access differe
 ``` 
  $config.Root.IIS.WebDeploy.GetAttribute("Name")
 ```
+
+With all this done you could also enable PowerShell remoting on your server and do all the installations without using any RDP connection at all. 
 
 ## Cool! I want to do that too!
 Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools). Here is more specific list of things mentioned before.
