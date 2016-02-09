@@ -10,7 +10,7 @@ tags:
 - DOTNET 
 - PowerShell
 ---
-If you opened this blog post I bet that you are man of action! Without any bullshit here are our scripts for setting up Windows Server ready for WebDeployments and running EPiServer ASP.NET site!
+Most likely as a reader you are mostly interested about my scripts. Without any bullshit here are our scripts for setting up Windows Server 2012 R2 ready for WebDeployments and running EPiServer ASP.NET site!
 
 * [Example script using modules below](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install.ps1)
 * [Config used by example script](https://github.com/solita/powershell-webdevelopertools/blob/master/scripts/solita_example_server_install_config.xml)
@@ -19,7 +19,7 @@ If you opened this blog post I bet that you are man of action! Without any bulls
 
 ## Why automate the installation?
 
-This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still people are often encountering situations where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
+This blog is about how to make your brand new Windows Server ready for WebDeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still people are often encountering situations where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
 
 * Installations can't be reproduced 
 * Only the one who installed knows how he did it
