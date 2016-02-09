@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing development environment with PowerShell
+title: Installing server environment with PowerShell
 author: Rinorragi
 excerpt: Automize your IIS webserver installation with PowerShell 
 categories: 
@@ -91,9 +91,11 @@ To be able to install WebPI modules you needs to first [install it](http://downl
 ```
 
 Once we get all the available modules we can find out that the name of the needed WebDeploy package is WDeploy3NoSmo. Here we install WebDeploy with oneliner: 
+
 ```
 & (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /Install /Products:"WDeploy36NoSmo" /AcceptEula
 ```
+
 AcceptEula flag basicly gives you silent installation. You might want to elevate this process too, but I didn't feel that it was necessary. 
 
 ## How stuff is configured
