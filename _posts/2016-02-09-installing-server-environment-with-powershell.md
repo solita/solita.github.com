@@ -11,7 +11,7 @@ tags:
 - PowerShell
 ---
 
-This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still we are often encountered situation where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
+This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still people are often encountering situations where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
 
 * Installations can't be reproduced 
 * Only the one who installed knows how he did it
@@ -90,7 +90,7 @@ To be able to install WebPI modules you needs to first [install it](http://downl
 & (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /List /ListOption:All
 ```
 
-Once we get all the available modules we can find out that the name of the needed WebDeploy package is WDeploy3NoSmo. Here we install WebDeploy with oneliner: 
+Once we get all the available modules we can find out that the name of the needed WebDeploy package is WDeploy36NoSmo. Here we install WebDeploy with oneliner: 
 
 ```
 & (Join-Path "$env:programfiles" "microsoft\Web Platform Installer\webpicmd.exe") /Install /Products:"WDeploy36NoSmo" /AcceptEula
