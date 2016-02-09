@@ -11,30 +11,30 @@ tags:
 - PowerShell
 ---
 
-This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Azure websites can make your infrastrucute lifecycle handling very easy still we are often encountered situation where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations has lots of long-term problems: 
+This blog is about how to make your brand new Windows Server ready for webdeployments with just pressing enter once. Cloud services can make your infrastructure lifecycle handling very easy; still we are often encountered situation where we need to host our ASP.NET applications in virtual machines or directly on physical hardware. On those situations installation procedures in Windows operating systems are often done with some "clickety click" magic that won't take too long. Still the "clickety click" installations have lots of long-term problems: 
 
 * Installations can't be reproduced 
 * Only the one who installed knows how he did it
 * If you have multiple servers you are doing same manual steps multiple times
 * Base of the installations does not differ much from project to project 
-* After few years when your windows server is not the latest one anymore you will need to repeat this
+* After few years when your windows server needs upgrade you will need to repeat this
 * There is no way to test "clickety click" installations 
 
-One could argue that documentation and clear processes would take care of all the problems above. Maybe they could but I have never seen installation documentation that has 100% coverage over how the installation has been done and installation script works as document as well! 
+One could argue that documentation and clear processes would take care of all the problems above. Maybe they could but I have never seen installation documentation that has 100% coverage over how the installation has been done. Installation script works as document and developers are more likely to update it! 
 
 ## What is needed to install on fresh Windows server
-Here is my list what I would do for new Windows Server 
+Here is short version of my list what I would do for new Windows Server 
 
 * Install IIS
 * Install WebPI 
-* Install newest ASP.NET 
+* Install newest .NET 
 * Install webdeploy
-* Install various modules for IIS from windows feature list or from webPI 
+* Install various modules for IIS from windows feature list or with WebPI 
 * Install tools for administration (7zip, text editor etc) 
 * Create IIS site and application pool and change some defaults for better
 
 ## Is there PackageManagement for Windows?
-Oh yes there is! It is called [Windows PackageManagement](http://blogs.technet.com/b/packagemanagement/archive/2015/04/29/introducing-packagemanagement-in-windows-10.aspx) (aka OneGet). Unfortunately it is not available for Windows Servers yet. Production preview of Windows Management Framework 5 is already [available](https://www.microsoft.com/en-us/download/details.aspx?id=48729). Windows PackageManagement is actually a manager that can access multiple type of repository to have unified way to download and install software from multiple sources. The thing still missing is grown up economy where all the toys would be easily available. Chocolatey is pretty good already but it is missing a lot of software and I'm still sceptical about security of software packages. So instead of using Chocolatey I provide examples how to do silent installations with different type of software packages. 
+Oh yes there is! It is called [Windows PackageManagement](http://blogs.technet.com/b/packagemanagement/archive/2015/04/29/introducing-packagemanagement-in-windows-10.aspx) (aka OneGet). Unfortunately it is not available for Windows Servers yet. Production preview of Windows Management Framework 5 is already [available](https://www.microsoft.com/en-us/download/details.aspx?id=48729). Windows PackageManagement is actually a manager that can access multiple type of repositories to have unified way to download and install software from multiple sources. Microsoft MSI installers, Windows Features and software could be all installed with Windows PackageManagement in the future. The thing still missing is grown up economy where all the toys would be easily available in a secure manner. Chocolatey is pretty good already but it is missing a lot of software and I'm still sceptical about security of software packages. Also Chocolatey is not the main delivery channel for many software companies and there might be a huge delay when software is available from there. So instead of using Chocolatey I provide examples how to do silent installations with different type of software packages. 
 
 ## How stuff is installed without Chocolatey 
 If you are familiar with Windows Server installation you might notice that there are multiple different types of installation involved in the process. Windows features, executables, msi files and software specific plugins are all in the same process. This is the part where I wish that Windows PackageManagement (aka OneGet) or chocolatey can one day solve unifying installation. 
@@ -52,9 +52,9 @@ Great! Now we know how to find the windows features. Now we just need to change 
 Enable-WindowsOptionalFeature -Online -All -FeatureName NetFx4
 ```
 
-All flag means that it will also install required dependencies if any. 
+All flag means that it will also install required dependencies if any. The .NET delivered among the operating system might not be latest but the feature needs to be enabled all the same. IIS will need it among some other features. Full list of my users can be found in our example config file at the bottom of the article.
 
-#### Executables (newest .NET)
+#### Executables 
 With windows feature we were able to install the .NET version that is delivered with the operating system. Although that is not most likely the newest one. Instead we need to fetch the newest one from [the internet](https://download.microsoft.com/download/E/4/1/E4173890-A24A-4936-9FC9-AF930FE3FA40/NDP461-KB3102436-x86-x64-AllOS-ENU.exe). With executables you never can be quite sure how they should be installed because there is no stricly unified commandline parameters. Here is an example how your executable installation might looklike. 
 
 ```
