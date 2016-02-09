@@ -118,22 +118,32 @@ Then we need to setup an application pool for the website. It is also good idea 
 Import-Module WebAdministration
 New-WebAppPool -Name $appPoolName
 # .NET runtime 
-Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name "managedRuntimeVersion" -Value $appPoolDotNetVersion
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name "managedRuntimeVersion" `
+	-Value $appPoolDotNetVersion
 # recycling
-Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.time -value ([TimeSpan]::FromMinutes(1440)) # 1 day (default: 1740)
-Clear-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule # Clear existing values if any
-Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule -Value @{value="$appPoolRestartTime"}
-Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name processModel.idleTimeout -value ([TimeSpan]::FromMinutes(0)) # Disabled (default: 20)
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.time `
+	-value ([TimeSpan]::FromMinutes(1440)) # 1 day (default: 1740)
+# Clear existing values if any
+Clear-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule 
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.periodicRestart.schedule `
+	-Value @{value="$appPoolRestartTime"}
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name processModel.idleTimeout `
+	-value ([TimeSpan]::FromMinutes(0)) # Disabled (default: 20)
 # logs from recycling to event log
 $recycleLogEvents = "Time,Requests,Schedule,Memory,IsapiUnhealthy,OnDemand,ConfigChange,PrivateMemory"
-Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.logEventOnRecycle -Value $recycleLogEvents
+Set-ItemProperty "IIS:\AppPools\$appPoolName" -Name Recycling.logEventOnRecycle `
+	-Value $recycleLogEvents
 ```
 
 After that we can create the website. Below there is an example how to create website with possible multiple bindings:
 
 ```
-New-WebSite -Name $siteName  -Port 80 -HostHeader $siteName -PhysicalPath $physicalPath  
-Set-ItemProperty IIS:\Sites\$siteName -name applicationPool -value $appPoolName
+New-WebSite -Name $siteName  `
+	-Port 80 `
+	-HostHeader $siteName `
+	-PhysicalPath $physicalPath  
+Set-ItemProperty IIS:\Sites\$siteName -name applicationPool `
+	-value $appPoolName
 # set bindings (go through all the bindings and create new webbinding for each)
 foreach($binding in $bindings)
 {
@@ -142,7 +152,11 @@ foreach($binding in $bindings)
 	$bindingIP = "*"
 	$bindingPort = "80"
 	$bindingHostHeader = $binding.Hostname
-	$bindingCreationInfo = New-WebBinding -Protocol $binding.protocol -Name $siteName -IPAddress $bindingIP -Port $bindingPort -HostHeader $bindingHostHeader
+	$bindingCreationInfo = New-WebBinding -Protocol $binding.protocol `
+		-Name $siteName `
+		-IPAddress $bindingIP `
+		-Port $bindingPort `
+		-HostHeader $bindingHostHeader
 }
 ```
 
@@ -150,7 +164,12 @@ foreach($binding in $bindings)
 Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. Scripts for WebDeploy can be found under the installation directory of the product. The scripts take care of problems like giving permissions to the iis site folder for webdeploy, creating user if it does not exist and setting up the WebDeploy configurations. Hree is how to use the script with one long oneliner: 
 
 ```
-& (Join-Path "$env:programfiles" "IIS\Microsoft Web Deploy V3\scripts\SetupSiteForPublish.ps1") -siteName $siteName -siteAppPoolName $appPoolName -deploymentUserName $wdeployUser -deploymentUserPassword $wdeployUserPw -managedRuntimeVersion $appPoolDotNetVersion
+& (Join-Path "$env:programfiles" "IIS\Microsoft Web Deploy V3\scripts\SetupSiteForPublish.ps1") `
+	-siteName $siteName `
+	-siteAppPoolName $appPoolName `
+	-deploymentUserName $wdeployUser `
+	-deploymentUserPassword $wdeployUserPw `
+	-managedRuntimeVersion $appPoolDotNetVersion
 ```
 
 ## Summing up 
