@@ -145,13 +145,29 @@ foreach($binding in $bindings)
 ```
 
 #### WebDeploy
-Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. 
+Once our website is happily set we can easily configure it for WebDeploy with the WebPI plugin we installed earlier. Scripts for WebDeploy can be found under the installation directory of the product. The scripts take care of problems like giving permissions to the iis site folder for webdeploy, creating user if it does not exist and setting up the WebDeploy configurations. Hree is how to use the script with one long oneliner: 
+
+```
+& (Join-Path "$env:programfiles" "IIS\Microsoft Web Deploy V3\scripts\SetupSiteForPublish.ps1") -siteName $siteName -siteAppPoolName $appPoolName -deploymentUserName $wdeployUser -deploymentUserPassword $wdeployUserPw -managedRuntimeVersion $appPoolDotNetVersion
+```
 
 ## Summing up 
 Instead of huge scripts I like to put my PowerShell stuff to modules and also I like to be able to configure my installations. Thus I created few modules, an example script and an example configuration. I am using XML configuration because it was way to go earlier with the PowerShell (it was easy to load unlike json). Now newer PowerShell has "ConvertFrom-JSON" function that makes it possible to use also JSON configuration. 
 
+Here is how to load an XML file: 
+
+```
+[xml]$myXml = get-content $configFile 
+```
+
+After the variable with XML file contents is loaded it is easy to access different elements inside it. For example if you would like to access the name of the WebDeploy user it might look something like this:
+
+``` 
+ $config.Root.IIS.WebDeploy.GetAttribute("Name")
+```
+
 ## Cool! I want to do that too!
-Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools) Here is more specific list of things mentioned before.
+Because we are such a nice guys we put all the scripts into GitHub for everyone to access. You can get them from our [GitHub repository](https://github.com/solita/powershell-webdevelopertools). Here is more specific list of things mentioned before.
 
 * [IIS tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-iistools.psm1)
 * [Server tools module](https://github.com/solita/powershell-webdevelopertools/blob/master/solita-servertools.psm1)
