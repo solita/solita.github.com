@@ -8,7 +8,7 @@ categories:
 tags: 
 - EPiServer
 - DOTNET
-- Performance
+- performance
 - JMeter
 ---
 Adequate performance is a critical requirement for any project, and one I want to nail before going live.

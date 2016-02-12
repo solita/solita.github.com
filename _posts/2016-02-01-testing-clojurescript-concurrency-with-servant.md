@@ -4,8 +4,8 @@ title: Testing ClojureScript Concurrency with Servant
 author: jarzka
 excerpt: Web workers make it possible to create real multi-threaded web applications but they can be pain to work with. Does ClojureScript make it any easier?
 tags:
-- Web Workers
-- Multithreading
+- web workers
+- multithreading
 - Clojure
 - ClojureScript
 - Servant
@@ -24,7 +24,7 @@ But why do we need concurrency anyway? I believe most of the current JavaScript 
 
 ## Web workers save the day!
 
-Luckily things are getting better. HTML5 provides a facility to create real multi-threaded applications in JavaScript. This concept is called Web workers and it is already [well supported in all major web browsers](http://caniuse.com/#feat=webworkers). Creating web workers allows you to handle large tasks while ensuring that your app still remains responsive.
+Luckily things are getting better. HTML5 provides a facility to create real multi-threaded applications in JavaScript. This concept is called *web workers* and it is already [well supported in all major web browsers](http://caniuse.com/#feat=webworkers). Creating web workers allows you to handle large tasks while ensuring that your app still remains responsive.
 
 Problem solved? Not quite. There are some important limitations in web workers. Web worker scripts are almost completely separated from the main thread. In fact, they normally run in a separate JavaScript file (although it is possible to create [inline workers](http://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers)). This makes it difficult to share context; for example web workers cannot directly access the DOM or share data between each other. They also heavily rely on callback functions on sending and receiving messages between them and the main UI thread, which can sometimes be difficult to handle properly.
 
