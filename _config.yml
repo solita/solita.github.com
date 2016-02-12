@@ -4,6 +4,7 @@ description: Solita developer blog
 paginate: 10
 paginate_path: "/:num"
 highlighter: pygments
+markdown: redcarpet
 
 authors:
   jarno:
