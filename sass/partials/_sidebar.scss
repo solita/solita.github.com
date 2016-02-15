@@ -4,7 +4,7 @@
     }
 
     h4, h5 {
-        margin-bottom:0;
+        margin-bottom: 1em;
     }
 
     .none {
@@ -20,28 +20,29 @@
         width:auto;
     }
 
-    .elsewhere {
-        a {
-            border:0;
-            color: $color-gray;
-            font-size: 30px;
+    .hidden {
+        display: none;
+    }
+}
 
-            &:hover {
-                color: $color-hover;
-            }
-        }
+.some-icon {
+    display: inline-block;
+    width: 58px;
+    height: 58px;
+    border: 1px solid $cerise;
+    margin: 0 0.5em 0.5em 0;
 
-        a + a {
-            margin-left:15px;
-        }
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    background: white;
+    
+    transition: all 0.3s linear;    
 
-        i {
-            display:inline-block;
-        }
-
-        span {
-            display:none;
-        }
+    &:hover {
+        background: $cerise; 
+        color: $white; 
     }
 }
 
@@ -50,12 +51,16 @@
 
     .tag {
         display: inline-block;
-        margin-right: 0.5em;
+        padding: 0.5em;
+        margin: 0 0.25em 0.25em 0;
+        border-radius: 2px;
 
-        vertical-align: bottom;
+        background: $porcelain;
 
+        color: $black;
+    
         &:hover {
-            color: $color-hover !important;
+            background: lighten($porcelain, 3%); 
         }
     }
 }
