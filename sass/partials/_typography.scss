@@ -4,7 +4,7 @@ body {
   /* 16px/24px --> $baseline: 24px */
   font:100%/1.5 $font-body;
   font-weight: 400;
-  color: #111;
+  color: $pale-sky;
   line-height: 100%;
   word-wrap: break-word;
 }
@@ -15,20 +15,12 @@ body, input, textarea {
 
 h1, h2, h3, h4, h5, h6 {
     margin: $baseline 0;
-}
 
-ol, ul, p, pre, table, form, caption {
-    margin:0 0 $baseline;
-}
-
-caption {
-    font-style: italic;
-}
-
-h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
-    font-weight: 700;
+    font-weight: 800;
     line-height: $baseline;
+    text-transform: uppercase;
+    color: $black;
 }
 
 h1, .fake-h1 {
@@ -73,11 +65,24 @@ a {
     }
 }
 
+a.decorated {
+    font-style: italic;
+    font-family: "chaparral-pro", serif;
+}
+
+caption {
+    font-style: italic;
+}
+
 blockquote {
     border-left:2px solid #bbb;
     color:#888;
     margin: 0 0 1.6em;
     padding-left: 2em;
+}
+
+ol, ul, p, pre, table, form, caption {
+    margin: 0 0 $baseline;
 }
 
 pre, code, kbd, samp {
