@@ -2,7 +2,7 @@
 layout: post
 title: Back to Business
 author: riikkanen
-excerpt: TODO
+excerpt: Turning from a mother to a software developer. A normal day for me.
 categories: 
 - normipäivä
 - programming
