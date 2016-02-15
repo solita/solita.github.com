@@ -42,7 +42,7 @@ The task will be waiting for some of my project-mates to review the change. If r
 
 ##Afterwords
 
-The comeback to the working world has been exciting and. The last 1,5 years have gone by without even thinking of Java (what?!?! there is already Java 8, my certificate is on Java 5), version control, coding or anything related to technology or software development. No, I have not had any time to make ambitious projects in my spare-time (what is that?!?) such as many of my colleagues seem to be doing. However, after these 12 days I've been glad to notice that I've not forgotten everything. I'm not a lost case at all. Also, getting familiar with the new project has started fine, thanks to helpful workmates.
+The comeback to the working world has been exciting. The last 1,5 years have gone by without even thinking of Java (what?!?! there is already Java 8, my certificate is on Java 5), version control, coding or anything related to technology or software development. No, I have not had any time to make ambitious projects in my spare-time (what is that?!?) such as many of my colleagues seem to be doing. However, after these 12 days I've been glad to notice that I've not forgotten everything. I'm not a lost case at all. Also, getting familiar with the new project has started fine, thanks to helpful workmates.
 
 The long experience in software business has not disappeared during the maternity leave, even though it sometimes felt like it. And after all, the work of software developer is learning of new things, ways and technologies anyway. I also notice that working as "project manager" at home has given me more perspective and ability to take care of tasks at hand even in shifty environment. 
 
