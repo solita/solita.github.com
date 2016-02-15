@@ -6,6 +6,8 @@ excerpt: TODO
 categories: 
 - normipäivä
 - programming
+- Java
+- Solita
 ---
 
 ##From a Mother to a Software Developer
