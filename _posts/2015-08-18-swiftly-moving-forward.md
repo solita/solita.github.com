@@ -175,13 +175,16 @@ quite verbose in comparison:
 
     NSMutableArray *filteredTrains = [NSMutableArray array];
     for (Train *train in trains) {
-        if (train.trainCategory == "Commuter" || train.trainCategory == "LongDistance") {
+        if ([train.trainCategory isEqualToString:@"Commuter"] || 
+            [train.trainCategory isEqualToString:@"LongDistance"]) {
             [filteredTrains addObject:train];
         }
     }
 
 You could also use an `NSPredicate` and a block, but that introduces two new concepts
-and does not make the source code any more concise.
+and does not make the source code any more concise. Perhaps the greatest single
+improvement in this instance is the fact that you don't need to use `isEqualToString`
+anymore to compare strings in Swift.
 
 For a functional way of summing the odd numbers like above in Swift, try this:
 

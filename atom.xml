@@ -20,6 +20,9 @@
     <title>{{ post.title }}</title>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
+	{% for category in post.categories %}
+	<category term="{{ category }}" label="{{ category }}"/>
+	{% endfor %}
     <author>
       <name>Solita Oy</name>
       <uri>http://www.solita.fi/</uri>

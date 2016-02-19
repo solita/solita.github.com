@@ -18,6 +18,9 @@
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>open@solita.fi (Solita Oy)</author>
       <guid>{{ site.url }}{{ post.id }}</guid>
+	  {% for category in post.categories %}
+	  <category>{{ category }}</category> 
+	  {% endfor %}
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}

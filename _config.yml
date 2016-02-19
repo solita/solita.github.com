@@ -9,69 +9,102 @@ markdown: redcarpet
 authors:
   jarno:
     name: Jarno Peltoniemi
-    email: jarno.peltoniemi@solita.fi
-    url: mailto:jarno.peltoniemi@solita.fi
+    email: 30bad10249ad7938521a26ea1cafcd8a
+    url: http://www.solita.fi
   ajk:
     name: Antti-Jussi Kovalainen
-    email: ajk@solita.fi
+    email: 5ff6a8a0ce50e9de363cb9a00b1cc804
     url: http://ajk.fi/
   massimo:
     name: Massimo Prencipe
-    email: massimo.prencipe@solita.fi
-    url: mailto:massimo.prencipe@solita.fi
+    email: 1d369f0b94f9ed31c2e84cbbceea00e1
+    url: http://www.solita.fi
   lokori:
     name: Antti Virtanen
-    email: antti.virtanen@solita.fi
-    url: mailto:antti.virtanen@solita.fi
+    email: a364d662d46eafc7684fda3c71278194
+    url: http://www.solita.fi
   n1ko:
     name: Niko Kurtti
-    email: niko.kurtti@solita.fi
-    url: mailto:niko.kurtti@solita.fi
+    email: e8c38258967f00e2a4a5b87a97ae135b
+    url: http://www.solita.fi
   timole:
     name: Timo Lehtonen
-    email: timo.lehtonen@solita.fi
-    url: mailto:timo.lehtonen@solita.fi
+    email: 5df17e991440842ef6b55570d5b61f90
+    url: http://www.solita.fi
   empperi:
     name: Niklas Collin
-    email: niklas.collin@solita.fi
+    email: a046826c81ce53c8544d2e00e6033312
     url: http://blogs.collin.fi/npe/
   orfjackal:
     name: Esko Luontola
-    email: esko.luontola@solita.fi
+    email: a2bbd6c20c20edf4620cb8c6379aacc8
     url: http://www.orfjackal.net/
   harmia:
     name: Juhana Harmanen
-    email: juhana.harmanen@solita.fi
-    url: mailto:juhana.harmanen@solita.fi
+    email: e1917d35d762436f76ca18eaa6018f37
+    url: http://www.solita.fi
   noidi:
     name: Timo Mihaljov
-    email: timo.mihaljov@solita.fi
+    email: f3cc3f114c258a4f25e02c4b62fae433
     url: https://twitter.com/noidi
   ruoat:
     name: Ari Ruotsalainen
-    email: ari.ruotsalainen@solita.fi
-    url: mailto:ari.ruotsalainen@solita.fi
+    email: f9d260198adcd6324956e91f328bd318
+    url: https://twitter.com/ruotsalaisenari
   aautio:
     name: Ari Autio
-    email: ari.autio@solita.fi
+    email: 7a2f51f46a11d56fb6f8581af89521b6
     url: https://twitter.com/ariautio
   pvto:
     name: Paavo Toivanen
-    email: paavo.toivanen@solita.fi
-    url: mailto:paavo.toivanen@solita.fi
+    email: 3cfeb0502e2fd169e08348f77bb01a1d
+    url: http://www.solita.fi
   arto:
     name: Arto Santala
-    email: arto.santala@solita.fi
+    email: dc3bf4adfabce83f904b9563f927641d
     url: https://spagettikoodi.wordpress.com/
   juuso:
     name: Juuso Hyvönen
-    email: juuso.hyvonen@solita.fi
-    url: mailto:juuso.hyvonen@solita.fi
+    email: 8a528aee07705cfc166b57564e242db6
+    url: http://www.solita.fi
   tatut:
     name: Tatu Tarvainen
-    email: tatu.tarvainen@solita.fi
-    url: mailto:tatu.tarvainen@solita.fi
+    email: 6a2a988e9cff23f52444914d14bd0a96
+    url: http://www.solita.fi
+  jessek:
+    name: Jesse Korpela
+    email: ee6747c4fa0cd979a9995299e215feb4
+    url: http://www.solita.fi
+  jarzka:
+    name: Jari Hanhela
+    email: 429ac35a7d794684181d64a5befd040c
+    url: http://www.voimala.org
   jerekapyaho:
     name: Jere Käpyaho
-    email: jere.kapyaho@solita.fi
+    email: 4ef76183965fe0d12de8dcdab512ca3a
     url: http://www.coniferproductions.com
+  Rinorragi:
+    name: Joona Immonen
+    email: 2cb033c2473824d802cca09001da9025
+    url: https://www.linkedin.com/in/joonaimmonen
+  riipah:
+    name: Jukka Hyvärinen
+    email: fa431c5a37bbdde5c47570432789b73a
+    url: http://www.solita.fi/
+  bafe:
+    name: Pauli Kärpänoja
+    email: 339b324c15d0c88ebfbda2ca6ef677f7
+    url: https://twitter.com/karpanoja
+  pkalliok:
+    name: Panu Kalliokoski
+    email: e7a94f01372caecec47d6fd9b3f31f60
+    url: https://fi.linkedin.com/in/panu-kalliokoski-821768b2
+  dratini:
+    name: Jouni Huttunen
+    email: ea79677c8e7395e138a46fa304109957
+    url: https://www.linkedin.com/in/dratini
+  riikkanen:
+    name: Riikka Taiminen
+    email: 9ce425a78928e0c957510acd215ea1b3
+    url: http://www.solita.fi/
+
