@@ -5,6 +5,8 @@ author: riikkanen
 excerpt: Turning from a mother into a software developer. A normal day for me.
 categories: 
 - normipäivä
+tags:
+- normipäivä
 - normal day
 - programming
 - Java
