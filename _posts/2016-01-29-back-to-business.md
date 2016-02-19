@@ -5,9 +5,14 @@ author: riikkanen
 excerpt: Turning from a mother into a software developer. A normal day for me.
 categories: 
 - normipäivä
+- normal day
 - programming
 - Java
 - Solita
+- Git
+- Jira
+- IntelliJ IDEA
+- parenthood
 ---
 
 ##From a Mother into a Software Developer
@@ -30,7 +35,7 @@ LIIKE project consists of several applications developed using various technolog
 
 Our backlog of tasks to be implemented is stored in Jira. One can pick a task from the backlog and start implementing the task. As I'm a novice in the project the project manager has picked suitable tasks for me. Not too fierce in the beginning. Today I started with a task about showing an icon and tooltip in the user interface when there is something worth of noticing when a train assembly is inspected, e.g. when the train is longer than it should.
 
-We use IntelliJ IDEA as our development environment. I've cloned project code from remote repository to my local repository using Git. IntelliJ IDEA feels quite familiar after using Eclipse but I'm just hoping that they had similar keyboard shortcuts. I still try to open types with Ctrl + Shift + T and so on. Git is also a new acquintance to me. I still feel a little bit clumsy with all the branches but I like the idea to be able to make commits just in my own repository.
+We use IntelliJ IDEA as our development environment. I've cloned project code from the remote repository to my local repository using Git. IntelliJ IDEA feels quite familiar after using Eclipse but I'm just hoping that they had similar keyboard shortcuts. I still try to open types with Ctrl + Shift + T and so on. Git is also a new acquintance to me. I still feel a little bit clumsy with all the branches but I like the idea to be able to make commits just in my own repository.
 
 The task in hand needs to be done in Reaali application which has a user interface implemented using Java Swing. I have not used Swing since 2005 but there is some similarity to Apache Wicket which was used in the previous project. However, when using Swing, html-tags need to be used only when formatting tooltip texts. 
 
