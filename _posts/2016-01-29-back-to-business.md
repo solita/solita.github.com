@@ -13,6 +13,7 @@ categories:
 - Jira
 - IntelliJ IDEA
 - parenthood
+- business logic
 ---
 
 ##From a Mother into a Software Developer
@@ -21,7 +22,7 @@ Clock alarms at 6.15 am. Today I'm lucky and also the children have slept so lon
 
 After waking up, eating porridge, feeding porridge for my 1,5 years old daughter, making braids for my 6 years old daughter and saying bye-byes also to my 4 years old son and my dear husband, I take my bicycle and pedal to work. Cycling is a wonderful way to switch context in my head from home matters to work issues. When I arrive to our office, I take my bag and change clothes like Superman in a phone booth, turning from a mother into a software developer. 
 
-This is my 12th working day after quite a long break, a little over 1.5 years maternity leave. Before that I had been working in KIRRE project since 2010. In KIRRE I worked as a software developer and had my hands on both in back end and front end. KIRRE project was dealing with registry of legal confirmations to real properties. 
+This is my 12th working day after quite a long break, a little over 1.5 years maternity leave. Before that I had been working in KIRRE project since 2010. In KIRRE I worked as a software developer and had my hands on both in back and front ends. KIRRE project was dealing with registry of legal confirmations to real properties. 
 
 ##Jump to a Moving Train
 
