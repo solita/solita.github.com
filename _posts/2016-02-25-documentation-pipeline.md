@@ -29,9 +29,9 @@ In this blog post we will focus on the database documentation and show how it ca
 
 ## Creating the database documentation
 
-All relational databases have a *meta model* which is the internal model representing the tables, constraints and other elements which constitute the database schema. This meta model can be queried and examined directly with SQL or even programmatically through database drivers such as JDBC for Java. Hence, it is possible to create a tool which crawls the meta data and outputs the database schema in a suitable format. Several such tools exist, but in this example we are using [SchemaSpy](http://schemaspy.sourceforge.net/).
+All relational databases have a *meta model* which is the internal model representing the tables, constraints and other elements which constitute the database schema. This meta model can be queried and examined directly with SQL or even programmatically through database drivers, such as JDBC. Hence, it is possible to create a tool which crawls the meta data and outputs the database schema in a suitable format. Several such tools exist, but in this example we are using [SchemaSpy](http://schemaspy.sourceforge.net/).
 
-But there's more than just the meta model. A relational database can also contain comments, which can be used to document the meaning of various columns and tables and elements when the name is not sufficient. Comments can be defined with SQL, so you don't need anything special to take advantage of this feature. Here's a simple example for PostgreSQL:
+Interestingly, the meta model is not everything. A relational database can also contain comments, which can be used to document the meaning of various columns and tables and elements when the name is not sufficient. Comments can be defined with SQL, so you don't need anything special to take advantage of this feature. Here's a simple example for PostgreSQL:
 
 ```
 COMMENT ON TABLE area IS 'Geographical area for something very interesting.'
