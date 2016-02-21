@@ -3,6 +3,14 @@ layout: post
 title: Raiders of the lost entropy
 author: lokori
 excerpt: When entropy runs low, things are amiss. What, why and how to rectify the situation.
+tags:
+- entropy
+- randomness
+- random number
+- PRNG
+- rngd
+- Haveged
+- DevOps
 ---
 
 *Entropy* in this context is essentially randomness. A source of entropy is a magic fountain which
