@@ -10,6 +10,7 @@ tags:
 - documentation pipeline
 - Travis CI
 - AWS
+- S3
 - database
 - automated documentation
 - Schemaspy
@@ -111,13 +112,12 @@ Travis makes it very easy to set up PostgreSQL and other required software packa
 
 ## Uploading to S3
 
-Getting the upload to work was a bit difficult. Obviously it's very wrong to commit passwords and secret keys to source version control in plain text, so we refer to environment variables for AWS access. Environment variables are defined in Travis. A better way would be to use Travis encrypt mechanism, but for whatever reason, I could not make it work properly. To understand the deploy part completely, read [Travis guide for uploading to S3](https://docs.travis-ci.com/user/deployment/s3/).
+Getting the upload to work was a bit difficult at first. Obviously it's very wrong to commit passwords and secret keys to source version control in plain text, so we refer to environment variables for AWS access. Environment variables are defined in Travis. A better way would be to use Travis encrypt mechanism, which hashes the secret key and only the hash is visible in the version control system. To understand the deploy part completely, read [Travis guide for uploading to S3](https://docs.travis-ci.com/user/deployment/s3/).
 
 Creating a S3 bucket and setting up a static website in Amazon S3 is explained in [Amazon S3 static hosting guide](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), which you should also read if you want to understand how S3 works. It is not overly difficult, but for debugging configuration issues I recommend the AWS command line client. You could, of course, upload the artifacts to somewhere else too. Amazon S3 is just what we are using for this project.
 
-## Final words
+## We need the Mighty DevOps heroes
 
-In our example case, the documents are now available here: [Aitu db docs](http://opetushallitus-docs.s3-website-eu-west-1.amazonaws.com/aitu/). Amazon will take care of hosting, which costs some money, but the amount is negligible. Travis CI doesn't cost anything as our project is open source. I would say this solution is much better than our own Jenkins, installing graphviz and all that, opening the firewalls and all that hassle.
+In our example case, the documents are now available here: [Aitu db docs](http://opetushallitus-docs.s3-website-eu-west-1.amazonaws.com/aitu/). Amazon will take care of hosting, which costs some money, but the amount is negligible. Travis CI doesn't cost anything as our project is open source. I would say this solution is much better than our own Jenkins, installing graphviz and all that, opening the firewalls and all that hassle. In a similar manner, one can automatically publish other documentation and artifacts with Travis CI in addition to database documentation. Here's a more comprehensive example from another project: [Osaan.fi Travis CI](https://github.com/Opetushallitus/osaan.fi/blob/master/.travis.yml).
 
-Automated documentation and publishing the documentation forms a *documentation pipeline*. It's not overly difficult, but certainly requires some "DevOps skills", for the lack of a better term. But this is one piece of our vision for the future of software development and we hope that the DevOps movement extends their vision from delivery to development. We developers would really appreciate some help :-)
-
+Automated documentation and automated publishing is the *documentation pipeline*. It's not overly difficult, but certainly requires some "DevOps skills", for the lack of a better term. This is one piece on our vision for the future of software development, and we hope that the DevOps movement extends their vision from delivery to development. We developers would really appreciate some help with this.
