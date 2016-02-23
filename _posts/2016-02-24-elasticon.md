@@ -94,7 +94,11 @@ Conference started by participating into class about scaling Elasticsearch among
 * How many comments there are related to size of the article 
 
 ## Versioning
-Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will be in future have common release schedule which makes it easier to be sure about the compatibility of different modules of same stack. 
+Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will be in future have common release schedule which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also a new unified logos. 
+
+![Tools](/img/elasticon/versioning.PNG)
+
+Stay tuned since Elasticsearch-5.0.0-alpha1 will be available soon!
 
 ## New features in Elasticsearch
 There were a lot of stuff going on and we have surely missed something but here are some of key topics that we want to bring up. 
