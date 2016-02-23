@@ -18,7 +18,7 @@ tags:
 - open source
 ---
 
-## Documetation pipeline
+## Documentation pipeline
 
 The talks about DevOps are still centered around continuous delivery and operating the production servers. Certainly this is important, but we already know how to do these things. What's sorely missing is supporting the developers before they actually have something to deliver. If DevOps is really about working together and creating a culture, it should not be just about the servers and deployment scripts. It should be about working together on everything needed to create and deliver the software.
 
