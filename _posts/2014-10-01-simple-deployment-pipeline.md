@@ -3,6 +3,14 @@ layout: post
 title: Simple Deployment Pipeline
 author: lokori
 excerpt: It is possible to create a professional deployment pipeline and do Continuous Delivery (CD) with few simple tools. When you remove the hype, CD and DevOps are not magic. I will present a real example from our project to show what can be achieved with a minimal effort by ordinary developers. Quite a lot actually.
+tags:
+- deployment pipeline
+- continuous delivery
+- continuous deployment
+- continuous integration
+- Jenkins
+- DevOps
+- Enabling platform
 ---
 
 This article shows how we created a simple deployment pipeline using open source components. Obviously you must first do Continuous Integration (CI) to enable DevOps and [Continuous Delivery](http://en.wikipedia.org/wiki/Continuous_delivery), but then what? How to move from plain CI arrangement to Continous Delivery? Here's one answer.
