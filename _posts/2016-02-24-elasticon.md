@@ -27,72 +27,6 @@ In Elastic stack there are now multiple products that help in achieving all abov
 * X-pack: Plugins for Kibana and Elasticsearch that are available for subcscribed companies
 * Cloud: SaaS version of Elastic stack 
 
-## Few interesting business use cases from Elasticon 
-
-#### New York times
-New York times has been there since 1851 publishing articles and they use Elasticsearch for full-text search among all of those articles. They have several sources for information: 
-
-* CMS
-* Legacy systems
-* File based archives
-* OCR 
-
-Keeping latency low is very important for them for their customers to keeping up in the website. They also listed typical use cases for their ownn customers that are following: 
-
-* Find something you read (on paper)
-* Find something you wrote
-* Find reviews for books or movies
-* Find recipes
-* Manual sharing (somebody told to look something like this) 
-* Casual news search 
-* Serious research 
-
-Some people have been asking why not just customer to use Google? Well there were few reasons for that. They did want to control that their customers are keeping in their site. There is no Google for native apps. New York times also think that they know their content better than Google and they feel they can do better than Google in finding stuff from their site. 
-
-#### Hotel tonight
-Hotel tonight is a company that provides a way to book hotel spontaneously for tonight. To give the best alternetives they need to find suitable hotels by geolocation, find all the rates for each hotel and rank them somehow for the customer. To achieve this they are using Elasticsearch.  
-
-#### Activision
-Activision is in gaming industry. They shared stories about two different use cases for Elasticsearch in their industry. 
-
-Gamers are talking about Activision games in Twitter. Activision uses Elastic stack to keep up what is happening in Twitter. By having this they can for example notice when people are complaining about the game a lot in the twitter which might be cause by for example poor server performance. They can this way harness the information in Twitter to be part of their monitoring infrastructure in top of their internal monitoring systems. They also provided an example how to use Elasticsearch from Clojure.
-
-![Tools](/img/elasticon/elastic_clojure.PNG)
-
-Activision has need for finding information about player based on their gamertag. So they created a gamertag-findernator. This could be used for example by their service desk when somebody gets upset about how some other player talked about his mum. The problem with the gamertags is that there are a lot of them.
-
-![Tools](/img/elasticon/activision_gamertags.PNG)
-
-And it might be difficult to find the correct "count zero" among these ones:
-
-![Tools](/img/elasticon/count_zero.PNG)
-
-So they build up an analyzer pipeline that sanitizes the gamertags for search and provides also exact information about the original tag. 
-
-![Tools](/img/elasticon/gamercamelcase.PNG)
-
-#### Goldman Sachs
-Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch sinec 2012 and had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something following:
-
-* Enter order
-* Book trade
-* Match trade
-* Allocate trade
-* Confirm trade
-* Settle trade
-* Resolve trade
-
-They wanted to analyze the inefficiencies and hot spots to be able to enable continuous improvement on the subject. Trade are flowing across distributed system architecture that is spanning over organizational, functional and technical boundaries. From supportive perspective they want to know where trade messages are right now, what is expected time for messages to flow and is there messages that requires attention. From analytics perspective they want to know if something is slower than usual, did their changes affect the delivery time and where to invest to optimize the flow. 
-
-They are now having 6 billion docs in 22 Elasticsearch nodes (4core, 32G RAM, 2TB). Daily volume is 45 million docs. 
-
-
-## Scalability 
-Conference started by participating into class about scaling Elasticsearch among the business. Class was about fictional story about the company which started using Elasticsearch by replacing their CMS insite search with Elasticsearch. Later on Marvel was added to project to gather information about health of Elasticsearch cluster and Kibana was added for editors for making sure that they can do analytics on the site. 
-
-* How many views there are per author for views 
-* How many comments there are related to size of the article 
-
 ## Versioning
 Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will be in future have common release schedule which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also a new unified logos. 
 
@@ -158,3 +92,61 @@ Another interesting plugin is Graph. It is not released yet but we expect it wil
 There is now Azure template for ElasticSearch available in Azure Marketplace. You can install a cluster with master, data and client nodes with it. Kibana can also be installed with the same template. ElasticSearch is also working on getting MSI installer package ready for Windows to help Windows installations. NEST (the .NET client library) has been under heavy refactoring and will be also getting version 5 among other products upon release. 
 
 
+## Few interesting business use cases from Elasticon 
+
+#### New York times
+New York times has been there since 1851 publishing articles and they use Elasticsearch for full-text search among all of those articles. They have several sources for information: 
+
+* CMS
+* Legacy systems
+* File based archives
+* OCR 
+
+Keeping latency low is very important for them for their customers to keeping up in the website. They also listed typical use cases for their ownn customers that are following: 
+
+* Find something you read (on paper)
+* Find something you wrote
+* Find reviews for books or movies
+* Find recipes
+* Manual sharing (somebody told to look something like this) 
+* Casual news search 
+* Serious research 
+
+Some people have been asking why not just customer to use Google? Well there were few reasons for that. They did want to control that their customers are keeping in their site. There is no Google for native apps. New York times also think that they know their content better than Google and they feel they can do better than Google in finding stuff from their site. 
+
+#### Hotel tonight
+Hotel tonight is a company that provides a way to book hotel spontaneously for tonight. To give the best alternetives they need to find suitable hotels by geolocation, find all the rates for each hotel and rank them somehow for the customer. To achieve this they are using Elasticsearch.  
+
+#### Activision
+Activision is in gaming industry. They shared stories about two different use cases for Elasticsearch in their industry. 
+
+Gamers are talking about Activision games in Twitter. Activision uses Elastic stack to keep up what is happening in Twitter. By having this they can for example notice when people are complaining about the game a lot in the twitter which might be cause by for example poor server performance. They can this way harness the information in Twitter to be part of their monitoring infrastructure in top of their internal monitoring systems. They also provided an example how to use Elasticsearch from Clojure.
+
+![Tools](/img/elasticon/elastic_clojure.PNG)
+
+Activision has need for finding information about player based on their gamertag. So they created a gamertag-findernator. This could be used for example by their service desk when somebody gets upset about how some other player talked about his mum. The problem with the gamertags is that there are a lot of them.
+
+![Tools](/img/elasticon/activision_gamertags.PNG)
+
+And it might be difficult to find the correct "count zero" among these ones:
+
+![Tools](/img/elasticon/count_zero.PNG)
+
+So they build up an analyzer pipeline that sanitizes the gamertags for search and provides also exact information about the original tag. 
+
+![Tools](/img/elasticon/gamercamelcase.PNG)
+
+#### Goldman Sachs
+Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch sinec 2012 and had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something following:
+
+* Enter order
+* Book trade
+* Match trade
+* Allocate trade
+* Confirm trade
+* Settle trade
+* Resolve trade
+
+They wanted to analyze the inefficiencies and hot spots to be able to enable continuous improvement on the subject. Trade are flowing across distributed system architecture that is spanning over organizational, functional and technical boundaries. From supportive perspective they want to know where trade messages are right now, what is expected time for messages to flow and is there messages that requires attention. From analytics perspective they want to know if something is slower than usual, did their changes affect the delivery time and where to invest to optimize the flow. 
+
+They are now having 6 billion docs in 22 Elasticsearch nodes (4core, 32G RAM, 2TB). Daily volume is 45 million docs. 
