@@ -60,7 +60,7 @@ Before Elasticsearch 5 the relevancy scoring system has been TF/IDF which means 
 
 This is about to change now to BM25 which is inspired by probabilistic ranking. The reason for the change is that even TF/IDF has been succesfull it has been more or less adhoc approach that suits most cases well. Literature, challenges, users and lucene developer suggests that BM25 could do better than TF/IDF. BM25 also gives us possibility to adjust more the behavior of ranking by tweeking parameters. But it is a harder one to understand. Here it is:
 
-![Tools](/img/elasticon/bm25.PNG)
+![Tools](/img/elasticon/bm25.png)
 
 What this really means is that the term frequency will have cutoff and having more terms will not affect where TF/IDF keeped growing. BM25 also won't automatically boost short fields. If you want to boost short fields you need to do by yourself. 
 
