@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Documentation pipeline is the next step
+title: Documentation pipeline is the next DevOps step
 author: lokori
 excerpt: Going beyond continous delivery, we want to automate documentation and other things related to development. We'll define the term documentation pipeline and provide a practical example of implementing automated database documentation by generating the document with Travis CI and automatically publishing it to Amazon S3.
 categories: 
