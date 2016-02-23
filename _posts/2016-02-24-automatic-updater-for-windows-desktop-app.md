@@ -164,4 +164,4 @@ Microsoft has created a set of tools called [ClickOnce](https://msdn.microsoft.c
 
 ## Conclusion
 
-If your're looking for an installation and update framework for your Windows desktop application and your requirements meet with the features of Squirrel you should definitely at least try it out. First version came out on January 2015 and since then the team has been pushing out new releaseses roughly once a month.
+If you're looking for an installation and update framework for your Windows desktop application and your requirements meet with the features of Squirrel you should definitely at least try it out. First version came out on January 2015 and since then the team has been pushing out new releaseses roughly once a month.
