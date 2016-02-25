@@ -8,10 +8,10 @@ categories:
 - Automation
 tags:
 - Java
-- OpenSource
-- Continuous Delivery
-- Automation
-- Deployment Pipeline
+- open source
+- continuous delivery
+- automation
+- deployment pipeline
 - Ansible
 - Jenkins
 ---
