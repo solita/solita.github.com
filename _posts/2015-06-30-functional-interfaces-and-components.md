@@ -3,6 +3,10 @@ layout: post
 title: Interfaces and components in a functional world... or "how I stopped worrying and let Clojure into my heart"
 author: tatut
 excerpt: Functional programming encourages the use of data and functions instead of creating new concrete types.
+tags:
+- Clojure
+- ClojureScript
+- functional programming
 ---
 
 Reusability of code is something most programmers would probably agree is a good thing. At least on a small scale.

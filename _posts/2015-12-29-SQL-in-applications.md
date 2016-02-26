@@ -13,7 +13,7 @@ tags:
 - programming
 - Clojure
 - SQL
-- Security
+- security
 - simplicity
 - orthogonality
 - Python
