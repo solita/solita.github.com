@@ -20,7 +20,7 @@ tags:
 
 ##From a Mother into a Software Developer
 
-Clock alarms at 6.15 am. Today I'm lucky and also the children have slept so long. Today is working day, one of my three working days per week. On other days I take care of my three children at home, which is a convenient arrangement for the time being and enabled by my employee, Solita.
+Clock alarms at 6.15 am. Today I'm lucky and also the children have slept so long. Today is working day, one of my three working days per week. On other days I take care of my three children at home, which is a convenient arrangement for the time being and enabled by my employer, Solita.
 
 After waking up, eating porridge, feeding porridge for my 1,5 years old daughter, making braids for my 6 years old daughter and saying bye-byes also to my 4 years old son and my dear husband, I take my bicycle and pedal to work. Cycling is a wonderful way to switch context in my head from home matters to work issues. When I arrive to our office, I take my bag and change clothes like Superman in a phone booth, turning from a mother into a software developer. 
 
@@ -28,7 +28,7 @@ This is my 12th working day after quite a long break, a little over 1.5 years ma
 
 ##Jump to a Moving Train
 
-After working a long time in the same project, it seemed reasonable to change project, from real properties to a completely different world, railways. LIIKE project was started in 2008 in co-operation with Liikennevirasto, the Finnish Transport Agency. LIIKE project deals with managing the capacity of railways and traffic supervision. It includes maintenance and support, but also feature development.
+After working a long time in the same project, it seemed reasonable to change project, from real properties to a completely different world, railways. LIIKE project was started in 2007 in co-operation with Liikennevirasto, the Finnish Transport Agency. LIIKE project deals with managing the capacity of railways and traffic supervision. It includes maintenance and support, but also feature development.
 
 It's always a challenge to familiarize oneself with a new business branch, especially when a project has already been active for a long time and its business logic is full of small yet essential details. A huge amount of information is just waiting to be digested.
 
@@ -46,7 +46,7 @@ I go through the code and find the right place to make changes. Lucky for me, th
 
 When I'm happy with the change, I make a commit to my own repository. I've been making the changes into a separate branch which is dedicated for this Jira issue only. After commiting I push my branch that contains the change to remote repository. I move the Jira issue for waiting for internal testing. I also create a code review because the change was a little bit more complicated than I first thought and link the review in the issue. I also need to remember to update the Reaali user manual which is maintained in Confluence.
 
-The task will be waiting for some of my project mates to review the change. If the reviewer does not find any problems, the branch containing the change can be merged to our master branch. After pushing the changes to the master, automated continuous integrations jobs, which are run on Jenkins, will take care of running all the tests also for the changed code.
+The task will be waiting for some of my project mates to review the change. If the reviewer does not find any problems, the branch containing the change can be merged to our master branch. After pushing the changes to the master, automated continuous integration jobs, which are run on Jenkins, will take care of running all the tests also for the changed code.
 
 ##Afterwords
 
