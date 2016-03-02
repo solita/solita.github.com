@@ -28,7 +28,7 @@ In Elastic stack there are now multiple products that help in achieving all abov
 * Cloud: SaaS version of Elastic stack 
 
 ## Versioning
-Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will have common release schedule in the future which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also a new unified logos. 
+Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will have common release schedule in the future which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also new unified logos. 
 
 ![Tools](/img/elasticon/versioning.PNG)
 
