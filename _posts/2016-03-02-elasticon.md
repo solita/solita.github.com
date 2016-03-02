@@ -108,7 +108,7 @@ Keeping latency low is very important for them for their customers to keeping up
 * Find something you wrote
 * Find reviews for books or movies
 * Find recipes
-* Manual sharing (somebody told to look something like this) 
+* Manual sharing (somebody told to look for something like this) 
 * Casual news search 
 * Serious research 
 
@@ -137,7 +137,7 @@ So they build up an analyzer pipeline that sanitizes the gamertags for search an
 ![Tools](/img/elasticon/gamercamelcase.PNG)
 
 #### Goldman Sachs
-Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch since 2012 and they have had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something following:
+Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch since 2012 and they have had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something like the following:
 
 * Enter order
 * Book trade
@@ -147,6 +147,6 @@ Goldman Sachs is one of the biggest users of Elasticsearch. They have been using
 * Settle trade
 * Resolve trade
 
-They wanted to analyze the inefficiencies and hot spots to be able to enable continuous improvement on the subject. Trade are flowing across distributed system architecture that is spanning over organizational, functional and technical boundaries. From supportive perspective they want to know where trade messages are right now, what is expected time for messages to flow and is there messages that requires attention. From analytics perspective they want to know if something is slower than usual, did their changes affect the delivery time and where to invest to optimize the flow. 
+They wanted to analyze the inefficiencies and hot spots to be able to enable continuous improvement on the subject. Trade are flowing across distributed system architecture that is spanning over organizational, functional and technical boundaries. From supportive perspective they want to know where trade messages are right now, what is expected time for messages to flow and are there messages that requires attention. From analytics perspective they want to know if something is slower than usual, did their changes affect the delivery time and where to invest to optimize the flow. 
 
 They are now having 6 billion docs in 22 Elasticsearch nodes (4core, 32G RAM, 2TB). Daily volume is 45 million docs. 
