@@ -9,7 +9,7 @@ tags:
 - LogStash
 ---
 
-Elastic{ON}16 was held in San Francisco 17-19.2. 2016. As an only Elasticsearch parther in Finland, Solita naturally participated the event. For Solita Elastic{ON}16 started already at 16. day because the flight was full of ElasticSearch core developers and we had plenty of time to talk with them about ElasticSearch and what is going on with the stack. 
+Elastic{ON}16 was held in San Francisco 17-19.2. 2016. As an only Elasticsearch partner in Finland, Solita naturally participated the event. For Solita Elastic{ON}16 started already at 16. day because the flight was full of ElasticSearch core developers and we had plenty of time to talk with them about ElasticSearch and what is going on with the stack. 
 
 ## What is Elasticsearch and what are the core business cases for it
 Elasticsearch is a scalable search engine for full-text search. It is build on top of Lucene and it works through REST API. Elasticsearch has three following core business use cases. 
