@@ -28,7 +28,7 @@ In Elastic stack there are now multiple products that help in achieving all abov
 * Cloud: SaaS version of Elastic stack 
 
 ## Versioning
-Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will be in future have common release schedule which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also a new unified logos. 
+Versioning is unified. LogStash, ElasticSearch, Beats and Kibana will all get new major version 5. All the products will have common release schedule in the future which makes it easier to be sure about the compatibility of different modules of same stack. Elasticsearch, Kibana, Logstash and Beats got also a new unified logos. 
 
 ![Tools](/img/elasticon/versioning.PNG)
 
@@ -38,10 +38,10 @@ Stay tuned since Elasticsearch-5.0.0-alpha1 will be available soon!
 There were a lot of stuff going on and we have surely missed something but here are some of key topics that we want to bring up. 
 
 #### Security 
-Java Security Manager has been integrated into Elasticsearch. If additional security is needed then Shield add on within x-pack.
+Java Security Manager has been integrated into Elasticsearch. If additional security is needed then Shield add on within x-pack can help in securing the elasticsearch. Shield provides authentication, authorization and field level security for your installation. 
 
 #### Profiling 
-Profiling API has been added into product that makes it easier to understand what takes time within the search engine in your possible low queries. 
+Profiling API has been added into product that makes it easier to understand what takes time within the search engine in your possible slow queries. 
 
 #### Scripting 
 Scripting support is about to come back with new scripting engine that should be much faster and also safe. 
@@ -112,13 +112,13 @@ Keeping latency low is very important for them for their customers to keeping up
 * Casual news search 
 * Serious research 
 
-Some people have been asking why not just customer to use Google? Well there were few reasons for that. They did want to control that their customers are keeping in their site. There is no Google for native apps. New York times also think that they know their content better than Google and they feel they can do better than Google in finding stuff from their site. 
+Some people have been asking why not just customer to use Google? Well there were few reasons for that. They did want to control that their customers are kept in their site. There is no Google for native apps. New York times also think that they know their content better than Google and they feel they can do better than Google in finding stuff from their site. 
 
 #### Hotel tonight
 Hotel tonight is a company that provides a way to book hotel spontaneously for tonight. To give the best alternetives they need to find suitable hotels by geolocation, find all the rates for each hotel and rank them somehow for the customer. To achieve this they are using Elasticsearch.  
 
 #### Activision
-Activision is in gaming industry. They shared stories about two different use cases for Elasticsearch in their industry. 
+Activision works in gaming industry. They shared stories about two different use cases for Elasticsearch in their industry. 
 
 Gamers are talking about Activision games in Twitter. Activision uses Elastic stack to keep up what is happening in Twitter. By having this they can for example notice when people are complaining about the game a lot in the twitter which might be cause by for example poor server performance. They can this way harness the information in Twitter to be part of their monitoring infrastructure in top of their internal monitoring systems. They also provided an example how to use Elasticsearch from Clojure.
 
@@ -137,7 +137,7 @@ So they build up an analyzer pipeline that sanitizes the gamertags for search an
 ![Tools](/img/elasticon/gamercamelcase.PNG)
 
 #### Goldman Sachs
-Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch sinec 2012 and had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something following:
+Goldman Sachs is one of the biggest users of Elasticsearch. They have been using Elasticsearch since 2012 and they have had over 700 nodes of Elasticsearch in use at late 2014. This time they shared a use case of trade tracking. Highly simplified trade tracking workflow is something following:
 
 * Enter order
 * Book trade
