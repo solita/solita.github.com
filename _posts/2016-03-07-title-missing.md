@@ -158,7 +158,7 @@ Alternatives for NULL values in databases do exist. Next we describe most well-k
 
 Most of the time when avoiding NULL we use replacement values for missing values. For instance, if we have street addresses in our database, we can just write empty string to our database when we do not know the address. In event  we don't know how many attendees were at given event we just write -1 to attendee\_count. Then time passes on and someone queries:
 
-```SQL
+```sql
 SELECT * FROM events WHERE attendee_count < 5;
 ```
 
@@ -172,7 +172,7 @@ I personally prefer using NULL for missing values and -  if needed - constructin
 
 One can encode missing values as a special rows in table.
 
-```SQL
+```sql
 CREATE TABLE country (
     id INTEGER PRIMARY KEY,
     name VARCHAR(50)
@@ -199,7 +199,7 @@ I personally feel this approach suffers ultimately from the same problem than us
 
 What about using NULLs in foreign key columns?
 
-```SQL
+```sql
 CREATE TABLE country (
     id INTEGER PRIMARY KEY,
     name VARCHAR(50) NOT NULL
@@ -239,7 +239,7 @@ Note that result is **invalid**. I would expect count in first row to be 2. This
 specifies that (most) aggregate functions should ignore NULL values. The weirdest part is that COUNT(\*) does not
 ignore NULLs in similar fashion and thus:
 
-```SQL
+```sql
 SELECT country.name, COUNT(*)
     FROM customer LEFT JOIN country
         ON id_country = country.id
@@ -256,7 +256,7 @@ SELECT country.name, COUNT(*)
 This is correct in our scenario and works at least in Postgresql. Lesson learned is that be extra certain of what you
 are doing when using aggregate functions to fields without NOT NULL constraint. I tend to think that when you need aggregation in database you should hide NULL values in some way. This can easily be done with views designated for aggregation.
 
-```SQL
+```sql
 CREATE VIEW customers_with_country AS
   SELECT * FROM customer WHERE id_country IS NOT NULL;
 
@@ -287,7 +287,7 @@ Something that must be considered in modern web apps is that because IO is basic
 
 ### Separate tables for values that can be missing
 
-```SQL
+```sql
 CREATE TABLE customer (
     id INTEGER PRIMARY KEY,
     name VARCHAR(100) NOT NULL
@@ -326,7 +326,7 @@ If you have a table which contains column for consumed meal, take some time to t
 
 It wouldn't hurt to document in your schema what those NULLs mean in your context.
 
-```SQL
+```sql
 CREATE TABLE customer (
     id UUID PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -352,7 +352,7 @@ Different DBMS's behave differently. Know your DBMS. Tinker around with it and t
 
 Just couple of weeks back we had requirement of storing users optional Instagram and Twitter accounts into our database. We started with schema:
 
-```SQL
+```sql
 CREATE TABLE users (
     id UUID PRIMARY KEY,
     -- ...
@@ -382,7 +382,7 @@ Take a minute and think how SQL syntax would look like if they hadn't chose stri
 clauses. I consider "NOT NULL" weird constraint as well. I would prefer that everything is "NOT NULL" by default and
 field can be given extra allowance if needed.
 
-```SQL
+```sql
 -- NOT ACTUAL SQL!!!
 CREATE TABLE customer (
     id UUID PRIMARY KEY,
