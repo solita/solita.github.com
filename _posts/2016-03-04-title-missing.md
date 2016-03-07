@@ -140,7 +140,7 @@ Relational databases take yet another approach on how to handle NULL values. The
 
 I personally try to think this pragmatically. NULLs "bubble" in a way to resulting value. But what does it mean to evaluate ```true AND null => null```? It's not suprising that this is generally thought something that is from a painting by Salvador Dali.
 
-![World of ternary logic](/img/sql-nulls/dali.jpg)
+![World of ternary logic](/img/title-missing/dali.jpg)
 
 > **Picture 1.** Dali visioned pragmatic programmer in a world if ternary logic.
 
@@ -148,7 +148,7 @@ It's important to notice, that IF p and q are NOT NULLs all evaluations follow b
 
 ### EXTRA: No NULL semantics! Abolish NULL!
 
-It's possible. For example Haskell takes this approach. In Haskell program no such thing as NULL exists. Instead, it has the concept of *Maybe a*, which can be *Nothing* or *Just a*. In Scala you find *Option* which can be *Some* of *None* on top of NULL. Loads of languages follow this approach.
+It's possible. For example Haskell takes this approach. In Haskell program no such thing as NULL exists. Instead, it has the concept of *Maybe a*, which can be *Nothing* or *Just a*. In Scala you find *Option* which can be *Some* or *None* on top of NULL. Loads of languages follow this approach.
 
 ## How avoiding NULL is usually done
 
@@ -339,7 +339,7 @@ CREATE TABLE customer (
     -- NULL means email address in unknown
     -- Empty string is not accepted (program must validate input)  
     email VARCHAR(100)
-)
+);
 ```
 
 Write your code with huge respect to this definition. Test your code automagically and make sure it represents and handles values in database with the same exact semantics. **Be extra sure** that **everyone** in your team share understanding how your missing data is represented in database! On top of programmers, PO:s and corresponding personnel should be aware of this semantics.
@@ -360,10 +360,10 @@ CREATE TABLE users (
     -- ...
     instagram_account VARCHAR(255),
     twitter_account VARCHAR(255)
-)
+);
 ```
 
-We could have placed NOT NULL constraint to fields and use '' as a default value. Instead we took an approach where '' is an illegal value and NULL represents the fact that 1) user does not have an account OR 2) user does not want to store account here. Because we were working with Scala we constructed approach where our data access layer reads SQL NULLs to Scala None:
+We could have placed NOT NULL constraint to fields and use '' as a default value. Instead we took an approach where '' is an illegal value (it's clear that '' is illegal user name in Instagram and Twitter as well) and NULL represents the fact that 1) user does not have an account OR 2) user does not want to store account here. Because we were working with Scala we constructed approach where our data access layer reads SQL NULLs to Scala None:
 
 ```Scala
 case class
