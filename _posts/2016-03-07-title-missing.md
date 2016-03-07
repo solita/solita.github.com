@@ -156,13 +156,13 @@ Alternatives for NULL values in databases do exist. Next we describe most well-k
 
 ### Placeholder values
 
-Most of the time when avoiding NULL we use replacement values for missing values. For instance, if we have street addresses in our database, we can just write empty string to our database when we do not know the address. In event  we don't know how many attendees were at given event we just write -1 to attendee_count. Then time passes on and someone queries:
+Most of the time when avoiding NULL we use replacement values for missing values. For instance, if we have street addresses in our database, we can just write empty string to our database when we do not know the address. In event  we don't know how many attendees were at given event we just write -1 to attendee\_count. Then time passes on and someone queries:
 
 ```SQL
 SELECT * FROM events WHERE attendee_count < 5;
 ```
 
-Oh yes. You need to add condition for filtering those events with attendee_count -1. When time passes by, the value that encodes missing value turns sort of hidden knowledge. If we tried to avoid problems originating from ternary logic, we actually created even bigger problem! When using NULL to encode unknown attendee count,  query just works straight because some great mind understood that SQL could work that way - it just simply falsifies comparision ```NULL < 5```. SQL would read as: "Give me all the events which had less than five attendees". If attendee count is not known it should not be included. Event could have had less than five attendees but more as well.
+Oh yes. You need to add condition for filtering those events with attendee\_count -1. When time passes by, the value that encodes missing value turns sort of hidden knowledge. If we tried to avoid problems originating from ternary logic, we actually created even bigger problem! When using NULL to encode unknown attendee count,  query just works straight because some great mind understood that SQL could work that way - it just simply falsifies comparision ```NULL < 5```. SQL would read as: "Give me all the events which had less than five attendees". If attendee count is not known it should not be included. Event could have had less than five attendees but more as well.
 
 This problem is even bigger with more structural data types such as dates, timestamps and coordinates. 0 milliseconds since epoch is not a missing value. It is an instant 1.1.1970 12:00:00 (UTC). One could try to indicate with separate column if value is known or not? Oh please, you must be joking? Don't so that. It's even more hidden knowledge to your schema. "But with triggers we can..!" - you say. No, don't do that.
 
