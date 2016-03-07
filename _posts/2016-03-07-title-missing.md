@@ -11,7 +11,7 @@ tags:
 - NULL
 ---
 
-When we create business critical programs we must be able to represent values that are missing or unknown. In relational algebra no such ugly concept as "missing value" exist, but in real world scenarios we don't have all the data we need all the time. Instead in most situations data keeps popping from here and there. We ultimately need to be able to build UI:s for customers which are essentially highly usable and represent missing values clearly. For example when building a customer registry is it a problem if user does not have an address? Should UI represent it accordingly then? This all comes down to persistence model and thus it's important to build model that represents missing values accurately.
+When we create business critical programs we must be able to represent values that are missing or unknown. In relational algebra no such ugly concept as "missing value" exist, but in real world scenarios we don't have all the data we need all the time. Instead in most situations data keeps popping from here and there. We ultimately need to be able to build UI's for customers which are essentially highly usable and represent missing values clearly. For example when building a customer registry is it a problem if user does not have an address? Should UI represent it accordingly then? This all comes down to persistence model and thus it's important to build model that represents missing values accurately.
 
 During my career I have witnessed bright minded software developers being in my opinion way too strict about NULL values in databases. They do just about everything to define schema which does not allow NULLs anywhere. I'm not here to mock great minds, such as C.J. Date who has taken really strong stance against NULLs in relational databases. This has been ongoing debate in relational database community since the first implementations. I personally feel, that when it comes to professional software development, we as a developers should have reasonable amount of practical stance, but in the same time should be aware of the underlying theory.
 
@@ -195,7 +195,7 @@ INSERT INTO customer VALUES(3, 'Lisbet', 3);
 -- and so on..
 ```
 
-I personally feel this approach suffers ultimately from the same problem than using replacement values does. It is hidden knowledge of that one row in country table is *special*. "Unkown" is not a country. On the other hand, I agree that this can be suitable strategy in some scenarios.
+I personally feel this approach suffers ultimately from the same problem than using replacement values does. It is hidden knowledge of that one row in country table is *special*. "Unknown" is not a country. On the other hand, I agree that this can be suitable strategy in some scenarios.
 
 What about using NULLs in foreign key columns?
 
@@ -235,9 +235,7 @@ SELECT country.name, COUNT(customer.id_country)
 (3 rows)
 ```
 
-Note that result is **invalid**. I would expect count in first row to be 2. This originates from SQL Specification which
-specifies that (most) aggregate functions should ignore NULL values. The weirdest part is that COUNT(\*) does not
-ignore NULLs in similar fashion and thus:
+Note that result is **invalid**. I would expect count in first row to be 2 because there are tow customers with NULL in id_country. This originates from SQL Specification which specifies that (most) aggregate functions should ignore NULL values. The weirdest part is that COUNT(\*) does not ignore NULLs in similar fashion and thus:
 
 ```sql
 SELECT country.name, COUNT(*)
@@ -253,8 +251,7 @@ SELECT country.name, COUNT(*)
 (3 rows)
 ```
 
-This is correct in our scenario and works at least in Postgresql. Lesson learned is that be extra certain of what you
-are doing when using aggregate functions to fields without NOT NULL constraint. I tend to think that when you need aggregation in database you should hide NULL values in some way. This can easily be done with views designated for aggregation.
+This is correct in our scenario and works at least in Postgresql. Lesson learned is that be extra certain of what you are doing when using aggregate functions to fields without NOT NULL constraint. I tend to think that when you need aggregation in database you should hide NULL values in some way. This can easily be done with views designated for aggregation.
 
 ```sql
 CREATE VIEW customers_with_country AS
@@ -365,7 +362,7 @@ CREATE TABLE users (
 
 We could have placed NOT NULL constraint to fields and use '' as a default value. Instead we took an approach where '' is an illegal value (it's clear that '' is illegal user name in Instagram and Twitter as well) and NULL represents the fact that 1) user does not have an account OR 2) user does not want to store account here. Because we were working with Scala we constructed approach where our data access layer reads SQL NULLs to Scala None:
 
-```Scala
+```scala
 case class
   User(id: Integer,
        /* Fields omitted */
