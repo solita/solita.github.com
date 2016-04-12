@@ -16,9 +16,10 @@ layout: default
 
         <p class="post-excerpt">{{ post.excerpt }}</p>
 
-        <p><a href="{{ post.url }}" class="more-link">Continue reading&hellip;</a></p>
+        <p><a href="{{ post.url }}" class="decorated">Read more &raquo;</a></p>
     </li>
 {% endfor %}
+
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
@@ -29,11 +30,11 @@ layout: default
 
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-      <em>{{ page }}</em>
+      <em class="pagination-item">{{ page }}</em>
     {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      <a class="pagination-item" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
     {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      <a class="pagination-item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 
