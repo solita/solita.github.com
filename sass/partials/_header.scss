@@ -1,24 +1,50 @@
 .site-header {
-    margin-bottom:$baseline*3;
+    position: relative;
+    margin: $baseline*1 0 $baseline*2;
+
+    @media (min-width: $breakpoint-3) {
+        width: 520px;
+        padding-left: $primary-width - 520px;
+        margin: $baseline*3 0 $baseline*4;
+    }
+}
+
+.site-logo {
+    display: inline-block;
+
+    @media (min-width: $breakpoint-3) {
+        position: absolute;
+        left: 0;
+    }
+}
+
+.site-logo-img {
+    vertical-align: middle;
+    width: 130px;
 }
 
 .site-title {
-    margin-top:$baseline*2;
-    margin-bottom:0;
+    display: inline-block;
+    margin: 0 0 0 0.1em;
+    vertical-align: middle;
+    font-size: 2em;
 
     a {
-        border:0;
-        color: $color-black;
+        border: 0;
+        color: $black;
+        font-weight: 400;
+        text-transform: none;
+    }
 
-        &:hover {
-            color: $color-gray;
-        }
+    @media (min-width: $breakpoint-3) {
+        margin: 0;
+        font-size: 2.625em;
     }
 }
 
 .site-description {
-    font-size:0.75em;
-    font-weight:400;
-    line-height:$baseline;
-    margin-bottom:0;
+    font-size: 0.75em;
+    font-weight: 400;
+    line-height: $baseline;
+    margin-bottom: 0;
 }

@@ -4,7 +4,7 @@ title: Polyglot programming
 author: harmia
 excerpt: The idea of polyglot programming is to render more natural and simpler solutions by combining the best solutions available from different programming languages and paradigms.
 tags: 
-- Polyglot programming
+- polyglot programming
 - poly-paradigm programming
 - multi-language programming
 - cross-language programming

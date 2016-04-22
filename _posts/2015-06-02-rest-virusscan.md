@@ -3,6 +3,13 @@ layout: post
 title: Virusscanner as a REST service
 author: lokori
 excerpt: How to setup a open source virusscanner as a REST service. 
+tags:
+- REST
+- ClamAV
+- Virus
+- virus scanner
+- testing
+- microservices
 ---
 
 Every time we deal with user supplied content, such as file attachments, we must take precautions

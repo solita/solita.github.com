@@ -1,44 +1,48 @@
 /* TYPOGRAPHY
 ----------------------------------------------------------------------------- */
 body {
-    /* 16px/24px --> $baseline: 24px */
-    font:100%/1.5 $font-body;
+  /* 16px/24px --> $baseline: 24px */
+  font:100%/1.5 $font-body;
+  font-weight: 400;
+  color: $pale-sky;
+  line-height: 100%;
+  word-wrap: break-word;
 }
+
 body, input, textarea {
     color:$color-text;
 }
+
 h1, h2, h3, h4, h5, h6 {
     margin: $baseline 0;
-}
-ol, ul, p, pre, table, form, caption {
-    margin:0 0 $baseline;
-}
 
-caption {
-    font-style: italic;
-}
-
-h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
-    font-weight: 700;
+    font-weight: 800;
     line-height: $baseline;
+    text-transform: uppercase;
+    color: $black;
 }
+
 h1, .fake-h1 {
     font-size: 2.625em;
     line-height: $baseline*2;
 }
+
 h2, .fake-h2 {
     font-size: 1.5em;
     line-height:$baseline*1.5;
     margin: $baseline 0 $baseline;
 }
+
 h3, .fake-h3 {
     font-size: 1.25em;
 }
+
 h4, .fake-h4 {
     font-size: 1em;
     margin:$baseline 0 0;
 }
+
 h5, .fake-h5 {
     font-family: $font-body;
     font-size: 1em;
@@ -46,22 +50,28 @@ h5, .fake-h5 {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 h6, .fake-h6 {
     font-family: $font-body;
     font-size: 0.75em;
 }
 
 a {
-    border-bottom:1px solid #ced2df;
-    color:$color-link;
+    color: $cerise;
     text-decoration: none;
+
+    &:active, &:focus {
+        color: darken($cerise, 10%);
+    }
 }
-a:hover {
-    border-color:$color-hover;
-    color:$color-hover;
+
+a.decorated {
+    font-style: italic;
+    font-family: "chaparral-pro", serif;
 }
-a:active, a:focus {
-    opacity: .7;
+
+caption {
+    font-style: italic;
 }
 
 blockquote {
@@ -69,6 +79,10 @@ blockquote {
     color:#888;
     margin: 0 0 1.6em;
     padding-left: 2em;
+}
+
+ol, ul, p, pre, table, form, caption {
+    margin: 0 0 $baseline;
 }
 
 pre, code, kbd, samp {
