@@ -4,9 +4,9 @@ title: Installing server environment with PowerShell
 author: Rinorragi
 excerpt: Automize your IIS webserver installation with PowerShell 
 categories: 
-- EpiServer
+- Episerver
 tags: 
-- EpiServer 
+- Episerver 
 - DOTNET 
 - PowerShell
 ---
