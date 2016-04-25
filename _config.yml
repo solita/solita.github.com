@@ -1,10 +1,14 @@
 url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
+gems: [jekyll-paginate]
 paginate: 10
 paginate_path: "/:num"
-highlighter: pygments
-markdown: redcarpet
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+
 
 authors:
   jarno:
