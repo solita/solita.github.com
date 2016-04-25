@@ -2,12 +2,13 @@
 layout: post
 title: EPiServer developer meetup at Helsinki
 author: Rinorragi
-excerpt: What happened in the first EPiServer developer held in Helsinki
+excerpt: What happened in the first EPiServer developer meetup held in Helsinki
 categories: 
 - EPiServer
 tags: 
 - EPiServer 
 - DOTNET 
+- security
 ---
 EPiServer had a fine idea to have a meetup for finnish EPiServer developers. Meetup consisted of pizza, beer and presentations. I loved to be present on the meetup and I think that the format was a perfect match to have a cozy atmosphere around the EPiServer topic. Only thing that could be done better (for the next time) would be to have more time at the end for the networking! Need for more time usually means that the actual happening has been great success! 
 
