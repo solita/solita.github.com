@@ -20,6 +20,20 @@ If you want to write a post, here's how:
   - Write some info about the post
 7. Wait for comments and publish!
 
+### Optional: Adding exact publication time to your post
+
+Normally the publication date of a post is read from the filename of the post (YYYY-MM-DD-post-name.md, e.g. 2016-03-02-elasticon.md). In this case the puslishing time will show up as 00:00:00.
+
+If you want to specify the exact time your post was published, you can add a date-field to your post. In the date field you can specify the publication time in the format YYYY-MM-DD HH:MM:SS +/-TTTT.
+
+For example:
+```
+---
+...
+date: 2016-04-25 13:30:00 +0200
+...
+---
+```
 
 ## Previewing posts
 
@@ -85,22 +99,25 @@ For development, you need Ruby and Jekyll. If you want to tweak the CSS, you nee
 
 **Note:** This concerns only people who forked this repo when it was still running Jekyll 2 (prior to 25.4.2016).
 
+#### Background
+
 GitHub has recently moved from using Jekyll 2 to Jekyll 3. Starting from 1.5.2016 GitHub will only support Jekyll 3, so this repository has been updated to use the new version also.
 
 If you're interested in the changes the update brings, you can read about them here https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0. The way posts are written does not change at all, so for a blog author the changes are practically unnoticable.
 
-#### Option A, if you're using Vagrant
+#### Update instructions
 
-If you're using Vagrant, you only need to sync your local fork with the main repository to get the updated files and then start Vagrant with ``vagrant up blag`` like before.
+First thing to do is to synch your fork with the changes in the main repository. If you don't know how to do this, GitHub has good instructions. First you need to add the main repository as a remote (https://help.github.com/articles/configuring-a-remote-for-a-fork/) after which you can sync your fork (https://help.github.com/articles/syncing-a-fork).
 
-If you don't know how to sync your fork, GitHub has good instructions for it. First you need to add the main repository as a remote (https://help.github.com/articles/configuring-a-remote-for-a-fork/) after which you can sync your fork (https://help.github.com/articles/syncing-a-fork).
+##### Option A, if you're using Vagrant
 
+If you're using Vagrant, you're already done! Just start vagrant with ``vagrant up blag`` like before.
 
-#### Option B, if you're using Ruby
+##### Option B, if you're using Ruby
 
 Jekyll 3 only supports Ruby 2. First check which version you have with ``ruby -v``.
 
-If already have Ruby 2.x simply update the local gems with ``bundle update``. 
+If already have Ruby 2.x, simply update the local gems with ``bundle update``. 
 
 If you currently have Ruby 1.x, you must first install Ruby 2 and then install the packages in the gemfile. For Windows, you can get Ruby 2 from http://rubyinstaller.org/downloads/. For OSX, you can install Ruby 2 with RVM:
 
