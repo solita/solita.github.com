@@ -10,18 +10,18 @@ tags:
 - DOTNET 
 - security
 ---
-Episerver had a fine idea to have a meetup for finnish Episerver developers. Meetup consisted of pizza, beer and presentations. I loved to be present on the meetup and I think that the format was a perfect match to have a cozy atmosphere around the Episerver topic. Only thing that could be done better (for the next time) would be to have more time at the end for the networking! Need for more time usually means that the actual happening has been great success! 
+Last week Episerver organized a meetup for Finnish developers in Helsinki. Meetup consisted of pizza, beer and presentations. I loved the meetup and I think that the format was a perfect match to have a cozy atmosphere around the Episerver topic. Only thing that could be done better (for the next time) would be to have more time at the end for the networking! Which just means that the actual event has been great success! 
 
 ## R.I.P XForms 
 
-Mikko Huilaja from Solita had a hour long presentation about new Episerver Forms. He went through how they work, how you can create them and edit them and also how to extend them. I haven't had time before to take look on the new Episerver Forms before but now I feel I would be ready to implement them any day. Thanks Mikko for in depth overview of presentation!
+Mikko Huilaja from Solita had a hour long presentation about new Episerver Forms. He went through how they work, how you can create them, edit them, and also how to extend them. I haven't had the time before to take look on the new Episerver Forms before but now I feel I would be ready to implement them any day. Thanks Mikko for this great deep dive into the new Episerver Forms!
 [Slides](http://www.slideshare.net/huilaaja/Episerver-forms-fi)
 
 ## Commerce promotion engine 
 
-Quan Mai had a preview peek on the upcomming promotion engine enhancement. If I understood correctly the promotion engine might be included in next Commerce major release. The new system was content-based and it was promised to be a lot faster than the old system. Debugging and extending it seemed to be thought in a good manner. This also means that there is even less need for using Commerce Manager when it could be managed inside CMS. 
+Quan Mai gave us a sneak peek into the upcomming promotion engine enhancement. If I understood correctly, the promotion engine might be included in next Commerce major release. The new system was IContent based and it was promised to be a lot faster than the old system. Debugging and extending it seemed to be thought in a good manner. All this means that there will be even less need to use the old Commerce Manager in the future. 
 
-At Solita our Commerce developers absolutely loved this news!
+At Solita our Commerce developers absolutely love this news!
 
 ## Webhooks
 
@@ -32,4 +32,4 @@ James Stout (the egandalf himself) had a cool presentation about webhooks. With 
 I also had a presentation of my own about secure development. I talked about how developers should also be hobbyist hackers (white hat ones), what secure development lifecycle means, threat modeling and how this all is linked to our Episerver projects. I had only half of the time I thought I had so I hope that people got something out of my fast-forwarded slideshow. 
 [Slides](http://www.slideshare.net/JoonaImmonen/secure-development-in-net-with-Episerver-solita)
 
-Thanks Episerver for the great evening we had! 
+Finally, thanks Episerver for the great evening! 
