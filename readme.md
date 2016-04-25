@@ -70,6 +70,16 @@ about this working with that so use RVM
 9. Type in: `bundle exec foreman start`
 10. Open browser to: http://localhost:4000/
 
+## Development
+
+For development, you need Ruby and Jekyll. If you want to tweak the CSS, you need Compass. Also, if you want to make stuff easier, install foreman.
+
+1. Install Ruby (above)
+2. Go to your cloned copy of solita.github.com
+3. To install Jekyll, Compass and foreman, type into a command prompt or terminal: `bundle install`
+4. Make sure the install succeeds
+5. Type in: `bundle exec foreman start`
+6. Jekyll and Compass should start!
 
 ### Updating to Jekyll 3
 
@@ -92,28 +102,12 @@ Jekyll 3 only supports Ruby 2. First check which version you have with ``ruby -v
 
 If already have Ruby 2.x simply update the local gems with ``bundle update``. 
 
-If you currently have Ruby 1.x, you must first install Ruby 2 and then install the packages in the gemfile.
-
-For Windows, you can get Ruby 2 from http://rubyinstaller.org/downloads/. 
-
-For OSX, you can install Ruby 2 with RVM:
+If you currently have Ruby 1.x, you must first install Ruby 2 and then install the packages in the gemfile. For Windows, you can get Ruby 2 from http://rubyinstaller.org/downloads/. For OSX, you can install Ruby 2 with RVM:
 
 1. `rvm install 2.2.1`
 2. `rvm use 2.2.1`
 3. `gem install bundler`
 4. `bundle install`
-
-
-## Development
-
-For development, you need Ruby and Jekyll. If you want to tweak the CSS, you need Compass. Also, if you want to make stuff easier, install foreman.
-
-1. Install Ruby (above)
-2. Go to your cloned copy of solita.github.com
-3. To install Jekyll, Compass and foreman, type into a command prompt or terminal: `bundle install`
-4. Make sure the install succeeds
-5. Type in: `bundle exec foreman start`
-6. Jekyll and Compass should start!
 
 ## Technology stack
 
