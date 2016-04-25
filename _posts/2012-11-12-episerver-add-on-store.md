@@ -4,7 +4,7 @@ title: Why does EPiServer Add-On Store matter?
 author: jarno
 excerpt: EPiServer 7 ships with the Add-On Store. It will give us feature packaging to manage the solution better. But it's not the real reason I like the concept.
 tags: 
-- EPiServer 
+- Episerver 
 - CMS 
 - appstore 
 - prototyping
