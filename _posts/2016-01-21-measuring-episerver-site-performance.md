@@ -4,11 +4,11 @@ title: Measuring Episerver site performance
 author: dratini
 excerpt: A ready-to-use JMeter performance test project that will tear your site to pieces, or not. Just add URLs!
 categories: 
-- EPiServer
+- Episerver
 tags: 
-- EPiServer
+- Episerver
 - DOTNET
-- Performance
+- performance
 - JMeter
 ---
 Adequate performance is a critical requirement for any project, and one I want to nail before going live.

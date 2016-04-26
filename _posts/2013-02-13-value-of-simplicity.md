@@ -3,7 +3,13 @@ layout: post
 title: Value of Simplicity
 author: lokori
 excerpt: Seize the day and simplify your design. Finding a simple solution to a complex problem is one of the ultimate achievements. In this post I try to convince you and briefly touch the foundations on which one can build a simple solution. 
-tags: Simplicity, software architecture, software design, normal form, composability, modularity
+tags: 
+- simplicity
+- software architecture 
+- software design 
+- normal form
+- composability
+- modularity
 ---
 
 There is value on a simple solution, but most software systems are way too complex. 

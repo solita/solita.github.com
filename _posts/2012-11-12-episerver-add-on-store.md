@@ -3,7 +3,11 @@ layout: post
 title: Why does EPiServer Add-On Store matter?
 author: jarno
 excerpt: EPiServer 7 ships with the Add-On Store. It will give us feature packaging to manage the solution better. But it's not the real reason I like the concept.
-tags: episerver cms appstore prototyping
+tags: 
+- Episerver 
+- CMS 
+- appstore 
+- prototyping
 ---
 [EPiServer 7](http://www.episerver.com) was released last week. One of the features I have a good feeling about is the [add-on store](http://www.episerver.com/Products/EPiServer-7-CMS/CMS-functions/). In theory it would allow non-techies to install new site features using a web user interface. Actually it sounds quite scary at first. On the other hand Wordpress and its kin have had similar features for ages.
 

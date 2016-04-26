@@ -3,7 +3,10 @@ layout: post
 title: EPiServer in the Cloud – a quick start guide
 author: timole
 excerpt: This is a short guide for installing EPiServer on a cloud server. Please feel free to ask questions if you have any problems.
-tags: episerver cms TUT
+tags: 
+- Episerver 
+- CMS 
+- TUT
 ---
 
 This is a short guide for installing EPiServer on a cloud server. Please feel free to ask questions if you have any problems. A guest lecture on the subject was held at Tampere University of Technology ([.ppt slides](http://tasting.solita.fi/Solita%20-%20Vierailuluento%20-%20TTY%20-%20EPiServer%20.NET-asiakasprojekteissa.pptx))

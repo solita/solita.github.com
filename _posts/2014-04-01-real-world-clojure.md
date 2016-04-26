@@ -3,6 +3,12 @@ layout: post
 title: Real World Clojure
 author: lokori
 excerpt: You may have heard already that Clojure is great and going to dominate the world this year. But will it? In this article I will dig deep into one of our Clojure projects so that you can see what a real world Clojure project looks like and decide for yourself.
+tags:
+- Clojure
+- programming
+- SQL Korma
+- PostgreSQL
+- testing
 ---
 
 

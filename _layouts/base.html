@@ -22,20 +22,27 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+
+    <script src="https://use.typekit.net/cjv1dsv.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
 
   <body>
 
     <div class="wrap">
 
-      <header class="site-header">
-        <div class="wrapper">
-          <h1 class="site-title">
-            <a href="/">{{ site.title }}</a>
-          </h1>
-          <p class="site-description"><a href="http://www.solita.fi/">Solita</a> developer blog</p>
-        </div>
-      </header>
+      <div class="wrapper">
+        <header class="site-header">
+            <a class="site-logo" href="http://www.solita.fi">
+              <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
+            </a>
+
+            <h1 class="site-title">
+              <a href="/">{{ site.title }}</a>
+            </h1>
+        </header>
+      </div>
 
       <div class="main wrapper" role="main">
         <div class="primary">
@@ -49,18 +56,18 @@
 
     </div>
 
-    <footer class="site-footer">
-      <div class="wrapper">
+    <div class="wrapper site-footer-wrapper">
+      <footer class="site-footer">
 
-        <p>
-          <a href="http://www.solita.fi">
-            <img class="logo" src="/img/solita-logo.png" alt="Solita" />
-          </a>
-          Copyright &copy; <a href="http://www.solita.fi">Solita Oy</a></a>
-        </p>
+        <a class="site-logo" href="http://www.solita.fi">
+          <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
+        </a>
 
-      </div>
-    </footer>
+        <div class="site-footer-links">
+          <a class="decorated" href="http://www.solita.fi/">Solita.fi</a><a class="decorated" href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a><a class="decorated" href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a><a class="decorated" href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a><a class="decorated" href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a><a class="decorated" href="https://www.instagram.com/solitaoy/">Instagram</a>
+        </div>
+      </footer>
+    </div>
 
     <div id="templates" style="display: none;">
       <a href="#" class="avatar">
@@ -72,6 +79,5 @@
     <script type="text/javascript" src="/js/transparency.min.js"></script>
     <script type="text/javascript" src="/js/webtoolkit.md5.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-
   </body>
 </html>

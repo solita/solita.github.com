@@ -5,13 +5,13 @@
   <channel>
     <title>{{ site.title }}</title>
     <link>{{ site.url }}</link>
-    <atom:link type="application/rss+xml" rel="self" href="{{ site.url }}/rss.xml" />
+    <atom:link type="application/rss+xml" rel="self" href="{{ site.url }}/feeds/rss_rinorragi.xml" />
     <description>{{ site.description }}</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 
-    {% for post in site.categories.episerver %}
+    {% for post in site.categories.Episerver %}
 	{% if post.author == "Rinorragi" %}
     <item>
       <title>{{ post.title }}</title>

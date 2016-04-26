@@ -1,11 +1,40 @@
-<div class="elsewhere">
-    <h4>Solita elsewhere</h4>
-    <a href="/rss.xml" rel="external" class="rss"><i class="icon-rss"></i><span class="hidden">RSS</span></a>
-    <a href="http://www.facebook.com/Solita" rel="external" class="facebook"><i class="icon-facebook"></i><span class="hidden">Facebook</span></a>
-    <a href="https://twitter.com/SolitaOy" rel="external" class="twitter"><i class="icon-twitter"></i><span class="hidden">Twitter</span></a>
-    <a href="http://www.linkedin.com/company/15589" rel="external" class="linkedin"><i class="icon-linkedin"></i><span class="hidden">LinkedIn</span></a>
+<h4>Solita elsewhere</h4>
+
+<div class="some-icons">
+    <a href="/rss.xml" rel="external" class="some-icon">
+        <i class="fa fa-rss"></i><span class="hidden">RSS</span>
+    </a>
+
+    <a href="https://twitter.com/SolitaOy" rel="external" class="some-icon">
+        <i class="fa fa-twitter"></i><span class="hidden">Twitter</span>
+    </a>
+    
+    <a href="http://www.linkedin.com/company/15589" rel="external" class="some-icon">
+        <i class="fa fa-linkedin"></i><span class="hidden">LinkedIn</span>
+    </a>
+
+    <a href="http://www.facebook.com/Solita" rel="external" class="some-icon">
+        <i class="fa fa-facebook"></i><span class="hidden">Facebook</span>
+    </a>
+
+    <a href="http://www.youtube.com/user/SolitaOy" rel="external" class="some-icon">
+        <i class="fa fa-youtube"></i><span class="hidden">Youtube</span>
+    </a>
+
+    <a href="https://www.instagram.com/solitaoy/" rel="external" class="some-icon">
+        <i class="fa fa-instagram"></i><span class="hidden">Instagram</span>
+    </a>
 </div>
 
 <p>
-    <a href="http://www.solita.fi/hae-meille/" rel="external">Work and write with us.</a>
+    <a class="decorated" href="http://www.solita.fi/hae-meille/" rel="external">Work and write with us &raquo;</a>
 </p>
+
+<h4>Tags</h4>
+<div class="tag-cloud">
+	{% assign tags = site.tags | sort %} 
+	{% for tag in tags %}
+	<a class="tag" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">
+			{{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+	{% endfor %}
+</div>

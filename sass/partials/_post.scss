@@ -9,29 +9,31 @@
 }
 
 .post-title {
-    font-size:1.75em;
+    font-size: 1.65rem;
     line-height: 1.25;
-    margin:0;
+    margin: 0 0 0.5em;
 
     a {
-        border:0;
-    }
-
-    .single & {
-        margin-bottom: 24px;
+        color: $black;
     }
 }
+
 .post-meta {
-    font-size:0.75em;
-    padding:6px 0 0 0;
-    position:relative;
+    position: relative;
+
+    padding: 6px 0 0 0;
+
+    font-size: 0.8em;
+    font-weight: 800;
 
     @media (min-width: $breakpoint-3) {
-        line-height:$baseline;
+        position: absolute;
+        left: 0;
+        top: 3px;
+    
         padding: 0 0 0 57px;
-        position:absolute;
-        left:0;
-        top:5px;
+
+        line-height: 1.25;
 
         .date {
             display:block;
@@ -40,9 +42,9 @@
 
     .avatar {
         @media (min-width: $breakpoint-3) {
-            position:absolute;
-            left:0;
-            top:3px;
+            position: absolute;
+            left: 0;
+            top: -5px;
         }
 
         .img {
@@ -69,8 +71,12 @@
 }
 
 .post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
-    font-size:0.875em;
+    font-size: 1rem;
     line-height:$baseline;
+}
+
+.post-excerpt {
+    margin-bottom: 1em;
 }
 
 .caption {
@@ -80,21 +86,6 @@
 
 p + .caption {
     margin-top: -$baseline/2;
-}
-
-.more-link {
-    background:#f1f1f1;
-    border:0;
-    color: $color-gray;
-    font-size: 0.875em;
-    line-height:$baseline;
-    margin-bottom:$baseline*1.25;
-    padding:$baseline/4 10px;
-
-    &:hover {
-        background:$color-gray;
-        color:#fff;
-    }
 }
 
 .post-content {
