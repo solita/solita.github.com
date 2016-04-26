@@ -18,7 +18,7 @@ tags:
 - business logic
 ---
 
-##From a Mother into a Software Developer
+## From a Mother into a Software Developer
 
 Clock alarms at 6.15 am. Today I'm lucky and also the children have slept so long. Today is working day, one of my three working days per week. On other days I take care of my three children at home, which is a convenient arrangement for the time being and enabled by my employer, Solita.
 
@@ -26,7 +26,7 @@ After waking up, eating porridge, feeding porridge for my 1,5 years old daughter
 
 This is my 12th working day after quite a long break, a little over 1.5 years maternity leave. Before that I had been working in KIRRE project since 2010. In KIRRE I worked as a software developer and had my hands on both in back and front ends. KIRRE project was dealing with registry of legal confirmations to real properties. 
 
-##Jump to a Moving Train
+## Jump to a Moving Train
 
 After working a long time in the same project, it seemed reasonable to change project, from real properties to a completely different world, railways. LIIKE project was started in 2007 in co-operation with Liikennevirasto, the Finnish Transport Agency. LIIKE project deals with managing the capacity of railways and traffic supervision. It includes maintenance and support, but also feature development.
 
@@ -34,7 +34,7 @@ It's always a challenge to familiarize oneself with a new business branch, espec
 
 LIIKE project consists of several applications developed using various technologies. The back end is implemented using Java. In the front end there are both web and desktop applications. 
 
-##A Story of One Jira Issue
+## A Story of One Jira Issue
 
 Our backlog of tasks to be implemented is stored in Jira. One can pick a task from the backlog and start implementing the task. As I'm a novice in the project the project manager has picked suitable tasks for me. Not too fierce in the beginning. Today I started with a task about showing an icon and tooltip in the user interface when there is something worth of noticing when a train assembly is inspected, e.g. when the train is longer than it should.
 
@@ -48,7 +48,7 @@ When I'm happy with the change, I make a commit to my own repository. I've been 
 
 The task will be waiting for some of my project mates to review the change. If the reviewer does not find any problems, the branch containing the change can be merged to our master branch. After pushing the changes to the master, automated continuous integration jobs, which are run on Jenkins, will take care of running all the tests also for the changed code.
 
-##Afterwords
+## Afterwords
 
 My comeback to the working world has been exciting. The last 1.5 years have gone by without even thinking of Java (what?!?! there is already Java 8, my certificate is on Java 5), version control, coding or anything related to technology or software development. No, I have not had any time to make ambitious projects in my spare-time (what is that?!?) such as many of my colleagues seem to be doing. However, after these 12 days I've been glad to notice that I've not forgotten everything. I'm not a lost case at all. Also, getting familiar with the new project has started fine, thanks to helpful workmates.
 
