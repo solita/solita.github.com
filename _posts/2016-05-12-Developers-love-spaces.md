@@ -24,7 +24,7 @@ Other trends are also visible in the survey: for maintaining configurations - an
 
 ![How do you manage?](/img/devs-love-spaces/configuration-management.png)
 
-Then there's other, more obvious statistics. When it comes to version control, Git is way cooler than anything else currently. Most popular tools are IntelliJ IDEA, and Eclipse, while there's still solid 2,4% Vim-coders out there. For rapid text edit work people often whip out Sublime or Notepad++. Most devs are running OSX on their machines here, with almost equal amount running Windows. 12% are running some brand of Linux. 
+Then there're other, more obvious statistics. When it comes to version control, Git is way cooler than anything else currently. Most popular tools are IntelliJ IDEA, and Eclipse, while there're still solid 2,4% Vim-coders out there. For rapid text edit work people often whip out Sublime or Notepad++. Most devs are running OSX on their machines here, with almost equal amount running Windows. 12% are running some brand of Linux. 
 
 ## How about frameworks and languages?
 
@@ -34,7 +34,7 @@ For the frontend development, most of the work is done with Angular, with React 
 
 ## Roles and experience
 
-Most of our coders have been in business over 11 years - so they've seen a lot. 95% have been coding at least 6 years - or 75% if we only count coding for bread and butter, not for fun.
+Most of our coders have been in business over 11 years - so they've seen a lot. 95% have been coding at least 6 years - or 75% if we count only coding for bread and butter, not for fun.
 
 It seems most of people in dev role consider themselves as fullstack developers - pretty much half - with 10% specialized back-end developers, 10% architects, and 5% slices of front-end developers, and integration specialists.
 
