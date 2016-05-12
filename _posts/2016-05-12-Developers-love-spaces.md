@@ -2,7 +2,7 @@
 layout: post
 title: Developers love spaces - Solita Developer Survey 2016 results
 author: arto
-excerpt: Now we know what developers love and what developers love not this year
+excerpt: Now we know what developers love and love not this year
 categories: 
 - Java
 tags: 
@@ -16,19 +16,19 @@ tags:
 
 ## What do devs love?
 
-Well a lot of things, apparently. Today, being a dev is about being passionate about things. But in this case I think I already let out a spoiler in the title. Devs do love spaces. And, thanks to recent results from Solita Developer Survey, I got the stats to prove it. According the the survey, crushing percentage of 72,2% of all solita devs indent their code with spaces, as opposed to tabs. 2% didn't understand the question so I suppose they don't indent.
+Well a lot of things, apparently. Today, being a dev is about being passionate about things. But in this case, I think I already let out a spoiler in the title. Devs do love spaces. And, thanks to recent results from Solita Developer Survey, I got the stats to prove it. According the the survey, crushing percentage of 72,2% of all solita devs indent their code with spaces, as opposed to tabs. 2% didn't understand the question, so I suppose they don't indent.
 
 ![Would you indent code with tabs or spaces?](/img/devs-love-spaces/spaces-vs-tabs.png)
 
-Other trends are also visible in the survey: For maintaining configurations - an important part of doing devops, or doing things right - there are many tool choices available. Here in Solita, the preferred choice is Ansible - with all its pros and cons 42% of devs choose it for automating and documenting the configurations. Chef and Puppet together don't come even close. Many still use traditional shell scripting (21%), or have to do manual work (16%). Another way to look at these statistics is to say that 84% of developers work in happily automated configuration management world, while the rest 16% just have to suck it.
+Other trends are also visible in the survey: for maintaining configurations - an important part of doing devops, or doing things right - there are many tool choices available. Here in Solita, the preferred choice is Ansible - with all its pros and cons 42% of devs choose it for automating and documenting the configurations. Chef and Puppet together don't come even close. Many still use traditional shell scripting (21%), or have to do manual work (16%). Another way to look at these statistics is to say that 84% of developers work in happily automated configuration management world, while the rest 16% just have to suck it.
 
 ![How do you manage?](/img/devs-love-spaces/configuration-management.png)
 
-Then there's other, more obvious statistics. When it comes to version control, Git is way cooler than anything else currently. Most popular tools are IntelliJ IDEA, and Eclipse, while there's still solid 2,4% Vim-coders out there. For rapid text edit work people often whip out Sublime or Notepad. Most devs are running OSX on their machines here, with almost equal amount running Windows. 12% are running some brand of Linux. 
+Then there's other, more obvious statistics. When it comes to version control, Git is way cooler than anything else currently. Most popular tools are IntelliJ IDEA, and Eclipse, while there's still solid 2,4% Vim-coders out there. For rapid text edit work people often whip out Sublime or Notepad++. Most devs are running OSX on their machines here, with almost equal amount running Windows. 12% are running some brand of Linux. 
 
 ## How about frameworks and languages?
 
-Most popular languages being used here are: Java, Clojure, Javascript, and C#. Anything else is just peanuts when it comes to statistics. Interestingly, Clojure is the most preferred language for devs, so I suppose we just can't get enough of Clojure in daily work.
+Most popular languages used here are: Java, Clojure, Javascript, and C#. Anything else is just peanuts when it comes to statistics. Interestingly, Clojure is the most preferred language for devs, so I suppose we just can't get enough of Clojure in daily work.
 
 For the frontend development, most of the work is done with Angular, with React + Reagent catching up. Most people would choose to use React for the next project - but then most people haven't yet been exposed to Angular 2 so we'll see about that in 2017 ;) 
 
