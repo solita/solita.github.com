@@ -44,7 +44,7 @@ About 74% of Solita developers contribute some amount of work to open source pro
 
 ## Conclusion
 
-So: We do a lot with Java and Angular, and would currently love to do more with Clojure and React/Reagent. It also seems we're pretty modest - only 16% of devs believe their skills put them to the best quarter of coders - majority thinks they are in the second best quarters.
+We do a lot with Java and Angular, and would currently love to do more with Clojure and React/Reagent. It also seems we're pretty modest - only 16% of devs consider themselves as the best coders in Solita - the majority thinks they are in the second best quarter.
 
 ![Devs mad skills?](/img/devs-love-spaces/skills.png)
 
