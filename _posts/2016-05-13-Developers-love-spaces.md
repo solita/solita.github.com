@@ -26,6 +26,8 @@ Other trends are also visible in the survey: for maintaining configurations - an
 
 Then there're other, more obvious statistics. When it comes to version control, Git is way cooler than anything else currently. Most popular tools are IntelliJ IDEA, and Eclipse, while there're still solid 2.4% Vim-coders out there. For rapid text edit work people often whip out Sublime or Notepad++. Most devs are running OSX on their machines here, with almost equal amount running Windows. 12% are running some brand of Linux. 
 
+![Developer captured in natural habitat](/img/devs-love-spaces/devaaja.jpg)
+
 ## How about frameworks and languages?
 
 Most popular languages used here are: Java, Clojure, Javascript, and C#. Anything else is just peanuts when it comes to statistics. Interestingly, Clojure is the most preferred language for devs, so I suppose we just can't get enough of Clojure in daily work.
