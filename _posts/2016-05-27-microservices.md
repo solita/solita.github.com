@@ -131,7 +131,7 @@ If you passed this test, congratulations. You are getting lots of the benefits o
 
 So I'm not really interested so much in size limits, like how many lines of code is the solution. LOC indicators are very boring and pretty much always wrong.
 
-##Microservices evolution
+## Microservices evolution
 
 The really difficult stuff begins when you love the microservices so much that you start having them in multiple applications, conversing via APIs, in a style reminiscent of old SOA.
 
