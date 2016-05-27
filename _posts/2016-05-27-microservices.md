@@ -103,9 +103,27 @@ For robustness, you need to also consider, what happens when a service goes down
 
 API management and API versioning? Once you start running this architecture, you might find yourself in situation where you cannot just evolve a specific API, but you need to maintain a few versions of it. At this point you will be very thankful if you spent a few moments to think about this before writing your first microservice. Microservices are actually pretty easy to version, since they are typically self-contained, but of course you have to deal with database structures, where you put your version info, how does it work in your service catalogs, etc.
 
+![One plate of spaghetti, anyone?](/img/microservices-simple/spaghetti.jpg)
+
 Finally microservices security. In monolithic days of Enterprise Servers, thinking was to resolve the security settings once, then reuse them until hell freezes over. For example, set up that LDAP registry in your Websphere, and then all applications deployed in that server can use same identity and grouping information to authorize access. Well we don't have those heavyweight servers anymore, in world of microservices. (They wouldn't be very micro, would they? That's more like put-all-your-egs-in-same-huge-basket-architecture.) 
 
-What we have is integration, and co-operation. So have a microservice - or non-microservice deal with identity once, somewhere, then use that same information for all services. Technologies like OAUTH are popular here, but simpler versions can also use JWT tokens - or even custom headers with AD authentiation. Of course there are also other considerations, such as where and what you need/want to decrypt, how do you maintain container level security such as certificates, ssl settings, etc, but there's less new things to discover here.
+What we have is integration, and co-operation. So have a microservice, or existing single sign-on mechanism deal with identity once, somewhere, then use that same information for all services. Technologies like OAUTH are popular here, but simpler versions can also use JWT tokens - or even custom headers with AD authentiation. Of course there are also other considerations, such as where and what you need/want to decrypt, how do you maintain container level security such as certificates, ssl settings, etc, but there's less new things to discover here.
+
+## Microservices behaving nicely
+
+So, here are some simple indications that what we have written is a real microservice architecture. Some of these can be argued, as with any hype there are many definitions of it. This, however, is my definition:
+
+- Do your microservices constrain themselves to only one piece of functionality, or at least a few conjoined ones?
+- Are there more than one? If not, it's probably just trivial application ;)
+- Do your microservices own and control their own data?
+- Can they tolerate temporary failures on other services they are calling?
+- In other words, is the architecture composed of fault-tolerant network of co-operating independent modules. 
+
+If you passed this test, congratulations. You are getting lots of the benefits of microservices architecture. If you failed in some places, don't feel bad. Not many can do this right currently. Also, you do get some benefits even by getting this partially right. You just have to be aware that doing it partially right will also bring you some nasty downsides, such as multiple vulnerability spots, code replication, etc.
+
+So I'm not really interested so much in size limits, like how many lines of code is the solution. LOC indicators are very boring and pretty much always wrong.
+
+## Conclusion
 
 So, if you are a master at microservices, there is nothing new here. If you wanted to get an idea what are microservices, hopefully you got that. And if you thought microservices are just services less than 200 lines of code, well, I hope you got re-educated. You can create a truly abhorrent mess with microservices, like with any powerful tool. A bit of thought and planning goes a long way here, too. And this is just the microservices model for 2016 - I bet in 2020 we will be lauhghing at how naive that was.
 
