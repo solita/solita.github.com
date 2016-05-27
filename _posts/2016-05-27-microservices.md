@@ -11,15 +11,19 @@ tags:
 - NodeJS
 ---
 
-###He started using microservices and you won't believe what happened....
-
 Okay, that was a total clickbait, and a sad one at that. But this article is about microservices, so listen up. Microservices can be a wonderful thing to have, especially in agile projects, but it can also an extremely dangerous tool to use in your architectures. I'm going to try and explain some points here.
+
+To start up, here's simple structure of very simple and typical monolithic application:
+
+![Basic monolithic app architecture](/img/microservices-simple/monolithic.jpg)
+
+When application is simple and has only few responsibilities, this is an okay solution. It's easy enough to maintain with not so many moving parts. Module doesn't get too big and it makes sense to have few database tables in same spot. Troubles occur, however, when this module grows larger. Build times go up, LOC indicators go crazy with hundreds of thousands or millions of lines of code mixed up in same container. If anything goes wrong, all the functionality is offline. Reusability is pretty much zero - of course clever architects may still use libraries here to get a little bit of reusability.
 
 Microservice is a suitable-sized and independent processing unit, that provides a value increment all by itself. Meaning, it does something useful, and only communicates via APIs, doesn't expose for example its database directly or go to other databases except through APIs. Well, anyways, that's what a good microservice is, isolated and useful.
 
 Here's a microservice in node.js.
 
-´´´javascript
+```javascript
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
@@ -34,7 +38,7 @@ app.get("/", function(req, res) {
 var server = app.listen(3000, function () {
     console.log("Listening on port %s...", server.address().port);
 });
-´´´
+```
 
 Not what you expected? Disappointed? Well, it's still a microservice. It provides a service, and it is isolated and independent. More importantly, it's perfect for sake of explaining some things, since it's simple enough to easily understand. You can compose something bigger with it, and other services like it, a bit like we did in good old days of SOA. 
 
@@ -42,7 +46,7 @@ Not what you expected? Disappointed? Well, it's still a microservice. It provide
 
 Here's another microservice. This one is a counter.
 
-´´´javascript
+```javascript
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
@@ -60,12 +64,12 @@ app.get("/", function(req, res) {
 var server = app.listen(4000, function () {
     console.log("Listening on port %s...", server.address().port);
 });
-´´´
+```
 
 
 So, for sake of conversation, let's say that our first microservice wants to use the second one, naturally through the APIs. Let's do that modification:
 
-´´´javascript
+```javascript
 var express = require("express");
 var app = express();
 var Client = require('node-rest-client').Client;
@@ -82,9 +86,11 @@ app.get("/", function(req, res) {
 var server = app.listen(3000, function () {
     console.log("Listening on port %s...", server.address().port);
 });
-´´´
+```
 
 So this is where it starts to get a bit more interesting. It's easy to write a hundred of small concentrated services. Actually, any service is a microservice when you start it from scratch. When amount of code needed grows, you start seeing the challenges - and benefits - of modular architecture. By having them all interconnect via APIs, we get a highly modular and flexible structure with reusable components, ready to face the future with low cost of change.
+
+![Wannabe microservices](/img/microservices-simple/wannabe.jpg)
 
 You can see that our current date microservice is dependant on counter microservice. So we have two points of failure here, to say the least. If counter service suddenly goes down, date service will also stop working. Furthermore, we're not even dealing with it gracefully. And how about things like scalability, and security?
 
@@ -98,6 +104,8 @@ Well, there's not much to do about performance. Using APIs carries an overhead. 
 How about scalability and robustness? Well, we can use somewhat old ideas in a new world to do a lot here. To scale we can easily add more microservices units, of course we then need some kind of router/load balancer to distribute the calls - furthermore we need it in between every place where we want to have scalability. Perhaps it is wise to write it once and re-use for all services. There exists a host of solutions for this already, naturally. By having at least to units doing the processing, you have redundancy, too. But at this point you get some more challenges to solve, too. How about that database? Do you have one, which is bottleneck and single point of failure, or do you have multiple copies, in which case you need to set up rules for replication.
 
 And on topic of databases: Services should not really share data, they should own it and regulate it. When another service needs your data they need to go through the API layer. Otherwise there's dependency and clutter that will take away some of your microservice benefits. 
+
+![Microservices own their data](/img/microservices-simple/microservices.jpg)
 
 For robustness, you need to also consider, what happens when a service goes down, and others are dependent on it. If a failure means that all other services dependent on this API will also break, you are introducing a nasty chain of downtimes - to put it bluntly: If anything breaks, all will break. So good microservices design will design for failure. You will spend some time thinking what happens if this API is not available - perhaps due to network error, API error, database error, etc. There are very useful microservices patterns and even tools to cope with this challenge - circuit breaker for example. And if you design for failure, you can create a system that actually is tolerant for failure. If some parts fail, some parts will still remain usable, just with some missing functionality. This is not just about circuit breakers, but more a mindset for your designs.
 
@@ -122,6 +130,17 @@ So, here are some simple indications that what we have written is a real microse
 If you passed this test, congratulations. You are getting lots of the benefits of microservices architecture. If you failed in some places, don't feel bad. Not many can do this right currently. Also, you do get some benefits even by getting this partially right. You just have to be aware that doing it partially right will also bring you some nasty downsides, such as multiple vulnerability spots, code replication, etc.
 
 So I'm not really interested so much in size limits, like how many lines of code is the solution. LOC indicators are very boring and pretty much always wrong.
+
+##Microservices evolution
+
+The really difficult stuff begins when you love the microservices so much that you start having them in multiple applications, conversing via APIs, in a style reminiscent of old SOA.
+
+![Microservices evolution](/img/microservices-simple/evolution.jpg)
+
+This is still much valid for microservices, and you're even getting new benefits here. Unfortunately, any problems and risks we discussed in context of single application just went even more severe. For this kind of architecture it's essential to have good monitoring capabilities, good enough logging so when something goes wrong you have some traceability. If you really want to play in the big boys league, you probably want also some self healing capabilities, in addition to building for failure like we discussed in earlier chapter. While it's certainly possible to write all these functionalities (preferably in Scala or Clojure ;) - it would be much more cost effective to take a look at some existing available open source libraries that can accelerate your work. 
+
+But to get this far you need to be really serious about microservices anyway, so I presume you've done your homework and are anxious to take things to a new level.
+
 
 ## Conclusion
 
