@@ -4,11 +4,11 @@ author: pkalliok
 title: >
   What is elegant code, actually?
 excerpt: >
-  However, I claim that code elegance is not _just_ a question of
+  However, I claim that code elegance is not just a question of
   personal preference.  There is a least common denominator for code
   elegance that does not depend on who is reading the code.  I'm talking
   about things that make code easier to produce, read, understand and
-  maintain _irrespectible_ of the programming culture.
+  maintain irrespectible of the programming culture.
 tags:
 - brevity
 - simplicity
