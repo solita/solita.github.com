@@ -15,8 +15,12 @@ tags:
 - complexity
 - maintainability
 - productivity
-- Python
-- Lisp
+- Culture
+- computer science
+- functional programming
+- graph
+- programming
+- software design
 ---
 
 Many of my fellow coders, both colleagues and friends, have recently discussed a lot the writing of elegant code and how important it is that your code is elegant.  Of course, this is a very welcome development of attitudes.  However, it still bugs me sometimes: what do all these people _mean_ by elegant code?
