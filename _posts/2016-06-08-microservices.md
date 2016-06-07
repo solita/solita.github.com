@@ -17,9 +17,9 @@ To start up, here's simple structure of very simple and typical monolithic appli
 
 ![Basic monolithic app architecture](/img/microservices-simple/monolithic.jpg)
 
-When application is simple and has only few responsibilities, this is an okay solution. It's easy enough to maintain with not so many moving parts. The module doesn't get too big and it makes sense to have few database tables in the same spot. Troubles occur, however, when this module grows larger. Build times go up, LOC indicators go crazy with hundreds of thousands or millions of lines of code mixed up in same container. If anything goes wrong, all the functionality is offline. Reusability is pretty much zero - of course clever architects may still use libraries here to get a little bit of reusability.
+When application is simple and has only few responsibilities, this is an okay solution. It's easy enough to maintain with not so many moving parts. The module doesn't get too big and it makes sense to have a few database tables in the same spot. Troubles occur, however, when this module grows larger. Build times go up, LOC indicators go crazy with hundreds of thousands or millions of lines of code mixed up in the same container. If anything goes wrong, all the functionality is offline. Reusability is pretty much zero - of course clever architects may still use libraries here to get a little bit of reusability.
 
-Microservice is a suitable-sized and independent processing unit, that provides a value increment all by itself. Meaning, it does something useful, and only communicates via APIs, doesn't expose for example its database directly or go to other databases except through APIs. Well, anyways, that's what a good microservice is, isolated and useful.
+Microservice is a suitable-sized and independent processing unit, that provides a value increment all by itself. Meaning, it does something useful, and only communicates via APIs, doesn't expose, for example, its database directly or go to other databases except through APIs. Well, anyways, that's what a good microservice is, isolated and useful.
 
 Here's a microservice in node.js.
 
@@ -87,7 +87,7 @@ var server = app.listen(3000, function () {
 });
 ```
 
-So this is where it starts to get a bit more interesting. It's easy to write a hundred of small concentrated services. Actually, any service is a microservice when you start it from scratch. When amount of code needed grows, you start seeing the challenges - and benefits - of modular architecture. By having them all interconnect via APIs, we get a highly modular and flexible structure with reusable components, ready to face the future with low cost of change.
+So this is where it starts to get a bit more interesting. It's easy to write a hundred of small concentrated services. Actually, any service is a microservice when you start it from scratch. When the amount of code needed grows, you start seeing the challenges - and benefits - of modular architecture. By having them all be interconnected via APIs, we get a highly modular and flexible structure with reusable components, ready to face the future with low cost of change.
 
 ![Wannabe microservices](/img/microservices-simple/wannabe.jpg)
 
@@ -140,12 +140,11 @@ This is still much valid for microservices, and you're even getting new benefits
 
 But to get this far you need to be really serious about microservices, so I presume you've done your homework and are anxious to take things to a new level.
 
-
 ## Conclusion
 
 So, if you are a master at microservices, there is nothing new here. If you wanted to get an idea what are microservices, hopefully you got that. And if you thought microservices are just services less than 200 lines of code, well, I hope you got re-educated. You can create a truly abhorrent mess with microservices, like with any powerful tool. A bit of thought and planning goes a long way here, too. And this is just the microservices model for 2016 - I bet in 2020 we will be lauhghing at how naive that was.
 
-Idea of using simple examples written from scratch to introduce the idea was to make it easy to approach. Next time I'll write about using some building blocks to accelerate your work. You will hear about things like Seneca, Eureka, Consul, Ribbon, and Hystrix - well at least some of them. Or you can go look them up right now. Pretty cool stuff! Also, read up on Scala Actors - they're pretty cool stuff if you want to go all reactive with your microservices.
+Idea of using simple examples written from scratch to introduce the idea was to make it easy to approach. Next time I'll write about using some building blocks to accelerate your work. You will hear about things like Seneca, Eureka, Consul, Ribbon, and Hystrix - well at least some of them. Or you can go look them up right now. Pretty cool stuff! Also, read up on Scala Actors - they're pretty cool stuff if you want to go all reactive with your microservices. I also have some thoughts on reusing SOA patterns like service choreography and orchestration to present, so stay tuned.
 
 Meanwhile, if you like to play with the simple examples shown here, they're in The Git: 
 
