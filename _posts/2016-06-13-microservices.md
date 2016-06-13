@@ -112,6 +112,16 @@ API management and API versioning? Once you start running this architecture, you
 
 ![One plate of spaghetti, anyone?](/img/microservices-simple/spaghetti.jpg)
 
+Basically at this point you want to have some kind of pattern/strategy to have your microservices behaving nicely together. One point being that if services all own their data, there must be some place where data from services is merged, used together.
+
+There are some options:
+
+1. UI knows all microservices and uses them all directly as needed
+2. Service Orchestration - there's a master-microservice, that will control all the other services. If necessary, it may also act as microservices Facade, hiding complexities from client.
+3. Service Choreography - all services are equal, they just converse together. This model works best if there's some kind of bus or channel and loose binding model - definite benefit here is very robust architecture, not dependent on any single module.
+
+## How secure can that be?
+
 Finally some words about microservices security. In the monolithic days of Enterprise Servers, you would typically only spend time to resolve the security settings once, then reuse them until hell froze over. For example, set up that LDAP registry in your Websphere, and then all applications deployed in that server can use the same identity and grouping information to authorize their access. Well now we don't have those heavyweight servers anymore, in the world of microservices. (They wouldn't be very micro, would they? That's more like put-all-your-egs-in-same-huge-basket-architecture.) 
 
 What we have is integration, and co-operation. So you should have a microservice, or existing single sign-on mechanism deal with identity once, somewhere, then reuse that same information for all services. Technologies like OAUTH are popular here, but simpler versions can also use JWT tokens - or even custom headers with AD authentication. Of course there are also other considerations, such as where and what you need/want to decrypt, how you maintain container level security such as certificates, ssl settings, etc, but there's less new things to discover here.
@@ -144,12 +154,12 @@ But to get this far you need to be really serious about microservices, so I pres
 
 So, if you are a master at microservices, there is nothing new here. If you wanted to get an idea what are microservices, hopefully you got that. And if you thought microservices are just services less than 200 lines of code, well, I hope you got re-educated. You can create a truly abhorrent mess with microservices, like with any powerful tool. A bit of thought and planning goes a long way here, too. And this is just the microservices model for 2016 - I bet in 2020 we will be lauhghing at how naive that was.
 
-Idea of using simple examples written from scratch to introduce the idea was to make it easy to approach. Next time I'll write about using some building blocks to accelerate your work. You will hear about things like Seneca, Eureka, Consul, Ribbon, and Hystrix - well at least some of them. Or you can go look them up right now. Pretty cool stuff! Also, read up on Scala Actors - they're pretty cool stuff if you want to go all reactive with your microservices. I also have some thoughts on reusing SOA patterns like service choreography and orchestration to present, so stay tuned.
+Idea of using simple examples written from scratch to introduce the idea was to make it easy to approach. I plan to later write out what you can do with some of the existing tools like Eureka and Hystrix. There are also other pretty cool tools out there such as Consul and Ribbon - and Scala Actors are pretty cool stuff, too! 
 
 Meanwhile, if you like to play with the simple examples shown here, they're in The Git: 
 
 [Simple Microservices Repository](https://github.com/crystoll/blog-simple-microservices)
 
-Note that they're not very good or interesting examples, just food for thought. Likewise, if you have comments, or disagree or agree strongly with some points made here, please let me know, that's why the comments section exists ;)
+Note that they're not very good or interesting examples, just food for thought, barebones enough to get a taste of what challenges lie ahead when you start doing microservices. Likewise, if you have comments, or disagree or agree strongly with some points made here, please let me know, that's why the comments section exists ;)
 
 
