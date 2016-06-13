@@ -120,6 +120,8 @@ There are some options:
 2. Service Orchestration - there's a master-microservice, that will control all the other services. If necessary, it may also act as microservices Facade, hiding complexities from client.
 3. Service Choreography - all services are equal, they just converse together. This model works best if there's some kind of bus or channel and loose binding model - definite benefit here is very robust architecture, not dependent on any single module.
 
+This model only describes who is aware of all the services, who knows that a service exists? There are also other patterns/tools, such as API Gateways, which can answer this question and more questions, offering centralized everything. Yet another case of facade pattern in action.
+
 ## How secure can that be?
 
 Finally some words about microservices security. In the monolithic days of Enterprise Servers, you would typically only spend time to resolve the security settings once, then reuse them until hell froze over. For example, set up that LDAP registry in your Websphere, and then all applications deployed in that server can use the same identity and grouping information to authorize their access. Well now we don't have those heavyweight servers anymore, in the world of microservices. (They wouldn't be very micro, would they? That's more like put-all-your-egs-in-same-huge-basket-architecture.) 
