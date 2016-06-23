@@ -6,7 +6,7 @@ excerpt: Solita ordered passion pale ale from Maku brewing and got introduction 
 tags: 
 - Beercraft
 ---
-Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple offers to different breweries. Among the offers we selected Maku brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
+Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple requests for proposals to different breweries. Among the offers we selected Maku brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
 
 ## Maku brewing
 
