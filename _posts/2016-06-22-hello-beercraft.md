@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Maku brewing and Solita's passion IPA
+title: Maku brewing and Solita's passion pale ale
 author: Rinorragi
-excerpt: Solita ordered passion IPA from Maku brewing and got introduction to their craftmenship
+excerpt: Solita ordered passion pale ale from Maku brewing and got introduction to their craftmenship
 tags: 
 - Beercraft
 ---
-Solita wanted to have their own beer. We had our internal voting for the taste of the beer and passion IPA won the contest. At 21.6.2016 we got chance to taste 20l of the beer and make adjustements to it. All started with bus trip from Solita's office at Helsinki to Tuusula. We had great time already in the bus in discussion of projects and in expectations of the upcoming beer. 
+Solita wanted to have their own beer. We had our internal voting for the taste of the beer and passion passion ale won the contest. At 21.6.2016 we got chance to taste 20l of the beer and make adjustements to it. All started with bus trip from Solita's office at Helsinki to Tuusula. We had great time already in the bus in discussion of projects and in expectations of the upcoming beer. 
 
-Here is our passion IPA in the glass. 
+Here is our passion pale ale in the glass. 
 ![Tools](/img/hello-beercraft/glass_of_beer.jpg)
 
 ## Maku brewing
@@ -34,10 +34,6 @@ Committee that chose winner said that the winner was able to combine design and 
 Smell and taste had refhresing taste of passion fruit as we wanted. Citra and Jarrylo hops created bitterness in the end that was suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We had 20l test series and we were so happy that we let Maku to continue without making any changes. 
 
 Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.blogspot.fi/2016/06/pieni-yritysvierailu-maku-brewingille.html) about the tasting in finnish. 
-
-Here is our memo about the beer tasting
-
-![Tools](/img/hello-beercraft/tasting_notes.jpg)
 
 ## Brewing process
 
