@@ -28,7 +28,7 @@ Committee choosing the winner said he was able to combine design and technical s
 
 ## Tasting notes
 
-Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops created bitterness in the end that was suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were so happy about the test batch that we let Maku brewing to continue without making any changes. 
+Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops creates bitterness in the end that is suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were so happy about the test batch that we let Maku brewing to continue without making any changes. 
 
 Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.blogspot.fi/2016/06/pieni-yritysvierailu-maku-brewingille.html) about the tasting in finnish. 
 
