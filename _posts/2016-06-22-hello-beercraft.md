@@ -49,4 +49,4 @@ Bottling machine
 
 ## 
 
-Our end product will be ready at the october 2016. It will be just in time for Solita's 20 years party! Now we have all set and we can just wait that Maku Brewing finishes the project. We have great recipe for great beer, we have great design for nice outfit and we have end users waiting to see the outcome. I am sure that this will be a successful project!
+Our end product will be ready at the october 2016. It will be just in time for Solita's 20 years party! Now we have all set and we can just wait that Maku Brewing finishes the project. Now that we have a great recipe and label design for a beer, we are eagerly waiting for the end product to oume out in fall. 
