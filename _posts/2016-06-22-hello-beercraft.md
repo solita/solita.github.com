@@ -10,7 +10,7 @@ Solita wanted to create a beer of their own. The process was much like a softwar
 
 ## Maku Brewing
 
-[Maku Brewing](http://www.makubrewing.com/) is 2014 established finnish craft beer brewery making great beers. Their IPA and Amber ale are both award winning beers and really much for my liking. 
+[Maku Brewing](http://www.makubrewing.com/) is a 2014 established finnish craft beer brewery making great beers. Their IPA and Amber ale are both award winning beers and really much to my liking. 
 
 After fitting 20 nerds into a bus and travelling to Tuusula, we got an introduction to their brewery by Henri Parviainen who is just leaving the IT business and starting to work full-time at brewery. Their business started when Henri's friend asked Henri and few other guys to invest few hundred euros to 20l Braumeister home brewery system at 2014. Braumeister automates the boiling process for home brewery. After half a year they bought bigger equipments from another brewery and started to make bigger amounts of beer at the same time. Now they have 3000l boiling equipment and 6x 6000l and 4x 2000l fermentation tanks. 
 
