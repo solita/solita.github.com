@@ -6,7 +6,7 @@ excerpt: Solita ordered passion pale ale from Maku brewing and got introduction 
 tags: 
 - Beercraft
 ---
-Solita wanted to have their own beer. We had our internal voting for the taste of the beer and passion passion ale won the contest. At 21.6.2016 we got chance to taste 20l of the beer and make adjustements to it. All started with bus trip from Solita's office at Helsinki to Tuusula. We had great time already in the bus in discussion of projects and in expectations of the upcoming beer. 
+Solita wanted to have their own beer. We had our internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. At 21.6.2016 we got chance to taste 20l of the beer and make adjustments to it. All started with bus trip from Solita's office at Helsinki to Tuusula. We had great time already in the bus in discussion of projects and expectations of the upcoming beer. 
 
 Here is our passion pale ale in the glass. 
 ![Tools](/img/hello-beercraft/glass_of_beer.jpg)
@@ -16,13 +16,11 @@ Here is our passion pale ale in the glass.
 [Maku brewing](http://www.makubrewing.com/) is few years old finnish craft beer brewery. They are making great beers. Their IPA is best most likely the best IPA in the Finland and it has also been awarded. Their amber ale is also great and has been awarder as well. After fitting 20 nerds into a bus we got introductionary into their brewery by Henri Parviainen who is just leaving the IT business and starting to be full-day at brewery. 
 
 Here we are at the bottling chamber. It serves also as a warehouse. 
-
 ![Tools](/img/hello-beercraft/the_people.jpg)
 
 ## Contest for label 
 
 We had our internal contest for best labels. Here is a picture of winning label. 
-
 ![Tools](/img/hello-beercraft/intohimo.png)
 
 There were plenty of great contesters but I have to admit that I was imressed by the winner. Winner created 3D model that can be found at [this website](http://dev.makarainen.org/intohimo/)
@@ -37,16 +35,14 @@ Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.
 
 ## Brewing process
 
-We got introductionary into Maku Brewing brewing process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to months depending on the type of the beer. And finally the end product will be of course canned or bottled.
+We got introduction into Maku Brewing brewing process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to months depending on the type of the beer. And finally the end product will be of course canned or bottled.
 
 I have no pictures about tanks, because well... they were tanks and was not that interesting. But here are some machines with electronics! 
 
 Canning machine 
-
 ![Tools](/img/hello-beercraft/canning_machine_2.jpg)
 
 Bottling machine
-
 ![Tools](/img/hello-beercraft/bottling_machine.jpg)
 
 ## Final notes 
