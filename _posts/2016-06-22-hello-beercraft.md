@@ -6,7 +6,7 @@ excerpt: Solita ordered passion pale ale from Maku brewing and got introduction 
 tags: 
 - Beercraft
 ---
-Solita wanted to have their own beer. The process was like a software project. First we tried to figure out what we want. We had our internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple offers to different breweries. Among the offers we selected Maku brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got chance to taste the beer and make adjustments to it. All started with bus trip from Solita's office at Helsinki to Tuusula. We had great time already in the bus in discussion of projects and expectations of the upcoming beer. 
+Solita wanted to create a beer of their own. The process was like a software project. First we tried to figure out what we want. We had our internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple offers to different breweries. Among the offers we selected Maku brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
 
 ## Maku brewing
 
@@ -22,9 +22,9 @@ Here we are at the bottling chamber. It serves also as a warehouse.
 We had our internal contest for best labels. Here is a picture of winning label. 
 ![Tools](/img/hello-beercraft/intohimo.png)
 
-There were plenty of great contesters but I have to admit that I was imressed by the winner. Winner created 3D model that can be found at [this website](http://dev.makarainen.org/intohimo/)
+There were plenty of great contesters but I have to admit that I was imressed by the winner. The winner even created a 3D model that can be found [here](http://dev.makarainen.org/intohimo/)
 
-Committee that chose winner said that the winner was able to combine design and techinical skills in a Solita like manner. Colleagues said that the look and feel was really fresh, it had artistic passion and everything fits!
+Committee choosing the winner said he was able to combine design and techinical skills in a Solita like manner. Colleagues said that the look and feel was really fresh, it had artistic passion and everything fits!
 
 ## Tasting notes
 
