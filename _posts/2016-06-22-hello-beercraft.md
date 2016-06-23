@@ -12,7 +12,7 @@ Solita wanted to create a beer of their own. The process was much like a softwar
 
 [Maku brewing](http://www.makubrewing.com/) is 2014 established finnish craft beer brewery making great beers. Their IPA and Amber ale are both award winning beers and really much for my liking. 
 
-After fitting 20 nerds into a bus and travelling to Tuusula, we got an introduction to their brewery by Henri Parviainen who is just leaving the IT business and starting to work full-time at brewery. Their business started when few guys invested few hundred euros to 20l Braumeister home brewery system at 2014. Braumeister automates the boiling process for home brewery. After half a year they bought bigger equipments from another brewery and started to make bigger amounts of beer at the same time. Now they have 3000l boiling equipment and 6x 6000l and 4x 2000l fermentation tanks. 
+After fitting 20 nerds into a bus and travelling to Tuusula, we got an introduction to their brewery by Henri Parviainen who is just leaving the IT business and starting to work full-time at brewery. Their business started when Henri's friend asked Henri and few other guys to invest few hundred euros to 20l Braumeister home brewery system at 2014. Braumeister automates the boiling process for home brewery. After half a year they bought bigger equipments from another brewery and started to make bigger amounts of beer at the same time. Now they have 3000l boiling equipment and 6x 6000l and 4x 2000l fermentation tanks. 
 
 Here we are at the bottling chamber. It serves also as a warehouse. 
 ![Tools](/img/hello-beercraft/the_people.jpg)
@@ -24,7 +24,7 @@ We had our internal contest for best labels. Here is a picture of winning label.
 
 There were plenty of great contesters but I have to admit that I was imressed by the winner. The winner even created a 3D model that can be found [here](http://dev.makarainen.org/intohimo/)
 
-Committee choosing the winner said he was able to combine design and techinical skills in a Solita like manner. Colleagues said that the look and feel was really fresh, it had artistic passion and everything fits!
+Committee choosing the winner said he was able to combine design and technical skills in a Solita like manner. Colleagues said that the look and feel was really fresh, it had artistic passion and everything fits!
 
 ## Tasting notes
 
