@@ -6,7 +6,7 @@ excerpt: Solita ordered passion pale ale from Maku Brewing and got introduction 
 tags: 
 - Beercraft
 ---
-Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple requests for proposals to different breweries. Among the offers we selected Maku Brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
+Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. Passion is one of the key values in Solita. After knowing what we need we sent multiple requests for proposals to different breweries. Among the offers we selected Maku Brewing and decided with them that the recipe needs to be tested first. Maku brewing created 20l patch of the recipe they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
 
 ## Maku Brewing
 
@@ -28,7 +28,7 @@ Committee choosing the winner said he was able to combine design and technical s
 
 ## Tasting notes
 
-Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops creates bitterness in the end that is suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were very pleased with the test batch thus Maku Brewing will continue without making any changes to receipt. 
+Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops creates bitterness in the end that is suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were very pleased with the test batch thus Maku Brewing will continue without making any changes to recipe. 
 
 Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.blogspot.fi/2016/06/pieni-yritysvierailu-maku-brewingille.html) about the tasting in finnish. 
 
@@ -37,7 +37,7 @@ Here is our passion pale ale in the glass.
 
 ## Product development process
 
-We got introduction into Maku Brewing product development process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to two months depending on the type of the beer. And finally the end product will be of course canned or bottled.
+We got introduction into Maku Brewing product development process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the recipe enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to two months depending on the type of the beer. And finally the end product will be of course canned or bottled.
 
 I have no pictures of tanks, because well... they are tanks and not that interesting. But here are some machines with electronics! 
 
@@ -49,4 +49,4 @@ Bottling machine
 
 ## 
 
-Our end product will be ready at the october 2016. It will be just in time for Solita's 20 years party! Now we have all set and we can just wait that our contactor finishes the project. We have receipt for great beer, design for nice outfit and known end user group that is waiting the end product to get ready. 
+Our end product will be ready at the october 2016. It will be just in time for Solita's 20 years party! Now we have all set and we can just wait that Maku Brewing finishes the project. We have great recipe for great beer, we have great design for nice outfit and we have end users waiting to see the outcome. I am sure that this will be a successful project!
