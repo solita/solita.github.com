@@ -25,7 +25,7 @@ We had our internal contest for best labels. Here is a picture of winning label.
 
 There were plenty of great contesters but I have to admit that I was imressed by the winner. Winner created 3D model that can be found at [this website](http://dev.makarainen.org/intohimo/)
 
-Committee that chose winner said that the winner was able to combine design and techinical skills in a Solita like manner. Colleagues said that the lool and feel was really fresh with artistic passion, everything fits!
+Committee that chose winner said that the winner was able to combine design and techinical skills in a Solita like manner. Colleagues said that the look and feel was really fresh, it had artistic passion and everything fits!
 
 ## Tasting notes
 
