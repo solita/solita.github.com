@@ -35,9 +35,9 @@ Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.
 Here is our passion pale ale in the glass. 
 ![Tools](/img/hello-beercraft/glass_of_beer.jpg)
 
-## Brewing process
+## Product development process
 
-We got introduction into Maku Brewing brewing process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to months depending on the type of the beer. And finally the end product will be of course canned or bottled.
+We got introduction into Maku Brewing product development process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to two months depending on the type of the beer. And finally the end product will be of course canned or bottled.
 
 I have no pictures of tanks, because well... they are tanks and not that interesting. But here are some machines with electronics! 
 
