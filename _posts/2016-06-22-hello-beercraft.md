@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Maku brewing and Solita's passion pale ale
+title: Maku Brewing and Solita's passion pale ale
 author: Rinorragi
-excerpt: Solita ordered passion pale ale from Maku brewing and got introduction to their craftmenship
+excerpt: Solita ordered passion pale ale from Maku Brewing and got introduction to their craftmenship
 tags: 
 - Beercraft
 ---
-Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple requests for proposals to different breweries. Among the offers we selected Maku brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
+Solita wanted to create a beer of their own. The process was much like a software project. First we tried to figure out what we wanted. We had internal voting for the taste and name for the beer and "Intohimo" passion pale ale won the contest. After knowing what we need we went and sent multiple requests for proposals to different breweries. Among the offers we selected Maku Brewing and decided with them that the receipt needs to be tested first. Maku brewing created 20l patch of the receipt they invented for us and at 21.6.2016 we got an opportunity to taste the beer and give feedback until final brew. All started with a bus trip from Solita's office at Helsinki to Tuusula. We had a great time already in the bus in discussion of projects and expectations of the upcoming beer. 
 
-## Maku brewing
+## Maku Brewing
 
-[Maku brewing](http://www.makubrewing.com/) is 2014 established finnish craft beer brewery making great beers. Their IPA and Amber ale are both award winning beers and really much for my liking. 
+[Maku Brewing](http://www.makubrewing.com/) is 2014 established finnish craft beer brewery making great beers. Their IPA and Amber ale are both award winning beers and really much for my liking. 
 
 After fitting 20 nerds into a bus and travelling to Tuusula, we got an introduction to their brewery by Henri Parviainen who is just leaving the IT business and starting to work full-time at brewery. Their business started when Henri's friend asked Henri and few other guys to invest few hundred euros to 20l Braumeister home brewery system at 2014. Braumeister automates the boiling process for home brewery. After half a year they bought bigger equipments from another brewery and started to make bigger amounts of beer at the same time. Now they have 3000l boiling equipment and 6x 6000l and 4x 2000l fermentation tanks. 
 
@@ -28,7 +28,7 @@ Committee choosing the winner said he was able to combine design and technical s
 
 ## Tasting notes
 
-Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops creates bitterness in the end that is suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were very pleased with the test batch thus Maku brewing will continue without making any changes to receipt. 
+Smell and taste has refreshing notes of passion fruit. Citra and Jarrylo hops creates bitterness in the end that is suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were very pleased with the test batch thus Maku Brewing will continue without making any changes to receipt. 
 
 Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.blogspot.fi/2016/06/pieni-yritysvierailu-maku-brewingille.html) about the tasting in finnish. 
 
