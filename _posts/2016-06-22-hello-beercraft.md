@@ -19,7 +19,7 @@ Here we are at the bottling chamber. It serves also as a warehouse.
 
 ## Contest for label 
 
-We had our internal contest for best labels. Here is a picture of winning label. 
+We had an internal contest for the label of the beer. Here is a picture of the winning label. 
 ![Tools](/img/hello-beercraft/intohimo.png)
 
 There were plenty of great contesters but I have to admit that I was imressed by the winner. The winner even created a 3D model that can be found [here](http://dev.makarainen.org/intohimo/)
