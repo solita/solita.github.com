@@ -28,7 +28,7 @@ Committee choosing the winner said he was able to combine design and techinical 
 
 ## Tasting notes
 
-Smell and taste had refreshing taste of passion fruit as we wanted. Citra and Jarrylo hops created bitterness in the end that was suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We had 20l test series and we were so happy that we let Maku to continue without making any changes. 
+Smell and taste had refreshing taste of passion fruit as we wanted. Citra and Jarrylo hops created bitterness in the end that was suitable for any summer beer. We were happy about how well passion fruit came out in both smell and taste. We were so happy about the test batch that we let Maku brewing to continue without making any changes. 
 
 Fellow from Solita got there before me and wrote this [blog](http://tuopillinen.blogspot.fi/2016/06/pieni-yritysvierailu-maku-brewingille.html) about the tasting in finnish. 
 
@@ -39,7 +39,7 @@ Here is our passion pale ale in the glass.
 
 We got introduction into Maku Brewing brewing process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to months depending on the type of the beer. And finally the end product will be of course canned or bottled.
 
-I have no pictures about tanks, because well... they were tanks and was not that interesting. But here are some machines with electronics! 
+I have no pictures about tanks, because well... they are tanks and not that interesting. But here are some machines with electronics! 
 
 Canning machine 
 ![Tools](/img/hello-beercraft/canning_machine_2.jpg)
