@@ -13,7 +13,7 @@ Here is our passion pale ale in the glass.
 
 ## Maku brewing
 
-[Maku brewing](http://www.makubrewing.com/) is few years old finnish craft beer brewery. They are making great beers. Their IPA is best most likely the best IPA in the Finland and it has also been awarded. Their amber ale is also great and has been awarder as well. After fitting 20 nerds into a bus we got introductionary into their brewery by Henri Parviainen who is just leaving the IT business and starting to be full-day at brewery. 
+[Maku brewing](http://www.makubrewing.com/) is few years old finnish craft beer brewery. They are making great beers. Their IPA is most likely the best finnish IPA and it got some awards as well. Their amber ale is also great and it has been awarder as well. After fitting 20 nerds into a bus we got introductionary into their brewery by Henri Parviainen who is just leaving the IT business and starting to be full-day at brewery. 
 
 Here we are at the bottling chamber. It serves also as a warehouse. 
 ![Tools](/img/hello-beercraft/the_people.jpg)
