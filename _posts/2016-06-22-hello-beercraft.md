@@ -43,7 +43,7 @@ Here is our memo about the beer tasting
 
 We got introductionary into Maku Brewing brewing process. They like to start their process with 20l braumeister (that was the original investment). After they have evaluated the receipt enough they change into 3000l mashing vessel. After mashing the product will be transferred into fermentation tanks. In fermentation tanks the end product will be from few weeks to months depending on the type of the beer. And finally the end product will be of course canned or bottled.
 
-I have no pictures about tanks, because well... they were tanks and was not that interesting. But here are some machines with electorics! 
+I have no pictures about tanks, because well... they were tanks and was not that interesting. But here are some machines with electronics! 
 
 Canning machine 
 
