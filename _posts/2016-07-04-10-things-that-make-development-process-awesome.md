@@ -15,7 +15,8 @@ Software development is enjoyable, but there are many little things that can mak
 
 As a member of a software development team I want to make sure that changes I make into the codebase are buildable - at least in the main branch that all other developers use. Tracking build statuses is thus important and they should be visible to concerned developers. We keep a TV screen at our office near the development team showing not only the current built statuses, but also sprint progress and the number of found bugs. Some of us have also installed a [Mac app](http://ccmenu.org/) that shows build statuses in the menu bar.
 
-![Showing build statuses near the project team helps us to easily view the current situation](/img/10-things-that-make-development-process-awesome/builds.png)
+![Build statuses](/img/10-things-that-make-development-process-awesome/builds.png)
+*Showing build statuses near the project team helps us to easily view the current situation*
 
 Tracking nightly and production builds is nice but would it be cool to also track feature branches too? Since Harja is an open source project hosted on GitHub we are able to use [Travis CI](https://travis-ci.org/). Travis helps us to monitor the current build status for all pull requests. This way we can see if the stuff we are about to merge into our main branch is compilable and has passed all tests. Awesome!
 
@@ -49,12 +50,14 @@ Excepting the correction of spelling errors, every change in our codebase is tes
 Testing a task is often immidiately followed by a code review session. Simple changes can be reviewed by one person alone, but if the task is complicated, the original author of the task can introduce the changes to the reviewer.
 
 ![Code review session in progress](/img/10-things-that-make-development-process-awesome/code_review.jpg)
+*Code review session in progress*
 
 ## 6. Testing day
 
 While I am a big fan of automated unit tests I also believe that not everything can be tested automatically - or at least it would require an unreasonable amount of time and effort. This is why we still need manual testing, but unfortunately it has sometimes proved difficult in our project. It's not that we don't test all new features we implement, but in addition to that we have wanted to allocate time for separate testing sessions, during which every project member spends some time testing complete user workflows (alone or in pairs). This did not work well, however, as the pre-allocated time slot was skipped many times simply because people did not have time to participate. Furthermore, some of us also felt not being productive enough by simply testing the system. Changing the pre-allocated time slot multiple times did not seem to solve the problem so we decided to allocate a whole day for the testing session.
 
 ![Harja testing day](/img/10-things-that-make-development-process-awesome/testingday.jpg)
+*Harja testing day*
 
 Wait, a whole day? Doesn't this just mean even more time "wasted" in testing? This time, the testing day was allocated well in advance and the day was spent completely out of office in a quiet place - no meetings, no context switching, just focusing on testing the system. The testing day turned out to be a success. Everyone felt the day was valuable and we were able to find many potential problems.
 
