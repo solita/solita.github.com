@@ -9,11 +9,13 @@ tags:
 - culture
 ---
 
-Software development is enjoyable, but there are many little things that can make the difference between it being enjoyable and awesome. Many of these are related to the working methods used in the project. At Solita, project teams are relatively free to make their own choices regarding software development methods they use. In this article, I want to share some of the methods we have used in [Harja](https://github.com/finnishtransportagency/harja) project. Some of these might seem obvious, but having been in software projects were none of these things were applied I can appreciate their presence. So here goes!
+Software development is enjoyable, but there are many little things that can make the difference between it being enjoyable and awesome. Many of these are related to the working methods used in the project. At Solita, project teams are relatively free to make their own choices regarding software development methods they use. In this article, I want to share some of the methods we have used in [Harja](https://github.com/finnishtransportagency/harja) project. Some of these might seem obvious, but having been in software projects where none of these things were applied I can appreciate their presence. So here goes!
 
 ## 1. Build statuses available
 
 As a member of a software development team I want to make sure that changes I make into the codebase are buildable - at least in the main branch that all other developers use. Tracking build statuses is thus important and they should be visible to concerned developers. We keep a TV screen at our office near the development team showing not only the current built statuses, but also sprint progress and the number of found bugs. Some of us have also installed a [Mac app](http://ccmenu.org/) that shows build statuses in the menu bar.
+
+![Showing build statuses near the project team helps us to easily view the current situation](/img/10-things-that-make-development-process-awesome/builds.png)
 
 Tracking nightly and production builds is nice but would it be cool to also track feature branches too? Since Harja is an open source project hosted on GitHub we are able to use [Travis CI](https://travis-ci.org/). Travis helps us to monitor the current build status for all pull requests. This way we can see if the stuff we are about to merge into our main branch is compilable and has passed all tests. Awesome!
 
@@ -43,6 +45,10 @@ The difference between using software development tools already provided by the 
 ## 5. Everything is tested by a fellow developer
 
 Excepting the correction of spelling errors, every change in our codebase is tested by a fellow developer. When a new feature is implemented or a bug is fixed, it is deployed into a testing server, which is largely equivalent to our piloting server. In addition to deploying a task to the testing server, we create a pull request, move the task into the testing column and write a short introduction on what is implemented or fixed and how it should be tested. This allows anyone in our team to quickly pick a testable task and test it. This makes testing easier and more time-efficient, since there is no need to locally checkout the feature branch and wait for it to be built.
+
+Testing a task is often immidiately followed by a code review session. Simple changes can be reviewed by one person alone, but if the task is complicated, the original author of the task can introduce the changes to the reviewer.
+
+![Code review session in progress](/img/10-things-that-make-development-process-awesome/code_review.jpg)
 
 ## 6. Testing day
 
