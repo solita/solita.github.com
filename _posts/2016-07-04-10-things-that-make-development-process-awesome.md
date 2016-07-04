@@ -66,7 +66,7 @@ In our project the current up-to-date bug list is open to our development team a
 
 In big systems like Harja there are usually multiple different places that require a special domain knowledge to work with. This can lead into a situation where a single developer becomes responsible of certain parts the system. This is not in itself a bad thing, but can lead to problems if other developers cannot easily enter and make changes to these parts of the system. We believe that there should not be hard set rules on who is responsible of different parts of the codebase. This encourages developers to learn new things and lowers the barriers to freely explore the system.
 
-## 10 Weekly code review sessions
+## 10. Weekly code review sessions
 
 Since our project is relatively big, it has become clear that none of the six developers have a complete low-level understanding of the whole system. Furthermore, code intended for re-use might not always be easy to find. To fix this problem, we aim to have a code reviewing session every Friday. In this session, which usually takes 1 to 2 hours, everyone is expected to introduce changes he has made in the codebase during the current week. This, in addition to regular daily Scrum meetings, helps us to share knowledge on what others have been doing and what changes have been made. And of course, who does not enjoy sharing discussion on all things coding with one's beloved teammates.
 
