@@ -48,6 +48,8 @@ Excepting the correction of spelling errors, every change in our codebase is tes
 
 While I am a big fan of automated unit tests I also believe that not everything can be tested automatically - or at least it would require an unreasonable amount of time and effort. This is why we still need manual testing, but unfortunately it has sometimes proved difficult in our project. It's not that we don't test all new features we implement, but in addition to that we have wanted to allocate time for separate testing sessions, during which every project member spends some time testing complete user workflows (alone or in pairs). This did not work well, however, as the pre-allocated time slot was skipped many times simply because people did not have time to participate. Furthermore, some of us also felt not being productive enough by simply testing the system. Changing the pre-allocated time slot multiple times did not seem to solve the problem so we decided to allocate a whole day for the testing session.
 
+![Harja testing day](/img/10-things-that-make-development-process-awesome/testingday.jpg)
+
 Wait, a whole day? Doesn't this just mean even more time "wasted" in testing? This time, the testing day was allocated well in advance and the day was spent completely out of office in a quiet place - no meetings, no context switching, just focusing on testing the system. The testing day turned out to be a success. Everyone felt the day was valuable and we were able to find many potential problems.
 
 ## 7. Quick usability tests
