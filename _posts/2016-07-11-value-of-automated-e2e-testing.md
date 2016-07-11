@@ -17,7 +17,7 @@ tags:
 
 The software project concerned started in the beginning of autumn 2010. I had the honor to work in the project as a full stack developer from its beginning to June 2014 when my maternity leave began. The project's goal was to renew a 30 years old, technically outdated registry and everything attached to it, such as the user inteface and all the integrations. After three years of hard work the application was taken into use in production. The project is still alive and kicking, in maintenance mode with some feature developement.
 
-##The Application
+## The Application
 
 The application is written in Java. The actual user interface of the registry is developed as a web application using Apache Wicket, which is an Java web application framework. The data is stored in Oracle database and queried with direct SQL-queries, without any intermediate layer such as Hibernate. There are also numerous integrations bubbling under, powered by Mule. 
 
@@ -27,13 +27,13 @@ At least for me, the variety of showing data depending on the context was also a
 
 ![A bunch of icons](/img/value-of-e2e-testing/ikonit.JPG)
 
-##The First Try with Wicket Unit Tests
+## The First Try with Wicket Unit Tests
 
 The first automated e2e-tests were written using [Wicket Unit Tests](https://cwiki.apache.org/confluence/display/WICKET/Unit+Test). The unit tests utilized WicketTester, which runs the application without the need to actually run a web server. You can validate the web page opening, click some buttons, fill fields, run the business logic and validate the web page after. The Wicket tests are pretty quick to run and fairly simple to write. But there are also disadvantages, the tests are not actually testing the full pipe, because the lack of web server and browser. Also, the Wicket page tester does not render the page, meaning that in a case of exception or assertion error, the actual web page cannot be seen. It is like trying to find a needle in a dark room. Furthermore, the actual page structure can be seen only in debug output, i.e. finding the components to assert is not always easy. 
 
 However, despite the impediments, these tests were found very helpful. The objective was reached, the tests made the user interface more robust. The tests verifiyed the icons were visible and clickable in the specified situations, and even more, if you broke functionality by accident it was exposed by a test.
 
-##The New Era with JBehave and Selenium
+## The New Era with JBehave and Selenium
 
 After a while, we got a testing specialist in our project, and a new era began. He started to build real automated e2e-tests with JBehave and Selenium. JBehave enables writing the tests as stories in text files. Each story file has a matching Java class implementing the steps described in the story. The steps and the actual test code are mapped together with annotations. The web page actions, button clicks, element searches and so on are written in separate bridge classes (e.g. MainItemPageBridge.java). The tests are run with the help of Selenium Web Driver, which links the actual web page and the test code together.
 
@@ -49,7 +49,7 @@ Our end users were using Internet Explorer, but however, we could not get the te
 
 However, despite minor disadvantages I find the automated e2e tests really valuable. It is not enough to test that the data is queried correctly from the database. In a full stack software there are still numerous layers where something can go wrong. For example, some sloppy CSS notation can hide an otherwise perfectly functioning element. The e2e tests bring some reliability in programming. Of course, we have a loads of unit tests also in lower levels testing data access objects, services, business logic, integrations and so on. The e2e tests are too heavy and too far away from the actual problem if you are trying to debug a database operation or some business logic functionality.
 
-##The Value Obtained
+## The Value Obtained
 
 The comprehensive regression test suite including both the e2e tests and the unit tests gives depelopes courage to refactor the code base more freely. After all, all development is easier, because the mistakes are quite likely to expose on some layer of tests. This is extremely valuable when new developers are introduced to the project. In a long-lasting project you cannot avoid coders changing, some are coming and some are going. Of course, the rookies cannot have the all functionality and information in their heads as the experienced, tough warriors. Hence, the automated tests lower the step when entering to a new project, and as I think, ease the mental burden of both newcomers and old-timers. I would say, that extensive testing also enables healthy and needed rotation of developers between projects. The extensive automated testing is crucial also in the maintenance phase of project. The changes to code base might be done less frequently and the developers making the changes may not be the original personnel any more.
 
