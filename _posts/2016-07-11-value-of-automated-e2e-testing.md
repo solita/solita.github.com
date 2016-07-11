@@ -4,7 +4,7 @@ author: riikkanen
 title: >
   The Value of Automated e2e-testing in a Software Project
 excerpt: >
-  A peek into automated e2e-testing in a software project. The first try with Wicket Page Tester. The second and more sophisticated version with JBehave and Selenium.
+  A peek into automated e2e-testing in a software project with Wicket Page Tester and JBehave/Selenium.
 tags:
 - Java
 - testing
