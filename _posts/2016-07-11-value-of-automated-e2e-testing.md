@@ -25,7 +25,7 @@ The views in the user interface are designed in such a way that the user can see
 
 At least for me, the many ways to show data were also a burden. The functionality behind hiding and showing the icons respectively was very easy to break by sincere mistake when implementing some new feature or tweaking an existing one. Also, the number of different permutations were so many that it was nearly impossible to make full regression testing just by clicking the web site manually. I think that was the main reason we started to write automated end-to-end-tests in quite an early phase of the project.
 
-![A bunch of icons](/img/value-of-automated-e2e-testing/ikonit.JPG)
+![A bunch of icons](/img/value-of-e2e-testing/ikonit.JPG)
 
 ##The First Try with Wicket Unit Tests
 
@@ -37,7 +37,7 @@ However, despite the impediments, these tests were found very helpful. The objec
 
 After a while, we got a testing specialist in our project, and a new era began. He started to build real automated e2e-tests with JBehave and Selenium. JBehave enables writing the tests as stories in text files. Each story file has a matching Java class implementing the steps described in the story. The steps and the actual test code are mapped together with annotations. The web page actions, button clicks, element searches and so on are written in separate bridge classes (e.g. MainItemPageBridge.java). The tests are run with the help of Selenium Web Driver, which links the actual web page and the test code together.
 
-![An example of JBehave and Selenium in action](/img/value-of-automated-e2e-testing/jbehave.png)
+![An example of JBehave and Selenium in action](/img/value-of-e2e-testing/jbehave.png)
 
 At first, there was a huge gap between code implemented and code tested with JBehave tests. There were a couple of guys just writing tests for the already implemented features. However, soon it was clear, that the gap would never be surpassed this way. Everyone in the project should learn writing the new type of tests. In my opinion, in the beginning it was slow and not very easy but bit by bit it became a natural way to write tests. Of course, the test framework developed side by side with the tests, because we wrote a lot of common utility methods and tools.
 
