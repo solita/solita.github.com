@@ -2,7 +2,7 @@
 layout: post
 author: juhofriman
 title: Crafting React with love
-excerpt: React has been a real game changer in how we think about front-end architechture. I present a simple way of building quite robust and lovable React applications using single point of truth inspired by re-frame architechture pattern.
+excerpt: React has been a real game changer in how we think about front-end architechture. I present a simple way of building quite robust and lovable React applications with single source of truth and one directional data flow inspired by re-frame architechture pattern.
 tags:
 - frontend
 - react
@@ -14,7 +14,7 @@ tags:
 - clojurescript
 ---
 
-Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when state change is *detected*. In React, you perform always explicit state changes and say: this is the new state, deal with it.
+Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when state change is *detected*. In React you perform always explicit state changes and say: this is the new state, deal with it.
 
 At first, this can feel bit cumbersome. On top of that React does not actually give you much support or ideas in how your components should communicate with each other. React just basically says: keep state and delegate it as immutable props to child components and while at it try to keep state in as few components as you can. What if I need to communicate (and I always do) from child component to parent!? How do I do it in scenario like this:
 
@@ -25,25 +25,23 @@ At first, this can feel bit cumbersome. On top of that React does not actually g
 
 Naive solution would be to pass function as a prop from PhoneBookComponent to PhonebookListing and from there to Contact and from there to DeleteButton. Works, but is not too elegant.
 
-I was building single page app in ClojureScript with great great great [Reagent framework](http://reagent-project.github.io/), which is a minimalistic ClojureScript wrapper for React. I needed some guidance in how I should construct my application when it got bigger and re-frame architechture seemed intresting. [Re-frame](https://github.com/Day8/re-frame) is an opinnionated architecture in building SP-apps and it's pretty darn simple yet clean and elagant to my taste. I realised, that [Re-frame](https://github.com/Day8/re-frame) is an improved and more structured version of what I initially was doing when I was learning React.
+I was building single page app in ClojureScript with great great great [Reagent framework](http://reagent-project.github.io/), which is a minimalistic ClojureScript wrapper for React. I needed some guidance in how I should construct my application when it got bigger and re-frame architechture seemed intresting. [Re-frame](https://github.com/Day8/re-frame) is an opinionated architechture in building SP-apps and it's pretty darn simple yet clean and elegant to my taste. I realised, that [Re-frame](https://github.com/Day8/re-frame) is an improved and more structured version of what I initially was doing when I was learning React.
 
-This post presents simple re-framish or reframe influenced architecture in building rather small scale vanilla React apps. It is more for you to get started with thinking in React and it's not a comprehensive guide in building robust applications. For more comprehensive architecture you can check out [Flux](https://facebook.github.io/flux/).
+This post presents a simple re-framish or reframe influenced architechture in building rather small scale vanilla React apps. It is more for you to improve your thinking in React and it's not a comprehensive guide in building robust React applications. For more comprehensive architechture you can check out [Flux](https://facebook.github.io/flux/).
 
 ## The big picture
 
-[Re-frame](https://github.com/Day8/re-frame) has simple idea of strictly one directional data flow. Re-frame introduces concept of app-database which contains all the state. All the state really means **all the state** in [Re-frame](https://github.com/Day8/re-frame). State is kept *strictly* in single place and it is not encapsulated inside components. On top of that, components modify state by events and do not interfere with state directly.
+[Re-frame](https://github.com/Day8/re-frame) is based on a simple idea of strictly one directional data flow. Re-frame introduces concept of app-database which contains all the state. All the state really means **all the state** in [Re-frame](https://github.com/Day8/re-frame). State is kept *strictly* in single place and it is not encapsulated inside components. On top of that, components modify state by events and do not interfere with state directly.
 
 ![Re-frame](/img/crafting-react-with-love/reframe.png)
 
 This can feel really awkward, because everyone before have told you to isolate state in well defined components. It can be even considered as a bad practice to have this sort of *global* state container. Now, take the red pill and really take some time to consider what user interfaces really are. User interface is a rendered state with functions for user to give input to modify that state and render it again. Sounds exactly like re-frame to me.
 
-Using such architechture grants us couple really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in separate module.
-
-Please note, that I'm not claiming this an adaptation of re-frame to vanilla React.
+Using such architechture grants us a couple of really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in separate module.
 
 ## How to do this then?
 
-React has everything we need to build app in this sort of manner, but it lacks one crucial part. We need some sort of event bus to trigger events from components which are then handled in stateful part of our application. Luckily, building simple eventbus is a no brainer in javascript. Here's my take.
+React comes out of the box with everything we need to build app in this sort of manner except one crucial part. We need some sort of event bus to trigger events from components which are then handled in stateful part of our application. Luckily, building simple eventbus is a no brainer in javascript. Here's my take.
 
 ```javascript
 var eventbusState = {};
@@ -136,7 +134,11 @@ var CoolestApp = React.createClass({
 ReactDom.render(<CoolestApp />, document.getElementById('app-container'))
 ```
 
-Note that the CooleastApp component passes current temperature as an immutable prob to CoolestButtons component which then uses that in rendering. When button is clicked an event is triggered to event bus which eventually modifies app database via handlers registered in CoolestApp component. The state propagates again to those lovely immutable child components.
+Note that the CooleastApp component passes the current temperature state as an immutable prob to CoolestButtons component which then uses it for rendering. When button is clicked an event is triggered to event bus which eventually modifies app database via handlers registered in CoolestApp component. The state propagates again to those lovely immutable child components. Really nice thing is that you can try out your component in complete isolation:
+
+```javascript
+ReactDom.render(<CoolestButtons currentTemp="-100" />, document.getElementById('app-container'))
+```
 
 ![Coolest app](/img/crafting-react-with-love/coolest-app.png)
 
@@ -148,9 +150,11 @@ Next, we construct a phonebook application using this sort of approach. Our appl
 
 ![Coolest app](/img/crafting-react-with-love/phonebook.png)
 
-Code is available from [here](http://github.com/Solita/react-phonebook){:target="_blank"}. At initial stage, our application looks like this. It does not actually do anything but looks fancy! Most certainly it does not have 1 000 contacts!
+Code is available from [here](http://github.com/Solita/react-phonebook){:target="_blank"}. At initial stage, our application looks like this.
 
 ![Phonebook-1](/img/crafting-react-with-love/phonebook-1.png)
+
+It doesn't actually do anything but looks fancy! Most certainly it does not have 1 000 contacts!
 
 ### Stage 1. Filtering input
 
@@ -275,6 +279,6 @@ This is easy as a pie. Just create button, and fire event from it and update app
 
 ## Onward!!!
 
-This post did not deal with issues such as validation or talking to back ends. Validation is not that different. You just pass the state to components. You must decide whether the component itself or the main application is responsible for validating data. In our example we should activate that add button only if every field has value in it. I would prefer passing "canCommit" or similar prop to component because it allows me to test component in complete isolation. It also allows to just render it without any state and see how it behaves when props are changed.
+This post did not deal with issues such as validation or talking to back ends. Validation is not that different. You just pass the state to components and validation result is derived from state. You must decide whether the component itself or the main application is responsible for validating data. In our example we should activate that add button only if every field has value in it. I would prefer passing "canCommit" or similar prop to component because it allows me to test component in complete isolation. This also keeps application logic in single place - components are stupid and just act according to props. It also allows to just render it without any state and see how it behaves when props are changed.
 
-Talking to backend is even more straigh forward! Just fire ajax-call, update flag in your app database which propagates as loader or dirty state etc. in your components. When response is received, just update app database and swich flag and you are done! Data still just propagates to components.
+Talking to backend is even more straigh forward! Just fire ajax-call, update flag in your app database which propagates as loader or dirty state etc. in your components. When component is told to be loading by prop, render a spinner or similar. When response is received, just update app database and swich flag and you are done! Data still just propagates to components and flows from app database to components.
