@@ -2,12 +2,12 @@
 layout: post
 author: juhofriman
 title: Crafting React with love
-excerpt: React has been a real game changer in how we think about front-end architechture. I present a simple way of building quite robust and lovable React applications with single source of truth and one directional data flow inspired by re-frame architechture pattern.
+excerpt: React has been a real game changer in how we think about front-end architecture. I present a simple way of building quite robust and lovable React applications with single source of truth and one directional data flow inspired by re-frame architecture pattern.
 tags:
 - frontend
 - react
 - javascript
-- architechture
+- architecture
 - state
 - programming
 - re-frame
@@ -25,9 +25,9 @@ At first, this can feel a bit cumbersome. On top of that React does not actually
 
 Naive solution would be to pass function as a prop from PhoneBookComponent to PhonebookListing and from there to Contact and from there to DeleteButton. Works, but is not too elegant.
 
-I was building single page app in ClojureScript with great great great [Reagent framework](http://reagent-project.github.io/), which is a minimalistic ClojureScript wrapper for React. I needed some guidance in how I should construct my application when it got bigger and re-frame architechture seemed intresting. [Re-frame](https://github.com/Day8/re-frame) is an opinionated architechture in building SP-apps and it's pretty darn simple yet clean and elegant to my taste. I realised, that [Re-frame](https://github.com/Day8/re-frame) is an improved and more structured version of what I initially was doing when I was learning React.
+I was building single page app in ClojureScript with great great great [Reagent framework](http://reagent-project.github.io/), which is a minimalistic ClojureScript wrapper for React. I needed some guidance in how I should construct my application when it got bigger and re-frame architecture seemed intresting. [Re-frame](https://github.com/Day8/re-frame) is an opinionated architecture in building SP-apps and it's pretty darn simple yet clean and elegant to my taste. I realised, that [Re-frame](https://github.com/Day8/re-frame) is an improved and more structured version of what I initially was doing when I was learning React.
 
-This post presents a simple re-framish or reframe influenced architechture in building rather small scale vanilla React apps. It is more for you to improve your thinking in React and it's not a comprehensive guide in building robust React applications. For more comprehensive architechture you can check out [Flux](https://facebook.github.io/flux/).
+This post presents a simple re-framish or reframe influenced architecture in building rather small scale vanilla React apps. It is more for you to improve your thinking in React and it's not a comprehensive guide in building robust React applications. For more comprehensive architecture you can check out [Flux](https://facebook.github.io/flux/).
 
 ## The big picture
 
@@ -37,7 +37,7 @@ This post presents a simple re-framish or reframe influenced architechture in bu
 
 This can feel really awkward, because everyone before have told you to isolate state in well defined components. It can be even considered as a bad practice to have this sort of *global* state container. Now, take the red pill and really take some time to consider what user interfaces really are. User interface is a rendered state with functions for user to give input to modify that state and render it again. Sounds exactly like re-frame to me.
 
-Using such architechture grants us a couple of really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in separate module.
+Using such architecture grants us a couple of really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in separate module.
 
 ## How to do this then?
 
