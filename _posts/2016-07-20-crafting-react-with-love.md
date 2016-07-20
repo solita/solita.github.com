@@ -16,7 +16,7 @@ tags:
 
 Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when state change is *detected*. In React you perform always explicit state changes and say: this is the new state, deal with it.
 
-At first, this can feel bit cumbersome. On top of that React does not actually give you much support or ideas in how your components should communicate with each other. React just basically says: keep state and delegate it as immutable props to child components and while at it try to keep state in as few components as you can. What if I need to communicate (and I always do) from child component to parent!? How do I do it in scenario like this:
+At first, this can feel a bit cumbersome. On top of that React does not actually give you much support or ideas in how your components should communicate with each other. React just basically says: keep state and delegate it as immutable props to child components and while at it try to keep state in as few components as you can. What if I need to communicate (and I always do) from child component to parent!? How do I do it in scenario like this:
 
 - PhoneBookComponent (statefull)
   - PhonebookListing
@@ -60,7 +60,7 @@ var eventbusState = {};
 
     /* Registers callback which is invoked for event id */
     eventbusState.on = function(thisReference, eventId, fn) {
-      handlers[id] = { thisReference: tr, func: fn};
+      handlers[id] = { thisReference: thisReference, func: fn};
     }
 
     module.exports.publish = eventbusState.publish;
@@ -146,7 +146,7 @@ This application is overly simple, but the principle is very much the same with 
 
 ## Phone book application in React with one directional data flow
 
-Next, we construct a phonebook application using this sort of approach. Our application supports adding new contacts, deleting existing ones and live filtering for contact list. Because we are visual beings, we plan our application by connecting couple of boxes together.
+Next, we construct a phonebook application using this sort of approach. Our application supports adding new contacts, deleting existing ones and live filtering for contact list. Because we are visual beings, we plan our application by connecting a couple of boxes together.
 
 ![Coolest app](/img/crafting-react-with-love/phonebook.png)
 
