@@ -14,16 +14,16 @@ tags:
 - clojurescript
 ---
 
-Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when state change is *detected*. In React you perform always explicit state changes and say: this is the new state, deal with it.
+Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when a state change is *detected*. In React you always perform explicit state changes and say: this is the new state, deal with it.
 
-At first, this can feel a bit cumbersome. On top of that React does not actually give you much support or ideas in how your components should communicate with each other. React just basically says: keep state and delegate it as immutable props to child components and while at it try to keep state in as few components as you can. What if I need to communicate (and I always do) from child component to parent!? How do I do it in scenario like this:
+At first, this can feel a bit cumbersome. On top of that React does not actually give you much support or ideas in how your components should communicate with each other. React just basically says: keep state and delegate it as immutable props to child components and while at it try to keep state in as few components as you can. What if I need to (and I always do) communicate from child component to parent!? How do I do it in scenario like this:
 
 - PhoneBookComponent (statefull)
   - PhonebookListing
     - Contact
       - DeleteButton (how to propagate click from here to state?)
 
-Naive solution would be to pass function as a prop from PhoneBookComponent to PhonebookListing and from there to Contact and from there to DeleteButton. Works, but is not too elegant.
+Naive solution would be to pass a function as a prop from PhoneBookComponent to PhonebookListing and from there to Contact and from there to DeleteButton. Works, but is not too elegant.
 
 I was building single page app in ClojureScript with great great great [Reagent framework](http://reagent-project.github.io/), which is a minimalistic ClojureScript wrapper for React. I needed some guidance in how I should construct my application when it got bigger and re-frame architecture seemed intresting. [Re-frame](https://github.com/Day8/re-frame) is an opinionated architecture in building SP-apps and it's pretty darn simple yet clean and elegant to my taste. I realised, that [Re-frame](https://github.com/Day8/re-frame) is an improved and more structured version of what I initially was doing when I was learning React.
 
@@ -31,13 +31,13 @@ This post presents a simple re-framish or reframe influenced architecture in bui
 
 ## The big picture
 
-[Re-frame](https://github.com/Day8/re-frame) is based on a simple idea of strictly one directional data flow. Re-frame introduces concept of app-database which contains all the state. All the state really means **all the state** in [Re-frame](https://github.com/Day8/re-frame). State is kept *strictly* in single place and it is not encapsulated inside components. On top of that, components modify state by events and do not interfere with state directly.
+[Re-frame](https://github.com/Day8/re-frame) is based on a simple idea of strictly one directional data flow. Re-frame introduces concept of app-database which contains all the state. In [Re-frame](https://github.com/Day8/re-frame) all the state really means **all the state**. State is kept *strictly* in single place and it is not encapsulated inside components. On top of that, components modify the state by events and do not interfere with it directly.
 
 ![Re-frame](/img/crafting-react-with-love/reframe.png)
 
-This can feel really awkward, because everyone before have told you to isolate state in well defined components. It can be even considered as a bad practice to have this sort of *global* state container. Now, take the red pill and really take some time to consider what user interfaces really are. User interface is a rendered state with functions for user to give input to modify that state and render it again. Sounds exactly like re-frame to me.
+This can feel really awkward, because everyone have told you before to isolate the state in well defined components. It can be even considered as a bad practice to have this sort of *global* state container. Now, take the red pill and really take some time to consider what user interfaces really are. User interface is a rendered state with functions for user to give input to modify that state and render it again. Sounds exactly like re-frame to me.
 
-Using such architecture grants us a couple of really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in separate module.
+Using such architecture grants us a couple of really beneficial aspects. Firstly, you have *a single source of truth*. Everything that is in application state is in one place and not scattered around in million components. Secondly, most of your application is totally immutable, which means you can test rendering in isolation really simply by just altering the props given to components. This is really lean way of building ui-components, which you can just hook to application state when rendering satisfies you. Thirdly, you can test your state handling in isolation as well, because you are able to separate state functionalities in a separate module.
 
 ## How to do this then?
 
@@ -181,7 +181,7 @@ module.exports = React.createClass({
 
 ![Phonebook-2](/img/crafting-react-with-love/phonebook-2.png)
 
-Now. Don't panic. Here's the real deal. When user enters something to the filtering input form, we want to trigger event UPDATE_FILTER and update our app database. We do that byt adding "nameFilter" attribute to out app database and pass that as a prop to FilterInput component. This is the data flowing almost in Zen-like manner unidirectionally. Then we trigger UPDATE_FILTER event with new value as a parameter and update state accordingly in handler. Then we just implement filtering of contact list when it's passed to ContactListing component and we're done!
+Now. Don't panic. Here's the real deal. When user enters something to the filtering input form, we want to trigger event UPDATE_FILTER and update our app database. We do that byt adding "nameFilter" attribute to out app database and pass that as a prop to FilterInput component. Then we trigger UPDATE_FILTER event with new value as a parameter and update state accordingly in handler. This is the data flowing almost in Zen-like manner unidirectionally. After this we simply pass contacts as a prop to listing component but do it via function which is aware of the name filter kept in the state.
 
 ![Phonebook-3](/img/crafting-react-with-love/phonebook-3.png)
 
@@ -193,11 +193,11 @@ I'm sure you can figure this one out, it's such a trivial task. If not, checkout
 
 ![Phonebook-4](/img/crafting-react-with-love/phonebook-4.png)
 
-### Stage 3. Creating new connection
+### Stage 3. Adding a new connection
 
-It's important to realize that forms always have a state. When user inputs something to text field, he or she effectively changes application state. Coming from here, it's clear that our application database must contain state of this form!
+It's important to realize that forms always have a state. When user inputs something to text field, he or she effectively changes the application state. Coming from here, it's clear that our application database must contain state of this form!
 
-So first thing to do, is to define this into application state!
+So first thing to do, is to define this into the application state!
 
 ```javascript
 getInitialState: function() {
@@ -263,9 +263,9 @@ var FormInput = React.createClass({
 });
 ```
 
-If you try to modify fields now, they won't "echo" what you typed. This is because value is bound to prop and it is not updated in the app database. Just hook event handler and update value in state.
+If you try to modify fields now, they won't "echo" what you typed. This is because value is bound to a prop and it is not updated in the app database. Just hook event handler and update value in state.
 
-Committing form should be just as easy. Just fire event from click and updata app database. DO NOT TRY TO SEND VALUES FROM NewContactForm or something like that. Trust the state Luke! Just copy form values as a new contact to contact array. Whole point is that app database is the only source of truth. Also, remember to reset the state of the form after succesful commit in order to clear inputs.
+Committing form should be just as easy. Just fire event from a click to add button and update app database accordingly. Do not try to send values from NewContactForm or something like that! Trust the state Luke! Just copy form values as a new contact to contact array. Whole point is that the app database is the only source of truth. Also, remember to reset the state of the form after succesful commit in order to clear inputs.
 
 If you don't get it, maybe [my commit will clarify this](https://github.com/solita/react-phonebook/commit/4820f9ad0eda7ca27d0311ac2af1f442495705f7){:target="_blank"}.
 
@@ -273,7 +273,7 @@ If you don't get it, maybe [my commit will clarify this](https://github.com/soli
 
 ### Stage 4: Deleting connection
 
-This is easy as a pie. Just create button, and fire event from it and update app database accordingly. I'm sure you can figure it out, but [check out my commit](https://github.com/solita/react-phonebook/commit/99bab576bc7398be6e8fd6d5e883941a6e848ab9){:target="_blank"}.
+This is easy as a pie. Just create button, and fire a event from it and update the app database accordingly. I'm sure you can figure it out, but [check out my commit](https://github.com/solita/react-phonebook/commit/99bab576bc7398be6e8fd6d5e883941a6e848ab9){:target="_blank"}.
 
 ![Phonebook-7](/img/crafting-react-with-love/phonebook-7.png)
 
@@ -281,4 +281,4 @@ This is easy as a pie. Just create button, and fire event from it and update app
 
 This post did not deal with issues such as validation or talking to back ends. Validation is not that different. You just pass the state to components and validation result is derived from state. You must decide whether the component itself or the main application is responsible for validating data. In our example we should activate that add button only if every field has value in it. I would prefer passing "canCommit" or similar prop to component because it allows me to test component in complete isolation. This also keeps application logic in single place - components are stupid and just act according to props. It also allows to just render it without any state and see how it behaves when props are changed.
 
-Talking to backend is even more straigh forward! Just fire ajax-call, update flag in your app database which propagates as loader or dirty state etc. in your components. When component is told to be loading by prop, render a spinner or similar. When response is received, just update app database and swich flag and you are done! Data still just flows from app database to components.
+Talking to backend is even more straigh forward! Just fire an ajax-call, set flag in your app database which propagates as a loader or dirty state etc. in your components. When component is told to be loading by prop, render a spinner or similar. When response is received, just update app database and swich flag and you are done! Data still just flows from app database to components.
