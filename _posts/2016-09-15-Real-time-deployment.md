@@ -35,7 +35,7 @@ abilities and intelligence. The "DevOps companies" like [Heroku](https://www.her
 
 Obviously continous integration/deployment is better than sporadic integration or occasional delivery, but
 assuming 100x more capacity for computation and storage, we would be now have instantaneous delivery/integration instead. Instead of having to wait 5 minutes or 15 minutes for test
-results, we would have them in seconds. A second is so close to real-time that it would not matter to our puny monkey brains anymore.
+results, we would have them in seconds. A second is so close to real-time that it would not matter to our puny monkey brains anymore. That would be totally awesome, would't it?
 
 ### Who dares wins
 
