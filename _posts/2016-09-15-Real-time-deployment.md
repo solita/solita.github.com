@@ -25,8 +25,8 @@ Then we moved on to [Continuous Delivery](https://en.wikipedia.org/wiki/Continuo
 on the tests and run the tests automatically, it made sense to deploy the new version to test or even production environments as soon as possible. 
 
 This is all fine and good, and while some organizations have not already embraced and mastered the CD, others are already front-running the mainstream hype train. Continous Delivery
-certainly requires certain discipline and professional conduct from the developers to succeed, but so many have now mastered this that it certainly doesn't require inhuman
-abilities and intelligence. The tools and "DevOps companies" like [Heroku](https://www.heroku.com/) also make it easier to get aboard the hype train.
+certainly requires certain discipline and professional conduct from the developers to succeed, but it certainly doesn't require inhuman
+abilities and intelligence. The tools and "DevOps companies" like [Heroku](https://www.heroku.com/) make it easy to get aboard the hype train now.
 
 ![All aboard the hype train](/img/real-time-deployment/hypetrain.png)
 
@@ -39,7 +39,8 @@ results, we would have them in seconds. A second is so close to real-time that i
 
 ### Who dares wins
 
-You may still doubt all this DevOps and Continuous Delivery, but trust the great FAKEGRIMLOCK on this: Future will happen whether you like it or not.
+You may still doubt all this DevOps and Continuous Delivery hype, but trust the great [FAKEGRIMLOCK](http://fakegrimlock.com/) on this: 
+_Future will happen whether you like it or not_.
 
 ![Hot crowd drives the change](/img/real-time-deployment/hotcrowd-fakegrimlock.png)
 
@@ -49,7 +50,7 @@ HATE FIRE. NO ONE WANT TO BE FERTILIZER. FIRE NOT CARE.
 LOYALTY IS SMOKE. PEOPLE FOLLOW FIRE, GET HOT. NOTHING STOP PERSON ON FIRE.
 PERSON ON FIRE WRAPPED IN HOT CROWD? THAT FIRE CHANGE WORLD.
 
-## When? 
+## How far is it?
 
 There are two essential questions regarding this:
 
@@ -62,20 +63,22 @@ I will try to answer these questions.
 
 We are already there, for some domains! As an example, consider [Overleaf](https://www.overleaf.com) which offers
 almost real-time feedback loop for writing academic papers. Ten years ago I was running
-[LaTeX9(https://en.wikipedia.org/wiki/LaTeX) on my own 300Mhz Solaris workstation, but now it's possible to concurrently write
-the papers and instantly update and validate the end result.
+[LaTeX](https://en.wikipedia.org/wiki/LaTeX) on my own 300Mhz Solaris workstation, but now it's possible to concurrently write
+the papers and instantly update and validate the end result. Totally awesome development in ten years.
 
-This is the future and examples are popping up now everywhere. As another example from
+Similar xamples are popping up now everywhere. As another concrete example from
 a completely different domain, take a look at [KLIPSE](https://github.com/viebel/klipse) - real-time evaluation of ClojureScript in 
-the browser. Infinitely better than static code samples.
+the browser. Infinitely better than static code samples. 
 
 ## And the winner is..
 
 It is difficult to predict winners, but I believe the future belongs to programming languages
-and environments which can take advantage of the resources. Take a look at this chart:
+and environments which can take advantage of the resources and offer real-time feedback to
+the developers. Take a look at this chart:
 
 ![programming languages](/img/real-time-deployment/programming_languages.jpg)
 
+Everything is not placed precisely in the chart, but that is not relevant to the point I want to make.
 
 In theory, it's entirely possible to run extremely fast C++ compilers given 
 enough resources, but mutable state and the nature of the C++ programming language 
@@ -86,10 +89,11 @@ A statically checked and compiled language such as [Haskell](https://www.haskell
 the languages on the top are designed to offer real-time feedback and have built-in capabilities 
 suited to programming and debugging "live" systems. The languages at the bottom are stuck with the
 traditional model of "edit-compile-run", but even they are trying to get up. For Java we have things
-like [JRebel](https://zeroturnaround.com/software/jrebel/) and hot deploy as a practical example. So instead of claiming winners, I only 
-predict that either the languages at the bottom will offer similar capabilities as languages at the top,
-or they will be overrun. At the moment it's good to be a [Clojure](http://clojure.org/) programmer.
+like [JRebel](https://zeroturnaround.com/software/jrebel/) and hot deploy as a practical example, so you
+could arguably place Java in another location on the chart. So instead of claiming winners, I only 
+predict that **the programming languages and tools of the future will offer real-time feedback to the developers.**
 
+At the moment I'm happy to sit in the [Clojure](http://clojure.org/) camp and future looks bright.
 
 ## The next future after the future happens?
 
