@@ -21,8 +21,8 @@ that different pieces of software were *continuously* put together and tested au
 Then we moved on to [Continuous Delivery](https://en.wikipedia.org/wiki/Continuous_delivery) and Continuous Deployment (CD). If we could rely
 on the tests and run the tests automatically, it made sense to deploy the new version to test or even production environments as soon as possible. 
 
-This is all fine and good, and while some organizations have not already embraced and mastered the CD, others are already front-running the mainstream hype train. Continous Delivery
-certainly requires certain discipline and professional conduct from the developers to succeed, but it certainly doesn't require inhuman
+This is all fine and good, and while some organizations have not yet embraced and mastered the CD, others are already front-running the mainstream hype train. Continous Delivery
+definitely requires certain discipline and professional conduct from the developers to succeed, but it certainly doesn't require inhuman
 abilities and intelligence. The "DevOps companies" like [Heroku](https://www.heroku.com/) make it easy to get aboard the hype train now.
 
 ![All aboard the hype train](/img/real-time-deployment/hypetrain.png)
@@ -32,7 +32,7 @@ abilities and intelligence. The "DevOps companies" like [Heroku](https://www.her
 
 Obviously continous integration/deployment is better than sporadic integration or occasional delivery, but
 assuming 100x more capacity for computation and storage, we would be now have instantaneous delivery/integration instead. Instead of having to wait 5 minutes or 15 minutes for test
-results, we would have them in seconds. A second is so close to real-time that it would not matter to our puny monkey brains anymore. That would be totally awesome, would't it?
+results, we would have them in seconds. A second is so close to real-time that it would not matter to our puny monkey brains anymore. That would be totally awesome, wouldn't it?
 
 ### Who dares wins
 
