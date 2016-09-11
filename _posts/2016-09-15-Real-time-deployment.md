@@ -26,7 +26,7 @@ on the tests and run the tests automatically, it made sense to deploy the new ve
 
 This is all fine and good, and while some organizations have not already embraced and mastered the CD, others are already front-running the mainstream hype train. Continous Delivery
 certainly requires certain discipline and professional conduct from the developers to succeed, but it certainly doesn't require inhuman
-abilities and intelligence. The tools and "DevOps companies" like [Heroku](https://www.heroku.com/) make it easy to get aboard the hype train now.
+abilities and intelligence. The "DevOps companies" like [Heroku](https://www.heroku.com/) make it easy to get aboard the hype train now.
 
 ![All aboard the hype train](/img/real-time-deployment/hypetrain.png)
 
@@ -66,7 +66,7 @@ almost real-time feedback loop for writing academic papers. Ten years ago I was 
 [LaTeX](https://en.wikipedia.org/wiki/LaTeX) on my own 300Mhz Solaris workstation, but now it's possible to concurrently write
 the papers and instantly update and validate the end result. Totally awesome development in ten years.
 
-Similar xamples are popping up now everywhere. As another concrete example from
+Similar examples are popping up now everywhere. As another concrete example from
 a completely different domain, take a look at [KLIPSE](https://github.com/viebel/klipse) - real-time evaluation of ClojureScript in 
 the browser. Infinitely better than static code samples. 
 
@@ -93,7 +93,8 @@ like [JRebel](https://zeroturnaround.com/software/jrebel/) and hot deploy as a p
 could arguably place Java in another location on the chart. So instead of claiming winners, I only 
 predict that **the programming languages and tools of the future will offer real-time feedback to the developers.**
 
-At the moment I'm happy to sit in the [Clojure](http://clojure.org/) camp and future looks bright.
+At the moment I'm happy to sit in the [Clojure](http://clojure.org/) camp and we do have a warm campfire there now. 
+Hot crowd is arriving.
 
 ## The next future after the future happens?
 
