@@ -76,13 +76,13 @@ Derek Fues, Enterprise Architect, Idaho State Insurance Fund
 Some cool links and downloadables:
 
 **Conference main pages:**
-https://www.oracle.com/javaone/
+[https://www.oracle.com/javaone/](https://www.oracle.com/javaone/)
 
 **Live stream of sessions:**
-https://community.oracle.com/docs/DOC-1005786
+[https://community.oracle.com/docs/DOC-1005786](https://community.oracle.com/docs/DOC-1005786)
 
 **Free ebook complimeDocker for Java by Arun Gupta:**
-http://shop.oreilly.com/product/0636920050872.do
+[http://shop.oreilly.com/product/0636920050872.do](http://shop.oreilly.com/product/0636920050872.do)
 
 **Microprofile.io:**
-http://microprofile.io/
+[http://microprofile.io/](http://microprofile.io/)
