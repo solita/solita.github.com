@@ -9,7 +9,10 @@ tags:
 - Java EE
 - JavaOne
 - Microservices
+- Docker
+- Vert.x
 - Kubernetes
+- IoT
 ---
 
 So, I went a week at the core of Silicon Valley, and listened to a lot of sessions, as well as free chatter on the hallways, and chat with people who have been working on projects all over the work. If you followed my earlier blog posts I'm sure you've already got your share of tech talk and immediate impressions. So this final post on the event is now more about my own opinions and views, summary of the event based on my experiences.
@@ -80,11 +83,28 @@ Of course, reactive rage is going to be one of the core themes of upcoming Java 
 
 Of course from my viewpoint, reactive server-side is optional choice. I haven't yet found many cases where I would really absolutely need one, but in modern microservices world some scenarios are emerging more and more often where that might be the case.
 
+##IoT
+
+It's not big surprise that cloud and IoT were topics of many sessions, and many demonstrations here. They have been for many years already. There were countless Raspberry Pis controlling robots, 3d printers, coffee machines, reading your gestures and moods using Watson cloud power, and collecting information from visitors (voting booths were done by a raspberry pi unit each)
+
+![Bot that moves based on tweets](/img/javaone2016/final/twitter_driven_bot.jpg)
+
+I also attended a workshop with an Arduino chip talking to raspberry Pi talking to Oracle cloud. Trick here is that Arduino is even cheaper platform than the Pi, and if you have just some wireless connectivity, and possibility to hook on some sensors or radiators, it's enough. MQTT protocol seems to be the choice of the day for connecting the world around us to the cloud. Of course security requires encryption at least, and that's where the Pi stepped in: Arduino chip doesn't have much processing power, whereas Raspberry Pi is essentially a small computer, as powerful as many virtual servers used today.
+
+![Conference official coffee app](/img/javaone2016/final/coffeeapp.png)
+
+My reading is that IoT has become less exciting, less hype-y, and more mature, part of our everyday life. We have moved on from the stage of how to get connected to optimization, how to connect efficiently, how to do it cheap, so you can have hundreds of thousands of IoT units in the field. How to be stingy with the drain on batteries. I also saw some pretty powerful demonstrations on how to analyze an image, for QR code, or for emotional state, using cloud services.
+
+![Raspberry Pi powering IBM Furby toy with Watson](/img/javaone2016/final/raspberrypiWithFurby.jpg)
+
+So we know we can do it. Whatever it is. Now we enter the phase where we think more what we want to do with it.
+
 ##Miscellaneous notes
 
 - IBM is open sourcing it's JDK 9
 - Netbeans is now Apache Netbeans
 - Corba module will be deprecated in Java 9 :)
+- Java EE 8 will also contain key/value document DB API - that is not based on JPA!
 
 ![Community Keynote](/img/javaone2016/final/communitykeynote.jpg)
 
