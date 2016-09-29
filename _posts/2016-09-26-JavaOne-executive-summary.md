@@ -15,13 +15,13 @@ tags:
 - IoT
 ---
 
-So, I went a week at the core of Silicon Valley, and listened to a lot of sessions, as well as free chatter on the hallways, and chat with people who have been working on projects all over the work. If you followed my earlier blog posts I'm sure you've already got your share of tech talk and immediate impressions. So this final post on the event is now more about my own opinions and views, summary of the event based on my experiences.
+So, I went a week at the core of Silicon Valley, and listened to a lot of sessions, as well as free chatter on the hallways, and chat with people who have been working on projects all over the word. If you followed my earlier blog posts I'm sure you've already got your share of tech talk and immediate impressions. So this final post on the event is now more about my own opinions and views, summary of the event based on my experiences.
 
 ![San Francisco Bay](/img/javaone2016/final/sfpanorama.jpg)
 
 Oh, by the way, this is not the kind of executive summary for executives. This is still a developer blog. This is just more opinionated, higher level view of things.
 
-##Future of Java
+## Future of Java
 
 Trust for the future is typically the core reason for this conference to exist. If there is no trust in future of Java, people slowly move on to using some other available platforms. This year was no exception to this. Before the conference, there was some grumblings about future of Java EE, and lack of information on the direction. Attending the sessions here, Java EE direction is now pretty clear, and makes sense. Only question is the pace, is it too slow? Is there enough resources to work on this? Planned pace is to release Java EE 8 next year, and Java EE 9 year after, offering more tools for cloud and microservices. But we'll see how that goes. Lot of things are on very early idea-stage. On the other hand currently I don't see anything in Java EE 8 and 9 that I would absolutely NEED right now, they are mostly conveniences to help me do more on the standard side and write a bit less code and perhaps use a bit less of extra libraries.
 
@@ -33,7 +33,7 @@ Anyone who's not up to Java version 8, not using streams and lambdas all days, b
 
 Then there's the MicroProfile rebellion. Not willing to wait for vague promises of Java EE 8 and 9 microservices support, a group of vendors made their move already, and released something called MicroProfile.io. Vendors include at this point IBM, RedHat, Tomitribe, Payara, and few others. MicroProfile is a subset of Java EE with a bit more rapid and free innovation. Core baseline would include at least JAX-RS + CDI + JSON-P, but plan is not to implement full Java EE 7, nor Web profile, but something more suitable for back-end microservices. Idea right now is faster innovation, for lighter containers. My thoughts? It's great to have something now, not in two years, and innovate in more rapid pace. Perhaps there's room to innovate more freely than on current full EE profile level.
 
-##Docker and Kubernetes
+## Docker and Kubernetes
 
 I've been Docker-curious a lot before, and I am using it extensively to ease up development. I've not been doing much with it in production environments, but that is going to change. I saw a lot of presentations on Docker, and chatted with a lot of people using it for their projects, and conclusion is, Docker is here to stay.
 
@@ -55,7 +55,7 @@ Kubernetes lets you do much of the same things than Docker built-in solutions, a
 
 I'm not yet deep enough in these topics so I could make sense of overlapping/alternative models or best practices, but this is highly interesting area that I will keep investigating and experimenting more with, and what I've seen has encouraged me to implement some of these things more rapidly, when there is an opportunity. It's about more configurations as code, and it's about more efficient usage of existing resources.
 
-##Microservices
+## Microservices
 
 So, once more into microservices topics. I'm all hyped up about them, and we are already using them successfully a lot. That being said, it's pretty obvious that there's a hype bubble going on about them, much similar to what happened with SOA. Not all monoliths are evil, and many of the microservices projects will generate a lot of ugly mess for years to come.
 
@@ -83,7 +83,7 @@ Of course, reactive rage is going to be one of the core themes of upcoming Java 
 
 Of course from my viewpoint, reactive server-side is optional choice. I haven't yet found many cases where I would really absolutely need one, but in modern microservices world some scenarios are emerging more and more often where that might be the case.
 
-##IoT
+## IoT
 
 It's not big surprise that cloud and IoT were topics of many sessions, and many demonstrations here. They have been for many years already. There were countless Raspberry Pis controlling robots, 3d printers, coffee machines, reading your gestures and moods using Watson cloud power, and collecting information from visitors (voting booths were done by a raspberry pi unit each)
 
@@ -99,7 +99,7 @@ My reading is that IoT has become less exciting, less hype-y, and more mature, p
 
 So we know we can do it. Whatever it is. Now we enter the phase where we think more what we want to do with it.
 
-##Miscellaneous notes
+## Miscellaneous notes
 
 - IBM is open sourcing it's JDK 9
 - Netbeans is now Apache Netbeans
