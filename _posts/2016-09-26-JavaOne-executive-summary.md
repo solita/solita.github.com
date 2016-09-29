@@ -15,7 +15,7 @@ tags:
 - IoT
 ---
 
-So, I went a week at the core of Silicon Valley, and listened to a lot of sessions, as well as free chatter on the hallways, and chat with people who have been working on projects all over the word. If you followed my earlier blog posts I'm sure you've already got your share of tech talk and immediate impressions. So this final post on the event is now more about my own opinions and views, summary of the event based on my experiences.
+So, I went a week at the core of Silicon Valley, and listened to a lot of sessions, as well as free chatter on the hallways, and chat with people who have been working on projects all over the world. If you followed my earlier blog posts I'm sure you've already got your share of tech talk and immediate impressions. So this final post on the event is now more about my own opinions and views, summary of the event based on my experiences.
 
 ![San Francisco Bay](/img/javaone2016/final/sfpanorama.jpg)
 
