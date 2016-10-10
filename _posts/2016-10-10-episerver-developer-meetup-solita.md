@@ -22,7 +22,7 @@ Johan Hedberg from Commerce development team visited us and gave a presentation 
 
 ![Tools](/img/episerver-meetup/tommi.jpg)
 
-Tommi Raunio from Solita had a presentation about performance. He first talked about what is performance and why it matters and then divided the topic into three different segments: design & architecture, implementation and measurement. The slides can be found [here](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
+Tommi Raunio from Solita had a presentation about performance. He first talked about what performance is and why it matters and then divided the topic into three different segments: design & architecture, implementation and measurement. The slides can be found [here](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
 . 
 
 ## DevOps
