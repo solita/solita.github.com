@@ -2,7 +2,7 @@
 layout: post
 title: Episerver developer meetup at Solita
 author: Rinorragi
-date: 2016-10-10 14:00:00 +0200
+date: 2016-10-10 15:45:00 +0200
 excerpt: What happened in the second Episerver developer meetup held in Helsinki
 categories: 
 - Episerver
