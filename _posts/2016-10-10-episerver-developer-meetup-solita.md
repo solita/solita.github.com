@@ -20,14 +20,13 @@ Johan Hedberg from Commerce development team visited us and gave us a presentati
 
 ![Tools](/img/episerver-meetup/tommi.jpg)
 
-Tommi Raunio from Solita had a presentation about performance. He first talked about what is performance and why does it matter and then exploded the topic into three different segments: design & architecture, implement and measure. The slides can be found here. 
-[Slides](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
+Tommi Raunio from Solita had a presentation about performance. He first talked about what is performance and why does it matter and then exploded the topic into three different segments: design & architecture, implement and measure. The slides can be found [here](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
+. 
 
 ## DevOps
 
 ![Tools](/img/episerver-meetup/joona.jpg)
 
-I also had a presentation of my own about DevOps with Episercer. I went through few topics in my presentation. How to help new guys in installing development environments. Then I talked about how to script server installations with PowerShell. Then I went a bit deeper and talked about how to build a build pipeline and finally I talked about something about NuGets. 
-[Slides](http://www.slideshare.net/Solita_Oy/epihelsinki-episerverdevops-joonaimmonen-solita)
+I also had a presentation of my own about DevOps with Episercer. I went through few topics in my presentation. How to help new guys in installing development environments. Then I talked about how to script server installations with PowerShell. Then I went a bit deeper and talked about how to build a build pipeline and finally I talked about something about NuGets. The [Slides](http://www.slideshare.net/Solita_Oy/epihelsinki-episerverdevops-joonaimmonen-solita).
 
 Finally, thanks for everyone for the great evening! 
