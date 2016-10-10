@@ -16,13 +16,13 @@ Solita organized a meetup for Finnish Episerver developers in Helsinki on the 29
 
 ## Commerce
 
-Johan Hedberg from Commerce development team visited us and gave a presentation about how to use Commerce to your daily household finance governance. He showed us how to invent your own currency in Commerce, how to give users credit to be used inside the Commerce and how to use the credit for shopping. In addition to that he showed how to use promotion engine in household to give stuff cheaper to household members when they do laundry or clean toilets. It was a very nice presentation. There were not many slides but Johan promised that the fun and educational demo application will be available in some format later. Looking forward for that! 
+Johan Hedberg from the Commerce development team visited us and gave a presentation about how to use Commerce to your daily household finance governance. He showed us how to invent your own currency in Commerce, how to give users credit to be used inside the Commerce and how to use the credit for shopping. In addition to that he showed how to use promotion engine in household to give stuff cheaper to household members when they do laundry or clean toilets. It was a very nice presentation. There were not many slides but Johan promised that the fun and educational demo application will be available in some format later. Looking forward for that! 
 
 ## Performance
 
 ![Tools](/img/episerver-meetup/tommi.jpg)
 
-Tommi Raunio from Solita had a presentation about performance. He first talked about what performance is and why it matters and then divided the topic into three different segments: design & architecture, implementation and measurement. The slides can be found [here](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
+Tommi Raunio from Solita had a presentation about performance. He first talked about what performance is and why it matters and then divided the topic into three different segments: design & architecture, implementation, and measurement. The slides can be found [here](http://www.slideshare.net/Solita_Oy/episerver-dev-meetup-performance-in-episerver-solutions-tommi-raunio-solita)
 . 
 
 ## DevOps
