@@ -9,7 +9,8 @@ categories:
 tags: 
 - Episerver 
 - DOTNET 
-- security
+- DevOps
+- performance
 ---
 Solita organized a meetup for Finnish Episerver developers in Helsinki at 29.9. Meetup consisted of food, beer and presentations. It was second of a kind and as fun and cozy as its successor. This time we had a bit more time in the end for the networking than last time!
 
