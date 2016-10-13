@@ -1,18 +1,42 @@
 ---
 layout: post
 title: What is DevSec
-author: Rinorragi
-excerpt: What is DevSec? It is a culture where developers take responsibility over solution security
+author: Rinorragi, lokori
+excerpt: DevSec is a emerging trend to move developers closer to security experts, akin to DevOps. In this blog post we argue that this is necessary and how this will improve security, while simultaneously lowering the costs. We wil also cover how to do this in practice.
 tags:  
 - DevSec
 - security
 - DevOps
 ---
-DevSec is a culture where developers teach themselves to think like hackers. They take the responsibility of the solution security aiming for more secure future. 
 
-## Why
+DevSec is a emerging trend to move developers closer to security experts, akin to DevOps. In this 
+blog post we argue that this is necessary and how this will improve security, while simultaneously
+lowering the costs (time and monetary costs). We will also cover briefly how we have been moving
+to this direction in practise.
 
-How often have you heard the words "security has to be thought all the time" or "you just can't add security afterwards"? That is the core of the problematic that the DevSec tries to solve. Who knows what is illegal use for your application if not the developer? It is the developer who should know how to protect his solution against illegal actions. So why not teach them how to test security and how to implement security controls? 
+## Why?
+
+How often have you heard that "you just can't add security afterwards" and 
+"security has to be thought of all the time"? This is the main concern DevSec aims to address. Most people
+realize that you can't add security afterwards, any more than you can add usability or quality after the product is "done".
+
+DevSec is not the only solution, as there are plenty of presentations about integrating security related
+work to agile development cycle. Even somewhat formalized processes, like 
+[Microsoft's "Security Development Lifecycle"](https://www.microsoft.com/en-us/SDL/Discover/sdlagile.aspx). 
+What's different in our opinion, is that we feel that process is not the answer. Rather, we prefer to make
+developer teams capable of taking responsibility for the security. Changes in the process are a good thing,
+but they are a result, not the starting point.
+
+## What is DevSec?
+
+Like DevOps, this is about the culture. It's about responsibility. It's about knowing the right thing and
+having the power, resources and ability to do it. A somewhat mechanical implementation would be to add a
+"security specialist" to development team, as you could add some "system operation specialist" and say you're now
+doing DevOps. In our opinion, this approach is a minor improvement and totally misses the point about *culture*. A culture is about 
+values and beliefs shared by everyone. It is not enough that a "security expert" sits with the team, if that person
+is the only one concerned about security. The DevSec goal is to make every developer think about security and acknowledge 
+it is necessary. Not everyone needs to be an expert, but everyone needs to understand that security is essential and important.
+
 
 ## What
 
