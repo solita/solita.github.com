@@ -40,7 +40,7 @@ it is necessary. Not everyone needs to be an expert, but everyone needs to under
 
 ## What
 
-Security is not just knowing the OWASP TOP 10 lits and trying to avoid implementing any of them. Security as a word covers quite a long list of items. 
+Classic CIA triangle consists of confidentialy, integrity and availability. All of those three factors thrive towards keeping business ongoing. By losing confidentiality we will lose customers, by losing availability we can't have business and by losing integrity we can't rely on our data. To achieve security we have quite a long list of items where attacker could affect. 
 
 * Physical security of data center and client machines
 * Hardware security
@@ -50,16 +50,32 @@ Security is not just knowing the OWASP TOP 10 lits and trying to avoid implement
 * Language and framework specific security 
 * Component security
 * Code 
-* Monitoring
-* Incident & response 
-* and more 
+* Data integrity
 
-Who takes the responsibility of the whole stack? The whole solution security. 
+Sofware architects and developers design software architecture that affects items above. By choosing certain technologies you will limit your options in application servers and operating systems and maybe also in hosting partners. In each level we need to have some kind of security controls to be sure that our systems is not easily compromised. In the end it is the development team that knows the needed pieces to run the production environment. 
 
 ## How
 
 I myself prefer to bind secure development lifecycle model into our project. It dictates that what kind of thinking should be done during the project. There are steps that may need some training like penetration testing. 
 
+* Train your personnel 
+* Know the policies and laws that affects your project
+* Document your architecture and understand your attack surface
+* Do a threat analysis and risk assesment
+* Follow vulnerability feeds for your technology stack 
+* Know the best practices with your technologies
+* Analyze your code and configurations
+* Keep on track about dependencies and their possible vulnerabilities
+* Try to break your system
+* Try to break other systems (with permission of course)
+* Monitor your application 
+* Know what is normal use and get alerts from anomalities
+* Do incident & response handling
+* Plan for compromise 
+* Revalidate on changes
+
+Techniques you use and the intesivity of the security depends on your application. Still you should never neglect security. Try to be better than your competitors since attackers calculate gain per effort ratio. 
+
 ## How has it worked
 
-By embracing DevSec a lot of cool things has already happened. Our customers have been pleased when we have brought up things that have security issues. By doing security testing it is likely to find also not just security flaws but also logical inconsistencies in the software. By ordering penetration testing outside of the company you might not get all the ugly functionalities into your reports because security companies are mostly interested on security issues.
+By embracing DevSec a lot of cool things has already happened. Our customers have been pleased when we have brought up things that have security issues. By doing security testing it is likely to find also not just security flaws but also logical inconsistencies in the software. By ordering penetration testing outside of the company you might not get all the ugly functionalities into your reports because security companies are mostly interested on security issues. We also noticed that having developers doing penetration testing also helps us to find vulnerabilities in third party components and report their vulnerabilities to them and thus helping community.  
