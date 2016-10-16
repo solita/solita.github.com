@@ -38,9 +38,9 @@ is the only one concerned about security. The DevSec goal is to make every devel
 it is necessary. Not everyone needs to be an expert, but everyone needs to understand that security is essential and important.
 
 
-## What
+## What is "security" actually?
 
-Classic CIA triangle consists of confidentialy, integrity and availability. All of those three factors thrive towards keeping business ongoing. By losing confidentiality we will lose customers, by losing availability we can't have business and by losing integrity we can't rely on our data. To achieve security we have quite a long list of items where attacker could affect. 
+The so called CIA triangle consists of confidentiality, integrity and availability. These are not technical concepts, they are important business concerns. Lose confidentiality, and you'll lose customers. Unavailable services do not make money and if you lose integrity, you can't rely on your data. The attackers have a number of potential routes to affect the system's CIA qualities:
 
 * Physical security of data center and client machines
 * Hardware security
@@ -49,33 +49,42 @@ Classic CIA triangle consists of confidentialy, integrity and availability. All 
 * Application server security
 * Language and framework specific security 
 * Component security
-* Code 
+* Code
 * Data integrity
 
-Sofware architects and developers design software architecture that affects items above. By choosing certain technologies you will limit your options in application servers and operating systems and maybe also in hosting partners. In each level we need to have some kind of security controls to be sure that our systems is not easily compromised. In the end it is the development team that knows the needed pieces to run the production environment. 
+Sofware architects and developers design software architecture that affects these issues. Security should be one consideration when operating systems and technology is chosen for a software system. The development team usually doesn't need to worry about BIOS security or physical security of the data center, but many security controls are their responsibility.
 
-## How
+## Security conscious developers
 
-I myself prefer to bind secure development lifecycle model into our project. It dictates that what kind of thinking should be done during the project. There are steps that may need some training like penetration testing. 
+As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a tarting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. Here's an example list of actions and decisions to make:
 
-* Train your personnel 
-* Know the policies and laws that affects your project
-* Document your architecture and understand your attack surface
-* Do a threat analysis and risk assesment
-* Follow vulnerability feeds for your technology stack 
-* Know the best practices with your technologies
-* Analyze your code and configurations
-* Keep on track about dependencies and their possible vulnerabilities
-* Try to break your system
-* Try to break other systems (with permission of course)
-* Monitor your application 
-* Know what is normal use and get alerts from anomalities
-* Do incident & response handling
-* Plan for compromise 
-* Revalidate on changes
+* Train your personnel.
+* Know the policies and laws that affect your project.
+* Document your architecture and understand your attack surface.
+* Do a threat analysis and risk assesment.
+* Follow vulnerability feeds for your technology stack.
+* Keep on track about dependencies and their possible vulnerabilities.
+* Know the best practices with your technologies.
+* Analyze your code and configurations.
+* Do inhouse penetration testing, try to break your system.
+* Monitor your application.
+* Automate alerts for anomalies in the usage patterns.
+* Do incident & response handling.
+* Prepare and plan for compromise.
+* Revalidate on changes.
 
-Techniques you use and the intesivity of the security depends on your application. Still you should never neglect security. Try to be better than your competitors since attackers calculate gain per effort ratio. 
+It's important to understand that cybercriminals estimate payoff/risk and payoff/effort before they seriously attack a system. If your system is difficult to crack, it won't get attacked unless there's a very big payoff. The criminals take the easy money, always.  Hackers and hacktivists might have other motivations, but here's a rough model for calculating "criminal value" of a system:
 
-## How has it worked
+** expected value = (effort / direct payoff) / risk factor** 
 
-By embracing DevSec a lot of cool things has already happened. Our customers have been pleased when we have brought up things that have security issues. By doing security testing it is likely to find also not just security flaws but also logical inconsistencies in the software. By ordering penetration testing outside of the company you might not get all the ugly functionalities into your reports because security companies are mostly interested on security issues. We also noticed that having developers doing penetration testing also helps us to find vulnerabilities in third party components and report their vulnerabilities to them and thus helping community.  
+Threat analysis will give insight into payoff and risk factors and you can tune the security practices accordingly. As a software designer, you can't do much about the direct payoff usually, but you can directly affect the effort and to some extent the risk factor faced by a would-be attacker. 
+
+![Seagull](/img/devsec/seagull.jpg)
+
+
+## Our experiences
+
+We have embraced DevSec. Our customers have been pleased that have been able to discuss and bring up relevant security issues. While doing security testing we often find logical flaws in the software, not just security issues. In our experience, third party penetration testers are expert hackers obsessed with "pwning" the system, and may disregard non-security related bugs. Or they might miss the implications of logical bugs as they have a superfluos understanding of the system context.
+
+Training, threat analysis, tools etc. cost money, but this should not become a problem. A discussion with stakeholders is necessary as ultimately these costs have to be covered by the customers. It may be necessary to explain to people why a threat analysis or penetration test is beneficial, but as news about cyber attacks are common everyone kind of understands that security is important. In our opinion DevSec is a very cost-effective and rational way to improve security in the coming years.
+
