@@ -75,7 +75,7 @@ As we said, DevSec calls for developers to become conscious about security. We r
 
 It's important to understand that cybercriminals estimate payoff/risk and payoff/effort before they seriously attack a system. If your system is difficult to crack, it won't get attacked unless there's a very big payoff. The criminals take the easy money, always.  Hackers and hacktivists might have other motivations, but here's a rough model for calculating "criminal value" of a system:
 
-** expected value = (effort / direct payoff) / risk factor** 
+**expected value = (effort / direct payoff) / risk factor** 
 
 Threat analysis will give insight into payoff and risk factors and you can tune the security practices accordingly. As a software designer, you can't do much about the direct payoff usually, but you can directly affect the effort and to some extent the risk factor faced by a would-be attacker. 
 
