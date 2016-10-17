@@ -56,7 +56,7 @@ Sofware architects and developers design software architecture that affects thes
 
 ## Security conscious developers
 
-As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a tarting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. Here's an example list of actions and decisions to make:
+As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a starting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. Here's an example list of actions and decisions to make:
 
 * Train your personnel.
 * Know the policies and laws that affect your project.
