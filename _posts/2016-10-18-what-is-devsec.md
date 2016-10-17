@@ -85,6 +85,21 @@ Threat analysis will give insight into payoff and risk factors and you can tune 
 
 ![Seagull](/img/devsec/seagull.jpg)
 
+## What about automatization?
+
+Trying to script and automatize things is deep in the nature of the developer. Some of the security related testing can also be automatized. We have already our continuous integration pipelines in place so we can easily add few more testing steps into that pipeline. When automating you should remember that not all of the security testing products are meant to be automatized. It is not a replacement for manual testing but it can still support you in a long run. Atleast automated test gives you advantage to follow how your products security changes on each build and to get alerts from delta values. 
+
+Here are few things we have been trying to automatize:
+
+* Static code analysis
+* Web application penetration testing
+* Attack surface analysis
+* Virus scanning
+* Known vulnerability analysis 
+* Performance testing
+* Monitoring setup
+
+Succesfulness depends a lot about the solution itself and the technological stack that you are using. It is common to get a lot of noise from automatical testing and you need to cherry pick critical information and delta values from the test results. 
 
 ## Our experiences
 
