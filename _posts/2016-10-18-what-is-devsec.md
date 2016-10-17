@@ -40,7 +40,11 @@ it is necessary. Not everyone needs to be an expert, but everyone needs to under
 
 ## What is "security" actually?
 
-The so called CIA triangle consists of confidentiality, integrity and availability. These are not technical concepts, they are important business concerns. Lose confidentiality, and you'll lose customers. Unavailable services do not make money and if you lose integrity, you can't rely on your data. The attackers have a number of potential routes to affect the system's CIA qualities:
+The so called CIA triangle consists of confidentiality, integrity and availability. These are not technical concepts, they are important business concerns. Lose confidentiality, and you'll lose customers. Unavailable services do not make money and if you lose integrity, you can't rely on your data. 
+
+![CIA](/img/devsec/cia.png)
+
+The attackers have a number of potential routes to affect the system's CIA qualities:
 
 * Physical security of data center and client machines
 * Hardware security
