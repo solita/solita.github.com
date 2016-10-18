@@ -30,13 +30,12 @@ but they are a result, not the starting point.
 ## What is DevSec?
 
 Like DevOps, this is about the culture. It's about responsibility. It's about knowing the right thing and
-having the power, resources and ability to do it. A somewhat mechanical implementation would be to add a
+having the power, resources and ability to do it. And of course It's about hacking yourself first. A somewhat mechanical implementation would be to add a
 "security specialist" to development team, as you could add some "system operation specialist" and say you're now
 doing DevOps. In our opinion, this approach is a minor improvement and totally misses the point about *culture*. A culture is about 
 values and beliefs shared by everyone. It is not enough that a "security expert" sits with the team, if that person
 is the only one concerned about security. The DevSec goal is to make every developer think about security and acknowledge 
 it is necessary. Not everyone needs to be an expert, but everyone needs to understand that security is essential and important.
-
 
 ## What is "security" actually?
 
@@ -48,6 +47,7 @@ The attackers have a number of potential routes to affect the system's CIA quali
 
 * Physical security of data center and client machines
 * Hardware security
+* Network security
 * BIOS security 
 * Operating system security
 * Application server security
@@ -56,11 +56,11 @@ The attackers have a number of potential routes to affect the system's CIA quali
 * Code
 * Data integrity
 
-Sofware architects and developers design software architecture that affects these issues. Security should be one consideration when operating systems and technology is chosen for a software system. The development team usually doesn't need to worry about BIOS security or physical security of the data center, but many security controls are their responsibility.
+Sofware architects and developers design software architecture that affects these issues. Security should be one consideration when operating systems and technology is chosen for a software system. The development team usually doesn't need to worry about BIOS security or physical security of the data center, but many security controls are at their responsibility.
 
 ## Security conscious developers
 
-As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a starting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. Here's an example list of actions and decisions to make:
+As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a starting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. If you are a wildling and do not like processes you can also try "hack yourself first" motto as your starting point. Here's an example list of actions and decisions to make:
 
 * Train your personnel.
 * Know the policies and laws that affect your project.
