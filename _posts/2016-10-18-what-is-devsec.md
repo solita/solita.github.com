@@ -101,6 +101,10 @@ Here are few things we have been trying to automatize:
 
 Succesfulness depends a lot about the solution itself and the technological stack that you are using. It is common to get a lot of noise from automatical testing and you need to cherry pick critical information and delta values from the test results. 
 
+By automatizing some things and by adding few important things from secure development lifecycle process we can derive our own cyber security pipeline. 
+
+![Seagull](/img/devsec/cyberpipeline.png)
+
 ## Our experiences
 
 We have embraced DevSec. Our customers have been pleased that have been able to discuss and bring up relevant security issues. While doing security testing we often find logical flaws in the software, not just security issues. In our experience, third party penetration testers are expert hackers obsessed with "pwning" the system, and may disregard non-security related bugs. Or they might miss the implications of logical bugs as they have a superfluos understanding of the system context.
