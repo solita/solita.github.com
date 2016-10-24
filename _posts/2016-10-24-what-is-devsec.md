@@ -18,24 +18,16 @@ to this direction in practise.
 
 How often have you heard that "you just can't add security afterwards" and 
 "security has to be thought of all the time"? This is the main concern DevSec aims to address. Most people
-realize that you can't add security afterwards, any more than you can add usability or quality after the product is "done".
+realize that you can't add security afterwards, any more than you can add usability or quality after the product is "done". Recently, bug 
+bounty programs have received a lot of attention and there are even companies running these, such as [Hacker One](https://hackerone.com/). 
+These are not useless, but bug bounties work on released software products, and do not help building secure products in the first place.
 
-DevSec is not the only solution, as there are plenty of presentations about integrating security related
+To improve the development process, DevSec is not the only solution, as there are plenty of presentations about integrating security related
 work to agile development cycle. Even somewhat formalized processes, like 
 [Microsoft's "Security Development Lifecycle"](https://www.microsoft.com/en-us/SDL/Discover/sdlagile.aspx). 
-What's different in our opinion, is that we feel that process is not the answer. Rather, we prefer to make
+The crucial difference with DevSec is that we feel the process is not the answer. Rather, we prefer to make
 developer teams capable of taking responsibility for the security. Changes in the process are a good thing,
 but they are a result, not the starting point.
-
-## What is DevSec?
-
-Like DevOps, this is about the culture. It's about responsibility. It's about knowing the right thing and
-having the power, resources and ability to do it. And of course It's about hacking yourself first. A somewhat mechanical implementation would be to add a
-"security specialist" to development team, as you could add some "system operation specialist" and say you're now
-doing DevOps. In our opinion, this approach is a minor improvement and totally misses the point about *culture*. A culture is about 
-values and beliefs shared by everyone. It is not enough that a "security expert" sits with the team, if that person
-is the only one concerned about security. The DevSec goal is to make every developer think about security and acknowledge 
-it is necessary. Not everyone needs to be an expert, but everyone needs to understand that security is essential and important.
 
 ## What is "security" actually?
 
@@ -56,11 +48,21 @@ The attackers have a number of potential routes to affect the system's CIA quali
 * Code
 * Data integrity
 
-Sofware architects and developers design software architecture that affects these issues. Security should be one consideration when operating systems and technology is chosen for a software system. The development team usually doesn't need to worry about BIOS security or physical security of the data center, but many security controls are at their responsibility.
+Sofware architects and developers design software architecture that affects these issues. Security should be one consideration when operating systems and technology are chosen for a software system. The development team usually doesn't need to worry about BIOS security or physical security of the data center, but many security controls are their responsibility.
+
+## What is DevSec?
+
+Like DevOps, this is about the culture. It's about responsibility. It's about knowing the right thing and
+having the power, resources and ability to do it. And of course It's about hacking yourself first. A somewhat mechanical implementation would be to add a
+"security specialist" to development team, as you could add some "system operation specialist" and say you're now
+doing DevOps. In our opinion, this approach is a minor improvement and totally misses the point about *culture*. A culture is about 
+values and beliefs shared by everyone. It is not enough that a "security expert" sits with the team, if that person
+is the only one concerned about security. The DevSec goal is to make every developer think about security and acknowledge 
+it is necessary. Not everyone needs to be an expert, but everyone needs to understand that security is essential and important.
 
 ## Security conscious developers
 
-As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a starting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. If you are a wildling and do not like processes you can also try "hack yourself first" motto as your starting point. Here's an example list of actions and decisions to make:
+As we said, DevSec calls for developers to become conscious about security. We recommend a secure development lifecycle model as a starting point for practical everyday work. It dictates what needs to be dealt with, but the team decides what is the proper thing to do in their particular context. If you are a wildling, and do not like processes, you can also try "hack yourself first" motto as your starting point. Here's an example list of actions and decisions to make:
 
 * Train your personnel.
 * Know the policies and laws that affect your project.
@@ -87,9 +89,9 @@ Threat analysis will give insight into payoff and risk factors and you can tune 
 
 ## What about automatization?
 
-Trying to script and automatize things is deep in the nature of the developer. Some of the security related testing can also be automatized. Actually many of the attacks will be automatized bots trying to takeover systems. We have already our continuous integration pipelines in place so we can easily add few more testing steps into that pipeline. When automating you should remember that not all of the security testing products are meant to be automatized. It is not a replacement for manual testing but it can still support you in a long run. Atleast automated test gives you advantage to follow how your products security changes on each build and to get alerts from delta values. 
+Automatization has been all the rage recently among developers and some of the security testing can be automatized. Actually, many of the attacks are automatized bots trying to take over systems. Existing continuous integration pipelines can be extended by adding a few extra testing steps. Bear in mind that some security testing products do not have a programmer friendly API, but increasingly the vendors are going to support automated testing. 
 
-Here are few things we have been trying to automatize:
+Automated tests are not a substitute for manual testing, but can find real problems for a very low cost. Here are things we have automated to some degree:
 
 * Static code analysis
 * Web application penetration testing
@@ -99,15 +101,14 @@ Here are few things we have been trying to automatize:
 * Performance testing
 * Monitoring setup
 
-Succesfulness depends a lot about the solution itself and the technological stack that you are using. It is common to get a lot of noise from automatical testing and you need to cherry pick critical information and delta values from the test results. This can be achieved with ticketing system integrations. 
+The cost/benefit ratio depends a lot on the solution and the technology stack you are using. All automated tools generate a lot of noise and false positives. Therefore, the reporting should concentrate on the delta of findings between builds to measure if the security is improving or getting worse. You might need to do some extra scripts to support this sort of reporting, depending on the tools you use.
 
-By automatizing some things and by adding few important things from secure development lifecycle process we can derive our own cyber security pipeline. 
+Here's a rough outline of our current cyber security pipeline. 
 
-![Seagull](/img/devsec/cyberpipeline.png)
+![cyber-pipeline](/img/devsec/cyberpipeline.png)
 
 ## Our experiences
 
 We have embraced DevSec. Our customers have been pleased that have been able to discuss and bring up relevant security issues. While doing security testing we often find logical flaws in the software, not just security issues. In our experience, third party penetration testers are expert hackers obsessed with "pwning" the system, and may disregard non-security related bugs. Or they might miss the implications of logical bugs as they have a superfluos understanding of the system context.
 
 Training, threat analysis, tools etc. cost money, but this should not become a problem. A discussion with stakeholders is necessary as ultimately these costs have to be covered by the customers. It may be necessary to explain to people why a threat analysis or penetration test is beneficial, but as news about cyber attacks are common everyone kind of understands that security is important. In our opinion DevSec is a very cost-effective and rational way to improve security in the coming years.
-
