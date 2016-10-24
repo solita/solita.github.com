@@ -87,7 +87,7 @@ Threat analysis will give insight into payoff and risk factors and you can tune 
 
 ## What about automatization?
 
-Trying to script and automatize things is deep in the nature of the developer. Some of the security related testing can also be automatized. We have already our continuous integration pipelines in place so we can easily add few more testing steps into that pipeline. When automating you should remember that not all of the security testing products are meant to be automatized. It is not a replacement for manual testing but it can still support you in a long run. Atleast automated test gives you advantage to follow how your products security changes on each build and to get alerts from delta values. 
+Trying to script and automatize things is deep in the nature of the developer. Some of the security related testing can also be automatized. Actually many of the attacks will be automatized bots trying to takeover systems. We have already our continuous integration pipelines in place so we can easily add few more testing steps into that pipeline. When automating you should remember that not all of the security testing products are meant to be automatized. It is not a replacement for manual testing but it can still support you in a long run. Atleast automated test gives you advantage to follow how your products security changes on each build and to get alerts from delta values. 
 
 Here are few things we have been trying to automatize:
 
@@ -99,7 +99,7 @@ Here are few things we have been trying to automatize:
 * Performance testing
 * Monitoring setup
 
-Succesfulness depends a lot about the solution itself and the technological stack that you are using. It is common to get a lot of noise from automatical testing and you need to cherry pick critical information and delta values from the test results. 
+Succesfulness depends a lot about the solution itself and the technological stack that you are using. It is common to get a lot of noise from automatical testing and you need to cherry pick critical information and delta values from the test results. This can be achieved with ticketing system integrations. 
 
 By automatizing some things and by adding few important things from secure development lifecycle process we can derive our own cyber security pipeline. 
 
