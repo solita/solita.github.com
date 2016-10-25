@@ -87,9 +87,9 @@ Threat analysis will give insight into payoff and risk factors and you can tune 
 
 ![Seagull](/img/devsec/seagull.jpg)
 
-## What about automatization?
+## What about automation?
 
-Automatization has been all the rage recently among developers and some of the security testing can be automatized. Actually, many of the attacks are automatized bots trying to take over systems. Existing continuous integration pipelines can be extended by adding a few extra testing steps. Bear in mind that some security testing products do not have a programmer friendly API, but increasingly the vendors are going to support automated testing. 
+Automation has been all the rage recently among developers and some of the security testing can be automated. Actually, many of the attacks are automated bots trying to take over systems. Existing continuous integration pipelines can be extended by adding a few extra testing steps. Bear in mind that some security testing products do not have a programmer friendly API, but increasingly the vendors are going to support automated testing. 
 
 Automated tests are not a substitute for manual testing, but can find real problems for a very low cost. Here are things we have automated to some degree:
 
