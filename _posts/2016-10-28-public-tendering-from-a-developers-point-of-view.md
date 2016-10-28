@@ -94,12 +94,102 @@ can help you.  Then, if they are smart and benevolent, they will
 probably be able to help you.  I know that my colleagues try their best,
 but I still can't promise they will always succeed.  We also try to tell
 our customers if they're asking impossible or insensible things, and
-sadly, neither can I promise that we'll always succeed in that.
+sadly, neither can I promise that we'll always succeed in that.  But we
+will try!
 
 One approach that I haven't seen used, but which should prove
-interesting, is to implement the same system in maybe two or three
-unrelated projects.  That way, it's easier to see the strengths and
-shortcomings of these different implementations.  It might sound
-expensive, but because this multiplicity works as one kind of quality
-control, you can let go of supplier quality criteria (such as years in
-business etc).  This should drive the price down a lot.
+interesting, is to implement the same system (i.e. the same user
+stories) in maybe two or three unrelated projects.  That way, it's
+easier to see the strengths and shortcomings of these different
+implementations.  It might sound expensive, but because this
+multiplicity works as one kind of quality control, you can let go of
+supplier quality criteria, such as years in business etc.  This should
+drive the price down a lot, because your supplier market will be much
+more competitive when you don't constrain your options.
+
+One approach that mitigates the risk of software projects is to start
+with a working (and preferably, open sourced) software product and build
+up from there.  This way, you should be able to have a working product
+in every development iteration - say, every two weeks - so progress is
+easier to assess and there is a kind of plan B if you need to terminate
+the project early: using the software as-is.  Remember, however, that
+the inner quality of your developed software might be really bad even if
+it seems good from the outside.  So this is no silver bullet that will
+solve everything.
+
+## When the harm has already been done
+
+What to do then, if you are already in the situation that your chosen IT
+supplier cannot deliver what they were supposed to or what you would
+like to have?  As I said, there are only bad options then, but some are
+worse than others.  My experience is that organisations almost always
+underestimate the costs of finishing a bad software product or service.
+Like a destructive, hostile employee, a counterproductive, unautomated
+and unintuitive IT system will be hard to get rid of, complicate your
+processes, make everybody demotivated and _still_ get so intertwined
+with your business that it is very hard to eliminate.  Not to mention
+that in forthcoming procurements, you have to take this old system into
+account, and prepare for extra work in the migration.
+
+The most important "solution" here that I know of, is to fail as early
+as possible.  It's hard, because the organisation has already been
+preparing to get some kind of new service, but it's still usually the
+least worst option.  It doesn't really matter very much whether you try
+to stay on good terms with the terminated subcontractor, put fines on
+them, or whatever aftermath there might be.  Usually the greatest harm
+is still that you have to find a plan B to continue your processes
+without the new service or program you were waiting for.  The earlier
+you fail, the smaller the consequences, but it's never too late to
+cancel a project if it hasn't been put into production.
+
+You can try to find a new subcontractor to pick it up from the situation
+where the former subcontractor left things, but don't expect wonders.
+If it hasn't been working very well with the former subcontractor, most
+likely the inner quality of the software/service will be even worse than
+the outer quality, and even if you get a good subcontractor this time,
+they will have hard time improving the sluggish work they're left with.
+There's a limit to how much defects a given piece of software can have
+before _all_ development time goes to just deal with those defects.  A
+badly written piece of software will be enormously slower to develop new
+features for, so you should prepare for a phase where the development is
+purely focused on improving the inner quality and progress is not very
+visible in terms of user experience or functionality.
+
+Sometimes it really makes sense just to throw away the old work.  Then
+the first project can be seen as a kind of prototype, or
+experimentation, that hopefully improved your understanding of what you
+are trying to get.  This might prove really valuable if you decide to
+engage again in a similar project.
+
+## How to prepare for public tenderings
+
+If there's no way to ensure things will work out, what should you do in
+the first place?  You might already guess the answer - always have a
+plan B that you can take even if the project fails to produce useful
+results.  Ensure you can go back as long as you have _any_ reason to
+doubt whether the new software/service can achieve what it was meant
+for.  Ensure that you can always terminate your contract, and for
+whatever reason, such as bad vibes.  And, if you have some pushing
+reason to get a new IT system, such as the old one is breaking down or
+reaching the end of its support cycle, try to fix that pushing reason
+first with minimal changes.  Do not push all kinds of feature and
+improvement requests into an upgrade project with a hard deadline,
+because you will be in an enormously unpleasant situation if it fails.
+
+Does it sound pessimistic to you, as if I was suggesting to always
+prepare for the worst?  Maybe, but then you're missing my point a
+little.  My point is that procurements should be seen as kinds of
+experimentation, not life-savers.  They can and will fail sometimes, and
+when they do, they still provide valuable experience.  The important
+thing is to get a maximum amount of experience.  If you treat
+procured software/services as a process of experimentation and do not
+depend on them before they have proved themselves, you get a different
+mindframe where you only have good options: continue your business as it
+has been done, or get an improved way of working by deploying the new
+ideas in your new IT service.
+
+Ensure you can go back, trust your supplier, try to get something usable
+as early on as possible, try to build as much experience as possible.
+Sometimes you will waste money, as with most investments, but sometimes
+you may win big.
+
