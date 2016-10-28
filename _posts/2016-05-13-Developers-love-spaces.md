@@ -9,8 +9,8 @@ tags:
 - Java
 - Clojure 
 - Javascript
-- Development
-- Culture
+- development
+- culture
 - Solita
 ---
 
