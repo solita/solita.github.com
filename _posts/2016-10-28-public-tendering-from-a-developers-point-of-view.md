@@ -1,7 +1,24 @@
 ---
 layout: post
-title: IT procurements and public tenderings, from a developer point of view
+title: IT procurements and public tenderings, from a developer's point of view
 author: pkalliok
+date: 2016-10-28 14:50:00 +02:00
+excerpt: >
+ Procurements should be seen as kinds of experimentation, not life-savers.
+ They can and will fail sometimes, and when they do, they still provide
+ valuable experience.  The important thing is to get a maximum amount of
+ experience.
+tags:
+- automation
+- development
+- feedback
+- continuous delivery
+- maintainability
+- open source
+- prototyping
+- software development process
+- procurement
+- tendering
 ---
 
 This essay is about a topic that has been beaten to death already: how
