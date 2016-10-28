@@ -64,35 +64,37 @@ Combine this with the fact that in addition to an "outer" quality (what
 it looks like and whether it is easy to use), IT products also have an
 "inner" quality: how often it will crash, do you ever lose data, how
 difficult the product is to update, how much resources it consumes, how
-difficult further development will be, how hard it is to integrate with
-other systems.  Still combine this with the fact that these are systems
-that often hold data that is critical to the business or organisation,
-and it is far from trivial to transfer this data to other systems.  And
-as if that wasn't enough, these are also systems tied to the very
-working of your internal processes, and your employees will specialise
-in the particular systems they have to use, however bad and
-counterproductive they might be.
+difficult further development or maintenance will be, and how hard it is
+to integrate with other systems.  Still combine this with the fact that
+these are systems that often hold data that is critical to the business
+or organisation, and it is far from trivial to transfer this data to
+other systems.  And as if that wasn't enough, these are also systems
+tied to the very working of your internal processes, and your employees
+will specialise in the particular systems they have to use, however bad
+and counterproductive they might be.
 
 Put together, all this means that you have no way of ensuring that you
 will get something useful for your money, _but_ you will still be tied
-to that system for quite a while.  As I said, it is hopeless.
+to that system for quite a while.  As I said, it is hopeless.  What will
+then happen, if it is hopeless?  With your tender, you will get what you
+will get.  You can't really ensure that it will be something useful, but
+there _are_ some ways to ensure that it will be useless.
 
 ## The partial solutions to the fundamental problem
 
 ### What to avoid
 
-What will then happen, if it is hopeless?  With your tender, you will
-get what you will get.  You can't really ensure that it will be
-something useful, but there _are_ some ways to ensure that it will be
-useless.  For instance, too long a feedback cycle (too much planning and
-too little trying things out) will almost always bring you something
-that will prove useless, or a lot less useful than what you hoped for.
-A policy that prevents automation is also very bad for productivity and
-software quality - for instance, hand-written installation instructions
-to server administrators.  One pitfall is trying to procure before you
-have a clear understanding of what the system will at _least_ do.  Even
-if you have a great IT subcontractor and they're doing their best, they
-have almost no way of succeeding in these situations.
+There's no lack of examples as to what will make a software project
+produce useless results.  For instance, too long a feedback cycle (too
+much planning and too little trying things out) will almost always bring
+you something that will prove useless, or a lot less useful than what
+you hoped for.  A policy that prevents automation is also very bad for
+productivity and software quality - for instance, hand-written
+installation instructions to server administrators.  One pitfall is
+trying to procure before you have a clear understanding of what the
+system will at _least_ do.  Even if you have a great IT subcontractor
+and they're doing their best, they have almost no way of succeeding in
+these situations.
 
 ### What to try out
 
@@ -137,7 +139,7 @@ solve everything.
 ## When the harm has already been done
 
 What to do then, if you are already in the situation that your chosen IT
-supplier cannot deliver what they were supposed to or what you would
+supplier cannot deliver what they were supposed to, or what you would
 like to have?  As I said, there are only bad options then, but some are
 worse than others.  My experience is that organisations almost always
 underestimate the costs of finishing a bad software product or service.
@@ -192,6 +194,11 @@ reaching the end of its support cycle, try to fix that pushing reason
 first with minimal changes.  Do not push all kinds of feature and
 improvement requests into an upgrade project with a hard deadline,
 because you will be in an enormously unpleasant situation if it fails.
+
+It also helps a lot if your organisation has at least some people with
+the skills to evaluate the quality of your IT supplier and the solution
+they are building.  That way you can fail earlier, and with less of a
+hassle.
 
 Does it sound pessimistic to you, as if I was suggesting to always
 prepare for the worst?  Maybe, but then you're missing my point a
