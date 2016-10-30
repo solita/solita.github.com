@@ -29,6 +29,8 @@ teaser: it's hopeless.  However well you prepare, whatever you will set
 as the criteria, there's always the possibility that your chosen IT
 supplier will not get the job done, and then you only have bad options.
 
+![Damned if you do, damned if you don't](/img/public-tendering/damned-anyway.png)
+
 It is no guarantee of quality if the subcontractor is expensive.  It
 only tells that they are preparing for a lot of extra work, or big
 profit margins.  It's almost on the contrary, but a cheap subcontractor
@@ -52,6 +54,8 @@ different LDAP servers.  But for most of those standardised interfaces,
 open source products already exist, so most of the time it makes no
 sense to use money when you can get a better implementation for free.
 
+![A sock - the ideal kind of thing to buy](/img/public-tendering/sock.png)
+
 But it doesn't end there.  For most stuff you buy, you can readily
 assess their worth by using them.  The defects and problems of IT
 products become apparent very slowly and only through extensive use of
@@ -72,6 +76,8 @@ other systems.  And as if that wasn't enough, these are also systems
 tied to the very working of your internal processes, and your employees
 will specialise in the particular systems they have to use, however bad
 and counterproductive they might be.
+
+!["But it looks so good on the outside!"](/img/public-tendering/the-cake.png)
 
 Put together, all this means that you have no way of ensuring that you
 will get something useful for your money, _but_ you will still be tied
@@ -111,6 +117,8 @@ subcontractor is in even deeper trouble than you are.  In any case, a
 contract like this will bring about a very hostile environment, where
 that focus is on sticking to the contract as verbatim as possible.
 
+![When two people fight, someone else is winning](/img/public-tendering/fighting-people.png)
+
 ### What to try out
 
 One approach is to avoid buying IT "solutions", but instead buy
@@ -130,6 +138,8 @@ but I still can't promise they will always succeed.  We also try to tell
 our customers if they're asking impossible or insensible things, and
 sadly, neither can I promise that we'll always succeed in that.  But we
 will try!
+
+![best effort - not guaranteed to help](/img/public-tendering/best-effort-trophy.png)
 
 One approach that I haven't seen used, but which should prove
 interesting, is to implement the same system (i.e. the same user
@@ -175,6 +185,8 @@ is still that you have to find a plan B to continue your processes
 without the new service or program you were waiting for.  The earlier
 you fail, the smaller the consequences, but it's never too late to
 cancel a project if it hasn't been put into production.
+
+![Would you use a goofy hammer if you already payed a million euros for it?](/img/public-tendering/goofy-hammer.png)
 
 You can try to find a new subcontractor to pick it up from the situation
 where the former subcontractor left things, but don't expect wonders.
@@ -226,6 +238,8 @@ depend on them before they have proved themselves, you get a different
 mindframe where you only have good options: continue your business as it
 has been done, or get an improved way of working by deploying the new
 ideas in your new IT service.
+
+![The experience cycle](/img/public-tendering/experience-cycle.png)
 
 Ensure you can go back, trust your supplier, try to get something usable
 as early on as possible, try to build as much experience as possible.
