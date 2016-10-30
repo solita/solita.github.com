@@ -96,6 +96,21 @@ system will at _least_ do.  Even if you have a great IT subcontractor
 and they're doing their best, they have almost no way of succeeding in
 these situations.
 
+One thing that kind of works, but is still very bad for productivity, is
+to make them hurt as much as you do.  In practice, it means that for
+every defect, missed milestone, and reduction of scope, you impose a
+heavy penalty on your subcontractor.  Then you will get quite precisely
+what you agreed on.  Whether that is good depends on how precise the
+understanding of your needs was at the time of contract, and whether
+you got that understanding into the contract properly.  One downside of
+this approach is that when they give offers to a tendering with heavy
+penalties, they will account for their risks in the price.  The
+penalties also only work well as a threat.  When things really start
+going awry, it is usually of little consolation to you that your
+subcontractor is in even deeper trouble than you are.  In any case, a
+contract like this will bring about a very hostile environment, where
+that focus is on sticking to the contract as verbatim as possible.
+
 ### What to try out
 
 One approach is to avoid buying IT "solutions", but instead buy
