@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IT procurements and public tenderings, from a developer's point of view
+title: Guaranteed results for buying IT?  You wish!
 author: pkalliok
 date: 2016-10-28 14:50:00 +02:00
 excerpt: >
