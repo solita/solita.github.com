@@ -22,24 +22,25 @@ tags:
 ---
 
 This essay is about a topic that has been beaten to death already: how
-to make public tenderings of IT services, or software development.
-There certainly is no lack of writings about how you can conduct a
-procurement, what to do and especially what _not_ to do.  Here's my
-teaser: it's hopeless.  However well you prepare, whatever you will set
-as the criteria, there's always the possibility that your chosen IT
-supplier will not get the job done, and then you only have bad options.
+to make public calls for tenders of IT services, or software
+development.  There certainly is no lack of writings about how you can
+conduct a procurement, what to do and especially what _not_ to do.
+Here's my teaser: it's hopeless.  However well you prepare, whatever you
+will set as the criteria, there's always the possibility that your
+chosen IT supplier will not get the job done, and then you only have bad
+options.
 
 ![Damned if you do, damned if you don't](/img/public-tendering/damned-anyway.png)
 
-It is no guarantee of quality if the subcontractor is expensive.  It
-only tells that they are preparing for a lot of extra work, or big
-profit margins.  It's almost on the contrary, but a cheap subcontractor
-_might_ just have totally misunderstood the scope of what you're buying,
-or is otherwise delirious about their own abilities.  It might help that
-you stick with a subcontractor that has a good track record, but then
-there is the risk that you're actually sticking with a total douchebag
-supplier out of fear of change.  It's hard to assess the ability of your
-subcontractors when it's about IT.
+It is no guarantee of quality if the supplier is expensive.  It only
+tells that they are preparing for a lot of extra work, or big profit
+margins.  It's almost on the contrary, but a cheap supplier _might_ just
+have totally misunderstood the scope of what you're buying, or is
+otherwise delirious about their own abilities.  It might help that you
+stick with a supplier that has a good track record, but then there is
+the risk that you're actually sticking with a total douchebag supplier
+out of fear of change.  It's hard to assess the ability of your supplier
+when it's about IT.
 
 ## The fundamental problem
 
@@ -59,7 +60,7 @@ sense to use money when you can get a better implementation for free.
 But it doesn't end there.  For most stuff you buy, you can readily
 assess their worth by using them.  The defects and problems of IT
 products become apparent very slowly and only through extensive use of
-the software/service.  Unless your IT subcontractor is making deliberate
+the software/service.  Unless your IT supplier is making deliberate
 effort to ensure that they are building something that actually helps
 you, they will be long gone by the time you have gathered enough
 experience to know what you should be asking for.  
@@ -82,9 +83,10 @@ and counterproductive they might be.
 Put together, all this means that you have no way of ensuring that you
 will get something useful for your money, _but_ you will still be tied
 to that system for quite a while.  As I said, it is hopeless.  What will
-then happen, if it is hopeless?  With your tender, you will get what you
-will get.  You can't really ensure that it will be something useful, but
-there _are_ some ways to ensure that it will be useless.
+then happen, if it is hopeless?  With your call for tenders, you will
+get what you will get.  You can't really ensure that it will be
+something useful, but there _are_ some ways to ensure that it will be
+useless.
 
 ## The partial solutions to the fundamental problem
 
@@ -98,14 +100,14 @@ you hoped for.  A policy that prevents automation is also very bad for
 productivity and software quality - for instance, hand-written
 installation instructions to server administrators.  One pitfall is
 trying to procure before you have a clear understanding of what the
-system will at _least_ do.  Even if you have a great IT subcontractor
-and they're doing their best, they have almost no way of succeeding in
-these situations.
+system will at _least_ do.  Even if you have a great IT supplier and
+they're doing their best, they have almost no way of succeeding in these
+situations.
 
 One thing that kind of works, but is still very bad for productivity, is
 to make them hurt as much as you do.  In practice, it means that for
 every defect, missed milestone, and reduction of scope, you impose a
-heavy penalty on your subcontractor.  Then you will get quite precisely
+heavy penalty on your supplier.  Then you will get quite precisely
 what you agreed on.  Whether that is good depends on how precise the
 understanding of your needs was at the time of contract, and whether
 you got that understanding into the contract properly.  One downside of
@@ -113,7 +115,7 @@ this approach is that when they give offers to a tendering with heavy
 penalties, they will account for their risks in the price.  The
 penalties also only work well as a threat.  When things really start
 going awry, it is usually of little consolation to you that your
-subcontractor is in even deeper trouble than you are.  In any case, a
+supplier is in even deeper trouble than you are.  In any case, a
 contract like this will bring about a very hostile environment, where
 that focus is on sticking to the contract as verbatim as possible.
 
@@ -130,14 +132,14 @@ buying these people to do your IT for you, you probably don't have much
 idea whether they are doing it well - because assessment of IT work is a
 very challenging skill in itself, and usually requires good IT skills.
 
-Another approach is just to absolutely trust whichever IT subcontractor
-you choose, and give them as much information as possible so that they
-can help you.  Then, if they are smart and benevolent, they will
-probably be able to help you.  I know that my colleagues try their best,
-but I still can't promise they will always succeed.  We also try to tell
-our customers if they're asking impossible or insensible things, and
-sadly, neither can I promise that we'll always succeed in that.  But we
-will try!
+Another approach is just to absolutely trust whichever IT supplier you
+choose, and give them as much information as possible so that they can
+help you.  Then, if they are smart and benevolent, they will probably be
+able to help you.  I know that my colleagues try their best, but I still
+can't promise they will always succeed.  We also try to tell our
+customers if they're asking impossible or insensible things, and sadly,
+neither can I promise that we'll always succeed in that.  But we will
+try!
 
 ![best effort - not guaranteed to help](/img/public-tendering/best-effort-trophy.png)
 
@@ -179,24 +181,24 @@ The most important "solution" here that I know of, is to fail as early
 as possible.  It's hard, because the organisation has already been
 preparing to get some kind of new service, but it's still usually the
 least worst option.  It doesn't really matter very much whether you try
-to stay on good terms with the terminated subcontractor, put fines on
-them, or whatever aftermath there might be.  Usually the greatest harm
-is still that you have to find a plan B to continue your processes
-without the new service or program you were waiting for.  The earlier
-you fail, the smaller the consequences, but it's never too late to
-cancel a project if it hasn't been put into production.
+to stay on good terms with the terminated supplier, put fines on them,
+or whatever aftermath there might be.  Usually the greatest harm is
+still that you have to find a plan B to continue your processes without
+the new service or program you were waiting for.  The earlier you fail,
+the smaller the consequences, but it's never too late to cancel a
+project if it hasn't been put into production.
 
 ![Would you use a goofy hammer if you already payed a million euros for it?](/img/public-tendering/goofy-hammer.png)
 
-You can try to find a new subcontractor to pick it up from the situation
-where the former subcontractor left things, but don't expect wonders.
-If it hasn't been working very well with the former subcontractor, most
-likely the inner quality of the software/service will be even worse than
-the outer quality, and even if you get a good subcontractor this time,
-they will have hard time improving the sluggish work they're left with.
-There's a limit to how much defects a given piece of software can have
-before _all_ development time goes to just deal with those defects.  A
-badly written piece of software will be enormously slower to develop new
+You can try to find a new supplier to pick it up from the situation
+where the former supplier left things, but don't expect wonders.  If it
+hasn't been working very well with the former supplier, most likely the
+inner quality of the software/service will be even worse than the outer
+quality, and even if you get a good supplier this time, they will have
+hard time improving the sluggish work they're left with.  There's a
+limit to how much defects a given piece of software can have before
+_all_ development time goes to just deal with those defects.  A badly
+written piece of software will be enormously slower to develop new
 features for, so you should prepare for a phase where the development is
 purely focused on improving the inner quality and progress is not very
 visible in terms of user experience or functionality.
