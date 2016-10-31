@@ -21,14 +21,14 @@ tags:
 - tendering
 ---
 
-This essay is about a topic that has been beaten to death already: how
-to make public calls for tenders of IT services, or software
-development.  There certainly is no lack of writings about how you can
-conduct a procurement, what to do and especially what _not_ to do.
-Here's my teaser: it's hopeless.  However well you prepare, whatever you
-will set as the criteria, there's always the possibility that your
-chosen IT supplier will not get the job done, and then you only have bad
-options.
+This essay is a developer's opinion to a topic that has been beaten to
+death already: how to make public calls for tenders of IT services, or
+software development.  There certainly is no lack of writings about how
+you can conduct a procurement, what to do and especially what _not_ to
+do.  Here's my teaser: it's hopeless.  However well you prepare,
+whatever you will set as the criteria, there's always the possibility
+that your chosen IT supplier will not get the job done.  Then you only
+have bad options.
 
 ![Damned if you do, damned if you don't](/img/public-tendering/damned-anyway.png)
 
@@ -67,16 +67,16 @@ experience to know what you should be asking for.
 
 Combine this with the fact that in addition to an "outer" quality (what
 it looks like and whether it is easy to use), IT products also have an
-"inner" quality: how often it will crash, do you ever lose data, how
-difficult the product is to update, how much resources it consumes, how
-difficult further development or maintenance will be, and how hard it is
-to integrate with other systems.  Still combine this with the fact that
-these are systems that often hold data that is critical to the business
-or organisation, and it is far from trivial to transfer this data to
-other systems.  And as if that wasn't enough, these are also systems
-tied to the very working of your internal processes, and your employees
-will specialise in the particular systems they have to use, however bad
-and counterproductive they might be.
+"inner" quality.  It's about things like, how often it will crash, do
+you ever lose data, how difficult the product is to update, how much
+resources it consumes, how difficult further development or maintenance
+will be, and how hard it is to integrate with other systems.  Still
+combine this with the fact that these are systems that often hold data
+that is critical to the business or organisation.  It is far from
+trivial to transfer this data to other systems.  And as if that wasn't
+enough, these are also systems tied to the very working of your internal
+processes.  Your employees will specialise in the particular systems
+they have to use, however bad and counterproductive they might be.
 
 !["But it looks so good on the outside!"](/img/public-tendering/the-cake.png)
 
@@ -93,10 +93,10 @@ useless.
 ### What to avoid
 
 There's no lack of examples as to what will make a software project
-produce useless results.  For instance, too long a feedback cycle (too
-much planning and too little trying things out) will almost always bring
-you something that will prove useless, or a lot less useful than what
-you hoped for.  A policy that prevents automation is also very bad for
+produce useless results.  For instance, if the feedback cycle is too
+long, you will get something that doesn't really help you.  Long
+feedback cycles are cause by too much planning and too little trying
+things out.  A policy that prevents automation is also very bad for
 productivity and software quality - for instance, hand-written
 installation instructions to server administrators.  One pitfall is
 trying to procure before you have a clear understanding of what the
@@ -107,11 +107,11 @@ situations.
 One thing that kind of works, but is still very bad for productivity, is
 to make them hurt as much as you do.  In practice, it means that for
 every defect, missed milestone, and reduction of scope, you impose a
-heavy penalty on your supplier.  Then you will get quite precisely
-what you agreed on.  Whether that is good depends on how precise the
-understanding of your needs was at the time of contract, and whether
-you got that understanding into the contract properly.  One downside of
-this approach is that when they give offers to a tendering with heavy
+heavy penalty on your supplier.  Then you will get quite precisely what
+you agreed on.  Whether that is good, depends on how precise the
+understanding of your needs was at the time of contract, and whether you
+got that understanding into the contract properly.  One downside of this
+approach is that, when they give offers to a tendering with heavy
 penalties, they will account for their risks in the price.  The
 penalties also only work well as a threat.  When things really start
 going awry, it is usually of little consolation to you that your
@@ -123,59 +123,60 @@ that focus is on sticking to the contract as verbatim as possible.
 
 ### What to try out
 
-One approach is to avoid buying IT "solutions", but instead buy
-brilliant people that will build those solutions _and_ find what you
-actually need solutions for.  Employing these people was the traditional
-way, but consultants will also do, as long as they are really committed
-to the long-term success of your organisation.  However, if you are
+One approach is to avoid buying IT "solutions".  Instead buy brilliant
+people that will build those solutions _and_ find what you actually need
+solutions for.  Employing these people was the traditional way, but
+consultants will also do, as long as they are really committed to the
+long-term success of your organisation.  However, if you are
 buying these people to do your IT for you, you probably don't have much
-idea whether they are doing it well - because assessment of IT work is a
-very challenging skill in itself, and usually requires good IT skills.
+idea whether they are doing it well.  That's because it takes good IT
+skills to assess the IT skills of others.
 
 Another approach is just to absolutely trust whichever IT supplier you
 choose, and give them as much information as possible so that they can
 help you.  Then, if they are smart and benevolent, they will probably be
 able to help you.  I know that my colleagues try their best, but I still
 can't promise they will always succeed.  We also try to tell our
-customers if they're asking impossible or insensible things, and sadly,
-neither can I promise that we'll always succeed in that.  But we will
-try!
+customers if they're asking for impossible or insensible things, and
+sadly, neither can I promise that we'll always succeed in that.  But we
+will try!
 
 ![best effort - not guaranteed to help](/img/public-tendering/best-effort-trophy.png)
 
 One approach that I haven't seen used, but which should prove
-interesting, is to implement the same system (i.e. the same user
-stories) in maybe two or three unrelated projects.  That way, it's
-easier to see the strengths and shortcomings of these different
-implementations.  It might sound expensive, but because this
-multiplicity works as one kind of quality control, you can let go of
-supplier quality criteria, such as years in business etc.  This should
-drive the price down a lot, because your supplier market will be much
-more competitive when you don't constrain your options.
+interesting: implement the same system (i.e. the same user stories) in
+maybe two or three unrelated projects.  That way, it's easier to see the
+strengths and shortcomings of these different implementations.  It might
+sound expensive, but not necessarily.  Because this multiplicity works
+as one kind of quality control, you can let go of supplier quality
+criteria, such as years in business etc.  This should drive the price
+down a lot, because your supplier market will be much more competitive
+when you don't constrain your options.
 
 One approach that mitigates the risk of software projects is to start
 with a working (and preferably, open sourced) software product and build
 up from there.  This way, you should be able to have a working product
 in every development iteration - say, every two weeks - so progress is
-easier to assess and there is a kind of plan B if you need to terminate
-the project early: using the software as-is.  Remember, however, that
-the inner quality of your developed software might be really bad even if
-it seems good from the outside.  So this is no silver bullet that will
-solve everything.
+easier to assess.  There is also a kind of plan B if you need to
+terminate the project early: using the software as-is.  Remember,
+however, that the inner quality of your developed software might be
+really bad even if it seems good from the outside.  So this is no silver
+bullet that will solve everything.
 
 ## When the harm has already been done
 
 What to do then, if you are already in the situation that your chosen IT
 supplier cannot deliver what they were supposed to, or what you would
-like to have?  As I said, there are only bad options then, but some are
+actually need?  As I said, there are only bad options then, but some are
 worse than others.  My experience is that organisations almost always
 underestimate the costs of finishing a bad software product or service.
 Like a destructive, hostile employee, a counterproductive, unautomated
-and unintuitive IT system will be hard to get rid of, complicate your
-processes, make everybody demotivated and _still_ get so intertwined
-with your business that it is very hard to eliminate.  Not to mention
-that in forthcoming procurements, you have to take this old system into
-account, and prepare for extra work in the migration.
+and unintuitive IT system do enormous damage.  It will be hard to get
+rid of, complicate your processes, make everybody demotivated and
+_still_ get so intertwined with your business that it is very hard to
+eliminate.  Not to mention that in forthcoming procurements, you have to
+take this old system into account, and prepare for extra work in the
+migration.
 
 The most important "solution" here that I know of, is to fail as early
 as possible.  It's hard, because the organisation has already been
@@ -194,14 +195,14 @@ You can try to find a new supplier to pick it up from the situation
 where the former supplier left things, but don't expect wonders.  If it
 hasn't been working very well with the former supplier, most likely the
 inner quality of the software/service will be even worse than the outer
-quality, and even if you get a good supplier this time, they will have
-hard time improving the sluggish work they're left with.  There's a
-limit to how much defects a given piece of software can have before
-_all_ development time goes to just deal with those defects.  A badly
-written piece of software will be enormously slower to develop new
-features for, so you should prepare for a phase where the development is
-purely focused on improving the inner quality and progress is not very
-visible in terms of user experience or functionality.
+quality.  Even if you get a good supplier this time, they will have hard
+time improving the sluggish work they're left with.  There's a limit to
+how much defects a given piece of software can have before _all_
+development time goes to just deal with those defects.  A badly written
+piece of software will be enormously slower to develop new features for.
+You should prepare for a phase where the development is purely focused
+on improving the inner quality and progress is not very visible in terms
+of user experience or functionality.
 
 Sometimes it really makes sense just to throw away the old work.  Then
 the first project can be seen as a kind of prototype, or
@@ -229,22 +230,22 @@ the skills to evaluate the quality of your IT supplier and the solution
 they are building.  That way you can fail earlier, and with less of a
 hassle.
 
-Does it sound pessimistic to you, as if I was suggesting to always
-prepare for the worst?  Maybe, but then you're missing my point a
-little.  My point is that procurements should be seen as kinds of
-experimentation, not life-savers.  They can and will fail sometimes, and
-when they do, they still provide valuable experience.  The important
-thing is to get a maximum amount of experience.  If you treat
-procured software/services as a process of experimentation and do not
-depend on them before they have proved themselves, you get a different
-mindframe where you only have good options: continue your business as it
-has been done, or get an improved way of working by deploying the new
-ideas in your new IT service.
+No need to be pessimistic, though!  My point is that procurements should
+be seen as kinds of experimentation, not life-savers.  They can and will
+fail sometimes, and when they do, they still provide valuable
+experience.  The important thing is to get a maximum amount of
+experience.  Treat procured software/services as a process of
+experimentation and do not depend on them before they have proved
+themselves.  This way, you get a different mindframe where you only have
+good options: continue your business as it has been done, or get an
+improved way of working by deploying the new ideas in your new IT
+service.
 
 ![The experience cycle](/img/public-tendering/experience-cycle.png)
 
-Ensure you can go back, trust your supplier, try to get something usable
-as early on as possible, try to build as much experience as possible.
+Ensure you can go back.  Trust your supplier.  Try to get something usable
+as early on as possible.  Try to build as much experience as possible.
 Sometimes you will waste money, as with most investments, but sometimes
-you may win big.
+you may win big.  The better you understand what you need, the better
+your odds at winning.
 
