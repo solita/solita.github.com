@@ -5,13 +5,13 @@ title: Crafting React with love
 excerpt: React has been a real game changer in how we think about front-end architecture. I present a simple way of building quite robust and lovable React applications with single source of truth and one directional data flow inspired by re-frame architecture pattern.
 tags:
 - frontend
-- react
-- javascript
+- React
+- Javascript
 - architecture
 - state
 - programming
 - re-frame
-- clojurescript
+- ClojureScript
 ---
 
 Facebook's [React framework](https://facebook.github.io/react/) has been a real game changer when it comes to building single page apps. React endorses immutability and explicit state changes and hence can be seen a sort of functional front-end framework, because functional thinking, immutability and explicit state changes go pretty much hand in hand. Coming from frameworks and libraries endorsing two-way data binding and component encapsulated state this can seem really cumbersome, because one has to change whole mindset in how applications should be constructed. For instance, in [Angular](https://angularjs.org/) you hide state inside components and react accordingly (pun intended) when a state change is *detected*. In React you always perform explicit state changes and say: this is the new state, deal with it.

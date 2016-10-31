@@ -4,9 +4,9 @@ author: arto
 title: Towards JavaOne 2016
 excerpt: JavaOne is the most important event for anyone who works with Java. This article tries to deliver some impressions why.
 tags:
-- java
-- java 9
-- java ee
+- Java
+- Java 9
+- Java EE
 - JavaOne
 - architecture
 - programming

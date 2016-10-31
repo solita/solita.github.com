@@ -8,7 +8,7 @@ tags:
 - Java 9
 - Java EE
 - JavaOne
-- Microservices
+- microservices
 - Docker
 - Vert.x
 - Kubernetes
