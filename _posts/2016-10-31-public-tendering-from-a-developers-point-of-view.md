@@ -95,7 +95,7 @@ useless.
 There's no lack of examples as to what will make a software project
 produce useless results.  For instance, if the feedback cycle is too
 long, you will get something that doesn't really help you.  Long
-feedback cycles are cause by too much planning and too little trying
+feedback cycles are caused by too much planning and too little trying
 things out.  A policy that prevents automation is also very bad for
 productivity and software quality - for instance, hand-written
 installation instructions to server administrators.  One pitfall is
@@ -171,8 +171,8 @@ actually need?  As I said, there are only bad options then, but some are
 worse than others.  My experience is that organisations almost always
 underestimate the costs of finishing a bad software product or service.
 Like a destructive, hostile employee, a counterproductive, unautomated
-and unintuitive IT system do enormous damage.  It will be hard to get
-rid of, complicate your processes, make everybody demotivated and
+and unintuitive IT system can do enormous damage.  It will be hard to
+get rid of, complicate your processes, make everybody demotivated and
 _still_ get so intertwined with your business that it is very hard to
 eliminate.  Not to mention that in forthcoming procurements, you have to
 take this old system into account, and prepare for extra work in the
