@@ -7,7 +7,7 @@ categories:
 - SQL
 tags:
 - SQL
-- Domain modeling
+- domain modeling
 - NULL
 ---
 

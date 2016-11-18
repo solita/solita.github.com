@@ -15,7 +15,7 @@ tags:
 - complexity
 - maintainability
 - productivity
-- Culture
+- culture
 - computer science
 - functional programming
 - graph

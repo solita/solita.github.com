@@ -4,7 +4,7 @@ title: Continuous X is nothing, future is real-time
 author: lokori
 excerpt: Right now, Continous Delivery and Continuous Deployment (CD) and DevOps are all the rage. It makes sense to deploy the new version to test or even production environments as soon as possible. But the future is not continous, it will be real-time, so better get ready... or else.
 tags:
-- continous delivery
+- continuous delivery
 - real-time delivery
 - real-time deployment
 - REPL
