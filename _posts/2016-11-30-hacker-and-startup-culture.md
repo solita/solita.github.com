@@ -36,6 +36,8 @@ Business oriented thinking has an enormous focus on innovation, prototyping and 
 
 But there are areas where the two worlds meet.  Prototyping is highly valued by both hacker and startup culture.  Our entrance to Slush, in my company, was bought in an innovation competition where we built a working prototype of a [realtime reservation map](http://koneidenkapinaadele.github.io/vvk/) - a ridiculous idea but a very practical solution to a real problem.  What's even more ridiculous is that here, at the heart of innovation, there's an outstanding need for this kind of map.  Lines are building to coffee stops, toilets, cafeterias and free table spaces in a very congested and uneven manner.
 
+![an example map](/img/hacker-and-startup-culture/kartta-screenshot.png)
+
 Would we then be the good guys to introduce our map prototype here?  Probably not.  Before we have put real effort to its technical productisation, it will probably break down exactly when people would need it the most.  It might leak sensitive information, or have vulnerabilities so that attackers can mispresent the reservation situation.  As hackers, we feel the need to make it work properly, so that we can be proud of our work.  As marketeers, we feel the need of raise awareness of our innovation, so that our work will have any impact.  Guess which one is easier to find money for?
 
 I dream that the world will gradually come to acknowledge both sides of this equation.  Products must have *both* quality and popularity.  The objectives of a service must include *both* helping people and being successful.  My dream world will be achieved when it's not profitable to mispresent the value of your product.
