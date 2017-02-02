@@ -2,12 +2,18 @@
 layout: post
 title: Continuous delivery meetups at Solita
 author: pkalliok
-excerpt: TODO
+excerpt: >
+  When automating the deployment and delivery of services, I firmly believe
+  that we should push for technologies that make the process predictable,
+  lightweight, tweakable and fun in general.  I'm very happy of the current
+  trends in CD, and I hope that we will gradually see at least some
+  semi-standard practices emerge.
 tags:
 - continuous delivery
 - continuous integration
 - deployment pipeline
-- TODO
+- meetup
+- culture
 ---
 
 In January, Solita hosted two meetups whose themes fall under the general category of *continuous delivery*.  Both of these meetups were centered around particular tools, one of them being the [Ansible Helsinki](https://www.meetup.com/Ansible-Helsinki/events/235535175/) meetup and the other, the [Docker Helsinki](https://www.meetup.com/Docker-Helsinki/events/235753507/) meetup with a general topic of "running Docker in production".  It was a rewarding experience for me personally to have these motivated, enthusiastic people in our premises discussing interesting technical topics, and I thank the presenters and participants for making these meetups happen.
@@ -44,7 +50,7 @@ Rami Rantala from Zalando opened the way Docker is used at the Zalando stores.  
 
 Renno Reinurm of Pipedrive presented their way of running services on Docker.  This presentation was especially full of technical examples about what may and has gone wrong.  For instance, there are numerous ways to bog down the performance of container image builds, to a point where it becomes a serious threat to (developer) productivity.  There are also enormous performance differences between the different filesystem technologies that Docker can use to make the isolated filesystems for containers.  Renno suggested using the AUFS driver for storage, as did Jari Kolehmainen in the next presentation, too.
 
-This presentation also made the interesting point that automation of Docker installations across a cluster is problematic.  A misbehaving container might be able to bring the whole server down, and automating this to the whole cluster might mean bad things.
+This presentation also made the interesting point that automation of Docker installations across a cluster is [problematic](https://youtu.be/PivpCKEiQOQ).  A misbehaving container might be able to bring the whole server down, and automating this to the whole cluster might mean bad things.
 
 ![We lost 70 per cent of the cluster](/img/continuous-delivery-meetups/IMG_20170117_190611.jpg)
 
