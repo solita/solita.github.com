@@ -12,36 +12,39 @@ tags:
 - DevOps
 - Azure
 ---
-I started developing on Azure when the current "old portal" did not yet exist. At that point of time Azure resources were managed with Silverlight portal. After being around in Azure for years I decided to give a shot for the certifications while I can still earn both MCSE and MCSD with the same trouble. MCSD is expiring at the end of march 2017. So here are some observations from the certification journey. 
+I started developing on Azure when the current "old portal" did not yet exist. At that point of time Azure resources were managed with Silverlight portal. After being around in Azure for years I decided to give a shot for the certifications while I can still earn both MCSE and MCSD with the same trouble. MCSD is expiring at the end of march 2017. Here are some observations from the certification journey. 
 
 ## Overall feeling about the exams
 
-They reflected real life quite well. I was actually surprised that there were only few questions that got me angry. They were either confusing or asked about numbers that I don't feel like wanting to memorize. If you are not familiar about the Microsoft exams, then you should know how they are structured. There are four things that you will find in every question. 
+They reflected real life quite well. I was actually surprised that there were only few questions that got me angry. Upsetting ones were either confusing or asked about numbers that I don't feel like wanting to memorize. If you are not familiar about the Microsoft exams, then you should know how they are structured. There are four things that you will find in every question. 
 
 * Business problem (enterprise x is developing y to achieve business goal z)
 * Goal statement (you need to solve issue x)
 * One or more correct answers 
 * DISTRACTERS (stuff that are not related to problem scenario but rings bells in your head as they are familiar)
 
-So try to get the essence of the question out and then eliminate the distractors. Some of those were so bad that I was thinking 10 questions after that does that affect or not in the scenario while I should have been focusing problem at hand.
+Try to extract the essence of the question out and then eliminate the distractors. Some of distractors were so bad that I was still wandering about them 10 questions after. 
 
-Was they easy? No. Having years of experience from three generation of azure portals I just barely passed the first one. Second was a bit easier and the thirs one the easiest. I took them in an order that I thought was most familiar to me: development, architecture, infrastructure. What this tells? They overlap a lot so each round was easier because of more studying on a same subject. 
+Was they easy? No. Having years of experience from three generation of azure portals I just barely passed the first one. Second went thought with a bit better score and the third one the with the highest score. I took them in an order that I thought was most familiar to me: development, architecture, infrastructure. What this tells? They overlap a lot so each round was easier because of more studying on a same subject.
 
-How to mentally prepare yourself to the quetions? Ask yourself questions like "there is a problem with x, where would I find logs?", "how do i scale this?" or "how do i secure the connection?"
+How to mentally prepare yourself to the quetions? Ask yourself questions like "there is a problem with x, where would I find logs?", "how do i scale this?" or "how do i secure the connection?". If you can answer those, then you will be most likely successful in eliminating the distractors out of the scenery. Even if the options you are left are nearly the same you have still atleast improved your odds!
 
 ## About the certificates and the ARM refresh 
 
 ![Tools](/img/azure-certification/mcsd_pyramid.png)
+
 This is how the old pyramid looked like. And the new one is actually with the exactly same format. Lowest tier is the technology specialist tier which you get if you pass certain kind of exam. Middle tier is solution associate tier which you will get by passing two exams. Highest tier is solution expert tier, which you will get after passing one test and having the solution associate already. 
 
 Before studying any further notice that when redesigning the tiers they actually also changed also the contents of the few relevant exams. Before paying for any training material make sure that the ARM refresh is mentioned. For example books that were preparing for 70-532, 70-533 and 70-534 tests have not been updated. At the same time by my experience you can pretty safely forget the "old portal" and focus on the newer one.
 
-[MCSD certification](https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx)
-[MCSE certification](https://www.microsoft.com/en-us/learning/mcse-cloud-platform-infrastructure.aspx)
+* [MCSD certification](https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx)
+* [MCSE certification](https://www.microsoft.com/en-us/learning/mcse-cloud-platform-infrastructure.aspx)
 
-## Three exams seven certificates 
+Note that there are also other routes to same MCSE! You don't need to take any of the exams that I took. 
 
-At the edge of certification expiration I was able to get seven different certificates with three exams. How is this possible? Well technology specialist certification is granted from each exam. After two exams solution associate certification is granted. Finally from all three solution expert and solution developer (the one which is expiring) were granted. As a bonus I also get MCSD App Builder by having MCSA: web applications already in my pocket.  The full list is:
+## Three exams, seven certificates 
+
+At the edge of certification expiration I was able to get seven different certificates with three exams. How is this possible? Well technology specialist certification is granted from each exam. After two exams solution associate certification is granted. Finally from all three exams solution expert and solution developer (the one which is expiring) certificates were granted. As a bonus I also get MCSD App Builder by having MCSA: web applications already in my pocket. The full list is:
 
 * Microsoft Specialist: Developing Microsoft Azure Solutions
 * Microsoft Specialist: Architecting Microsoft Azure Solutions
@@ -91,18 +94,17 @@ Case studies and code examples. You don't need to be a good programmer to pass t
 
 The thing is that you need to know a lot about things like DNS, HTTPS, deployments, monitoring and scaling to pass this test.  In some organizations this might not be typical for developer. The DevOps loving Solita of course knows this all! 
 
-Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-532.aspx)
-Link to the preparation [video](https://channel9.msdn.com/Events/Ignite/2016/BRK3261)
+* Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-532.aspx)
+* Link to the preparation [video](https://channel9.msdn.com/Events/Ignite/2016/BRK3261)
 
 ## What to expect from 70-533 Implementing Microsoft Azure Infrastructure solutions 
 
 I was not entirely sure what to expect from this one. I watched ignite videos and studied the docs. It was helpful. Notice that the exam materials say that you need to know how to implement Windows and Linux systems. Yes Linux in Microsoft certification. Luckily I had used Linux enough that I was able to answer the questions without preparing to answer to them. 
 
-Here are a lots of useful stuff at [IaaSOpsGuide](https://aka.ms/Azure/IaaSOpsGuide).
-You might be also interested in [tools](http://aka.ms/Azure/tools)
-
-Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-533.aspx)
-Link to the preparation [video](https://channel9.msdn.com/Events/Ignite/2016/BRK3262)
+* Here are a lots of useful stuff at [IaaSOpsGuide](https://aka.ms/Azure/IaaSOpsGuide).
+* You might be also interested in [tools](http://aka.ms/Azure/tools)
+* Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-533.aspx)
+* Link to the preparation [video](https://channel9.msdn.com/Events/Ignite/2016/BRK3262)
 
 ## What to expect from 70-534 Architecting Microsoft Azure solutions
 
@@ -114,8 +116,9 @@ Make extra sure that you understand the purpose of different Azure connectivity 
 
 Picture was borrowed from [channel9](https://channel9.msdn.com/Blogs/The-Game-Blog/A-Quick-overview-into-typical-Architecture-for-a-Cloud-Based-Gaming-Services)
 
-Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-534.aspx)
-Preparation [video](https://techcommunity.microsoft.com/t5/Microsoft-Ignite-Content/BRK3264-Cert-Exam-Prep-Exam-70-534-Architecting-Azure-Solutions/td-p/9675)
+* Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-534.aspx)
+* Link to the preparation [video](https://techcommunity.microsoft.com/t5/Microsoft-Ignite-Content/BRK3264-Cert-Exam-Prep-Exam-70-534-Architecting-Azure-Solutions/td-p/9675)
+* Udemy course that helped me to get the [overview](https://www.udemy.com/70534-azure/)
 
 ## How to study 
 
