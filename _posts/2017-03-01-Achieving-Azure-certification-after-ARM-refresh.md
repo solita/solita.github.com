@@ -128,7 +128,7 @@ Picture was borrowed from [channel9](https://channel9.msdn.com/Blogs/The-Game-Bl
 
 ## How to study 
 
-Everyone has their own way to learn. I would still mainly focus on all the materials on under the [Azure docs](https://docs.microsoft.com/en-us/azure/). Then I would definetly watch the preparation videos from Ignite 2016, all three for every certification (with 1.5x speed). And finally I would go out to the portal. I would press buttons N (for new popup) and B (for browse) and setup all the stuff that are mentioned on the exam. I would also definetly press the "automation" button that would show me the json template of the stuff I was about to create. I would also study resource groups json template after I would have set all in place.  
+Everyone has their own way to learn. I would still mainly focus on all the materials on under the [Azure docs](https://docs.microsoft.com/en-us/azure/). Then I would definitely watch the preparation videos from Ignite 2016, all three for every certification (with 1.5x speed). And finally I would go out to the portal. I would press buttons N (for new popup) and B (for browse) and setup all the stuff that are mentioned on the exam. I would also definetly press the "automation" button that would show me the json template of the stuff I was about to create. I would also study resource groups json template after I would have set all in place.  
 
 There are also a lot of "reading lists" available for the certifications. I checked few but so many things have changed so recently and so many links were broken that I can't really recommend those.
 
@@ -136,7 +136,7 @@ Braindumps are no-no for me. But I think that there is kind of "official" practi
 
 ## Why?
 
-Why would you want to certificate? Well the usual list is kind of boring. Partnerships, CV, sales, test your limits etc etc. I took the exams because my company thought that it would be nice somebody to get these certificates. My company also supports certifications by giving a chance study on worktime. Of course I also got a chance to refresh my knowledge on the areas that are not so familiar to me. 
+Why would you want to certificate? Well the usual list is kind of boring. Partnerships, CV, sales, test your limits etc etc. I took the exams because my company encouraged me to this. My company also supports certifications by giving a chance study during worktime. Of course I also got a chance to refresh my knowledge on the areas that are not so familiar to me. 
 
 ## How was this related to Episerver?
 
