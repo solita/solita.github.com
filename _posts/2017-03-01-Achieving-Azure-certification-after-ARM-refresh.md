@@ -42,6 +42,12 @@ Before studying any further notice that when redesigning the tiers they actually
 
 Note that there are also other routes to same MCSE! You don't need to take any of the exams that I took. 
 
+## No more recertification
+
+I have always hated the recertifications. The new tier of Microsoft certificates seems to be lacking of expiration date. I love that. As a developer I get nothing out of recertification for the subject that I have already been certificated. If I have forget something during the 2-3 year period then I'm sure that it was not important. Renewing the internals of the exam won't help the core of the exam mostly remains the same still. I would rather expand my view of sight by taking a new certificate. 
+
+Hint to Episerver: you could learn from security scene. There you can keep your qualification alive by gathering points from events. Like doing a blog post or speaking in the seminar. That would work for Episerver certifications too. This not prevent that you could take recertification if you wish. There are much more like assesments, projects, forums, support tickets and github repositories that you could track. Nothing in this prevents from taking the certification test again. 
+
 ## Three exams, seven certificates 
 
 At the edge of certification expiration I was able to get seven different certificates with three exams. How is this possible? Well technology specialist certification is granted from each exam. After two exams solution associate certification is granted. Finally from all three exams solution expert and solution developer (the one which is expiring) certificates were granted. As a bonus I also get MCSD App Builder by having MCSA: web applications already in my pocket. The full list is:
@@ -138,4 +144,4 @@ Most of the time customer is heavily influencing where to host Episerver. Azure 
 
 ## How much effort for this all?
 
-From ten to fifteen hours preparation for each test. Then few hours to take the actual exam. That was it for me. 
+From ten to fifteen hours preparation for each test. Then few hours to take the actual exam. That was it for me. I got the whole thing done during February 2017. 
