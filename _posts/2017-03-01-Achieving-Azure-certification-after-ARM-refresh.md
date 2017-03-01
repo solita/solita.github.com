@@ -27,7 +27,7 @@ Try to extract the essence of the question out and then eliminate the distractor
 
 Were the questions easy? No. Having years of experience from three generation of Azure portals I just barely passed the first one. Second one went through with a bit better score and the third one with the highest score. I took them in an order that I thought was most familiar to me: development, architecture, infrastructure. What does this tell? They overlap a lot so each round was easier because of more studying on the same subject.
 
-How to mentally prepare yourself to the quetions? Ask yourself questions like "There is a problem with x, where would I find logs?", "How do i scale this?" or "How do i secure the connection?". If you can answer those, then you will most likely be successful in eliminating the distractors out of the scenery. Even if the options you are left are nearly the same you have still atleast improved your odds!
+How to mentally prepare yourself to the quetions? Ask yourself questions like "There is a problem with x, where would I find logs?", "How do I scale this?" or "How do I secure the connection?". If you can answer those, then you will most likely be successful in eliminating the distractors out of the scenery. Even if the options you are left are nearly the same you have still atleast improved your odds!
 
 ## About the certificates and the ARM refresh 
 
@@ -73,7 +73,7 @@ Despite which number of exams you are going to take, I strongly suggest that you
 * Web apps
 * Managing identities
 
-I don't mean to say that the tests are the same. Each exam certainly has its owng angle to the subject. Expect to see code in developer exam, expect to see command-line stuff in infrastructure exam and expect to see design problems in architecture exam. Still, there are lots of questions like "Which is the best for job x in circumstances y?" and the answer would be same regardless of the exam the question was in. 
+I don't mean to say that the tests are the same. Each exam certainly has its own angle to the subject. Expect to see code in developer exam, expect to see command-line stuff in infrastructure exam and expect to see design problems in architecture exam. Still, there are lots of questions like "Which is the best for job x in circumstances y?" and the answer would be same regardless of the exam the question was in. 
 
 The thing is that you can learn from many of those subjects by learning the ARM templates. So make sure that you study at least this [walkthrough](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-walkthrough)
 
@@ -118,9 +118,9 @@ All I can say is that try to understand purpose of every thing in this picture:
 
 ![Tools](/img/azure-certification/azure_services.png)
 
-Make extra sure that you understand the purpose of different Azure connectivity options (p2p, p2s, ExpressRoute) and that you study hybrid cloud solutions. There were questions related to nearly every service I service I could think of and it was up to luck if the questions were detailed and hard or merely just about knowing the purpose of a service. 
-
 Picture was borrowed from [channel9](https://channel9.msdn.com/Blogs/The-Game-Blog/A-Quick-overview-into-typical-Architecture-for-a-Cloud-Based-Gaming-Services)
+
+Make extra sure that you understand the purpose of different Azure connectivity options (p2p, p2s, ExpressRoute) and that you study hybrid cloud solutions. There were questions related to nearly every service I could think of and it was up to luck if the questions were detailed and hard or merely just about knowing the purpose of a service. 
 
 * Link to the [exam](https://www.microsoft.com/en-us/learning/exam-70-534.aspx)
 * Link to the preparation [video](https://techcommunity.microsoft.com/t5/Microsoft-Ignite-Content/BRK3264-Cert-Exam-Prep-Exam-70-534-Architecting-Azure-Solutions/td-p/9675)
@@ -140,7 +140,7 @@ Why would you want to certificate? Well, the usual list is kind of boring. Partn
 
 ## How was this related to Episerver?
 
-Most of the time the customer is heavily influencing where to host Episerver. Azure is one option. DXC also runs on top of Azure. There is really no harm to understand in depth Azure as a hosting option or as an option to implement microservices-related to Episerver projects. Azure AD is also a possibility for identity federation. 
+Most of the time the customer is heavily influencing where to host Episerver. Azure is one option. DXC also runs on top of Azure. There is really no harm to understand in depth Azure as a hosting option or as an option to implement microservices that are related to Episerver projects. Azure AD is also a possibility for identity federation. 
 
 ## How much effort for this all?
 
