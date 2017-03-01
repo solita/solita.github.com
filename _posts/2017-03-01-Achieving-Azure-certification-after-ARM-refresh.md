@@ -116,7 +116,7 @@ I was not entirely sure what to expect from this one. I watched The Ignite video
 
 All I can say is that try to understand purpose of every thing in this picture: 
 
-![Tools](/img/azure-certification/mcsd_pyramid.png)
+![Tools](/img/azure-certification/azure_services.png)
 
 Make extra sure that you understand the purpose of different Azure connectivity options (p2p, p2s, ExpressRoute) and that you study hybrid cloud solutions. There were questions related to nearly every service I service I could think of and it was up to luck if the questions were detailed and hard or merely just about knowing the purpose of a service. 
 
