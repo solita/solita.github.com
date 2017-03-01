@@ -25,7 +25,7 @@ They reflected real life quite well. I was actually surprised that there were on
 
 Try to extract the essence of the question out and then eliminate the distractors. Some of the distractors were so bad that I was still wondering about them 10 questions after. 
 
-Were the questions easy? No. Having years of experience from three generation of Azure portals I just barely passed the first one. Second one went through with a bit better score and the third one with the highest score. I took them in an order that I thought was most familiar to me: development, architecture, infrastructure. What does this tell? They overlap a lot so each round was easier because of more studying on a same subject.
+Were the questions easy? No. Having years of experience from three generation of Azure portals I just barely passed the first one. Second one went through with a bit better score and the third one with the highest score. I took them in an order that I thought was most familiar to me: development, architecture, infrastructure. What does this tell? They overlap a lot so each round was easier because of more studying on the same subject.
 
 How to mentally prepare yourself to the quetions? Ask yourself questions like "There is a problem with x, where would I find logs?", "How do i scale this?" or "How do i secure the connection?". If you can answer those, then you will most likely be successful in eliminating the distractors out of the scenery. Even if the options you are left are nearly the same you have still atleast improved your odds!
 
