@@ -2,7 +2,7 @@
 layout: post
 title: Achieving Azure certification after ARM refresh
 author: Rinorragi
-date: 2017-03-01 15:45:00 +0200
+date: 2017-03-01 17:20:00 +0200
 excerpt: Tips how to achieve Azure certifications
 categories: 
 - Episerver
