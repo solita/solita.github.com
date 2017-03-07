@@ -2,7 +2,7 @@
 layout: post
 title: Isolated integration testing with Clojure and Postgres
 author: ilmoraunio
-excerpt: We take a look at a magical feature of Postgres and a derived use case for testing with Clojure.
+excerpt: We take a look at a magical feature in Postgres and a derived potential solution to reduce the chattiness of Clojure integration test reports.
 tags: 
 - clojure
 - testing
@@ -83,7 +83,7 @@ In my case, I wanted to test how `Message` insertion works.
 
 Here "Message insertion" is an ordinary integration test. The test is about sending a message from foo to bar. For this test it's required that we create a room, a couple of users foo and bar, and put these users inside the room as participants. It's a given that all of above insertion points are susceptible to failure. For an integration test that's probably okay. We do want to know if something doesn't work between multiple components, or we risk ending up with [broken software](https://twitter.com/ThePracticalDev/status/687672086152753152).
 
-Still, how do I know if it's just the depending models breaking up or the model-under-test that's broken as well? I would somehow need to temporarily disable my foreign key checks to insert just the message. One thought was to to operate the foreign keys manually, dropping them and creating them to each table before and after my test cases had run. The problem was, this was a potentially faltering mechanism when all I really needed was a simple switch command from postgres and maybe some light wrappers in Clojure.
+Still, how do I quickly tell if it's just the depending models breaking up or the model-under-test that's broken as well? For that, I would need separate tests in which I temporarily disable my foreign key checks to insert just the message. One solution would be to to operate the foreign keys manually, dropping them and creating them to each table before and after my test cases had run. The problem was, this was a potentially faltering mechanism when all I really needed was a simple switch command from postgres and maybe some light wrappers in Clojure.
 
 Turns out, you might be able to implement this simply with postgres (and Clojure).
 
@@ -194,7 +194,7 @@ In this instance, the test report with the profile `integration-isolated` provid
 
 ## Caveats
 
-Like all things simple on the outside, there are some tradeoffs which you may definitely want to read about. Despite having mentioned some of them already, it's worth underlining them all:
+Like all things simple on the outside, there are some tradeoffs which you may definitely want to know about. Despite having mentioned some of them already, it's worth underlining them all:
 
 1. Triggers are disabled.
 2. Rules are disabled.
@@ -205,15 +205,13 @@ Like all things simple on the outside, there are some tradeoffs which you may de
 
 > Simply enabled triggers will fire when the replication role is "origin" (the default) or "local". Triggers configured as ENABLE REPLICA will only fire if the session is in "replica" mode, and triggers configured as ENABLE ALWAYS will fire regardless of the current replication mode.
 
-UNIQUE constraints and CHECK constraints *are* enabled in replication mode.
+However, UNIQUE constraints and CHECK constraints are enabled in replication mode.
 
 If you're interested in reading more about `session_replication_role`, there's a [great article on it](http://blog.endpoint.com/2015/01/postgres-sessionreplication-role.html) which explains its function in great detail.
 
 ## Not a silver bullet, still a WIP
 
-As I said at the start, this is still kind of a work-in-progress.
-
-But basically, what we have here is a runtime congruity test between the database model in our application code and the table schema in our database. I've found that it's worked for me in my particular database and software setup, but YMMV.
+Basically, what we have here is a runtime congruity test between the database model in our application code and the table schema in our database. I've found that it's worked for me in my particular database and software setup, but YMMV. Plus as noted at the beginning, the solution is yet to be tested out in the real world, so it's still a work-in-progress.
 
 It should be emphasized that isolated integration tests should always be paired with real integration tests. This is because we're still essentially breaking parts of our database integrity to test our insertion.
 
