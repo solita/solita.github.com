@@ -149,6 +149,8 @@ As a result our test is now
 2. more deterministic, and
 3. slightly more readable.
 
+### Test report example
+
 As you may have already noticed, midje's `fact-group` allows me to categorize tests with profile metadata `:integration` and `:integration-isolated`. Using lein-midje's `:filter` keyword we can run a subset of our integration tests.
 
 A naive introducible problem is to add a field with default value to `Users` and check the report with `lein midje` using the profile metadata.
@@ -194,6 +196,8 @@ In this instance, the test report with the profile `integration-isolated` provid
 
 ## Caveats
 
+![Archer meme warning you about magical features](/img/isolated-integration-testing-with-clojure-and-postgres/kenny_loggins.jpg)
+
 Like all things simple on the outside, there are some tradeoffs which you may definitely want to know about. Despite having mentioned some of them already, it's worth underlining them all:
 
 1. Triggers are disabled.
@@ -221,4 +225,4 @@ So, in all, `session_replication_role` seems like a really powerful tool which s
 
 You have been warned. Have fun!
 
-The repository for the examples above can be found [here](https://github.com/ilmoraunio/isolated-integration-test-example). If you have any criticisms about this design, I'd be interested in hearing it out. [Create an issue](https://github.com/ilmoraunio/isolated-integration-test-example/issues/new) or drop me a comment so we can talk.
+The repository for the examples above can be found [here](https://github.com/solita/isolated-integration-test-example). If you have any criticisms about this design, I'd be interested in hearing it out. [Create an issue](https://github.com/solita/isolated-integration-test-example/issues/new) or drop me a comment so we can talk.
