@@ -114,7 +114,7 @@ There has been loads of systems that use synonym dictionaries to add synonyms au
 
 Vector space model is nowadays the most predominant retrieval model. I try not to get too mathematical, but in vector space model index is defined as a vector space as the name suggest. Now, this might seem like a total **mumbo-jumbo**, but one can think vector space as documents being vectors in space in which terms are dimensions (yes, there really is quite a lot of dimensions...) and weight of terms is "the juice" how far these vectors reach. Because vector calculus contains some very intriguing methods for calculating similarities we take advantage of that, and actually calculate the weighted similarity between query and a document and order result set with that. This is called *partial matching*, because documents that do not contain all the terms in query can easily be included to the result set. Interested reader is suggested to revise through suggested reading below, as we will not address the mathematical basis more here.
 
-It's important to notice that in pure vector space model, querying if effectively matching the similarity between query and the documents. Hence, "give me more like this document" -functionality should be trivial to implement: the query is the document.
+It's important to notice that in pure vector space model, querying is effectively matching the similarity between the query and the documents. Hence, "give me more like this document" -functionality should be trivial to implement: the query is the document.
 
 ### TW = TF * IDF
 
@@ -143,9 +143,9 @@ Matching algorithms is a vast subject, of which entire books are written, so it 
 
 ## Vector space vs. boolean model
 
-These models are usually kept clearly separate in research and literature. Most of the real life information retrieval systems are actually hybrid of these using ideas from various sources. For instance predominant Elasticsearch is a hybrid of boolean model and vector space model interpretation. It uses boolean model for matching documents, but utilizes vector influenced sorting algorithm to sort result set. Postgres has really good full text search support and it utilizes vector space model pretty cleanly.
+These models are usually kept clearly separate in research and literature. Most of the real life information retrieval systems are actually hybrid of these using ideas from various sources. For instance predominant Elasticsearch is a hybrid of boolean model and vector space model interpretation. It uses boolean model for matching documents, but utilizes vector space influenced sorting algorithm to sort result set. Postgres has a really good full text search support and it utilizes vector space model pretty cleanly.
 
-Google was originally really simple TF * IDF vector space model system with "page rank" added. Page rank added more weight to pages which we're broadly linked from other pages and simirlarly diminished weight of the pages that were seldom linked. For now, we don't know basically anything how Google actually works.
+Google was originally really simple TF * IDF vector space model system with "page rank" added. Page rank added more weight to pages which are broadly linked from other pages and simirlarly diminished weight of the pages that were seldom linked. For now, we don't know basically anything how Google actually works.
 
 Other models of information retrieval include probabilistic model(s), latent semantic indexing, the binary independence retrieval, best-match retrieval and so on.
 
