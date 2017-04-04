@@ -2,7 +2,7 @@
 layout: post
 title: What every developer should know about Information Retrieval
 author: juhofriman
-excerpt: Do the boogie woogie
+excerpt: Effective and intuitive search functionalities are crucial part of nearly every system. This blog post tries to introduce reader some of the science behind information retrieval (IR) as it is vastly studied since the sixties, yet the field is not too well known within the developer community.
 tags:
 - Information Retrieval
 - Elasticsearch
