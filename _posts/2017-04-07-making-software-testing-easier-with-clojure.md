@@ -121,12 +121,12 @@ Now whenever state-api tries to receive the current time using clj-time, it gets
 ```clojure
 (deftest  test-api
   (with-fake-http
-      ;; By default, with-fake-http blocks all requests that are not specifically allowed
-      ;; or faked in the binding vector.
-      ["http://system.example.com/api/get-state" "OK" ;; Faked "OK" response if HTTP request is sent to this url during the test
-       #".*api\/get-status.*" :allow] ;; This is our own API, allow all requests
-      (let [response (test-utils/send-post "/api/get-status"]
-        (is (= 200 (:status response)))))))
+    ;; By default, with-fake-http blocks all requests that are not specifically allowed
+    ;; or faked in the binding vector.
+    ["http://system.example.com/api/get-state" "OK" ;; Faked "OK" response if HTTP request is sent to this url during the test
+     #".*api\/get-status.*" :allow] ;; This is our own API, allow all requests
+    (let [response (test-utils/send-post "/api/get-status"]
+      (is (= 200 (:status response)))))))
 ```
 
 Generally I would not recommend overusing with-redefs or other faking methods, as they might make things difficult to understand. Optimally functions should be kept pure so that there is no need to fake things at all. For example, if the state API would have accepted the current time as a parameter, it would have been easier to test without faking anything. But since not all functions cannot be made pure, it is good to know that faking things is not a problem in Clojure.
