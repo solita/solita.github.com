@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Making software testing easier with Clojure
+title: Making Software Testing Easier with Clojure
 author: jarzka
 excerpt: Introducing 4 things in Clojure that can reduce the hassle of writing automated software tests.
 tags:
