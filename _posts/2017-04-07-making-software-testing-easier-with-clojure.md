@@ -45,7 +45,7 @@ If I was about to test a big system with a lot of components, I would test indiv
 
 The defined system fixture works well, but since most of the testable components are going to depend on db and https server component, defining these over and over again in every test file would be a waste of time. We would like to simply initialise the test system and add the testable components in it. This problem can be solved by writing a [Clojure macro](https://clojure.org/reference/macros) which defines the testable system with common components, db and https-server in this case, and lets us add more components if we wish:
 
-```
+```clojure
 (defmacro extend-system-fixture
   [& custom-component-deps]
   `(alter-var-root #'system 
@@ -66,7 +66,7 @@ The defined system fixture works well, but since most of the testable components
 
 Macros allow us to write code which is evaluated in compile time and which can take any code as input and return any code as output. Thus, once the macro is ready, the it can be called in the following way:
 
-```
+```clojure
 (def extended-system-fixture
   ;; Call a macro, which builds the testable system in compile time and adds
   ;; our :custom-component in it.
@@ -102,7 +102,6 @@ Testing functions that have dependencies to external components is always a bit 
 A concrete example: I was having a problem on testing an API which is highly dependant on current time. The API was supposed to return a state for the current moment of time. Testing the function today might work well, but not tomorrow, since the API returns a different result every day. Luckily, Clojure's with-redefs function allowed me to fake the current time by writing my own definition for [clj-time's](https://github.com/clj-time/clj-time) **now** function:
 
 ```clojure
-
 (deftest test-state
   (with-redefs [t/now #(t/date-time 2017 4 2)]
     (is (= (state-api/get-state) :too-early)))
