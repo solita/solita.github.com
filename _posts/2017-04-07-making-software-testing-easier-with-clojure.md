@@ -9,11 +9,11 @@ tags:
 - software testing
 ---
 
-Your shiny new feature is almost complete. All you need do is simply to make sure that a few corner cases work properly by writing a few more automated tests. But knowing the hassle it is to setup the tests and mock components, you are not very excited. Sound familiar? Obviously, it should not be this way; testing should not be more difficult than writing production code. I want to talk about 4 things in Clojure that have made writing automatic software tests a bit easier and enjoyable. And if you are not using Clojure (yet), you might get some new ideas to adopt to your current toolset.
+Your shiny new feature is almost complete. All you need to do is to make sure that a few corner cases work properly by writing a few more automated tests. But knowing the hassle it is to setup the tests and mock components, you are not very excited. Sound familiar? Obviously, it should not be this way; testing should not be more difficult than writing production code. I want to talk about 4 things in Clojure that have made writing automatic software tests a bit easier and enjoyable. And if you are not using Clojure (yet), you might get some new ideas to adopt to your current toolset.
 
 ## 1. Using fixtures for setup and teardown
 
-If I was about to test a big system with a lot of components, I would test individual components both separately and together. But I do not want to setup the whole system manually for every test, but to automate it. That's exactly what our current project team has done. The system is built from components using [Stuart Sierra's component library](https://github.com/stuartsierra/component). In the beginning of each test, we use **use-fixtures** function (found in clojure.test) to setup the testable system and all the needed components and tear down the system when testing is complete.
+If I were about to test a big system with a lot of components, I would test individual components both separately and together. But I do not want to setup the whole system manually for every test, but to automate it. That's exactly what our current project team has done. The system is built from components using [Stuart Sierra's component library](https://github.com/stuartsierra/component). In the beginning of each test, we use **use-fixtures** function (found in clojure.test) to setup the testable system and all the needed components and tear down the system when testing is complete.
 
 ```clojure
 ;; Let's define a simple system with common components, such as database and http components.
@@ -43,7 +43,7 @@ If I was about to test a big system with a lot of components, I would test indiv
   (alter-var-root #'system component/stop))
 ```
 
-The defined system fixture works well, but since most of the testable components are going to depend on db and https server component, defining these over and over again in every test file would be a waste of time. We would like to simply initialise the test system and add the testable components in it. This problem can be solved by writing a [Clojure macro](https://clojure.org/reference/macros) which defines the testable system with common components, db and https-server in this case, and lets us add more components if we wish:
+The defined system fixture works well, but since most of the testable components are going to depend on :db and :https-server component, defining these over and over again in every test file would be a waste of time. We would like to simply initialise the test system and add the testable components in it. This problem can be solved by writing a [Clojure macro](https://clojure.org/reference/macros) which defines the testable system with common components, :db and :https-server in this case, and let's us add more components if we wish:
 
 ```clojure
 (defmacro extend-system-fixture
@@ -64,7 +64,7 @@ The defined system fixture works well, but since most of the testable components
      (alter-var-root #'system component/stop)))
 ```
 
-Macros allow us to write code which is evaluated in compile time and which can take any code as input and return any code as output. Thus, once the macro is ready, the it can be called in the following way:
+Macros allow us to write code which is evaluated in compile time and which can take any code as input and return any code as output. Thus, once the macro is ready, it can be called in the following way:
 
 ```clojure
 (def extended-system-fixture
@@ -93,7 +93,7 @@ Finally we can combine the extended-system-fixture and db-values-fixture togethe
 (use-fixtures :once test-fixture)
 ```
 
- Now everything is ready. When we begin writing tests, the test is system ready and the custom value is retrieved for us from the test database before the tests are run. As you see, fixtures make it easy to setup the testable system and the components we are about to tests. The common components needed in all tests are defined once and custom functionality can be added afterwards.
+ Now everything is ready. When we begin writing tests, the test is system ready and the custom value is retrieved for us from the test database before the tests are run. As you see, fixtures make it easy to setup the testable system and the components we are about to test. The common components needed in all tests are defined once and custom functionality can be added afterwards.
 
 ## 2. Faking things for testing purposes
 
@@ -167,7 +167,7 @@ We could even make the test run quicker by running all requests asynchronously. 
             (>! answer-chan response))))
 
     ;; Main thread start to listen the answer-chan. Whenever it receives a new answer,
-    ;; it adds it to the the loop's binding vector. The listening loops start again and continues
+    ;; it adds the answer to the the loop's binding vector. The listening loop starts again and continues
     ;; as long as all answers are gathered.
     (loop [all-answers []]
       (if (< (count all-answers) (count test-requests))
@@ -244,4 +244,4 @@ I have to admit that writing frontend tests, especially very comprehensive ones,
 
 ## Conclusion
 
-One reason that can possibly reduce the eagerness to write comprehensive software tests is the hassle one needs to face when writing tests. I strongly believe that we should use the same care in writing tests that we use when writing production code. Taking the time to write simple and reusable test utilities and knowing your tools are not going to fail you, can reduce the mental load associated to writing tests. Writing tests may sometimes feel unproductive, but you, or your colleague, will thank you later for not breaking things.
+One reason that can possibly reduce the eagerness to write comprehensive software tests is the hassle one needs to face when writing tests. I strongly believe that we should use the same care in writing tests that we use when writing production code. Taking the time to write simple and reusable test utilities and knowing your tools are not going to fail you, can reduce the mental load associated with writing tests. Writing tests may sometimes feel unproductive, but you, or your colleague, will thank you later for not breaking things.
