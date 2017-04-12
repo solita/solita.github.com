@@ -75,6 +75,8 @@ Lambda is described as a "serverless" solution for building applications and has
 billing model. In our case, we are using Lambda to start new servers, so I guess the serverless
 term doesn't really apply here.
 
+![yo_dawg_serverless](/img/yo_dawg_serverless.jpg)
+
 We used Python as it can be easily edited right from the AWS Lambda console and has a good library
 for using AWS services programmatically available. The library is called
 [boto3](https://github.com/boto/boto3) and it can be used with zero configuration
