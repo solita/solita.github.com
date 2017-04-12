@@ -2,7 +2,7 @@
 layout: post
 title: Easily deploying test environments from CI builds with Travis, AWS and Slack
 author: tatut
-excerpt: Easy setup of test environments is important for feature branch based development. This post shows how to automatically deploy a new test environment with a simple chat interface.
+excerpt: Easy setup of test environments is important for feature branch based development. This post shows how to automatically deploy Travis CI builds to AWS and how developers can control the deployments with a a simple chat interface.
 tags:
 - CI
 - AWS
