@@ -289,3 +289,7 @@ behind the simple chat interface.
 The final result in all its simplicity looks like this:
 
 ![slack-deploy](/img/slack-deploy.gif)
+
+All things considered I think the solution was surprisingly easy to set up even for a total AWS
+newbie. The slack slash command also provides an easy way to provide a user interface. It's much
+simpler to create a slash command than it is to make a shell script or a web app.
