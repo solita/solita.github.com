@@ -171,7 +171,7 @@ for the ephemeral test machines).
 ## Cloud init
 
 [Cloud init](https://cloud-init.io/) is a simple way to customize servers that have been cloned from
-a template. With EC2 Centos images, we can provide a cloud init script with the instance user data.
+a template. With EC2 CentOS images, we can provide a cloud init script with the instance user data.
 
 Cloud init is a YAML configuration file which can do lots of different customization tasks on the
 starting instance. In our case, we only need to run some shell commands:
