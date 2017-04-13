@@ -35,14 +35,14 @@ This helped us, and after a few weeks we had cleared up the whole feedback issue
 *	Project manager must get help from developers rapidly when she needs it
 *	All the feedback must not be handled by the whole team (too much waste)
 
-Through intense discussions, we gradually developed a better process how to handle the feedback. We decided to assign every day a different developer to help project manager handle the feedback. We named this role ‘the goat’ – don’t ask me why. So the goat was now a circulating role in the development team to help project manager with the feedback.
+Through intense discussions, we gradually developed a better process how to handle the feedback. We decided to assign every day a different developer to help project manager handle the feedback. We named this role ‘the goat’ – don’t ask me why. So the goat was now a circulating role in the development team to help the project manager with the feedback.
 
 ![Goat](/img/simultaneous-development-and-support/goat.png)
 
 
 ## How ‘goat’ works
 
-Imagine there are 20 emails in feedback inbox from yesterday. Project manager goes them through and she is able to tackle 14 of these issues independently. 6 of the issues are too technical so that project manager can’t decide what our team should do with them. She marks those issues with "goat" label in JIRA. Goat is responsible for all the goat issues. Then the goat looks into those issues from technical point of view and decides whether they are bugs that can be fixed in our team or need e.g. communication to external stakeholders that use our APIs. The main advantages of having a goat for the team are:
+Imagine there are 20 emails in feedback inbox from yesterday. Project manager goes them through and she is able to tackle 14 of these issues independently. 6 of the issues are too technical so that project manager can’t decide what our team should do with them. She marks those issues with "goat" label in JIRA. Goat is responsible for all the goat issues. The goat looks into those issues from a technical point of view. The goat may decide to fix a trivial bug right away, bring the issue to daily meeting for other developers to comment or e.g. communicate the problem to external stakeholders that use our APIs. The main advantages of having a goat for the team are:
 
 *	Everyone is the goat only once a week so there is little burden to new development work. Developers get to write more code, ie. do the work what they love the most
 *	Everyone gets to be the goat regularly, so everyone has an up-to-date understanding what kind of issues our end users are facing
