@@ -5,7 +5,7 @@ author: mikkoronkkomaki
 excerpt: todo
 ---
  
-Especially among software developers, processes are some what of a curse word in many occasions. Personally I find that in most of those cases this repulsion is just, because what processes to many people working on the field mean, is something that basically just hinders everyday work, something that has been dictated from above and that the people with boots on the ground have little to none possibilities to affect.  #TÄTÄ voisi pilkkoa useampaan virkkeeseen, eli johonkin piste väliin? Vähän raskas ja pitkä virke
+Especially among us software developers, processes are some what of a curse word in many occasions. Personally I find that in most of those cases this repulsion is just. Mainly because what processes to many people working on the field mean, is something that basically just hinders everyday work, something that has been dictated from above and that the people with boots on the ground have little to none possibilities to affect.
  
 Then again in order to ease parts of the every day work and especially the co-operation with other people, we need at least some sort of structure. This is pretty much one of the key purpose of all the main methodologies and processes. There are tons of good books, blogs and articles on the issue so I'm not going to dwell on them for much longer and pretty much tell a real life story of how our team has approached the matter.
  
@@ -19,12 +19,14 @@ From the very beginning we've thouhgt our processes and ways of working as "snap
  
 For us, one of the key solutions came from regularly held agile retrospectives. Not that this would be any kind of a revolutionary method, but the idea behind it gave us a chance to iteratively monitor and change our way of working. From very early days of our project, we've followed the following mantra:
 1. Reflect on the past period of time: Observer what doesn't work and needs to be changed and what does and has to be protected and nurtured.
-2. Design the changes that you as a team agree that would be beneficial. This phase requires extra care, so that the actions are very thoroughly defined, they have set responsible people and schedule, conditions which have to be met and finally a defined reason why this action will be taken. (This phase is heavily affected by S.M.A.R.T. goals https://www.mindtools.com/pages/article/smart-goals.htm)
+2. Design the changes that you as a team agree that would be beneficial. This phase requires extra care, so that the actions are very thoroughly defined, they have set responsible people and schedule, conditions which have to be met and finally a defined reason why this action will be taken. (This phase is heavily affected by [S.M.A.R.T. goals](https://www.mindtools.com/pages/article/smart-goals.htm))
 3. Take the actions and bring implement them. At this phase the key is to incorporate the changes just you would for example any other development issue. For us this meant that the development actions simply written as a JIRA ticket and placed on our board.
 4. In the next retrospective, go through all of the actions and see:
-                - if they've had the wanted effect
-                - if they require more work
-                - if they we're a bad idea just scrap them, for there can be no love for ineffective actions
+- if they've had the wanted effect
+- if they require more work
+- if they we're a bad idea just scrap them, for there can be no love for ineffective actions
  
 As mentioned before, this is not by far close to any kind of rocket science. Though this kind of way thinking and working has affected a whole range of aspects in our project work, from building and greasing parempi? our CI-pipeline, improving our quality assurance to finding better ways to communicate with our client. For more concrete examples, that have gone through this very process you find from from the following blog posts:
+- [SIMULTANEOUS DEVELOPMENT AND SUPPORT](http://dev.solita.fi/2017/04/18/simultaneous-development-and-support.html)
+- [10 THINGS THAT MAKE DEVELOPMENT PROCESS AWESOME](http://dev.solita.fi/2016/07/04/10-things-that-make-development-process-awesome.html)
  
