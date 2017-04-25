@@ -11,7 +11,7 @@ layout: default
 
         {% assign author = site.authors[post.author] %}
         <p class="post-meta">
-            <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
+            <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
         </p>
 
         <p class="post-excerpt">{{ post.excerpt }}</p>
