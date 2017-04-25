@@ -2,9 +2,14 @@
 layout: post
 title: The Everchanging Software Development Process
 author: mikkoronkkomaki
-excerpt: todo
+excerpt: Why and how software development should be viewed as something that's under constant change.   
+tags:
+- software processes
+- methodologies
+- autonomy
+- agile retrospectives
 ---
- 
+
 Especially among us software developers, processes are some what of a curse word in many occasions. Personally I find that in most of those cases this repulsion is just. Mainly because what processes to many people working on the field mean, is something that basically just hinders everyday work, something that has been dictated from above and that the people with boots on the ground have little to none possibilities to affect.
  
 Then again in order to ease parts of the every day work and especially the co-operation with other people, we need at least some sort of structure. This is pretty much one of the key purpose of all the main methodologies and processes. There are tons of good books, blogs and articles on the issue so I'm not going to dwell on them for much longer and pretty much tell a real life story of how our team has approached the matter.
@@ -15,7 +20,7 @@ To be honest, at first I actually was scared as hell of all this horrible freedo
  
 I started to work on the Harja project almost 3 years ago. The project itself is a large web based open-source service ordered by the Finnish Transport Agency meant for planning and monitoring road, waterway and railway maintenance and care. At first we assumed a pretty much "classic" scrum model as our very basic outline. This was pretty much because most of us we're quire familiar with it and had positive experience in previous projects. Pretty soon we started to notice things here and there that didn't make sense and were starting to feel as a pain, such as over booked sprints, badly defined tasks, review sessions that didn't really give much value.
  
-From the very beginning we've thouhgt our processes and ways of working as "snapshot in time", which serves the current needs of the team, project, service and customer. Obviously all of these are volatile by nature and therefore we found that we needed to have a mechanism to meet these changes time and a time again. 
+From the very beginning we've thought our processes and ways of working as "snapshot in time", which serves the current needs of the team, project, service and customer. Obviously all of these are volatile by nature and therefore we found that we needed to have a mechanism to meet these changes time and a time again. 
  
 For us, one of the key solutions came from regularly held agile retrospectives. Not that this would be any kind of a revolutionary method, but the idea behind it gave us a chance to iteratively monitor and change our way of working. From very early days of our project, we've followed the following mantra:
 1. Reflect on the past period of time: Observer what doesn't work and needs to be changed and what does and has to be protected and nurtured.
