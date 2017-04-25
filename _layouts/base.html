@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}{% if page.title %} - {% endif %}{{ site.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="author" content="Solita Oy">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}{% if page.title %} - {% endif %}{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="Solita Oy">
 
-  {% include og.html %}
+    {% include og.html %}
 
-  <link href="/css/main.css" rel="stylesheet">
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-  <script type="text/javascript">
+    <link href="/css/main.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-35431188-1']);
       _gaq.push(['_trackPageview']);
 
       (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-  </script>
+    </script>
 
-  <script src="https://use.typekit.net/cjv1dsv.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
+    <script src="https://use.typekit.net/cjv1dsv.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
 
-<body>
+  <body>
 
-<div class="wrap">
+    <div class="wrap">
 
-  <div class="wrapper">
-    <header class="site-header">
-      <a class="site-logo" href="http://www.solita.fi">
-        <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
+      <div class="wrapper">
+        <header class="site-header">
+            <a class="site-logo" href="http://www.solita.fi">
+              <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
+            </a>
+
+            <h1 class="site-title">
+              <a href="/">{{ site.title }}</a>
+            </h1>
+        </header>
+      </div>
+
+      <div class="main wrapper" role="main">
+        <div class="primary">
+          {{ content }}
+        </div>
+
+        <div class="sidebar">
+          {% include sidebar.html %}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="wrapper site-footer-wrapper">
+      <footer class="site-footer">
+
+        <a class="site-logo" href="http://www.solita.fi">
+          <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
+        </a>
+
+        <div class="site-footer-links">
+          <a class="decorated" href="http://www.solita.fi/">Solita.fi</a><a class="decorated" href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a><a class="decorated" href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a><a class="decorated" href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a><a class="decorated" href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a><a class="decorated" href="https://www.instagram.com/solitaoy/">Instagram</a>
+        </div>
+      </footer>
+    </div>
+
+    <div id="templates" style="display: none;">
+      <a href="#" class="avatar">
+        <img class="img" src="/img/pauli_image.png" alt="" />
       </a>
-
-      <h1 class="site-title">
-        <a href="/">{{ site.title }}</a>
-      </h1>
-    </header>
-  </div>
-
-  <div class="main wrapper" role="main">
-    <div class="primary">
-      {{ content }}
     </div>
 
-    <div class="sidebar">
-      {% include sidebar.html %}
-    </div>
-  </div>
-
-</div>
-
-<div class="wrapper site-footer-wrapper">
-  <footer class="site-footer">
-
-    <a class="site-logo" href="http://www.solita.fi">
-      <img class="site-logo-img" src="/img/solita-logo.png" alt="Solita" />
-    </a>
-
-    <div class="site-footer-links">
-      <a class="decorated" href="http://www.solita.fi/">Solita.fi</a><a class="decorated" href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a><a class="decorated" href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a><a class="decorated" href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a><a class="decorated" href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a><a class="decorated" href="https://www.instagram.com/solitaoy/">Instagram</a>
-    </div>
-  </footer>
-</div>
-
-<div id="templates" style="display: none;">
-  <a href="#" class="avatar">
-    <img class="img" src="/img/pauli_image.png" alt="" />
-  </a>
-</div>
-
-<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="/js/transparency.min.js"></script>
-<script type="text/javascript" src="/js/webtoolkit.md5.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
-</body>
+    <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/js/transparency.min.js"></script>
+    <script type="text/javascript" src="/js/webtoolkit.md5.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
 </html>
