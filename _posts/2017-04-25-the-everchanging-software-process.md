@@ -11,6 +11,9 @@ tags:
 ---
 
 Especially among us software developers, "process" is some what of a curse word in many occasions. Personally I find that in most of those cases this repulsion is justified. Mainly because what processes mean to many people working in the field mean, is something that basically just hinders everyday work, something that has been dictated from above and that the people with boots on the ground have little to no possibility to affect.
+
+![Processes](/img/processes/prosesseja.jpg)
+Free translation: "Processes! That's really f\*\*\*ing stupid!" "What the hell has this s\*\*t to do with work?" "F\*\*k you already!"
  
 Then again in order to ease parts of the everyday work and especially the co-operation with other people, we need at least some sort of structure. This is pretty much one of the key purposes of all the main methodologies and processes. There are tons of good books, blog posts and articles on the issue so I'm not going to dwell on them for much longer. Instead I'm going to tell a real life story of how our team has approached the matter.
  
