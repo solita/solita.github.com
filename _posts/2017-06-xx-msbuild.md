@@ -1,11 +1,11 @@
 # Microsoft Build 2017: Windows Containers your way
-**This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There wre a lot of takeaways from the conference, but what I found was most intriguing was Windows Containers. There were both conference sessions and an additional pre-day training session that focused on Windows Containers and this blog is mainly based on those.**
+**This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There wre a lot of takeaways from the conference, but what I found most intriguing was Windows Containers. In Seattle there were not only conference sessions but also an additional pre-day that focused only on Windows Containers.**
 
 ![MSBuild. Containers your way](msbuild_containers_your_way.jpg)
 
 ## Build 2017
 
-The conference was a three-day run packed with sessions. This year Build boasted xxxxx to yyyy participants, depending on the source. Also, this year the weather gods merciful and we enjoyed sunny weather in usually rainy Seattle. 
+The conference itself was a three-day run packed with sessions. This year Build boasted xxxxx to yyyy participants, depending on the source. 
 
 ![MSBuild 2017 keynote](msbuild_keynote.jpg)
 
