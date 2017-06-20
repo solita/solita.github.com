@@ -36,7 +36,7 @@ Currently in the Windows Container ecosystem there are actually two options on h
 In latter option Windows creates a Hyper-V VM in between the host kernel and container, thus providing more isolation from the actual host machine. This is useful especially in a multi-tenant environment, where you don't necessary fully trust all your tenant apps. Also, at least for now Windows 10 always runs Windows Containers [through Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index).
 
 <div align="center">
-    <img src="hyper-v_container.png"/><br />
+    <img src="/img/windows-containers-your-way/hyper-v_container.png"/><br />
     <i>Hyper-V Container stack</i>
 </div>
 
