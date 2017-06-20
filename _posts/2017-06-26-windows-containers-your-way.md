@@ -1,3 +1,16 @@
+---
+layout: post
+title: Microsoft Build 2017 - Windows Containers your way
+author: tommiraunio
+date: 2016-06-20 15:45:00 +0200
+excerpt: Windows Containers for .NET developers. State in 2017.
+tags:
+- windows containers
+- docker
+- DOTNET
+- Msbuild
+---
+
 # Microsoft Build 2017: Windows Containers your way
 **This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There were a lot of takeaways from the conference, but what I found most intriguing was Windows Containers. In Seattle there were not only conference sessions but also an additional pre-day that focused only on Windows Containers. In the Linux ecosystem, Docker containers have been gaining popularity rapidly and now Windows Containers aim to follow suit. In this post, I'll share my view as a .NET developer on Windows Containers.**
 
@@ -89,7 +102,7 @@ Also, although it's possible to lift & shift existing ASP.NET apps to containers
 
 ## Finally
 
-The success of Docker in the Linux ecosystem is a strong show of strength. Further, Microsoft is investing heavily on containers now and they're getting closer to target all the time. 
+The success of Docker in the Linux ecosystem is a strong indicator. On Windows side of things Microsoft is doing some heavy lifting to make Windows Server fully container capable and they are getting closer to the target all the time.
 
 So, should you run Windows Container in production today? Probably not. Although you probably could, that would mean a lot of quality time spend with Google and solving bleeding edge problems.
 
