@@ -12,7 +12,7 @@ tags:
 ---
 
 # Microsoft Build 2017: Windows Containers your way
-**This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There were a lot of takeaways from the conference, but what I found most intriguing was Windows Containers. In Seattle there were not only conference sessions but also an additional pre-day that focused only on Windows Containers. In the Linux ecosystem, Docker containers have been gaining popularity rapidly and now Windows Containers aim to follow suit. In this post, I'll share my view as a .NET developer on Windows Containers.**
+**This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There were a lot of takeaways from the conference, but what I found most intriguing was the arrival of Docker Containers to the Windows ecosystem. At Build there were not only conference sessions but also an additional pre-day that focused only on Windows Containers. In the Linux ecosystem, Docker containers have been gaining popularity rapidly and now Windows Containers aim to follow suit. In this post, I'll share my view as a .NET developer on Windows Containers.**
 
 ![MSBuild. Containers your way](/img/windows-containers-your-way/msbuild_containers_your_way.jpg)
 
@@ -20,23 +20,25 @@ _View over Seattle port. Containers for everybody_
 
 ## Container crash course
 
-Docker Containers are sort of new thing for the Microsoft ecosystem developers. My first run in with them was when Microsoft demoed a .NET app running inside a Windows container during Build 2015. Therefore, like many other .NET developers, I am just beginning my Docker journey.
+Docker Containers are sort of new thing for the .NET developers. My first run in with them was when Microsoft demoed a .NET app running inside a Windows container during Build 2015. Therefore, like many other .NET developers, I am just beginning my Docker journey.
 
 Short recap: Containers are the next evolutionary step in virtualization technology. While the current virtualization technology enables IT departments to run multiple operating systems inside another operating system on top of single hardware, containers _share_ the host operating system kernel. This means that we do not have to duplicate the guest O/S in containers as we do today with traditional virtual machines. A container does not include a full O/S, but instead only the settings and libraries that are needed for the app the run. This is illustrated in the image below:
 
-![Virtual machine stack vs. Container stack](/img/windows-containers-your-way/vm_vs_container.png)
+<div align="center">
+    <img src="/img/windows-containers-your-way/vm_vs_container.png"/>
+</div>
 
-The virtualization technology back in the 2000s was revolutionary for IT departments as it allowed them to deploy apps more densely on the same hardware. Containers continue take this trend even further, as containers can be deployed even more densely as the containers have a much smaller footprint in terms of size when compared to a VM image. 
+The virtualization technology from the 2000s was revolutionary as it made possible to run more apps on the same hardware. Containers take this trend further, as containers can be deployed even more densely as the containers have a much smaller footprint in terms of size when compared to a VM image. 
 
 However, the virtualization technology from the 2000s did not affect developers directly. Containers do as they change both how software is developed and deployed.
 
 ## Driving factors for Windows Containers, developer perspective
 
 So why should a .NET developer care about containers? Here are a few reasons:
-* **Microservice architecture.** When developing for an actual microservice architecture (opposed to something that's actually just renamed Service Oriented Architecture) Docker containers help to manage the development environment when there are multiple microservices and each of which have their own database. This can be done without containers too, but they do ease up the task.
+* **Microservice architecture.** When developing to an actual microservice architecture (opposed to something that's just renamed Service Oriented Architecture) Docker containers help to manage the development environment when there are multiple microservices and each of which have their own database. This can be done without containers too, but they do ease up the task.
 * **"Works on my machine"** is something that we have all heard of and well... said. Containers ease up the pain as the development time testing can be done within exact same kind of environment as the production environment. This is because containers contain not only the app but also the environment that the app runs in.
-* **Scripting**. Usually a Windows Container is running a Nano or Core version of Windows Server 2016. Neither of these versions have a GUI. This means that all the O/S configuration has to be scripted in. I.e. Docker containers force configuration through code. This means that containers are also documented through code and can be recreated easily from [Docker file](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile). For me this is a huge bonus because I think that Windows Server environments should be always scripted, containers or no containers.
-* **Operating system updates**. Need the newest security updates? No problem, just pull the newest O/S base image from the [Docker repository]( https://docs.docker.com/registry/), rebuild your container and deploy it along your code changes. No more rebooting on guest O/S patching.
+* **Scripting**. Usually a Windows Container is running a Nano or Core version of Windows Server 2016. Neither of these versions have a GUI. This means that all the O/S configuration has to be scripted in. I.e. Docker containers force configuration through code. This means that containers are also documented through code and can be recreated easily from [Docker file](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile). For me this is a huge bonus because I think that Windows Server environments should always be scripted, containers or no containers.
+* **Operating system updates**. Need the newest security updates? No problem, just pull the newest O/S base image from the [Docker repository]( https://docs.docker.com/registry/), rebuild your container image and deploy it along your code changes. No more rebooting on guest O/S patching.
 
 Additionally, the main driver on the DevOps side of things is that containers can be deployed more densely than traditional VM's. Which means that more apps can run on the same hardware than before. In addition, containers offer a clear boundary between the app and the environment. The app comes with the container and contains all the libraries it needs to run.
 
@@ -44,7 +46,7 @@ Additionally, the main driver on the DevOps side of things is that containers ca
 
 Currently in the Windows Container ecosystem there are actually two options on how to run containers. 
 * The first is the Windows Container option, in which the containers share the container host kernel. 
-* The second option is a Hyper-V container. 
+* The second option is the Hyper-V container. 
 
 In latter option Windows creates a Hyper-V VM in between the host kernel and container, thus providing more isolation from the actual host machine. This is useful especially in a multi-tenant environment, where you don't necessary fully trust all your tenant apps. Also, at least for now Windows 10 always runs Windows Containers [through Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index).
 
@@ -81,13 +83,11 @@ Now that we know where to find our container, we can access the container from o
 
 ![IIS start page from inside the Container](/img/windows-containers-your-way/demo4.png)
 
-Naturally in real life situation we'd want to run our own app inside the container. In this case, we would build a new container image that would base on the microsoft/iis base image. Our app binaries could be added to the container through ADD command in the [Docker file](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile). In other words, we would build a new custom container image that would base on the Microsoft/iis O/S image.
+Naturally in real life situation we'd want to run our own app inside the container. In this case, we would build a new container image that would base on the microsoft/iis base image. Our app binaries could be added to the container through ADD command in the [Docker file](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile). In other words, we would build a new custom container image that would base on the microsoft/iis base O/S image.
 
 ## Current state of Windows Containers
 
-During Autumn 2014 Microsoft announced that the Docker containers are coming to the Windows ecosystem and the first Docker container running on top of Windows Server was shown in Build 2015 half a year later. Now, two years later anybody can run Windows Containers on their Windows 10 laptop. 
-
-However, it still feels that Windows Containers are not ready. Or at least not production ready. There are all kinds of smaller and bigger issues. For example, while the missing localhost loopback issue is not a huge issue by itself, it is one indication that Microsoft is wrestling a huge beast when trying to make Windows container-compatible. It’s not easy work. They’ve come a long way but they’ve still some way to go.
+Although we've now gotten to a point where anybody can run Windows Containers on their laptop, it still feels that Windows Containers are not ready. Or at least not production ready. There are all kinds of smaller and bigger issues. For example, while the missing localhost loopback issue is not a huge issue by itself, it is one indication that Microsoft is wrestling a huge beast when trying to make Windows container-compatible. It’s not easy work. They’ve come a long way but they’ve still some way to go.
 
 Another indication is that the especially the Docker images that are based on Server Core are quite large. For example, the microsoft/iis image that I used in the demo sizes 10.5 GB. While this is not a huge concern, because a certain version of a container O/S image is stored only once per container host, it's a nuisance. However, Taylor Brown, Principal Lead Program Manager on the group that develops Windows Server, said during Build sessions that they do aim to bring the size down. By a lot.
 
@@ -102,7 +102,7 @@ Also, although it's possible to lift & shift existing ASP.NET apps to containers
 
 ## Finally
 
-The success of Docker in the Linux ecosystem is a strong indicator. On Windows side of things Microsoft is doing some heavy lifting to make Windows Server fully container capable and they are getting closer to the target all the time.
+The popularity of Docker in the Linux ecosystem is a strong proof of concept as good ideas tend to spread easily. On Windows side of things Microsoft is doing some heavy lifting to make Windows Server fully container capable and they are getting closer to the target all the time.
 
 So, should you run Windows Container in production today? Probably not. Although you probably could, that would mean a lot of quality time spend with Google and solving bleeding edge problems.
 
