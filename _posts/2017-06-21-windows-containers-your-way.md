@@ -11,7 +11,6 @@ tags:
 - Msbuild
 ---
 
-# Microsoft Build 2017: Windows Containers your way
 **This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There were a lot of takeaways from the conference, but what I found most intriguing was the arrival of Docker Containers to the Windows ecosystem. At Build there were not only conference sessions but also an additional pre-day that focused only on Windows Containers. In the Linux ecosystem, Docker containers have been gaining popularity rapidly and now Windows Containers aim to follow suit. In this post, I'll share my view as a .NET developer on Windows Containers.**
 
 ![MSBuild. Containers your way](/img/windows-containers-your-way/msbuild_containers_your_way.jpg)
