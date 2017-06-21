@@ -2,7 +2,7 @@
 layout: post
 title: Microsoft Build 2017 - Windows Containers your way
 author: tommiraunio
-date: 2016-06-21 15:45:00 +0200
+date: 2017-06-21 15:45:00 +0200
 excerpt: Windows Containers for .NET developers. State in 2017.
 tags:
 - windows containers
