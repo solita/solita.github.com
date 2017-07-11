@@ -240,7 +240,7 @@ All changes to the app state can be tested easily. Here is an example:
 
 For debugging, we created a simple UI component which renders the app state as a simple grid element.
 
-![Debugging app state visually](/img/a-tale-of-a-clojurescript-stack/tuck_debug.png)
+![Debugging app state visually](/img/a-tale-of-a-clojurescript-stack-components-and-domain-management/tuck_debug.png)
 *Debugging app state visually*
 
 Since the idea in Tuck is to keep the application state in one place, we had one problem: the app state was already scattered across multiple namespaces and some of was kept inside components. Thus, we decided to use Tuck mainly for creating new views. When a new view is created, the state of the view is kept in an atom and manipulated through Tuck events, in one place. The view can also listen changes in important reactions and communicate them directly in to it's Tuck state. When talking about our existing UI components that take atoms in, we can use Reagent's wrap function to call a function when the state of the component is changed and communicate it to Tuck. This way, reactions, our existing components and Tuck work well together.
