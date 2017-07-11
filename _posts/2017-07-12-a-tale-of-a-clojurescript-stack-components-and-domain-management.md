@@ -139,7 +139,7 @@ Managing state through reactions worked well when Harja was still a relatively s
 
 Tuck is a minimalistic helper library for state management. Similarly to [Redux](https://github.com/reactjs/redux), the state of the app is kept in one place, and manipulated by well defined events. Events cannot directly mutate the app state, but always return the new app state. This approach to state management become popular in many JavaScript applications during the development of Harja, and it indeed has various advantages. Not only does it provide a single source of truth for the application state, but it also makes it clear which kind of events can manipulate the state and how. Furthermore, it makes it easy to debug and write tests for all possible state changes.
 
-Here is an example of a simple tuck app state:
+Here is an example of Tuck app state:
 
 ```clojure
 ;; Define initial app state
