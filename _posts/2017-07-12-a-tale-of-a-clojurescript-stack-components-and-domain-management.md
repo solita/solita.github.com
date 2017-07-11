@@ -115,7 +115,7 @@ When a new button was needed, the code above was basically taken as a template a
 
 Now there is a standard approach for creating different type of buttons. There is one place to go if one wants to modify all of them and all different type of buttons are guaranteed to look the same. Simple things like this help us to keep the codebase and the whole application consistent.
 
-## Managing app state with Tuck
+## Atoms and reactions take over the app
 
 Components do not provide much benefit if users cannot manipulate the world through them. When Harja was still a relatively small application, state management relied heavily on Reagent atoms and reactions. For those familiar with [reactive programming](https://en.wikipedia.org/wiki/Reactive_programming), reaction is a way to define dependencies for a value, which is then updated immediately when those dependencies change. Here is a simple example of a reaction:
 
@@ -134,6 +134,8 @@ Components do not provide much benefit if users cannot manipulate the world thro
 In realty, many of our reactions were more complex than this. We even created our own reaction, which supported fetching data from a server automatically when certain dependencies changed. For example, changing filters in the UI caused the application to get new data from the server.
 
 Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so Tuck library was born.
+
+## Managing app state with Tuck
 
 Tuck is a minimalistic helper library for state management. Similarly to [Redux](https://github.com/reactjs/redux), the state of the app is kept in one place, and manipulated by well defined events. Events cannot directly mutate the app state, but always return the new app state. This approach to state management become popular in many JavaScript applications during the development of Harja, and it indeed has various advantages. Not only does it provide a single source of truth for the application state, but it also makes it clear which kind of events can manipulate the state and how. Furthermore, it makes it easy to debug and write tests for all possible state changes.
 
