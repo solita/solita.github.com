@@ -93,7 +93,7 @@ A button element is very common in web applications. The way it was created in H
   Press me!]
 ```
 
-When a new button was needed, the code above was basically taken as a template and modified as needed. While this approach worked perfectly fine, it started to show it's disadvantages. There was no standard approach to create a button element, so when we wanted to modify all button elements to prevent event propagation automatically, it was a difficult thing to do. Furthermore, there were also some inconsistencies across the UI as the same type of buttons did not always look the same as developers were mistakenly using different CSS classes. It was clearly a time to refactor the code and create an idiomatic API for creating buttons!
+When a new button was needed, the code above was basically taken as a template and modified as needed. While this approach worked perfectly fine, it started to show it's disadvantages. There was no standard approach to create a button element, so modifying all of them at once was a difficult thing to do. Furthermore, there were also some inconsistencies across the UI as the same type of buttons did not always look the same as developers were mistakenly using different CSS classes. It was clearly a time to refactor the code and create an idiomatic API for creating buttons!
 
 ```clojure
 (defn button
