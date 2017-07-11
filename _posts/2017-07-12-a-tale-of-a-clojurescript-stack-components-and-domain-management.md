@@ -43,7 +43,7 @@ Another way is to return a render function. This method is usually used when a c
     [:p text]))
 ```
 
-Finally, Reagent makes it possible to define a component in map containing lifecycle functions and the render function. Component lifecycle consists of moments when the component is created, updated or deleted. It is often useful to do something when a specific moment occurs.
+Finally, Reagent makes it possible to define a component in a map containing lifecycle functions and the render function. Component lifecycle consists of moments when the component is created, updated or deleted. It is often useful to do something when a specific moment occurs.
 
 ```clojure
 (defn paragraph [text]
