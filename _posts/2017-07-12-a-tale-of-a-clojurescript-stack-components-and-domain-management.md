@@ -122,7 +122,6 @@ Components do not provide much benefit if users cannot manipulate the world thro
 ```clojure
 (def projects (r/atom [{::p/id 1 ::p/name "Project A"} {::p/id 2 ::p/name "Project B"}]))
 (def current-project-id (r/atom 1))
-```
 
 ;; Current project is always supposed to contain the current project map element.
 ;; It is immediately and automatically resolved if projects atom or current-project-id atom is changed. 
@@ -130,6 +129,7 @@ Components do not provide much benefit if users cannot manipulate the world thro
                        (first (filter
                                 #(= (::p/id %) @current-project-id)
                                 @projects))))
+```
 
 In realty, many of our reactions were more complex than this. We even created our own reaction, which supported fetching data from a server automatically when certain dependencies changed. For example, changing filters in the UI caused the application to get new data from the server.)
 
