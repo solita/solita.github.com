@@ -84,7 +84,7 @@ Now, this start to look idiomatic Clojure; things are expressed as briefly as po
 
 Reagent components can be very big or very small, which leads to a question: what kind of things should be wrapped inside a component? Generally speaking, components should be relatively small and easy to reuse. Personally, I encourage to create a component even from the smallest parts of the application. Not only helps it to keep components small and reusable, but it also helps developers in a big project to keep the codebase and the UI consistent. Let's take a couple of examples.
 
-A button element is very common in web application. The way it was created in Harja, was usually like this:
+A button element is very common in web applications. The way it was created in Harja, was usually like this:
 
 ```clojure
 [:button.primary-button
