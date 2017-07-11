@@ -230,7 +230,7 @@ Now that the initial state and the events to manipulate it are in place, it's ti
 (defn root []
   [tuck state root*])
 
-;; root* component is now managed by tuck. Tuck calls is with the following parameters:
+;; root* component is now managed by tuck. Tuck calls is with the following arguments:
 ;; - e!, which can be used to create events
 ;; - app, which contains the current app state
 (defn- root* [e! app]
