@@ -321,8 +321,10 @@ specql is not made only for generating specs: we also use it to fetch data from 
 
 There were already great libraries for presenting stylesheets as Clojure data, but none of which were primarily used for styling components. My original idea was to create a library in which a style could be attached in to components by using a single **use-style** macro. The macro would convert the given Clojure data in to CSS file and return a class definition for the component. This turned out to be too tricky to do and difficult to manage, so a different a approach was needed: when a component calls **use-style**, the given Clojure map is converted to CSS on the fly and added in to DOM as class definition. This turned out to work very well and provided a very simple way to manage component styles:
 
+```clojure
 (defn- simple-text-component [text style]
   [:p (use-style style) text]])
+```
 
 I was happy how the library turned out and my colleagues were also excited about it. However, we decided not to use it in the current project. There was simply too much working LESS code already written, so mixing stylefy with the current stylesheets was not likely to provide us any real advantages. Still, we look forward to probably use the library in future projects. 
 
