@@ -119,8 +119,10 @@ Now there is a standard approach for creating different type of buttons. There i
 
 Components do not provide much benefit if users cannot manipulate the world through them. When Harja was still a relatively small application, state management relied heavily on Reagent atoms and reactions. For those familiar with [reactive programming](https://en.wikipedia.org/wiki/Reactive_programming), reaction is a way to define dependencies for a value, which is then updated immediately when those dependencies change. Here is a simple example of a reaction:
 
+```clojure
 (def projects (r/atom [{::p/id 1 ::p/name "Project A"} {::p/id 2 ::p/name "Project B"}]))
 (def current-project-id (r/atom 1))
+```
 
 ;; Current project is always supposed to contain the current project map element.
 ;; It is immediately and automatically resolved if projects atom or current-project-id atom is changed. 
