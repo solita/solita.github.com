@@ -220,10 +220,30 @@ Here is an example of Tuck app state:
         (for [project (:projects app)]
           ˆ{:key (:harja.domain.project/id project)}
           [:div (:harja.domain.project/name project)])])))
+```
 
+Now that the initial state and the events to manipulate it are in place, it's time to connect them with an UI component.
+
+```clojure
+(delcare root*)
 
 (defn root []
   [tuck state root*])
+
+;; root* component is now managed by tuck. Tuck calls is with the following parameters:
+;; - e!, which can be used to create events
+;; - app, which contains the current app state
+(defn- root* [e! app]
+  (comp/create
+    ;; Create an event to fetch the projects from the server when this
+    ;; component is mounted.
+    (comp/in #(e! (->GetProjects)))
+    (fn [e! app]
+      ;; Render function is called automatically when ever the app state is changed
+      [:div
+        (for [project (:projects app)]
+          ˆ{:key (:harja.domain.project/id project)}
+          [:div (:harja.domain.project/name project)])])))
 ```
 
 All changes to the app state can be tested easily. Here is an example:
