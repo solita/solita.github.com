@@ -133,7 +133,7 @@ Components do not provide much benefit if users cannot manipulate the world thro
                                 @projects))))
 ```
 
-In reality, many of our reactions were more complex than this. We even created our own reaction, which supports fetching data from the server automatically when certain dependencies change. For example, changing filters in the UI caused the application to get new data from the server.
+In reality, many of our reactions were more complex than this. We even created our own reaction, which supports fetching data from the server automatically when certain dependencies change. For example, changing filters in the UI cause the application to get new data from the server.
 
 Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so Tuck library was born.
 
