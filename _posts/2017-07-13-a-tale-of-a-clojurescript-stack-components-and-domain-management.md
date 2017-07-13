@@ -13,19 +13,21 @@ tags:
 - stylefy
 ---
 
-Frontend applications tend to be unique; every single one of them is built differently with different technologies and software stack. The lack of standard approach requires us, software developers, to re-think the stack every time a new project begins. Furthermore, in big and long projects, it is almost given that the used technology will get at least partially legacy before the application hits the production state. But things do not have to be this way. This is a story of how we created a frontend stack for Harja project and how we have been able to keep it fresh as time goes on.
+Frontend applications tend to be unique; every single one of them is built differently with different technologies and software stack. The lack of a standard approach requires us, software developers, to re-think the stack every time a new project begins. In big and long projects, it is almost a given that the used technology stack will become at least partially obsolete before the application hits production state. But things do not have to be this way. This is a story of how we created a frontend stack for the Harja project and how we have been able to keep it fresh as time goes on.
 
-A brief introduction to the project: [Harja](https://github.com/finnishtransportagency/harja) is a Single-Page Web Application (SPA) built for Finnish Transport Agency. The system helps several hundred people in reporting and communication related to road caring and maintenance in Finland. The codebase contains approximately 150 000 lines of code (including all Clojure, LESS and SQL files), from which the frontend takes approximately one third, 50 000 lines of code.
+A brief introduction to the project: [Harja](https://github.com/finnishtransportagency/harja) is a Single-Page Web Application (SPA) built for the Finnish Transport Agency. The system helps several hundred people reporting and communication related to road caring and maintenance in Finland. The codebase contains approximately 150 000 lines of code (including all Clojure, LESS and SQL files), from which the frontend takes approximately one third, 50 000 lines of code.
 
 ## In the beginning there was ClojureScript
 
-JavaScript has long been *de facto* language for frontend development, but has since been slowly becoming also an execution platform for other languages, such as [ClojureScript](https://github.com/clojure/clojurescript). ClojureScript is a [Clojure](https://clojure.org) to [JavaScript](https://en.wikipedia.org/wiki/JavaScript) compiler and is largery the same language as Clojure with differences mainly consisting of differences in runtime environments. ClojureScript brings the power of Clojure and [functional programming](https://en.wikipedia.org/wiki/Functional_programming) to the frontend.
+JavaScript has long been the *de facto* language for frontend development, but has since also become an execution platform for other languages, such as [ClojureScript](https://github.com/clojure/clojurescript). ClojureScript is a [Clojure](https://clojure.org) to [JavaScript](https://en.wikipedia.org/wiki/JavaScript) compiler and is largery the same language as Clojure with differences mainly consisting of differences in runtime environments. ClojureScript brings the power of Clojure and [functional programming](https://en.wikipedia.org/wiki/Functional_programming) to the frontend.
  
- Why functional programming? It's well suited for manipulating data with pure functions, meaning that functions do not change any value, but instead they simply receive data and output data. This makes functions easier to manage and test. Pure functions are also always thread-safe. JavaScript already has great support for functional programming, but ClojureScript makes it even better with it's built-in immutable data structures. Other great features of ClojureScript are nifty asyncronous code management with channels, and macros, which are code that is executed at compile time. Clojure also makes it possible to share code between frontend and backend, which is a big plus. When bundled with [Figwheel](https://github.com/bhauman/lein-figwheel), code changes are automatically compiled to JS and sent to the browser, which makes the development process nice and smooth. Thus, ClojureScript was our choise for building the frontend.
+ ## Why functional programming?
  
-## Building component abstraction API
+Functional programming about manipulating data with pure functions: functions do not modify application state, but instead they simply receive data and output data. This makes code easier to reason about and test. Pure functions are also always thread-safe. JavaScript already has some support for functional programming, but ClojureScript takes it further with it's immutable-by-default data structures. Other great features of ClojureScript are nifty asyncronous code management with channels, and macros, which are code that is executed at compile time. Clojure also makes it possible to share code and libraries between frontend and our Clojure backend, which is a big plus. When bundled with [Figwheel](https://github.com/bhauman/lein-figwheel), code changes are automatically compiled to JS and sent to the browser, which makes the development process nice and smooth. Thus, ClojureScript was our choice for building the frontend.
+ 
+## Building a component abstraction API
 
-Building modern SPA applications relies heavily on the use of JavaScript in communicating with the server, managing app state and rendering it to the user. Web was not originally designed to work like this, which in turn has led to the birth of different software libraries and frameworks for building SPA applications. There are many such libraries for ClojureScript too, but by far the easiest and one of the most popular is [Reagent](https://github.com/reagent-project/reagent). Reagent is a wrapper for Facebook's [React](https://github.com/facebook/react), a very popular library for creating user interfaces from individual UI components. Reagent makes it easy to build components with small amount of code using the power of Clojure expression and so was our choise of component abstraction library.
+Building modern single-page applications relies heavily on the use of in-browser JavaScript to communicate with the server, manage app state and render it to the user. The Web was not originally designed to work like this, which in turn has led to the birth of different software libraries and frameworks for building SPA applications. There are many such libraries for ClojureScript too, but out preference and one of the most popular is [Reagent](https://github.com/reagent-project/reagent). Reagent is a wrapper for Facebook's [React](https://github.com/facebook/react), a very popular library for creating user interfaces from individual UI components. Reagent makes it easy to build components with small amount of code using the power of Clojure expression and so was our choise of component abstraction library.
 
 There are three popular ways to write components in Reagent. The simplest possible component is a function, which takes data in, and returns a Clojure vector presenting HTML code as [Hiccup](https://github.com/weavejester/hiccup).
 
@@ -84,7 +86,7 @@ Now, this start to look idiomatic Clojure; things are expressed as briefly as po
 
 ## Keeping things consistent by defining general-purpose components
 
-Reagent components can be very big or very small, which leads to a question: what kind of things should be wrapped inside a component? Generally speaking, components should be relatively small and easy to reuse. Personally, I encourage to create a component even from the smallest parts of the application. Not only helps it to keep components small and reusable, but it also helps developers in a big project to keep the codebase and the UI consistent. Let's take a couple of examples.
+Reagent components can be very big or very small, which leads to a question: what kind of things should be wrapped inside a component? Generally speaking, components should be relatively small and easy to reuse. Personally, I encourage programmers to create a component even from the smallest parts of the application. Not only helps it to keep components small and reusable, but it also helps developers in a big project to keep the codebase and the UI consistent. Let's take a couple of examples.
 
 A button element is very common in web applications. The way it was created in Harja, was usually like this:
 
@@ -133,9 +135,9 @@ Components do not provide much benefit if users cannot manipulate the world thro
                                 @projects))))
 ```
 
-In reality, many of our reactions were more complex than this. We even created our own reaction, which supports fetching data from the server automatically when certain dependencies change. For example, changing filters in the UI cause the application to get new data from the server.
+In reality, many of our reactions were more complex than this. We even created our own reaction variant, which supports fetching data from the server automatically when certain dependencies change. For example, changing filters in the UI cause the application to get new data from the server.
 
-Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so Tuck library was born.
+Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so the Tuck library was born.
 
 ## Managing app state with Tuck
 
@@ -227,7 +229,7 @@ Here is an example of Tuck app state:
 Now that the initial state and the events to manipulate it are in place, it's time to connect them with an UI component.
 
 ```clojure
-(delcare root*)
+(declare root*)
 
 (defn root []
   [tuck state root*])
@@ -292,7 +294,7 @@ Suppose, for example, that the selected year filter value is stored in some reac
           [:div (:harja.domain.project/name project)])])))
 ```
 
-Naturally this lead to the situation in which the state of our application is managed differently in different places: some views use only reactions, while others use Tuck to manage their . This could sound like a disadvantage, but considering the much easier way to manage app state in new views, we believe it was worth it. This also shows how flexible the used libraries are; they can be easily mix-and-matched to create the best possible outcome without refactoring the whole codebase.
+Naturally this lead to the situation in which the state of our application is managed differently in different places: some views use only reactions, while others use Tuck to manage their state. This mixing of patterns may sound like a disadvantage, but considering the much easier way to manage app state in new views, we believe it was worth it. This also shows how flexible the used libraries are; they can be easily mix-and-matched to create the best possible outcome without refactoring the whole codebase.
 
 ## Managing domain in one place
 
@@ -313,7 +315,7 @@ What are these domain namespaced used for? Firstly, we use them to namespace key
 
 When a map contains data from multiple domains, namespaced keywords help us to understand the domain context of specific keywords. For example, there is an id keyword in the map, or even multiple of them, it should never be unclear in which domain the id is related to.
 
-Secondly, domain namespaces typically contain all kinds of utility functions to manipulate specific domain data. The best part is that all domain namespaces are so called CLJC code, which means the code is shared between frontend and backend. No matter if we are working with the browser or with the server, we can use the same utility functions everywhere to manipulate domain data, in one language. And since these utility functions typically manipulate data using namespaced domain keywords, we can always be sure that wrong keys are never mistakenly touched.
+Secondly, domain namespaces typically contain utility functions to manipulate specific domain data. The best part is that all domain namespaces are so called CLJC code, which means the code is shared between frontend and backend. **No matter if we are working with the browser or with the server, we can use the same utility functions everywhere to manipulate domain data, in one language**. And since these utility functions typically manipulate data using namespaced domain keywords, we can always be sure that wrong keys are never mistakenly touched.
 
 Finally, we want to have [specs](https://clojure.org/about/spec) for our domain data. We created [specql](https://github.com/tatut/specql/) to generate specs directly from [PostgreSQL](https://www.postgresql.org) database tables at compile time. Specs help us to automatically define what kind of data a specific domain subject contains and what are the accepted values. When needed, domain data can be validated against it's spec to see if it is valid. Usually we do this validation on the server when a specific domain service is called, but since the specs are also CLJC code, data validation can be done also on frontend. We have experimented a way to use database specs to add automatic validation for forms and Tuck app state.
 
