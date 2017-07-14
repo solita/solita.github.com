@@ -78,7 +78,7 @@ While the code above works perfectly, it is a little bit tedious to write and re
     (comp/out #(.log js/console "Bye bye"))
     ;; The final parameter is always a render function.
     (fn [text]
-      [:p text])}))
+      [:p text])))
 ```
 
 Now, this start to look idiomatic Clojure; things are expressed as briefly as possible while still keeping the code perfectly readable and understandable. Neat!
@@ -322,11 +322,11 @@ Finally, we want to have [specs](https://clojure.org/about/spec) for our domain 
 
 specql is not made only for generating specs: we also use it to fetch data from the database on the server side by expressing SQL queries as Clojure data. Since we started using specql, most of the new code we write has been simply Clojure, excluding some complex SQL queries and LESS stylesheets. This made me think of the possibility if the whole information system could be written in a single language. At this point, LESS stylesheets were the only part of the application without the possibility to use Clojure - or at least not in the way I wanted. To fill this gap, [stylefy](https://github.com/Jarzka/stylefy) was created.
 
-There were already great libraries for presenting stylesheets as Clojure data, but none of which were primarily used for styling components. My original idea was to create a library in which a style could be attached in to components by using a single **use-style** macro. The macro would convert the given Clojure data in to CSS file and return a class definition for the component. This turned out to be difficult to manage, so a different a approach was needed: when a component calls **use-style**, the given Clojure map is converted to CSS on the fly and added in to DOM as class definition. This turned out to work well and provided asimple way to manage component styles:
+There were already great libraries for presenting stylesheets as Clojure data, but none of which were primarily used for styling components. My original idea was to create a library in which a style could be attached in to components by using a single **use-style** macro. The macro would convert the given Clojure data in to CSS file and return a class definition for the component. This turned out to be difficult to manage, so a different approach was needed: when a component calls **use-style**, the given Clojure map is converted to CSS on the fly and added in to DOM as class definition. This turned out to work well and provided asimple way to manage component styles:
 
 ```clojure
 (defn- simple-text-component [text style]
-  [:p (use-style style) text]])
+  [:p (use-style style) text])
 ```
 
 I was happy how the library turned out and my colleagues were also excited about it. However, we decided not to use it in the current project. There was simply too much working LESS code already written, so mixing stylefy with the current stylesheets was not likely to provide us any real advantages. Still, we look forward to probably use the library in future projects. 
