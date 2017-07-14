@@ -326,7 +326,7 @@ There were already great libraries for presenting stylesheets as Clojure data, b
 
 ```clojure
 (defn- simple-text-component [text style]
-  [:p (use-style style) text]])
+  [:p (use-style style) text])
 ```
 
 I was happy how the library turned out and my colleagues were also excited about it. However, we decided not to use it in the current project. There was simply too much working LESS code already written, so mixing stylefy with the current stylesheets was not likely to provide us any real advantages. Still, we look forward to probably use the library in future projects. 
