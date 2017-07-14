@@ -210,19 +210,6 @@ Here is an example of Tuck app state:
   (process-event [_ app]
     (message/show! "Fetch failed!" :danger)
     (assoc app :fetching-projects? false)))
-
-;; Finally, create Reagent component which uses the state
-(defn- root* [e! app]
-  (comp/create
-    ;; Create an event to fetch the projects from the server when this
-    ;; component is mounted.
-    (comp/in #(e! (->GetProjects)))
-    (fn [e! app]
-      ;; Render function is called automatically when ever the app state is changed
-      [:div
-        (for [project (:projects app)]
-          ˆ{:key (:harja.domain.project/id project)}
-          [:div (:harja.domain.project/name project)])])))
 ```
 
 Now that the initial state and the events to manipulate it are in place, it's time to connect them with an UI component.
