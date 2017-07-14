@@ -93,7 +93,7 @@ A button element is very common in web applications. The way it was created in H
 [:button.primary-button
   {:on-click (.log js/console "Button click detected!")
    :disabled button-disabled?}
-  Press me!]
+  "Press me!"]
 ```
 
 When a new button was needed, the code above was basically taken as a template and modified as needed. While this approach worked perfectly fine, it started to show it's disadvantages. There was no standard approach to create a button element, so modifying all of them at once was a difficult thing to do. Furthermore, there were also some inconsistencies across the UI as the same type of buttons did not always look the same as developers were mistakenly using different CSS classes. It was clearly a time to refactor the code and create an idiomatic API for creating buttons!
@@ -103,7 +103,7 @@ When a new button was needed, the code above was basically taken as a template a
   ([text action] (button text action {}))
   ([text action options]
     [:button {:class (:type options)
-              :on-click (action)
+              :on-click action
               :disabled (:disabled options)}
       text]))
 
@@ -136,7 +136,7 @@ Components do not provide much benefit if users cannot manipulate the world thro
 
 In reality, many of our reactions were more complex than this. We even created our own reaction variant, which supports fetching data from the server automatically when certain dependencies change. For example, changing filters in the UI cause the application to get new data from the server.
 
-Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so the Tuck library was born.
+Managing state through reactions worked well when Harja was still a relatively small application. However, when the application started to become more complex, managing app state through atoms and reactions also became more complex. It was sometimes difficult to test, track changes and debug the application as the state was scattered across multiple places. Also, some parts of the app state were inside components, while some parts were atoms or reactions on namespace level. A simpler method was needed, and so the Tuck library was born.
 
 ## Managing app state with Tuck
 
@@ -257,7 +257,7 @@ For debugging, we created a simple UI component which renders the app state as a
 ![Debugging app state visually](/img/a-tale-of-a-clojurescript-stack-components-and-domain-management/tuck_debug.png)
 *Debugging app state visually*
 
-Since the idea in Tuck is to keep the application state in one place, we had one problem: the app state was already scattered across multiple namespaces and some of was kept inside components. Thus, we decided to use Tuck mainly for creating new views. When a new view is created, the state of the view is kept in an atom and manipulated through Tuck events, in one place. The view can also listen changes in important reactions and communicate them directly in to it's Tuck state. When talking about our existing UI components that take atoms in, we can use Reagent's "wrap" function to call a function when the state of the component is changed and communicate it to Tuck. This way, reactions, our existing components and Tuck work well together.
+Since the idea in Tuck is to keep the application state in one place, we had one problem: the app state was already scattered across multiple namespaces and some of was kept inside components. Thus, we decided to use Tuck mainly for creating new views. When a new view is created, the state of the view is kept in an atom and manipulated through Tuck events, in one place. The view can also listen changes in important reactions and communicate them directly in to it's Tuck state. When talking about our existing UI components that take atoms in, we can use Reagent's *wrap* function to call a function when the state of the component is changed and communicate it to Tuck. This way, reactions, our existing components and Tuck work well together.
 
 Suppose, for example, that the selected year filter value is stored in some reaction, and the project type should be manipulated using an existing input component, which takes an atom as a parameter to store it's state. Our component can listen changes in both and update the app state:
 
