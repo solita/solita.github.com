@@ -274,7 +274,7 @@ Since the idea in Tuck is to keep the application state in one place, we had one
 
 Suppose, for example, that the selected year filter value is stored in some reaction, and the project type should be manipulated using an existing input component, which takes an atom as a parameter to store it's state. Our component can listen changes in both and update the app state:
 
-```
+```clojure
 (comp/create
     (comp/in #(e! (->GetProjects))
     ;; watcher watches changes in a reaction or atom using cljs.core/add-watch function.
