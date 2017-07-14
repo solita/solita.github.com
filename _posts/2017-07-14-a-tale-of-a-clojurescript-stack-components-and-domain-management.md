@@ -78,7 +78,7 @@ While the code above works perfectly, it is a little bit tedious to write and re
     (comp/out #(.log js/console "Bye bye"))
     ;; The final parameter is always a render function.
     (fn [text]
-      [:p text])}))
+      [:p text])))
 ```
 
 Now, this start to look idiomatic Clojure; things are expressed as briefly as possible while still keeping the code perfectly readable and understandable. Neat!
