@@ -290,7 +290,7 @@ Suppose, for example, that the selected year filter value is stored in some reac
                        #(e! (->ChangeTypeFilter %)))]
         (for [project (:projects app)]
           ˆ{:key (:harja.domain.project/id project)}
-          [:div (:harja.domain.project/name project)])])))
+          [:div (:harja.domain.project/name project)])]))
 ```
 
 Naturally this lead to the situation in which the state of our application is managed differently in different places: some views use only reactions, while others use Tuck to manage their state. This mixing of patterns may sound like a disadvantage, but considering the much easier way to manage app state in new views, we believe it was worth it. This also shows how flexible the used libraries are; they can be easily mix-and-matched to create the best possible outcome without refactoring the whole codebase.
