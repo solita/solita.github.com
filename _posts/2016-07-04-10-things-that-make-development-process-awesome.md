@@ -2,9 +2,9 @@
 layout: post
 title: 10 Things That Make Development Process Awesome
 author: jarzka
-excerpt: What takes software dewvelopment from being merely enjoyable to awesome?
+excerpt: What takes software development from being merely enjoyable to awesome?
 tags:
-- software development processes
+- software development process
 - testing
 - culture
 ---

@@ -7,7 +7,7 @@ categories:
 - Java
 tags: 
 - Java
-- Java9 
+- Java 9
 - Jigsaw
 ---
 
