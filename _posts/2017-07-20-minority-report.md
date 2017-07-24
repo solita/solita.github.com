@@ -36,7 +36,7 @@ Therefore, after these experiences, I hope that someone has already told you tha
 
 According to the statistics, the share of female employees in the whole Solita is about 20 %. The share of female employees depends a lot of the field considered. For example, our IT team is still an all-male team, but marketing in contrary is an all-female team. However, our service design team is in the middle with an around 50 % share. 
 
-In 2013 a colleague [combined our faces](http://dev.solita.fi/2013/03/13/the-average-joe.html) and created an image of an average employee at Solita. At those days the average employee named Kaino Solita was 34,44 years old and obviously more masculine than feminine. Last year the image was updated, and it seems like Kaino is gradually turning to more feminine. Kaino has also aged a bit, like all of us, and the average age of employees at Solita is now exactly 36 years. I think Kaino seems to be happier too.
+In 2013 a colleague [combined our faces](http://dev.solita.fi/2013/03/13/the-average-joe.html) and created an image of an average employee at Solita. At those days the average employee named Kaino Solita was 34,44 years old and obviously more masculine than feminine. Last year the image was updated, and it seems like Kaino is gradually turning more feminine. Kaino has also aged a bit, like all of us, and the average age of employees at Solita is now exactly 36 years. I think Kaino seems to be happier too.
 
 ![The average employee - Kaino Solita](/img/minority-report/kaino.PNG)
 *The average employee - Kaino Solita*
