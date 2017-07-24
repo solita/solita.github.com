@@ -41,7 +41,7 @@ In 2013 a colleague [combined our faces](http://dev.solita.fi/2013/03/13/the-ave
 ![The average employee - Kaino Solita](/img/minority-report/kaino.PNG)
 *The average employee - Kaino Solita*
 
-## Be yourself
+## Be Yourself
 
 I happily welcome all new female developers to Solita, but I also welcome with the same happiness all other new colleagues. As Solita promises to all employees, "You can be yourself with all your excellences".
 
