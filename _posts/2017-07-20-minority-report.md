@@ -13,7 +13,7 @@ We got feedback that the pictures used in the recruitment advertisements give a 
 
 ## Real People - No Photo Stock
 
-In my opinion, it is great that Solita uses authentic pictures of real employees in these advertisements. Some of the pictures are even taken in real situations during the workday. At least the one I'm in represents a real case where we were debugging the software with a colleague when the photographer just came out with his camera. I think that picture is used e.g. for recruiting integration specialists. One must remember, that the picture chosen in the advertisement gives always a partial glimpse to the day in life in Solita. I'm not an integration specialist and we were not recruiting especially women. 
+In my opinion, it is great that Solita uses authentic pictures of real employees in these advertisements. Some of the pictures are even taken in real situations during the workday. At least the one I'm in represents a real case where we were debugging the software with a colleague when the photographer just came out with his camera. I think that picture is used e.g. for recruiting integration specialists. One must remember, that the picture chosen in the advertisement gives always a partial glimpse to the everyday in life in Solita. I'm not an integration specialist and we were not recruiting especially women. 
 
 ![Debugging a software](/img/minority-report/debugging.jpg)
 *Debugging a software*
@@ -24,7 +24,7 @@ I've worked as a software developer in Solita already for ten years. I've had op
 
 According to my experience, the working with a female software developer is like working with a male software developer. Furthermore, I suppose that working as a female software developer is similar as working as a male software developer. My colleague wrote nicely about [being a software developer in Solita](http://dev.solita.fi/2017/03/24/being-a-software-designer-at-solita.html).
 
-I believe that Solita does not make any difference in recruiting male or female employees; the main point is just recruiting brilliant developers. I think that the problem emerges already at school before high school and university. The ability to make choices regardless of sex should be enabled, allowed and also encouraged. At least in my days in the Helsinki University of Technology, there were lack of female students in certain branches of science, e.g. Information Technology and Electrical Engineering.
+I believe that Solita does not make any difference in recruiting male or female employees; the main point is just recruiting brilliant developers. I think that the problem emerges already at school before high school and university. The ability to make choices regardless of gender should be enabled, allowed and also encouraged. At least in my days in the Helsinki University of Technology, there were lack of female students in certain branches of science, e.g. information technology and electrical engineering.
 
 ## Suitable for Girls?
 
@@ -32,13 +32,13 @@ My mother who was interested in chemistry at school was told by the rector befor
 
 Therefore, after these experiences, I hope that someone has already told you that being a software developer is suitable for everyone regardless of gender. If not, I'll tell you now, that no gender has any special software developer gene. The profession is suitable for anyone.
 
-##Meet the Average Employee
+## Meet the Average Employee
 
 According to the statistics, the share of female employees in the whole Solita is about 20 %. The share of female employees depends a lot of the field considered. For example, our IT team is still an all-male team, but marketing in contrary is an all-female team. However, our service design team is in the middle with an around 50 % share. 
 
 In 2013 a colleague [combined our faces](http://dev.solita.fi/2013/03/13/the-average-joe.html) and created an image of an average employee at Solita. At those days the average employee named Kaino Solita was 34,44 years old and obviously more masculine than feminine. Last year the image of Kaino was updated, and it seems like he is discovering a more feminine side of himself. He has also aged a bit, like all of us, and the average age is now exactly 36 years. I think he seems to be happier too.
 
-![The average employee - Kaino Solita](/img/minority-report/kaino.png)
+![The average employee - Kaino Solita](/img/minority-report/kaino.PNG)
 *The average employee - Kaino Solita*
 
 ## Be yourself
