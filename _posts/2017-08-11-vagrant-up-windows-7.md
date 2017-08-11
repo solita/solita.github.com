@@ -24,7 +24,7 @@ Now I'll just explain how I got the latest Vagrant version 1.9.7 working on my W
 *TL;DR: It was quite simple.
 Increasing logging with ```set VAGRANT_LOG=info```, then ```vagrant up```, and follow the gory trail.
 In this case, updating PowerShell resolved the issue. See [bug report #8783](https://github.com/mitchellh/vagrant/issues/8783).
-The rest of this is post contains a few nice troubleshooting tips for Vagrant users.*
+The rest of this post contains a few nice troubleshooting tips for Vagrant users.*
 
 Why Vagrant is very popular among developers, is because it saves valuable time.
 You can use templates of popular virtual machines and create your own ones too.
