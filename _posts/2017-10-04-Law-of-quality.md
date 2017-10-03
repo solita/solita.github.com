@@ -19,7 +19,7 @@ This is the law.
 
 ### If the system properly handles dates, characters and money, it has good quality.
 
-I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, even if money is not involved and even getting these two right is a major challenge.
+I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved.
 
 This post examines the difficulties of these three aspects through some examples to shed some light into why it's actually quite difficult. I believe I have never seen a software system of non-trivial size which got all these right.
 
@@ -29,8 +29,8 @@ Date and time are something familiar to us, but the devil is in the details. [Th
 
 Provided you understand this historical context and time zones, this is only half of the victory. Let's consider Java and a standard JDBC interface to a relation database, say PostgreSQL. 
 
-Originally Java had two Date classes: java.util.Date and java.sql.Date. Despite Java core developers being smart, it
-turned out that java.util.Date had issues. A decade later Java time API was rewritten in [JSR 310](https://community.oracle.com/docs/DOC-983209). And then [JodaTime](http://www.joda.org/joda-time/) came to rescue poor Java. Now the confused developer has deprecated (and broken) legacy classes laying around, some newer ones to choose from and headache follows.
+Originally Java had two Date classes: ```java.util.Date``` and ```java.sql.Date```. Despite Java core developers being smart, it
+turned out that poor ```java.util.Date``` had issues. A decade later Java time API was rewritten in [JSR 310](https://community.oracle.com/docs/DOC-983209). And then [JodaTime](http://www.joda.org/joda-time/) came to rescue suffering Java community. Now the confused developer has deprecated (and broken) legacy classes laying around, some newer ones to choose from and a lot of headache. 
 
 Okay, but surely the situation is better in SQL databases? We'll define our table like this:
 ```
@@ -40,26 +40,30 @@ CREATE TABLE dadas
   ) ;
 ```
 
-Ops, we just failed. According to [PostgreSQL documentation](https://www.postgresql.org/docs/9.1/static/datatype-datetime.html) this leaves out timezone, which means effectively system default. It is inadvisable to assume that system default in the database server is the same as in the application server, unless you somehow explicitly control it.
+Oops, we just failed. According to [PostgreSQL documentation](https://www.postgresql.org/docs/9.1/static/datatype-datetime.html) this leaves out timezone, which means effectively system locale. 
 
 ```
-The SQL standard requires that writing just timestamp be equivalent to timestamp without time zone, and PostgreSQL honors that behavior. (Releases prior to 7.3 treated it as timestamp with time zone.)
+The SQL standard requires that writing just timestamp be equivalent to timestamp without 
+time zone, and PostgreSQL honors that behavior. (Releases prior to 7.3 treated it as 
+timestamp with time zone.)
 ```
 
-Even if you have everything under control in the backend, what about the UI? Enter Javascript and let the mortals trebmle.
+It is inadvisable to assume that system default locale in the database server is the same as in the application server, unless you somehow explicitly control it. But assuming you have everything under control in the backend, what about the UI? Enter Javascript and let the mortals tremble.
 
 ```
 new Date(2012,12,12)
-Sat Jan 12 2013 00:00:00 GMT+0200 (EET)
+ > Sat Jan 12 2013 00:00:00 GMT+0200 (EET)
 new Date(2012,0,1)
-Sun Jan 01 2012 00:00:00 GMT+0200 (EET)
+ > Sun Jan 01 2012 00:00:00 GMT+0200 (EET)
 new Date(2012,-1,1)
-Thu Dec 01 2011 00:00:00 GMT+0200 (EET)
+ > Thu Dec 01 2011 00:00:00 GMT+0200 (EET)
 ```
 
 Javascript is kind enough to allow data slip without warnings or exceptions like that. You get dates, just maybe a bit different dates from what you expected. And what might be the timezone should you do something like that? You can't rely on the user's browser to have any specific timezone set even if you can control the backend server. 
 
 Good luck getting all these layers to work perfectly in all situations.
+
+![Die you computer](/img/destroy-computer.jpg)
 
 ## The characters
 
@@ -73,9 +77,9 @@ Again, remember to check your relational database for surprises. On particularly
 select * from winners order by name;
 ```
 
-As article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, order of letters in the alphabet depends on the country. And even has been changed in some countries quite recently. This may result in a bit surprising orderings as some characters can even have equal standing in the order. And do you actually know what ordering your database server is using now?
+As article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, order of letters in the alphabet depends on the country. And the order has been changed in some countries quite recently. This may result in a bit surprising orderings as some characters can even have equal standing in the order. Do you actually know what ordering your database server is using now?
 
-Characters also need to be escaped, encoded and re-enconded multiple times as they travel with [URL encoding](https://www.w3schools.com/TagS/ref_urlencode.asp), [HTML encoding](https://www.w3schools.com/html/html_charset.asp) and many other forms of encoding. It is anything but easy to have everything working perfectly in a complex modern software system.
+Characters also need to be escaped, encoded and re-enconded multiple times during their travel through servers and switches and lines of code. We do it with [URL encoding](https://www.w3schools.com/TagS/ref_urlencode.asp), [HTML encoding](https://www.w3schools.com/html/html_charset.asp) and many other forms of encoding. It is anything but easy to have everything working perfectly in a complex modern software system.
 
 ## Show me the money
 
@@ -91,7 +95,7 @@ Eventually you will have to round money to some precision. Then all sort of funn
 
 It doesn't, until it matters. It depends on the context if some mistake with encoding of characters presents a marginal non-issue, a serious security flaw or embarrasing UI glitch. Similarly, improper handling of date and time may not be pose any risk from the business perspective.
 
-However, it does matter that the programmers are aware of these things and intricacies which may be significant. How could they otherwise judge if something is important or not? Consider also that in most cases, the correct program takes no more time to write, provided you know know what you are doing. Researching and learning takes time and usually occurs after some problem has caused real measurable consequences, like a flow of bug reports from the end users. Locked accounts. Missing payments. That's how I learnt what little I know about these things.
+However, it does matter that the programmers are aware of these things and intricacies which may be significant. How could they otherwise judge if something is important or not? Consider also that in most cases, the correct program takes no more time to write, provided you know know what you are doing. Researching and learning takes time and usually occurs after some problem has caused real measurable consequences, like a flow of bug reports from the end users. Locked accounts. Missing payments. That's how I learnt what little I know about these things. I wish you the best luck with your learning experiences.
 
 
 
