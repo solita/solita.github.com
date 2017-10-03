@@ -19,9 +19,9 @@ This is the law.
 
 ### If the system properly handles dates, characters and money, it has good quality.
 
-I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved.
+I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved. The law sets a sufficient condition; I rarely see a software system of non-trivial size which got all these right. 
 
-This post examines the difficulties of these three aspects through some examples to shed some light into why it's actually quite difficult. I believe I have never seen a software system of non-trivial size which got all these right.
+This post examines the difficulties in these three matters to shed some light into why it's actually quite difficult. The intention is not deal with these subjects a in thorough manner - that would fill a book I'm not qualified to write.
 
 ## Dates
 
@@ -30,7 +30,7 @@ Date and time are something familiar to us, but the devil is in the details. [Th
 Provided you understand this historical context and time zones, this is only half of the victory. Let's consider Java and a standard JDBC interface to a relation database, say PostgreSQL. 
 
 Originally Java had two Date classes: ```java.util.Date``` and ```java.sql.Date```. Despite Java core developers being smart, it
-turned out that poor ```java.util.Date``` had issues. A decade later Java time API was rewritten in [JSR 310](https://community.oracle.com/docs/DOC-983209). And then [JodaTime](http://www.joda.org/joda-time/) came to rescue suffering Java community. Now the confused developer has deprecated (and broken) legacy classes laying around, some newer ones to choose from and a lot of headache. 
+turned out that poor ```java.util.Date``` had issues. A decade later Java time API was rewritten in [JSR 310](https://community.oracle.com/docs/DOC-983209). And then [JodaTime](http://www.joda.org/joda-time/) came to rescue the suffering Java community. Now the confused developer has deprecated (and broken) legacy classes laying around, some newer ones to choose from and a lot of headache. 
 
 Okay, but surely the situation is better in SQL databases? We'll define our table like this:
 ```
@@ -48,7 +48,7 @@ time zone, and PostgreSQL honors that behavior. (Releases prior to 7.3 treated i
 timestamp with time zone.)
 ```
 
-It is inadvisable to assume that system default locale in the database server is the same as in the application server, unless you somehow explicitly control it. But assuming you have everything under control in the backend, what about the UI? Enter Javascript and let the mortals tremble.
+It is inadvisable to assume that system default locale in the database server is the same as in the application server, unless you somehow explicitly control it. But let's be gracious and assume you have everything under control in the backend. What about the user interface? Enter Javascript and let the mortals tremble.
 
 ```
 new Date(2012,12,12)
@@ -71,13 +71,13 @@ Unless you are a veteran with a lot of scars, this [old article about encoding](
 
 As with dates, it doesn't end here. With Java your source code and strings at least have some defined encodings and characters sets. Python developers are not so fortunate, see this: [Unicode in Python](https://docs.python.org/2/howto/unicode.html). 
 
-Again, remember to check your relational database for surprises. On particularly interesting one is the order of letters in a SQL statement:
+Again, remember to check your relational database for surprises. On particularly interesting one is the order of result set we get from this innocent SQL statement:
 
 ```
 select * from winners order by name;
 ```
 
-As article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, order of letters in the alphabet depends on the country. And the order has been changed in some countries quite recently. This may result in a bit surprising orderings as some characters can even have equal standing in the order. Do you actually know what ordering your database server is using now?
+As article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, order of letters in the alphabet depends on the country. V may come before W, or can it? And the order has been changed in some countries quite recently. This may result in a bit surprising orderings as some characters can even have equal standing in the order. Do you actually know what ordering your database server is using now? Did you specify it?
 
 Characters also need to be escaped, encoded and re-enconded multiple times during their travel through servers and switches and lines of code. We do it with [URL encoding](https://www.w3schools.com/TagS/ref_urlencode.asp), [HTML encoding](https://www.w3schools.com/html/html_charset.asp) and many other forms of encoding. It is anything but easy to have everything working perfectly in a complex modern software system.
 
