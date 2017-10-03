@@ -91,6 +91,8 @@ My advice is to create an abstraction or wrapper for handling money. Instead of 
 
 Eventually you will have to round money to some precision. Then all sort of funny issues may come up, like the sum of invoice rows (rounded) may not actually equal the total monetary amount stated in the invoice.
 
+![computer destruction](/img/destroy-computer2.jpg)
+
 ## Does it matter?
 
 It doesn't, until it matters. It depends on the context if some mistake with encoding of characters presents a marginal non-issue, a serious security flaw or embarrasing UI glitch. Similarly, improper handling of date and time may not be pose any risk from the business perspective.
