@@ -95,7 +95,7 @@ Eventually you will have to round money to some precision. Then all sorts of fun
 
 ## Does it matter?
 
-It doesn't, until it matters. It depends on the context if some mistake with encoding of characters presents a marginal non-issue, a serious security flaw or embarrasing UI glitch. Similarly, improper handling of date and time may not be pose any risk from the business perspective.
+It doesn't, until it matters. It depends on the context if some mistake with encoding of characters presents a marginal non-issue, a serious security flaw or an embarrasing UI glitch. Similarly, improper handling of date and time may not be pose any risk from the business perspective.
 
 However, it does matter that programmers are aware of these things and intricacies which may be significant. How could they otherwise judge if something is important or not? Consider also that in most cases, the correct program takes no more time to write, provided that you know know what you are doing. Researching and learning takes time and usually occurs after some problem has caused real measurable consequences, like a flow of bug reports from the end users. Locked accounts. Missing payments. That's how I learnt what little I know about these things. I wish you the best of luck with your learning experiences.
 
