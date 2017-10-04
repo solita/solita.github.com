@@ -36,7 +36,7 @@ Okay, but surely the situation is better in SQL databases? We'll define our tabl
 ```
 CREATE TABLE dadas
   (
-    le_time TIMESTAMPT NOT NULL
+    le_time TIMESTAMP NOT NULL
   ) ;
 ```
 
