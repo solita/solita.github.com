@@ -2,7 +2,7 @@
 layout: post
 title: The Law of Three for Software Quality
 author: lokori
-excerpt: There is a simple rule of thumb for software quality which seems to remain true over the years: 
+excerpt: There is a simple rule of thumb for software quality which seems to remain true over the years;
 If the system properly handles dates, characters and money, it has good quality. 
 Short of scientific evidence, empirical arguments are provided. Try and see how your system measures up against this law.
 tags:
