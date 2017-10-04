@@ -2,7 +2,7 @@
 layout: post
 title: The Law of Three for Software Quality
 author: lokori
-excerpt: There is a simple rule of thumb for software quality which seems to remain true over the years. If the system properly handles dates, characters and money, it has good quality. Short of scientific evidence, empirical arguments are provided. Try and see how your system measures up against this law.
+excerpt: There is a simple rule of thumb for software quality which seems to remain true over the years. If the system properly handles dates, characters and money, it has good quality. Short of scientific evidence, empirical arguments are provided. 
 tags:
 - quality
 - bugs
@@ -17,9 +17,9 @@ tags:
 
 That is the law. 
 
-I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved. The law sets a sufficient condition; I rarely see a software system of non-trivial size which gets all these right. 
+I have been talking about it every now and then for quite some time. Years pass by, but this law seems to hold true in the world of professional software development where I work. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved. The law sets a sufficient condition; I rarely see a software system of non-trivial size which gets all these right. 
 
-This post examines these three matters through examples to shed some light into why they're actually quite difficult. The intention is not to deal with these subjects a in thorough manner — that would fill a book I'm not qualified to write.
+This post examines these three matters through examples to shed some light into why they're actually quite difficult. The intention is not to deal with these subjects in a thorough manner — that would fill a book I'm not qualified to write.
 
 ## Dates
 
