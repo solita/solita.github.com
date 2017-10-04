@@ -15,9 +15,9 @@ tags:
 
 ## The Law of Three
 
-This is the law. 
-
 ### If the system properly handles dates, characters and money, it has good quality.
+
+That is the law. 
 
 I have been talking about it every now and then for quite some time. It seems to hold true in the world of professional software development where I work as years pass by. Most of the real world systems handle characters and dates in some fashion, and getting these two right is a major challenge even if money is not involved. The law sets a sufficient condition; I rarely see a software system of non-trivial size which gets all these right. 
 
@@ -59,7 +59,7 @@ new Date(2012,-1,1)
  > Thu Dec 01 2011 00:00:00 GMT+0200 (EET)
 ```
 
-Javascript is kind enough to allow data slip through without warnings or exceptions like that. You get dates, just maybe a bit different dates from what you expected. And what might the timezone be should you do something like that? You can't rely on the user's browser to have any specific timezone set even if you can control the backend server. 
+JavaScript is kind enough to allow data slip through without warnings or exceptions like that. You get dates, just maybe a bit different dates from what you expected. And what might the timezone be should you do something like that? You can't rely on the user's browser to have any specific timezone set even if you can control the backend server. 
 
 Good luck getting all these layers to work perfectly in all situations.
 
@@ -77,7 +77,7 @@ Again, remember to check your relational database for surprises. One particularl
 select * from winners order by name;
 ```
 
-As the article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, the order of the letters in the alphabet depends on the country. V may come before W, or can it? And the order has been changed in some countries quite recently. This may result in ordersings that are a bit surprising as some characters can even have equal standing in the order. Do you actually know what ordering your database server is using now? Did you specify it?
+As the article on [Alphabetical Order](https://en.wikipedia.org/wiki/Alphabetical_order) in Wikipedia informs us, the order of the letters in the alphabet depends on the country. V may come before W, or can it? And the order has been changed in some countries quite recently. This may result in ordersings that are a bit surprising as some characters can even have equal standing in the order. Do you actually know what ordering your database server is using now? Did you specify it? This [article about ordering in Oracle SQL database](https://docs.oracle.com/cd/B19306_01/server.102/b14225/ch5lingsort.htm) has plenty of details, but how many software developers read such documents? To make matters worse, you need to read this about [collation in Microsoft SQL Server](https://www.red-gate.com/simple-talk/sql/sql-development/questions-sql-server-collations-shy-ask/) even if you know Oracle inside out. Each vendor has a bit different ways to deal with these things.
 
 Characters also need to be escaped, encoded and re-enconded multiple times during their travel through servers and switches and lines of code. We do it with [URL encoding](https://www.w3schools.com/TagS/ref_urlencode.asp), [HTML encoding](https://www.w3schools.com/html/html_charset.asp) and many other forms of encoding. It is anything but easy to have everything working perfectly in a complex modern software system.
 
@@ -98,9 +98,4 @@ Eventually you will have to round money to some precision. Then all sorts of fun
 It doesn't, until it matters. It depends on the context if some mistake with encoding of characters presents a marginal non-issue, a serious security flaw or embarrasing UI glitch. Similarly, improper handling of date and time may not be pose any risk from the business perspective.
 
 However, it does matter that programmers are aware of these things and intricacies which may be significant. How could they otherwise judge if something is important or not? Consider also that in most cases, the correct program takes no more time to write, provided that you know know what you are doing. Researching and learning takes time and usually occurs after some problem has caused real measurable consequences, like a flow of bug reports from the end users. Locked accounts. Missing payments. That's how I learnt what little I know about these things. I wish you the best of luck with your learning experiences.
-
-
-
-
-
 
