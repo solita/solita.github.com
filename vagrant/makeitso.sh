@@ -5,7 +5,7 @@ source /etc/profile.d/rvm.sh
 rvm install 2.2
 rvm use 2.2
 iptables -F
-gem install bundler
+gem install bundler foreman
 cd /env
 bundle install
-bundle exec foreman start
+foreman start

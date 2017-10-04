@@ -39,8 +39,23 @@ date: 2016-04-25 13:30:00 +0200
 
 You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview).
 
+### Option A, Running solita-blag dockerized extravaganza
 
-### Option A, Running a virtual machine (standardized environment)
+Super-fast, live-reload for posts, sass and templates.
+
+1. Install docker
+2. Run `docker/init.sh`, this can take a while but should be run only once
+3. Run `docker/start.sh`
+4. Head to http://localhost:4444
+5. Edit post with your favourite editor and check changes via from browser
+
+Next time when conjuring new post, only `docker/start.sh` should do it.
+
+Troubleshooting:
+`docker rmi solita-blag` -> Delete image
+``
+
+### Option B, Running a vagrant virtual machine (standardized environment)
 
 1. Install Vagrant
 2. Install Virtualbox
@@ -54,7 +69,7 @@ If anything goes wrong, good luck. vagrant ssh blag and try figure it out.
 When you're done you might want to shutdown the virtual machine. vagrant destroy or something like that.
 
 
-### Option B, Installing Ruby on your workstation
+### Option C, Installing Ruby on your workstation
 
 For Windows, download & install the latest Ruby 2.x and Development
 Kit from http://rubyinstaller.org/downloads/
@@ -117,7 +132,7 @@ If you're using Vagrant, you're already done! Just start vagrant with ``vagrant 
 
 Jekyll 3 only supports Ruby 2. First check which version you have with ``ruby -v``.
 
-If already have Ruby 2.x, simply update the local gems with ``bundle update``. 
+If already have Ruby 2.x, simply update the local gems with ``bundle update``.
 
 If you currently have Ruby 1.x, you must first install Ruby 2 and then install the packages in the gemfile. For Windows, you can get Ruby 2 from http://rubyinstaller.org/downloads/. For OSX, you can install Ruby 2 with RVM:
 
