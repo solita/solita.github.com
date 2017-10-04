@@ -43,17 +43,20 @@ You need Ruby and Jekyll if you want to preview your posts locally on the blog. 
 
 Super-fast, live-reload for posts, sass and templates.
 
-1. Install docker
+1. You have docker installed? Right?
 2. Run `docker/init.sh`, this can take a while but should be run only once
-3. Run `docker/start.sh`
+3. Run `docker/start.sh`, keep it running, stop with ctrl+c
 4. Head to http://localhost:4444
-5. Edit post with your favourite editor and check changes via from browser
+5. Edit post with your favourite editor and check changes via browser
 
 Next time when conjuring new post, only `docker/start.sh` should do it.
 
 Troubleshooting:
+
 `docker rmi solita-blag` -> Delete image
-``
+`docker/troubleshoot.sh` -> Opens bash to container without starting jekyl and compass
+
+Windows? Help wanted!
 
 ### Option B, Running a vagrant virtual machine (standardized environment)
 
