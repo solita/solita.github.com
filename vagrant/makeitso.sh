@@ -5,7 +5,7 @@ source /etc/profile.d/rvm.sh
 rvm install 2.2
 rvm use 2.2
 iptables -F
-gem install bundler foreman
+gem install bundler
 cd /env
 bundle install
-foreman start
+bundle exec jekyll serve --watch --host 0.0.0.0

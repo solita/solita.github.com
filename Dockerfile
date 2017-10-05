@@ -6,9 +6,9 @@ VOLUME /solita-blag
 
 ENV LANG C.UTF-8
 
-RUN gem install bundler foreman
+RUN gem install bundler
 ADD Gemfile /solita-blag
 ADD Gemfile.lock /solita-blag
 RUN bundle install
 
-CMD ["foreman", "start"]
+CMD ["bundle", "exec", "jekyll", "serve", "--watch", "--host", "0.0.0.0"]
