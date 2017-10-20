@@ -37,12 +37,12 @@
     text-align: center;
     font-size: 1.5rem;
     background: white;
-    
-    transition: all 0.3s linear;    
+
+    transition: all 0.3s linear;
 
     &:hover {
-        background: $cerise; 
-        color: $white; 
+        background: $cerise;
+        color: $white;
     }
 }
 
@@ -58,10 +58,9 @@
         background: $porcelain;
 
         color: $black;
-    
+
         &:hover {
-            background: lighten($porcelain, 3%); 
+            background: lighten($porcelain, 3%);
         }
     }
 }
-
