@@ -8,4 +8,4 @@ iptables -F
 gem install bundler
 cd /env
 bundle install
-bundle exec foreman start
+bundle exec jekyll serve --watch --host 0.0.0.0
