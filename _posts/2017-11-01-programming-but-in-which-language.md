@@ -42,7 +42,7 @@ It seems that the language decisions depend mainly on the domain of the project.
 
 In the cases where the chosen domain language is Finnish, it is more popular to write domain-specific code entirely in Finnish than to mix English and Finnish. However, there can be some exceptions, such as the names of non-domain-specific utility library functions and lower lever functions, which can use English, such as _insertHakemusUsingJdbc_. 
 
-![pie charts of chosen language](/img/programming-language/statistics.jpg)
+![pie charts of chosen language](/img/programming-language/statistics.PNG)
 
 It seems like the chosen domain language does not affect to the chosen programming language or vice versa. There is Clojure code both in English and in Finnish, same with Java. The JavaScript projects reported were all in English, same as few Python projects. The C projects reported were either entirely in English or just the domain in Finnish.
 
