@@ -18,6 +18,8 @@ This is fine. We developers are used to reading and writing program code in Engl
 
 Using English as the domain language is a natural choice if the customer operates internationally or the domain is already in English. If the customer gives the domain vocabulary, it is easy to adopt in the project and the conversation of business logic is not distracted by misunderstood semantics because of language.
 
+![code on screen](/img/programming-language/photo_koodia.JPG)
+
 If the domain can easily be translated into English, it can be done. This should be done carefully, maybe in cooperation with the customer. The translation might require some expertise, because it makes difference if you translate Finnish _asiantuntija_ literally as _thingKnower_ instead of more sensible word _expert_. After the translation, the vocabulary should be documented. Without shared vocabulary the code will soon be full of _experts_, _specialists_ and _professionals_ when every developer is making own translations. The documentation also helps new developers entering the project.
 
 If the domain is translated, the translation should be used in all layers. Keep your database, server, client and front consistent and use the same language and vocabulary in every level.
@@ -40,6 +42,8 @@ It seems that the language decisions depend mainly on the domain of the project.
 
 In the cases where the chosen domain language is Finnish, it is more popular to write domain-specific code entirely in Finnish than to mix English and Finnish. However, there can be some exceptions, such as the names of non-domain-specific utility library functions and lower lever functions, which can use English, such as _insertHakemusUsingJdbc_. 
 
+![pie charts of chosen language](/img/programming-language/statistics.jpg)
+
 It seems like the chosen domain language does not affect to the chosen programming language or vice versa. There is Clojure code both in English and in Finnish, same with Java. The JavaScript projects reported were all in English, same as few Python projects. The C projects reported were either entirely in English or just the domain in Finnish.
 
 Mostly the developers coding in Finnish were satisfied with the chosen language. At the beginning it has been awkward but after a while it has come really fluent. Some even say that it is much better than making up clumsy translations or mixing two languages.
@@ -48,7 +52,10 @@ The language used in the comments depended a lot on the chosen domain language. 
 
 ## Keep the Practice
 
-The poll also revealed that some long-lasting projects have evolved to containing mixed practices. For example, the language has changed during the years, or the methods are named in several ways depending on the developer in question. 
+The poll also revealed that some long-lasting projects have evolved to containing mixed practices. For example, the language has changed during the years, or the methods are named in several ways depending on the developer in question.
+
+![developer in action](/img/programming-language/developer.jpg)
+
 
 The domain language and the code style related are decicions that should be discussed carefully and made in the beginning of the project. The decicion (and possible translations) should be documented, maybe included in the development guide of that project, and also introduced to the new developers entering the project. 
 
