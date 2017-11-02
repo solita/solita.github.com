@@ -12,7 +12,9 @@ tags:
 
 Usually there is a debate over which programming language the project should use. Is Clojure better than Java? Should we use Python? Even JavaScript? This time we do not care what the programming language is, but what language is used to describe the domain. Should all the code be in English like _addApplication_, or should method names and variables be in Finnish like _lisaaHakemus_? This is a relevant question, when we, mostly Finnish speaking developers, build a software to a Finnish customer. 
 
-## _addApplication()_ - Everything in English 
+## Everything in English 
+
+_addApplication()_ or _add-application_
 
 This is fine. We developers are used to reading and writing program code in English. If the code base, comments and even commit messages are totally in English it is even possible to have developers who do not speak Finnish in the team. That is very likely to happen even in the near future, because Solita is now recruiting also in Sweden. According to the comments from our developers, all code in English is the natural way to do it.
 
@@ -24,13 +26,17 @@ If the domain can easily be translated into English, it can be done. This should
 
 If the domain is translated, the translation should be used in all layers. Keep your database, server, client and front consistent and use the same language and vocabulary in every level.
 
-## _addHakemus()_ - the Domain in Finnish
+## The Domain in Finnish
+
+_addHakemus()_ or _add-hakemus_
 
 But. Let us think that the customer is a Finnish company operating only in national business with a complex domain. Maybe the domain is even regulated by legislation. All the domain concepts might not even have an exactly equivalent word in English. There is no point of just making words up; it just leads to misunderstandings. When the lack of exact vocabulary can be seen as a risk, it might be reasonable to keep Finnish as the domain language. Using the legit domain vocabulary throughout the database, software, and documentation guarantees also a common language for the developers and the customer.
 
 Usually the decision of using the Finnish domain language is made with the customer. This, of course, makes it difficult to adapt developers who do not speak Finnish to the project. One can surely learn the domain names, and if the code, comments and commit messages are in English, it might be possible to enter the project. However, in the real life, the method names can be quite complicated and impossible to understand despite of the few English words in the middle, or what would you say about actual test method called _kiinteistoWithEOWithVireillaolevaHaltijoidenSelvennysasiaHasOnlyVoimassaolevatHaltijat_.
 
-## _lisaaHakemus()_ - All Naming in Finnish
+## All Naming in Finnish
+
+_lisaaHakemus()_ or _lisaa-hakemus_
 
 If we decide to keep the domain in Finnish why would not we use Finnish in every name of method, variable, package, class, etc. The Finnish domain vocabulary has already made it difficult to really adapt developers who do not speak Finnish to the project, so why not use Finnish whenever possible. Some developers rather use consistently Finnish in all naming than mix English and Finnish but there are also opposite opinions. 
 
