@@ -2,7 +2,7 @@
 layout: post
 title: Programming - but in Which Language?
 author: riikkanen
-excerpt: This time the language options discussed are English and Finnish. Should I write a method called _addApplication_ or _lisaaHakemus_ (_hakemus_ being _application_ in Finnish)?
+excerpt: This time the language options discussed are English and Finnish. Should I write a method called 'addApplication' or 'lisaaHakemus' ('hakemus' being 'application' in Finnish)?
 tags:
 - programming
 - domain
