@@ -1,0 +1,55 @@
+---
+---
+
+/*!
+ * /dev/solita/css
+ */
+
+/* 3RD PARTY STYLES
+----------------------------------------------------------------------------- */
+
+//@import "compass/css3";
+
+/* VARIABLES & MIXINS
+----------------------------------------------------------------------------- */
+
+@import "vars";
+@import "mixins";
+
+/* PARTIALS
+----------------------------------------------------------------------------- */
+
+@import "partials/frameless",
+        "partials/reset",
+        "partials/base",
+        "partials/typography",
+        "partials/icons",
+        "partials/pagination",
+        "partials/sidebar",
+        "partials/header",
+        "partials/footer",
+        "partials/post",
+        "partials/home",
+        "partials/common",
+        "partials/syntax-highlighting";
+
+/* TABLES
+----------------------------------------------------------------------------- */
+th, td {
+    padding:6px 16px;
+}
+
+/* FORMS
+----------------------------------------------------------------------------- */
+fieldset {
+    border:1px solid #666;
+    padding:$baseline/2;
+}
+
+/* CUSTOM STYLES
+----------------------------------------------------------------------------- */
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

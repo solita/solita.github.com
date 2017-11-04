@@ -1,0 +1,94 @@
+.post {
+    margin-bottom:$baseline*2;
+    position:relative;
+
+    @media (min-width: $breakpoint-3) {
+        padding-left: $primary-width - 520px;
+        width: 520px;
+    }
+}
+
+.post-title {
+    font-size: 1.65rem;
+    line-height: 1.25;
+    margin: 0 0 0.5em;
+
+    a {
+        color: $black;
+    }
+}
+
+.post-meta {
+    position: relative;
+
+    padding: 6px 0 0 0;
+
+    font-size: 0.8em;
+    font-weight: 800;
+
+    @media (min-width: $breakpoint-3) {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        max-width: 150px;
+
+        padding: 0 0 0 57px;
+
+        line-height: 1.25;
+
+        .date {
+            display:block;
+        }
+    }
+
+    .avatar {
+        @media (min-width: $breakpoint-3) {
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .img {
+            max-width:24px;
+            vertical-align: middle;
+
+            @media (min-width: $breakpoint-3) {
+                max-width:42px;
+            }
+        }
+    }
+
+    .icon {
+        display:none;
+        position:absolute;
+
+        @media (min-width: $breakpoint-3) {
+            display: block;
+            left:-44px;
+            top:-37px;
+            z-index:2;
+        }
+    }
+}
+
+.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
+    font-size: 1rem;
+    line-height:$baseline;
+}
+
+.post-excerpt {
+    margin-bottom: 1em;
+}
+
+.caption {
+    font-style: italic;
+    text-align: center;
+}
+
+p + .caption {
+    margin-top: -$baseline/2;
+}
+
+.post-content {
+    margin-bottom: $baseline*2;
+}
