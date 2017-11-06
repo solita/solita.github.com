@@ -14,11 +14,13 @@ tags:
 - Security Pipeline
 ---
 
-A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but it finally appears that there's light in the end of the tunnel. This post provides a teplate for automating security scans and examines various issues one will encounter implementing that.
+A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but there's finally light at the end of the tunnel. This post provides a teplate for automating security scans and examines various issues one will encounter implementing that.
 
 ## Simple: Build security in!
 
-The basic premise for Solita is that **security must be built in** during the development process. There will be no security fairy who could magically add security to a product when it's almost finished. Dealing with serious security issues right before deployment to production is costly and often ruins the management's day by postponing the launch. Or makes them sweat if they have to launch with a system which is known to be vulnerable to hackers and cyber criminals. We have previously covered this in high level at this previous post [What is DevSec](http://dev.solita.fi/2016/10/25/what-is-devsec.html). There was also a talk about this in Tampere Goes Agile 2017, [slides here](https://www.slideshare.net/Solita_Oy/devsec-build-security-in-and-dance-like-a-pro-81338146). 
+The basic premise for Solita is that **security must be built in** during the development process. There is no security fairy who can magically add security to a product when it's almost finished. Dealing with serious security issues right before deployment to production is costly and often ruins the management's day by postponing the launch. Or makes them sweat if they have to launch with a system which is known to be vulnerable to hackers and cyber criminals. 
+
+We have previously covered this issue in high level at this previous post [What is DevSec](http://dev.solita.fi/2016/10/25/what-is-devsec.html). There was also a talk about this in Tampere Goes Agile 2017, [slides here](https://www.slideshare.net/Solita_Oy/devsec-build-security-in-and-dance-like-a-pro-81338146). 
 
 Our method is essentially a three step process:
 
@@ -30,7 +32,7 @@ Number three is where automated security testing can help. By automating certain
 
 The high level view of looks like this:
 
-![DevSec process](img/devsec-simple.png)
+![DevSec-process](img/devsec/devsec-simple.png)
 
 You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
 
@@ -41,11 +43,15 @@ This is very similar to what OWASP Helsinki has attempted at their [DevSecOps Ha
 
 Having embraced DevOps & DevSec & DevSecOps one has a team capable of creating scripts, automation and developers who can act as part-time security experts. These people can automate the testing using various tools. Depending on one's choice of technologies our toolset may not be the best, but this works reasonably well for Java projects.
 
+Here's what we have done.
+
+![Simple-Security-Pipeline](img/devsec/simplified_security_pipeline.png)
+
 There are three reasons for using Docker here instead of direct Jenkins plugins:
 
 1. Docker shields the Jenkins server from becoming unstable because of new dependencies.
 2. It is quite easy to run the same scripts and tools on developer's laptop or in other CI servers.
-3. It is a bit faster to setup the build as no clicking around the UI with various plugins is necessary.
+3. It is a bit faster to setup the build without clicking around the UI with various plugins.
 
 ## Uploading and hosting the reports
 
@@ -90,7 +96,7 @@ All of these are valid strategies, but they all have some drawbacks. They all ne
 
 Docker is a nice abstraction, to make these tools work reasonably, we need some sort of state outside the Docker container. This is not a major problem in most cases - if you are operating with simple files (like ZAP context, which is an XML file), you can persist them in version control system and feed them as input to Docker using volume mounts.
 
-![Docker abstractions leak](img/security-pipeline-state.png)
+![Docker-abstractions-leak](img/devsec/security-pipeline-state.png)
 
 In the case of SonarQube it gets annoying. Sonar would like to have a relational database and setting one up is not a trivial task. Not too much to ask for in a bigger project, but definitely more work than exposing some directory in a file system.
 
