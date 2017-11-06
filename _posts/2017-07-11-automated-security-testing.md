@@ -14,7 +14,7 @@ tags:
 - Security Pipeline
 ---
 
-A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but there's finally light at the end of the tunnel. This post provides a teplate for automating security scans and examines various issues one will encounter implementing that.
+A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but there's finally light at the end of the tunnel. This post provides a teplate for automating security scans and examines various issues one will encounter implementing that. You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
 
 ## Simple: Build security in!
 
@@ -34,8 +34,6 @@ The high level view of looks like this:
 
 ![DevSec-process](/img/devsec/devsec-simple.png)
 
-You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
-
 This is very similar to what OWASP Helsinki has attempted at their [DevSecOps Hackathon](https://www.owasp.org/index.php/OWASP_Helsinki_DevSecOps_Hackathon), but their results are not available publicly. At least not yet.
 
 
@@ -46,6 +44,7 @@ Having embraced DevOps & DevSec & DevSecOps one has a team capable of creating s
 Here's what we have done.
 
 ![Simple-Security-Pipeline](/img/devsec/simplified_security_pipeline.png)
+
 
 There are three reasons for using Docker here instead of direct Jenkins plugins:
 
