@@ -70,7 +70,7 @@ To do form based authentication I recommend creating the ZAP context manually an
 
 As for the header based authentication on could write a script for that. The essential part is to provide a callback for requests like this. 
 
-```
+```javascript
 function proxyRequest(msg) {
   println('proxyRequest called for url=' + msg.getRequestHeader().getURI().toString())
   msg.getRequestHeader().setHeader("user-auth", "test-user")
