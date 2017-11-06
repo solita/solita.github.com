@@ -20,7 +20,7 @@ A Security Pipeline, or Automated security testing, is finally within our grasp!
 
 The basic premise for Solita is that **security must be built in** during the development process. There is no security fairy who can magically add security to a product when it's almost finished. Dealing with serious security issues right before deployment to production is costly and often ruins the management's day by postponing the launch. Or makes them sweat if they have to launch with a system which is known to be vulnerable to hackers and cyber criminals. 
 
-We have previously covered this issue in high level at this previous post [What is DevSec](http://dev.solita.fi/2016/10/25/what-is-devsec.html). There was also a talk about this in Tampere Goes Agile 2017, [slides here](https://www.slideshare.net/Solita_Oy/devsec-build-security-in-and-dance-like-a-pro-81338146). 
+We have previously covered this issue in high level at this previous post [What is DevSec](http://dev.solita.fi/2016/10/25/what-is-devsec.html). There was also a talk about this in [Tampere Goes Agile 2017](http://tamperegoesagile.fi/), [slides here](https://www.slideshare.net/Solita_Oy/devsec-build-security-in-and-dance-like-a-pro-81338146). 
 
 Our method is essentially a three step process:
 
