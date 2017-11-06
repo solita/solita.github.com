@@ -32,7 +32,7 @@ Number three is where automated security testing can help. By automating certain
 
 The high level view of looks like this:
 
-![DevSec-process](img/devsec/devsec-simple.png)
+![DevSec-process](/img/devsec/devsec-simple.png)
 
 You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
 
@@ -45,7 +45,7 @@ Having embraced DevOps & DevSec & DevSecOps one has a team capable of creating s
 
 Here's what we have done.
 
-![Simple-Security-Pipeline](img/devsec/simplified_security_pipeline.png)
+![Simple-Security-Pipeline](/img/devsec/simplified_security_pipeline.png)
 
 There are three reasons for using Docker here instead of direct Jenkins plugins:
 
@@ -96,7 +96,7 @@ All of these are valid strategies, but they all have some drawbacks. They all ne
 
 Docker is a nice abstraction, to make these tools work reasonably, we need some sort of state outside the Docker container. This is not a major problem in most cases - if you are operating with simple files (like ZAP context, which is an XML file), you can persist them in version control system and feed them as input to Docker using volume mounts.
 
-![Docker-abstractions-leak](img/devsec/security-pipeline-state.png)
+![Docker-abstractions-leak](/img/devsec/security-pipeline-state.png)
 
 In the case of SonarQube it gets annoying. Sonar would like to have a relational database and setting one up is not a trivial task. Not too much to ask for in a bigger project, but definitely more work than exposing some directory in a file system.
 
