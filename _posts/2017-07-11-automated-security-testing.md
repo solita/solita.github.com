@@ -2,7 +2,7 @@
 layout: post
 title: Automated security testing
 author: lokori
-excerpt: 
+excerpt: How to implement a security pipeline and automate security testing? This post covers a PoC based on open-source tools and Docker which you can use as a template to implement your own solution.
 tags:  
 - DevSec
 - security
