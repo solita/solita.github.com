@@ -101,7 +101,7 @@ In the case of SonarQube it gets annoying. Sonar would like to have a relational
 
 ## Should I use this as the benchmark?
 
-No. There are many other tools and depending on what you are doing, FindBugs might not be useful to you at all. However, these three aspects should be tested (preferably automatically) regardless of your language of choice:
+No. There are many other tools and depending on what you are doing, FindBugs might not be useful to you at all. We use different approach for our .NET projects, see [.NET slides](https://www.slideshare.net/Solita_Oy/solitaepiserversecuredevelopment-160422112005) for some ideas. However, these three aspects should be tested (preferably automatically) regardless of your language of choice:
 
 1. component / dependency analysis
 2. static analysis of source code
