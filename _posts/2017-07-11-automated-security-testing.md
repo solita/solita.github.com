@@ -46,7 +46,7 @@ Here's what we have done.
 ![Simple-Security-Pipeline](/img/devsec/simplified_security_pipeline.png)
 
 
-There are three reasons for using Docker here instead of direct Jenkins plugins:
+There are three reasons for using [Docker](https://www.docker.com/) here instead of direct Jenkins plugins:
 
 1. Docker shields the Jenkins server from becoming unstable because of new dependencies.
 2. It is quite easy to run the same scripts and tools on developer's laptop or in other CI servers.
@@ -54,12 +54,12 @@ There are three reasons for using Docker here instead of direct Jenkins plugins:
 
 ## Uploading and hosting the reports
 
-Obviously the reports are not useful inside the Docker container. In the PoC project I upload the documents from Travis to Amazon S3 bucket.
+Obviously the reports are not useful inside the Docker container. In the PoC project I upload the documents from [Travis](https://travis-ci.org/) to Amazon S3 bucket.
 Another easy option would be to use Jenkins as a web server hosting the reports.
 
 See this previous post about [documentation pipeline](http://dev.solita.fi/future%20software%20development/2016/02/23/documentation-pipeline.html) for reference about doing this.
 
-## Authorization with ZAP
+## Authorization with [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)
 
 This is one of the problems with real use scenarios. There is now support for at least two approaches:
 
@@ -78,7 +78,7 @@ function proxyRequest(msg) {
 }
 ```
 
-The complete [zap-header.js](https://github.com/solita/docker-devsec-demo/blob/master/zap-header.js) script.
+The complete example [zap-header.js](https://github.com/solita/docker-devsec-demo/blob/master/zap-header.js) script.
 
 ## False positives
 
@@ -97,11 +97,11 @@ Docker is a nice abstraction, to make these tools work reasonably, we need some 
 
 ![Docker-abstractions-leak](/img/devsec/security-pipeline-state.png)
 
-In the case of SonarQube it gets annoying. Sonar would like to have a relational database and setting one up is not a trivial task. Not too much to ask for in a bigger project, but definitely more work than exposing some directory in a file system.
+In the case of [SonarQube](https://www.sonarqube.org/) it gets annoying. Sonar would like to have a relational database and setting one up is not a trivial task. Not too much to ask for in a bigger project, but definitely more work than exposing some directory in a file system.
 
 ## Should I use this as the benchmark?
 
-No. There are many other tools and depending on what you are doing, FindBugs might not be useful to you at all. We use different approach for our .NET projects, see [.NET slides](https://www.slideshare.net/Solita_Oy/solitaepiserversecuredevelopment-160422112005) for some ideas. However, these three aspects should be tested (preferably automatically) regardless of your language of choice:
+No. There are many other tools and depending on what you are doing, [FindBugs](http://findbugs.sourceforge.net/) might not be useful to you at all. We use different approach for our .NET projects, see [.NET slides](https://www.slideshare.net/Solita_Oy/solitaepiserversecuredevelopment-160422112005) for some ideas. However, these three aspects should be tested (preferably automatically) regardless of your language of choice:
 
 1. component / dependency analysis
 2. static analysis of source code
