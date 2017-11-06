@@ -16,14 +16,14 @@ tags:
 ### What's the job?
 I needed to write tests for AWS Lambda functions that receive JSON events that need to be persisted to S3. The Lambda gets the events from AWS API Gateway endpoint that is called by another system. Sounds simple right?
 
-So I went ahead and chose [Mocha.js](https://mochajs.org/) to use as my testing framework as I have worked with it previously. Installed it from NPM as a dev dependency to the project. Next I figured out that I need to mock S3 as I don’t want to have external systems hooked up for my unit tests. I also needed some way to easily test Lambda functions.
+So I went ahead and chose [Mocha.js](https://mochajs.org/) as my testing framework as I have worked with it previously. Installed it from NPM as a dev dependency to the project. Next I figured out that I need to mock S3 as I don’t want to have external systems hooked up for my unit tests. I also needed some way to easily test Lambda functions.
 
 So Google, tell me what is the tool for the job:
 - [mock-aws-s3](https://www.npmjs.com/package/mock-aws-s3) sounded like the tool for me. This library mocks most common use cases for S3. It also supported the upload method that I was using. Perfect. *** MISTAKE #1 ***
-- [lambda-tester](https://www.npmjs.com/package/lambda-tester) sounds good. It simplifies testing lambdas. So install both of these as dev dependencies.
+- [lambda-tester](https://www.npmjs.com/package/lambda-tester) sounds good. It simplifies testing lambdas. So  I installed both of these as dev dependencies.
 
 ### Let's get it done
-Start writing tests. At about the same time (I know I shouldn't multitask) I was also working on the [Serverless](https://serverless.com/) config that I had in the root of the project directory. I had just one package.json that had the Lambda dependencies, test dependencies and Serverless framework dependencies. As I was soon about to find out, this setup of one package.json was bloating my lambda function package size with some totally unneeded libraries. I went ahead and split the project up so that I now have three package.json files and also three node_modules directories:
+Started writing tests. At about the same time (I know I shouldn't multitask) I was also working on the [Serverless](https://serverless.com/) config that I had in the root of the project directory. I had just one package.json that had the Lambda dependencies, test dependencies and Serverless framework dependencies. As I was soon about to find out, this setup of one package.json was bloating my lambda function package size with some totally unneeded libraries. I went ahead and split the project up so that I now have three package.json files and also three node_modules directories:
 
 ```
 PROJECT ROOT
