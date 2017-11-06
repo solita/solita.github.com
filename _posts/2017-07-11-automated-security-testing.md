@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Automated security testing
+title: Automated Security Testing
 author: lokori
-excerpt: How to implement a security pipeline and automate security testing? This post covers a PoC, based on open-source tools running inside Docker containers, which you can use as a template to implement your own solution.
+excerpt: How to implement a security pipeline and automate security testing? This post covers a PoC, which you can use as a template to implement your own solution.
 tags:  
 - DevSec
 - security
@@ -14,7 +14,7 @@ tags:
 - Security Pipeline
 ---
 
-A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but there's finally light at the end of the tunnel. This post provides a teplate for automating security scans and examines various issues one will encounter implementing that. You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
+A Security Pipeline, or Automated security testing, is finally within our grasp! This is something we have been waiting for and trying to achieve for a number of years, but there's finally light at the end of the tunnel. This post provides a template for automating security scans and examines various issues one will encounter implementing that. You can find the low level details covered in this post at [Docker DevSec Demo](https://github.com/solita/docker-devsec-demo) repository in GitHub.
 
 ## Simple: Build security in!
 
@@ -25,12 +25,12 @@ We have previously covered this issue in high level at this previous post [What 
 Our method is essentially a three step process:
 
 1. Ensure that the processes are reasonable and support making software secure.
-2. Do a threat analysis (with PO, customer and team all involved).
-3. Based on the treat analysis, create appropriate controls and plan security verification effort.
+2. Do a threat analysis (all hands on deck, PO, customer and development team).
+3. Based on the threat analysis, create appropriate controls and plan security verification effort.
 
-Number three is where automated security testing can help. By automating certain parts of the security testing we can reduce risk and get better quality product for free. That's the idea, but of course in reality there are issues to deal with and still no silver bullet.
+The last one is where automated security testing can help. By automating certain parts of the security testing we can reduce risk and get better quality product for free. That's the idea, but of course in reality there are issues to deal with and still there is no silver bullet.
 
-The high level view of looks like this:
+The high level view looks like this:
 
 ![DevSec-process](/img/devsec/devsec-simple.png)
 
@@ -68,7 +68,7 @@ This is one of the problems with real use scenarios. There is now support for at
 
 To do form based authentication I recommend creating the ZAP context manually and then importing it with [zap-cli](https://github.com/Grunny/zap-cli).
 
-As for the header based authentication on could write a script for that. The essential part is to provide a callback for requests like this. 
+As for the header based authentication one could write a script for that. The essential part is to provide a callback for requests like this. 
 
 ```javascript
 function proxyRequest(msg) {
