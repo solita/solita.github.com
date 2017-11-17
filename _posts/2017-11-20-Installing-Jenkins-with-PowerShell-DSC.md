@@ -231,7 +231,7 @@ I think that the above script is quite self-explanatory. We have bunch of resour
 
 We have something in our GitHub repositories that we would like to use with Jenkins. Those are marvelous libraries jmeter-perfotrator and powershell-zap. We can fetch the git repository directly into Jenkins server and whatever what is there with the help of just installed git client. Here is an example resource for that.
 
-´´´powershell
+```powershell
 # Install powershell-zap module 		
 Script installPowershellZap 
 {
@@ -268,7 +268,7 @@ Environment setVS2017ToolsPath
 
 After you have done that once and try to manipulate the exactly same named environment variable in the same configuration you will get error. Same applies also creating and deleting same file in the same configuration. Instead you can workaround with having multiple configurations or by using script resources in DSC. I have used script resources for this and well it is really ugly. 
 
-´´´powershell 
+```powershell 
 # Set Java to path
 Script SetJavaToPath 
 {
@@ -298,7 +298,7 @@ Script SetJavaToPath
 	}
 	DependsOn = "[cChocoPackageInstaller]installJdk8"
 }
-´´´ 
+```
 
 Script resources are separated into three stages. 
 
