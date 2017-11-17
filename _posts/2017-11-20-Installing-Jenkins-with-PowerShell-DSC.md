@@ -249,7 +249,7 @@ Script installPowershellZap
 	}
 	DependsOn = "[cChocoPackageInstaller]installJdk8","[cChocoPackageInstaller]installGit" 
 }
-´´´
+```
 
 ## The ugly
 
