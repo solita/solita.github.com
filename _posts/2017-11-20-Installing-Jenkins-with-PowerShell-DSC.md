@@ -73,19 +73,19 @@ Configuration JENKINS_CI
 	Import-DscResource -ModuleName 'cChoco'
 	
 	Node $AllNodes.NodeName {       
-        # Install .NET 3.5
-        WindowsFeature NetFrameworkCore 
-        {
-            Ensure    = "Present" 
-            Name      = "NET-Framework-Core"
-        }
+		# Install .NET 3.5
+		WindowsFeature NetFrameworkCore 
+		{
+			Ensure    = "Present" 
+			Name      = "NET-Framework-Core"
+		}
 
-        # Install Chocolatey
-        cChocoInstaller installChoco
-        {
-            InstallDir = "c:\choco"
-            DependsOn = "[WindowsFeature]NetFrameworkCore"
-        }
+		# Install Chocolatey
+		cChocoInstaller installChoco
+		{
+			InstallDir = "c:\choco"
+			DependsOn = "[WindowsFeature]NetFrameworkCore"
+		}
 	}
 }
 ```
