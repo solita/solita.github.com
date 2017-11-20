@@ -396,7 +396,7 @@ Service JenkinsService
 
 ## Install plugins 
 
-My coworker argued that the Jenkins is bad build server because it does not even give you timestamps on the console log by default. For all of this kind of arguments there is always the same counterargument. There is a plugin for that! We will need plugins. A lot of plugins. Actually more than 40 in our setup which would make with dependencies ... well a huge amount of foreign code running on your build server. 
+My coworker argued that the Jenkins is bad build server because it does not even give you timestamps on the console log by default. For all of this kind of arguments there is always the same counterargument. There is a plugin for that! We will need plugins. A lot of plugins. Actually more than 40 in our setup which would make with dependencies ... well a huge amount of foreign code running on your build server. A full list of plugins can be found at [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/misc/jenkins_plugins.txt).
 
 Now when we have happily setup the Jenkins and made sure that it is running we can start using its API to install some plugins. Here is a script that expects to have a list of plugins as a parameter. 
 
