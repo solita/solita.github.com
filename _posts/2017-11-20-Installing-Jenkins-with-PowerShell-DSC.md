@@ -634,20 +634,16 @@ Script JenkinsReverseProxy
 	DependsOn = "[cChocoPackageInstaller]UrlRewrite","[cChocoPackageInstaller]ApplicationRequestRouting"
 	SetScript = {
 		$Name = "HTTPS Reverse Proxy to Jenkins"
-		#$PsPath = "MACHINE/WEBROOT/APPHOST"
-		#$Filter = "system.webserver/rewrite/GlobalRules"
+		$proxyTargetPath = ("http://localhost:"+$Using:JenkinsPort+"/{R:0}")
 
 		Clear-WebConfiguration -pspath $PsPath -filter "$Filter/rule[@name='$Name']"
-		#if ($Site) {
-			$Filter = "system.webserver/rewrite/rules"
-			Clear-WebConfiguration -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']"
-		#}
-
+		$Filter = "system.webserver/rewrite/rules"
+		Clear-WebConfiguration -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']"
 		Add-WebConfigurationProperty -location $Site -pspath $PsPath -filter "$Filter" -name "." -value @{name=$Name; patternSyntax='ECMAScript'; stopProcessing='True'}
 		Set-WebConfigurationProperty -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']/match" -name url -value "(.*)"
 		Set-WebConfigurationProperty -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']/action" -name "type" -value "Rewrite"
 		# R:0 Is full phase, R:1 Is the domain with the port and R:2 is the querypart
-		Set-WebConfigurationProperty -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']/action" -name "url" -value "http://localhost:8080/{R:0}"
+		Set-WebConfigurationProperty -location $Site -pspath $PsPath -filter "$Filter/rule[@name='$Name']/action" -name "url" -value $proxyTargetPath
 	}
 	TestScript = {
 		$current = Get-WebConfiguration /system.webServer/rewrite/rules | select -ExpandProperty collection | select -ExpandProperty name
@@ -725,7 +721,8 @@ $ConfigData = @{
 }
 $thumbPrint = "certificate_thumbprint"
 $currentPath = (split-path -parent $MyInvocation.MyCommand.Definition)
-IIS_REVERSE_PROXY -ThumbPrint $thumbPrint -InstallConfDirectory $currentPath -ConfigurationData $ConfigData
+$installConfPath = (join-path $currentPath "misc")
+IIS_REVERSE_PROXY -ThumbPrint $thumbPrint -InstallConfDirectory $installConfPath -JenkinsPort 8080 -ConfigurationData $ConfigData
 Start-DscConfiguration -Path .\IIS_REVERSE_PROXY -Wait -Verbose -Force
 ```
 
