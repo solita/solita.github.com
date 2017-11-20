@@ -13,7 +13,7 @@ tags:
 - PowerShell
 - Jenkins
 ---
-I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with automatic installation script. So I decided to write a blog post about it. I also want to write about how to do continuous integration with Episerver DXC but felt that I need to first tell how to setup the Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. At the end of the blog post there will be a link to GitHub repository where my example script lies.
+I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with automatic installation script. So I decided to write a blog post about it. I also want to write about how to do continuous integration with Episerver DXC but felt that I need to first tell how to setup the Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. If you are not a reader type of a person, then [here](https://github.com/solita/powershell-dsc-jenkins) is a GitHub link to example scripts.
 
 ## About the PowerShell DSC
 
@@ -28,7 +28,7 @@ The DSC is all about the setting the state of a machine to be certain. Most used
 
 ## DSC resources 
 
-Before we start the configuration we need to talk about DSC resources which are libraries for DSC. Resources provide you functionality for DSC. For our purpose we are needing needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. Here is what my Install-Modules.ps1 script has inside.
+Before we start the configuration we need to talk about DSC resources which are libraries for DSC. Resources provide you functionality for DSC. For our purpose we are needing needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. [Here](https://github.com/solita/powershell-dsc-jenkins/blob/master/install-modules.ps1) is what my Install-Modules.ps1 script has inside.
 
 ```powershell
 Install-Module cChoco -f
@@ -128,13 +128,6 @@ We will need a bunch of stuff to be able to build a .NET application.
 Here is the installation of the stuff above. So we insert more stuff under our $AllNodes.NodeName. 
 
 ```powershell
-# Install JDK8
-cChocoPackageInstaller installJdk8
-{
-	Name = "jdk8"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
 # Install Visual Studio, todo: optional features (F#) with param --includeOptional
 cChocoPackageInstaller installVisualStudio
 {
@@ -142,67 +135,12 @@ cChocoPackageInstaller installVisualStudio
 	DependsOn = "[cChocoInstaller]installChoco"
 }
 
-# Install Visual Studio Azure tools 
-<#cChocoPackageInstaller installVisualStudioAzureWorkload
-{
-	Name = "visualstudio2017-workload-azure"
-	DependsOn = "[cChocoInstaller]installChoco","[cChocoPackageInstaller]installVisualStudio"
-}#>
-
 # Install Visual Studio Web tools 
 cChocoPackageInstaller installVisualStudioWebWorkload
 {
 	Name = "visualstudio2017-workload-netweb"
 	Params = "--includeOptional"
 	DependsOn = "[cChocoInstaller]installChoco","[cChocoPackageInstaller]installVisualStudio"
-}
-
-# Install Visual studio Data tools 
-cChocoPackageInstaller installVisualStudioDataWorkload
-{
-	Name = "visualstudio2017-workload-data"
-	DependsOn = "[cChocoInstaller]installChoco","[cChocoPackageInstaller]installVisualStudio"
-}
-
-# Install Visual studio Data tools 
-cChocoPackageInstaller installNotepadplusplus
-{
-	Name = "notepadplusplus"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
-# Install nodejs
-cChocoPackageInstaller installNodejs
-{
-	Name = "nodejs.install"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
-cChocoPackageInstaller installPython
-{
-	Name = "python2"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
-# Install nodejs
-cChocoPackageInstaller installFirefox
-{
-	Name = "firefox"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
-# Install Git
-cChocoPackageInstaller installGit
-{
-	Name = "git.install"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
-
-# Install Zap
-cChocoPackageInstaller installZap
-{
-	Name = "zap"
-	DependsOn = "[cChocoInstaller]installChoco"
 }
 
 # Install NuGet
@@ -216,16 +154,9 @@ File installNuget
 	Force = $true
 	MatchSource = $true
 }
-
-# Install Jenkins
-cChocoPackageInstaller installJenkins
-{
-	Name = "Jenkins"
-	DependsOn = "[cChocoInstaller]installChoco"
-}
 ```
 
-I think that the above script is quite self-explanatory. We have bunch of resources, most of them depends on something earlier. Afterwards we want to have all those resources in place. Only odd thing is on the installVisualStudioWebWorkload where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
+I think that the above script is quite self-explanatory although I made it shorter for easier reading. The full script can be found [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/jenkins_dsc.ps1) We have bunch of resources, most of them depends on something earlier. Afterwards we want to have all those resources in place. Only odd thing is on the installVisualStudioWebWorkload where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
 
 ## Installing custom made stuff
 
@@ -569,30 +500,9 @@ WindowsFeature WebManagementConsole
 	Name            = "Web-Mgmt-Console"
 	DependsOn 		= "[WindowsFeature]IIS"
 }
-# Install the web management console
-WindowsFeature LoggingTools
-{
-	Ensure          = "Present"
-	Name            = "Web-Custom-Logging"
-	DependsOn 		= "[WindowsFeature]IIS"
-}
-# Install the web management console
-WindowsFeature CustomLogging
-{
-	Ensure          = "Present"
-	Name            = "Web-Log-Libraries"
-	DependsOn 		= "[WindowsFeature]IIS"
-}
-# Install the web management console
-WindowsFeature Tracing
-{
-	Ensure          = "Present"
-	Name            = "Web-Http-Tracing"
-	DependsOn 		= "[WindowsFeature]IIS"
-}
 ```
 
-Basically we installed IIS WebServer with some tooling. 
+Basically we installed IIS WebServer with some tooling. Yet again the full script can be found at [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/iis_reverse_proxy_dsc.ps1)
 
 ## Setup a website for proxying
 
@@ -653,6 +563,11 @@ if($thumb -eq $NULL)
 	$mypwd = Read-Host -AsSecureString "Give password for certificate"
 	Import-PfxCertificate -FilePath .\your_certificate.pfx cert:\localMachine\my -Password $mypwd
 }
+```
+
+If you have no idea how to get a certificate. Then you might want to try this script. It creates a self-signed certificate and gives you the thumbprint that my script is asking.
+```powershell
+New-SelfSignedCertificate -DnsName "www.jenkinstest.fi" -CertStoreLocation "cert:\LocalMachine\My"
 ```
 
 With this setup we should have in place a website that is running and responding in 443 port. If you want to support redirects from 80 to 443 too then you need to allow the 80 port too. 
@@ -826,4 +741,8 @@ I really like how the PowerShell DSC makes some things to be so easy and self-ex
 6. Repeat 4 and 5 and if you screw up badly then go back to snapshot from point 3.
 7. Finally when you think you are ready go back to snapshot from point 2.
 
-I hope you liked it. All the script is available at our GitHub. 
+I hope you liked it. All the script is available at our [GitHub](https://github.com/solita/powershell-dsc-jenkins). 
+
+## Known problems 
+
+Few things that might be broken at the repository. If you are trying to setup the ZAP as a daemon you need to start it manually and change the port to something else since it have same default (8080) as my scripts have. Another thing that might be broken is that later on if you would like to use OWASP dependency check module that was installed. Then you might hit the problem (or not) that Java cacerts does not have let's encrypt intermediatory certificate. A  [fix](https://github.com/solita/powershell-dsc-jenkins/tree/master/certs) is in the repository in case you need it. 
