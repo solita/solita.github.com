@@ -464,8 +464,8 @@ Script InstallJenkinsPlugins
 Now we have actual build server running that listens localhost. We have installed all the tools, all the plugins and setup the authentication so that we can start working on creating build jobs. At this point you might want to delete the authentication initialization script. You can't dot it with the same DSC script because it disallows manipulating same file twice in same configuration. Although you can do it afterwards with a single liner.
 
 ## Install IIS
+I created separated script for this just because I felt that this script is a reusable one. So let's start from the beginning and introduce some Windows Features that we want to use in a brand new DSC script. The modules that we are using are the same as stated in the beginning so you would need to import them first. Here are the resources that we need:
 
-I created separated script for this just because I felt that this script is a reusable one. So let's start from the beginning and introduce some Windows Features that we want to use in a brand new DSC script. The modules that we are using are the same as stated in the beginning so you would need to import them first. Here are the resources that we need: 
 
 ```powershell 
 # Check the windowsfeature names with Get-WindowsFeature
