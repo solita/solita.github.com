@@ -50,11 +50,11 @@ We want to have a Jenkins server running in the end with following requirements:
 * Protect Jenkins by settings IIS in front of it 
 * Make sure that all traffic is HTTPS
 
-Once our objective is now clear we can look how I managed to do it.
+Once our objective is now clear we can take a look at how I managed to do it.
 
 ## Starting the scripting
 
-In the below I have the basic structure of my PowerShell script. There are few important parts in the script. The most important one is the Configuration JENKINS_CI which states that here is my DSC configuration. It has few steps in it:
+In the below I have the basic structure of my PowerShell script. There are a few important parts in the script. The most important one is the Configuration JENKINS_CI which states that here is my DSC configuration. It has a few steps in it:
 
 1. State the name of the configuration (JENKINS_CI)
 2. Declare parameters (JenkinsPort with default value of 8080)
@@ -156,7 +156,7 @@ File installNuget
 }
 ```
 
-I think that the above script is quite self-explanatory although I made it shorter for easier reading. The full script can be found [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/jenkins_dsc.ps1) We have bunch of resources, most of them depends on something earlier. Afterwards we want to have all those resources in place. Only odd thing is in the installVisualStudioWebWorkload where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
+I think that the above script is quite self-explanatory although I made it shorter for easier reading. The full script can be found [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/jenkins_dsc.ps1) We have a bunch of resources, most of them depending on something earlier. Afterwards we want to have all those resources in place. The only odd thing is in the installVisualStudioWebWorkload part where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
 
 ## Installing custom made stuff
 
@@ -184,7 +184,7 @@ Script installPowershellZap
 
 ## The ugly
 
-Only big let down that I have had with DSC is manipulating environments PATH variable. You can do it really easily but only once. 
+The only big letdown that I have had with DSC is manipulating environments PATH variable. You can do it really easily but only once. 
 
 ```powershell
 Environment setVS2017ToolsPath 
