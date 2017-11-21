@@ -36,7 +36,7 @@ Install-Module xNetworking -f
 Install-Module xWebAdministration -f
 ```
 
-Three modules that provide you three types of functionality. Something to get stuff for Choco, configuring network stuff and managing IIS. If you run this for the first time you might get question about if you want to install nuget package provider for PowerShell. You should if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
+Three modules that provide you three types of functionality. Something to get stuff from Choco, configuring network things and managing IIS. If you run this for the first time you might get question about if you want to install nuget package provider for PowerShell. You should if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
 
 ## Our objective 
 
@@ -125,7 +125,7 @@ We will need a bunch of stuff to be able to build a .NET application.
 * Jenkins for the actual goal 
 * Zap for web application security testing automation
 
-Here is the installation of the stuff above. So we insert more stuff under our $AllNodes.NodeName. 
+Scripting the installation of the software is fairly simple.
 
 ```powershell
 # Install Visual Studio, todo: optional features (F#) with param --includeOptional
