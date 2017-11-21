@@ -17,18 +17,18 @@ I have been struggling to find a good reference about how to setup a Jenkins env
 
 ## About the PowerShell DSC
 
-You might not be familiar about the PowerShell DSC and it comes from Desired Stage Configuration. It is not new anymore, instead it have been there now for years still in my experience most .NET developers are unfamiliar with it. DSC exists for various reasons:
+You might not be familiar with the PowerShell DSC and it comes from Desired Stage Configuration. It has been there now for years still in my experience most .NET developers are unfamiliar with it. DSC exists for various reasons:
 
 * Make scripting less complex
 * Make scripting to look the same for smaller learning curve 
 * Make scripting pieces to be more reusable
 * Make installation scripts to be idempotent (repeatable)
 
-The DSC is all about the setting the state of a machine to be certain. Most used example is to make sure that a service is running or that certain file is found on certain location. If you dig further on to this world you will find concepts of pull and push servers that would help you to set a farm of machines into certain state. We will not use those but we run the script locally with the help of LCM which is "local configuration manager". If you are looking for basics of PowerShell Desired State Configuration then this [blog](https://red-gate.com/simple-talk/sysadmin/powershell/powershell-desired-state-configuration-the-basics/) was a well-written one.
+The DSC is all about the setting the state of a machine to be certain. Most used example is to make sure that a service is running or that specific file is found on given location. If you dig further on to this world you will find concepts of pull and push servers that would help you to set a farm of machines into certain state. We will not use those but we run the script locally with the help of LCM which is "local configuration manager". If you are looking for basics of PowerShell Desired State Configuration then this [blog](https://red-gate.com/simple-talk/sysadmin/powershell/powershell-desired-state-configuration-the-basics/) was a well-written one.
 
 ## DSC resources 
 
-Before we start the configuration we need to talk about DSC resources which are libraries for DSC. Resources provide you functionality for DSC. For our purpose we are needing needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. [Here](https://github.com/solita/powershell-dsc-jenkins/blob/master/install-modules.ps1) is what my Install-Modules.ps1 script has inside.
+Before we start the configuration we need to talk about DSC resources which are libraries for DSC. Resources provide you functionality for DSC. For our purpose we are needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. [Here](https://github.com/solita/powershell-dsc-jenkins/blob/master/install-modules.ps1) is what my Install-Modules.ps1 script has inside.
 
 ```powershell
 Install-Module cChoco -f
@@ -156,7 +156,7 @@ File installNuget
 }
 ```
 
-I think that the above script is quite self-explanatory although I made it shorter for easier reading. The full script can be found [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/jenkins_dsc.ps1) We have bunch of resources, most of them depends on something earlier. Afterwards we want to have all those resources in place. Only odd thing is on the installVisualStudioWebWorkload where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
+I think that the above script is quite self-explanatory although I made it shorter for easier reading. The full script can be found [here](https://github.com/solita/powershell-dsc-jenkins/blob/master/jenkins_dsc.ps1) We have bunch of resources, most of them depends on something earlier. Afterwards we want to have all those resources in place. Only odd thing is in the installVisualStudioWebWorkload where I add includeOptional parameter for the choco. This is to get F# installed on the target machine as well. It does not come by default. If you need to dig on to those additional options in nuget packages you should head to chocolateys web page and investigate the packages you need to figure out if there is any customization options.
 
 ## Installing custom made stuff
 
@@ -461,7 +461,7 @@ Script InstallJenkinsPlugins
 }
 ```
 
-Now we have actual build server running that listens localhost. We have installed all the tools, all the plugins and setup the authentication so that we can start working on creating build jobs. At this point you might want to delete the authentication initialization script. You can't dot it with the same DSC script because it disallows manipulating same file twice in same configuration. Although you can do it afterwards with a single liner.
+Now we have actual build server running that listens localhost. We have installed all the tools, all the plugins and setup the authentication so that we can start working on creating build jobs. At this point you might want to delete the authentication initialization script. You can't do it with the same DSC script because it disallows manipulating same file twice in same configuration. Although you can do it afterwards with a single liner.
 
 ## Install IIS
 I created separated script for this just because I felt that this script is a reusable one. So let's start from the beginning and introduce some Windows Features that we want to use in a brand new DSC script. The modules that we are using are the same as stated in the beginning so you would need to import them first. Here are the resources that we need:
