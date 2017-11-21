@@ -2,7 +2,7 @@
 layout: post
 title: Installing Jenkins with PowerShell DSC
 author: Rinorragi
-date: 2017-11-21 13:20:00 +0200
+date: 2017-11-21 15:40:00 +0200
 excerpt: How to use PowerShell DSC in installing your continuous integration server.
 categories: 
 - Episerver
