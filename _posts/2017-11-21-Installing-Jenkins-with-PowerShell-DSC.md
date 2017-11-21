@@ -13,22 +13,22 @@ tags:
 - PowerShell
 - Jenkins
 ---
-I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with automatic installation script. So, I decided to write a blog post about it. I also wanted to write about how to do continuous integration with Episerver DXC but felt that I need to first tell how to setup the Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. If you are not a reader type of a person, then [here](https://github.com/solita/powershell-dsc-jenkins) is a GitHub link to example scripts.
+I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with an automatic installation script. So, I decided to write a blog post about it. I also wanted to write about how to do continuous integration with Episerver DXC but felt that I need to tell first how to setup Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. If you are not a reader type of a person, then [here](https://github.com/solita/powershell-dsc-jenkins) is a GitHub link to example scripts.
 
 ## About the PowerShell DSC
 
-You might not be familiar with the PowerShell DSC. The acronym comes from Desired Stage Configuration. It has been there now for years. Still, in my experience most .NET developers are unfamiliar with it. DSC exists for various reasons:
+You might not be familiar with the PowerShell DSC. The acronym comes from Desired State Configuration. DSC has been there now for years. Still, in my experience most .NET developers are unfamiliar with DSC. DSC exists for various reasons:
 
 * Make scripting less complex
-* Make scripting to look the same for smaller learning curve 
-* Make scripting pieces to be more reusable
+* Make scripting look the same over various environments
+* Make scripts and their parts to be more reusable
 * Make installation scripts to be idempotent (repeatable)
 
 The DSC is all about setting the state of a machine to be certain. Most used example is to make sure that a service is running or that specific file is found on given location. If you dig further into this world you will find concepts of pull and push servers that would help you to set a farm of machines into certain state. We will not use those but we run the script locally with the help of LCM which is "local configuration manager". If you are looking for basics of PowerShell DSC then this [blog](https://red-gate.com/simple-talk/sysadmin/powershell/powershell-desired-state-configuration-the-basics/) was a well-written one.
 
 ## DSC resources 
 
-Before we start the configuration we need to talk about DSC resources which are libraries for DSC. Resources provide you functionality for DSC. For our purpose we are needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. [Here](https://github.com/solita/powershell-dsc-jenkins/blob/master/install-modules.ps1) is what my Install-Modules.ps1 script has inside.
+Before we start configuration we need to talk about DSC resources. Resources provide you functionality for DSC. For our purpose we are needing at least one that helps us to grab software from [Chocolatey](https://chocolatey.org/) (a package repository for windows). These resources would normally be where you start the script from (which might take you back to push and pull servers). In this scenario I just install them locally. [Here](https://github.com/solita/powershell-dsc-jenkins/blob/master/install-modules.ps1) is what my Install-Modules.ps1 script has inside.
 
 ```powershell
 Install-Module cChoco -f
@@ -36,11 +36,11 @@ Install-Module xNetworking -f
 Install-Module xWebAdministration -f
 ```
 
-Three modules that provide you three types of functionality. Something to get stuff from Choco, configuring network things and managing IIS. If you run this for the first time you might get question about if you want to install nuget package provider for PowerShell. You should if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
+Three modules that provide you three types of functionality. Something to get stuff from Choco, configuring network things and managing IIS. If you run this for the first time you might be asking whether you want to install nuget package provider for PowerShell. You should, if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
 
 ## Our objective 
 
-We want to have a Jenkins server running in the end with following requirements:
+We want to have a Jenkins server running in the end with the following requirements:
 
 * Install all the needed dependencies
 * Install Jenkins itself
@@ -54,7 +54,7 @@ Once our objective is now clear we can take a look at how I managed to do it.
 
 ## Starting the scripting
 
-In the below I have the basic structure of my PowerShell script. There are a few important parts in the script. The most important one is the Configuration JENKINS_CI which states that here is my DSC configuration. It has a few steps in it:
+In the following paraghraps, we have the basic structure of my PowerShell script. There are a few important parts in the script. The most important one is the Configuration JENKINS_CI which states that here is my DSC configuration. It has a few steps in it:
 
 1. State the name of the configuration (JENKINS_CI)
 2. Declare parameters (JenkinsPort with default value of 8080)
@@ -197,7 +197,8 @@ Environment setVS2017ToolsPath
 }
 ```
 
-After you have done that once and try to manipulate the exactly same named environment variable in the same configuration you will get error. Same applies also creating and deleting same file in the same configuration. Instead you can workaround with having multiple configurations or by using script resources in DSC. I have used script resources for this and well it is a bit complex but not worse than it is with traditional scripts.
+After you have done that once and try to manipulate the exactly same named environment variable in the same configuration you will get an error. The same applies also for creating and deleting the same file in the same configuration. Instead, you can do a workaround by having multiple configurations or by using script resources in DSC. I have used script resources for this and well it is a bit complex but not worse than it is with traditional scripts.
+
 ```powershell 
 # Set Java to path
 Script SetJavaToPath 
