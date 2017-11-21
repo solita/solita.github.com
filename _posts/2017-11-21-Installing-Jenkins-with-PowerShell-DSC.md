@@ -13,18 +13,18 @@ tags:
 - PowerShell
 - Jenkins
 ---
-I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with automatic installation script. So I decided to write a blog post about it. I also want to write about how to do continuous integration with Episerver DXC but felt that I need to first tell how to setup the Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. If you are not a reader type of a person, then [here](https://github.com/solita/powershell-dsc-jenkins) is a GitHub link to example scripts.
+I have been struggling to find a good reference about how to setup a Jenkins environment in Microsoft environment with automatic installation script. So, I decided to write a blog post about it. I also wanted to write about how to do continuous integration with Episerver DXC but felt that I need to first tell how to setup the Jenkins. Our aim is to put up a Jenkins server that can build .NET FrameWork MVC application and front end. If you are not a reader type of a person, then [here](https://github.com/solita/powershell-dsc-jenkins) is a GitHub link to example scripts.
 
 ## About the PowerShell DSC
 
-You might not be familiar with the PowerShell DSC and it comes from Desired Stage Configuration. It has been there now for years still in my experience most .NET developers are unfamiliar with it. DSC exists for various reasons:
+You might not be familiar with the PowerShell DSC. The acronym comes from Desired Stage Configuration. It has been there now for years. Still, in my experience most .NET developers are unfamiliar with it. DSC exists for various reasons:
 
 * Make scripting less complex
 * Make scripting to look the same for smaller learning curve 
 * Make scripting pieces to be more reusable
 * Make installation scripts to be idempotent (repeatable)
 
-The DSC is all about the setting the state of a machine to be certain. Most used example is to make sure that a service is running or that specific file is found on given location. If you dig further on to this world you will find concepts of pull and push servers that would help you to set a farm of machines into certain state. We will not use those but we run the script locally with the help of LCM which is "local configuration manager". If you are looking for basics of PowerShell Desired State Configuration then this [blog](https://red-gate.com/simple-talk/sysadmin/powershell/powershell-desired-state-configuration-the-basics/) was a well-written one.
+The DSC is all about setting the state of a machine to be certain. Most used example is to make sure that a service is running or that specific file is found on given location. If you dig further into this world you will find concepts of pull and push servers that would help you to set a farm of machines into certain state. We will not use those but we run the script locally with the help of LCM which is "local configuration manager". If you are looking for basics of PowerShell DSC then this [blog](https://red-gate.com/simple-talk/sysadmin/powershell/powershell-desired-state-configuration-the-basics/) was a well-written one.
 
 ## DSC resources 
 
@@ -36,7 +36,7 @@ Install-Module xNetworking -f
 Install-Module xWebAdministration -f
 ```
 
-Three modules that provide you three type of functionality. Something to get stuff for Choco, configuring network stuff and managing IIS. If you run this for the first time you might get question about if you want to install nuget package provider for PowerShell. You should if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
+Three modules that provide you three types of functionality. Something to get stuff for Choco, configuring network stuff and managing IIS. If you run this for the first time you might get question about if you want to install nuget package provider for PowerShell. You should if you want to follow this path. It grabs you the wanted modules from [PowerShellGallery](https://www.powershellgallery.com/packages/cChoco/2.3.1.0). 
 
 ## Our objective 
 
@@ -93,7 +93,7 @@ Configuration JENKINS_CI
 You should notice from above that you can mark one resource to be dependent on another with DependsOn. This is super important since we have multiple requirements for actually installing most of the stuff in our configuration later on. Now when we have the basic DSC configuration in place we can call it. 
 
 1. We need to define the AllNodes.NodeName that we referred in the script. 
-2. We also need to call give the parameters we want to the configuration. 
+2. We also need to set the parameters we want for the configuration. 
 3. Finally we start the configuration with Start-DscConfiguraiton 
 
 ```powershell
@@ -115,8 +115,8 @@ Start-DscConfiguration -Path .\JENKINS_CI -Wait -Verbose -Force
 We will need a bunch of stuff to be able to build a .NET application. 
 
 * Java for the Jenkins
-* Visual Studio and MSBuild for all the build targets and compilation. 
-* NodeJs for the front end compilation.
+* Visual Studio and MSBuild for all the build targets and compilation
+* NodeJs for the front end compilation
 * Git for grabbing few more resources
 * Firefox for OWASP Zap 
 * Notepad++ for comfort
@@ -160,7 +160,7 @@ I think that the above script is quite self-explanatory although I made it short
 
 ## Installing custom made stuff
 
-We have something in our GitHub repositories that we would like to use with Jenkins. Those are marvelous libraries jmeter-perfotrator and powershell-zap. We can fetch the git repository directly into Jenkins server and whatever what is there with the help of just installed git client. Here is an example resource for that.
+We have something in our GitHub repositories that we would like to use with Jenkins. Those are marvelous libraries jmeter-perfotrator and powershell-zap. We can fetch files from a git repository directly into Jenkins server with the help of the git client we just installed. Here is an example resource for that.
 
 ```powershell
 # Install powershell-zap module 		
@@ -197,8 +197,7 @@ Environment setVS2017ToolsPath
 }
 ```
 
-After you have done that once and try to manipulate the exactly same named environment variable in the same configuration you will get error. Same applies also creating and deleting same file in the same configuration. Instead you can workaround with having multiple configurations or by using script resources in DSC. I have used script resources for this and well it is really ugly. 
-
+After you have done that once and try to manipulate the exactly same named environment variable in the same configuration you will get error. Same applies also creating and deleting same file in the same configuration. Instead you can workaround with having multiple configurations or by using script resources in DSC. I have used script resources for this and well it is a bit complex but not worse than it is with traditional scripts.
 ```powershell 
 # Set Java to path
 Script SetJavaToPath 
@@ -241,7 +240,7 @@ Test is like unit test, it fails with false which means that DSC needs to run th
 
 ## Setup Jenkins startup parameters 
 
-I must warn you. The next part will have some ugly stuff where I do xml regex replace with PowerShell to configure Jenkins and stuff like that. But we start with easier things. Here are all the variables that I have for Jenkins configuration in my script.
+Here are all the variables that I have for Jenkins configuration in my script.
 
 ```powershell
 param (
@@ -258,7 +257,7 @@ param (
 )
 ```
 
-Now that you have seen all the variables we will introduce some mindblowing PowerShell magic and use them to setup Jenkins (it was already installed earlier. We can refer to those parameters with $Using:ParamName. 
+Now that you have seen all the variables we will introduce some mindblowing PowerShell magic and use them to setup Jenkins (it was already installed earlier). We can refer to those parameters with $Using:ParamName. 
 
 ```powershell
 Script SetJenkinsServiceArguments
@@ -329,7 +328,7 @@ File JenkinsAuthenticationSetup
 }
 ```
 
-So we put a groovy script there and it is set. That script checks the authorization strategy and sets it to be full control once logged in authorization strategy. It also creates a user with given username and password. The script file has placeholders for username and password so we just use again some a pretty ugly scripting to replace them with given parameters. 
+So we put a groovy script there and it is set. That script checks the authorization strategy and sets it to be full control once logged in authorization strategy. It also creates a user with given username and password. The script file has placeholders for username and password so we just use again some scripting to replace them with given parameters. 
 
 ```powershell 
 Script SetJenkinsAuthenticationUsername
