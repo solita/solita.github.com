@@ -35,24 +35,29 @@ Speaking of DDOS attacks, I expect them to become more and more common these day
 
 ![Lambda as secops team](/img/aws-reinvent-first-impressions/secops.jpg)
 
-There was also a something new for handling with videos, AWS Media Services, which includes AWS Elemental Media Storage. This is not in the core of what I typically need but nice to know the options, you never know when there might be a project that requires them. And, of course, thinking locally, Helsinki now has both Direct Connect capabilities (published earlier this month), and is also a CloudFront Edge Location. We are getting faster access to information highways and services.
+There was also a something new for handling with videos, AWS Elemental family of media services. This is not in the core of what I typically need but nice to know the options, you never know when there might be a project that requires them. And, of course, thinking locally, Helsinki now has both Direct Connect capabilities (published earlier this month), and is also a CloudFront Edge Location. We are getting faster access to information highways and services.
 
-So, only after few days here I'm feeling exhausted, but at the same time invigorated, recharged by the energy and ideas I've experienced. Cloud is right now the place where things happen, and as the crafters who help mould it to fulfil peoples dreams of digitalization, we are responsible of doing things the right way. Can't wait to see what I'll learn here during few more days. There will be more blogs by my colleagues to cover different viewpoints later on.
+So, only after few days here I'm feeling exhausted, but at the same time invigorated, recharged by the energy and ideas I've experienced. Cloud is right now the place where things happen, and as the crafters who help mould it to fulfil people's dreams of digitalization, we are responsible of doing things the right way. Can't wait to see what I'll learn here during few more days. There will be more blogs by my colleagues to cover different viewpoints later on.
 
 ## Links:
 
 *Sumerian VR/AR*
-[https://aws.amazon.com/sumerian/](https://aws.amazon.com/sumerian/)
+- [https://aws.amazon.com/sumerian/](https://aws.amazon.com/sumerian/)
 
 *Cloudfront edge locations, Directconnect new locations*
-[https://aws.amazon.com/about-aws/whats-new/2017/11/cloudfront-adds-six-new-edge-locations/](https://aws.amazon.com/about-aws/whats-new/2017/11/cloudfront-adds-six-new-edge-locations/)
-[https://aws.amazon.com/about-aws/whats-new/2017/11/aws-direct-connect-added-five-new-locations-today-in-denver-phoenix-madrid-helsinki-and-chennai/](https://aws.amazon.com/about-aws/whats-new/2017/11/aws-direct-connect-added-five-new-locations-today-in-denver-phoenix-madrid-helsinki-and-chennai/)
+- [https://aws.amazon.com/about-aws/whats-new/2017/11/cloudfront-adds-six-new-edge-locations/](https://aws.amazon.com/about-aws/whats-new/2017/11/cloudfront-adds-six-new-edge-locations/)
+- [https://aws.amazon.com/about-aws/whats-new/2017/11/aws-direct-connect-added-five-new-locations-today-in-denver-phoenix-madrid-helsinki-and-chennai/](https://aws.amazon.com/about-aws/whats-new/2017/11/aws-direct-connect-added-five-new-locations-today-in-denver-phoenix-madrid-helsinki-and-chennai/)
 
 *Amazon Mediastore*
-[https://aws.amazon.com/mediastore/](https://aws.amazon.com/mediastore/)
+- [https://aws.amazon.com/mediastore/](https://aws.amazon.com/mediastore/)
 
 *S3 breaches*
-[https://cloudmatters.wordpress.com/2017/11/27/whats-going-on-with-these-high-profile-aws-s3-breaches/](https://cloudmatters.wordpress.com/2017/11/27/whats-going-on-with-these-high-profile-aws-s3-breaches/)
+- [https://cloudmatters.wordpress.com/2017/11/27/whats-going-on-with-these-high-profile-aws-s3-breaches/](https://cloudmatters.wordpress.com/2017/11/27/whats-going-on-with-these-high-profile-aws-s3-breaches/)
 
-
+*AWS Elemental*
+- [AWS Elemental MediaStore](https://lnkd.in/gB2xGuU)
+- [AWS Elemental MediaConvert](https://lnkd.in/gjpGNkN)
+- [AWS Elemental MediaLive](https://lnkd.in/g8E32vp)
+- [AWS Elemental MediaPackage](https://lnkd.in/gNq4vg5)
+- [AWS Elemental MediaTailor](https://lnkd.in/gEb_3kc)
 
