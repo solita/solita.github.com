@@ -29,7 +29,7 @@ Another thing that caught my eye was a lot of talk on Devops and Secops, and aut
 
 ## Automating security
 
-Does a Lambda replace your security team? Of course not, but it would be utterly stupid not to leverage it to get faster responses to expected threats, faster automated healing in case of for example DDOS attack. Instead of requiring puny humans to offer 24 hour support and react in minutes in the middle of the night, how about let the Lambdas do that?
+Does a Lambda replace your security team? Of course not, but it would be utterly stupid not to leverage it to get faster responses to expected threats, faster automated healing in case of for example DDOS attack. Instead of requiring puny humans to offer 24 hour support and react in minutes in the middle of the night, how about let the Lambdas do that? Manual response is in many cases already way too late to help.
 
 Speaking of DDOS attacks, I expect them to become more and more common these days, and AWS has a lot of options to shield against them. And there will be more. Goal is a no-op security, something you would just automatically get. We are not there yet, but there's a lot you can leverage as basis, and then more you can manually add on top of that. To survive a DDOS attack, you simply need to stop the easily detected threats at the front gates, then be able to scale in many directions for the more sophisticated ones. And only cloud can really do that for you.
 
@@ -37,7 +37,7 @@ Speaking of DDOS attacks, I expect them to become more and more common these day
 
 There was also a something new for handling with videos, AWS Media Services, which includes AWS Elemental Media Storage. This is not in the core of what I typically need but nice to know the options, you never know when there might be a project that requires them. And, of course, thinking locally, Helsinki now has both Direct Connect capabilities (published earlier this month), and is also a CloudFront Edge Location. We are getting faster access to information highways and services.
 
-So, only after few days here I'm feeling exhausted, but at the same time invigorated, recharged by the energy and ideas I've experienced. Cloud is right now the place where things happen, and as the crafters who help mold it to fulfill peoples dreams of digitalization, we are responsible of doing things the right way. Can't wait to see what I'll learn here during few more days.
+So, only after few days here I'm feeling exhausted, but at the same time invigorated, recharged by the energy and ideas I've experienced. Cloud is right now the place where things happen, and as the crafters who help mold it to fulfill peoples dreams of digitalization, we are responsible of doing things the right way. Can't wait to see what I'll learn here during few more days. There will be more blogs by my colleagues to cover different viewpoints later on.
 
 ## Links:
 
