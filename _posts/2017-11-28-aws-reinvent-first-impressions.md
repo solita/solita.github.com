@@ -11,7 +11,7 @@ tags:
 - SecOps
 - VR
 ---
-Fuck the desert. I'm sure something along this line was what founders of Las Vegas said when they started building. Whole city is extravagant show of pompousness and contradictions. Of course, you need to build huge pools in middle of a desert, where water is scarce. Of course, you push neon signs everywhere and build theme parks and distractions so much that at night-time you feel you are living in Blade Runner world. Except, you know, the rain.
+Fuck the desert. I'm sure something along this line was what founders of Las Vegas said when they started building. Whole city is extravagant show of pompousness and contradictions. Of course, you need to build huge pools in middle of a desert, where water is scarce. Of course, you push neon signs everywhere and build theme parks and distractions so much that at night-time you feel you are living in Blade Runner world. Except, you know, the rain. Las Vegas is greedy, noisy, beautiful distraction.
 
 ![Reinvent](/img/aws-reinvent-first-impressions/reinvent.jpg)
 
