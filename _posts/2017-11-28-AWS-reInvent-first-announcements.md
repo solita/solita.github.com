@@ -15,7 +15,7 @@ tags:
 ---
 
 ## About re:Invent 2017
-This year re:Invent is bigger than ever. The whole event has spread throughout Las Vegas strip between MGM Grand and Encore hotels. Biggest venues this year are Venetian, MGM Grand and Aria. It is clear from the city streets that Vegas is packed with 40 000 AWS enthuasists. 
+This year re:Invent is bigger than ever. The whole event has spread throughout Las Vegas strip between MGM Grand and Encore hotels. Biggest venues this year are Venetian, MGM Grand and Aria. It is clear from the city streets that Vegas is packed with 40 000 AWS enthusiasts. 
 
 
 ![Reinvent](/img/aws/reinvent_2017.jpeg)
