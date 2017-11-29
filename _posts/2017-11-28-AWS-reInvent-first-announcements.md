@@ -2,7 +2,7 @@
 layout: post
 title: First major service announcements in AWS re:Invent 2017
 author: kimmokantojarvi 
-excerpt: There seems to be coming out so many new releases again in AWS re:Invent that it feels like pre-Christmas. I will be covering the major topics in this post. 
+excerpt: There seems to be coming out so many new releases this year's AWS re:Invent that it feels like pre-Christmas. I will be covering the first major releases in this post. 
 tags:
 - AWS
 - re:Invent
