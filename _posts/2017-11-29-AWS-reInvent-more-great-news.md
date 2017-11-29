@@ -18,18 +18,18 @@ As expected the setup for the keynote show was stunning. DJ playing music, house
 
 
 ### Compute
-Container services have been very important focus area in our customer cases during the last years. It is not really a suprise that AWS is also investing heavily into container services. Today we witnessed 2 major releases. 
+Container services have been very important focus area in our customer cases during the last years. It is not really a surprise that AWS is also investing heavily into container services. Today we witnessed 2 major releases. 
 
 [Fargate](https://aws.amazon.com/blogs/aws/aws-fargate/) is totally new service that will basically be like serverless containers. Fargate fits very well between the use cases of Lambda which is suitable for very short living tasks and traditional container services where one needs to take care of reserving enough capacity. I'm sure we will be seeing Fargate in use in our customer cases in the future. 
 
 [EKS aka ECS for Kubernetes](https://aws.amazon.com/blogs/aws/amazon-elastic-container-service-for-kubernetes/) is good news for those organisations that have invested heavily into Kubernetes. I believe many have found the limits of ECS constraining and are more than happy to try out EKS instead. 
 
-One of the smaller but interesting release was the [support of routing traffic to different Lambda function versions](https://aws.amazon.com/blogs/aws/amazon-elastic-container-service-for-kubernetes/) based on pre-assigned weights. Mitigating the risk of Lambda function updates will now be easier. 
+One of the smaller but interesting release was the [support of routing traffic to different Lambda function versions](https://aws.amazon.com/about-aws/whats-new/2017/11/aws-lambda-supports-traffic-shifting-and-phased-deployments-with-aws-codedeploy/) based on pre-assigned weights. Mitigating the risk of Lambda function updates will now be easier. 
 
 ### Databases
 Oh boy what they had reserved for us in the database services. Hard to even decided where to start. First of all the [release of serverless Aurora](https://aws.amazon.com/blogs/aws/in-the-works-amazon-aurora-serverless/) is just amazing. This is definitely the way databases should be heading allowing much greater flexibility and scaling in the future. At the moment it is still a bit unclear how well the scaling will work in real-life scenarios, but based on Amazon blog post it should be blazing fast meaning that scaling up new computing capacity would happen just in 5 seconds. Let's see what the reality will be. 
 
-The releas of [Multi-Master Aurora](http://www.businesswire.com/news/home/20171129006077/en/AWS-Announces-New-Capabilities-Amazon-Aurora-Amazon) is probably more important for those organisations having mission-critical applications connected to Aurora, because the new service will increase the high availability greatly. This is still in Preview and will be released later in 2018. 
+The release of [Multi-Master Aurora](http://www.businesswire.com/news/home/20171129006077/en/AWS-Announces-New-Capabilities-Amazon-Aurora-Amazon) is probably more important for those organisations having mission-critical applications connected to Aurora, because the new service will increase the high availability greatly. This is still in Preview and will be released later in 2018. 
 
 Typically the setup and running GraphQL databases has been just too much work. Amazon is once again making our lives easier by [releasing GraphQL as a fully-managed service called Neptune](https://aws.amazon.com/about-aws/whats-new/2017/11/amazon-neptune-fast-reliable-graph-database-built-for-the-cloud/). Neptune supports in the first phase Apache TinkerPop Gremlin and RDF/SPARQL. At the moment is only available as preview in US East.  
 
@@ -58,14 +58,14 @@ Typically NLP solutions are based on a lot of custom code and custom training ma
 
 
 ### Analytics
-The launch of [Kinesis Video Streams](https://aws.amazon.com/blogs/aws/amazon-kinesis-video-streams-serverless-video-ingestion-and-storage-for-vision-enabled-apps/) was a bit suprise to me at least. To be honest after initial confusion I felt really excited. Real-time analytics of the video streams allows so many new business opportunities for our customers. I can immediately come up with many solutions, which could be utilized in manufacturing and other process industries. Imagine just how easy it will be to improve quality control and other typical manufacturing processes. This is definitely a topic I need to cover more deeply later on.
+The launch of [Kinesis Video Streams](https://aws.amazon.com/blogs/aws/amazon-kinesis-video-streams-serverless-video-ingestion-and-storage-for-vision-enabled-apps/) was a bit surprise to me at least. To be honest after initial confusion I felt really excited. Real-time analytics of the video streams allows so many new business opportunities for our customers. I can immediately come up with many solutions, which could be utilized in manufacturing and other process industries. Imagine just how easy it will be to improve quality control and other typical manufacturing processes. This is definitely a topic I need to cover more deeply later on.
 
 ### IoT
 As expected AWS IoT platform received many enhancements. One of the anticipated improvements is [the release of new device management solution](https://aws.amazon.com/blogs/aws/aws-iot-device-management/). Finally there are better search and grouping functionalities for devices and even remote management including firmware updates to devices. Traditionally you have had to create your own setup utilizing S3 and other services. 
 
 [IoT Analytics](https://aws.amazon.com/blogs/aws/aws-iot-device-management/) will ease up the work needed previously to analyse the IoT data. It seems that the IoT Analytics is designed in similar manner as Kinetics Analytics. In the beginning it seems that there are not that many options available how the messages are analyzed. It seems that you can select some attributes from the incoming messages and play around those attributes with simple calculations. 
 
-A bit surprisingly AWS released new [operating system for microcontrollers called Amazon FreeRTOS](https://aws.amazon.com/blogs/aws/aws-iot-device-management/). It is based on open source solution FreeRTOS and is basically extending it with secure cloud connectivity capabilities. Really interesting to see how this will be used in the industry.
+A bit surprisingly AWS released new [operating system for microcontrollers called Amazon FreeRTOS](https://aws.amazon.com/blogs/aws/announcing-amazon-freertos/). It is based on open source solution FreeRTOS and is basically extending it with secure cloud connectivity capabilities. Really interesting to see how this will be used in the industry.
 
 [Greengrass ML](https://aws.amazon.com/about-aws/whats-new/2017/11/aws-greengrass-adds-feature-for-machine-learning-inference/) allows deploying machine learning algorithms on the edge increasing the processing power closer to the devices. It will make the devices act more intelligent and also decrease the messaging volumes between edge and cloud.  
 
