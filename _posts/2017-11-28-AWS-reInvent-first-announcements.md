@@ -6,12 +6,6 @@ excerpt: There seems to be coming out so many new releases this year's AWS re:In
 tags:
 - AWS
 - re:Invent
-- AmazonMQ
-- Amazon Sumerian
-- AWS Elemental
-- AWS AppSync
-- PrivateLink
-- Amazon GuardDuty
 ---
 
 ## About re:Invent 2017
