@@ -76,5 +76,5 @@ An addition to existing S3 query capabilities AWS launched today [Glacier and S3
 ![S3Select](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2017/11/28/s3_select.png)
 
 ### Summary
-All the new releases will be listed also in [Amazon website](https://aws.amazon.com/new/reinvent/)
+All the new releases will be listed also in [Amazon re:Invent website](https://aws.amazon.com/new/reinvent/) and [Amazon blogs site](https://aws.amazon.com/blogs/aws/)
 
