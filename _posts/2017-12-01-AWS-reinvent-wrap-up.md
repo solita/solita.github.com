@@ -5,6 +5,7 @@ author: juhofriman
 excerpt: Calling all the builders out there! You build it! You run it! And you are proud of it!
 tags:
 - AWS
+- re:Invent
 - cloud
 ---
 
