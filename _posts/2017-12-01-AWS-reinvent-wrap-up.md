@@ -17,7 +17,7 @@ Chaos. Chaos is the best word to describe this insanely large scale event taking
 
 Cloud security was a large topic at AWS re:invent 2017. Even Mr Vogel mentioned in his keynote, that every developer must be a security engineer and that is something I can agree completely. You must acknowledge security as a first priority job, and everyone involved must understand solution end-to-end from the security perspective.
 
-Yours truly took part in the Security Jam hackathon, which was a really neat sort of capture the flag competition. Teams we're given AWS accounts that had pre-built solutions running in it with security flaws. Flaws needed to be fixed in order to get points on a road to glory. Unfortunately, our randomly selected team didn't succeed that well, but we had really fun and educational session.
+Yours truly took part in the Security Jam hackathon, which was a really neat sort of capture the flag competition. Teams got AWS accounts which had pre-built solutions running with security flaws. Flaws needed to be fixed in order to get points on a road to glory. Unfortunately, our randomly selected team didn't succeed that well, but we had really fun and educational session.
 
 ![Security jam going on](/img/reinvent-wrap-up/security-jam.jpg)
 
