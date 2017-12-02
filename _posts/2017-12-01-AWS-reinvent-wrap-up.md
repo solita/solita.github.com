@@ -11,11 +11,17 @@ tags:
 
 Chaos. Chaos is the best word to describe this insanely large scale event taking place in an artificial city built in the middle of the desert - Las Vegas! At first, the event just felt bit too much for a small-town boy like myself, but when you just free your mind and go with the flow, and don't even try to attend to all the sessions, you might just get your head up to the cloud.
 
+![The hall](/img/reinvent-wrap-up/reinvent.jpg)
+
+Week was tough, but rewarding. I'm sure whole Solita delegation got heaps and stacks of new ideas in build high class cloud solutions.
+
 ## All things secure
 
-Cloud security was a large topic at AWS re:invent 2017. Even Mr Vogel mentioned in his keynote, that every developer must become security engineer and that is something I can agree completely. When building solutions of any kind, you must take security as a first thing job, and whole team must understand solution end-to-end from the security perspective.
+Cloud security was a large topic at AWS re:invent 2017. Even Mr Vogel mentioned in his keynote, that every developer must be a security engineer and that is something I can agree completely. When building solutions of any kind, you must take security as a first thing job, and whole team must understand solution end-to-end from the security perspective.
 
 Yours truly took part in the Security Jam hackathon, which was really neat sort of capture the flag competition. Teams we're given AWS accounts that had pre-built solutions running in it with security flaws. Flaws needed to be fixed in order to get points on a road to glory. Unfortunately, our randomly selected team didn't succeed that well, but we had really fun and educational session.
+
+![Security jam going on](/img/reinvent-wrap-up/security-jam.jpg)
 
 AWS offers pretty nice array of security products, but there are loads of pretty impressive companies offering all kinds of cloud security solutions.
 
@@ -53,6 +59,8 @@ During Nora's talk, I realized that most of the people already do chaos engineer
 
 I even managed to catch a copy of their book on O'Reilly called [Chaos Engineering](http://www.oreilly.com/webops-perf/free/chaos-engineering.csp).
 
+![Chaos engineering book cover](/img/reinvent-wrap-up/chaos-engineering.jpg)
+
 Be sure to check out the [Principles of Chaos](http://principlesofchaos.org/) manifesto.
 
 ## All things re:invented
@@ -60,6 +68,8 @@ Be sure to check out the [Principles of Chaos](http://principlesofchaos.org/) ma
 Re:invent is something you don't see every day. Over 40 000 people wandering from massive halls to even bigger halls, hoarding for SWAG, listening talks, waiting in lines, drinking beer, tinkering around and trying to figure out how to survive AWS re:invent alive.
 
 Re:play? Let's just say that what happens in Vegas, stays in Vegas.
+
+![re:play](/img/reinvent-wrap-up/partee.jpg)
 
 I'm tired. I'm really tired, but I just have to tinker around with this one thing I had in mind. Using Fargate, step functions and S3.
 
