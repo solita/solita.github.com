@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GIS coordinate systems
+title: Overview to GIS coordinate systems
 author: m1kma
 excerpt: What are the coordinate systems and how should I take them in account on my GIS development work? 
 tags:
@@ -9,10 +9,12 @@ tags:
 
 The coordinate systems are probably one of the most confusing areas of the GIS systems. What are the coordinate systems and how should I take them in account on my development work? In this post I will cover some basic principles related to this area.
 
-First, definitions for the terms:
+First, definitions of the terms:
 
-- *__A coordinate system__ is a method for identifying the location of a point on the earth. Most coordinate systems use two numbers (= a coordinate) to identify the location of a point.*
-- *__A map projection__ is a method for taking the curved surface of the earth and displaying it on something flat, like a computer screen or a piece of paper. This mathematical transformation is commonly referred to as a map projection.*
+- *__A coordinate system__ is a method for identifying the location of a point on the earth. Most coordinate systems use two numbers (= a coordinate) to identify the location of a point. [Wikipedia](https://en.wikipedia.org/wiki/Geographic_coordinate_system)*
+- *__A map projection__ is a method for taking the curved surface of the earth and displaying it on something flat, like a computer screen or a piece of paper. This mathematical transformation is commonly referred to as a map projection. [Wikipedia](https://en.wikipedia.org/wiki/Map_projection)*
+- *__WebMercator__ is a popular map projection that covers the whole world. [Wikipedia](https://en.wikipedia.org/wiki/Web_Mercator)*
+- *__ETRS-TM35FIN__ is a national map projection that covers the Finland country area. [Wikipedia](https://fi.wikipedia.org/wiki/ETRS-TM35FIN)* 
 
 In the other words, coordinate systems are required to give a numerical value for a geographic location on the earth surface. Projections are required to present a round 3D ball as a flat 2D plane. 
 
@@ -26,7 +28,7 @@ In a modern web mapping solution the most popular projection is so called WebMer
 
 I think that the practical reason for popularity of the WebMercator is the fact that it is capable to cover the whole world in a reasonable format, it looks nice for eye and works well on the web and the digital devices. On the other hand, known problem of the WebMercator is its heavy distortion of the north and the south areas of the world. Equator is represented as a natural dimensions but distances start to stretch when traveling to south and north. For example, Greenland seems to be almost same since as Africa. In reality, the Greenland is about 1/14 size.
 
-In the Internet there has been debad related to popularity of the WebMercator projection. Maybe the one reason is geopolitical, since the WebMercator presents industrialized countries such as US and Europe unrealistically large related to Africa and other equator countries.
+People have argued about the popularity of the WebMercator projection. Maybe one reason is geopolitical, since the WebMercator presents industrialized countries such as US and Europe unrealistically large related to Africa and other equator countries.
 
 ![](/img/gis-coordinate-systems/Tissot_mercator.png "Image: Wikimedia Commons. Author Stefan Kühn")
 
@@ -45,12 +47,12 @@ Above picture presents the shortest distance from Helsinki to California on the 
 
 ## Finnish coordinate systems
 
-From national point of view the WebMercator is problematic. The WebMercator is designed to present the whole world at once and for that reason north and south areas are distorted. Solution to prevent the distortion is national coordinate systems. In Finland the most common is the ETRS-TM35FIN that is designed to present only the Finland area in correct dimensions. Difference between the coordinate systems are obvious when comparing images side by side. The ETRS-TM35FIN presents the Finland in a natural dimensions when the WebMercator stretch the norther part of the country.
+From national point of view the WebMercator is problematic. The WebMercator is designed to present the whole world at once and for that reason pole areas are distorted. Solution to prevent the distortion is national coordinate systems. In Finland the most common is the ETRS-TM35FIN that is designed to present only the Finland area in correct dimensions. Difference between the coordinate systems are obvious when comparing images side by side. The ETRS-TM35FIN presents the Finland in a natural dimensions when the WebMercator stretch the norther part of the country.
 
 ![](/img/gis-coordinate-systems/WM-TM35FIN.png "http://informaatiomuotoilu.fi/2017/04/mercatorin-projektio-ei-sovi-maailmankarttoihin-gall-peters-on-lahes-yhta-surkea-vaihtoehto/")
 *The ETRS-TM35FIN center meridian is 27°E.*
 
-The ETRS-TM35FIN is also some sort of the compromise. It covers relative wide area so it is not completely accurate in every part of Finland. For the fully accurate calculations there are other national systems covering only the small areas. Typically municipalities has they own systems and for example, Helsinki has system named by ETRS-GK25 EPSG:3879.
+The ETRS-TM35FIN is also some sort of the compromise. It covers relative wide area so it is not completely accurate in every part of Finland. For the fully accurate calculations there are other national systems covering only the small areas. Typically municipalities has they own systems and for example, Helsinki uses system named by ETRS-GK25. The ETRS-GKn coordinate systems are narrow slides covering the whole Finland from west to east.
 
 ## Latitudes and Longitudes WGS84
 
@@ -82,10 +84,62 @@ In addition, there are gridded coordinate systems those divide the world into zo
 #### Coordinate systems and basemaps
 - The **WebMercator** is safe to use, it works well in most of the applications and APIs. Just remember the distortion!
 - The **WGS84 Lat Lons** are well supported by the map APIs and there are no issues to use those.  Key thing is to select correct formatting for the representation.
-- The **ETRS-TM35FIN** basemap gives more professional look for the map compared to the WebMercator since Finland is represented as natural dimensions. For example, Maanmittauslaitos provides popular and high detail Finnish basemap called by "Taustakartta". Practically it is heavy process to project the global bitmap basemaps to the national coordinate system on the fly so the national basemap is required.
+- The **ETRS-TM35FIN** basemap gives more professional look for the map compared to the WebMercator since Finland is represented as natural dimensions. For example, Maanmittauslaitos provides popular and high detail Finnish basemap called by "Taustakartta". Practically the national basemap is required since it is heavy process to project the global bitmap basemaps to the national coordinate system on the fly.
 
  ![](/img/gis-coordinate-systems/taustakartta.jpg)
  *Taustakartta Maanmittauslaitos*
+
+There is a brief JavaScript example how to use Finnish basemap on the Leaflet. This example uses [Proj4Leaflet](http://kartena.github.io/Proj4Leaflet) library and basemap is offered by [Kapsi](http://kartat.kapsi.fi/).
+
+```javascript
+var InitialCoord = {lat: 60.171944, lng: 24.941389};
+
+function getCRStm35() {
+    var bounds, crsName, crsOpts, originNw, projDef, zoomLevels;
+    zoomLevels = [8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25];
+    crsName = 'EPSG:3067';
+    projDef = '+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs';
+    bounds = L.bounds(L.point(-548576, 6291456), L.point(1548576, 8388608));
+    originNw = L.point(bounds.min.x, bounds.max.y);
+    crsOpts = {
+        resolutions: zoomLevels,
+        bounds: bounds,
+        transformation: new L.Transformation(1, -originNw.x, -1, originNw.y)
+    };
+    return new L.Proj.CRS(crsName, projDef, crsOpts);        
+}
+
+function createTileLayer(name) {
+    return L.tileLayer("https://{s}.kapsi.fi/mapcache/" + name + "/{z}/{x}/{y}.png", {
+        attribution: '&copy; Karttamateriaali <a href="http://www.maanmittauslaitos.fi/avoindata">Maanmittauslaitos</a>',
+        continuousWorld: true,
+        tms: 'tms',
+        maxZoom: 8192,
+        minZoom: 1,
+        subdomains: ['tile1','tile2']
+    });
+}
+
+function makeMap(elem, defaultBasemap) {
+    var map;
+
+    var defaultOpts = {
+        center: [InitialCoord.lat, InitialCoord.lng],
+    }
+
+    opts = defaultOpts;
+    opts.crs = getCRStm35();
+    opts.zoom = 6;
+    opts.layers = defaultBasemap
+
+    map = L.map(elem, opts);
+
+    return map;
+}
+
+var taustakartta = createTileLayer("taustakartta_3067");
+var map = makeMap("mapid", taustakartta);
+```
 
 #### Coordinate conversions
 
