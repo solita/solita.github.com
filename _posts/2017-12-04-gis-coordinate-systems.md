@@ -18,7 +18,7 @@ First, definitions of the terms:
 
 In the other words, coordinate systems are required to give a numerical value for a geographic location on the earth surface. Projections are required to present a round 3D ball as a flat 2D plane. 
 
-We can remember from the school mathematic lessons that presenting the ball on the plate is not so easy issue to solve, and job can be done by multiple different ways. It is not surprising that during the decades, there has been introduced tens of coordinate systems and projections. It seems that every map maker has been different kind of the vision about the our world :) Some popular coordinate systems and projections are for example, WebMercator, WGS84 and ETRS-TM35FIN.
+We can remember from the school mathematic lessons that representing the ball on the plate is not an easy issue to solve, and job can be archived by multiple different ways. It is not surprising that during the decades tens of coordinate systems and projections have been introduced. It seems that every map maker has been different kind of the vision about the our world :) Some popular coordinate systems and projections are for example, WebMercator, WGS84 and ETRS-TM35FIN.
 
 ![](/img/gis-coordinate-systems/projections.jpg "Image: Compare Map Projections. Tobias Jung.  https://map-projections.net/imglist.php")
 
@@ -34,13 +34,13 @@ People have argued about the popularity of the WebMercator projection. Maybe one
 
 ## Geodesic distances, lines and great circles
 
-One of the key things to take into account, when developing map applications, is distortion that is affected by the map projections. Distortion is result of the calculation where the round 3D ball is projected into the 2D plane. For example, when looking the WebMercator map, it seems that the direct route between Helsinki and Los Angeles goes over the Atlantic ocean. In a real world, the shortest route on the earth surface goes over the Greenland. The shortest route is called by **geodesic distance**. When drawing lines and circles on the earth surface we are talking about **Geodesic lines** and **Great circles**. 
+One of the key things to take into account, when developing map applications, is distortion that is affected by various map projections. Distortion is result of the calculation where the round 3D ball is projected into the 2D plane. For example, when looking the WebMercator map, it seems that the direct route between Helsinki and Los Angeles goes over the Atlantic ocean. In a real world, the shortest route on the earth surface goes over the Greenland. The shortest route is called by **geodesic distance**. When drawing lines and circles on the earth surface we are talking about **Geodesic lines** and **Great circles**. 
 
-So, when I should worry about geodesic distortion? It depends quite a lot about the requirements. Distortion should be take into account when it is required to draw lines and areas to the earth surface or make GIS analysis. Distortion begins to appear when the distance is longer than few kilometers - let's say that areas bigger than cities. 
+So, when I should worry about geodesic distortion? It depend on quite a lot about the requirements. Distortion should be taken into account when it is required to draw lines and areas to the earth surface or make a GIS analysis. Distortion begins to appear when the distance is longer than few kilometers - let's say that areas bigger than cities. 
 
 ![](/img/gis-coordinate-systems/geodesic_distance.png)
 
-Above picture presents the shortest distance from Helsinki to California on the WebMercator map. As we can see, it is not a straight line - it is a **geodesic line**. Geodesic lines can be drawn for example by the web map APIs. Google maps and ArcGIS APIs does it out of the box. Leaflet requires a plugin component. This picture is drawn by the Leaflet with the plugin *Leaflet.Geodesic*.
+The picture above presents the shortest distance from Helsinki to California on the WebMercator map. As we can see, it is not a straight line - it is a **geodesic line**. Geodesic lines can be drawn for example by the web map APIs. Google maps and ArcGIS APIs does it out of the box. Leaflet requires a plugin component. This picture is drawn by the Leaflet with the plugin *Leaflet.Geodesic*.
 
 ![](/img/gis-coordinate-systems/geodesic_rect_fin_qgis.png "Basemap: Esri Topo, Esri, USGS, National Land Survey of Finland, Esri, HERE, Garmin, FAO, NOAA, USGS")
 *Distortion over the Finland. The orange filled rectangle is planar and the curved lines are geodesic. This picture is drawn by QGIS.*
@@ -52,11 +52,11 @@ From national point of view the WebMercator is problematic. The WebMercator is d
 ![](/img/gis-coordinate-systems/WM-TM35FIN.png "http://informaatiomuotoilu.fi/2017/04/mercatorin-projektio-ei-sovi-maailmankarttoihin-gall-peters-on-lahes-yhta-surkea-vaihtoehto/")
 *The ETRS-TM35FIN center meridian is 27°E.*
 
-The ETRS-TM35FIN is also some sort of the compromise. It covers relative wide area so it is not completely accurate in every part of Finland. For the fully accurate calculations there are other national systems covering only the small areas. Typically municipalities has they own systems and for example, Helsinki uses system named by ETRS-GK25. The ETRS-GKn coordinate systems are narrow slides covering the whole Finland from west to east.
+The ETRS-TM35FIN is also some sort of a compromise. It covers relative wide area so it is not completely accurate in every part of Finland. For the fully accurate calculations there are other national systems covering only the small areas. Typically municipalities has they own systems and for example, Helsinki has a system named by ETRS-GK25. The ETRS-GKn coordinate systems are narrow slides covering the whole Finland from west to east.
 
 ## Latitudes and Longitudes WGS84
 
-In many times, locations are presented as Lat and Lon numbers. The Lat and Lons are so called **geographical coordinates**. The geographical coordinates are used to present a location on the earth's surface as a numeric value. Typically they are degree angles from the equator and the world center meridians. Every place on the earth’s surface has a numeric coordinate. The one popular geographical coordinate system is **World Geodetic System 84 (WGS 84)** that is used for example by the GPS system.
+Usually locations are presented as Lat and Lon numbers, which are so called **geographical coordinates**. The geographical coordinates are used to present a location on the earth's surface as a numeric value. Typically they are degree angles from the equator and the world center meridians. Every place on the earth’s surface has a numeric coordinate. The one popular geographical coordinate system is **World Geodetic System 84 (WGS 84)** that is used for example by the GPS system.
 
 ![](/img/gis-coordinate-systems/GCS.gif "http://desktop.arcgis.com/en/arcmap/latest/map/projections/about-geographic-coordinate-systems.htm]")
 
@@ -89,7 +89,7 @@ In addition, there are gridded coordinate systems those divide the world into zo
  ![](/img/gis-coordinate-systems/taustakartta.jpg)
  *Taustakartta Maanmittauslaitos*
 
-There is a brief JavaScript example how to use Finnish basemap on the Leaflet. This example uses [Proj4Leaflet](http://kartena.github.io/Proj4Leaflet) library and basemap is offered by [Kapsi](http://kartat.kapsi.fi/).
+The example below presents how to use the Finnish basemap on the Leaflet. This example uses [Proj4Leaflet](http://kartena.github.io/Proj4Leaflet) library and the basemap is offered by [Kapsi](http://kartat.kapsi.fi/).
 
 ```javascript
 var InitialCoord = {lat: 60.171944, lng: 24.941389};
