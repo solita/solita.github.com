@@ -97,7 +97,7 @@ So from quality perspective to get the software into production it has been sure
 
 After the long introductionary presentation of deployment philosophy we finally get the point were I can show some code. We are using [Jenkins Job DSL plugin](https://github.com/jenkinsci/job-dsl-plugin/wiki) in building our build pipeline. This means that we have a second repository for infrastructure where we have a groovy script for the Jenkins pipeline. Then we have one job in Jenkins that builds up the other Jenkins jobs with the groovy script. So let's see how our phases are from that perspective. Starting from easy side this is how the build trigger looks like. 
 
-### Build trigger 
+## Build trigger 
 
 ```groovy
 job(applicationName + ' ' + buildEnvironmentName + ' Trigger') {
@@ -126,7 +126,7 @@ job(applicationName + ' ' + buildEnvironmentName + ' Trigger') {
 
 So the job has cron scheduler that constantly polls if there are changes on the git repository and triggers a downstream job if there are. There are a lot of variables used to make it easier to change the naming practices of the whole pipeline. From this point onward I will present only parts of the job DSL to reduce the amount of noise. 
 
-### Build and octopus release
+## Build and octopus release
 
 ```groovy
 configure { proj ->
@@ -189,7 +189,7 @@ publishers {
 
 There some excludes added to archiving for getting better IO out of the build server. Without those excludes every build step that uses this archive seemed to last 20-30 minutes longer since we have a lot of node modules and our repository is becoming a rather large one. 
 
-### Unit tests 
+## Unit tests 
 
 ```groovy
 steps {
