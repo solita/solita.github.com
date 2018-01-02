@@ -91,7 +91,9 @@ Prod phase
 * Smoke-tests are ran whenever polling trigger notices a change in the version of the site 
 * Data to staging and data to test sends an email to Episerver support to refresh data of integration and preproduction environment weekly
 
-So from quality perspective to get the software into production it has been surely passed unit-tests and smoke-tests. In addition we have SonarQube, Owasp Dependency Check, OWASP ZAP and jMeter gathering information that needs to be digested. In addition we of course follow what is happening on the Episerver and .NET versions. 
+So from quality perspective to get the software into production it has been surely passed unit-tests and smoke-tests. In addition we have SonarQube, Owasp Dependency Check, OWASP ZAP and jMeter gathering information that needs to be digested. In addition we of course follow what is happening on the Episerver and .NET versions. Here is some kind of picture about different kind of information sources that we are leveraging when building towards top quality. 
+
+![DXC information sources](/img/continuous-delivery-with-episerver-dxcs/dxcs_infosources.png)
 
 ## Building the build pipeline 
 
@@ -236,11 +238,11 @@ steps {
 
 From the jenkins perspective the deployment process is quite easy. Just make a call for octo.exe. Of course you need to setup your deployment processes into Octopus Deploy. For us they are rather simple. For our internal testing environment (we are calling it CI) we use octopus deploy agent and do just some configuration transformation. For the DXC we deploy to a deployment slot. Clean up few files and finally swap slots. The files we need to clean up are the configuration transformation files for CI and postdeploy scripts. They are not cleaned up automatically with Azure Web App as they are with the on-premise IIS server. 
 
-![DXC Service deployments](/img/continuous-delivery-with-episerver-dxcs/dxc_octopus_deployment_process.png)
+![DXC Service deployments](/img/continuous-delivery-with-episerver-dxcs/dxcs_octopus_deployment_process.png)
 
 The nice thing our setup is the build promotion. Even though we are rebuilding software for unit-tests and smoke-tests we are building only once for deployments. Binary compilation and configuration are separated from each other which means that we can trust that our binaries are the same in each environment and they won't change because of time relative issues like some 3rd party dependency not being fetched or somebody patching server. Even when we are doing deployments from Jenkins we can still see and do build promotions from Octopus Deploy too. 
 
-![DXC Service deployments](/img/continuous-delivery-with-episerver-dxcs/dxc_octopus_build_promotion.png)
+![DXC Service deployments](/img/continuous-delivery-with-episerver-dxcs/dxcs_octopus_build_promotion.png)
 
 ## Smoke testing 
 
