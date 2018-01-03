@@ -26,16 +26,18 @@ I have put a lot of hours into building up a continuous delivery environment whi
 For sure there are better references about CI and CD than following will be. Actually, if you have hard time in convincing your product owner to continuous delivery we have [a blog](http://dev.solita.fi/2016/09/06/CD-for-UX-and-PO.html) for that purpose as well. For me continuous integration means merging work in git repository hourly with coworkers working on the same things. On the other hand continuous delivery means pushing the work to the customer as fast as we can. Developers work on the codebase and then deploy it once they are confident with it. When you speed up the cycle of your deployments, your customer will have new features faster, and you they can steer the direction of your development in a truly agile way. Characteristics of CI and CD are below. 
 
 #### Continuous integration:
+* Integrate early and often
 * Make the code available to other developers
 * Make sure the code builds after merging to the works of other people 
 * Track the quality of your code 
-* Test your code 
+* Test your code
 
 #### Continuous delivery:
+* Push changes to production early and often
 * Make the code available to your end-users 
 * Make sure that you can deploy at any time 
 * Track the quality of your runtime 
-* Test your deployments 
+* Test your deployments with automated release process
 
 I feel that continuous integration is something that software business is doing already with high adaptation rate. Continuous delivery in the other hand is something that many are still learning. Continuous delivery definitely needs more maturity from the development team since you need to automate a lot of things to be able to deploy automatically. You will need a process that makes all kind of sanity checks across the line to trust the deployments on the hand of the automated system. The good thing is once you get on the road it will be a lot easier to adjust the process when you have ability to repeat it multiple times a day. 
 
