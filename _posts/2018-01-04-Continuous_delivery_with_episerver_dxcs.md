@@ -2,7 +2,7 @@
 layout: post
 title: Continuous delivery with the Episerver DXC Service
 author: Rinorragi
-date: 2018-01-03 13:00:00 +0200
+date: 2018-01-04 09:00:00 +0200
 excerpt: How to do continuous delivery with the Episerver Digital Experience Cloud Service. 
 categories: 
 - Episerver
