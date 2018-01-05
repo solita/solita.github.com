@@ -79,8 +79,7 @@ One useful application for the feature data is a **WebSocket** technology. The W
 ![](/img/gis-services/livi_ais.jpg)
 *On this picture the marine traffic AIS data is streamed from the Liikennevirasto (Finnish Transport Agency) open data service as a WebSocket stream. The map is done by the Esri ArcGIS Online map viewer.*
 
-### Summary
-The feature service is a suitable choice when the data amount is reasonable and geometrical content is simple points, lines and polygons. The feature service runs by a light backend solution and it does not necessary need a map server software.    
+
 
 #### Feature based service types
 - WFS - Web Feature Service [Wikipedia](https://en.wikipedia.org/wiki/Web_Feature_Service)
@@ -110,9 +109,6 @@ It is notable that typically the map server generates a new result image every t
 
 ![](/img/gis-services/fmi_example.jpg)
 *Finnish Meteorological Institute provides nice open data sets related to the weather. This example presents a real-time rain radar picture that is requested over the WMS service. The radar picture is a separate WMS layer that is put on the basemap. Picture is created by QGIS.* 
-
-### Summary
-**The web map service** interface (WMS) is a suitable option when the data is too complex and large to handle by the features/vectors. In addition, the image based WMS is a secure choice if the coordinate numbers should be hidden for the client. 
 
 #### Web Map Service types
 - WMS - Web Map Service [Wikipedia](https://en.wikipedia.org/wiki/Web_Map_Service)
@@ -150,10 +146,17 @@ Key advantages of the vector tiles compared to the ordinary image tiles are much
 
 The vector tiled service is suitable choice when the background map can represented by the vector objects.
 
-### Summary
-**The tiled services** are useful for the static and large datasets such as satellite images and street maps. The tiled services can also used for the operational data layers if data is complex and performance requirement is high. 
-
 ### Tiled Service types
 - WMTS - Web Map Tile Service [Wikipedia](https://en.wikipedia.org/wiki/Web_Map_Tile_Service)
 - TMS - Tile Map Service [Wikipedia](https://en.wikipedia.org/wiki/Tile_Map_Service)
 - ArcGIS TiledMapService
+
+---
+
+## Summary
+
+**The feature service** is a suitable choice when the data amount is reasonable and geometrical content is simple points, lines and polygons. The feature service runs by a light backend solution and it does not necessary need a map server software. 
+
+**The web map service** (WMS) is a suitable option when the data is too complex and large to handle by the features/vectors. In addition, the image based WMS is a secure choice if the coordinate numbers should be hidden for the client. 
+
+**The tiled services** are useful for the static and large datasets such as satellite images and street maps. The tiled services can also used for the operational data layers if data is complex and performance requirement is high. 
