@@ -2,7 +2,7 @@
 layout: post
 title: Building a serverless radiator for fun and benefit with Clojure, Python and AWS 
 author: hjhamala
-excerpt: Monitoring software development pipeline statuses, envinroment alarms and metrics are an essential part of a modern software development process in a cloud environment. In this post I present a simple way to monitor different accounts with a serverless radiator. 
+excerpt: Monitoring software development pipeline statuses, environment alarms and metrics are an essential part of a modern software development process in a cloud environment. In this post I show a simple way to monitor different accounts with a serverless radiator. 
 tags:
 - AWS
 - Clojure
@@ -13,7 +13,7 @@ tags:
 
 **Modern** software development environment is most likely composed of multiple pipelines. There can be pipelines for build artifacts, infrastructure building etc. It is vital to notice fast when the builds fail. Monitoring only the pipelines is not necessary enough. Also deployments should be monitored for noticing potential problems in performance etc. 
 
-One project might have different accounts for development, testing/integration and production. This means that monitoring simply one accountis not nearly enough. For example in my current project at Solita we have 3 different accounts which have 7 pipelines, over 60 CloudWatch alarms and some exposed metrics from deployments.
+One project might have different accounts for development, testing/integration and production. This means that monitoring simply one account is not even closely enough. For example in my current project at Solita, we have 3 different accounts which have 7 pipelines, over 60 CloudWatch alarms and some exposed metrics from deployments.
 
 One good solution is to have a radiator which shows development status:
 
@@ -23,7 +23,7 @@ Because making your own is interesting and fun I chose to make my own radiator. 
 
 ## Exposing environment statuses from AWS accounts
 
-AWS [CodePipeline](https://aws.amazon.com/codepipeline/) is a AWS software product for building, testing and installing software to the AWS envinroment. It integrates very nicely with AWS [CloudFormation](https://aws.amazon.com/cloudformation/) and is a pay only what you use product. There is no need to provision EC2 virtual machines for builds - AWS will provision them for you.
+AWS [CodePipeline](https://aws.amazon.com/codepipeline/) is an AWS software product for building, testing and installing software to the AWS environment. It integrates very nicely with AWS [CloudFormation](https://aws.amazon.com/cloudformation/) and is a pay only what you use product. There is no need to provision EC2 virtual machines for builds - AWS will provision them for you.
 
 One can get statuses from CodePipeline by using AWS CLI or AWS SDK which is available for many different languages. AWS [CloudWatch](https://aws.amazon.com/cloudwatch/) alarms and metrics are also accessible via CLI and SDK. 
 
@@ -88,11 +88,11 @@ metrics= [{'name': 'RDS CPU Utilization',
             'unit': 'Percent'}]
 ```            
 
-Lambda can be installed by hand via AWS Console but automatized installing is much more preferrable. Fortunately [Serverless Framework](https://serverless.com/) supports also deploying Python code. 
+Lambda can be installed by hand via AWS Console but automatized installing is much more preferable. Fortunately [Serverless Framework](https://serverless.com/) supports also deploying Python code. 
 
 With Serverless installing the Radiator Exposer is easy. Just run ``serverless deploy``. Serverless  runs for a while and returns a new endpoint and an api key necessary for authentication. 
 
-The Radiator exposer is a free software be free to download it from [https://github.com/hjhamala/radiator-exposer](https://github.com/hjhamala/radiator-exposer).
+The Radiator exposer is a free software which can be downloaded from [https://github.com/hjhamala/radiator-exposer](https://github.com/hjhamala/radiator-exposer).
 
 
 ## Building a radiator
@@ -143,7 +143,7 @@ The Radiator needs of course some fancy images to visually show when something h
 
 ### Configuring endpoints
 
-The configuration of the endpoints is done with a simple datastructure.
+The configuration of the endpoints is done with a simple data structure.
 
 ```clojure
 (def projects
@@ -212,7 +212,7 @@ Unfortunately there is situations where all gone bad and it should be visually m
 
 ###  Installing radiator
 
-The radiator is also installed by using Serverless framework. Framework has support for Javabut for easier deployement I made a [Clojure serverless plugin](https://www.npmjs.com/package/serverless-clj-plugin) for better Clojure support. Using the plugin the installation is done simply by running  ``serverless deploy``. The radiator endpoint should of course be protected but instead of API Gateway - token string can be set in the configuration file radiator.config.
+The radiator is also installed by using Serverless framework. The framework has support for Java but for easier deployment I made a [Clojure serverless plugin](https://www.npmjs.com/package/serverless-clj-plugin) for better Clojure support. Using the plugin the installation is done simply by running  ``serverless deploy``. The radiator endpoint should of course be protected but instead of API Gateway - token string can be set in the configuration file radiator.config.
 
 ## Conclusion 
 
