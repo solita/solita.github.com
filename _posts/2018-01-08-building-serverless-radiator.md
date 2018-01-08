@@ -11,7 +11,7 @@ tags:
 
 ***Several commercial products are available for monitoring development pipelines and deployments. What could be more fun than making your own?***
 
-**Modern** software development environment is most likely composed of multiple pipelines. There can be pipelines for build artifacts, infrastructure building etc. It is vital to notice build failures as soon as possible. Only monitoring  the pipelines is not necessarily enough. Also, deployments should be monitored for noticing potential problems in performance etc. 
+**Modern** software development environment is most likely composed of multiple pipelines. There can be pipelines for build artifacts, infrastructure building etc. It is vital to notice build failures as soon as possible. Only monitoring  the pipelines is not necessarily enough. Also, deployments<<< should be monitored for noticing potential problems in performance etc. 
 
 In AWS, one project might have different accounts for development, testing/integration and production. This means that monitoring just one account is not even close enough. For example, in my current project at Solita, we have 3 different accounts which have 7 pipelines, over 60 CloudWatch alarms and some exposed metrics from deployments.
 
