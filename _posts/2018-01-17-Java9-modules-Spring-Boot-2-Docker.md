@@ -96,6 +96,11 @@ http://www.oracle.com/technetwork/java/javase/overview/index.html
 
 https://hub.docker.com/_/openjdk/
 
+https://github.com/docker-library/openjdk/issues/145
+
 https://hub.docker.com/r/cantara/alpine-zulu-jdk9/
 
 https://start.spring.io/
+
+
+
