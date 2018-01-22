@@ -93,24 +93,35 @@ docker run -it -p 8080:8080 openjdk:9-jdk-slim javac -version
 docker run -it -p 8080:8080 -v `pwd`:/opt/app openjdk:9-jdk-slim /bin/bash -c "cd /opt/app;./mvnw clean package"
 
 # Run with JDK 9
-docker run -it -p 8080:8080 -v `pwd`/target:/opt/app openjdk:9-jdk-slim /bin/bash -c "cd /opt/app/target; java -jar *.jar"
+docker run -it -p 8080:8080 -v `pwd`/target:/opt/app openjdk:9-jdk-slim /bin/bash -c "cd /opt/app; java -jar *.jar"
 ```
 
-Compilation and running map your local folder to Docker container, so it's expected that you would be in your Spring Boot app folder.
-Naturally, you can get a better result by packaging your app in a Docker image with Dockerfile like this:
+![Spring Boot with Java 9 started](/img/java9modules/jdk_9_spring_boot.png)
+
+Compilation and running map your local folder to Docker container, so it's expected that you would be in your Spring Boot app folder. Sadly, this version will load a lot of stuff from Maven repositories, so compilation will take a while. You would probably want to have a mechanism that would let you reuse those downloads once done, such as team repository, cache, local folder mapping, ready-made layer with most typical libraries, etc. But I digress. Naturally, you can get a better result by packaging your app in a Docker image with Dockerfile like this:
 
 
 ```bash
 FROM openjdk:9-jdk-slim
-COPY target/bootdemo.jar /opt/
+COPY target/*.jar /opt/
 
 EXPOSE 8080
-CMD java -jar /opt/bootdemo.jar
+CMD java -jar /opt/*.jar
 ```
 
 You can build this, and run it with port 8080 mapping, to get the app running.
 
-Note, Spring Boot version 1.x would not run with Java 9 virtual machine, but version 2 will. You might get some warnings - there's still work to do with 3rd party libraries such as CGLIB and ASM. But it will at least start.
+Note, Spring Boot version 1.x would not run with Java 9 virtual machine, but version 2 will. You might get some warnings - there's still work to do with 3rd party libraries such as CGLIB and ASM. But it will at least start. Here is a typical warning at startup, that actually gives you some hints on what to do:
+
+```code
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$1 (jar:file:/opt/app/bootdemo-0.0.1-SNAPSHOT.jar!/BOOT-INF/lib/spring-core-5.0.2.RELEASE.jar!/) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+```
+
+This is actually an interesting thing, unlike the instruction says, you can and should use --illegal-access=deny, to stop cglib from attempting an operation that's illegal in JDK 9. It will attempt it once, then fall back, but if you set illegal access to deny, it will just silently fail and not even give this warning. Eventually you will get much more warnings or even error like this though, especially if you choose to activate modules with module-info.java file at later point.
 
 Spring Boot 2 is amazing. It contains a lot of new things like support for reactive programming model, Java 9 (d'oh!), and improvements to many areas, like security and devtools. It does require JDK 8 at minimum, versions 7 and below are no longer supported at all.
 
