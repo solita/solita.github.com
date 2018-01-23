@@ -1,0 +1,25 @@
+
+/* Original values:
+  (1, 'Merenkulkulaitos', 'ISL', 'OP', 'FI', 'EET-2', '1998-11-01T19:01:18.880Z', '2014-11-12T11:56:12.230Z', '2013-11-12T02:18:59.650Z', 'VER', 1, 1), 
+  (2, 'Swedish Maritime Administration', 'ISD', 'OP', 'SE', 'CET-1', '1998-11-01T19:01:05.273Z', '2014-11-12T11:56:12.253Z', '2013-11-12T02:18:59.657Z', 'VER', 2, 2),
+  (3, 'Estonian Maritime Administration', 'EMA', 'OP', 'FI', 'EET-2', '2011-12-19T12:38:38.677Z', '2014-11-12T11:56:12.257Z', '2013-11-12T02:18:59.657Z', 'VER', 3, 3)
+*/
+
+
+insert into source (
+  src,
+  name,
+  shortname,
+  type,
+  nationality,
+  timezone,
+  createtime,
+  changetime,
+  loadtime,
+  verifystatus,
+  creator_src,
+  change_src)
+values
+  (4, 'Russian Maritime Administration', 'RMA', 'OP', 'RU', 'EET-2', '2011-12-19T12:38:38.677Z', '2014-11-12T11:56:12.257Z', '2013-11-12T02:18:59.657Z', 'VER', 3, 3)
+
+;

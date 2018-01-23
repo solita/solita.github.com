@@ -14,7 +14,7 @@ tags:
 
 It's year 2018, and it's time to update your knowledge to date. Many people are running Java 8 or older, yet Java 8 will go EOL by September (and anything older is already extinct). This means no security updates for you, well at least if you don't pay for them. Furthermore, Java 8 was released in 2014, based on work done before that, so if you are working on Java 8 or older platforms, you are using technology that is very old by todays pace, and limiting your options severely.
 
-You will need to move on to Java 9 at some point. The earlier you can start flirting with it the easier it will be for you. I like to work at cutting edge myself, to embrace challenges at early date, and to evaluate new advances a bit early. Then new things become tools in my toolkit, so I can apply them when they do make the most sense. In some places, yes, it makes sense to run older versions, that are stable and have had many bugfixes and updates already. You might even feel it's impossible to move on to new versions. Perhaps so, but todays technologies like Docker make it easier, and if you think you cannot update your platforms now and then, cannot find a way to do so, you might be the worst obstacle for updating yourself. There is often a way, if there's a will. With todays technologies, almost anything is possible.
+You will need to move on to Java 9 at some point. The earlier you can start flirting with it the easier it will be for you. I like to work at cutting edge myself, to embrace challenges at early date, and to evaluate new advances a bit early. Then new things become tools in my toolkit, so I can apply them when they make the most sense. In some places, yes, it makes sense to run older versions, that are stable and have had many bugfixes and updates already. You might even feel it's impossible to move on to new versions. Perhaps so, but todays technologies like Docker make it easier, and if you think you cannot update your platforms now and then, cannot find a way to do so, you might be the worst obstacle for updating yourself. There is often a way, if there's a will. With todays technologies, almost anything is possible.
 
 I played a lot with JDK 9 prereleases, betas, early access, to get hold of new things like the module system, jshell, new stream API tricks, etc. But now it's out of beta, general availability, with some updates in already. Ready to go.
 
@@ -22,9 +22,9 @@ But it's not going to be easy. Java 9 is going to be a huge step due to its modu
 
 ## Docker
 
-It's no big secret that I love Docker. I've written a lot about it, used it extensively, and encouraged many to take it in their toolkit. It warms my heart to see that it's getting used more and more extensively these days. The reason why I love Docker for development work is because it makes experimentation much easier. For production it has much more different qualities, but they are not the topic today. If you wish to experiment with Java 9, for example, you can of course install it in your machine. But your typical installer might overwrite it as default Java, making your life much harder when you still need Java 8..7...6... for your daily work. So Docker to the rescue.
+It's no big secret that I love Docker. I've written a lot about it, used it extensively, and encouraged many to take it in their toolkit. It warms my heart to see that it's getting used more and more extensively these days. The reason why I love Docker for development work is because it makes experimentation much easier. If you wish to experiment with Java 9, for example, you can of course install it in your machine. But your typical installer might overwrite it as default Java, making your life much harder when you still need Java 8..7...6... for your daily work. So Docker to the rescue.
 
-This part is purely optional here, if you don't want to install Docker, or feel it's synonymous to some ugly STD, feel free to skip to next chapters. But there are many Docker images already with JDK 9 in them. And once you start one, you can run any JDK 9 tools from it. If you map your local folder to your workdir in Docker container, you can easily compile code, run maven, run your code, examine your code, test your code, etc. And of course, you can even package your .jar with JDK 9 container, and deploy that, taking full control of your OS and environment for production. You can naturally run your CI pipeline in Docker, things like Jenkins/Travis, SonarQube, run your API and E2E tests there, etc. Do not that if you're cloud fanatic like me, you can run your Docker containers easily in AWS, today also with Kubernetes support. But for your faily development needs, main thing about Docker is that you can easily try something with it, without needing to permanently install anything locally on your machine, without messing any other installations. Once you're done, you can also easily reset your Docker container.
+This part is purely optional here, if you don't want to install Docker, or feel it's synonymous to some ugly STD, feel free to skip to next chapters. But there are many Docker images already with JDK 9 in them. And once you start one, you can run any JDK 9 tools from it. If you map your local folder to your workdir in Docker container, you can easily compile code, run maven, run your code, examine your code, test your code, etc. And of course, you can even package your .jar with JDK 9 container, and deploy that, taking full control of your OS and environment for production. You can naturally run your CI pipeline in Docker, things like Jenkins/Travis, SonarQube, run your API and E2E tests there, etc. If you're cloud fanatic like me, you can run your Docker containers easily in AWS, today also with Kubernetes support and AWS Fargate. But for your daily development needs, main thing about Docker is that you can easily try something with it, without needing to permanently install anything locally on your machine, without messing any other installations. Once you're done, you can also easily reset your Docker container.
 
 There are several good images for JDK 9 already. For example, there's openjdk/9-jdk, which surprisingly comes with beta JDK, but still stable for my needs. There's Alpine Linux distributions, that come with minimal Linux tooling, but have the benefit of minimal memory footprint (5 megabytes), as well. They make great containers for production. But of course, you can also create your own, if you like. For now, let's use the openjdk version. 9-jdk-slim is trimmed down version of JDK, that runs --headless, perfect for tooling without GUI. Right now non-slim version also has a bug, so best to use the slim one (I did mention cutting edge didn't I ;). 
 
@@ -98,7 +98,7 @@ docker run -it -p 8080:8080 -v `pwd`/target:/opt/app openjdk:9-jdk-slim /bin/bas
 
 ![Spring Boot with Java 9 started](/img/java9modules/jdk_9_spring_boot.png)
 
-Compilation and running map your local folder to Docker container, so it's expected that you would be in your Spring Boot app folder. Sadly, this version will load a lot of stuff from Maven repositories, so compilation will take a while. You would probably want to have a mechanism that would let you reuse those downloads once done, such as team repository, cache, local folder mapping, ready-made layer with most typical libraries, etc. But I digress. Naturally, you can get a better result by packaging your app in a Docker image with Dockerfile like this:
+The above examples for compile and run also map your local folder to Docker container, so it's expected that you would be in your Spring Boot app folder. Sadly, this version will load a lot of stuff from Maven repositories, so compilation will take a while. You would probably want to have a mechanism that would let you reuse those downloads once done, such as team repository, cache, local folder mapping, ready-made layer with most typical libraries, etc. But I digress. Naturally, you can get a better result by packaging your app in a Docker image with Dockerfile like this:
 
 
 ```bash
@@ -141,7 +141,7 @@ To generate for other platform, just point the --module-path to that platforms n
 
 ![Modular runtime](/img/java9modules/jdk9_runtime_sizes.png)
 
-And since we did talk about Docker, here's a Dockerfile that will first generate a minimal Alpine image of JDK 9, then use that said image to package your .jar:
+And since we did talk about Docker, here's a Dockerfile that will first generate a minimal Alpine image of JDK 9, then use that newly created image to package your .jar:
 
 ```
 FROM dekstroza/openjdk9-alpine as packager
@@ -167,7 +167,7 @@ EXPOSE 8080
 CMD java -jar /opt/*.jar
 ```
 
-Nice, isn't it? There are still learner technologies to use for micro-services, but why not grab the benefits of Java platform technological advances?
+Nice, isn't it? There are still leaner technologies to use for micro-services, but why not grab the benefits of Java platform technological advances?
 
 You can get a full listing of modules by running:
 
