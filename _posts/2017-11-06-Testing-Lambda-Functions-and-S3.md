@@ -58,7 +58,7 @@ I defined ```mockery.enable()``` and ```mockery.disable()``` into Mocha’s defa
 
 I placed the before and after method calls to the *global* function scope:
 
-```
+```javascript
 'use strict'
 const mockery = require('mockery')
 const LambdaTester = require( 'lambda-tester' )
@@ -69,7 +69,7 @@ before(function() {
   warnOnUnregistered: false })
   ...
 
-describe( ‘event changes handler', function() {
+describe( 'event changes handler', function() {
   ...  
 
 )}
@@ -79,13 +79,13 @@ describe( ‘event changes handler', function() {
 
 I have several tests in different files testing different use cases and source files. Each require Mockery and setup it. The test runs, but fails because my lambda environment variables are not present. Okay, So bring in [dotenv](https://www.npmjs.com/package/dotenv) and create the required setup for each use case:
 
-```
+```javascript
 require('dotenv').config({path: __dirname + '/.envForProduct'})
 ```
 
 Run the tests again and the mock is not working as the config object for the S3 is missing update method. So I try to define the Mock object as follows:
 
-```
+```javascript
 const S3 = require(‘aws-s3-mock’)
 const s3Mock = {
  S3: S3,
@@ -98,7 +98,7 @@ Run again and it almost works.. Now it’s loading and running the test but fail
 
 Bang my head to the wall for a while and then decide to simplify the test. I decide to separate the uploading to S3 from the rest of the code. So I create a really simple implementation:
 
-```
+```javascript
 const sendToS3Imp = function(S3_PARAMS){
  return s3.upload(S3_PARAMS).promise()
 }
@@ -107,7 +107,7 @@ module.exports = { sendToS3: sendToS3Imp }
 
 I tie this to the rest of the function code and create my own S3 mock:
 
-```
+```javascript
 const sendToS3Imp = function(S3_PARAMS){
  return Promise.resolve()
 }
@@ -122,7 +122,7 @@ Summary: I should not have tried to implement a complicated mock for the S3 as I
 
 So back to the test. I removed the aws-s3-mock and replaced it with a really simple custom mock for S3:
 
-```
+```javascript
 'use strict'
 const mockery = require('mockery')
 const LambdaTester = require( 'lambda-tester' )
@@ -161,7 +161,7 @@ Next day debug the hell out of the test and it just doesn’t make any sense. Fi
 
 Working example:
 
-```
+```javascript
 'use strict'
 const mockery = require('mockery')
 const LambdaTester = require( 'lambda-tester' )
