@@ -2,7 +2,7 @@
 layout: post
 title: 45 minutes into MS PowerApps
 author: tomila
-excerpt: Extremely quick look into MS PowerApps
+excerpt: Extremely quick look into MS PowerApps and how to use it to create enterprise apps
 tags:
 - microsoft
 - powerapps
