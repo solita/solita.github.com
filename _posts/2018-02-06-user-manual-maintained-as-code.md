@@ -38,12 +38,25 @@ When the feature branch is finally merged to the develop, the different versions
 
 In addition to, it would be nice if generating the final html pages would be more fluent and more automated than in Confluence.
 
-## Dream Come True
+## the Dream Come True
 
-I queried our developer community for help and got an answer: AsciiDoctor might be our dream come true. AsciiDoctor reads and parses text written in a special AsciiDoc syntax, which can then be converted, for example, to html. This really sounded fine. The next step was to find out how to implement this in practice. The Confluence pages should be somehow converted to the AsciiDoc syntax, figure out the project structure, and automate the import process with maven.
+I queried our developer community for help and got an answer: AsciiDoctor might be our dream come true. AsciiDoctor reads and parses text written in a special AsciiDoc syntax, which can then be converted, for example, to html. This really sounded fine. The next step was to find out how to implement this in practice. The Confluence pages should somehow be converted to the AsciiDoc syntax, figure out the project structure, and automate the import process with maven.
 
+### To AsciiDoc
 
+- dokumenttien konvertointi, osa käsin
+- turhien liitteiden siivoaminen
+- kääntäminen html:ksi ulkoasun tarkistus, oletus-css:llä mennään
 
+### Location
+
+- samassa repossa, omassa kansiossa -> tulevat mukaan samoihin kommitteihin
+
+## Build Instructions with Maven 
+
+## Possibilities
+
+- skriptejä kuvialinkkien varmistamiseen -> testejä myös käyttöohjeille -> CI-buildi 
 
 ![code on screen](/img/programming-language/photo_koodia.JPG)
 
