@@ -12,7 +12,7 @@ tags:
 
 In our software project, we are dealing with an entire application family. Some of the applications are in maintenance phase, and some are in active development phase. However, new features emerge every now and then and old features are developed according to the feedback given by the users. This means that we need to update our user instruction documentation regularly.
 
-# the Old Way
+## the Old Way
 
 We have maintained our user instruction documentation as a few pages in Confluence. Confluence has offered a simple way to allow multiple editors, easy formatting and attaching images. When the software is delivered, the user instructions should be shipped with the new version. In our project, this meant converting the Confluence pages to html pages, which then could be saved in a dedicated web server location for the users to find via internet.
 
