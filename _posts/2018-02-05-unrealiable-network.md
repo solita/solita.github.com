@@ -82,7 +82,7 @@ The idea with re-trying requests is the following: when our communication API is
                        {:handler response-handler}))))))
 ```
 
-In most cases, however, it is not practical to re-try every single failed requests. For exampole, if a request pointed to a file which was not found and returned 403, it is probably not useful to try this request again. Thus, you should choose which requests you might want to try again.
+In most cases, however, it is not practical to re-try every single failed request. For exampole, if a request pointed to a file which was not found and returned 403, it is probably not useful to try this request again. Thus, you should choose which requests you might want to try again.
 
 # Cache Responses When Necessary
 
