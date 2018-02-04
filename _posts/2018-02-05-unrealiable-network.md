@@ -24,7 +24,7 @@ How can we reduce the amount of network requests? First, we should analyse what 
 
 ![Chrome Network Tab](/img/unrealiable-network/chrome_network_tab.png)
 
-The way to reduce the amount of requests depends of your application. The following questions can help you to find the requests that could be improved:
+The way to reduce the amount of requests depends on your application. The following questions can help you to find the requests that could be improved:
 
 **Are you making two separate network requests for saving data and then getting the same data again from the server to update the view?** 
 
