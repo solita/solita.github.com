@@ -9,7 +9,7 @@ tags:
 - network programming
 ---
 
-You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unrealiable, meaning that network requests can sometimes take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, application developers, have some tricks we can use to make our applications *feel* more stable in unrealiable network. And even if your network infrastucture is solid, these methods will probably help your application behave more stable and quickly for your end users. These quick tips are mainly targeted for developers writing single page web applications or mobile apps.
+You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unrealiable, meaning that network requests can sometimes take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, application developers, have some tricks we can use to make our applications *feel* more stable in unrealiable network. And even if your network infrastucture is solid, it is not guaranteed that occasional communication failures won't happen, as illustrated in [Two Generals Problem](https://en.wikipedia.org/wiki/Two_Generals%27_Problem). Thus, these quick tips, targeted mainly for single page web application and mobile application developers, will probably help your application behave more stable and quickly for your end users.
 
 # Avoid Making Network Requests as Much as You Can
 
