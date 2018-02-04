@@ -16,7 +16,6 @@ You cannot always choose where your application will be hosted. Sometimes the ne
 The best way to avoid getting failing network requests is of course to abandom making them completely.
 
 ![Failing network requests meme](/img/unrealiable-network/network_requests_meme.jpg)
-**
 
 Thought this is very efficient, it is not very practical for most of us. Majority of web and mobile apps depend on getting data from servers, and thus, making network requests is mandatory. Still, if we cannot abandom them completely, we can at least reduce the amount of them.
 
@@ -101,6 +100,8 @@ This tip applies especially for single page and mobile applications, in which da
 Experience has shown me that we should always test how our applications work in unrealiable or slow network. When developing and testing an application locally with locally installed server and database, there is almost no network latency at all and the connections are very quick. Thus, you do not really get the real end user experience.
 
 The possible problems that you do not see with fast connections can vary. A typical problem is for example a button, which when clicked, sends a network request, and is rendered as enabled for the whole time. In most cases, the user should not be able click the button when the network request is being processed, so the button should be rendered as disabled. When the request is processed very quickly on local development environment, this is not a problem, but can result unexpected errors in production environment.
+
+![Chrome Network Throttling](/img/unrealiable-network/chrome_network_throttling.png)
 
 Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application.
 
