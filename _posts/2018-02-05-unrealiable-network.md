@@ -2,13 +2,14 @@
 layout: post
 title: Quick Tips for App Developers on Surviving with Unrealiable Network
 author: jarzka
-excerpt: TODO
+excerpt: Methods that you, application developer, can do to make your app feel more stable even if the underlying network is unreliable.
 tags:
 - clojure
-- network
+- clojurescript
+- network programming
 ---
 
-You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unrealiable, meaning network requests can sometimes take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, application developers, have some tricks we can use to make our applications *feel* more stable in unrealiable network. And even if your network infrastucture is solid, these methods will probably help your application behave more stable and quickly for your end users. These quick tips are mainly targeted for developers writing single page web applications or mobile apps.
+You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unrealiable, meaning that network requests can sometimes take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, application developers, have some tricks we can use to make our applications *feel* more stable in unrealiable network. And even if your network infrastucture is solid, these methods will probably help your application behave more stable and quickly for your end users. These quick tips are mainly targeted for developers writing single page web applications or mobile apps.
 
 # Avoid Making Network Requests as Much as You Can
 
@@ -95,21 +96,15 @@ The idea is mostly the same on the server side. Caching can be used to avoid unn
 
 This tip applies especially for single page and mobile applications, in which data is requested from the server between page loads. If the requests start failing, your application is probably going to look like a bunch of loading bars or icons. Your user can switch between application pages or views, but none of them is loading because of lost network connection. This is not a good user experience. Even if we cannot prevent network requests from failing from time to time, we can at least inform the user about the situation. A simple modal dialog or information bar at the top of your application will do fine, as long as you remember to remove it when the connection has been re-established. If possible, you might also want to consider allowing the user to keep using the application offline and sending the changes to the server when possible.
 
-# Testing with Unrealiable Network
+# Testing Apps By Simulating Unrealiable Network
 
-Experience has shown me that we should always test how our applications work in unrealiable network or slow network. When developing and testing an application locally with locally installed server and database, there is almost no network latency at all and the connections are very quick. Thus, you do not really get the real end user experience.
+Experience has shown me that we should always test how our applications work in unrealiable or slow network. When developing and testing an application locally with locally installed server and database, there is almost no network latency at all and the connections are very quick. Thus, you do not really get the real end user experience.
 
-- Chromessa ja Firefoxissa työkalut tähän, pistä kuvat
+The possible problems that you do not see with fast connections can vary. A typical problem is for example a button, which when clicked, sends a network request, and is rendered as enabled for the whole time. In most cases, the user should not be able click the button when the network request is being processed, so the button should be rendered as disabled. When the request is processed very quickly on local development environment, this is not a problem, but can result unexpected errors in production environment.
 
-
-Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application.
-
-- Yleisesti ottaen olisi hyvä aina testata softaa myös huonolla verkolla / offline? Voi paljastaa yllätyksiä. Lokaalisti yhteydet aina nopeat. Latauspalkit jää aina pois.
+Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application.
 
 # TLDR
 
-You cannot always choose the network infastructure for your application. Sometimes it's going to be unstable. Personally, these tips have helped me to make make my application *feel* more stable, even if it operates on unrealiable network.
-
-Minimoi requestit, yritä failaavia uudelleen, cacheta vastaukset
-
+Reduce the amount of network requests, combine them, re-try failed requests and cache the successful ones. And do not forget to test your application with unreliable network connection.
 
