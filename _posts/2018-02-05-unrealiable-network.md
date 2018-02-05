@@ -17,21 +17,25 @@ The best way to avoid getting failing network requests is of course to abandom m
 
 ![Failing network requests meme](/img/unrealiable-network/network_requests_meme.jpg)
 
-Thought this is very efficient, it is not very practical for most of us. Majority of web and mobile apps depend on getting data from servers, and thus, making network requests is mandatory. Still, if we cannot abandom them completely, we can at least reduce the amount of them.
+Thought this is very efficient, it is not very practical for most of us. Majority of web and mobile apps depend on getting data from servers, and thus, making network requests is mandatory. Still, if we cannot abandom them completely, we can at least reduce the amount of them or optimise them to achieve a good compromise.
 
-How can we reduce the amount of network requests? First, we should analyse what kind of requests our application is making. The developer tools of [Chrome](https://developer.chrome.com/devtools) and [Firefox](https://developer.mozilla.org/fi/docs/Tools) are very practical for this analysis. On the network tab, you can see all the requests your application is making.
+# Optimising Network Requests
+
+How can we optimise network requests? First, we should analyse what kind of requests our application is making. The developer tools of [Chrome](https://developer.chrome.com/devtools) and [Firefox](https://developer.mozilla.org/fi/docs/Tools) are very practical for this analysis. On the network tab, you can see all the requests your application is making.
 
 ![Chrome Network Tab](/img/unrealiable-network/chrome_network_tab.png)
 
-The way to reduce the amount of requests depends on your application. The following questions can help you to find the requests that could be improved:
+The way to optimise network requests depends on your application. The following questions can help you to find the requests that could be improved:
 
 **Are you making two separate network requests for saving data and then getting the same data again from the server to update the view?** 
 
-Consider changing the implementation of the data saving API to return the updated data. This way, you can save the data and update the view with one request.
+The principle of [responsibility segregation](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) is a good thing in API design. However, using separate requests for saving and updating the view can be slow and error-prone if either one is successful and the other is not. In this case, on would consider changing the implementation of the data saving API to return the updated data. This way, you can save the data and update the view with one request.
+
+Another possible improvement would be to use optimistic update, in which we assume that most of our network requests are going to be successful, and thus we update the app to the state in which the request has supposedly completed successfully, without really waiting the actual request to complete. Only in the case of failure, we update view back to match the server's answer. This will make the application fell more responsible to the end user, especially in cases when data is edited visually. Possible downside can be that the user is not sure whether the data was actually saved or not, so perhaps inform the user when the data has been truly saved on the server.
 
 **Are you making multiple network requests to get data for a specific view?**
 
-Consider combining these requests, i.e. making a single API method to return all the data for a specific view. The services for the requests you previously made are already there and you can use them in creating a single API method.
+Consider combining these requests, i.e. making a single API method to return all the data for a specific view. This way you get all the data in one query, but the downside is of course that you need to wait for that one query to be complete for the view to be ready, and if that one query fails, you do not get any data at all. [GraphQL](https://en.wikipedia.org/wiki/GraphQL) is a good example of a query language which allows clients to define the exact query parameters and the structure of the data returned from the servers.
 
 **Is some specific request slowing down the initial render of your application?**
 
@@ -108,6 +112,10 @@ The possible problems that you do not see with fast connections can vary. A typi
 Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application. Also, if you happen to control the backend HTTP server, you could also modify it to randomly fail some requests (in development mode, of course).
 
 # TLDR
+
+Handling failures is a subtle art where many things depend on your application architecture. Errors can manifest in many ways.
+
+TODO
 
 Reduce the amount of network requests, combine them, re-try failed requests and cache the successful ones. And do not forget to test your application with unreliable network connection.
 
