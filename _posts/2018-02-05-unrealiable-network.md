@@ -113,9 +113,4 @@ Chrome and Firefox have good network throttling tools. On Chrome, the throttling
 
 # TLDR
 
-Handling failures is a subtle art where many things depend on your application architecture. Errors can manifest in many ways.
-
-TODO
-
-Reduce the amount of network requests, combine them, re-try failed requests and cache the successful ones. And do not forget to test your application with unreliable network connection.
-
+Paying attention to handling network errors correctly is an important part of any online application development, especially if it has been hosted on unrealiable network. Handling failures and recovering from the is a subtle art where many things depend on your application architecture. Optimising network requests, caching successful responses and re-trying the failing ones a few times are proven mechanisms to make your application feel more responsible.
