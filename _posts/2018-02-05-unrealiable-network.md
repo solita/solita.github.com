@@ -91,7 +91,7 @@ In most cases, however, it is not practical to re-try every single failed reques
 
 # Cache Responses When Necessary
 
-Caching is our friend when we want to make things work faster, but it is also a good way to help surviving with unreliable network connections. Our ultimate goal here is to avoid making requests that would probably return the same result as we got before. Caching can be used both client and server side.
+Caching is our friend when we want to make things work faster, but it is also a good way to help surviving with unreliable network connections. Our ultimate goal here is to avoid making requests that would probably return the same result as we got before. Caching can be used both client and server side. In most cases, we want to trust the browser and the server to handle caching by using proper [HTTP caching headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching). Some cases, though, need special attention and application level optimisation.
 
 On the client side, you could ask yourself if making a specific request with the same parameters multiple times on short intervals is absolutely necessary. If the server is probably going to return the same answer, you might consider caching the request's timestamp, parameters and response. If the same request is made again, with the same parameters, shortly after the previous one, you can simply return the answer from the cache, without making network requests. The downside is, of course, that the user does not get the most recent data from the server, so you should use clientside caching only when this is not a problem.
 
