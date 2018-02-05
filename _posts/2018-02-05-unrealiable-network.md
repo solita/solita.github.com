@@ -39,7 +39,9 @@ Your users want your application to load as quickly as possible, and thus you sh
 
 # Retry with Increasing Timeout
 
-Now that we have reduced the amount of requests, it is time to make sure those requests pass to the server and back as often as possible. If we cannot make modifications to the network infrastructure, we have to make changes in the application level.
+Now that we have optimised the network requests, it is time to make sure those requests pass to the server and back as often as possible. Application level network requests always operate on top of lower-level transmission protocols, such as [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol). These protocols try to provide an abstraction of a reliable connection. This is achieved by the sender detecting lost data and retransmitting it to the receiver automatically. So, if lower-level protocols already try to abstract reliable connection in every situation, why would we want to write our own re-try mechanism on application level?
+
+The answer is that application level network requests, such as HTTP requests, can nominally finish, but still transiently get an error code from the other end. This can happen if there are some transient errors in proxies or load balancers. If we cannot fix these problems by making modifications to the network infrastructure, we can abstract more realiable connection on application level.
 
 Rater than calling the application environment's native functions for sending network requests every single time we make a network request, one would consider writing a separate communication API for your application. The idea of this API is to be a wrapper for the environment's native network request functions. The difference is that, with our own API, we can make global modifications on how the requests and responses are handled. For example, we can automatically re-try failing requests.
 
@@ -103,7 +105,7 @@ The possible problems that you do not see with fast connections can vary. A typi
 
 ![Chrome Network Throttling](/img/unrealiable-network/chrome_network_throttling2.png)
 
-Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application.
+Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application. Also, if you happen to control the backend HTTP server, you could also modify it to randomly fail some requests (in development mode, of course).
 
 # TLDR
 
