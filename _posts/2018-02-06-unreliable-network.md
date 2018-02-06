@@ -47,19 +47,19 @@ Now that we have optimised the network requests, it is time to make sure those r
 
 The answer is that application level network requests, such as HTTP requests, can nominally finish, but still transiently get an error code from the other end. This can happen if there are some transient errors in proxies or load balancers. If we cannot fix these problems by making modifications to the network infrastructure, we can abstract more reliable connection on application level.
 
-Rater than calling the application environment's native functions for sending network requests every single time we make a network request, one would consider writing a separate communication API for your application. The idea of this API is to be a wrapper for the environment's native network request functions. The difference is that, with our own API, we can make global modifications on how the requests and responses are handled. For example, we can automatically re-try failing requests.
+Rather than calling the application environment's native functions for sending network requests every single time we make a request to the server, one would consider writing a separate communication API for your application. The idea of this API is to be a wrapper for the environment's native network request functions. The difference is that, with our own API, we can make global modifications on how the requests and responses are handled. For example, we can automatically retry failing requests.
 
-The idea with re-trying requests is the following: when our communication API is called to send a request to the server, it does this normally and returns the successful response to the caller. However, if the request fails, our API waits a few seconds, and tries to send the request again. If it fails again, it waits even more, and tries again. If the request keeps failing too many times, the API returns the failed request to the caller. In most cases, hopefully, the request is going to be successful after one or two attempts. The user of the API does not know anything about the failed requests. It does not need to, as our API automativally keeps trying sending the requests again. The caller is informed about the failed request only if it has failed multiple times. Here is a naive example of a communication API written in [ClojureScript](https://clojurescript.org):
+The idea with retrying requests is the following: when our communication API is called to send a request to the server, it does this normally and returns the successful response to the caller. However, if the request fails, our API waits a few seconds, and tries to send the request again. If it fails again, it waits longer, and tries again. If the request fails too many times, the API returns the failed request to the caller. In most cases, hopefully, the request is going to be successful after one or two attempts. The caller of the API does not know of the failed requests. It does not need to, as our API automativally keeps (re)sending the requests. The caller is informed about the failed request only if it has failed multiple times. Here is a naive example of a communication API written in [ClojureScript](https://clojurescript.org):
 
 ```clojure
-(def default-re-try-options {:timeout nil
+(def default-retry-options {:timeout nil
                              :attempts 5})
 
 (defn network-request
   ([response-chan request-options]
-    ;; network-request called without re-try-options, use the default value.
-   (network-request response-chan request-options default-re-try-options))
-  ([response-chan request-options re-try-options]
+    ;; network-request called without retry-options, use the default value.
+   (network-request response-chan request-options default-retry-options))
+  ([response-chan request-options retry-options]
    (let [response-handler (fn [[_ response]]
                             (if (some? response)
                               ;; Successful response, return it to the caller by using
@@ -67,35 +67,35 @@ The idea with re-trying requests is the following: when our communication API is
                               (do (put! response-chan response)
                                   (close! response-chan))
                               ;; Failing response, any attempts left?
-                              (if (> (:attempts re-try-options) 1)
+                              (if (> (:attempts retry-options) 1)
                                 ;; Try again, decrease attempts by one and increase timeout
                                 (network-request
                                   response-chan
                                   request-options
-                                  {:timeout (+ (:timeout re-try-options) 2000)
-                                   :attempts (dec (:attempts re-try-options))})
+                                  {:timeout (+ (:timeout retry-options) 2000)
+                                   :attempts (dec (:attempts retry-options))})
                                 ;; Return the failing response to the caller
                                 (do (put! response-chan response)
                                     (close! response-chan)))))]
      ;; Send the network request, return the response to the response-handler
      (go
        ;; Before sending, wait for the timeout (if given)
-       (when-let [re-try-timeout (:timeout re-try-options)]
-         (<! (timeout re-try-timeout)))
+       (when-let [retry-timeout (:timeout retry-options)]
+         (<! (timeout retry-timeout)))
        (ajax-request (merge
                        request-options
                        {:handler response-handler}))))))
 ```
 
-In most cases, however, it is not practical to re-try every single failed request. For exampole, if a request pointed to a file which was not found and returned 404, it probably does not help to to try this request again. Thus, you should choose which requests you might want to try again.
+In most cases, however, it is not practical to retry every single failed request. For example, if a request pointed to a file which was not found and returned 404, it probably does not help to try this request again. Thus, you should choose which requests you want to retry.
 
 # Cache Responses When Necessary
 
 Caching is our friend when we want to make things work faster, but it is also a good way to help surviving with unreliable network connections. Our ultimate goal here is to avoid making requests that would probably return the same result as we got before. Caching can be used both client and server side. In most cases, we want to trust the browser and the server to handle caching by using proper [HTTP caching headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching). Some cases, though, need special attention and application level optimisation.
 
-On the client side, you could ask yourself if making a specific request with the same parameters multiple times on short intervals is absolutely necessary. If the server is probably going to return the same answer, you might consider caching the request's timestamp, parameters and response. If the same request is made again, with the same parameters, shortly after the previous one, you can simply return the answer from the cache, without making network requests. The downside is, of course, that the user does not get the most recent data from the server, so you should use clientside caching only when this is not a problem.
+On the client side, you could ask yourself whether making a specific request with the same parameters multiple times on short intervals is absolutely necessary. If the server is likely going to return the same answer, you might consider caching the request's timestamp, parameters and response. If the same request is made again, with the same parameters, shortly after the previous one, you can simply return the answer from the cache, without making network requests. The downside is, of course, that the user does not get the most recent data from the server, so you should use client-side caching only when this is not a problem.
 
-The idea is mostly the same on the server side. Caching can be used to avoid unnecessary network requests in the case when your server uses a third party API to load data for your client. Consider, for example, a case in which your client requests your server to the current weather conditions for a specific area, and your server requests this data from a third party API. Is it necessary to contact this third party API every single time a network condition request is made? Current weather conditions are probably not going to change radically in the next two minutes, so it should be safe to store the parameters and the response for all of the weather condition requests. If a new request is made with the same parameters in a few seconds, we can safely return the cached data, as it's likely going to be the same as the third party API would return us.
+The idea is mostly the same on the server side. Caching can be used to avoid unnecessary network requests in the case when your server uses a third party API to load data for your client. Consider, for example, a case in which your client requests from your server the current weather conditions for a specific area, and your server requests this data from a third party API. Is it necessary to contact this third party API every single time a network condition request is made? Current weather conditions are probably not going to change radically in the next two minutes, so it should be safe to store the parameters and the response for all of the weather condition requests. If a new request is made with the same parameters in a few seconds, we can safely return the cached data, as it's likely going to be the same as the third party API would return us.
 
 # When the Worst Happens: Tell You are Offline
 
@@ -109,8 +109,8 @@ The possible problems that you do not see with fast connections can vary. A typi
 
 ![Chrome Network Throttling](/img/unreliable-network/chrome_network_throttling2.png)
 
-Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline-button to simulate disconnected network during the use of the application. Also, if you happen to control the backend HTTP server, you could also modify it to randomly fail some requests (in development mode, of course).
+Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline button to simulate a disconnected network during the use of the application. Also, if you happen to control the backend HTTP server, you could also modify it to randomly fail some requests (in development mode, of course).
 
 # TLDR
 
-Paying attention to handling network errors correctly is an important part of any online application development, especially if it has been hosted on unreliable network. Handling failures and recovering from them is a subtle art where many things depend on your application architecture. Optimising network requests, caching successful responses and re-trying the failing ones a few times are proven mechanisms to make your application feel more responsible.
+Paying attention to handling network errors correctly is an important part of any online application development, especially if it is being hosted on unreliable network. Failure handling and recovery is a subtle art where many things depend on your application architecture. Optimising network requests, caching successful responses and retrying the failing ones a few times are proven mechanisms to make your application feel more responsive.
