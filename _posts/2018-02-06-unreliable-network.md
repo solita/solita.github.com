@@ -11,7 +11,7 @@ tags:
 
 You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unreliable, meaning that network requests can at times take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, as application developers, have some tricks we can use to make our applications *feel* more stable in unreliable network. And even if your network infrastucture is solid, it is not guaranteed that occasional communication failures will not happen, as illustrated in [Two Generals Problem](https://en.wikipedia.org/wiki/Two_Generals%27_Problem). Thus, these quick tips, targeted mainly at single page web application and mobile application developers, will probably help your application appear more stable and responsive for your end users.
 
-# Avoid Making Network Requests as Much as You Can
+## Avoid Making Network Requests as Much as You Can
 
 The best way to avoid getting failing network requests is of course to avoid making them completely.
 
@@ -19,7 +19,7 @@ The best way to avoid getting failing network requests is of course to avoid mak
 
 Even though this is very efficient, it is not very practical for most of us. The majority of web and mobile apps depend on getting data from servers, and thus, making network requests is mandatory. Still, even if we cannot avoid them completely, it is possible to reduce the number of or otherwise optimise the requests in order to achieve a suitable compromise.
 
-# Optimising Network Requests
+## Optimising Network Requests
 
 How can we optimise network requests? First, we should analyse what kind of requests our application is making. The developer tools of [Chrome](https://developer.chrome.com/devtools) and [Firefox](https://developer.mozilla.org/fi/docs/Tools) are very practical for this analysis. On the network tab, you can see all the requests your application is making.
 
@@ -41,7 +41,7 @@ Consider combining these requests, i.e. making a single API method to return all
 
 Your users want your application to load as quickly as possible, and thus you should only make the network requests that are absolutely mandatory to get your application up and running. If the network infrastructure is unstable, getting the application to load itself can take a long time or even fail completely.
 
-# Retry with Increasing Timeout
+## Retry with Increasing Timeout
 
 Now that we have optimised the network requests, it is time to make sure those requests pass to the server and back as often as possible. Application level network requests always operate on top of lower-level transmission protocols, such as [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol). These protocols try to provide an abstraction of a reliable connection. This is achieved by the sender detecting lost data and retransmitting it to the receiver automatically. So, if lower-level protocols already try to abstract a reliable connection in every situation, why would we want to write our own retry mechanism on the application level?
 
@@ -89,7 +89,7 @@ The idea with retrying requests is the following: when our communication API is 
 
 In most cases, however, it is not practical to retry every single failed request. For example, if a request points to a file which was not found and returns 404, it probably does not help to try this request again. Thus, you should choose which requests you want to retry.
 
-# Cache Responses When Necessary
+## Cache Responses When Necessary
 
 Caching is our friend when we want to make things work faster, but it is also a good way to help surviving with unreliable network connections. Our ultimate goal here is to avoid making requests that would probably return the same result as we got before. Caching can be used both client and server side. In most cases, we want to trust the browser and the server to handle caching by using the proper [HTTP caching headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching). Some cases, though, need special attention and application level optimisation.
 
@@ -97,11 +97,11 @@ On the client side, you could ask yourself whether making a specific request wit
 
 The idea is mostly the same on the server side. Caching can be used to avoid unnecessary network requests in the case when your server uses a third party API to load data for your client. Consider, for example, a case in which your client requests from your server the current weather conditions for a specific area, and your server requests this data from a third party API. Is it necessary to contact this third party API every single time a weather condition request is made? Current weather conditions are probably not going to change radically in the next two minutes, so it should be safe to store the parameters and the response for all of the weather condition requests. If a new request is made with the same parameters in a few seconds, we can safely return the cached data, as it's likely going to be the same as the third party API would return us.
 
-# When the Worst Happens: Tell You are Offline
+## When the Worst Happens: Tell You are Offline
 
 This tip applies especially for single page and mobile applications, in which data is requested from the server between page loads. If the requests start failing, your application is probably going to look like a bunch of loading bars or icons. Your user can switch between application pages or views, but none of them is loading because of lost network connection. This is not a good user experience. Even if we cannot prevent network requests from failing from time to time, we can at least inform the user about the situation. A simple modal dialog or information bar at the top of your application will do fine, as long as you remember to remove it when the connection has been re-established. If possible, you might also want to consider allowing the user to keep using the application offline and sending the changes to the server when possible.
 
-# Testing Apps By Simulating Unreliable Network
+## Testing Apps By Simulating Unreliable Network
 
 Experience has shown me that we should always test how our applications work in unreliable or slow network. When developing and testing an application locally with locally installed server and database, there is almost no network latency at all and the connections are very quick. Thus, you do not really get the real end user experience.
 
@@ -111,6 +111,6 @@ The possible problems that you do not see with fast connections can vary. A typi
 
 Chrome and Firefox have good network throttling tools. On Chrome, the throttling tools can be found on the Network tab, while Firefox keeps them in the responsive design mode view. These tools help you to simulate slow network connections or disconnected connection. Unfortunately these tools do not contain a feature of testing randomly failing requests, but at least you can hit the Offline button to simulate a disconnected network during the use of the application. Also, if you happen to control the backend HTTP server, you could also modify it to randomly fail some requests (in development mode, of course).
 
-# TLDR
+## TLDR
 
 Paying attention to handling network errors correctly is an important part of any online application development, especially if it is being hosted on unreliable network. Failure handling and recovery is a subtle art where many things depend on your application architecture. Optimising network requests, caching successful responses and retrying the failing ones a few times are proven mechanisms to make your application feel more responsive.
