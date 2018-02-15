@@ -61,7 +61,7 @@ The idea with retrying requests is the following: when our communication API is 
    (network-request response-chan request-options default-retry-options))
   ([response-chan request-options retry-options]
    (let [response-handler (fn [[_ response]]
-                            (if (some? response)
+                            (if (= (:status response) 200)
                               ;; Successful response, return it to the caller by using
                               ;; the given response channel.
                               (do (put! response-chan response)
