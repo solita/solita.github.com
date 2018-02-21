@@ -10,14 +10,10 @@ html {
 
 body {
   border-top: 10px solid $brand-red;
-  background-color: $background-color;
+  background-color: $brand-gray250;
 }
 
 main {
-  max-width: 1400px;
-  background: $brand-gray250;
-  margin-left: auto;
-  margin-right: auto;
   @include clearfix;
 }
 
