@@ -22,7 +22,7 @@
 
             avatar.render({}, directives);
             avatar.attr('href', url);
-            $this.append(avatar);
+            $this.prepend(avatar);
         });
     });
 
