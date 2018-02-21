@@ -31,15 +31,15 @@
 
 .some-icon {
   display: block;
-  margin-bottom: 4px;
-  height: 30px;
+  margin-bottom: 5px;
+  color: $color-text;
 
   > .some-icon-content {
-    padding: 6px 12px 6px 6px;
+    padding: 8px 12px 8px 8px;
     background-color: $brand-gray240;
 
     > .some-icon-img {
-      margin-right: 5px;
+      margin-right: 10px;
       position: relative;
       top: 8px;
     }
