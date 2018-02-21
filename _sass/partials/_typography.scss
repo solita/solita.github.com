@@ -4,7 +4,6 @@ body {
   /* 16px/24px --> $baseline: 24px */
   font: 100%/1.5 $font-body;
   font-weight: 400;
-  color: $pale-sky;
   line-height: 100%;
   word-wrap: break-word;
 }
@@ -13,6 +12,45 @@ body, input, textarea {
   color: $color-text;
 }
 
+h1 {
+  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.25;
+  color: $brand-gray40;
+}
+
+h2 {
+  font-family: ”Sharp Sans Semibold”, Century Gothic, Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: $brand-gray40;
+}
+
+h3 {
+  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: $brand-gray40;
+}
+
+h4 {
+  font-family: ”Sharp Sans Semibold”, Century Gothic, Arial, sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.25;
+  color: $brand-gray40;
+}
+
+h5 {
+  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  color: $brand-gray40;
+}
+
+
+/*
 h1, h2, h3, h4, h5, h6 {
   margin: $baseline 0;
 
@@ -69,7 +107,7 @@ a.decorated {
   font-style: italic;
   font-family: "chaparral-pro", serif;
 }
-
+*/
 caption {
   font-style: italic;
 }
