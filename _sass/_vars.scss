@@ -1,23 +1,21 @@
 // Style wide settings
 
-// Solita brand palette
+// Solita brand palette (not complete, includes only parts that are needed on this site)
 
 $brand-red: rgb(220,30,50);
+$brand-gray40 rgb(40, 40, 40)
 $brand-gray250: rgb(250,250,250);
+
+$color-text: $brand-gray40;
 
 // Old brand palette
 
 $cerise: #e93f85;
 $black: #000;
 $pale-sky: #70767f;
-$aluminium: #a9adb6;
 $porcelain: #f0f1f2;
 $white: #fff;
-$color-text: #333;
 $color-gray: #666; // FIXME: change to Solita authentic gray
-$color-black: #000;
-$color-link: #17c;
-$color-hover: #a53;
 
 // Text
 
