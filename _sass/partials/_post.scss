@@ -1,11 +1,6 @@
 .post {
   margin-bottom: $baseline*2;
   position: relative;
-
-  @media (min-width: $breakpoint-3) {
-    padding-left: $primary-width - 520px;
-    width: 520px;
-  }
 }
 
 .post-title {
