@@ -19,21 +19,13 @@
 }
 
 .post-meta {
-  position: relative;
-
   padding: 6px 0 0 0;
-
   font-size: 0.8em;
   font-weight: 800;
 
   @media (min-width: $breakpoint-3) {
-    position: absolute;
-    left: 0;
-    top: 3px;
     max-width: 150px;
-
     padding: 0 0 0 57px;
-
     line-height: 1.25;
 
     .date {
@@ -42,12 +34,6 @@
   }
 
   .avatar {
-    @media (min-width: $breakpoint-3) {
-      position: absolute;
-      left: 0;
-      top: -5px;
-    }
-
     .img {
       max-width: 24px;
       vertical-align: middle;
