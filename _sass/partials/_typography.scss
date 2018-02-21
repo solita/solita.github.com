@@ -1,10 +1,10 @@
 /* TYPOGRAPHY
 ----------------------------------------------------------------------------- */
 body {
-  /* 16px/24px --> $baseline: 24px */
-  font: 100%/1.5 $font-body;
-  font-weight: 400;
-  line-height: 100%;
+  font-family: "Sharp Sans Medium", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $brand-gray40;
   word-wrap: break-word;
 }
 
@@ -13,28 +13,28 @@ body, input, textarea {
 }
 
 h1 {
-  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
   font-size: 2.5rem;
   line-height: 1.25;
   color: $brand-gray40;
 }
 
 h2 {
-  font-family: ”Sharp Sans Semibold”, Century Gothic, Arial, sans-serif;
+  font-family: "Sharp Sans Semibold", Century Gothic, Arial, sans-serif;
   font-size: 1.75rem;
   line-height: 1.25;
   color: $brand-gray40;
 }
 
 h3 {
-  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
   font-size: 1.5rem;
   line-height: 1.25;
   color: $brand-gray40;
 }
 
 h4 {
-  font-family: ”Sharp Sans Semibold”, Century Gothic, Arial, sans-serif;
+  font-family: "Sharp Sans Semibold", Century Gothic, Arial, sans-serif;
   font-size: 1.25rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -43,55 +43,10 @@ h4 {
 }
 
 h5 {
-  font-family: ”Sharp Sans Bold”, Century Gothic Bold, Arial Bold, sans-serif;
+  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
   font-size: 1.125rem;
   line-height: 1.25;
   color: $brand-gray40;
-}
-
-
-/*
-h1, h2, h3, h4, h5, h6 {
-  margin: $baseline 0;
-
-  font-family: $font-heading;
-  font-weight: 800;
-  line-height: $baseline;
-  text-transform: uppercase;
-  color: $black;
-}
-
-h1, .fake-h1 {
-  font-size: 2.625em;
-  line-height: $baseline*2;
-}
-
-h2, .fake-h2 {
-  font-size: 1.5em;
-  line-height: $baseline*1.5;
-  margin: $baseline 0 $baseline;
-}
-
-h3, .fake-h3 {
-  font-size: 1.25em;
-}
-
-h4, .fake-h4 {
-  font-size: 1em;
-  margin: $baseline 0 0;
-}
-
-h5, .fake-h5 {
-  font-family: $font-body;
-  font-size: 1em;
-  margin: $baseline 0 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-h6, .fake-h6 {
-  font-family: $font-body;
-  font-size: 0.75em;
 }
 
 a {
@@ -107,7 +62,7 @@ a.decorated {
   font-style: italic;
   font-family: "chaparral-pro", serif;
 }
-*/
+
 caption {
   font-style: italic;
 }
@@ -124,7 +79,7 @@ ol, ul, p, pre, table, form, caption {
 }
 
 pre, code, kbd, samp {
-  font: 1em/1.625em $font-code;
+  font: 1em/1.625em Menlo, Consolas, 'DejaVu Sans Mono', Monaco, 'Courier New', Courier, monospace;
 }
 
 pre {
