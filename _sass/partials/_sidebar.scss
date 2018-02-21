@@ -25,15 +25,25 @@
   }
 }
 
-.some-icon {
-  display: block;
-  margin-bottom: 2px;
-  height: 30px;
+.some-icons {
+  margin-bottom: 1em;
 }
 
-.some-icon-content {
-  padding: 3px;
-  background-color: $brand-gray240;
+.some-icon {
+  display: block;
+  margin-bottom: 4px;
+  height: 30px;
+
+  > .some-icon-content {
+    padding: 6px 12px 6px 6px;
+    background-color: $brand-gray240;
+
+    > .some-icon-img {
+      margin-right: 5px;
+      position: relative;
+      top: 8px;
+    }
+  }
 }
 
 .tag-cloud {
