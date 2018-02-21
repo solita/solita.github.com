@@ -27,18 +27,9 @@
   display: inline-block;
   margin: 0 0 0 0.1em;
   vertical-align: middle;
-  font-size: 2em;
-
-  a {
-    border: 0;
-    color: $black;
-    font-weight: 400;
-    text-transform: none;
-  }
 
   @media (min-width: $breakpoint-3) {
     margin: 0;
-    font-size: 2.625em;
   }
 }
 
