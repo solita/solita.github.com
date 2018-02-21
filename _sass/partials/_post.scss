@@ -24,13 +24,8 @@
   font-weight: 800;
 
   @media (min-width: $breakpoint-3) {
-    max-width: 150px;
-    padding: 0 0 0 57px;
+    padding: 5px;
     line-height: 1.25;
-
-    .date {
-      display: block;
-    }
   }
 
   .avatar {
