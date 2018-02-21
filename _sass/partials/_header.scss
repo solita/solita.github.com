@@ -27,9 +27,13 @@
   display: inline-block;
   margin: 0 0 0 0.1em;
   vertical-align: middle;
+  position: static;
+  top: auto;
 
   @media (min-width: $breakpoint-3) {
     margin: 0;
+    position: relative;
+    top: 8px;
   }
 }
 
