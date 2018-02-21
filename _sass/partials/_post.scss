@@ -15,12 +15,17 @@
 
 .post-meta {
   padding: 6px 0 0 0;
+  margin-bottom: 0.5em;
   font-size: 0.8em;
-  font-weight: 800;
 
   @media (min-width: $breakpoint-3) {
     padding: 5px;
     line-height: 1.25;
+  }
+
+  .post-meta-divider {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
   }
 
   .avatar {
@@ -32,6 +37,10 @@
         max-width: 42px;
       }
     }
+  }
+
+  .author {
+    margin-left: 0.7em;
   }
 
   .icon {
