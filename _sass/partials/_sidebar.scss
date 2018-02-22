@@ -35,13 +35,16 @@
   color: $color-text;
 
   > .some-icon-content {
-    padding: 8px 12px 8px 8px;
+    display: inline-block;
+    padding: 4px 6px 4px 4px;
     background-color: $brand-gray240;
 
     > .some-icon-img {
       margin-right: 10px;
-      position: relative;
-      top: 8px;
+    }
+
+    > * {
+      vertical-align: middle;
     }
   }
 }
@@ -54,13 +57,7 @@
     padding: 0.5em;
     margin: 0 0.25em 0.25em 0;
     border-radius: 2px;
-
-    background: $brand-gray250;
-
+    background-color: $brand-gray240;
     color: $color-text;
-
-    &:hover {
-      background: lighten($brand-gray250, 3%);
-    }
   }
 }
