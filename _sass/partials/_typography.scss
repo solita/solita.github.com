@@ -160,14 +160,14 @@ h5 {
 .link-arrow-right {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 8px;
+  margin-left: 6px;
   position: relative;
-  top: -2px;
+  top: -1px;
   width: 0;
   height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 13px solid $brand-red;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 10px solid $brand-red;
 }
 
 @mixin link-hover {
@@ -194,7 +194,7 @@ a {
     @include link-hover;
 
     .link-arrow-right {
-      border-left: 13px solid $brand-gray80;
+      border-left: 10px solid $brand-gray80;
     }
   }
 
@@ -214,14 +214,12 @@ a {
   font-family: ”Sharp Sans Medium”, Arial, sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: $color-text;
 }
 
 .minor-text {
   font-family: ”Sharp Sans Medium”, Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
-  color: $color-text;
 }
 
 // Other elements
