@@ -145,21 +145,6 @@ h5 {
 
 // Links
 
-a {
-  color: $brand-red;
-  text-decoration: none;
-
-  &:hover {
-    color: $brand-gray80;
-    text-decoration: underline;
-  }
-
-  &:active {
-    color: $brand-gray40;
-    text-decoration: underline;
-  }
-}
-
 .link-arrow-right {
   display: inline-block;
   vertical-align: middle;
@@ -171,6 +156,29 @@ a {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-left: 13px solid $brand-red;
+}
+
+a {
+  color: $brand-red;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-gray80;
+    text-decoration: underline;
+
+    .link-arrow-right {
+      border-left: 13px solid $brand-gray80;
+    }
+  }
+
+  &:active {
+    color: $brand-gray40;
+    text-decoration: underline;
+
+    .link-arrow-right {
+      border-left: 13px solid $brand-gray40;
+    }
+  }
 }
 
 // Other
