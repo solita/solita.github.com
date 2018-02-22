@@ -21,7 +21,7 @@ main {
   padding: 0 10px;
 
   @media (min-width: $breakpoint-2) {
-    max-width: 700px;
+    max-width: $primary-width;
   }
   @media (min-width: $breakpoint-3) {
     max-width: 1000px;
