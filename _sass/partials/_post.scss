@@ -8,6 +8,15 @@
 
   a {
     color: $color-text;
+    text-decoration: none;
+
+    &:hover {
+      @include link-hover;
+    }
+
+    &:active {
+      @include link-active;
+    }
   }
 }
 
