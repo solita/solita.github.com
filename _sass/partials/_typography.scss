@@ -160,6 +160,19 @@ a {
   }
 }
 
+.link-arrow-right {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  position: relative;
+  top: -2px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid $brand-red;
+}
+
 // Other
 
 caption {
