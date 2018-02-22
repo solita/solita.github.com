@@ -207,7 +207,14 @@ a {
   }
 }
 
-// Other
+// Other text styles
+
+small-text {
+  font-family: ”Sharp Sans Medium”, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $brand-gray40;
+}
 
 .minor-text {
   font-family: ”Sharp Sans Medium”, Arial, sans-serif;
@@ -215,6 +222,8 @@ a {
   line-height: 1.5;
   color: $brand-gray40;
 }
+
+// Other elements
 
 caption {
   font-style: italic;
