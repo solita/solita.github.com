@@ -5,9 +5,10 @@ layout: default
 
 <div class="post single">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-        <span class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></span>
-    </p>
+    <div class="post-meta">
+        <div class="author">by  <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></div>
+        <div class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</div>
+    </div>
 
     <div class="post-content">
         {{ content }}

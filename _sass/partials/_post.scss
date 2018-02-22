@@ -48,18 +48,6 @@
   .author {
     margin-left: 0.7em;
   }
-
-  .icon {
-    display: none;
-    position: absolute;
-
-    @media (min-width: $breakpoint-3) {
-      display: block;
-      left: -44px;
-      top: -37px;
-      z-index: 2;
-    }
-  }
 }
 
 .post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
