@@ -1,5 +1,8 @@
 /* TYPOGRAPHY
 ----------------------------------------------------------------------------- */
+
+// Fonts
+
 @font-face {
   font-family: 'Sharp Sans Medium';
   src: url('/fonts/SharpSans-Medium.woff2') format('woff2'),
@@ -87,6 +90,8 @@
 }
  */
 
+// Body
+
 body {
   font-family: "Sharp Sans Medium", Arial, sans-serif;
   font-size: 1rem;
@@ -98,6 +103,8 @@ body {
 body, input, textarea {
   color: $color-text;
 }
+
+// Headings
 
 h1 {
   font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
@@ -136,19 +143,24 @@ h5 {
   color: $brand-gray40;
 }
 
+// Links
+
 a {
-  color: $cerise;
+  color: $brand-red;
   text-decoration: none;
 
-  &:active, &:focus {
-    color: darken($cerise, 10%);
+  &:hover {
+    color: $brand-gray80;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $brand-gray40;
+    text-decoration: underline;
   }
 }
 
-a.decorated {
-  font-style: italic;
-  font-family: "chaparral-pro", serif;
-}
+// Other
 
 caption {
   font-style: italic;

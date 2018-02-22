@@ -1,6 +1,4 @@
 .pagination {
-  @extend a.decorated;
-
   @media (min-width: $breakpoint-3) {
     text-align: center;
   }
