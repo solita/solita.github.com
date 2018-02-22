@@ -17,7 +17,7 @@ main {
   @include clearfix;
 }
 
-.wrapper {
+.site-content-wrapper {
   padding: 0 10px;
 
   @media (min-width: $breakpoint-2) {
@@ -28,7 +28,7 @@ main {
   }
 }
 
-.wrapper, .row {
+.site-content-wrapper, .row {
   margin: 0 auto;
   @include clearfix;
 }

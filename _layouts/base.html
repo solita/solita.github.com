@@ -41,7 +41,7 @@
 
         <main>
 
-            <div class="wrapper">
+            <div class="site-content-wrapper">
                 <header class="site-header">
                     <a class="site-logo" href="http://dev.solita.fi">
                         <img class="site-logo-img" src="/img/solita-dev-logo.svg" alt="Solita"/>
@@ -51,7 +51,7 @@
                 </header>
             </div>
 
-            <div class="main wrapper" role="main">
+            <div class="main site-content-wrapper" role="main">
                 <div class="primary">
                     {{ content }}
                 </div>
@@ -63,23 +63,29 @@
 
         </main>
 
-        <div class="wrapper site-footer-wrapper">
-            <footer class="site-footer">
+        <footer class ="site-footer-wrapper">
+            <div class="site-content-wrapper">
+                <div class="site-footer-content">
 
-                <a class="site-logo" href="http://www.solita.fi">
-                    <img class="site-logo-img" src="img/solita-dev-logo.svg" alt="Solita"/>
-                </a>
+                    <a class="site-logo" href="http://www.solita.fi">
+                        <img class="site-logo-img" src="img/Solita-footer-logo-white.svg" alt="Solita"/>
+                    </a>
 
-                <div class="site-footer-links">
-                    <a href="http://dev.solita.fi/">Solita.fi</a>
-                    <a href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a>
-                    <a href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a>
-                    <a href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a>
-                    <a href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a>
-                    <a href="https://www.instagram.com/solitaoy/">Instagram</a>
+                    <div class="site-footer-links">
+                        <a href="http://dev.solita.fi/">Solita.fi</a>
+                        <span class="text-divider">|</span>
+                        <a href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a>
+                        <span class="text-divider">|</span>
+                        <a href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a>
+                        <span class="text-divider">|</span>
+                        <a href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a>
+                        <span class="text-divider">|</span>
+                        <a href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a>
+                        <a href="https://www.instagram.com/solitaoy/">Instagram</a>
+                    </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
 
         <div id="templates" style="display: none;">
             <a href="#" class="avatar">
