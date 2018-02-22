@@ -29,35 +29,6 @@
   margin-bottom: 1em;
 }
 
-.some-icon {
-  display: block;
-  margin-bottom: 5px;
-
-  @include link-body;
-
-  &:hover .some-icon-text {
-    @include link-hover;
-  }
-
-  &:active .some-icon-text {
-    @include link-active;
-  }
-
-  > .some-icon-content {
-    display: inline-block;
-    padding: 4px 6px 4px 4px;
-    background-color: $brand-gray240;
-
-    > .some-icon-img {
-      margin-right: 10px;
-    }
-
-    > * {
-      vertical-align: middle;
-    }
-  }
-}
-
 .tag-cloud {
   .tag {
     display: inline-block;

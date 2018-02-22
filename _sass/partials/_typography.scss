@@ -9,7 +9,7 @@ $color-text: $brand-gray40;
 @font-face {
   font-family: 'Sharp Sans Medium';
   src: url('/fonts/SharpSans-Medium.woff2') format('woff2'),
-       url('/fonts/SharpSans-Medium.woff') format('woff');
+  url('/fonts/SharpSans-Medium.woff') format('woff');
 }
 
 @font-face {
@@ -142,7 +142,7 @@ h4 {
   text-transform: uppercase;
   line-height: 1.25;
   color: $color-text;
-  margin:$baseline 0 0;
+  margin: $baseline 0 0;
 
 }
 
@@ -151,7 +151,7 @@ h5 {
   font-size: 1.125rem;
   line-height: 1.25;
   color: $color-text;
-  margin:$baseline 0 0;
+  margin: $baseline 0 0;
 
 }
 
@@ -201,7 +201,6 @@ a {
   &:active {
     @include link-active;
 
-
     .link-arrow-right {
       border-left: 13px solid $color-text;
     }
@@ -210,14 +209,18 @@ a {
 
 // Other text styles
 
-.small-text {
-  font-family: ”Sharp Sans Medium”, Arial, sans-serif;
+@mixin small-text-mx {
+  font-family: "Sharp Sans Medium", Arial, sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
+.small-text {
+  @include small-text-mx;
+}
+
 .minor-text {
-  font-family: ”Sharp Sans Medium”, Arial, sans-serif;
+  font-family: "Sharp Sans Medium", Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
 }
