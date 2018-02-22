@@ -6,8 +6,10 @@ layout: default
 <div class="post single">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta post-meta-big minor-text">
-        <div class="author">by  <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></div>
-        <div class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</div>
+        <div class="meta-rows">
+            <div class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></div>
+            <div class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</div>
+        </div>
     </div>
 
     <article class="post-content">
