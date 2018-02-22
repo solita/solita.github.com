@@ -73,13 +73,14 @@
   margin-left: 0.5em;
 }
 
-.post-meta-big {
-  .author {
-    margin-left: 0;
-  }
-}
-
-.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
+.post-excerpt,
+.post-content > p,
+.post-content > ul,
+.post-content > ol,
+.post-content > blockquote,
+.post-content td,
+.post-content th,
+.post-content caption {
   font-size: 1rem;
   line-height: $baseline;
 }
