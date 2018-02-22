@@ -1,5 +1,92 @@
 /* TYPOGRAPHY
 ----------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Sharp Sans Medium';
+  src: url('/fonts/SharpSans-Medium.woff2') format('woff2'),
+       url('/fonts/SharpSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Bold';
+  src: url('/fonts/SharpSans-Bold.woff2') format('woff2'),
+  url('/fonts/SharpSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Semibold';
+  src: url('/fonts/SharpSans-Semibold.woff2') format('woff2'),
+  url('/fonts/SharpSans-Semibold.woff') format('woff');
+}
+
+/* These are currently not used:
+
+@font-face {
+  font-family: 'Sharp Sans BoldItalic';
+  src: url('/fonts/SharpSans-BoldItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans BookItalic';
+  src: url('/fonts/SharpSans-BookItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-BookItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Extrabold';
+  src: url('/fonts/SharpSans-Extrabold.woff2') format('woff2'),
+  url('/fonts/SharpSans-Extrabold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans ExtraboldItalic';
+  src: url('/fonts/SharpSans-ExtraboldItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-ExtraboldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Light';
+  src: url('/fonts/SharpSans-Light.woff2') format('woff2'),
+  url('/fonts/SharpSans-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans LightItalic';
+  src: url('/fonts/SharpSans-LightItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Medium';
+  src: url('/fonts/SharpSans-Medium.woff2') format('woff2'),
+  url('/fonts/SharpSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans MediumItalic';
+  src: url('/fonts/SharpSans-MediumItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-MediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans SemiboldItalic';
+  src: url('/fonts/SharpSans-SemiboldItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-SemiboldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans Thin';
+  src: url('/fonts/SharpSans-Thin.woff2') format('woff2'),
+  url('/fonts/SharpSans-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sharp Sans ThinItalic';
+  src: url('/fonts/SharpSans-ThinItalic.woff2') format('woff2'),
+  url('/fonts/SharpSans-ThinItalic.woff') format('woff');
+}
+ */
+
 body {
   font-family: "Sharp Sans Medium", Arial, sans-serif;
   font-size: 1rem;
