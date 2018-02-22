@@ -13,12 +13,16 @@
                 email = authorLink.attr('title'),
                 avatar = avatarTemplate.clone(),
 
-            directives = {
-                img: {
-                    src: function () { return get_gravatar(email); },
-                    alt: function () { return username; }
-                }
-            };
+                directives = {
+                    img: {
+                        src: function () {
+                            return get_gravatar(email);
+                        },
+                        alt: function () {
+                            return username;
+                        }
+                    }
+                };
 
             avatar.render({}, directives);
             avatar.attr('href', url);
