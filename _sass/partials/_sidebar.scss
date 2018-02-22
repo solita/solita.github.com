@@ -32,7 +32,16 @@
 .some-icon {
   display: block;
   margin-bottom: 5px;
-  color: $color-text;
+
+  @include link-body;
+
+  &:hover .some-icon-text {
+    @include link-hover;
+  }
+
+  &:active .some-icon-text {
+    @include link-active;
+  }
 
   > .some-icon-content {
     display: inline-block;
@@ -50,14 +59,21 @@
 }
 
 .tag-cloud {
-  font-size: 1rem;
-
   .tag {
     display: inline-block;
     padding: 0.5em;
     margin: 0 0.25em 0.25em 0;
     border-radius: 2px;
     background-color: $brand-gray240;
-    color: $color-text;
+
+    @include link-body;
+
+    &:hover {
+      @include link-hover;
+    }
+
+    &:active {
+      @include link-active;
+    }
   }
 }

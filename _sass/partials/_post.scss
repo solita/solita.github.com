@@ -7,8 +7,7 @@
   margin: 0 0 0.5em;
 
   a {
-    color: $color-text;
-    text-decoration: none;
+    @include link-body;
 
     &:hover {
       @include link-hover;

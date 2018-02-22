@@ -179,6 +179,12 @@ h5 {
   text-decoration: underline;
 }
 
+/* Text link which looks like a normal body text */
+@mixin link-body {
+  color: $color-text;
+  text-decoration: none;
+}
+
 a {
   color: $brand-red;
   text-decoration: none;
