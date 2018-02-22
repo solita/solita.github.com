@@ -39,7 +39,7 @@
 
     <body>
 
-        <main>
+        <div>
 
             <div class="site-content-wrapper">
                 <header class="site-header">
@@ -52,16 +52,16 @@
             </div>
 
             <div class="main site-content-wrapper" role="main">
-                <div class="primary">
+                <main class="primary">
                     {{ content }}
-                </div>
+                </main>
 
                 <aside class="sidebar">
                     {% include sidebar.html %}
                 </aside>
             </div>
 
-        </main>
+        </div>
 
         <footer class ="site-footer-wrapper">
             <div class="site-content-wrapper">
