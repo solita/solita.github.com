@@ -1,6 +1,8 @@
 /* TYPOGRAPHY
 ----------------------------------------------------------------------------- */
 
+$baseline: 24px;
+
 // Fonts
 
 @font-face {
@@ -106,6 +108,10 @@ body, input, textarea {
 
 // Headings
 
+h1, h2, h3, h4, h5, h6 {
+  margin: $baseline 0;
+}
+
 h1 {
   font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
   font-size: 2.5rem;
@@ -118,6 +124,7 @@ h2 {
   font-size: 1.75rem;
   line-height: 1.25;
   color: $brand-gray40;
+  margin: $baseline 0 $baseline;
 }
 
 h3 {
@@ -134,6 +141,8 @@ h4 {
   text-transform: uppercase;
   line-height: 1.25;
   color: $brand-gray40;
+  margin:$baseline 0 0;
+
 }
 
 h5 {
@@ -141,6 +150,8 @@ h5 {
   font-size: 1.125rem;
   line-height: 1.25;
   color: $brand-gray40;
+  margin:$baseline 0 0;
+
 }
 
 // Links
