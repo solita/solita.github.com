@@ -157,7 +157,7 @@ h5 {
 
 // Links
 
-.link-arrow-right {
+@mixin arrow-right ($color) {
   display: inline-block;
   vertical-align: middle;
   margin-left: 6px;
@@ -167,7 +167,36 @@ h5 {
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 10px solid $brand-red;
+  border-left: 10px solid $color;
+}
+
+@mixin arrow-left ($color) {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -1px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid $color;
+}
+
+.arrow-right {
+  @include arrow-right($color-text)
+}
+
+.arrow-left {
+  @include arrow-left($color-text)
+}
+
+.link-arrow-right {
+  @include arrow-right($brand-red)
+}
+
+.link-arrow-left {
+  @include arrow-left($brand-red)
 }
 
 @mixin link-hover {
@@ -196,6 +225,10 @@ a {
     .link-arrow-right {
       border-left: 10px solid $brand-gray80;
     }
+
+    .link-arrow-left{
+      border-right: 10px solid $brand-gray80;
+    }
   }
 
   &:active {
@@ -204,6 +237,11 @@ a {
     .link-arrow-right {
       border-left: 10px solid $color-text;
     }
+
+    .link-arrow-left {
+      border-right: 10px solid $color-text;
+    }
+
   }
 }
 
