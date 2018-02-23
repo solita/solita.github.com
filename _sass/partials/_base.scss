@@ -18,9 +18,10 @@ main {
 }
 
 .site-content-wrapper {
-  padding: 0 10px;
+  padding: 0 20px;
 
   @media (min-width: $breakpoint-2) {
+    padding: 0 40px;
     max-width: $primary-width;
   }
   @media (min-width: $breakpoint-3) {
