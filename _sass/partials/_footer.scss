@@ -17,6 +17,8 @@
 .site-footer-links {
   @include small-text-mx;
   color: $brand-gray230;
+  position: relative;
+  top: -2px;
 
   a {
     display: inline-block;
