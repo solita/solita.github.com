@@ -8,7 +8,8 @@
   text-align: center;
 
   @media (min-width: $breakpoint-3) {
-    text-align: right;
+    text-align: left;
+    padding-left: 180px;
   }
 }
 
