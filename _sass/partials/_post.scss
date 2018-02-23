@@ -5,18 +5,6 @@
 
 .post-title {
   margin: 0 0 0.5em;
-
-  a {
-    @include link-body;
-
-    &:hover {
-      @include link-hover;
-    }
-
-    &:active {
-      @include link-active;
-    }
-  }
 }
 
 $post-meta-small-image-size-desktop: 40px;

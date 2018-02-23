@@ -157,7 +157,7 @@ h5 {
 
 // Links
 
-@mixin arrow-right ($color) {
+@mixin arrow-right($color) {
   display: inline-block;
   vertical-align: middle;
   margin-left: 6px;
@@ -170,7 +170,7 @@ h5 {
   border-left: 10px solid $color;
 }
 
-@mixin arrow-left ($color) {
+@mixin arrow-left($color) {
   display: inline-block;
   vertical-align: middle;
   margin-right: 6px;
@@ -209,8 +209,12 @@ h5 {
   text-decoration: underline;
 }
 
-/* Text link which looks like a normal body text */
-@mixin link-body {
+@mixin link-active-heading {
+  color: $brand-red;
+  text-decoration: underline;
+}
+
+@mixin link-body { // Text link which looks like a normal body text
   color: $color-text;
   text-decoration: none;
 }
@@ -226,7 +230,7 @@ a {
       border-left: 10px solid $brand-gray80;
     }
 
-    .link-arrow-left{
+    .link-arrow-left {
       border-right: 10px solid $brand-gray80;
     }
   }
@@ -242,6 +246,18 @@ a {
       border-right: 10px solid $color-text;
     }
 
+  }
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  @include link-body;
+
+  &:hover {
+    @include link-hover;
+  }
+
+  &:active {
+    @include link-active-heading;
   }
 }
 
