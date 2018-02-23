@@ -17,9 +17,7 @@ layout: default
                    {% if tag != page.tags[0] %}
                         <span class="text-divider-bullet">&#9679;</span>
                     {% endif %}
-                <!-- FIXME Link does not work -->
-                <!-- <a class="post-meta-tag" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">{{ tag }}</a> -->
-                <span class="post-meta-tag">{{ tag }}</span>
+                <a class="post-meta-tag" data-count="{{ tag | size }}" href="/tags.html#{{ tag | slugify }}-ref">{{ tag }}</a>
                 {% endfor %}
             </div>
         </div>
