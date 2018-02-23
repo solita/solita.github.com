@@ -33,6 +33,8 @@ layout: default
     <span><span class="arrow-left"></span>Previous</span>
   {% endif %}
 
+    <span class="text-divider">|</span>
+
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
       <em class="pagination-item">{{ page }}</em>
@@ -42,6 +44,8 @@ layout: default
       <a class="pagination-item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
+
+    <span class="text-divider">|</span>
 
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
