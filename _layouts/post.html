@@ -6,9 +6,19 @@ layout: default
 <div class="post single">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta post-meta-big minor-text">
-        <div class="meta-rows">
-            <div class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></div>
-            <div class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</div>
+        <div class="post-meta-rows">
+            <div class="post-meta-basic-info">
+                <span class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></span>
+                <span class="text-divider">|</span>
+                <span class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</span>
+            </div>
+            <div class="post-meta-tags">
+                {% for tag in page.tags %}
+                <!-- FIXME Link does not work -->
+                <!-- <a class="post-meta-tag" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">{{ tag }}</a> -->
+                <span class="post-meta-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

@@ -249,12 +249,7 @@ a {
   }
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  @include link-body;
-
-  &:hover {
-    @include link-hover;
-  }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
 
   &:active {
     @include link-active-heading;
