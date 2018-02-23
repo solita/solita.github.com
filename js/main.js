@@ -1,6 +1,6 @@
 (function () {
 
-    var AVATAR_SIZE = 50;
+    var AVATAR_SIZE = 80;
 
     $(document).ready(function () {
         var avatarTemplate = $('#templates .avatar').detach();
@@ -32,7 +32,8 @@
 
     function get_gravatar(email, size) {
         size = size || AVATAR_SIZE;
-        return 'http://www.gravatar.com/avatar/' + email + '.jpg';
+        var defaultImage = 'http://dev.solita.fi/img/solita-person-placeholder.png';
+        return 'https://www.gravatar.com/avatar/' + email + '.jpg?size=' + size + '&default=' + defaultImage;
     }
 
 }());
