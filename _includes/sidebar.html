@@ -61,7 +61,7 @@
 <div class="tag-cloud">
     {% assign tags = site.tags | sort %}
     {% for tag in tags %}
-    <a class="button-secondary-default-dark" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">
+    <a class="tag button-secondary-default-dark" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">
         {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
         {% endfor %}
 </div>

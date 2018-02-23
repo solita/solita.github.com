@@ -28,3 +28,9 @@
 .some-icons {
   margin-bottom: 1em;
 }
+
+/* FIXME At the moment I was writing this, there is a bug in the tag-cloud generator (sidebar.html)
+   Some tags are generated outside the sidebar. I have no idea why this is happening.
+   Temporal solution is included here: hide all tags which are not inside the tag cloud.*/
+.tag { display: none; }
+.tag-cloud .tag { display: inline-block; }
