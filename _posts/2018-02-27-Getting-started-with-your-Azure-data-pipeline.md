@@ -88,7 +88,7 @@ Credentials are connected to the folder inside the Data Lake, so you can't creat
 
 
 ## Summary:
-In case where schemas won’t change or have little changes external tables are a good way of managing regular data flows. Automating loads between ADL and ADW, Microsoft  suggest SSIS usage. There is also an open source option [Airflow](https://airflow.apache.org/), which is a platform to programmatically author, schedule and monitor workflows.
+In case where schemas won’t change or have little changes external tables are a good way of managing regular data flows. Automating loads between ADL and ADW, Microsoft  suggest [SSIS](https://docs.microsoft.com/en-us/sql/integration-services/data-flow/azure-data-lake-store-source) usage. There is also an open source option [Airflow](https://airflow.apache.org/), which is a platform to programmatically author, schedule and monitor workflows.
 
 
 * [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql)
