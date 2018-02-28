@@ -19,7 +19,7 @@ Majority of data project limbo around text files. Companies have 10s of differen
 ### Azure
 Storaging, analysing and loading them into Azure is a good option. Azure has several different storage related services available, choosing the right one should always be done case by case. Most convenient one is [Azure Data Lake(ADL)](https://azure.microsoft.com/en-us/solutions/data-lake/). ADL is the dream storage place for developer, data scientists and analysts, that need scalable data storage, with easy access to big data. It has all the capabiltities an enterpise needs, security, manageability, scalability, reliability and availability to serve demanding storage requierments. Data projects start with gathering these text files into ADL and then copying them into [Azure data warehouse(ADW)](https://azure.microsoft.com/en-us/services/sql-data-warehouse/?v=17.44)/[SQL server](https://azure.microsoft.com/en-us/services/sql-database/) for reporting. Finding suitable way for doing that can be challenging and time consuming.
 
-Azure provides options like [ Azure Data Factor](https://azure.microsoft.com/en-gb/services/data-factory/) and [PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide). Azure Data factor(ADF) is a data processing tool, for managing data pipelines. It is a fully managed ETL service in cloud. ADF can orchestrate data flows from on-premise and cloud sources, which makes it a very flexible and easy to use tool for moving data to and from ADL. It is not just for copying data into databases, you can schedule, manage, analyse, processes and monitor your data pipeline with it. As of most of the systems change, schemas and data models do that as well. ADF works well when nothing isn’t changed in the table side.
+Azure provides options like [ Azure Data Factor(ADF)](https://azure.microsoft.com/en-gb/services/data-factory/) and [PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide). Azure Data factor(ADF) is a data processing tool, for managing data pipelines. It is a fully managed ETL service in cloud. ADF can orchestrate data flows from on-premise and cloud sources, which makes it a very flexible and easy to use tool for moving data to and from ADL. It is not just for copying data into databases, you can schedule, manage, analyse, processes and monitor your data pipeline with it. As of most of the systems change, schemas and data models do that as well. ADF works well when nothing isn’t changed in the table side.
 
 On average text files that are > 1 GB that need to be load into ADW/SQL server, would be suggestively done with Polybase. PolyBase is a technology that connects external/internal data with database via t-sql language.
 
@@ -89,5 +89,8 @@ Credentials are connected to the folder inside the Data Lake, so you can't creat
 
 ## Summary:
 In case where schemas won’t change or have little changes external tables are a good way of managing regular data flows. Automating loads between ADL and ADW, Microsoft  suggest SSIS usage. There is also an open source option [Airflow](https://airflow.apache.org/), which is a platform to programmatically author, schedule and monitor workflows.
+
+
+
 
 
