@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting up your first data pipline in Azure
+title: Getting started with your Azure data pipeline
 author: kaarelkorvemaa
 excerpt: Getting started with your Azure data pipeline
 tags:
