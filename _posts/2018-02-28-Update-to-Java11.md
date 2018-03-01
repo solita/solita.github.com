@@ -11,7 +11,9 @@ tags:
 
 I recently wrote an article on updating your environment to Java 9 for better modularity and less memory and disk footprint. Turns out, that was not cutting edge enough, since many are already using Java 9 to run production systems. Also, after my article, there was some news coverage on how Java 9 and 10 will end up having very short support period, and many people potentially jumping straight to Java 11. Let's do that!
 
-Java 11 early access release is already out. Safest way to try it out is to whip out the Docker, as we did last time.
+![Java 11 - come out and play!](/img/java11/Java_11_image.png)
+
+Java 11 early access release is already out. If you want to take a look at what's coming up you can download it and start hacking. Safest way to try it out is to whip out the Docker, as we did last time.
 
 ## Whip out the Docker
 
