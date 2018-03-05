@@ -1,8 +1,6 @@
 .pagination {
-  @extend a.decorated;
-
   @media (min-width: $breakpoint-3) {
-      padding-left: $primary-width - 520px;
+    text-align: center;
   }
 }
 

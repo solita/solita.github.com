@@ -11,7 +11,7 @@
 
 img {
   border: 0;
-  max-width:100%;
+  max-width: 100%;
   -ms-interpolation-mode: bicubic;
 }
 
@@ -23,15 +23,17 @@ img, embed, object, video {
 
 /* Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 */
 sub, sup {
-    font-size: 0.625em;
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 0.625em;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
+
 sup {
-    top: -0.5em;
+  top: -0.5em;
 }
+
 sub {
-    bottom: -0.25em;
+  bottom: -0.25em;
 }

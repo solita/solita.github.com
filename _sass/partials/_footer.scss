@@ -1,26 +1,39 @@
-.site-footer {
-    position: relative;
-    padding: $baseline*3 0;
+.site-footer-wrapper {
+  background-color: $brand-gray40;
+}
 
-    text-align: center;
+.site-footer-content {
+  position: relative;
+  padding-top: 90px;
+  height: 120px;
+  text-align: center;
 
-    @media (min-width: $breakpoint-3) {
-        text-align: right;
-    }
+  @media (min-width: $breakpoint-3) {
+    text-align: left;
+    padding-left: 180px;
+  }
 }
 
 .site-footer-links {
-    margin-top: 1em;
+  @include small-text-mx;
+  color: $brand-gray230;
+  position: relative;
+  top: -2px;
 
-    a {
-        display: inline-block;
-        padding: 0.25em 0.5em;
-        border-right: 1px $cerise solid;
+  a {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    color: $brand-gray230;
 
-        &:last-child {
-            border-right: none;
-            padding-right: 0
-        }
+    &:last-child {
+      border-right: none;
+      padding-right: 0
     }
+  }
+}
 
+.site-footer-content .site-logo-img {
+  vertical-align: middle;
+  height: 20px;
+  margin-bottom: 10px;
 }
