@@ -68,8 +68,8 @@ There is a [AsciiDoc plugin](https://plugins.jetbrains.com/plugin/7391-asciidoc)
 
 ### Possibilities
 
-Having the user manual as "code" offers further possibilities to automate or control the documentation process. We have already a script which checks that all image links refer to an existing image. And vice versa, we also have a script which removed all such images that are no referred ny any link. This way the repository does not get overwhelmed with outdated images. Also, the converting and delivering the final html files to customer could be automated as some Jenkins build.
+Having the user manual as "code" offers further possibilities to automate or control the documentation process. We have already a script which checks that all image links refer to an existing image. And vice versa, we also have a script which removed all such images that are not referred by any link. This way the repository does not get overwhelmed with outdated images. Also, the converting and delivering the final html files to customer could be automated as some Jenkins build.
 
 ## Retrospective
 
-The conversion process took its time, but we think it definitely was worth it. We had green light also from the customer to optimize and rationalize our user instructions documentation process. After all, the customer was pleased with the results. In addition to, the new user manual is looks neat, the simplified delivery process relieves us to do something more sensible.
+The conversion process took its time, but we think it definitely was worth it. We had green light also from the customer to optimize and rationalize our user instructions documentation process. After all, the customer was pleased with the results. The new user manual is looks neat, and in addtion to, the simplified delivery process relieves us to do something more sensible.
