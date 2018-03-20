@@ -40,6 +40,8 @@ When the feature branch is finally merged to the develop, the different versions
 
 In addition to, it would be nice if generating the final html pages would be more fluent and more automated than in Confluence.
 
+![dream](/img/user-manual/dream.jpg)
+
 ## the Dream Come True
 
 We queried our developer community for help and got a hint. [AsciiDoctor](https://asciidoctor.org/) might be our dream come true. AsciiDoctor reads and parses text written in a special AsciiDoc syntax, which can then be converted, for example, to html. This really sounded fine. The next step was to find out how to implement this in practice. The Confluence pages should somehow be converted to the AsciiDoc syntax, figure out the project structure, and automate the import process with maven.
