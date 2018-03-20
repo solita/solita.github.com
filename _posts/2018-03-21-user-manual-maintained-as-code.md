@@ -12,7 +12,7 @@ tags:
 
 In our software project, we are dealing with an entire application family. Some of the applications are in maintenance phase, and some are in active development phase. However, new features emerge every now and then and old features are developed according to the feedback given by the users. This means that we need to update our user instruction documentation regularly.
 
-![user manual](/img/user_manual.jpg)
+![user manual](/img/user_manual/user_manual.jpg)
 
 ## the Old Way
 
@@ -50,7 +50,7 @@ At first, the Confluence pages were imported to html. After that, [HTMLToAsciiDo
 
 After the laborious conversion from Confluence pages to asciidoc and then to html was really worthy. The asciidoc files were clean and simple, easy to read, easy to edit. In addition to, the default css in AsciiDoctor utilized in the brand new user manual made our old user manual feel ancient.
 
-![great sucess](/img/excellent.jpg "http://maxpixel.freegreatpicture.com/")
+![great sucess](/img/user_manual/excellent.jpg "http://maxpixel.freegreatpicture.com/")
 
 ### Location
 
