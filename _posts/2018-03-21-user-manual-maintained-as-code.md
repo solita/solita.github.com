@@ -52,7 +52,7 @@ At first, the Confluence pages were imported to html. After that, [HTMLToAsciiDo
 
 After the laborious conversion from Confluence pages to asciidoc and then to html was really worthy. The asciidoc files were clean and simple, easy to read, easy to edit. In addition to, the default css in AsciiDoctor utilized in the brand new user manual made our old user manual feel ancient.
 
-![great sucess](/img/user-manual/excellent.jpg "http://maxpixel.freegreatpicture.com/")
+![great sucess](/img/user-manual/excellent.jpg)
 
 ### Location
 
