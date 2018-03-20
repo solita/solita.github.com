@@ -1,40 +1,69 @@
-<h4>Solita elsewhere</h4>
+<h5>More about Solita</h5>
 
 <div class="some-icons">
-    <a href="/rss.xml" rel="external" class="some-icon">
-        <i class="fa fa-rss"></i><span class="hidden">RSS</span>
-    </a>
 
-    <a href="https://twitter.com/SolitaOy" rel="external" class="some-icon">
-        <i class="fa fa-twitter"></i><span class="hidden">Twitter</span>
-    </a>
-    
-    <a href="http://www.linkedin.com/company/15589" rel="external" class="some-icon">
-        <i class="fa fa-linkedin"></i><span class="hidden">LinkedIn</span>
-    </a>
+    <div>
+        <a href="/rss.xml" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon " src="/img/rss-gray40.svg" alt="">
+            <span class="button-text">RSS /dev/solita</span>
+        </a>
+    </div>
 
-    <a href="http://www.facebook.com/Solita" rel="external" class="some-icon">
-        <i class="fa fa-facebook"></i><span class="hidden">Facebook</span>
-    </a>
+    <div>
+        <a href="https://www.solita.fi" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/www-gray40.svg" alt="">
+            <span class="button-text">solita.fi</span>
+        </a>
+    </div>
 
-    <a href="http://www.youtube.com/user/SolitaOy" rel="external" class="some-icon">
-        <i class="fa fa-youtube"></i><span class="hidden">Youtube</span>
-    </a>
+    <div>
+        <a href="http://www.facebook.com/Solita" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/fb-gray40.svg" alt="">
+            <span class="button-text">Facebook</span>
+        </a>
+    </div>
 
-    <a href="https://www.instagram.com/solitaoy/" rel="external" class="some-icon">
-        <i class="fa fa-instagram"></i><span class="hidden">Instagram</span>
-    </a>
+    <div>
+        <a href="http://www.linkedin.com/company/15589" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/lin-gray40.svg" alt="">
+            <span class="button-text">LinkedIn</span>
+        </a>
+    </div>
+
+    <div>
+        <a href="https://twitter.com/SolitaOy" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/twt-gray40.svg" alt="">
+            <span class="button-text">Twitter</span>
+        </a>
+    </div>
+
+    <div>
+        <a href="https://www.instagram.com/solitaoy/" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/inst-gray40.svg" alt="">
+            <span class="button-text">Instagram</span>
+        </a>
+    </div>
+
+    <div>
+        <a href="http://www.youtube.com/user/SolitaOy" rel="external" class="button-secondary-default-dark">
+            <img class="button-icon" src="/img/ytb-gray40.svg" alt="">
+            <span class="button-text">YouTube</span>
+        </a>
+    </div>
 </div>
 
 <p>
-    <a class="decorated" href="http://www.solita.fi/hae-meille/" rel="external">Work and write with us &raquo;</a>
+    <a class="small-text" href="http://www.solita.fi/hae-meille/" rel="external">Work and write with us
+        <span class="link-arrow-right"></span></a>
 </p>
 
-<h4>Tags</h4>
+<h5>Tags</h5>
 <div class="tag-cloud">
-	{% assign tags = site.tags | sort %} 
-	{% for tag in tags %}
-	<a class="tag" data-count="{{ tag | last | size }}" href="/tags.html#{{ tag | first | slugify }}-ref">
-			{{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
-	{% endfor %}
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+    <a class="tag button-secondary-default-dark" data-count="{{ tag | last | size }}"
+       href="/tags.html#{{ tag | first | slugify }}-ref">
+        {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+    </a>
+    {% endfor %}
 </div>

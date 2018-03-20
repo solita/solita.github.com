@@ -1,94 +1,84 @@
 .post {
-    margin-bottom:$baseline*2;
-    position:relative;
-
-    @media (min-width: $breakpoint-3) {
-        padding-left: $primary-width - 520px;
-        width: 520px;
-    }
+  margin-bottom: $baseline*2;
+  position: relative;
 }
 
 .post-title {
-    font-size: 1.65rem;
-    line-height: 1.25;
-    margin: 0 0 0.5em;
-
-    a {
-        color: $black;
-    }
+  margin: 0 0 0.5em;
+  /* h2 + bold */
+  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
 }
+
+$post-meta-big-image-size-desktop: 80px;
+$post-meta-small-image-size-desktop: 40px;
 
 .post-meta {
-    position: relative;
+  display: flex;
 
-    padding: 6px 0 0 0;
-
-    font-size: 0.8em;
-    font-weight: 800;
+  .avatar {
+    padding-right: 14px;
 
     @media (min-width: $breakpoint-3) {
-        position: absolute;
-        left: 0;
-        top: 3px;
-        max-width: 150px;
-
-        padding: 0 0 0 57px;
-
-        line-height: 1.25;
-
-        .date {
-            display:block;
-        }
+      padding-right: 18px;
     }
-
-    .avatar {
-        @media (min-width: $breakpoint-3) {
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        .img {
-            max-width:24px;
-            vertical-align: middle;
-
-            @media (min-width: $breakpoint-3) {
-                max-width:42px;
-            }
-        }
-    }
-
-    .icon {
-        display:none;
-        position:absolute;
-
-        @media (min-width: $breakpoint-3) {
-            display: block;
-            left:-44px;
-            top:-37px;
-            z-index:2;
-        }
-    }
+  }
 }
 
-.post-excerpt, .post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content td, .post-content th, .post-content caption {
-    font-size: 1rem;
-    line-height:$baseline;
+.post-meta-tag {
+  margin-right: 5px;
+}
+
+.post-meta-basic-info {
+  margin-bottom: 0.1em;
+}
+
+.post-meta-small {
+  .avatar {
+    img {
+      max-width: $post-meta-small-image-size-desktop;
+    }
+  }
+}
+
+.post-meta-big {
+  margin-bottom: 1em;
+
+  .post-meta-basic-info {
+    margin-top: ($post-meta-big-image-size-desktop / 2) - 20px;
+  }
+
+  .avatar {
+    img {
+      max-width: $post-meta-big-image-size-desktop;
+    }
+  }
+}
+
+.post-excerpt,
+.post-content > p,
+.post-content > ul,
+.post-content > ol,
+.post-content > blockquote,
+.post-content td,
+.post-content th,
+.post-content caption {
+  font-size: 1rem;
+  line-height: $baseline;
 }
 
 .post-excerpt {
-    margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .caption {
-    font-style: italic;
-    text-align: center;
+  font-style: italic;
+  text-align: center;
 }
 
 p + .caption {
-    margin-top: -$baseline/2;
+  margin-top: -$baseline/2;
 }
 
 .post-content {
-    margin-bottom: $baseline*2;
+  margin-bottom: $baseline*2;
 }

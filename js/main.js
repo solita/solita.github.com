@@ -1,6 +1,6 @@
 (function () {
 
-    var AVATAR_SIZE = 50;
+    var AVATAR_SIZE = 80;
 
     $(document).ready(function () {
         var avatarTemplate = $('#templates .avatar').detach();
@@ -13,22 +13,27 @@
                 email = authorLink.attr('title'),
                 avatar = avatarTemplate.clone(),
 
-            directives = {
-                img: {
-                    src: function () { return get_gravatar(email); },
-                    alt: function () { return username; }
-                }
-            };
+                directives = {
+                    img: {
+                        src: function () {
+                            return get_gravatar(email);
+                        },
+                        alt: function () {
+                            return username;
+                        }
+                    }
+                };
 
             avatar.render({}, directives);
             avatar.attr('href', url);
-            $this.append(avatar);
+            $this.prepend(avatar);
         });
     });
 
     function get_gravatar(email, size) {
         size = size || AVATAR_SIZE;
-        return 'http://www.gravatar.com/avatar/' + email + '.jpg';
+        var defaultImage = 'http://dev.solita.fi/img/solita-person-placeholder.png';
+        return 'https://www.gravatar.com/avatar/' + email + '.jpg?size=' + size + '&default=' + defaultImage;
     }
 
 }());

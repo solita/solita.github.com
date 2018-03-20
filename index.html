@@ -8,25 +8,41 @@ layout: default
 {% for post in paginator.posts %}
     <li class="post">
         <h2 class="post-title"><a href="{{ post.url }}">{{post.title}}</a></h2>
-
-        {% assign author = site.authors[post.author] %}
-        <p class="post-meta">
-            <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span> by <span class="author"><a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
-        </p>
-
         <p class="post-excerpt">{{ post.excerpt }}</p>
+        <div class="post-meta post-meta-small minor-text">
+            <div class="post-meta-rows">
+                <div class="post-meta-basic-info">
+                    {% assign author = site.authors[post.author] %}
+                    <span class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
+                    <span class="text-divider">|</span>
+                    <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span>
+                </div>
+                <div class="post-meta-tags">
+                    {% for tag in post.tags %}
+                        {% if tag != post.tags[0] %}
+                            <span class="text-divider-bullet">&#9679;</span>
+                        {% endif %}
+                    <a class="post-meta-tag" data-count="{{ tag | size }}" href="/tags.html#{{ tag | slugify }}-ref">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
 
-        <p><a href="{{ post.url }}" class="decorated">Read more &raquo;</a></p>
+        </div>
+
+        <!-- <p><a href="{{ post.url }}" class="decorated">Read more &raquo;</a></p> -->
     </li>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+        <span class="link-arrow-left"></span>Previous</a>
   {% else %}
-    <span>&laquo; Prev</span>
+    <span><span class="arrow-left"></span>Previous</span>
   {% endif %}
+
+    <span class="text-divider">|</span>
 
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
@@ -38,10 +54,13 @@ layout: default
     {% endif %}
   {% endfor %}
 
+    <span class="text-divider">|</span>
+
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+        Next<span class="link-arrow-right"></span></a>
   {% else %}
-    <span>Next &raquo;</span>
+    <span>Next<span class="arrow-right"></span></span>
   {% endif %}
 </div>
 {% endif %}
