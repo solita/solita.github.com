@@ -14,11 +14,11 @@ In our software project, we are dealing with an entire application family. Some 
 
 ## The Old Way
 
-We have maintained our user manual as a few enormous pages in Confluence. Confluence has offered a simple way to allow multiple editors, easy formatting and attaching images. When the software is delivered, the manual should be shipped with the new version. In our project, this has meant converting the Confluence pages to an html format, which then could be saved in a dedicated web server location for the users to find via internet.
+We have maintained our user manual as a few enormous pages in Confluence. Confluence has offered a simple way to allow multiple editors, easy formatting and attaching images. When the software is delivered, the manual should be shipped with the new version. In our project, this has meant converting the Confluence pages to an HTML format, which then could be saved in a dedicated web server location for the users to find via internet.
 
 ### Too much monkey business
 
-Importing turned out to be a lot of work despite being a basic functionality of Confluence. The manual work included editing the generated html files, such as, removing unnecessary content from the header and footer, removing the list of attachments and so on. Doing it once is not a big deal, but when you do it in every couple of weeks, it feels quite boring. We tried to find a way to customize the look-and-feel of the html import but there were not enough tools to handle it. Confluence offers extensive support customizing the output when converting to pdf but not when converting to html. Of course, some of the needs could have been handled with custom css, but it seemed not to be a long-lasting solution.
+Importing turned out to be a lot of work despite being a basic functionality of Confluence. The manual work included editing the generated HTML files, such as, removing unnecessary content from the header and footer, removing the list of attachments and so on. Doing it once is not a big deal, but when you do it in every couple of weeks, it feels quite boring. We tried to find a way to customize the look-and-feel of the HTML import but there were not enough tools to handle it. Confluence offers extensive support customizing the output when converting to PDF but not when converting to HTML. Of course, some of the needs could have been handled with custom CSS, but it seemed not to be a long-lasting solution.
 
 ### Outside the Natural Flow
 
@@ -36,19 +36,19 @@ Updating the user manual as we develop provides the updated instructions also fo
 
 When the feature branch is finally merged to the develop, the different versions of the user manual are merged too. If there are conflicts, they can be resolved like any other conflicts in the codebase.
 
-In addition to this, it would be nice if generating the final html pages would be more fluent and more automated than in Confluence.
+In addition to this, it would be nice if generating the final HTML pages would be more fluent and more automated than in Confluence.
 
 ![dream](/img/user-manual/dream.jpg)
 
 ## The Dream Come True
 
-We asked our developer community for help and got a hint. [AsciiDoctor](https://asciidoctor.org/) might be our dream come true. AsciiDoctor reads and parses text written in a special AsciiDoc syntax, which can then be converted, for example, to html. This really sounded fine. The next step was to find out how to implement this in practice. The Confluence pages should somehow be converted to the AsciiDoc syntax, figure out the project structure, and automate the import process with maven.
+We asked our developer community for help and got a hint. [AsciiDoctor](https://asciidoctor.org/) might be our dream come true. AsciiDoctor reads and parses text written in a special AsciiDoc syntax, which can then be converted, for example, to HTML. This really sounded fine. The next step was to find out how to implement this in practice. The Confluence pages should somehow be converted to the AsciiDoc syntax, figure out the project structure, and automate the import process with maven.
 
 ### To AsciiDoc
 
-At first, the Confluence pages were imported to html. After that, [HTMLToAsciiDoc](https://github.com/asciidocfx/HtmlToAsciidoc) converter was used to convert the html files to asciidoc files. The generated asciidoc files were not perfect, but at least they were in asciidoc format and the picture names were linked correctly. Furthermore, the asciidoc files needed to be groomed thoroughly by hand. Attachment lists, table of contents, meta information, and unnecessary formatting were removed. There were still plenty of issues that needed special attention: every inline icon link needed to be fixed, header notations corrected, bullet lists fixed, and internal links checked. Finally, the asciidoc files were imported to html and the new html pages were compared to the old html pages. This was done side by side with two browser windows. Was all the information there? Were the images, links and formatting correct? 
+At first, the Confluence pages were imported to HTML. After that, [HTMLToAsciiDoc](https://github.com/asciidocfx/HtmlToAsciidoc) converter was used to convert the HTML files to asciidoc files. The generated asciidoc files were not perfect, but at least they were in asciidoc format and the picture names were linked correctly. Furthermore, the asciidoc files needed to be groomed thoroughly by hand. Attachment lists, table of contents, meta information, and unnecessary formatting were removed. There were still plenty of issues that needed special attention: every inline icon link needed to be fixed, header notations corrected, bullet lists fixed, and internal links checked. Finally, the asciidoc files were imported to HTML and the new HTML pages were compared to the old HTML pages. This was done side by side with two browser windows. Was all the information there? Were the images, links and formatting correct? 
 
-The laborious conversion from Confluence pages to asciidoc, and then to html, was really worth it. The asciidoc files were clean and simple, easy to read, easy to edit. In addition to this, the default css in AsciiDoctor utilized in the brand new user manual made our old user manual feel ancient.
+The laborious conversion from Confluence pages to asciidoc, and then to HTML, was really worth it. The asciidoc files were clean and simple, easy to read, easy to edit. In addition to this, the default CSS in AsciiDoctor utilized in the brand new user manual made our old user manual feel ancient.
 
 ![great sucess](/img/user-manual/excellent.jpg)
 
@@ -58,15 +58,15 @@ The documentation is located in the same repository as the software code in a de
 
 ### Editing AsciiDoc
 
-There is a [AsciiDoc plugin](https://plugins.jetbrains.com/plugin/7391-asciidoc) available to IntelliJ IDEA which is used in our project. The AsciiDoc plugin provides syntax highlighting and html preview as you edit the asciidoc-file.  
+There is a [AsciiDoc plugin](https://plugins.jetbrains.com/plugin/7391-asciidoc) available to IntelliJ IDEA which is used in our project. The AsciiDoc plugin provides syntax highlighting and HTML preview as you edit the asciidoc-file.  
 
-### Converting to html
+### Converting to HTML
 
-[AsciiDoctor maven plugin](https://github.com/asciidoctor/asciidoctor-maven-plugin) provides a convenient way to convert the asciidoc documentation to html using maven. The plugin requires configuring the source and destination files for the documentation in a pom.xml. After that, the full user documentation in asciidoc can be converted to html with a single _mvn_ command. 
+[AsciiDoctor maven plugin](https://github.com/asciidoctor/asciidoctor-maven-plugin) provides a convenient way to convert the asciidoc documentation to HTML using maven. The plugin requires configuring the source and destination files for the documentation in a pom.xml. After that, the full user documentation in asciidoc can be converted to HTML with a single _mvn_ command. 
 
 ### Possibilities
 
-Having the user manual as "code" offers further possibilities to automate or control the documentation process. We have already a script which checks that all image links refer to an existing image. And vice versa, we also have a script which removed all such images that are not referred by any link. This way the repository does not get overwhelmed with outdated images. Also, the converting and delivering the final html files to customer could be automated as some Jenkins build.
+Having the user manual as "code" offers further possibilities to automate or control the documentation process. We have already a script which checks that all image links refer to an existing image. And vice versa, we also have a script which removed all such images that are not referred by any link. This way the repository does not get overwhelmed with outdated images. Also, the converting and delivering the final HTML files to customer could be automated as some Jenkins build.
 
 ## Retrospective
 
