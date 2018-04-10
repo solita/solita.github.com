@@ -2,7 +2,7 @@
 layout: post
 title: User Manual Maintained Like Code
 author: riikkanen
-excerpt: 'Unlike our code, we don't develop our user manual in feature branches, which causes some trouble for us. Could the user manual be integrated tighter to the code? If so, could the manual still be easy to deliver to the customer?
+excerpt: Unlike our code, we don't develop our user manual in feature branches, which causes some trouble for us. Could the user manual be integrated tighter to the code? If so, could the manual still be easy to deliver to the customer?
 tags:
 - documentation
 - maven
