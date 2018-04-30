@@ -203,6 +203,6 @@ If this looks like something you would love to do, please go ahead and start hac
 
 [Advanced Penetration Testing](https://www.amazon.com/Advanced-Penetration-Testing-Hacking-Networks/dp/1119367689) uses many languages and offers more technically challenging ideas. What would writing your own botnet client + server with C sound? Using SSH protocol to encrypt your botnet communications with your own customized SSH client and server. An excellent book.
 
-Third book I can recommend on this genre is [Hacking: The Art of Exploitation, 2nd edition](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441/). It deals with buffer overflows and many other topics with concrete hands-on exercises.
+Third book I can recommend from this genre is [Hacking: The Art of Exploitation, 2nd edition](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441/). It deals with buffer overflows and many other topics with concrete hands-on exercises.
 
 But whether you read books or not, they are not novels. They are just inspiration and ideas, but learning happens by hacking and actually writing code. Go and hack the world now!
