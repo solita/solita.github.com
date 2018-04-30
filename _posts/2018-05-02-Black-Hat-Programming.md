@@ -201,7 +201,7 @@ Awesome! The Python script hides and abstracts away the hideous details of uploa
 
 If this looks like something you would love to do, please go ahead and start hacking! I recommend [Hack The Box](https://www.hackthebox.eu) as a platform where to hone and test your skills. But there are also books. [Black Hat Python](https://www.amazon.com/Black-Hat-Python-Programming-Pentesters/dp/1593275900) inspired my to write this post and it contains more examples of Black Hat Programming demonstrated in this blog post.
 
-![Black Hat Python](/img/blackhat/blackhat-book.jpg)
+![Black Hat Python](/img/blackhat/blackhat-book.jpeg)
 
 [Advanced Penetration Testing](https://www.amazon.com/Advanced-Penetration-Testing-Hacking-Networks/dp/1119367689) uses many languages and offers more technically challenging ideas. What would writing your own botnet client + server with C sound? Using SSH protocol to encrypt your botnet communications with your own customized SSH client and server. An excellent book.
 
