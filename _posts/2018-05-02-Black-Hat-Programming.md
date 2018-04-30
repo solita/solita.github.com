@@ -17,7 +17,7 @@ tags:
 
 Forget automated tests. Never mind Facade, Decorator or other OOP design patterns. Static type systems? Quickly, toss them out of the way. It's time to exploit some security flaws and no amount of so called "professional software development" is going to help with that. Welcome to the world of Black Hat Programming!
 
-![Black hat](img/blackhat/blackhat.jpg)
+![Black hat](/img/blackhat/blackhat.jpg)
 
 In lack of a better term, Black Hat Programming is the art of writing tools and scripts for penetration testing and expoiting vulnerabilities. Just don't go poking around without permission and become a Black Hat hunted by the police. But why don't we need all those "best practices" that are very useful normally in professional software development? The "black hat programming" discussed in this post typically deals in a simpler world:
 
