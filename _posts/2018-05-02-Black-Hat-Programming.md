@@ -103,11 +103,11 @@ Not convinced yet? Let's take another example.
 
 ### Abusing Struts to gain a "shell" with RCE vulnerability
 
-Remote Code Execution (RCE) is one of the coolest security vulnerabilities one can find. Sometimes it's as easy as putting the command in one HTTP GET parameter, but usually it involves some tricks.
+Remote Code Execution (RCE) is one of the coolest security vulnerabilities one can find in a system. Sometimes it's as easy as putting the command in one HTTP GET parameter, but usually it involves some tricks.
 
-The [CVE-2017-5638](https://www.cvedetails.com/cve/CVE-2017-5638/) is one link in a long chain of RCE vulnerabilities related to OGNL handling in [Apache Struts]https://struts.apache.org/). For example, see [CVE-2013-1965](https://www.cvedetails.com/cve/CVE-2013-1965/), [CVE-2013-2134](https://www.cvedetails.com/cve/CVE-2013-2134/) or [CVE-2016-4461](https://www.cvedetails.com/cve/CVE-2016-4461/). Input handling is still difficult.
+The [CVE-2017-5638](https://www.cvedetails.com/cve/CVE-2017-5638/) is one link in a long chain of RCE vulnerabilities related to OGNL handling in [Apache Struts](https://struts.apache.org/). For example, see [CVE-2013-1965](https://www.cvedetails.com/cve/CVE-2013-1965/), [CVE-2013-2134](https://www.cvedetails.com/cve/CVE-2013-2134/) or [CVE-2016-4461](https://www.cvedetails.com/cve/CVE-2016-4461/). Input handling is still difficult.
 
-The CVE-2017-5638 tells us that we can execute Java code by sending it in *Content-Type* header. And since nobody really uses the Java security restrictions, Java can call operating system exec so this gives us the ability to execute pretty much any operating system commands allowed to the user running the Struts application. Manually crafting the payloads is tedious, so let's create a "shell" with Python. I have written other similar shells for other vulnerabilities, so this can serve as a template for exploiting other RCE vulnerabilities as well.
+The CVE-2017-5638 tells us that we can execute Java code by sending it in *Content-Type* header. And since nobody really uses the Java security restrictions, we can call system exec and execute pretty much any operating system commands. Of course we are still limited by the user privileges of the user running the Struts application, but it's still huge. Manually crafting the payloads is tedious, so let's create a "shell" with Python. I have written other similar shells for other vulnerabilities, so this can serve as a template for exploiting other RCE vulnerabilities as well.
 
 **strutser.py**
 ```
@@ -199,12 +199,12 @@ Awesome! The Python script hides and abstracts away the hideous details of uploa
 
 ## Further material
 
-If this looks like something you would love to do, please go ahead and start hacking! I recommend [Hack The Box](https://www.hackthebox.eu) as a platform where to hone and test your skills. But there are also books. [Black Hat Python](https://www.amazon.com/Black-Hat-Python-Programming-Pentesters/dp/1593275900) contains more examples of Black Hat Programming shown in this blog post.
+If this looks like something you would love to do, please go ahead and start hacking! I recommend [Hack The Box](https://www.hackthebox.eu) as a platform where to hone and test your skills. But there are also books. [Black Hat Python](https://www.amazon.com/Black-Hat-Python-Programming-Pentesters/dp/1593275900) inspired my to write this post and it contains more examples of Black Hat Programming demonstrated in this blog post.
 
 ![Black Hat Python](/img/blackhat/blackhat-book.jpg)
 
-
 [Advanced Penetration Testing](https://www.amazon.com/Advanced-Penetration-Testing-Hacking-Networks/dp/1119367689) uses many languages and offers more technically challenging ideas. What would writing your own botnet client + server with C sound? Using SSH protocol to encrypt your botnet communications with your own customized SSH client and server. An excellent book.
 
-But whether you read books or not, they are not novels. They are just inspiration and ideas, but learning happens by hacking and actually writing code. Go and hack the world now!
+Third book I can recommend on this genre is [Hacking: The Art of Exploitation, 2nd edition](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441/). It deals with buffer overflows and many other topics with concrete hands-on exercises.
 
+But whether you read books or not, they are not novels. They are just inspiration and ideas, but learning happens by hacking and actually writing code. Go and hack the world now!
