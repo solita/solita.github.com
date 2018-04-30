@@ -195,7 +195,7 @@ webapps
 work
 ```
 
-Awesome! The Python script hides and abstracts away the hideous details of uploading and executing commands on the remote server and we can concentracte to advance our nefarious purposes.
+Awesome! The Python script hides and abstracts away the hideous details of uploading and executing commands on the remote server and we can concentrate on advancing our nefarious purposes.
 
 ## Further material
 
