@@ -30,7 +30,7 @@ In lack of a better term, Black Hat Programming is the art of writing tools and 
 Because of these characteristics, there is no need to do sprints, UX design, paper prototypes, automated tests.
 You can kiss your pair programming goodbye. And what kind of person starts arguing about the coding style 
 and architectural patterns when the whole script is about 50 lines of code? If it works and the code
-is understandable, it's a success! What brave new world that has such programmers in it!
+is understandable, it's a success! O brave new world, that has such programmers in it!
 
 ## Choose productivity, Choose Pwnage. Choose Python.
 
