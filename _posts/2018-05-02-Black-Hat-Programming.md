@@ -19,7 +19,7 @@ Forget automated tests. Never mind Facade, Decorator or other OOP design pattern
 
 ![Black hat](/img/blackhat/blackhat.jpg)
 
-In lack of a better term, Black Hat Programming is the art of writing tools and scripts for penetration testing and expoiting vulnerabilities. Just don't go poking around without permission and become a Black Hat hunted by the police. But why don't we need all those "best practices" that are very useful normally in professional software development? The "black hat programming" discussed in this post typically deals in a simpler world:
+In lack of a better term, Black Hat Programming is the art of writing tools and scripts for penetration testing and expoiting vulnerabilities. Just don't go poking around without permission and become a Black Hat hunted by the police. But why don't we need all those "best practices" that are very useful normally in professional software development? The "black hat programming" discussed in this post typically deals with a simpler world:
 
 * The programs are usually quite small. Maybe less than 100 lines, hardly ever more than 1000 LOC.
 * They are single user apps, often without a persistent state or any fancy UI. 
@@ -48,9 +48,7 @@ It is no wonder that Python is the absolute favorite of pen testers and hackers 
 
 ## Let's hack!
 
-Okay, enough talk, let's write some Black Hat Python then, shall we? Remember, these are quickly written scripts that are godo enough to get the job done and 
-serve as templates for the next time something similar is needed. This is the craft of quickly making tools when a need arises, not a craft of making reliable
-distributed systems that are modular and maintainable.
+Okay, enough talk, let's write some Black Hat Python then, shall we? Remember, these are quickly written scripts that are good enough to get the job done and serve as templates for the next time something similar is needed. This is the craft of quickly making tools when a need arises, not a craft of making reliable distributed systems that are modular and maintainable.
 
 
 ### Scanning ports behind a squid proxy
