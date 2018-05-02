@@ -19,7 +19,7 @@ Forget automated tests. Never mind Facade, Decorator or other OOP design pattern
 
 ![Black hat](/img/blackhat/blackhat.jpg)
 
-In lack of a better term, Black Hat Programming is the art of writing tools and scripts for penetration testing and expoiting vulnerabilities. Just don't go poking around without permission and become a Black Hat hunted by the police. But why don't we need all those "best practices" that are very useful normally in professional software development? The "black hat programming" discussed in this post typically deals with a simpler world:
+For lack of better term, Black Hat Programming is the art of writing tools and scripts for penetration testing and expoiting vulnerabilities. Just don't go poking around without permission and become a Black Hat hunted by the police. But why don't we need all those "best practices" that are very useful normally in professional software development? The "black hat programming" discussed in this post typically deals with a simpler world:
 
 * The programs are usually quite small. Maybe less than 100 lines, hardly ever more than 1000 LOC.
 * They are single user apps, often without a persistent state or any fancy UI. 
@@ -32,7 +32,7 @@ You can kiss your pair programming goodbye. And what kind of person starts argui
 and architectural patterns when the whole script is about 50 lines of code? If it works and the code
 is understandable, it's a success! O brave new world, that has such programmers in it!
 
-## Choose productivity, Choose Pwnage. Choose Python.
+## Choose Productivity, Choose Pwnage. Choose Python.
 
 The field of security is wide, dealing often with bit operations, opcodes, crypto and hash algoritms,
 databases and network protocols. Therefore the ideal programming language needs to handle everything easily and 
@@ -40,9 +40,9 @@ have a wide variety of libraries ready to do the heavy lifting. Java, C# and man
 
 But Java, C# and some other "professional" programming languages get left behind when getting things done becomes paramount. A 
 hacker doesn't want to spend time designing types and classes and wondering what **erasure** or **generics** means. It's
-about the speed of development - just hack together the idea, test until it stops bleeding.. and profit! [Cowboy coding](https://en.wikipedia.org/wiki/Cowboy_coding) is a natural fit.
+about the speed of development - just hack together the idea, test until it stops bleeding... and profit! [Cowboy coding](https://en.wikipedia.org/wiki/Cowboy_coding) is a natural fit.
 
-It is no wonder that Python is the absolute favorite of pen testers and hackers all over the world. Perl might become a distant second and lately there has been some interest in Go. And there is Ruby as  the widely used [Metasploit](https://www.metasploit.com/) is Ruby-based. But Python is the high-king of this realm and a very well liked king he is. Long may he reign!
+It is no wonder that Python is the absolute favorite of pen testers and hackers all over the world. Perl might become a distant second and lately there has been some interest in Go. And there is Ruby as the widely used [Metasploit](https://www.metasploit.com/) is Ruby-based. But Python is the high-king of this realm and a very well liked king he is. Long may he reign!
 
 ![King Python](/img/blackhat/python-book.jpg)
 
@@ -53,7 +53,7 @@ Okay, enough talk, let's write some Black Hat Python then, shall we? Remember, t
 
 ### Scanning ports behind a squid proxy
 
-If a [Squid HTTP proxy](http://www.squid-cache.org/) is not properly configured, it can  expose ports and services behind it that are not directly visible to outside world. This might give us more insight into the machine and othe systems connected to it. And this could even be abused to [smuggle SSH protocol over Squid proxy](https://daniel.haxx.se/docs/sshproxy.html). The poor proxy gets confused and thinks it's HTTP traffic. 
+If a [Squid HTTP proxy](http://www.squid-cache.org/) is not properly configured, it can  expose ports and services behind it that are not directly visible to outside world. This might give us more insight into the machine and other systems connected to it. And this could even be abused to [smuggle SSH protocol over Squid proxy](https://daniel.haxx.se/docs/sshproxy.html). The poor proxy gets confused and thinks it's HTTP traffic. 
 
 
 **Portscanner.py**
@@ -197,7 +197,7 @@ Awesome! The Python script hides and abstracts away the hideous details of uploa
 
 ## Further material
 
-If this looks like something you would love to do, please go ahead and start hacking! I recommend [Hack The Box](https://www.hackthebox.eu) as a platform where to hone and test your skills. But there are also books. [Black Hat Python](https://www.amazon.com/Black-Hat-Python-Programming-Pentesters/dp/1593275900) inspired my to write this post and it contains more examples of Black Hat Programming demonstrated in this blog post.
+If this looks like something you would love to do, please go ahead and start hacking! I recommend [Hack The Box](https://www.hackthebox.eu) as a platform where to hone and test your skills. But there are also books. [Black Hat Python](https://www.amazon.com/Black-Hat-Python-Programming-Pentesters/dp/1593275900) inspired me to write this post and it contains more examples of Black Hat Programming demonstrated here.
 
 ![Black Hat Python](/img/blackhat/blackhat-book.jpeg)
 
