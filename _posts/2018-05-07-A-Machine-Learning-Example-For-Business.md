@@ -2,7 +2,7 @@
 layout: post
 title: A Machine Learning Example For Business
 author: mikaelahonen
-excerpt: A practical example of predictive machine learning. Targeted for business people how want to harness machine learning for business but also understand how it actually works.
+excerpt: A practical example of predictive machine learning. Targeted for business people who want to harness machine learning for business but also understand how it actually works.
 tags:
 - machine learning
 - business
@@ -12,7 +12,7 @@ tags:
 
 ## Introduction
 A practical example of predictive machine learning.
-Targeted for business people how want to harness machine learning for business but also understand how it actually works.
+Targeted for business people who want to harness machine learning for business but also understand how it actually works.
 
 The aim is to demonstrate:
 * A concrete example without going too deep in theory.
@@ -35,30 +35,38 @@ and the set of rules that are applied.
 Let's quickly see some machine learning use cases.
 
 ### #1 Predicting by variables
-For example predicting number of visitors in an event according to
-weather, day of week and ticket price. In the simplest case
-the algorithm might just naively count average number of visitor in the similar cases in the past.
+<b>Problem</b>. How to predict the number of visitors in an event?
+
+<b>Simple solution</b>. Calculate the average from past events.
+
+<b>Machine learning solution</b>. Take advantage of known event related variables when predicting number of visitors. These variables might be weather, day of week and ticket price. This makes the prediction more accurate than overall average.
 
 ![Predicting by variables](/img/a-machine-learning-example-for-business/visitors.png)
 
 ### #2 Clustering
-Customers can be segmented automatically according to
-selected variables. The algorithm might not need any input
-to make the grouping.
+<b>Problem</b>. How to identify customer segments?
+
+<b>Simple solution</b>. Make an educated guess by using fixed values.
+
+<b>Machine learning solution</b>. The algorithm usually needs some initial parameters such as the number of clusters to identify. Segmentation process could be automated and standardized. The segmentation could be run once a day, week or month without any manual work. Another advantage is that there's no need to set hard limits such as <i>If customer's annual income is more than 20 000€ and age more than 50, she's in segment A</i>. The algorithm will set these limits for you.
 
 ![Machine learning clustering example](/img/a-machine-learning-example-for-business/machine-learning-example-clustering.png)
 
 ### #3 Image recognition and classification
-Identifying the object from an image. The algorithm
+<b>Problem</b>. How to recognize a facial expression from an image?
+
+<b>Simple solution</b>. Do it manually.
+
+<b>Machine learning solution</b>. The algorithm
 has to be "trained" with already known cases
 to recognize which kind of pixel and color
-combinations are cats and which are dog.
+combinations mean that a person is smiling for example. Image recognition could be used to detect which kind of people visit in a shop or an event based on snapshots from the area.
 
 ![Image recognition example](/img/a-machine-learning-example-for-business/image-recognition.png)
 
 ## A business problem: Online store deliveries
-In the example, I will go through similar case than the #1: The process
-of predicting by variables as it's very common
+In the more detailed example, I will go through similar case than the #1: The process
+of predicting by variables as it is very common
 scenario in business analytics. Also many of the
 concepts can be used even in image recognition once the
 image pixels has been converted to tabular data.
@@ -68,7 +76,7 @@ orders nutrition supplements from a wholesaler and sells the products to consume
 
 ![Machine learning on supply chain management](/img/a-machine-learning-example-for-business/machine-learning-supply-chain.png)
 
-The online store wants to <b>maximize those wholesale orders that will arrive on time</b>. This increases predictability and that way the satisfaction in end users and sales as well.
+The online store wants to <b>maximize those wholesale orders that will arrive on time</b>. This will increase predictability and end user satisfaction, that will lead to bigger profits.
 
 ## Sample data
 In the sample data a record corresponds to an order made for a wholesaler in the past. The first column is the week when the order has been made (`week`). Then there are the day of week (`order_day`), order batch size (`order_size`), sub contractor delivering the order (`sub_contractor`) and the info whether the delivery was late or not (`is_late`).
@@ -100,14 +108,15 @@ The purpose is, that after these two stages you should be confident whether your
 For testing and training, the data has to be split in two parts: Training data and testing data. Let's use a rule of thumb and take 70% of rows for training and 30% for testing. Note, that all the data is historical and thus the actual outcome for all records are known.
 
 First 14 rows (70%) are for model training.
+
 ![Training data](/img/a-machine-learning-example-for-business/machine-learning-example-training-data.png)
 
-In the <b>training phase</b> the selected algorithm produces a <i>model</i>. A model isn't very specific term, as it can be for example:
-* Another algorithm.
+In the <b>training phase</b> the selected algorithm produces a <i>model</i>. Depending on the selected method, the model could be for example:
+* An algorithm.
 * A formula such as <i>2x+y+3z-1</i>.
 * A lookup table.
-* Any other kind of data structure.
 * A decision tree.
+* Any other kind of data structure.
 
 The important thing is, that the produced <i>model</i> should be something that you can use to make predictions in the <b>testing phase</b>. The situation is very fruitful, as now you can make a prediction for each record in testing data with the model, but you can also see, what was the actual outcome for that observation.
 
@@ -115,7 +124,9 @@ The trained model will be tested with the last 6 rows (30%).
 ![Testing data](/img/a-machine-learning-example-for-business/machine-learning-example-testing-data.png)
 
 ## Selecting the machine learning algorithm
-I will use an algorithm called `naive bayesian classifier` to train the model. But first, let's extract the complicated name to its components.
+Normally you would pre-select multiple algorithms and train a model with each of them. The best performing one could be chosen after the testing phase. For simplicity, I selected just one for this example.
+
+The algorithm is called `naive bayesian classifier`. I will extract the complicated name to its components.
 
 <b>Naive</b>. The algorithm is naive or "stupid" as it doesn't take in to account interactions between variables such as `order_day` and `sub_contractor`.
 
@@ -123,7 +134,11 @@ I will use an algorithm called `naive bayesian classifier` to train the model. B
 
 <b>Classifier</b>. The predicted variable `is_late` is a categorical and not a number.
 
-So the naive bayesian classifier algorithm will be used to predict `is_late` when predictor variables are know beforehand: `order_day`, `order_size` and `sub_contractor`. All variables are expected to be categorical for naive bayes. The `week` column won't be used for prediction and its purpose will be explained at the end of the next chapter.
+The naive bayesian classifier algorithm will be used to predict `is_late` when predictor variables are know beforehand: `order_day`, `order_size` and `sub_contractor`. All variables are expected to be categorical for naive bayes, and that is why it suits to out needs well.
+
+Naive bayes classifier is quite simple algorithm and gives the same result every time when using the same data. It would be possible to explain the logic behind each predictions. In some cases, this is a very valuable.
+
+The `week` column won't be used for prediction and its purpose will be explained at the end of the next chapter.
 
 ## Training and testing the model
 Without going too deep in the details, you can run something like this in statistical programming language such as `R`:
@@ -135,7 +150,7 @@ And this kind of data will be stored in computers memory:
 
 ![Naive bayes model output in R](/img/a-machine-learning-example-for-business/naive-bayes-model-output-r.png)
 
-The point is not to learn inside out what these numbers mean, but to understand that this is the <i>model</i> and the software understands how to apply it for the predictions:
+The point is not to learn inside out what these numbers mean, but to understand that this is the <i>model</i> and the software understands how to apply them to make predictions for new orders:
 ```R
 predictions <- predict(model, newdata=data.test)
 ```
@@ -180,7 +195,7 @@ Here are some ways to harness the solution for business.
 
 <b>Data study</b>. Improve company's process by experimenting the optimal order types.
 
-<b>Calculator</b>. Let employers to enter the three predictor variables to a web calculator before placing the order to evaluate the risk of receiving products late.
+<b>Calculator</b>. Let employers enter the three predictor variables to a web calculator before placing the order to evaluate the risk of receiving products late.
 
 <b>Automated orders</b>. Embed the calculation as part of the company's IT infrastructure. The system can make the optimal orders automatically.
 
@@ -191,11 +206,11 @@ The model can be trained with the order data from past year once a day for examp
 ## Summary
 A predictive machine learning model offers a way to see the future with the expectation that the environment remains somewhat unchanged. The business decisions don't need to be based on hunches and prediction methods can be evaluated systematically.
 
-Thoughtfully chosen machine learning algorithm is able to make optimal choices in routine tasks with much greater accuracy than humans. Machine learning makes it also possible to estimate the monetary impacts of decisions even before the actions has been taken.
+Thoughtfully chosen machine learning model is able to make optimal choices in routine tasks with much greater accuracy than humans. Machine learning makes it also possible to estimate the monetary impacts of decisions even before the actions has been taken.
 
 Machine learning won't replace traditional reporting nor it is in conflict with it. It is still valuable to know key performance indicators from past month or year.
 
-Even though there are endless ways to do machine learning, predicting a single variable is pretty safe place to start.
+Even though there are endless ways to do machine learning, predicting a single variable is a pretty safe place to start.
 
 ## Data
 ```csv
