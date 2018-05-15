@@ -53,14 +53,14 @@ Let's quickly see some machine learning use cases.
 ![Machine learning clustering example](/img/a-machine-learning-example-for-business/machine-learning-example-clustering.png)
 
 ### #3 Image recognition and classification
-<b>Problem</b>. How to recognize a facial expression from an image?
+<b>Problem</b>. How to recognize objects, emotions or text from an image?
 
 <b>Simple solution</b>. Do it manually.
 
 <b>Machine learning solution</b>. The algorithm
 has to be "trained" with already known cases
 to recognize which kind of pixel and color
-combinations mean that a person is smiling for example. Image recognition could be used to detect which kind of people visit in a shop or an event based on snapshots from the area.
+combinations means certain object. Image recognition could be used to identify data tables from hand written documents to transform the data to digital format. You could also detect other kind of objects such as a human face and take the analysis further by recognizing person's emotions.
 
 ![Image recognition example](/img/a-machine-learning-example-for-business/image-recognition.png)
 
