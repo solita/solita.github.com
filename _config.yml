@@ -158,7 +158,7 @@ authors:
   tommiraunio:
     name: Tommi Raunio
     email: 23ae2bc8e203be2f8482edfb1efeeadb
-    url: https://www.linkedin.com/in/tommi-raunio-a3393138/ 
+    url: https://www.linkedin.com/in/tommi-raunio-a3393138/
   mkainula:
     name: Matias Kainulainen
     email: f96c5a4c85a6a0e088d142f6e1c09673
@@ -199,3 +199,7 @@ authors:
     name: Mirva Toivonen
     email: 7ab561d95bdedd2c7fc431583c2a8e18
     url: https://www.linkedin.com/in/mirva-toivonen/
+  mikaelahonen:
+    name: Mikael Ahonen
+    email: e137a4676afc3ed6fede9f64541fdcd3
+    url: https://mikaelahonen.com 
