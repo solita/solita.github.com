@@ -2,7 +2,7 @@
 layout: post
 title: We Are Developers
 author: arto
-excerpt: A tale of a conference trip to We Are Developers in Wien
+excerpt: A tale of a conference trip to We Are Developers in Vienna
 tags:
 - conference
 - developers
@@ -13,11 +13,11 @@ tags:
 
 ![We are developers!](/img/we-are-developers/overview.jpg)
 
-I had the opportunity to attend to We Are Developers, a developer conference in Wien, with more than 8000 attendees. Unlike many other conferences I have been frequenting, this one is not centered around any specific technology. It also has wide scale of presentations. There were sessions on oauth2 and vue.js details, even a session called 'Stupid tricks with enums'. On the other hand, there were panel discussions on topics of AI ethics, or how to deal with burn-out and stress at intensive workplaces. Other than making it necessary to check carefully which sessions I was attending, I found it interesting to be able to change the abstraction level and attend many sessions I did not have any previous knowledge of.
+I had the opportunity to attend to We Are Developers, a developer conference in Vienna, with more than 8000 attendees. Unlike many other conferences I have been frequenting, this one is not centered around any specific technology. It also has wide scale of presentations. There were sessions on oauth2 and vue.js details, even a session called 'Stupid tricks with enums'. On the other hand, there were panel discussions on topics of AI ethics, or how to deal with burn-out and stress at intensive workplaces. Other than making it necessary to check carefully which sessions I was attending, I found it interesting to be able to change the abstraction level and attend many sessions I did not have any previous knowledge of.
 
 ![Ready to attend](/img/we-are-developers/badge.jpg)
 
-Wien was an interesting place to visit - my first time there. It was a surprise to figure out it's the 6th largest city in Europe, ahead of Barcelona for example. There were not a lot of high buildings either, whole city was filled with old buildings of moderate height. Graffiti and street art on the other hand was abundantly present everywhere. Conference attendees included a large number of developers and recruiters from nearby places such as Berlin.
+Vienna was an interesting place to visit - my first time there. It was a surprise to figure out it's the 6th largest city in Europe, ahead of Barcelona for example. There were not a lot of high buildings either, whole city was filled with old buildings of moderate height. Graffiti and street art on the other hand was abundantly present everywhere. Conference attendees included a large number of developers and recruiters from nearby places such as Berlin.
 
 ### The nicer Steve
 
