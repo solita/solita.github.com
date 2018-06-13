@@ -34,13 +34,13 @@ Each stack can Export and Import values. Exports are effectively key/value store
 
 **Stack Parameters**
 
-Stacks can be parametrised, which is really powerful feature for spinning multiple environments from same templates.
+Stacks can be parametrised, which is really powerful feature for spinning multiple environments from one template.
 
 ## The Principles
 
 ### 1. Large is Good
 
-You might be tempted to divide your application stack into small logical pieces. And I don't blame you for this - programmers and ops people are generally really good in structuring things from small pieces. But with CloudFormation, this is just not practical. For instance, you could have horseloads of small stacks, such as:
+You might be tempted to divide your application stack into small logical pieces. And I don't blame you for this - programmers and ops people are generally really good in structuring things from small pieces, but with CloudFormation, this is just not practical. For instance, you could have horseloads of small stacks, such as:
 
 * `acme-iam-stack.yml`
 * `acme-network-stack.yml`
@@ -50,7 +50,7 @@ You might be tempted to divide your application stack into small logical pieces.
 * `acme-load-balancing-stack.yml`
 * `acme-persistence-stack.yml`
 
-But this brings a really tough problem to the table: stacks have dependencies to each others and you really need to maintain correct creation and deletion order for your microstacks. This can bring up huge problems in updating your system.
+But this brings a really tough problem to the table: stacks have dependencies to each others and you really need to maintain correct creation and deletion order for your microstacks. This will bring up huge problems in updating your system.
 
 If resources don't change, CloudFormation is generally really fast in updating stack. Well, at least acceptably fast in updating stack. This is not an optimisation issue. This is a dependency issue.
 
@@ -75,7 +75,7 @@ aws cloudformation create-stack --stack-name acme-security-groups-stack --templa
 # ...Weeel, what was the correct stack deletion order?
 ```
 
-You be the judge. Of course, making one stack with lots of resources equal a huge file. With CloudFormation, you should be ready to compromise on file sizes. Of course, you should order and name your resources nicely in your template files, and keep them under version control (duh!).
+You be the judge. Of course, making one stack with lots of resources equal a huge file. My two cents is that, with CloudFormation, you should be ready to compromise on file sizes. Of course, you should order and name your resources nicely in your template files, and keep them under version control (duh!). Keep templates clean.
 
 CloudFormation has [hard resource limits](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html). Each stack can contain 200 resources, and when you're coming close to that, it's good time to think about splitting the stack to smaller pieces. At that stage, your system is probably anyway so complex that you have done it anyway already.
 
@@ -85,7 +85,7 @@ There are cases, when having multiple stacks is a pretty good idea. And this bri
 
 ### 2. Be Careful with the Dependencies
 
-When you need more than one stack, you really need to start to think about *dependencies*. Usually CloudFormation stacks do not live in isolation, but instead they refer to resources created by separate stack. A concrete example would be for instance multiple microservices in single ECS/FARGATE cluster behind one single [ALB](https://aws.amazon.com/elasticloadbalancing/).
+When you need more than one stack, you really need to start to think about *dependencies*. Usually CloudFormation stacks do not live in isolation, but instead they refer to resources created by separate stack. A concrete example would be for instance multiple microservices in a single ECS/FARGATE cluster behind a single [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/).
 
 Consider an example, in which Acme Corporation has three microservices:
 
@@ -93,7 +93,7 @@ Consider an example, in which Acme Corporation has three microservices:
 * https://orders.acme.com
 * https://customers.acme.com
 
-All services are kept in separate git repositories (`acme-products-api`, `acme-orders-api` and `acme-customers-api`), but because of the cost optimisation policy, all of these services must be served via single load balancer using host based routing and all docker containers must be deployed in the same ECS cluster.
+All services are kept in separate git repositories (`acme-products-api`, `acme-orders-api` and `acme-customers-api`), but because of the cost optimisation policy, all of these services must be served via one load balancer using host based routing, and all docker containers must be deployed in the same ECS cluster.
 
 In a scenario like this, it's a pretty good idea to spin up a new stack `acme-infra` for defining shared resources. So setup would be something similar to this.
 
@@ -110,7 +110,7 @@ acme-customers-api
 
 Using shared ALB like this requires some additional tweaks, i.e sharing routing priority numbers between services, but that is an implementation detail. Rule of the thumb is that you should have just the right amount of stacks and dependency graph must be unidirectional. So kids! Remember not to use `!Import` in the infra stack! 😘
 
-It's super important to understand in which stack you should add your new resource in a multi-stack scenario, because you can really easily make circular dependencies between stacks. Think for instance if you have separate stacks for [CloudFront](https://aws.amazon.com/cloudfront/) and [S3 buckets](https://aws.amazon.com/s3/). Your CloudFront stack needs to know S3 bucket domains and your S3 bucket policy is S3 stack needs to know CloudFront [Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html). There you have a circular dependency and you probably spend loadsa time debugging and possibly even suffer some downtime when stuff hits the fan.
+It's super important to understand in which stack you should add your new resource in a multi-stack scenario, because you can really easily make circular dependencies between stacks. Think for instance if you have created separate stacks for [CloudFront](https://aws.amazon.com/cloudfront/) and [S3 buckets](https://aws.amazon.com/s3/). Your CloudFront stack needs to know S3 bucket domains and your S3 bucket policy is S3 stack needs to know CloudFront [Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html). There you have a circular dependency and you probably spend loadsa time debugging and possibly even suffer some downtime when stuff hits the fan.
 
 But the good news is that when you just bake both CloudFront and S3 stuff into the same stack - it just works.
 
@@ -120,7 +120,7 @@ What about the different environments then?
 
 ### 3. Parametrise Right Things Instead of All Things
 
-CloudFormation supports parameters for stacks which can be given as a JSON file or directly to AWS CLI. This is nice, because I would hate to maintain `acme-app-dev.yml` and `acme-app-prod.yml` - both thousands of lines long.
+CloudFormation supports [parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) for stacks which can be given as a JSON file, from [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) or directly with AWS CLI. This is nice, because I would hate to maintain `acme-app-dev.yml` and `acme-app-prod.yml` - both thousands of lines long.
 
 My CloudFormation parametrisation principle is really easy to follow:
 
@@ -218,7 +218,7 @@ Excerpt from [CloudFormation documentation](https://docs.aws.amazon.com/AWSCloud
 
 You have pretty much two choices:
 
-1. Don't update stacks automatically, but instead make a [CloudFormation change set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html), which gives you a good listing, what CloudFormation will actually do.
+1. Don't update stacks automatically, but instead make a [CloudFormation change set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html), which gives you a good listing of what CloudFormation will actually do during update.
 2. Use [CloudFormation stack policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html) to protect the resources from accidental deletion.
 
 When making changes to CloudFormation stacks you should always browse through the documentation and see if your modification requires a REPLACE operation for your resource. If it does require replacement, analyse what will happen to all the dependent resources.
