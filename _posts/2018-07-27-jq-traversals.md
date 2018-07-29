@@ -43,8 +43,8 @@ null
 ```
 
 Now there are three distinct results, which means that ``jq`` functions
-don't return just one value but 0..n.  And the ".foo" function gets
-called for each result of ".[]", which means that evaluating the
+don't return just one value but 0..n.  And the ``.foo`` function gets
+called for each result of ``.[]``, which means that evaluating the
 composition of two ``jq`` functions is quite like the monadic bind in
 the indeterminism (ie. list) monad.  We can readily verify this by
 writing "flatten" in ``jq``:
@@ -82,11 +82,11 @@ accessor for whatever input an expression gets.)
 
 ``jq`` is a function-oriented language in the same way that
 concatenative languages are.  Every expression is actually a function
-from one input to 0..n outputs, even "2", which takes an input and
-produces exactly one "2".  This principle also means that operators
-(like "+") produce functions, not direct values, and are *distributive*
-in the way that whatever input "+" gets, it gives to both of its
-argument expressions (which are, of course, also functions).
+from one input to 0..*n* outputs, even ``2``, which takes an input and
+produces exactly one 2.  This principle also means that operators (like
+``+``) produce functions, not direct values, and are *distributive* in
+the way that whatever input ``+`` gets, it gives to both of its argument
+expressions (which are, of course, also functions).
 
 ```
 $ echo '[[1,2],[3],[4,5,6]]' | jq '.[]|.[]|2'
@@ -102,10 +102,11 @@ $ echo '[[1,2],[3],[4,5,6]]' | jq '.[]|length + .[0]'
 7
 ```
 
-Of course, the argument functions of "+" (or other operators) can also
-produce multiple results, and in these cases, "+" forms its results
+Of course, the argument functions of ``+`` (or other operators) can also
+produce multiple results, and in these cases, ``+`` forms its results
 (sums) from a cross product of the results of its arguments, much like
-"+" when it is lifted into the indeterminism monad:
+the ordinary ``+`` function when it is lifted into the indeterminism
+monad:
 
 ```
 $ echo '[[1,2],[3],[4,5,6]]' | jq -c '.[]|[.[]+.[]]'
@@ -133,7 +134,7 @@ $ echo '[[1,2],[3],[4,5,6]]' | jq -c 'del(.[]|.[1])'
 [[1],[3],[4,6]]
 ```
 
-There's a whole lot of "destructive" operations, only they are _not_
+There's a whole lot of "destructive" operations, only they are *not*
 destructive; they return the original data structure with modifications.
 But somehow magically, they know from a functional (and compositional)
 specification exactly which place(s) in the data structure they should
@@ -155,24 +156,24 @@ and you can do both inspection (viewing) and updates through them.
 
 You can also make combinators for traversals, such as a concatenation
 operator that gives the same input to two traversals and produces the
-output of both (this combinator is "," in ``jq``).  ``jq``'s ".[]" is
-Haskell's "traverse", a traversal taking a single value and focusing on
-each of its parts.  In Haskell, it works for every traversable data
-structure; in JSON, there are only two (list and map).
+output of both (this combinator is called "," in ``jq``).  ``jq``'s
+``.[]`` is Haskell's "traverse", a traversal taking a single value and
+focusing on each of its parts.  In Haskell, it works for every
+traversable data structure; in JSON, there are only two (list and map).
 
 ``jq`` combines this functional framework with a weird, terse syntax,
 and a function-oriented language that skips explicit parameters and
 where every expression is a traversal.  This makes composite expressions
-(such as del(...)) functions from traversals to traversals; and simple
-binary operators (such as >), functions (traversal, traversal) ->
-traversal.
+(such as ``del(...)``) functions from traversals to traversals; and
+simple binary operators (such as ``>``), functions (traversal,
+traversal) -> traversal.
 
 This means that it's *really* hard to understand the true nature of an
-update-oriented, binary operator such as "+=".  It takes two parameters,
-the first of which it treats as a traversal to update over, the second
-specifying a traversal that produces values that are added in the update
-(but as there might be several, it also produces as many results as the
-second input).
+update-oriented, binary operator such as ``+=``.  It takes two
+parameters, the first of which it treats as a traversal to update over,
+the second specifying a traversal that produces values that are added in
+the update (but as there might be several, it also produces as many
+results as the second input).
 
 ```
 $ echo '[[1,2],[3],[4,5,6]]' | jq -c '(.[]|.[1]) += ([.[0][0],5]|.[])'
@@ -184,10 +185,11 @@ An interesting source of confusion is that when a traversal is updated
 over, it produces one result (the whole data structure the traversal is
 played on) irrespectible of how many places the traversal focuses on,
 but when a traversal is viewed, it produces more results for each focus
-point.  That's why you see two results above (because += is a view as it
-comes to its right-hand argument), but not three or six (because += is
-an update as it comes to its left-hand argument).  But if I feed many
-inputs to the traversal formed by "+=", I get results for each of them:
+point.  That's why you see two results above (because ``+=`` is a view
+as it comes to its right-hand argument), but not three or six (because
+``+=`` is an update as it comes to its left-hand argument).  But if I
+feed many inputs to the traversal formed by ``+=``, I get results for
+each of them:
 
 ```
 $ echo '[[1,2],[3],[4,5,6]]' | jq -c '.[]|((.[0],.[2]) += (length,1))'
@@ -214,7 +216,7 @@ similar data-handling) are better handled with ``jq``.
 However, I also recommend delving into traversals, because they provide
 a very good option to expression-oriented updates; somewhat better, in
 my opinion, to traditional BCPL-language family lvalues, or Common
-Lisp's (setf).  However, their current implementation in Haskell is
+Lisp's ``(setf)``.  However, their current implementation in Haskell is
 kind of "over-nifty" in the way that they play games with the language's
 type system to get function composition (.) work as traversal
 composition, and get the built-in "traverse" to work as a traversal.  As
