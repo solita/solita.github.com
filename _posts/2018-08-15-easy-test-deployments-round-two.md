@@ -7,12 +7,15 @@ tags:
 - CI
 - AWS
 - cloud
-- slackl
+- slack
 - CircleCI
+- GitHub API
 ---
 
-Having a simple way for creating and launching test instances from feature branches can be a real timesaver for developers and testers.
-In our [NAPOTE](https://github.com/finnishtransportagency/mmtis-national-access-point) project we can launch isolated test instances from GitHub pull requests by using custom Slack commands and GitHub API.
+Having a simple way for creating and launching test instances for feature branches can be a real timesaver for developers and testers.
+A test instance in our case is an isolated bare-bones Linux virtual machine containing only the necessary dependencies, services and data required to run your built application. The instance just receives build artifacts and test data related to the feature branch and starts the app automatically.
+
+In our [NAPOTE](https://github.com/finnishtransportagency/mmtis-national-access-point) project we can launch isolated test instances from GitHub pull requests by using custom Slack commands and GitHub API. Running instances are also automatically terminated at the end of each day, so no manual work other than starting a new instance is required. Furthermore, money is saved because there will be no idle instances running 24/7.
 
 ![Slack deployment in action](/img/easy-test-deployments-round-two/napote-slack-deploy.gif)
 
