@@ -382,7 +382,7 @@ function optional<T>(param: T): T | undefined {
 }
 
 function arr<T>(param: T): T[] {
-    return undefined as any;
+    return ((p: T[]) => (p.every(t => (param as any)(t)))) as any as T[];
 }
 
 function obj<T extends object>(p: T): T {
