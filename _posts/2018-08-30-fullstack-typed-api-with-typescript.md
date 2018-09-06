@@ -1,37 +1,34 @@
 ---
 layout: post
-title: Fullstack shared typed api with TypeScript
+title: Fullstack shared typed API with TypeScript
 author: jgke
 excerpt: >
   TypeScript makes it possible to share type information between frontend and
-  backend. Here's how to use it to ensure consistent api calls between the
+  backend. Here's how to use it to ensure consistent API calls between the
   frontend and backend.
 tags:
  - TypeScript
  - Full stack
 ---
 
-Got a yet another error due to the JavaScript frontend slipping an unnoticed
-``undefined`` to a request or passing a string instead of a number, which
-causes requests to fail without a clear reason (or worse, succeed)? Maybe you
-changed the API on the server side but forgot to update the client? Consider
-sharing the api as a single type between the frontend and the backend. This
-blog post explains the process on how to build a shared API using fullstack
-TypeScript. As a bonus, you also get runtime type checks!
+Did you get a yet another error due to the JavaScript frontend slipping an
+unnoticed ``undefined`` to a request or passing a string instead of a number,
+which causes requests to fail without a clear reason? Or even worse, succeed in
+a weird way? Maybe you changed the API on the server side but forgot to update
+the client? Consider sharing the API as a single type between the
+frontend and the backend. This blog post explains the process on how to build a
+shared API using fullstack TypeScript. As a bonus, you also get runtime type
+checks!
 
-The source code for the finished example project is available
-[on GitHub](https://github.com/jgke/typescript-react-express-starter/).
-This post is more about the journey. For the destination, check the repository.
+## Sketching out an API
 
-## Sketching out an api
-
-Let's make a simple api:
+Let's make a simple API:
 - ``GET /customers``: fetch a list of customers
 - ``POST /customers``: create a new customer
 - ``GET /search?id=123&name=foobar``: search a customer by id/name
 
-As we're building a JSON-based api, every request and return value has to be an
-object. We can handle this transparently by defining the format:
+As we're building a JSON-based API, every request and return value has to be an
+object. We can handle this transparently by defining the format for responses:
 
 ```ts
 export interface ApiResponse<Res> {
@@ -40,8 +37,8 @@ export interface ApiResponse<Res> {
 ```
 
 All HTTP requests look roughly like functions ``(queryParameters, body) =>
-returnvalue`` (for GETs, this means (queryParameters, {}) => returnValue``), so
-we can model the api with the following type:
+returnvalue`` (for GETs, this means (queryParameters, {}) => returnValue``).
+This means that we can model the API with the following type:
 
 ```ts
 type Customer = {
@@ -59,7 +56,7 @@ type ApiMap = {
 }
 ```
 
-On the client side, this type can be used to define a object:
+On the client side, the ApiMap type can be used to define a object:
 
 
 ```ts
@@ -89,7 +86,9 @@ const api: ApiMap = {
 api.customers.GET().then(val => /* ... */ val)
 ```
 
-and on the server side
+The client side implementation can now be used as if the API was just an object
+with methods. Server side needs a bit more work, since we have to tie the api
+to implementations:
 
 ```ts
 const customers: Customer[] = [];
@@ -134,7 +133,7 @@ app.get("/search", (req, res) => {
 });
 ```
 
-If the client tries to call the api with the wrong parameter...
+If the client tries to call the API with the wrong parameter...
 
 ```ts
 api.customers.POST(123);
@@ -147,16 +146,16 @@ error TS2345: Argument of type '123' is not assignable to parameter of type 'str
 ```
 
 However, we have a problem. The implementations are not completely type checked
-to match the api! In fact, there is a small typo in the client side
+to match the API! In fact, there is a small typo in the client side
 implementation - can you spot it? In addition, there's a lot of duplicated code
 we'd like to avoid. The approach seems to be a good one, but the actual
 implementation needs some work.
 
-Instead of being a type, what if the api was a value? Then we could
+Instead of being a type, what if the API was a value? Then we could
 automatically generate code for client fetches and server binds by iterating
-over the api. Turns out, we can, and we also get to keep the type safety.
+over the API. Turns out, we can, and we also get to maintain type safety.
 
-## Make the object out of you... er, the api
+## Make the object out of you... er, the API
 
 Let's think for a moment. What do we actually want? We want for
 ``customers.GET`` to be a function ``() => Promise<Customer[]>`` that is
@@ -181,7 +180,7 @@ function one<T, R>() {
 ```
 
 Using the new syntax introduced in TypeScript 3.0, we can combine these
-functions into one, and also provide a third one taking two parameters:
+functions into one, and also provide a version, which takes two parameters:
 
 ```ts
 // the first any? here is body type, the second is query parameters
@@ -210,7 +209,7 @@ function arr<T>(param: T): T[] {
 }
 ```
 
-We can now write the api in a more terse syntax:
+We can now write the API in a more terse syntax:
 
 ```ts
 const customer = obj({id: num, name: str})
@@ -232,7 +231,7 @@ type ApiMap = typeof apiObject;
 
 For the client, we can wrap each of the requests with ``fetch()``, so the
 client code can just call the method with ``clientApi.path.METHOD(body)`` and be done
-with it. For the server, we can bind the api to eg. Express.
+with it. For the server, we can bind the API to eg. Express.
 
 ```ts
 import {ApiMap, apiObject, ApiResponse, ApiResponseValue} from './api';
@@ -360,11 +359,11 @@ It also works on the server side, although the error messages are somewhat harde
             Type 'string' is not assignable to type 'number'.
 ```
 
-## Runtime checking? What about runtime checking?
+## Runtime checking
 
 JavaScript is a dynamically typed language, and TypeScript only gives
-compile-time warnings. Since our api is a object, could we add runtime checks
-without modifying the api?
+compile-time warnings. Since our API is an object, could we add runtime checks
+without modifying the API?
 
 Let's start by changing the helper functions slightly:
 
@@ -398,7 +397,7 @@ Instead of returning ``undefined``, these now return functions which check
 whether the argument is the alleged type. For example, ``str`` is a function,
 which returns true if the argument is a string. At the same time, the function
 is of type ``string`` (instead of ``string => boolean``) so it can be used in
-the api definition.
+the API definition.
 
 Now, when we rewrite the server function...
 
@@ -420,7 +419,7 @@ if(!checker(req.body)) {
 ## Further work
 
 This is a relatively simple example, and doesn't implement any way to specify
-things like headers.  The api could allow nested paths, for example
+things like headers.  The API could allow nested paths, for example
 `/foo/bar/baz` using``{foo: {bar: {baz: ...}}}``. Error responses could also be
 modeled to be type safe.
 
