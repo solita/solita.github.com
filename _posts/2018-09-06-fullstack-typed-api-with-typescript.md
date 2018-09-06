@@ -11,7 +11,7 @@ tags:
  - Full stack
 ---
 
-Did you get a yet another error due to the JavaScript frontend slipping an
+Did you get yet another error due to the JavaScript frontend slipping an
 unnoticed ``undefined`` to a request or passing a string instead of a number,
 which causes requests to fail without a clear reason? Or even worse, succeed in
 a weird way? Maybe you changed the API on the server side but forgot to update
