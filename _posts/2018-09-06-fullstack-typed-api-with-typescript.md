@@ -3,12 +3,13 @@ layout: post
 title: Fullstack shared typed API with TypeScript
 author: jgke
 excerpt: >
-  TypeScript makes it possible to share type information between frontend and
-  backend. Here's how to use it to ensure consistent API calls between the
-  frontend and backend.
+  TypeScript makes it possible to share type information between the frontend
+  and the backend. Here's how to use it to ensure consistent API calls between
+  the frontend and the backend.
 tags:
- - TypeScript
+ - Api
  - Full stack
+ - TypeScript
 ---
 
 Did you get yet another error due to the JavaScript frontend slipping an
@@ -37,7 +38,7 @@ export interface ApiResponse<Res> {
 ```
 
 All HTTP requests look roughly like functions ``(queryParameters, body) =>
-returnvalue`` (for GETs, this means (queryParameters, {}) => returnValue``).
+returnvalue`` (for GETs, this means (queryParameters, {}) => returnvalue``).
 This means that we can model the API with the following type:
 
 ```ts
@@ -56,7 +57,7 @@ type ApiMap = {
 }
 ```
 
-On the client side, the ApiMap type can be used to define a object:
+On the client side, the `ApiMap` type can be used to define a object:
 
 
 ```ts
@@ -86,9 +87,9 @@ const api: ApiMap = {
 api.customers.GET().then(val => /* ... */ val)
 ```
 
-The client side implementation can now be used as if the API was just an object
-with methods. Server side needs a bit more work, since we have to tie the api
-to implementations:
+The client-side implementation can now be used as if the API was just an object
+with methods. Server side needs a bit more work, since we have to tie the API
+to the implementations:
 
 ```ts
 const customers: Customer[] = [];
@@ -146,7 +147,7 @@ error TS2345: Argument of type '123' is not assignable to parameter of type 'str
 ```
 
 However, we have a problem. The implementations are not completely type checked
-to match the API! In fact, there is a small typo in the client side
+to match the API! In fact, there is a small typo in the client-side
 implementation - can you spot it? In addition, there's a lot of duplicated code
 we'd like to avoid. The approach seems to be a good one, but the actual
 implementation needs some work.
@@ -179,8 +180,9 @@ function one<T, R>() {
 }
 ```
 
-Using the new syntax introduced in TypeScript 3.0, we can combine these
-functions into one, and also provide a version, which takes two parameters:
+Using the new tuple spread syntax introduced in TypeScript 3.0, we can combine
+these functions into one, and also provide a version which takes two
+parameters:
 
 ```ts
 // the first any? here is body type, the second is query parameters
@@ -189,7 +191,7 @@ function fun<T, TS extends [any?, any?]>(returns: T, ...takes: TS) {
 }
 ```
 
-Let's also create helpers for string, number, object and array in the similar
+Let's also create helpers for string, number, object and array in a similar
 fashion:
 
 ```ts
@@ -394,10 +396,10 @@ function obj<T extends object>(p: T): T {
 ```
 
 Instead of returning ``undefined``, these now return functions which check
-whether the argument is the alleged type. For example, ``str`` is a function,
-which returns true if the argument is a string. At the same time, the function
-is of type ``string`` (instead of ``string => boolean``) so it can be used in
-the API definition.
+whether the argument is of the alleged type. For example, ``str`` is a
+function, which returns true if the argument is a string. At the same time, the
+function is of type ``string`` (instead of ``string => boolean``) so it can be
+used in the API definition.
 
 Now, when we rewrite the server function...
 
