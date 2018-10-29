@@ -24,6 +24,16 @@ Below are some tips that I’ve used while learning Ansible.
 
 While learning Ansible, it is essential to read its official documentation. [Ansible online documentation](https://docs.ansible.com/ansible/latest/index.html) is really good and easy to understand. Another super helpful thing is video tutorials – these show how the stuff from documentation is working in practice. There are good video courses covering Ansible basics available on [Pluralsight](https://www.youtube.com/results?search_query=ansible+basic+tutorial), [CBT Nuggets](https://www.cbtnuggets.com/it-training/ansible-essentials) and even [free ones on YouTube](https://www.youtube.com/results?search_query=ansible+basic+tutorial).
 
+### Spend time to read about Yaml syntax
+
+Ansible uses Yaml language for composing playbooks. A resonably short tutorial can be found [here](https://gettaurus.org/docs/YAMLTutorial/), for example. One of the gotchas with Yaml is its indentation: a rule of thumb is to use space for indentation instead of tabs.
+
+Good news is that Ansible can do Yaml syntax check out of the box, without using a code editor or third-party Yaml checking tool. There's a *--syntax-check* switch to do this:
+
+```
+ansible-playbook playbook.yml  --syntax-check
+```
+
 ### Start with little stuff
 
 When you start working with a configuration management tool like Ansible, it might be tempting to go all-in and setup all your systems deployment straight away. Here’s the trouble though: since you’re quite new to Ansible, you don’t know all the small details – so you have to Google for a ready solution. With the help of Google, you might achieve the desired result, but it won’t give you much understanding of what is happening under the hood in Ansible project. Start small with package installs and service restarts and work your way from there.
@@ -34,7 +44,7 @@ If possible, find a real-life working example of Ansible project including hosts
 
 ### Get a decent code editor
 
-Use a good code editor application to work with Ansible files. [Visual Studio Code](https://code.visualstudio.com/) is a very nifty editor to start with. It has a large [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) and there's also a useful Ansible extension which does auto completion, code highlighting, Yaml syntax validation etc. 
+Use a good code editor application to work with Ansible files. [Visual Studio Code](https://code.visualstudio.com/) is a very nifty editor to start with. It has a large [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) and there's also a useful Ansible extension which does auto completion, code highlighting, Yaml syntax validation, Yaml indentation check as mentioned above etc. 
 
 ![VSCode Ansible extension](/img/learning-ansible/vscode_extension.png)
 
