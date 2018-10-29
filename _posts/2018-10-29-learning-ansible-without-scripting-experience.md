@@ -31,7 +31,7 @@ Ansible uses Yaml language for composing playbooks. A resonably short tutorial c
 Good news is that Ansible can do Yaml syntax check out of the box, without using a code editor or third-party Yaml checking tool. There's a *--syntax-check* switch to do this:
 
 ```
-ansible-playbook playbook.yml  --syntax-check
+ansible-playbook playbook.yml --syntax-check
 ```
 
 ### Start with little stuff
