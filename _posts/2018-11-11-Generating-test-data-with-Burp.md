@@ -20,7 +20,7 @@ What if you don't have the generator and don't want to bother writing one just n
 
 The "nice" generator can also give a false sense of security. How do you know everything works correctly with weird inputs if you never test it? 
 
-![Cunning cat](/img/burp-test-data/kisuli.jpg)
+![Cunning cat](/img/burp-test-data/kisuli.png)
 
 ## Enter Burp Suite
 
@@ -69,12 +69,12 @@ So, I launched an attack towards the same endpoint and here are some of the resu
 ![Generated persons](/img/burp-test-data/generated-persons.png)
 
 I can pretty much guarantee that your puny test data generator won't generate a person with a handy surname like this:
-´´´IVANOVITSX|ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #' |ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1´´´
+```IVANOVITSX|ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #' |ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1```
 
 
-## Why should we care about mr. IVAN ´´´<scRIpT>alert(42)//´´´ ?
+## Why should we care about mr. IVAN ```<scRIpT>alert(42)//``` ?
 
-Because he's awesome and he has now mastered omnipresence. He's everywhere. Sooner or later someone will throw something extremely weird into your API. Don't just think you are fine because you are using some hocus pocus encoder library or parser. Test it! The notorious IVAN ´´´<scRIpT>alert(42)//´´´ will come to visit you one day so better be certain that everything works.
+Because he's awesome and he has now mastered omnipresence. He's everywhere. Sooner or later someone will throw something extremely weird into your API. Don't just think you are fine because you are using some hocus pocus encoder library or parser. Test it! The notorious IVAN ```<scRIpT>alert(42)//``` will come to visit you one day so better be certain that everything works.
 
 And this is a low hanging fruit. You don't need to be a hard core hacker to do what I described here. Any developer could do this with a few hours of practice with the tools. It's much easier to detect the easy bugs and potential security flaws than to actually exploit them succesfully.
 
