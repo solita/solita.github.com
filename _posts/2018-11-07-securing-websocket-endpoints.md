@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Securing WebSocket Endpoints
+title: Securing WebSocket Endpoints Against Cross-Site Attacks
 author: eerohe
 excerpt: WS, CSRF, XSS, SOP, CORS, CSP… WTF?
 tags:
