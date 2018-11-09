@@ -55,7 +55,7 @@ If you want to generate test data that is painful to handle, you could use nice 
 
 This is far from perfect in the sense that the data is not realistic. This can't compete with a custom made test data generator, but it's a significantly bigger effort to write that test generator. And if you want to create actually malicious inputs, how do you do that with your custom tool? Download [SecLists](https://github.com/danielmiessler/SecLists) and bolt them in? Maybe, but that's even more work when you could just take Burp and press a few buttons.
 
-You can automate all of this. Then you don't even need to press buttons, just run it in the CI pipeline.
+Naturally you can automate all of this. Then you don't even need to press buttons, just run it in the CI pipeline.
 
 ## Enough talk. Attack!
 
@@ -67,7 +67,7 @@ If there is a second order problem with the system, the scanner may not be able 
 
 You could also see all kinds of encoding issues and trouble with assumptions about field lengths and so on, which may not be security flaws, but you would want to fix them anyway because they are bugs in the system. This is something security testers rarely think about because they are not rewarded if they report mundane ordinary bugs to the developers. As a developer or QA engineer I would like to know about all bugs, not just the ones that could be exploited at the moment.
 
-So, I chose only the endpoint that creates data as the target and launched an attack. Behold, what a jolly bunch of awesome people I now have in my local database!
+So, I chose only the endpoint that creates data as the target, and launched an attack. Behold, what a jolly bunch of awesome people I now have in my local database!
 
 ![Generated persons](/img/burp-test-data/generated-persons.png)
 
@@ -79,5 +79,5 @@ I can pretty much guarantee that your puny test data generator won't generate a 
 
 Because he's awesome and he has now mastered omnipresence. He's everywhere. The notorious ```IVAN <scRIpT>alert(42)//``` will come to visit you one day so better prepare for that. Make sure your system doesn't crash or worse. Even if no one tries to hack you, sooner or later someone will throw something extremely weird into your API. Don't think you are fine because you are using some hocus pocus encoder library or parser. You either test it or someone else will - without your permission!
 
-The good news is that This is a low hanging fruit. You don't need to be a hard core hacker to do what I described here. Any developer could do this with a few hours of practice with the tools. It's much easier to detect the easy bugs and potential security flaws than to actually exploit them succesfully, but a huge amount of security issues really boil down to input validation.
+The good news is that this is a low hanging fruit. You don't need to be a hard core hacker to do what I described here. Any developer could do this with a few hours of practice with the tools. It's much easier to detect the easy bugs and potential security flaws than to actually exploit them succesfully, but a huge amount of security issues really boil down to input validation.
 
