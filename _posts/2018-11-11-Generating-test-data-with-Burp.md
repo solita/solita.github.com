@@ -34,7 +34,7 @@ I created a single entry manually from the browser and Burp captured the traffic
 
 ## Intruder attack!
 
-After that it's simple to send the request to Burp's *Intruder* which is a tool to create multiple attacks against the same endpoint and customize the attack. The user can select which parameters or HTTP headers to test and what kind of encoders and value generators are used. 
+From the proxy view it's simple to send the request to Burp's *Intruder* which is a tool to create multiple attacks against the same endpoint and customize the attack. The user can select which parameters or HTTP headers to test and what kind of encoders and value generators are used. 
 
 First we need to select which part of the request we want to attack. In this case I have marked the name fields as the targets.
 
@@ -53,9 +53,9 @@ If you want to generate test data that is painful to handle, you could use nice 
 
 ## Does this make any sense?
 
-This is far from perfect in the sense that the data is not realistic. This can't compete with a custom made test data generator, but it's significantly bigger effort to write that test generator. And if you want to create actually malicious inputs, how do you do that with your custom tool? Download [SecLists](https://github.com/danielmiessler/SecLists) and bolt them in? Maybe, but that's even more work when you could just take Burp and press a few buttons.
+This is far from perfect in the sense that the data is not realistic. This can't compete with a custom made test data generator, but it's a significantly bigger effort to write that test generator. And if you want to create actually malicious inputs, how do you do that with your custom tool? Download [SecLists](https://github.com/danielmiessler/SecLists) and bolt them in? Maybe, but that's even more work when you could just take Burp and press a few buttons.
 
-And you can even automate all of this. Then you don't even need to press buttons, just run it in the CI pipeline.
+You can automate all of this. Then you don't even need to press buttons, just run it in the CI pipeline.
 
 ## Enough talk. Attack!
 
@@ -65,9 +65,9 @@ Burp has another nice tool in this regard, the *Attacker*. It's basically a web 
 
 If there is a second order problem with the system, the scanner may not be able to detect it. For example, a stored [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) where the XSS is triggered in some other page not directly related to the store endpoint, might go unnoticed. Same thing for second order SQL injections. But if a human browses the application after the attack has run it's course, such issues can be very visible. 
 
-You could also see all kinds of encoding issues and trouble with assumptions about field lengths and so on, which may not be security flaws, but you would want to fix them anyway because they are bugs in the system. This is something security testers rarely think about because they are not rewarded if they report mundane ordinary bugs to the developers, but if you are a developer you can understand the value in this.
+You could also see all kinds of encoding issues and trouble with assumptions about field lengths and so on, which may not be security flaws, but you would want to fix them anyway because they are bugs in the system. This is something security testers rarely think about because they are not rewarded if they report mundane ordinary bugs to the developers. As a developer or QA engineer I would like to know about all bugs, not just the ones that could be exploited at the moment.
 
-So, I launched an attack towards the same endpoint and here are some of the results. Behold, what a jolly bunch of awesome people I now have in my local database!
+So, I chose only the endpoint that creates data as the target and launched an attack. Behold, what a jolly bunch of awesome people I now have in my local database!
 
 ![Generated persons](/img/burp-test-data/generated-persons.png)
 
@@ -77,7 +77,7 @@ I can pretty much guarantee that your puny test data generator won't generate a 
 
 ## Why should we care about messieur ```IVAN <scRIpT>alert(42)//``` ?
 
-Because he's awesome and he has now mastered omnipresence. He's everywhere. The notorious ```IVAN <scRIpT>alert(42)//``` will come to visit you one day so better be certain that everything works. Even if no one tries to hack you, sooner or later someone will throw something extremely weird into your API. Don't think you are fine because you are using some hocus pocus encoder library or parser. Test it!
+Because he's awesome and he has now mastered omnipresence. He's everywhere. The notorious ```IVAN <scRIpT>alert(42)//``` will come to visit you one day so better prepare for that. Make sure your system doesn't crash or worse. Even if no one tries to hack you, sooner or later someone will throw something extremely weird into your API. Don't think you are fine because you are using some hocus pocus encoder library or parser. You either test it or someone else will - without your permission!
 
-The good news is that This is a low hanging fruit. You don't need to be a hard core hacker to do what I described here. Any developer could do this with a few hours of practice with the tools. It's much easier to detect the easy bugs and potential security flaws than to actually exploit them succesfully.
+The good news is that This is a low hanging fruit. You don't need to be a hard core hacker to do what I described here. Any developer could do this with a few hours of practice with the tools. It's much easier to detect the easy bugs and potential security flaws than to actually exploit them succesfully, but a huge amount of security issues really boil down to input validation.
 
