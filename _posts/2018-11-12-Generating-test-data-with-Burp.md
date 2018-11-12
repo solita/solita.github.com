@@ -2,7 +2,7 @@
 layout: post
 title: Generating test data with Burp suite
 author: lokori
-excerpt: While Burp suite is fundamentally a tool for penetration testers and security researchers, it has other uses too. A developer could use it to neatly generate a bunch of test data for example.
+excerpt: While Burp suite is fundamentally a tool for penetration testers and security researchers, it has other uses too. A developer can use it to neatly generate a bunch of test data.
 tags:
 - Burp
 - hacking
@@ -48,7 +48,7 @@ Finally, let's attack and in a matter of seconds we have a lot of data in our da
 
 ![Burp intruder running](/img/burp-test-data/intruder-attack.png)
 
-If you want to generate test data that is painful to handle, you could use nice input lists through the Intruder, like this [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt). Something from [SecLists](https://github.com/danielmiessler/SecLists) might also reveal what the developer missed in input validation.
+If you want to generate test data that is painful to handle, you can use nice input lists through the Intruder, like this [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt). Something from [SecLists](https://github.com/danielmiessler/SecLists) may also reveal what the developer missed in input validation.
 
 
 ## Does this make any sense?
@@ -61,11 +61,7 @@ Naturally you can automate all of this. Then you don't even need to press button
 
 ![Burp intruder payload](/img/burp-test-data/attack.jpg)
 
-Burp has another nice tool in this regard, the *Attacker*. It's basically a web app scanner, similar to [Nessus](https://www.tenable.com/products/nessus/nessus-professional), [Acunetix](https://www.acunetix.com/web-vulnerability-scanner/), ZAP and the like. It tries to enter various malicious inputs to the fields in the request and based on the server's responses it might find some actual security flaws. But assuming the backend server is not actually vulnerable and doesn't crash when faced with such hostile requests, this can be used to generate some rather interesting data entries in the database.
-
-If there is a second order problem with the system, the scanner may not be able to detect it. For example, a stored [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) where the XSS is triggered in some other page not directly related to the store endpoint, might go unnoticed. Same thing for second order SQL injections. But if a human browses the application after the attack has run it's course, such issues can be very visible. 
-
-You could also see all kinds of encoding issues and trouble with assumptions about field lengths and so on, which may not be security flaws, but you would want to fix them anyway because they are bugs in the system. This is something security testers rarely think about because they are not rewarded if they report mundane ordinary bugs to the developers. As a developer or QA engineer I would like to know about all bugs, not just the ones that could be exploited at the moment.
+Burp has another nice tool that can generate requests, the *Attacker*. It's basically a web app scanner, similar to [Nessus](https://www.tenable.com/products/nessus/nessus-professional), [Acunetix](https://www.acunetix.com/web-vulnerability-scanner/), ZAP and the like. It tries to enter various malicious inputs to the fields in the request and based on the server's responses it might find some actual security flaws. But assuming the backend server is not actually vulnerable and doesn't crash when faced with such hostile requests, this can be used to generate some rather interesting data entries in the database.
 
 So, I chose only the endpoint that creates data as the target, and launched an attack. Behold, what a jolly bunch of awesome people I now have in my local database!
 
@@ -74,6 +70,11 @@ So, I chose only the endpoint that creates data as the target, and launched an a
 I can pretty much guarantee that your puny test data generator won't generate a person with a handy name like this:
 ```IVAN IVANOVITSX|ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #' |ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1```
 
+## Using the attacker generated input
+
+If there is a second order problem with the system, the scanner may not be able to detect it. For example, a stored [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) where the XSS is triggered in some other page not directly related to the store endpoint, might go unnoticed. Same thing for second order SQL injections. But if a human browses the application after the attack has run it's course, such issues can be very visible. 
+
+You could also see all kinds of encoding issues and trouble with assumptions about field lengths and so on, which may not be security flaws, but you would want to fix them anyway because they are bugs in the system. This is something security testers rarely think about because they are not rewarded if they report mundane ordinary bugs to the developers. As a developer or QA engineer I would like to know about all bugs, not just the ones that could be exploited at the moment.
 
 ## Why should we care about messieur ```IVAN <scRIpT>alert(42)//``` ?
 
