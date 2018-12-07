@@ -11,7 +11,7 @@ tags:
 - GraalVM
 ---
 
-[**Clojure**](https://clojure.org/) is a dynamic Lisp language which is compiled to JVM bytecode for running as a normal JVM application. Starting a Clojure program is pretty slow compared to many other languages. The start up takes at least one second but depending on a program size this could be almost ten seconds.
+[**Clojure**](https://clojure.org/) is a dynamic Lisp language which is compiled to JVM bytecode for running as a normal JVM application. Starting a Clojure program is pretty slow compared to many other languages. The start-up takes at least one second but depending on program size this could be almost ten seconds.
 
 **JVM** itself starts [fast](http://clojure-goes-fast.com/blog/clojures-slow-start/) in 50 ms. The slow start up time is mostly caused by JVM class loading. Unfortunately Clojure generates a lot of classes because every Clojure variable definition and function are compiled to classes. This applies also to anonymous functions which are quite common in Clojure applications. For example a Clojure REST api with 2800 lines of code is compiled to over 200 JVM classes. The start up time of the program is almost eight seconds when running in MacBook Pro 2017 model. The minimum start up of one second or more makes Clojure also a bad choice for command line tools which are expected to run very fast.
 
