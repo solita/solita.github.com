@@ -36,7 +36,7 @@ Due to the nature of Clojure start-up time, using Lambdas have their penalties. 
                                   
 The results are quite problematic for Clojure. Using fastest available Lambda gives a start-up time of 2.34 seconds. A start-up time using 1000 MB Lambda is nearly three seconds. The long start-up time makes Clojure unusable for example outgoing Slack commands which have a timeout of three seconds. Slow start-up is recognized in the Clojure community. Solving it may be partially accomplished with changes to Clojure itself. Fortunately, a new VM has been created with good results for Clojure.  
 
-## A new hope emerges - GraalVM and Lambda Custom runtime
+## A new hope emerges - GraalVM and Lambda custom runtime
 
 This year have given two new release which makes the situation better. First Oracle released a new [GraalVM universal virtual machine](https://www.graalvm.org/) for running applications written in JavaScript, Python, Ruby, R, JVM-based languages like Java, Scala, Kotlin, Clojure, and LLVM-based languages such as C and C++. GraalVM can ahead of time (AOT) compile JVM applications to native binaries which start very fast compared to just in time (JIT) compiled programs running in the regular JVM. Also the memory footprint is smaller in native images.
 
