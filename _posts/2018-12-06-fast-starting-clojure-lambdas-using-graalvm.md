@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fast starting Clojure AWS Lambdas using GraalVM and a Lambda custom runtime  
-author: hjhamala
+author: hjhamala, markkuko
 excerpt: Clojure suffers of a slow start up time which makes using it problematic for APIs running in AWS Lambdas. Compiling Clojure to a native binary using GraalVM and running it in a Lambda custom runtime solves the start up problem. 
 tags:
 - AWS
@@ -61,7 +61,10 @@ GraalVM makes Clojure run excellently in the Lambda environment. The cold start 
 
 ## Limitations of GraalVM
 
-GraalVM have currently some problems compiling native images. For example no instances are allowed in the image heap for a class that is initialized or reinitialized at image runtime. These classes must be given as parameters which is cumbersome. The test program contained SSL libraries which caused compilation problems. Also certain libraries cannot be currently compiled. The Apache HTTP client which is used for example by Clojure Clj-http library is one of them. The compilation problem seems not to be Clojure specific so this should be fixed in the future versions of GraalVM.
+GraalVM have currently some problems compiling native images. For example no instances are allowed in the image heap for a class that is initialized or reinitialized at image runtime. These classes must be given as parameters which is cumbersome. The test program contained SSL libraries which caused compilation problems. Also certain libraries cannot be currently compiled. The Apache HTTP client which is used for example by Clojure Clj-http library is one of them. The compilation problem seems not to be Clojure specific so this should be fixed in the future versions of GraalVM. GraalVM added HTTPS protocol support to native-image in version 1.0.0-rc7, but it still has limitations. First, the provided certificate store has only limited set of CA certificates and second, you must configure path to libsunec.so (Sun Elliptic Curve crypto library). GraalVM tries to load the library from the current directory or from **java.library.path* when its first used. You can workaround these limitations by:
+
+1. Copy or make a symbolic link to the certificate store from e.g. your distributions OpenJDK to your GraalVM-installation. Certificate store is usually located in the file *$JDK_HOME/jre/lib/security/cacerts*.
+2. Configure path *java.library.path* to include the library *libsunec.so* (in Linux this is in directory *$GRAALVM_HOME/jre/lib/amd64/*) or copy the library file to the working directory).
 
 Runtime performance of the native images are [slightly worse](https://www.graalvm.org/docs/reference-manual/aot-compilation/) than regular JVM HotSpot compiler. This may of course change in the future. GraalVM is still in a release candidate phase for 1.0 version so situation may change in the future. 
 
