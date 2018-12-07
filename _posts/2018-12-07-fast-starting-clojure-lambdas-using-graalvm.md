@@ -17,7 +17,7 @@ tags:
 
 **Lambda** is a AWS serverless tecnology which lets users to run code without managing servers. Lambdas are paid only for the compute time which is consumed which makes them very attractive option for rarely used web applications. Lambdas itself have a start up time which depends on whether the Lambda application is _cold_ or _warm_. When a Lambda is first time used or there has been about 15 to 30 minutes between the last Lambda usage it takes about 600 ms to start the Lambda. After that Lambda is _warm_ and subsequent invocations are quite similar compared to applications running in normal virtual machines or containers. Performance of a Lambda depends on a memory allocated for it on creation. More memory gives also more computation time.
 
-The start up time is not a problem for Lambdas which are run as cron typed tasks, SQS queue pollers or otherwise where there is no need for quick synchronous responses. 
+The start-up time is not a problem for Lambdas which are run as cron-like tasks, SQS queue pollers or otherwise where there is no need for quick synchronous responses. 
 
 ## Clojure running in JVM AWS Lambdas 
 
