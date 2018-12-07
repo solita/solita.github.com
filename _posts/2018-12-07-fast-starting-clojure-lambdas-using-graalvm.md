@@ -42,7 +42,7 @@ This year has given two new releases which make the situation better. First, Ora
 
 The second important release was [custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html) which were introduced in AWS re:Invent 2018. The custom runtimes make possible to make Lambdas with any technology which can be run on Linux – a support is now available for, for example, Ruby, PHP and Cobol! Before, only JVM, Python, Node.JS, C#, GO and PowerShell were supported. With the custom runtime it is possible to compile Clojure as a native GraalVM binary and run it in AWS Lambda.
 
-A custom runtime API exposes API location via  environment variables. API itself contains three different REST methods for fectching invocations, posting responses and reportin errors. AWS documentation contains a useful tutorial for creating a custom runtime.
+A custom runtime API exposes API location via environment variables. API itself contains three different REST methods for fetching invocations, posting responses and reporting errors. AWS documentation contains a useful tutorial for creating a custom runtime.
 
 ## Results using GraalVM
 
