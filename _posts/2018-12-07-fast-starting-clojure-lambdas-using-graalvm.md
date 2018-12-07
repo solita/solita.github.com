@@ -68,7 +68,7 @@ GraalVM have currently some problems compiling native images. For example no ins
 
 The runtime performance of the native images is [slightly worse](https://www.graalvm.org/docs/reference-manual/aot-compilation/) than regular JVM HotSpot compiler. This may of course change in the future. GraalVM is still in a release candidate phase for 1.0 version so the situation may change in the future. 
 
-Java HotSpot VM is a battle tested technology compared to GraalVM which is a relatively young invention. What is the stability of GraalVM compared to it is not known yet. Also HotSpot is able to aggressivily compile most used code paths during runtime compared to GraalVM. Of course this is not a very big advantage for Lambdas which may have relatively young time of life.
+Java HotSpot VM is a battle tested technology compared to GraalVM which is a relatively young invention. What is the stability of GraalVM compared to Java HotSpot VM is not known yet. Also HotSpot is able to aggressively compile most used code paths during runtime compared to GraalVM. Of course this is not a very big advantage for Lambdas which may have relatively young time of life.
 
 ## What about ClojureScript?
 Instead of using Clojure, we could use ClojureScript which is compiled to JavaScript. This makes possible to run it in the Node.JS runtime. Start up time is quite same than native Javascript but tooling is currently poorer because traditionally ClojureScript have been targetting the browser environment. If Clojure becomes unviable in AWS perhaps ClojureScript will be Lisp family's choice for cloud native compilation in the future?
