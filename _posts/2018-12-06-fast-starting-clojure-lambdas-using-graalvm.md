@@ -21,7 +21,7 @@ The start up time is not a problem for Lambdas which are run as cron typed tasks
 
 ## Clojure running in JVM AWS Lambdas 
 
-Due to nature of Clojure start up time, using Lambdas have their penalties. In the next table are statistics for different Hello World applications. Clojure applications are tested with 1000 MB and 3000 MB memory for evaluating its effect on Clojure start up.  Other runtimes are tested with 1000 MB memory. Tests were made using a consumer broadband located in Finland against the AWS Ireland region (eu-west 2). The latencies could be better with better network and closer distance to the region.
+Due to nature of Clojure start up time, using Lambdas have their penalties. In the next table are statistics for different Hello World applications. Clojure applications are tested with 1000 MB and 3000 MB memory for evaluating its effect on Clojure start up.  Other runtimes are tested with 1000 MB memory. Tests were made using a consumer broadband located in Finland against the AWS Ireland region (eu-west 2). The latencies could be better with better network and closer distance to the region. Running tests inside AWS region in EC2 virtual machine would give lower network latencies.
 
 | Memory (MB)| Runtime              | N    | Average    | Standard deviation |
 | ---------- | -------------------- | ---- | ---------- | ------------------ |          
@@ -77,3 +77,4 @@ Instead of using Clojure, we could use ClojureScript which is compiled to JavaSc
 Lambda and the other serverless technologies are most likely to be very important part of any software product running in a cloud in the future. To be competitive in a enterprise environment, we must fix Clojure slow start up time when running Lambdas. GraalVM seems to fix Clojures this by allowing Clojure programs to be compiled to native binaries. The future looks good for Lisp users in the AWS cloud.
 
 Source for tests:
+[https://github.com/hjhamala/graalvm-clojure-lambda-tests](https://github.com/hjhamala/graalvm-clojure-lambda-tests)
