@@ -34,7 +34,7 @@ Due to the nature of Clojure start-up time, using Lambdas have their penalties. 
 | 1000       | Python (cold)        | 1000 | 0.594      | 0.210              |
 | 1000       | Python (warm)        | 5000 | 0.358      | 0.074              |                                                                    
                                   
-The results are quite problematic for Clojure. Using fastest available Lambda gives a start up time of 2.34 seconds. A start up time using 1000 MB Lambda is near three seconds. The long start up time makes Clojure unusable for example outgoing Slack commands which have a timout of three seconds. Slow start up is recognized in the Clojure community. Solving it may be partially accomplished with changes to Clojure itself. Fortunately new VM has been created with good results for Clojure.  
+The results are quite problematic for Clojure. Using fastest available Lambda gives a start-up time of 2.34 seconds. A start-up time using 1000 MB Lambda is nearly three seconds. The long start-up time makes Clojure unusable for example outgoing Slack commands which have a timeout of three seconds. Slow start-up is recognized in the Clojure community. Solving it may be partially accomplished with changes to Clojure itself. Fortunately, a new VM has been created with good results for Clojure.  
 
 ## A new hope emerges - GraalVM and Lambda Custom runtime
 
