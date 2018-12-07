@@ -74,7 +74,7 @@ Java HotSpot VM is a battle tested technology compared to GraalVM which is a rel
 Instead of using Clojure, we could use ClojureScript which is compiled to JavaScript. This makes possible to run it in the Node.JS runtime. Start up time is quite same than native JavaScript but tooling is currently poorer because traditionally ClojureScript has been targeting the browser environment. If Clojure becomes unviable in AWS perhaps ClojureScript will be Lisp family's choice for cloud native compilation in the future?
 
 ## Conclusion 
-Lambda and the other serverless technologies are most likely to be very important part of any software product running in a cloud in the future. To be competitive in a enterprise environment, we must fix Clojure slow start up time when running Lambdas. GraalVM seems to fix Clojures this by allowing Clojure programs to be compiled to native binaries. The future looks good for Lisp users in the AWS cloud.
+Lambda and the other serverless technologies are most likely to be very important parts of any software product running in a cloud in the future. To be competitive in an enterprise environment, we must fix Clojure's slow start-up time when running Lambdas. GraalVM seems to fix this by allowing Clojure programs to be compiled to native binaries. The future looks good for Lisp users in the AWS cloud.
 
 Source for tests:
 [https://github.com/hjhamala/graalvm-clojure-lambda-tests](https://github.com/hjhamala/graalvm-clojure-lambda-tests)
