@@ -2,7 +2,7 @@
 layout: post
 title: Fast starting Clojure AWS Lambdas using GraalVM and a Lambda custom runtime  
 author: hjhamala, markkuko
-excerpt: Clojure suffers of a slow start up time which makes using it problematic for APIs running in AWS Lambdas. Compiling Clojure to a native binary using GraalVM and running it in a Lambda custom runtime solves the start up problem. 
+excerpt: Clojure suffers of a slow start-up time which makes using it problematic for APIs running in AWS Lambdas. Compiling Clojure to a native binary using GraalVM and running it in a Lambda custom runtime solves the start-up problem. 
 tags:
 - AWS
 - Clojure
