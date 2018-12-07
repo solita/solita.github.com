@@ -66,7 +66,7 @@ GraalVM have currently some problems compiling native images. For example no ins
 1. Copy or make a symbolic link to the certificate store from, e.g., your distribution's OpenJDK to your GraalVM-installation. The certificate store is usually located in the file *$JDK_HOME/jre/lib/security/cacerts*.
 2. Configure path *java.library.path* to include the library *libsunec.so* (in Linux this is in directory *$GRAALVM_HOME/jre/lib/amd64/*) or copy the library file to the working directory).
 
-Runtime performance of the native images are [slightly worse](https://www.graalvm.org/docs/reference-manual/aot-compilation/) than regular JVM HotSpot compiler. This may of course change in the future. GraalVM is still in a release candidate phase for 1.0 version so situation may change in the future. 
+The runtime performance of the native images is [slightly worse](https://www.graalvm.org/docs/reference-manual/aot-compilation/) than regular JVM HotSpot compiler. This may of course change in the future. GraalVM is still in a release candidate phase for 1.0 version so the situation may change in the future. 
 
 Java HotSpot VM is a battle tested technology compared to GraalVM which is a relatively young invention. What is the stability of GraalVM compared to it is not known yet. Also HotSpot is able to aggressivily compile most used code paths during runtime compared to GraalVM. Of course this is not a very big advantage for Lambdas which may have relatively young time of life.
 
