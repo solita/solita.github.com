@@ -46,7 +46,7 @@ A custom runtime API exposes API location via environment variables. API itself 
 
 ## Results using GraalVM
 
-I made a simple custom runtime for running a Clojure program in a custom runtime. Compiling it was quite simple but required using a Docker container because binary must be compiled in Linux environment. Compilation times are  long compared to JVM compilation which must be made before compiling as a native image. The results are described in the next table. 
+I made a simple custom runtime for running a Clojure program in a custom runtime. Compiling it was quite simple but required using a Docker container because the binary must be compiled in Linux environment. Compilation times are long compared to JVM compilation which must be made before compiling as a native image. The results are described in the next table. 
 
 | Memory | Runtime                     | N    | Average | Standard deviation |
 | ------ | --------------------------- | ---- | ------- | ------------------ |          
