@@ -21,7 +21,7 @@ The start-up time is not a problem for Lambdas which are run as cron-like tasks,
 
 ## Clojure running in JVM AWS Lambdas 
 
-Due to nature of Clojure start up time, using Lambdas have their penalties. In the next table are statistics for different Hello World applications. Clojure applications are tested with 1000 MB and 3000 MB memory for evaluating its effect on Clojure start up.  Other runtimes are tested with 1000 MB memory. Tests were made using a consumer broadband located in Finland against the AWS Ireland region (eu-west 2). The latencies could be better with better network and closer distance to the region. Running tests inside AWS region in EC2 virtual machine would give lower network latencies.
+Due to the nature of Clojure start-up time, using Lambdas have their penalties. In the next table are statistics for different Hello World applications. Clojure applications are tested with 1000 MB and 3000 MB memory for evaluating its effect on Clojure start-up.  Other runtimes are tested with 1000 MB memory. Tests were made using a consumer broadband located in Finland against the AWS Ireland region (eu-west 2). The latencies could be better with better network and closer distance to the region. Running tests inside AWS region in EC2 virtual machine would give lower network latencies.
 
 | Memory (MB)| Runtime              | N    | Average    | Standard deviation |
 | ---------- | -------------------- | ---- | ---------- | ------------------ |          
