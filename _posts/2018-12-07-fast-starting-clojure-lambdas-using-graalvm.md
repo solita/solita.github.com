@@ -38,7 +38,7 @@ The results are quite problematic for Clojure. Using fastest available Lambda gi
 
 ## A new hope emerges - GraalVM and Lambda custom runtime
 
-This year have given two new release which makes the situation better. First Oracle released a new [GraalVM universal virtual machine](https://www.graalvm.org/) for running applications written in JavaScript, Python, Ruby, R, JVM-based languages like Java, Scala, Kotlin, Clojure, and LLVM-based languages such as C and C++. GraalVM can ahead of time (AOT) compile JVM applications to native binaries which start very fast compared to just in time (JIT) compiled programs running in the regular JVM. Also the memory footprint is smaller in native images.
+This year has given two new releases which make the situation better. First, Oracle released a new [GraalVM universal virtual machine](https://www.graalvm.org/) for running applications written in JavaScript, Python, Ruby, R, JVM-based languages like Java, Scala, Kotlin, Clojure, and LLVM-based languages such as C and C++. GraalVM can ahead-of-time (AOT) compile JVM applications to native binaries which start very fast compared to just-in-time (JIT) compiled programs running in the regular JVM. The memory footprint is also smaller in native images.
 
 Second important release was [custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html) which were introduced in AWS re:Invent 2018. The custom runtimes makes possible to make Lambdas with any technology which can be run on Linux - a support is now available for example Ruby, PHP and Cobol! Before that, supported were JVM, Python, Node.JS, C#, GO and PowerShell. With the custom runtime it is possible to compile Clojure as a native GraalVM binary and run it in AWS Lambda.
 
