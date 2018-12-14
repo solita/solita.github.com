@@ -12,13 +12,17 @@ AWS re:Invent is the biggest AWS related conference in the world, and this year 
 
 # Introduction
 
-<< More text coming here >>
+This blog post is a summary of the re:Invent week from the viewpoint of a first timer. I work as a Data Developer at Solita and I’ve been using AWS in my work for almost 3 years now, and I’m also a Certified Solutions Architect - Professional. After watching all the big announcements and some of the sessions from previous years online, I made a goal for myself to someday be at re:Invent in person, and luckily this year everything worked out. 
+
+I’ve visited some software development conferences before, but they have all been really small compared to the massive scale of re:Invent. With over 50 000 participants, 2500 sessions to choose from and five days full of content, the scale of things is just huge and there is so much variety in the topics, types and levels of the sessions.
+
+I tried to choose sessions and workshops from quite varying topics, as the project I’m working on consists of a lot of different things (software development, event pipelines, data platform, serverless, infrastructure as code, devops, data science, machine learning, you name it…) that we are doing with a small team. I tried to mix and match sessions with some technologies that we are already using and some that we are considering of taking into use, while also trying to learn about the newly announced features.
 
 ## Registration and scheduling
 
-The user experience of registering to the different sessions was quite poor. The website that you had to use for reserving a seat for the sessions could’ve used a lot of work to make it easier to find sessions and to make a schedule that made sense in a logistical point of view. Before the registration opened, you could add sessions from the catalog to your interests, but you had no way of viewing a calendar of your interests without a third party website provided by SOME DUDE. With over 2000 sessions to choose from, searching and filtering options are very important and although the provided options were decent, you could still end up too easily in a situation where you had a bunch of different sessions back-to-back starting at the other ends of the campus. The overflow and repeat sessions were also added quite late, so you had to do quite a lot of tweaking after the initial registration to make the schedule work in practice. The schedule feature of the webapp and the planner of the mobile app worked much better for this, but the app was only made available about one week before the event, when most of the sessions were already fully booked.
+The user experience of registering to the different sessions was quite poor. The website that you had to use for reserving a seat for the sessions could’ve used a lot of work to make it easier to find sessions and to make a schedule that made sense in a logistical point of view. Before the registration opened, you could add sessions from the catalog to your interests, but you had no way of viewing a calendar of your interests without a third party website. With over 2500 sessions to choose from, searching and filtering options are very important and although the provided options were decent, you could still end up too easily in a situation where you had a bunch of different sessions back-to-back starting at the other ends of the campus. The overflow and repeat sessions were also added quite late, so you had to do quite a lot of tweaking after the initial registration to make the schedule work in practice. The schedule feature of the webapp and the planner of the mobile app worked much better for this, but the app was only made available about one week before the event, when most of the sessions were already fully booked.
 
-One thing to keep in mind is that all of the session videos are going to be posted on Youtube a few days after the event, so you should focus on going to workshops, chalk talks and builders sessions if you want to make the most out of the different 
+One thing to keep in mind is that all of the session videos are going to be posted on Youtube a few days after the event, so you should focus on going to workshops, chalk talks and builders sessions if you want to make the most out of the things that aren't available later on.
 
 ## Preparing for the trip
 
@@ -50,25 +54,25 @@ Overview of what Glue does and how it relates to Spark, DataFrame vs. DynamicFra
 
 ### Workshop: ANT321 -- Tiered Data Sets in Amazon Redshift
 
-Even though workshops were advertised to be done as a team effort and attendees were split into big tables with multiple persons, tasks were done individually following a step by step guide provided by the instructors who then walked around to see if anyone had any questions or problems. Would have expected a bit more talking and group effort, but no-one in the room seemed to do them in groups. The workshop itself was quite basic if you were already familiar with Redshift and Redshift Spectrum. Covered how to load data from S3 using COPY and external tables, then focused more on partitioning the data and how to combine Redshift and Spectrum tables using views.  Had to leave a bit early to make a quick stop at the Nordics reception before heading to the next workshop. Materials available at https://github.com/aws-samples/amazon-redshift-tiered-storage 
+Even though workshops were advertised to be done as a team effort and attendees were split into big tables with multiple persons, tasks were done individually following a step by step guide provided by the instructors who then walked around to see if anyone had any questions or problems. Would have expected a bit more talking and group effort, but no-one in the room seemed to do them in groups. The workshop itself was quite basic if you were already familiar with Redshift and Redshift Spectrum. Covered how to load data from S3 using COPY and external tables, then focused more on partitioning the data and how to combine Redshift and Spectrum tables using views.  Had to leave a bit early to make a quick stop at the AWS Nordics Customer reception before heading to the next workshop. Materials available at https://github.com/aws-samples/amazon-redshift-tiered-storage 
 
 ### Workshop: CON323 - Deploying Applications Using Amazon EKS
 
-Similar setup as previous workshop, following step-by-step guidelines with not much guidance. This was actually the part 2 of a 3-part workshop series, so for many (including me) the first 20 minutes were spent on spinning up an EKS cluster and installing the tools to a Cloud9 IDE environment. The workshop material was quite well documented and guided (available online at https://eksworkshop.com/). Topics covered ranged from health checks to auto scaling applications and clusters, setting up a CI/CD pipeline and monitoring. I’m not that familiar of Kubernetes so some of the configuration seemed quite heavy and cumbersome. The topics also touched on CodeBuild, CodePipeline, X-Ray and CloudFormation, so it was also nice to see how they functioned as I haven’t used them much previously. 
+Similar setup as previous workshop, following step-by-step guidelines with not much guidance. This was actually the part 2 of a 3-part workshop series, so for many (including me) the first 20 minutes were spent on spinning up an EKS cluster and installing the CLI tools to a new Cloud9 IDE environment. The workshop material was quite well documented and guided (available online at https://eksworkshop.com/). Topics covered ranged from health checks to auto scaling applications and clusters, setting up a CI/CD pipeline and monitoring. I’m not yet that familiar with Kubernetes so some of the configuration needed seemed to add quite a lot of overhead and felt cumbersome. The topics also touched on CodeBuild, CodePipeline, X-Ray and CloudFormation, so it was also nice to see how they functioned as I haven’t used them much previously (as we use Jenkins and Terraform/Ansible in my current project). 
 
 ## Day 2
 
 ### Session: STG303 - Deep Dive on Amazon S3 Security and Management
 
-Generic overview of different ways to control access to S3 buckets using IAM policies, bucket policies and ACLs. Demos of the different options of the new feature, S3 Block Public Access, which restricts public access on a bucket or account level. Case example of Intuit data lake and controlled access restricted using VPC endpoints, IP blocks and principal organization ids and also a shared access for legacy applications using User-Agent header as a “password” for uploading without IAM user or authentication.
+Generic overview of different ways to control access to S3 buckets using IAM policies, bucket policies and ACLs. Demos of the different options of the new feature, S3 Block Public Access, which restricts public access on a bucket or account level. Case example of Intuit data lake and controlled access restricted using VPC endpoints, IP blocks and principal organization ids and also a shared access for legacy applications using User-Agent header as a “password” for uploading files to S3 without an IAM user or authentication.
 
-Not much new information here, but it was interesting to hear how many different ways there are for restricting/allowing access.
+Not much new information here, but it was interesting to hear how many different ways there are for restricting and allowing access.
 
 ### Workshop: ANT318 - Build, Deploy and Serve Machine learning models on streaming data using Amazon Sagemaker, Apache Spark on Amazon EMR and Amazon Kinesis
 
 Todays workshops were a bit better instructed than yesterday, with instructors going through all the steps in detail, but overall these still relied heavily on following provided instructions step by step. In this workshop we were provided Qwiklabs access and a ready CloudFormation template for setting everything up. 
 
-In the exercises, the idea was to build a model based on flight event data and try to predict if a flight is late when given a start airport, start time, destination and airline.The actual exercises were ready Jupyter notebooks that were run using SageMaker. In the latter parts, a Kinesis stream and a simple Scala backend app was set up for serving queries coming in using a REST API and using a Sagemaker endpoint for fetching predictions using the previously built ML model.
+In the exercises, the idea was to build a machine learning model based on flight event data and try to predict if a flight is late when given a start airport, start time, destination and airline. The actual exercises were ready Jupyter notebooks that were run using SageMaker. In the later parts, a Kinesis stream and a simple Scala backend app was set up for serving queries coming in using a REST API and using a SageMaker endpoint for fetching predictions using the previously built ML model.
 
 Quite a lot of things were covered in 2 hours, but would’ve hoped for more time and actual thinking instead of just running the ready made notebooks step by step.
 
@@ -82,27 +86,27 @@ Overflow rooms are great for random sessions, jumped right into the next session
 
 ### Session: SRV303 - Monitoring Serverless Applications
 
-Not that great session, presented by New Relic and CapitalOne speakers who just reiterated the difficulties of developing, scaling and monitoring complex serverless applications without proper debugging tools, local development environment and metrics, but offered no new solutions except for an upcoming New Relic Lambda Monitoring feature that was not even properly demoed. Would’ve hoped for new AWS solutions announced for this.
+Not that great of a session, presented by New Relic and CapitalOne speakers who just reiterated the difficulties of developing, scaling and monitoring complex serverless applications without proper debugging tools, local development environment and metrics, but offered no new solutions except for an upcoming New Relic Lambda Monitoring feature that was not even properly demoed. Would’ve hoped for new AWS solutions announced for this.
 
 ### Workshop: ANT313 - Serverless Data Prep with AWS Glue
 
-Final workshop of the day, right in the middle of Pub Crawl. Here we loaded NYC Taxi dataset from S3 to Glue Data Catalog using Crawler, then did some raw queries to it using Athena, then  cleaned up and optimized it for reporting queries using Spark and finally created a ML model for customer tipping behaviour using Sagemaker. A bit similar to the Sagemaker workshop I attended earlier, but a bit more Spark was used here
+Final workshop of the day, right in the middle of Pub Crawl. Here we loaded the NYC Taxi dataset from S3 to Glue Data Catalog using Crawler, then did some raw queries to it using Athena, then cleaned up and optimized it for reporting queries using Spark and finally created a ML model for customer tipping behaviour using Sagemaker. A bit similar to the Sagemaker workshop I attended earlier, but a bit more Spark and Glue was used here
 
 ## Day 3
 
 ### Keynote: Andy Sassy
 
-See announcements above. Quite a lot of new stuff announced, excited to try some of them out but unfortunately not many sessions or workshops available here. As for the keynote event itself, it was a big hall and a really big crowd, but a surprisingly smooth process to get in, basically walked straight in 20 minutes before the keynote started and got the best seats in the house :sadtroll:. A nice experience to see it live in person, but will watch tomorrow’s keynote from an overflow location to save some time from traveling between locations.
+Quite a lot of new stuff announced, excited to try some of them out but unfortunately not many sessions or workshops available here. As for the keynote event itself, it was a big hall and a really big crowd, but a surprisingly smooth process to get in, basically walked straight in 20 minutes before the keynote started and got the best seats in the house :sadtroll:. A nice experience to see it live in person, but will watch tomorrow’s keynote from an overflow location to save some time from traveling between locations.
 
 ### Hackathon: Game Day 2018
 
-After the keynote had some time for a lunch with other Solita people and to make a quick visit at the expo before heading to the other side of the campus for a 5 hour Game Day hackathon. The shuttle arrived a bit earlier than I expected, so had some time to visit the MGM Grand Arena where they were showcasing the just announced DeepRacer robotic car. Checked out a walk-in garage where you could come in to try out your reinforcement learning model on a test track with a real car instead of just running simulations.
+After the keynote had some time for a lunch with other Solita people and to make a quick visit at the expo before heading to the other side of the campus for a 5 hour Game Day hackathon. The shuttle arrived a bit earlier than I expected, so had some time to visit the MGM Grand Arena where they were showcasing the just announced DeepRacer robocar. Checked out a walk-in garage where you could come in to try out your reinforcement learning model on a test track with a real car instead of just running simulations.
 
 As for the Hackathon itself, we formed a group of 4 with two guys from Finland and one guy from a Japanese software company. There were about 60 other groups and we each tried to run our own microservices that were then advertised to a centralized “marketplace” where you would pick other teams services to be run on your “service router”. Each team would then periodically get points for 1) each request made against their service and 2) successfully routing requests to other teams services by keeping the service router up and running.
 
 First, we had to log in to a dashboard, check the instructions and try to get the microservices up and running on a provided AWS account. Two of the services used CloudFormation templates to spin up the service, one used Fargate and one Lambda+SAM. We were also provided with accounts to NewRelic and DataDog monitoring services that were connected to the microservices that we were trying to keep up and running.
 
-During the hackathon, there was an evil chaos engineering team that randomly did some stuff to our services so that they were not working anymore and we had to get them up and running again. The services were leaking memory and crashing randomly so auto scaling groups and load balancers were the first thing that we added to improve them. We weren’t expecting that heavy chaos monkey approach, as we struggled a bit in trying to figure out why our services were down only to find out that somehow our VPCs had lost an internet gateway or routing tables had been deleted. Also ran into some really strange error messages due to the limitations placed on the IAM roles we were running the services on.
+During the hackathon, there was an evil chaos engineering team that randomly did some stuff to our services so that they were not working anymore and we had to get them up and running again. The services were leaking memory and crashing randomly so auto scaling groups and load balancers were the first thing that we added to improve them. We weren’t expecting that heavy of a chaos monkey approach, as we struggled a bit in trying to figure out why our services were down only to find out that somehow our VPCs had lost an internet gateway or routing tables had been deleted. We also ran into some really strange error messages due to the limitations placed on the IAM roles we were running the services on.
 
 Overall though, it was a really fun and hectic experience, as you could monitor your own points in real time and see the top teams in a leaderboard on the big screens. In the end, our team placed 22nd out of 63, so I guess we managed to do okay.
 
@@ -112,7 +116,7 @@ Managed to spot one session with “NEW LAUNCH” tagged on it after the keynote
 
 Cloudwatch Logs Instances allows running analytical queries against Cloudwatch logs. You can do a lot more than with regular Cloudwatch log searching, for example quick visualizations, grouping, time series aggregations, calculations, percentiles and sorting. This makes it much more easier to find relevant information from logs. Use cases range from operational troubleshooting, application analysis during development, dashboards and security breaches. Use case example from Gemalto who use it for security incident forcensics and reports using Lambdas. 
 
-The feature itself looks like it could be really useful in some cases, as filtering and searching with regular Cloudwatch logs is really painful. Unfortunately the features are quite barebone as of now, and they don’t support e.g. scheduled queries or reporting results as a metric or alarms straight out of the box (you need to use the API and e.g. Lambdas for all that).
+The feature itself looks like it could be really useful in some cases, as filtering and searching with regular Cloudwatch logs is really painful. Unfortunately the features are quite barebone as of now, and they don’t support e.g. scheduled queries or reporting results as a metric or alarms straight out of the box (you need to use the API and e.g. Lambdas for all that).
 
 ## Day 4
 
@@ -126,7 +130,7 @@ Left a lot of empty space in my calendar for today, hoping for sessions and work
 
 Doing the challenges was a nice contrast to the step by step workshops that I had been going to on previous days, as you were forced to think a bit more yourself but were still able to get help if needed by using hints (that affected your points negatively). Wish I had known about this jam on the first days, would’ve liked to tried out some more challenges.
 
-### STG401 - Building a Data Lake in Amazon S3 & Amazon Glacier
+### Workshop: STG401 - Building a Data Lake in Amazon S3 & Amazon Glacier
 
 This was an expert level workshop but the instructor presented some really basic level stuff, starting out with a question “Who has heard of S3 before?” :face_with_rolling_eyes:
 
@@ -136,7 +140,7 @@ Materials for the workshop can be found from https://s3.amazonaws.com/tlicustome
 
 ### Re:Play
 
-The biggest party of the week happened on thursday evening, held at a nearby festival grounds. Simply, a really massive festival type of party setting with three huge tents and a large outdoors area, loads of random activities, long lines, food and drinks. Oh, and also live music from Thievery Corporation, Future Islands and Skrillex.
+The biggest party of the week happened on Thursday evening, held at a nearby festival grounds. Simply, a really massive festival type of party setting with three huge tents and a large outdoors area, loads of random activities, long lines, food and drinks. Oh, and also live music from Thievery Corporation, Future Islands and Skrillex.
 
 ## Day 5
 
@@ -162,4 +166,16 @@ An overview session of the different concepts that Redshift is built upon with s
 
 The week went by really fast as the days are long and full of content from early morning to late evenings. 
 
-<< More text coming up here >>
+Despite the massive scale of the conference, the logistics worked pretty well. There was a massive amount of personnel at the venues guiding you to the right place and answering questions. It was quite amazing how smoothly everything worked out at every venue, and the shuttles between them were quite handy too, as it usually saved a lot of walking through the casinos as most of the shuttles ran from event center to event center. The only thing that didn’t work out regarding logistics was the conference breakfast at Mirage, on the two days I tried to have it there they had already run out of it half an hour before it was supposed to end.
+
+On the first day I made the mistake of booking sessions and workshops that were held all over the campus. This meant a lot of time spent travelling between venues instead of watching sessions or attending workshops. The following days I tried to make use of overflow venues and stick into one or two venues per day.
+
+Try to network with other peers, there are a lot of different events happening all week long, a handy website called Conference Parties listed these. Plus, you usually get free food and drinks at these events.
+
+As this was my first time, I probably packed my schedule too full of sessions, which meant that I had little time to visit the Expo, for example. As a result, I missed out on things like the awesome Jam lounge which I discovered only on the last day it was open.
+
+One thing that was a bit disappointing was that there weren’t that many sessions available for the new features, and the ones that were available got full instantly.
+
+Hopefully they’ll also make it easier to make better schedules on the following years.
+
+Overall, it was a great week with a lot of new things and best practices learned that can be applied to my daily work. Hopefully I’ll get the chance to attend the conference sometime in the future too. 
