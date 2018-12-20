@@ -2,10 +2,10 @@
 layout: post
 title: AWS re:Invent 2018 through the eyes of a first timer
 author: mkainula
-excerpt: AWS re:Invent is the biggest AWS related conference in the world, and this year our company sent 15 people to Las Vegas to learn about the new features, best practices and different use cases of AWS and to network with customers and other AWS experts around the world. This blog post is a summary of the week from the viewpoint of a first timer. For other re:Invent related blog posts, keep an eye out for upcoming posts in this blog and our social media channels.
+excerpt: AWS re:Invent is the biggest AWS related conference in the world, and this year our company sent 15 people to Las Vegas to learn about the new features, best practices and different use cases of AWS and to network with customers and other AWS experts around the world. This blog post is a summary of the week from the viewpoint of a first timer.
 tags:
-- aws
-- reinvent
+- AWS
+- re:Invent
 ---
 
 ![Welcome to re:Invent](/img/reinvent-2018-first-timer/welcome.jpg)
