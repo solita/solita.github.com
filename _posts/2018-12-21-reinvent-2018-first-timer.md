@@ -16,9 +16,9 @@ AWS re:Invent is the biggest AWS related conference in the world, and this year 
 
 As mentioned above, this summary is written from a viewpoint of a first time re:Invent visitor. I work as a Data Developer at Solita and I’ve been using AWS in my work for almost 3 years now, and I’m also a Certified Solutions Architect - Professional. After watching all the big announcements and some of the sessions from previous years online, I made a goal for myself to someday be at re:Invent in person, and luckily this year everything worked out.
 
-I’ve visited some software development conferences before, but they have all been really small compared to the massive scale of re:Invent. With over 50 000 participants, 2500 sessions to choose from and five days full of content, the scale of things is just huge and there is so much variety in the topics, types and levels of the sessions. Even if you fill your schedule with interesting sessions, the amount of content is simply so big that during the conference. you are bound to miss something interesting that is happening simultaneously elsewhere.
+I’ve visited some software development conferences before, but they have all been really small compared to the massive scale of re:Invent. With over 50 000 participants, 2500 sessions to choose from and five days full of content, the scale of things is just huge and there is so much variety in the topics, types and levels of the sessions. Even if you fill your schedule with interesting sessions, the amount of content is simply so big that during the conference, you are bound to miss something interesting that is happening simultaneously elsewhere.
 
-I tried to choose sessions and workshops from quite varying topics, as the project I’m working on consists of a lot of different things (software development, event pipelines, data platform, serverless, infrastructure as code, devops, data science, machine learning, you name it...) that we are doing with a small team. I tried to mix and match sessions with some technologies that we are already using and some that we are considering of taking into use, while also trying to learn about the newly announced features.
+I tried to choose sessions and workshops from quite varying topics, as the project I’m working on consists of a lot of different things (software development, event pipelines, data platform, serverless, infrastructure as code, devops, data science, machine learning, you name it...) that we are doing with a small team. I tried to mix and match sessions with some technologies that we are already using and some that we are considering taking into use, while also trying to learn about the newly announced features.
 
 ## Registration, scheduling and preparing for the trip
 
@@ -68,13 +68,13 @@ Even though workshops were advertised to be done as a team effort and attendees 
 
 ### AWS Nordics Customer Reception
 
-Managed to make a quick stop at the AWS Nordics Customer Reception before heading to the next workshop. It was nice to see so many people attending from the Nordics, and especially to see a lot of Finnish colleagues from other companies. Would have liked to be there longer, but had to rush to my next workshop after 30 minutes of networking.
+I managed to make a quick stop at the AWS Nordics Customer Reception before heading to the next workshop. It was nice to see so many people attending from the Nordics, and especially to see a lot of Finnish colleagues from other companies. I would have liked to be there longer, but had to rush to my next workshop after 30 minutes of networking.
 
 ![ANT321](/img/reinvent-2018-first-timer/day1-nordicreception.jpg)
 
 ### Workshop: CON323 - Deploying Applications Using Amazon EKS
 
-Similar setup as previous workshop, following step-by-step guidelines with not much guidance. This was actually the part 2 of a 3-part workshop series, so for many (including me) the first 20 minutes were spent on spinning up an EKS cluster and installing the CLI tools to a new Cloud9 IDE environment. The workshop material was quite well documented and guided (available online at https://eksworkshop.com/). Topics covered ranged from health checks to auto scaling applications and clusters, setting up a CI/CD pipeline and monitoring. I’m not yet that familiar with Kubernetes so some of the configuration needed seemed to add quite a lot of overhead and felt a bit cumbersome. The topics also touched on CodeBuild, CodePipeline, X-Ray and CloudFormation, so it was also nice to see how they functioned as I haven’t used them much previously (as we use Jenkins and Terraform/Ansible in my current project).
+Similar setup as previous workshop, following step-by-step guidelines with not much guidance. This was actually part 2 of a 3-part workshop series, so for many (including me) the first 20 minutes were spent on spinning up an EKS cluster and installing the CLI tools to a new Cloud9 IDE environment. The workshop material was quite well documented and guided (available online at https://eksworkshop.com/). Topics covered ranged from health checks to auto scaling applications and clusters, setting up a CI/CD pipeline and monitoring. I’m not yet that familiar with Kubernetes so some of the required configuration seemed to add quite a lot of overhead and felt a bit cumbersome. The topics also touched on CodeBuild, CodePipeline, X-Ray and CloudFormation, so it was also nice to see how they functioned as I haven’t used them much previously (as we use Jenkins and Terraform/Ansible in my current project).
 
 ![CON323](/img/reinvent-2018-first-timer/day1-con323.jpg)
 
@@ -222,7 +222,7 @@ After all the sessions the Solita crew gathered together to have a Christmas Par
 
 The week went by really fast as the days are long and full of content from early morning to late evenings. Especially Monday and Tuesday were really long days, as the first sessions started at 8 AM and the final workshops of the day ended after 9 PM.
 
-Despite the massive scale of the conference, the logistics worked pretty well. There was a massive amount of personnel at the venues guiding you to the right place and answering questions. It was quite amazing how smoothly everything worked out at every venue, and the shuttles between them were quite handy too, as it usually saved a lot of walking through the casinos as most of the shuttles ran from event center to event center. The only thing that didn’t work out regarding logistics was the conference breakfast at Mirage, on the two days I tried to have it there they had already run out of it half an hour before it was supposed to end.
+Despite the massive scale of the conference, the logistics worked pretty well. There was a massive amount of personnel at the venues guiding you to the right place and answering questions. It was quite amazing how smoothly everything worked out at every venue, and the shuttles between them were quite handy too, as it usually saved a lot of walking through the casinos as most of the shuttles ran from event center to event center. The only thing that didn’t work out regarding logistics was the conference breakfast at Mirage. On the two days I tried to have it there they had already run out of it half an hour before it was supposed to end.
 
 ![Venetian](/img/reinvent-2018-first-timer/venetian.jpg)
 
