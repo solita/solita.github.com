@@ -264,13 +264,15 @@ catch {
 $res | % { if($_.RawContentLength -gt 0) { ("Status: " + [int]$_.StatusCode +" | Length: " +$_.RawContentLength) + " | Parameter: "+ $p + " | ErrorDetails: "+$virhe } }
 ```
 
-By passing the previously used burp-parameter-names list for the script we can find out that the missing parameter name was data. 
+By passing the previously used burp-parameter-names list for the script we can find out that the missing parameter name.  
 
 ```PowerShell
 get-content .\burp-parameter-names.txt | % { .\ps_8021_give_ticket_params.ps1 $_ "GET" }
 ```
 
-Hooray! We got a HACKER! response with a link to the holvi shop to get our hacker ticket.
+The missing parameter name was data. And by just accessing the http://puzzle.disobey.fi:8021/?data=GIVE_GIVE_GIVE_ME_MY_TICKET we finally get everything solved.
+
+Hooray! We got a "HACKER!" response with a link to the holvi shop to get our hacker ticket.
 
 ## Lessons learned
 
