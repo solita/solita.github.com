@@ -206,7 +206,7 @@ $res | % { if($len -gt 0) { ("Status: " + [int]$_.StatusCode +" | Length: " +$le
 Then we brute force the tcp ports with oneliner. 
 
 ```PowerShell 
-1..65500 | % { .\ps_admin_test_params.ps1 "url" ("2130706433:"+$_) }
+1..65535 | % { .\ps_admin_test_params.ps1 "url" ("2130706433:"+$_) }
 ```
 
 After a while we found new port that we had not found before: 40053. Which returns a long string which again looks like Base64. 
@@ -234,7 +234,8 @@ Press all the buttons in the keyboard. Preferably vvv and qq. Suddenly some magi
 ```
 |....[!] PANIC .Route OS...Disk read failed!...Proxy server to us
 |e for fetching files (optional): .Connection to mirror failed vi
-|a proxy: .Halting....Overflow (Checksum mismatch) ...GJXHcLO]MhQTbRm\Up_lsi_Zc^n....asd.............ACBD.127.0.0.1:8021?=GIVE_GIVE_GIVE_ME_MY_TICKET............................................```
+|a proxy: .Halting....Overflow (Checksum mismatch) ...GJXHcLO]MhQTbRm\Up_lsi_Zc^n....asd.............ACBD.127.0.0.1:8021?=GIVE_GIVE_GIVE_ME_MY_TICKET............................................
+```
 
 ## The final step
 
