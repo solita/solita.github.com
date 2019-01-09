@@ -14,7 +14,7 @@ tags:
 
 ## Disobey 
 
-[Disobey](https://disobey.fi/) is a nordic security event. It is all about gathering people from different organizations around the security topic. The atmosphere in the disobey is hacker friendly. Many are interested on the techniques to attack systems. Most of the people are white hat hackers that try to find vulnerabilities that could be then patched or limited with other measures. We have been participating Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html). Check the blog posts to find more. 
+[Disobey](https://disobey.fi/) is a nordic security event. It is all about gathering people from different organizations around the security topic. The atmosphere in the disobey is hacker friendly. Many are interested on the techniques to attack systems. Most of the people are white hat hackers that try to find vulnerabilities that could be then patched or limited with other measures. We have been participating Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html).
 
 ## Puzzle
 
@@ -33,11 +33,11 @@ Spending something like a hour(s) with the 8021 port I gave up and went back to 
 
 ## Dirbusting 
 
-Using common folder name list from [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt) we start trying to find interesting addresses. I recall that I used OWASP ZAP for this and found .bash_history that lead to a secret url [http://puzzle.disobey.fi/sicret_admin_address/](http://puzzle.disobey.fi/sicret_admin_address/). There is a juicy looking file called mysql_backup.db which after hours was dead end.
+Using common folder name list from [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt) we start trying to find interesting addresses. I recall that I used OWASP ZAP for this and found .bash_history that lead to a secret url [http://puzzle.disobey.fi/sicret_admin_address/](http://puzzle.disobey.fi/sicret_admin_address/). There is a juicy looking file called mysql_backup.db which after few hours turned out to be dead end.
 
 ## Page source and lorem.html
 
-Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is somewhat hidden link in the page for the /lorem.html. When page is opened there lorem ipsum generated content. 
+Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is somewhat hidden link in the page for the /lorem.html. When the lorem.html is opened there is just page full of lorem ipsum. 
 
 Storing the lorem ipsum into original_lorem.txt we can use the content for dirbusting. Most of the times the call seems to response 404 so I ended up with a script that tries to find out if there non-404 answers.
 
@@ -70,22 +70,26 @@ Stupid thing in dirbusting with PowerShell is that invoke-webrequest throws exce
 The 401 error we got means that we were unauthorized and the error wrong vhost hints that we might want to try to change host header. Trying it out is simple.
 
 ```PowerShell
-invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="lol"}```
+invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="lol"}
+```
 
 We got a new error: "Try harder - admin". This one was actually a hint. We just needed to use admin as a host header. 
 
 ```PowerShell
-invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="admin"}```
+invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="admin"}
+```
 
 Yey, we got a new error: Return Greetings! Love you <3 - I need -love also. Yet again this was actually a hint. The thing we needed to do was to append the -love to the url. 
 
 ```PowerShell
-invoke-webrequest http://puzzle.disobey.fi/Interdum-love -UseBasicParsing -Headers @{Host="admin"}```
+invoke-webrequest http://puzzle.disobey.fi/Interdum-love -UseBasicParsing -Headers @{Host="admin"}
+```
 
 Yey, we got a new error (which I heard is unintended): "The remote name could not be resolved: 'admin'". This is not from the puzzle but from the beneath. Adding admin to the hosts file.
 
 ```
-185.86.149.26 admin```
+185.86.149.26 admin
+```
 
 After this we could actually move onwards. 
 
@@ -99,7 +103,8 @@ Hi John!
 Here is that secret email - encrypted with your favorite PIN-code!
 
 
-SnVzdCBraWRkaW5nIC0gYmFzZTY0IGlzIGF3ZXNvbWUu```
+SnVzdCBraWRkaW5nIC0gYmFzZTY0IGlzIGF3ZXNvbWUu
+```
 
 The encryption looks a lot like Base64 so we will give it a shot first. 
 
@@ -165,7 +170,8 @@ Param(
 By running the script with parameters 127 0 0 1 I get 2130706433 for the localhost and by changing the port to the 80 I can make an attempt. 
 
 ```PowerShell
-invoke-webrequest http://admin/Interdum-love/test.php?url=2130706433:80 -UseBasicParsing```
+invoke-webrequest http://admin/Interdum-love/test.php?url=2130706433:80 -UseBasicParsing
+```
 
 After that I get the puzzle frontpage as a response. After that I tried to continue with the 8021 port that I found earlier with no luck. Back to brute forcing it is. What would be the correct port as I haven't found any other IP addresses? PowerShell to the rescue. First we need a script that we use to make the actual call. We take the ps_admin_test_params_verbose and make non-verbose version of it that recognizes if the content length changes.
 
@@ -214,12 +220,14 @@ Nevertheless now I had binary that I recognized to be some kind of bootloader. A
 Start bootloader with qemu
 
 ```
-.\qemu-system-i386.exe -s .\bootloader```
+.\qemu-system-i386.exe -s .\bootloader
+```
 
 Attach radare2 as a debugger
 
 ```
-.\radare2.exe -D gdb -d gdb://localhost:1234```
+.\radare2.exe -D gdb -d gdb://localhost:1234
+```
 
 Press all the buttons in the keyboard. Preferably vvv and qq. Suddenly some magic happens with radare2 and look you look something like this. 
 
@@ -258,7 +266,8 @@ $res | % { if($_.RawContentLength -gt 0) { ("Status: " + [int]$_.StatusCode +" |
 By passing the previously used burp-parameter-names list for the script we can find out that the missing parameter name was data. 
 
 ```PowerShell
-get-content .\burp-parameter-names.txt | % { .\ps_8021_give_ticket_params.ps1 $_ "GET" }```
+get-content .\burp-parameter-names.txt | % { .\ps_8021_give_ticket_params.ps1 $_ "GET" }
+```
 
 Hooray! We got a HACKER! response with a link to the holvi shop to get our hacker ticket.
 
