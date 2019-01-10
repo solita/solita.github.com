@@ -18,7 +18,7 @@ tags:
 
 ## Puzzle
 
-As the event is hacker friendly it possible to get a small discount by hacking. Each year there has been a puzzle that you could solve with hacking. This years [puzzle](http://puzzle.disobey.fi/) was frustrating, fun and teached me a bunch about hacking. My coworker was able to solve it by creating some utility software with python: [https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/](https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/). I instead took a painful route by trying the same thing with PowerShell. It is not that PowerShell would not be good but I was kind of alone with the whole "hacking with PowerShell" mentality. Without the encouragment from [Team Rot](https://teamrot.fi) members I would not have finished it. 
+As the event is hacker friendly it possible to get a small discount by hacking. Each year there has been a puzzle that you could solve with hacking. This years [puzzle](http://puzzle.disobey.fi/) was frustrating, fun and teached me a bunch about hacking. My coworker was able to solve it by creating some utility software with python: [https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/](https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/). I instead took a painful route by trying the same thing with PowerShell. It is not that PowerShell would not be good but I was kind of alone with the whole "hacking with PowerShell" mentality. Without the encouragement from [Team Rot](https://teamrot.fi) members I would not have finished it. 
 
 This blog post is about sharing my experiences on "hacking with PowerShell". Spoiler alert.
 
@@ -213,7 +213,7 @@ After a while we found new port that we had not found before: 40053. Which retur
 
 ## Reversing the bootloader
 
-I had absolutely no luck figuring out what this is with Windows so I went to the Linux and used file to recognize it as a gzip compressed data. I had tried to just unzip it and other things but it just did not work with 7zip. Finally I was able to get binary out in a working format with tar. I guess it was just the tar that beat the me with Windows. 
+I had absolutely no luck figuring out what this is with Windows so I went to the Linux and used file to recognize it as a gzip compressed data. I had tried to just unzip it and other things but it just did not work with 7zip. Finally I was able to get binary out in a working format with tar. I guess it was just the tar that beated me with Windows. 
 
 Nevertheless now I had binary that I recognized to be some kind of bootloader. As I had absolutely no experience on reverse engineering this kind of things I asked community a bit help about tooling. I tried both IDa and radare2 but finally solved the puzzle with radare2. My approach in the end (after spending so many hours) was really simple. 
 
