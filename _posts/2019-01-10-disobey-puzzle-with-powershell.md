@@ -14,7 +14,7 @@ tags:
 
 ## Disobey 
 
-[Disobey](https://disobey.fi/) is a nordic security event. It is all about gathering people from different organizations around the security topic. The atmosphere in the disobey is hacker friendly. Many are interested on the techniques to attack systems. Most of the people are white hat hackers that try to find vulnerabilities that could be then patched or limited with other measures. We have been participating Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html).
+[Disobey](https://disobey.fi/) is a Nordic security event. It is all about gathering people from different organizations around security topics. The atmosphere in the disobey is hacker friendly. Many are interested on the techniques to attack systems. Most of the participants are white hat hackers that try to find vulnerabilities that could be then patched or limited with other measures. We have participated Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html).
 
 ## Puzzle
 
@@ -29,15 +29,15 @@ Running nmap with quick scan reveals that there are few ports open in the server
 * 443/tcp
 * 8021/tcp 
 
-Spending something like a hour(s) with the 8021 port I gave up and went back to the orginal web page. 
+After spending many hours with the 8021 port I gave up and went back to the orginal web page. 
 
 ## Dirbusting 
 
-Using common folder name list from [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt) we start trying to find interesting addresses. I recall that I used OWASP ZAP for this and found .bash_history that lead to a secret url [http://puzzle.disobey.fi/sicret_admin_address/](http://puzzle.disobey.fi/sicret_admin_address/). There is a juicy looking file called mysql_backup.db which after few hours turned out to be dead end.
+Using common folder name list from [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt) we start trying to find interesting addresses. I recall that I used OWASP ZAP for this and found .bash_history that lead to a secret url [http://puzzle.disobey.fi/sicret_admin_address/](http://puzzle.disobey.fi/sicret_admin_address/). There is a juicy looking file called mysql_backup.db which after a few hours turned out to be a dead end.
 
 ## Page source and lorem.html
 
-Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is somewhat hidden link in the page for the /lorem.html. When the lorem.html is opened there is just page full of lorem ipsum. 
+Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is a somewhat hidden link in the page for the /lorem.html. When the lorem.html is opened there is just page full of lorem ipsum. 
 
 Storing the lorem ipsum into original_lorem.txt we can use the content for dirbusting. Most of the times the call seems to response 404 so I ended up with a script that tries to find out if there non-404 answers.
 
@@ -95,7 +95,7 @@ After this we could actually move onwards.
 
 ## Testing the test.php
 
-We got and index of the folder with secret.txt and test.php. Of course secret.txt sounds interesting so we look that first.
+We got a file listing of the folder. There was secret.txt and test.php files. Of course secret.txt sounds interesting so we look that first.
 
 ```
 Hi John!
@@ -112,7 +112,7 @@ The encryption looks a lot like Base64 so we will give it a shot first.
 [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("SnVzdCBraWRkaW5nIC0gYmFzZTY0IGlzIGF3ZXNvbWUu"))
 ```
 
-The neat thing about PowerShell is that it is built on top of .NET. So all the .NET classes are there to be used. We had luck. It was Bas64 but it sounds like a teaser: "Just kidding - base64 is awesome.". So we move onwards towards the test.php. 
+The neat thing about PowerShell is that it is built on top of .NET. So all the .NET classes are there to be used. We had luck. It was Base64 but it sounds like a teaser: "Just kidding - base64 is awesome.". So we move onwards towards the test.php. 
 
 Accessing test.php gives us 403 unauthorized. So we have actually bypassed authentication already but something is still not working. The first step would be to understand how can we use the php with http requests. We go again to the SecLists and look for common parameter names like [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt). Then we create a PowerShell script ps_admin_test_params_verbose.ps1 that we can use for trying it out. 
 
@@ -213,7 +213,7 @@ After a while we found new port that we had not found before: 40053. Which retur
 
 ## Reversing the bootloader
 
-I had absolutely no luck figuring out what this is with Windows so I want to the linux and used file to recognize it as a gzip compressed data. I had tried to just unzip it and other things but it just did not work with 7zip. Finally I was able to get binary out in a working format with tar. I guess it was just the tar that beat the me with Windows. 
+I had absolutely no luck figuring out what this is with Windows so I went to the Linux and used file to recognize it as a gzip compressed data. I had tried to just unzip it and other things but it just did not work with 7zip. Finally I was able to get binary out in a working format with tar. I guess it was just the tar that beat the me with Windows. 
 
 Nevertheless now I had binary that I recognized to be some kind of bootloader. As I had absolutely no experience on reverse engineering this kind of things I asked community a bit help about tooling. I tried both IDa and radare2 but finally solved the puzzle with radare2. My approach in the end (after spending so many hours) was really simple. 
 
@@ -276,7 +276,7 @@ Hooray! We got a "HACKER!" response with a link to the holvi shop to get our hac
 
 ## Lessons learned
 
-This was actually my first CTF. This was also maybe the most frustrating challenge I have had in years. I learned a lot. Mostly humbleness. I would guess that it took something like 20 hours in total to solve all the pieces. Although lots of time were spent on waiting different kind of brute forcing to stop. I was also happy that I was able to do so much with PowerShell although my hacker friends laughed at me and told me to use real tools... 
+This was actually my first CTF. This was also maybe the most frustrating challenge I have had in years. I learned a lot. Mostly humbleness. I would guess that it took something like 20 hours in total to solve all the pieces. Although a lot of time were spent on waiting for different kind of brute forcing to stop. I was also happy that I was able to do so much with PowerShell although my hacker friends laughed at me and told me to use real tools... 
 
 It was a fun ride and I will look forward toward next years challenge. 
 
