@@ -215,7 +215,7 @@ After a while we found new port that we had not found before: 40053. Which retur
 
 I had absolutely no luck figuring out what this is with Windows so I went to the Linux and used `file` command to recognize it as a gzip compressed data. I had tried to just unzip it and other things but it just did not work with 7zip. Finally I was able to get binary out in a working format with tar. I guess it was just the tar that beated me with Windows. 
 
-Nevertheless now I had binary that I recognized to be some kind of bootloader. As I had absolutely no experience on reverse engineering this kind of things I asked community a bit help about tooling. I tried both IDa and radare2 but finally solved the puzzle with radare2. My approach in the end (after spending so many hours) was really simple. 
+Nevertheless now I had binary that I recognized to be some kind of bootloader. As I had absolutely no experience on reverse engineering this kind of things I asked community a bit help about tooling. I tried both IDA and radare2 but finally solved the puzzle with radare2. My approach in the end (after spending so many hours) was really simple. 
 
 Start bootloader with qemu
 
@@ -264,7 +264,7 @@ catch {
 $res | % { if($_.RawContentLength -gt 0) { ("Status: " + [int]$_.StatusCode +" | Length: " +$_.RawContentLength) + " | Parameter: "+ $p + " | ErrorDetails: "+$virhe } }
 ```
 
-By passing the previously used burp-parameter-names list for the script we can find out that the missing parameter name.  
+By passing the previously used burp-parameter-names list for the script we can find out the missing parameter name.  
 
 ```PowerShell
 get-content .\burp-parameter-names.txt | % { .\ps_8021_give_ticket_params.ps1 $_ "GET" }
