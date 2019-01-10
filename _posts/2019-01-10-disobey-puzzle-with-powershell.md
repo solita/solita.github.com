@@ -29,7 +29,7 @@ Running nmap with quick scan reveals that there are few ports open in the server
 * 443/tcp
 * 8021/tcp 
 
-After spending many hours with the 8021 port I gave up and went back to the orginal web page. 
+After spending many hours with the 8021 port I gave up and went back to the original web page. 
 
 ## Dirbusting 
 
@@ -95,7 +95,7 @@ After this we could actually move onwards.
 
 ## Testing the test.php
 
-We got a file listing of the folder. There was secret.txt and test.php files. Of course secret.txt sounds interesting so we look that first.
+We got a file listing of the folder. There were secret.txt and test.php files. Of course secret.txt sounds interesting so we look into that first.
 
 ```
 Hi John!
