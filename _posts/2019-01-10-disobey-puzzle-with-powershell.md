@@ -14,11 +14,11 @@ tags:
 
 ## Disobey 
 
-[Disobey](https://disobey.fi/) is a Nordic security event. It is all about gathering people from different organizations around security topics. The atmosphere in the disobey is hacker friendly. Many are interested on the techniques to attack systems. Most of the participants are white hat hackers that try to find vulnerabilities that could be then patched or limited with other measures. We have participated Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html).
+[Disobey](https://disobey.fi/) is a Nordic security event. It is all about gathering people from different organizations around security topics. The atmosphere in Disobey is hacker friendly. Many are interested in the techniques to attack systems. Most of the participants are white hat hackers who try to find vulnerabilities that could be then patched or limited with other measures. We have been at Disobey in [2017](https://dev.solita.fi/2017/01/19/Disobey.html) and [2018](https://dev.solita.fi/2018/01/26/Disobey.html).
 
 ## Puzzle
 
-As the event is hacker friendly it possible to get a small discount by hacking. Each year there has been a puzzle that you could solve with hacking. This years [puzzle](http://puzzle.disobey.fi/) was frustrating, fun and teached me a bunch about hacking. My coworker was able to solve it by creating some utility software with python: [https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/](https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/). I instead took a painful route by trying the same thing with PowerShell. It is not that PowerShell would not be good but I was kind of alone with the whole "hacking with PowerShell" mentality. Without the encouragement from [Team Rot](https://teamrot.fi) members I would not have finished it. 
+As the event is hacker friendly, it's possible to get a small discount by hacking. Each year there has been a puzzle that you could solve by hacking. This year's [puzzle](http://puzzle.disobey.fi/) was frustrating, fun and taught me a bunch about hacking. My coworker was able to solve it by creating some utility software with python: [https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/](https://teamrot.fi/2018/09/17/solving-the-disobey-2018-puzzle/). I instead took a painful route by trying the same thing with PowerShell. It is not that PowerShell would not be good but I was kind of alone with the whole "hacking with PowerShell" mentality. Without the encouragement from [Team Rot](https://teamrot.fi) members I would not have finished it. 
 
 This blog post is about sharing my experiences on "hacking with PowerShell". Spoiler alert.
 
@@ -37,9 +37,9 @@ Using common folder name list from [https://github.com/danielmiessler/SecLists/b
 
 ## Page source and lorem.html
 
-Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is a somewhat hidden link in the page for the /lorem.html. When the lorem.html is opened there is just page full of lorem ipsum. 
+Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows that there is a somewhat hidden link in the page for the /lorem.html. When the lorem.html is opened, there is just a page full of lorem ipsum. 
 
-Storing the lorem ipsum into original_lorem.txt we can use the content for dirbusting. Most of the times the call seems to response 404 so I ended up with a script that tries to find out if there non-404 answers.
+Storing the lorem ipsum into original_lorem.txt we can use the content for dirbusting. Most of the time, the response seems to be 404, so I ended up writing a script that tries to find non-404 answers.
 
 ```PowerShell
 [cmdletbinding()]
