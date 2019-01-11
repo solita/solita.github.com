@@ -24,7 +24,7 @@ For instance, if you open foo.com in your browser, SOP prevents JavaScript on th
 
 You can try it out yourself:
 
-1. Open [google.com](www.google.com).
+1. Open [google.com](https://www.google.com).
 2. Open your browser’s developer console.
 3. Type in this JavaScript snippet:
 
@@ -40,7 +40,7 @@ You’ll get an error that looks something like this:
 
 >Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at www.solita.fi/. (Reason: CORS request did not succeed).
 
-WebSockets, however, are not subject to Same Origin Policy. That means that if you have foo.com open in your browser, it will let you connect to a WebSocket endpoint at bar.com/ws. Open [google.com](www.google.com) again and type this into your browser's developer console:
+WebSockets, however, are not subject to Same Origin Policy. That means that if you have foo.com open in your browser, it will let you connect to a WebSocket endpoint at bar.com/ws. Open [google.com](https://www.google.com) again and type this into your browser's developer console:
 
 ```javascript
 var ws = new WebSocket("wss://echo.websocket.org");
@@ -68,7 +68,7 @@ Next, I’ll go over some of the recommendations I’ve come across for protecti
 
 ## Cross-Site Request Forgery
 
-Some sources advocate securing your WebSocket endpoint with an anti-CSRF token. For example, in [Cross-Site WebSocket Hijacking (CSWSH)](www.christian-schneider.net/CrossSiteWebSocketHijacking.html), Christian Schneider writes:
+Some sources advocate securing your WebSocket endpoint with an anti-CSRF token. For example, in [Cross-Site WebSocket Hijacking (CSWSH)](https://www.christian-schneider.net/CrossSiteWebSocketHijacking.html), Christian Schneider writes:
 
 >Use session-individual random tokens (like CSRF-Tokens) on the handshake request and verify them on the server.
 
@@ -101,7 +101,7 @@ Imagine once more that you get lured onto evil.com. It tries to connect to your 
 
 However, evil.com can’t make an XMLHttpRequest to fetch the anti-CSRF token from the HTML page or the REST endpoint at foo.com because SOP prevents it. Even if the anti-CSRF token is in the session cookie, the attacker can’t read the value of the cookie and put it where the server expects it to be. This makes anti-CSRF tokens effective against CSRF attacks.
 
-Note, though, that all of the above only applies when browsers adhere to SOP. There is a mechanism called [Cross-Origin Resource Sharing](developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (CORS) that allows you to relax Same Origin Policy. It allows you to set HTTP headers that allow scripts on other web pages to load resources on your web page.
+Note, though, that all of the above only applies when browsers adhere to SOP. There is a mechanism called [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (CORS) that allows you to relax Same Origin Policy. It allows you to set HTTP headers that allow scripts on other web pages to load resources on your web page.
 
 Therefore, whether you deliver the anti-CSRF token embedded into a HTML page or via a separate GET request, you must make sure that your site does not use CORS headers that allow cross-origin requests to those resources. Otherwise evil.com will be able to retrieve your anti-CSRF token and use it to connect to your WebSocket endpoint.
 
@@ -121,7 +121,7 @@ Origin: evil.com:8080/bar
 
 To use `Origin` as an anti-CSRF mechanism, you can check whether the value of `Origin` matches one of the whitelisted origins in your request handler on the server. If it doesn’t, the server must disallow the request.
 
-There appears to be some confusion on whether an attacker can simply spoof `Origin` to conduct a CSRF attack. For example, a [Heroku article on WebSocket security](devcenter.heroku.com/articles/websocket-security#origin-header) says this about the `Origin` header:
+There appears to be some confusion on whether an attacker can simply spoof `Origin` to conduct a CSRF attack. For example, a [Heroku article on WebSocket security](https://devcenter.heroku.com/articles/websocket-security#origin-header) says this about the `Origin` header:
 
 >However, remember that the Origin header is essentially advisory: non-browser clients can easily set the Origin header to any value, and thus “pretend” to be a browser.
 
@@ -144,7 +144,7 @@ There are two ways to use CSP:
 - Set the `Content-Security-Policy` header in your HTTP response
 - Use the CSP `meta` element in your HTML
 
-Some sources advocate using CSP to secure your WebSocket endpoints. For example, [WebSockets - An Introduction](gist.github.com/subudeepak/9897212#websockets---an-introduction)[^2] says that setting `Content-Security-Policy` to `connect-src ‘self’` “prevents webSockets [sic] requests from any place but the current server.”.
+Some sources advocate using CSP to secure your WebSocket endpoints. For example, [WebSockets - An Introduction](https://gist.github.com/subudeepak/9897212#websockets---an-introduction)[^2] says that setting `Content-Security-Policy` to `connect-src ‘self’` “prevents webSockets [sic] requests from any place but the current server.”.
 
 This is not true, however. CSP does *not* prevent evil.com from loading anything at all on foo.com. It works the other way around: it inhibits foo.com/ws from loading anything on other web pages, if you tell it to.
 
@@ -170,13 +170,13 @@ As an alternative to WebSockets, you could consider [Server-Sent Events][SSE] (S
 
 *Thanks to Timo Mihaljov for his insights on CSRF and CSP.*
 
-[SSE]: developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
-[CSRF Cheat Sheet]: www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet
-[Content Security Policy]: developers.google.com/web/fundamentals/security/csp/
-[Origin]: developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
-[Same Origin Policy]: developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
-[WebSocket handshake request]: developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#The_WebSocket_Handshake
-[XMLHttpRequest]: developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+[SSE]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
+[CSRF Cheat Sheet]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet
+[Content Security Policy]: https://developers.google.com/web/fundamentals/security/csp/
+[Origin]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
+[Same Origin Policy]: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+[WebSocket handshake request]: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#The_WebSocket_Handshake
+[XMLHttpRequest]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
 [^1]: Many sources mix up Cross-Origin Resource Sharing (CORS) with Same-Origin Policy (SOP). Often, when you see people talking about CORS, they actually mean SOP. CORS is a method for lifting some or all of the restrictions that SOP imposes.
 [^2]: I’m mentioning this source because it appears second in my Google search results for “WebSocket security”.
