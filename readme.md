@@ -1,6 +1,6 @@
 # /dev/solita/greetings
 
-Here are some developer-oriented thoughts from [Solita Oy](http://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at <http://dev.solita.fi>.
+Here are some developer-oriented thoughts from [Solita Oy](https://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at <http://dev.solita.fi>.
 
 ## Writing
 
@@ -9,16 +9,16 @@ We use a combination of Jekyll and Github Pages to run the site.
 If you want to write a post, here's how:
 
 1. Fork this project to yourself (upper right corner)
-  - You need a Github account to do this
+    - You need a Github account to do this
 2. Clone your own fork to your computer (git clone)
 3. Add your author info to `_config.yml`
-  - The email value is a MD5 hash of your email
-  - Optional: Make sure you have a gravatar account (www.gravatar.com) with solita.fi email address and photo of yourself.
+    - The email value is a MD5 hash of your email
+    - Optional: Make sure you have a gravatar account (www.gravatar.com) with solita.fi email address and photo of yourself.
 4. Write a new post under the `_posts` folder using Markdown, look at other posts for example of what to write there
-5. If you have Ruby and Jekyll, preview your post locally (instructions below)
+5. Optionally preview your post locally (instructions below, Docker included)
 6. Create a pull request at https://github.com/solita/solita.github.com/pull/new/master
-  - Choose your fork on the right
-  - Write some info about the post
+    - Choose your fork on the right
+    - Write some info about the post
 7. Wait for comments and publish!
 
 ### Optional: Adding exact publication time to your post
@@ -28,13 +28,12 @@ Normally the publication date of a post is read from the filename of the post (Y
 If you want to specify the exact time your post was published, you can add a date-field to your post. In the date field you can specify the publication time in the format YYYY-MM-DD HH:MM:SS +/-TTTT.
 
 For example:
-```
----
-...
-date: 2016-04-25 13:30:00 +0200
-...
----
-```
+
+    ---
+    ...
+    date: 2016-04-25 13:30:00 +0200
+    ...
+    ---
 
 ## Previewing posts
 
