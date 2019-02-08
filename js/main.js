@@ -32,7 +32,7 @@
 
     function get_gravatar(email, size) {
         size = size || AVATAR_SIZE;
-        var defaultImage = 'http://dev.solita.fi/img/solita-person-placeholder.png';
+        var defaultImage = 'https://dev.solita.fi/img/solita-person-placeholder.png';
         return 'https://www.gravatar.com/avatar/' + email + '.jpg?size=' + size + '&default=' + defaultImage;
     }
 
