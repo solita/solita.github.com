@@ -13,7 +13,7 @@ layout: default
             <div class="post-meta-rows">
                 <div class="post-meta-basic-info">
                     {% assign author = site.authors[post.author] %}
-                    <span class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
+                    <span class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ post.author }}</a></span>
                     <span class="text-divider">|</span>
                     <span class="date" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</span>
                 </div>
