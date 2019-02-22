@@ -12,7 +12,7 @@ layout: default
                     {% for authorName in authors -%}
                         {%- assign author = site.authors[authorName] -%}
                         {%- if authorName != authors[0] %}, {% endif -%}
-                        <a href="{{ author.url }}" title="{{ author.email }}">{{ authorName }}</a>
+                        <a href="{{ author.url }}">{{ authorName }}</a>
                     {%- endfor -%}
                 </span>
                 <span class="text-divider">|</span>
