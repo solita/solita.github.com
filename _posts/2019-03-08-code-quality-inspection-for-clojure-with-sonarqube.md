@@ -11,18 +11,18 @@ tags:
 - Vulnerabilities detection
 - Continuous inspection
 ---
-Building good and secure code has never been easy. Programmers make mistakes during the development. Programs use external libraries which may have  bugs and vulnerabilities. New vulnerabilities are found which forces to update existing programs.
+Building good and secure code has never been easy. Programmers make mistakes during development. Programs use external libraries which may have  bugs and vulnerabilities. New vulnerabilities are found which forces updates to existing programs.
 
-Software development have many ways to battle against bugs. For example testing, code reviews and pair programming can help us to make better and safer programs. Fortunately we may also use code analyzers which automate the testing and vulnerability finding.
+Software development has many ways to battle against bugs. For example testing, code reviews and pair programming can help us to make better and safer programs. Fortunately we may also use code analyzers which automate the testing and vulnerability finding.
 
-[**Clojure**](https://clojure.org/) is not immune for bugs or vulnerabilities. Clojure as a dynamic language leads to situations where some problems may occur in runtime which in static languages are found out in compile time. The Clojure community have produced many useful tools such as linters and security scanners.
+[**Clojure**](https://clojure.org/) is not immune to bugs or vulnerabilities. Clojure being a dynamic language leads to situations where some problems may occur at runtime which in static languages are found out at compile time. The Clojure community has produced many useful tools such as linters and security scanners.
 
 ## Clojure code quality tools
 
 ### Eastwood
 [Eastwood](https://github.com/jonase/eastwood) is a lint tool for Clojure (no CLJS support) which detects many kinds of potentially problematic code. 
 
-For example next Clojure code contains a potential bug:
+For example the following Clojure code contains a potential bug:
 
 ```clojure
 (if (and x)
@@ -50,7 +50,7 @@ Example:
 (> x 0) 
 ```
 
-```lein kibit``` produces next result:
+```lein kibit``` produces the following result:
 
 ```
 At src/clojure_sonar_example/core.clj:13:
@@ -132,7 +132,7 @@ Because plugin was open sourced and the maintainer was active I made necessary c
 
 ### Changes to Clojure application
 
-Use already existing application or clone a sample application with existing vulnerabilities and code smells ```git clone https://github.com/hjhamala/sonar-clojure-example```.
+Use an already existing application or clone a sample application with existing vulnerabilities and code smells ```git clone https://github.com/hjhamala/sonar-clojure-example```.
 
 Create a sonar-project.properties file in the root folder of your app:
 
@@ -145,7 +145,7 @@ sonar.clojure.lein-nvd.json-output-location=target/nvd/dependency-check-report.j
 sonar.clojure.cloverage.json-output-location=target/coverage/codecov.json
 ```
 
-Add next dependencies to project.clj in project.clj or user profile file:
+Add next dependencies to project.clj or user profile file:
 
 ```clojure
 :plugins [[lein-ancient "0.6.15"]
@@ -167,7 +167,7 @@ Opening project.clj shows vulnerability findings and outdated dependency warning
 
 ![Project vulnerabilities](/img/code-quality-inspection-for-clojure-with-sonarqube/project-vulnerabilities.png)
 
-Core.clj have findings from Kibit, Eastwood and code coverage from Cloverage:
+Core.clj has findings from Kibit, Eastwood and code coverage from Cloverage:
 
 ![Bad Smell Code](/img/code-quality-inspection-for-clojure-with-sonarqube/smell.png)
 
@@ -175,13 +175,13 @@ Core.clj have findings from Kibit, Eastwood and code coverage from Cloverage:
 
 The SonarQube plugin currently marks all the found vulnerabilites to the first line of project.clj because the lein-nvd only returns JAR name not the dependency which pulls it directly or transitively.
 
-Only line coverage is supported by SonarQube and calculation seems to be be somehow different compared to Cloverage itself by few percents.
+Only line coverage is supported by SonarQube and the calculation seems to be somehow different compared to Cloverage itself by few percents.
 
 Clojure language parser for Sonarcube has not been implemented. This means that for example syntax highlighting does not currently work. I have a work in progress for adding the [syntax highlighting](https://github.com/hjhamala/sonar-clojure/tree/syntax-highlight-and-tokenization) and hopefully this can be added to the plugin very soon.
 
 ## Future improvements
 
-Current version of the plugin is a native Java plugin which invokes Leiningen to analyze source code once per sensor. Running Leiningen takes few seconds per a sensor. Instead of invoking Leiningen we could make a native Clojure plugin which includes analyzing libraries. This would make running analyzes very much faster because multiple Leiningen invocations are not needed any more. Also the need to install Leiningen plugins with correct versions is no more needed. 
+Current version of the plugin is a native Java plugin which invokes Leiningen to analyze source code once per sensor. Running Leiningen takes few seconds per a sensor. Instead of invoking Leiningen we could make a native Clojure plugin which includes the analyzing libraries. This would make running the analyzers very much faster because multiple Leiningen invocations are not needed any more. Also the need to install Leiningen plugins with correct versions is no more needed. 
 
 Next improvements should also be considered as well:
 
