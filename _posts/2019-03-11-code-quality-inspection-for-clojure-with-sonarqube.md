@@ -11,7 +11,7 @@ tags:
 - Vulnerabilities detection
 - Continuous inspection
 ---
-Building good and secure code has never been easy. Programmers make mistakes during development. Programs use external libraries which may have  bugs and vulnerabilities. New vulnerabilities are found which forces updates to existing programs.
+Building good and secure code has never been easy. Programmers make mistakes during development. Programs use external libraries which may contain bugs and vulnerabilities. New vulnerabilities are revealed constantly which enforces patching existing programs.
 
 Software development has many ways to battle against bugs. For example testing, code reviews and pair programming can help us to make better and safer programs. Fortunately we may also use code analyzers which automate the testing and vulnerability finding.
 
@@ -20,9 +20,9 @@ Software development has many ways to battle against bugs. For example testing, 
 ## Clojure code quality tools
 
 ### Eastwood
-[Eastwood](https://github.com/jonase/eastwood) is a lint tool for Clojure (no CLJS support) which detects many kinds of potentially problematic code. 
+[Eastwood](https://github.com/jonase/eastwood) is a linting tool for Clojure (no CLJS support) which detects many kinds of potentially problematic code. 
 
-For example the following Clojure code contains a potential bug:
+For an example the following Clojure code contains a potential bug:
 
 ```clojure
 (if (and x)
@@ -39,10 +39,10 @@ Entering directory `/Users/heikkiha/src/sonarqube/clojure-sonar-example'
 src/clojure_sonar_example/core.clj:3:5: suspicious-expression: and called with 1 args.  (and x) always returns x.  Perhaps there are misplaced parentheses?
 ```
  
-Eastwood may find false positives. Fortunately it is possible to suppress linter rules which may find any false positives.
+Eastwood may find false positives. Fortunately, it is possible to suppress linter rules which may find any false positives.
  
 ### Kibit
-[Kibit](https://github.com/jonase/eastwood) is a static code analyzer which detects code that could be rewritten with a more idiomatic function or macro. It supports also ClojureScript. 
+[Kibit](https://github.com/jonase/eastwood) is a static code analyzer which detects code that can be rewritten with a more idiomatic function or a macro. It supports also ClojureScript. 
 
 Example: 
 
@@ -83,7 +83,7 @@ Sample output looks like this:
 
 ### Lein-nvd
 
-[Lein-nvd](https://github.com/rm-hull/lein-nvd) is a dependency-checker plugin whichs checks JARS in the program's classpath for known vulnerabilites against 
+[Lein-nvd](https://github.com/rm-hull/lein-nvd) is a dependency-checker plugin whichs checks JARS in the program's classpath with known vulnerabilites against 
 the [National Vulnerability Database](https://nvd.nist.gov/). 
 
 Output of Lein-nvd gives status of the JARs with found vulnerabilities:
@@ -145,7 +145,7 @@ sonar.clojure.lein-nvd.json-output-location=target/nvd/dependency-check-report.j
 sonar.clojure.cloverage.json-output-location=target/coverage/codecov.json
 ```
 
-Add next dependencies to project.clj or user profile file:
+Add following dependencies to project.clj or user profile file:
 
 ```clojure
 :plugins [[lein-ancient "0.6.15"]
@@ -183,11 +183,11 @@ Clojure language parser for Sonarcube has not been implemented. This means that 
 
 Current version of the plugin is a native Java plugin which invokes Leiningen to analyze source code once per sensor. Running Leiningen takes few seconds per a sensor. Instead of invoking Leiningen we could make a native Clojure plugin which includes the analyzing libraries. This would make running the analyzers very much faster because multiple Leiningen invocations are not needed any more. Also the need to install Leiningen plugins with correct versions is no more needed. 
 
-Next improvements should also be considered as well:
+Following improvements should also be considered as well:
 
 * Cloverage form coverage could be added as custom metric to files. 
 * Lein-nvd vulnerabilities could be mapped to correct dependency and namespaces requires. This can be made by generating full dependency tree and trying to match the JAR name with dependencies.
-* Dead code finding could be added with [yagni](https://github.com/venantius/yagni)
+* Dead code detection could be added with [yagni](https://github.com/venantius/yagni)
 * [Spectrum](https://github.com/arohner/spectrum) analyzator support should be considered when the project matures.
 
 Plugin source code:
