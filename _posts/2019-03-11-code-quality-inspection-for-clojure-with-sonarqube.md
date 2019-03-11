@@ -29,7 +29,7 @@ For example the following Clojure code contains a potential bug:
   (foo))
 ```
 
-When running ```lein eastwood``` it produces next result:
+When running `lein eastwood` it produces next result:
 ```
 == Eastwood 0.3.3 Clojure 1.8.0 JVM 11.0.1
 Directories scanned for source files:
@@ -39,7 +39,7 @@ Entering directory `/Users/heikkiha/src/sonarqube/clojure-sonar-example'
 src/clojure_sonar_example/core.clj:3:5: suspicious-expression: and called with 1 args.  (and x) always returns x.  Perhaps there are misplaced parentheses?
 ```
  
-Eastwood may cause false positives. Fortunately it is possible to suppress linter rules which may cause any false positives.
+Eastwood may find false positives. Fortunately it is possible to suppress linter rules which may find any false positives.
  
 ### Kibit
 [Kibit](https://github.com/jonase/eastwood) is a static code analyzer which detects code that could be rewritten with a more idiomatic function or macro. It supports also ClojureScript. 
@@ -50,7 +50,7 @@ Example:
 (> x 0) 
 ```
 
-```lein kibit``` produces the following result:
+`lein kibit` produces the following result:
 
 ```
 At src/clojure_sonar_example/core.clj:13:
@@ -60,11 +60,11 @@ At src/clojure_sonar_example/core.clj:13:
      (> x 0)
 ```
 
-I think Kibit is most useful for beginning Clojure programmers but it contains some good advices for more experienced developers also. 
+I think Kibit is good advice for beginning Clojure programmers but it contains some good advices for more experienced developers also. 
 
 ### Cloverage
 
-[Cloverage](https://github.com/cloverage/cloverage) is a code coverage tool for Clojure which runs the tests ot a program 
+[Cloverage](https://github.com/cloverage/cloverage) is a code coverage tool for Clojure which runs the tests of a program 
 and calculates line and form coverage for namespaces. 
 
 Sample output looks like this:
@@ -83,7 +83,7 @@ Sample output looks like this:
 
 ### Lein-nvd
 
-[Lein-nvd](https://github.com/rm-hull/lein-nvd) is a dependency-checker plugin whichs checks JARS in the programs classpath for known vulnerabilites against 
+[Lein-nvd](https://github.com/rm-hull/lein-nvd) is a dependency-checker plugin whichs checks JARS in the program's classpath for known vulnerabilites against 
 the [National Vulnerability Database](https://nvd.nist.gov/). 
 
 Output of Lein-nvd gives status of the JARs with found vulnerabilities:
@@ -94,7 +94,7 @@ Output of Lein-nvd gives status of the JARs with found vulnerabilities:
 | bcpkix-jdk15on-1.58.jar | OK    | 
 | bcprov-jdk15on-1.58.jar| CVE-2017-13098, CVE-2018-1000180, CVE-2018-1000613|
 
-It should be noted that Lein-nvd does not exactly tell which dependency or its transitive dependency pulls a vulnerable JAR file. Most time JAR name matches a dependency. The full dependency tree can be inspected by running ```lein deps :tree``` command.
+It should be noted that Lein-nvd does not tell exactly which direct or transitive dependency pulls a vulnerable JAR file. Most time JAR name matches a dependency. The full dependency tree can be inspected by running the `lein deps :tree` command.
 
 ### Ancient
 
@@ -106,33 +106,33 @@ Sample output looks like this:
 [ring "1.7.1"] is available but we use "1.6.3"
 ```
 
-Ancient can be started with command ```lein ancient upgrade :interactive``` which gives option to one by one decide if the upgrade is made or not. The upgrade also runs tests and persists the changes only if the tests run correctly. 
+Ancient can be started with command `lein ancient upgrade :interactive` which gives the option to decide one by one if the upgrade is made or not. The upgrade also runs tests and persists the changes only if the tests run correctly. 
 
 Ancient cannot analyze if the new version is backwards compatible or not. Many libraries uses semantic versioning major.minor.patch (1.2.3) where minor (1.**2**.3) and patch (1.1.**2**) version changes should be backwards compatible. Whether this is really the case can differ.
 
 
 ## Consolidating code quality and vulnerability findings using SonarQube
 
-[SonarQube](https://www.sonarqube.org/) is a code inspection tool which supports on the box many currently used languages like Java, Python, C++ and so on. SonarQube server have a browser GUI for browsing the findings.
+[SonarQube](https://www.sonarqube.org/) is a code inspection tool which supports many currently used languages like Java, Python, C++ out the box . SonarQube server has a browser GUI for browsing the findings.
 
 ![SonarQube GUI](/img/code-quality-inspection-for-clojure-with-sonarqube/sonar-results.png)
 
-SonarQube unfortunately doesnt have out of a box support for Clojure. Fortunately SonarQube can be extended to support more languages with plugins. 
+SonarQube unfortunately doesnt have out of the box support for Clojure. Fortunately SonarQube can be extended to support more languages with plugins. 
 
-There have been many different Clojure plugins for SonarQube but most of them have not been maintained and doesnt work with newer versions of SonarQube. When I started to look for SonarQube plugin only working one was [plugin](https://github.com/fsantiag/sonar-clojure) made by Felipe Santiago. The plugin only supported Eastwood based linting.
+There have been many different Clojure plugins for SonarQube but most of them have not been maintained and don't work with newer versions of SonarQube. When I started to look for SonarQube plugin the only working one was [plugin](https://github.com/fsantiag/sonar-clojure) made by Felipe Santiago. The plugin only supported Eastwood based linting.
 
-Because plugin was open sourced and the maintainer was active I made necessary changes to the plugin which added support for Kibit, Cloverage, Lein-nvd and Ancient which are now merged. The plugin have also a minimal SonarQube docker image file for testing the plugin locally. 
+Because the plugin was open sourced and the maintainer was active I made the necessary changes to the plugin which added support for Kibit, Cloverage, Lein-nvd and Ancient which are now merged. The plugin has also a minimal SonarQube docker image file for testing the plugin locally. 
 
 ### Running SonarQube locally
 * Install Docker if not installed earlier
-* Clone the source ```git clone https://github.com/fsantiag/sonar-clojure```
-* Run ```start-sonarqube.sh``` which builds the plugin with Maven, creates a new docker SonarQube image with plugin copied on to it and finally starts the SonarQube.
+* Clone the source `git clone https://github.com/fsantiag/sonar-clojure`
+* Run `start-sonarqube.sh` which builds the plugin with Maven, creates a new docker SonarQube image with plugin copied on to it and finally starts the SonarQube.
 * Open http://localhost:9000 to check that SonarQube works correctly. Use admin/admin as the administrator password.
 * Download SonarQube client from [https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) and install it to path.
 
 ### Changes to Clojure application
 
-Use an already existing application or clone a sample application with existing vulnerabilities and code smells ```git clone https://github.com/hjhamala/sonar-clojure-example```.
+Use an already existing application or clone a sample application with existing vulnerabilities and code smells `git clone https://github.com/hjhamala/sonar-clojure-example`.
 
 Create a sonar-project.properties file in the root folder of your app:
 
@@ -155,7 +155,7 @@ Add next dependencies to project.clj or user profile file:
           [lein-nvd "0.6.0"]]
 ```
 
-Run ```sonar-scanner``` in the root folder of the project.
+Run `sonar-scanner` in the root folder of the project.
 
 Open a web browser in http://localhost:9000/dashboard?id=your-project-key
 
