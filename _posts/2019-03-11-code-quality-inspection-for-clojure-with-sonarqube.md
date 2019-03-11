@@ -42,7 +42,7 @@ src/clojure_sonar_example/core.clj:3:5: suspicious-expression: and called with 1
 Eastwood may find false positives. Fortunately, it is possible to suppress linter rules which may find any false positives.
  
 ### Kibit
-[Kibit](https://github.com/jonase/eastwood) is a static code analyzer which detects code that can be rewritten with a more idiomatic function or a macro. It supports also ClojureScript. 
+[Kibit]( https://github.com/jonase/kibit) is a static code analyzer which detects code that can be rewritten with a more idiomatic function or a macro. It supports also ClojureScript. 
 
 Example: 
 
