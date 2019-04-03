@@ -1,45 +1,17 @@
 .site-header {
-  position: relative;
-  margin: $baseline*1 0 $baseline*2;
+    margin-bottom: 1em;
 
-  @media (min-width: $breakpoint-3) {
-    width: 520px;
-    padding-left: 160px;
-    margin: $baseline*2 0 $baseline*3;
-  }
-}
+    &__branding {
+        float: left;
+        padding: 2rem 2rem 2rem 0;
+    }
 
-.site-logo {
-  display: inline-block;
+    &__navigation {
+        float: left;
+        padding: 2rem 0;
+    }
 
-  @media (min-width: $breakpoint-3) {
-    position: absolute;
-    left: 0;
-  }
-}
-
-.site-header .site-logo-img {
-  vertical-align: middle;
-  width: 130px;
-}
-
-.site-title {
-  display: inline-block;
-  margin: 0 0 0 0.1em;
-  vertical-align: middle;
-  position: static;
-  top: auto;
-
-  @media (min-width: $breakpoint-3) {
-    margin: 0;
-    position: relative;
-    top: 8px;
-  }
-}
-
-.site-description {
-  font-size: 0.75em;
-  font-weight: 400;
-  line-height: $baseline;
-  margin-bottom: 0;
+    &__hamburger {
+        float: right;
+    }
 }

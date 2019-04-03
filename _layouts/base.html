@@ -38,29 +38,16 @@
     </head>
 
     <body>
+        {% include masthead.html %}
 
-        <div>
+        <div class="main site-content-wrapper" role="main">
+            <main class="primary">
+                {{ content }}
+            </main>
 
-            <div class="site-content-wrapper">
-                <header class="site-header">
-                    <a class="site-logo" href="/">
-                        <img class="site-logo-img" src="/img/solita-dev-logo.svg" alt="Solita"/>
-                    </a>
-
-                    <h5 class="site-title">{{ site.title }}</h5>
-                </header>
-            </div>
-
-            <div class="main site-content-wrapper" role="main">
-                <main class="primary">
-                    {{ content }}
-                </main>
-
-                <aside class="sidebar">
-                    {% include sidebar.html %}
-                </aside>
-            </div>
-
+            <aside class="sidebar">
+                {% include sidebar.html %}
+            </aside>
         </div>
 
         <footer class ="site-footer-wrapper">

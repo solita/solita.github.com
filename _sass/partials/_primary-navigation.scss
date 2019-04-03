@@ -1,0 +1,44 @@
+.primary-navigation {
+    display: none;
+    font-size: 0.75rem;
+    line-height: (20/12);
+    text-transform: uppercase;
+    letter-spacing: .04rem;
+
+    @media (min-width: $breakpoint-1) {
+        display: block;
+    }
+
+    @media (min-width: $breakpoint-3) {
+        font-size: 0.875rem;
+        line-height: (22/14);
+        letter-spacing: .09rem;
+    }
+
+    &__items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-item {
+        float: left;
+        margin: 0.75rem 0.5rem;
+
+        @media (min-width: $breakpoint-2) {
+            margin: 0.75rem 1rem;
+        }
+
+        &__link {
+            color: $brand-gray40;
+            font-weight: 700;
+            padding: 5px 0;
+            display: block;
+
+            &--active, &:hover {
+                border-bottom: 3px solid $brand-gray40;
+                text-decoration: none;
+            }
+        }
+    }
+}

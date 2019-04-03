@@ -7,21 +7,27 @@ $color-text: $brand-gray40;
 // Fonts
 
 @font-face {
-  font-family: 'Sharp Sans Medium';
+  font-family: 'Sharp Sans';
   src: url('/fonts/SharpSans-Medium.woff2') format('woff2'),
   url('/fonts/SharpSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Sharp Sans Bold';
-  src: url('/fonts/SharpSans-Bold.woff2') format('woff2'),
-  url('/fonts/SharpSans-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Sharp Sans Semibold';
+  font-family: 'Sharp Sans';
   src: url('/fonts/SharpSans-Semibold.woff2') format('woff2'),
   url('/fonts/SharpSans-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sharp Sans';
+  src: url('/fonts/SharpSans-Bold.woff2') format('woff2'),
+  url('/fonts/SharpSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* These are currently not used:
@@ -96,7 +102,8 @@ $color-text: $brand-gray40;
 // Body
 
 body {
-  font-family: "Sharp Sans Medium", Arial, sans-serif;
+  font-family: "Sharp Sans", "Century Gothic", Arial, sans-serif;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.5;
   color: $color-text;
@@ -114,14 +121,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
+  font-weight: 700;
   font-size: 2.5rem;
   line-height: 1.25;
   color: $color-text;
 }
 
 h2 {
-  font-family: "Sharp Sans Semibold", Century Gothic, Arial, sans-serif;
+  font-weight: 600;
   font-size: 1.75rem;
   line-height: 1.25;
   color: $color-text;
@@ -129,14 +136,14 @@ h2 {
 }
 
 h3 {
-  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.25;
   color: $color-text;
 }
 
 h4 {
-  font-family: "Sharp Sans Semibold", Century Gothic, Arial, sans-serif;
+  font-weight: 600;
   font-size: 1.25rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -147,7 +154,7 @@ h4 {
 }
 
 h5 {
-  font-family: "Sharp Sans Bold", Century Gothic Bold, Arial Bold, sans-serif;
+  font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.25;
   color: $color-text;
@@ -260,7 +267,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 // Other text styles
 
 @mixin small-text-mx {
-  font-family: "Sharp Sans Medium", Arial, sans-serif;
+  font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.5;
 }
@@ -270,7 +277,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 .minor-text {
-  font-family: "Sharp Sans Medium", Arial, sans-serif;
+  font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.5;
 }
