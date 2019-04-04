@@ -18,6 +18,8 @@ Mistakes that happen at transportation, driving car, operating a large ship or a
 
 This is typically why any professional transportation takes things very severely, and typically has multiple safety controls in place to prevent any accidents. Still, accidents do happen, based on all previous reasons, they are just much rarer.
 
+### Optimization and Situational Awareness
+
 Another interesting topic is optimization. Some of the lesser mistakes do not have such severe outcomes, but cost time, money, and fuel resources. If we were able to make these go away as well, it would instantly benefit both operating costs as well as pollution. Save some money, help save the planet. By optimizing things we can also expect to save some frustration from people who are running the ships, as well as people from port authorities.
 
 Finally, how about just improving feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in right format, right time, for people who are making the decisions. Baseline for having any information outside your ships own sensors might have been at some point, and still very much is, radio traffic. Radio traffic itself is very prone for miscommunication, things get lost in translation, etc. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right everytime.
@@ -82,7 +84,7 @@ Information available in STM network is already being useful to supplement exist
 Improved communicaton, more efficient use of resources, less pollution, these are the short term benefits we are already enjoying. On longer term, we will probably see more intelligent algorithms taking over some of the routine work. Having more operational data available will definitely bring benefits for data analysis and larger scale optimizations as well. Hopefully future seas will be much safer than cleaner than they are today.
 
 
-### Some links and rerences
+### Some links and references
 
 - [https://vayla.fi/web/en](https://vayla.fi/web/en)
 - [https://www.digitraffic.fi/](https://www.digitraffic.fi/)
