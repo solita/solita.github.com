@@ -86,12 +86,12 @@ Improved communicaton, more efficient use of resources, less pollution, these ar
 
 ### Some links and references
 
-- [https://vayla.fi/web/en](https://vayla.fi/web/en)
-- [https://www.digitraffic.fi/](https://www.digitraffic.fi/)
-- [https://www.stmvalidation.eu/](https://www.stmvalidation.eu/)
+- [Finnish Transport Agency](https://vayla.fi/web/en)
+- [Digitraffic APIs](https://www.digitraffic.fi/)
+- [STM Validation Project](https://www.stmvalidation.eu/)
 - [Youtube: Sea Traffic Management (STM) 2018 - Status, Results and Future](https://www.youtube.com/watch?v=vutEjuR4r6c)
-- [http://stmmasterplan.stmvalidation.eu/improvement-phases/](http://stmmasterplan.stmvalidation.eu/improvement-phases/)
-- [https://www.fuelseurope.eu/publication/statistical-report-2018/](https://www.fuelseurope.eu/publication/statistical-report-2018/)
-- [http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html][http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html]
+- [STM Validation Phases](http://stmmasterplan.stmvalidation.eu/improvement-phases/)
+- [EU Wide Fuel Usage Statistics](https://www.fuelseurope.eu/publication/statistical-report-2018/)
+- [EMSA Analysis on Safety at Sea](http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html)
 
 
