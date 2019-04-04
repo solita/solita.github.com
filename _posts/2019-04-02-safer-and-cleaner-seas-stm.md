@@ -35,6 +35,22 @@ Computers make mistakes as well, but they tend to be more systematic and predict
 
 Finnish Transport Agency is participating in STM project validation phase, to find ways to improve communications, mainly at Sea of Bothnia. A small team from Solita, among people from other software consultancies were working together to focus on STM validation aspect of the larger project.
 
+![Visual Route editor](/img/safer-and-cleaner-seas/complex_route_editing.png)
+
+![STM Route shown on application screen (early draft)](/img/safer-and-cleaner-seas/complex_route_visualization.png)
+
+![Testing screen showing list of nautical warnings from Digitraffic, converted to STM S124 Area standard](/img/safer-and-cleaner-seas/nautical_warnings_test_screen.png)
+
+![Route information available in systems](/img/safer-and-cleaner-seas/route_and_vessel_popup.png)
+
+![Route editor](/img/safer-and-cleaner-seas/route_editing.png)
+
+![Route visualization (early draft)](/img/safer-and-cleaner-seas/route_visualization.png)
+
+![Turn radius calculations](/img/safer-and-cleaner-seas/turn_radius.png)
+
+![Visual route editor](/img/safer-and-cleaner-seas/visual_route_editor.png)
+
 Technical part of what we were doing was nothing spectacular, quite straightforward messaging was big part of it. Interesting part was the constantly evolving standards, evolving goals and milestones, and how to fit all pieces together, also in line with the needs northern hemisphere creates. Of course, security was an essential facet to take care of.
 
 STM Validation was and still is a big project, with numerous teams working on different aspects in different places. Our main focus was the ice navigation, routing through ice more efficiently, without causing merchant ships to get stuck on difficult routes, causing delays. Additionally, how to communicate with Ice Breaker fleet so that existing pathways can be efficienctly reused. All this will naturally bring great savings in both cost and environmental impact. Another aspect was digitalizing communicatons between ports and vessels. This means better capabilities to estimate when ship is going to be leaving port or arriving to port, which can also help optimizing how icebreakers will be able to assist ships. Additionally, standards can be also used to route nautical warnings and even small text messages when conversing and optimizing routes.
@@ -63,6 +79,7 @@ Improved communicaton, more efficient use of resources, less pollution, these ar
 ### Some links and rerences
 
 - [https://vayla.fi/web/en](https://vayla.fi/web/en)
+- [https://www.digitraffic.fi/](https://www.digitraffic.fi/)
 - [https://www.stmvalidation.eu/](https://www.stmvalidation.eu/)
 - [http://stmmasterplan.stmvalidation.eu/improvement-phases/](http://stmmasterplan.stmvalidation.eu/improvement-phases/)
 - [https://www.fuelseurope.eu/publication/statistical-report-2018/](https://www.fuelseurope.eu/publication/statistical-report-2018/)
