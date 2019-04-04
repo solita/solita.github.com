@@ -12,13 +12,19 @@ tags:
 
 Human errors are expensive. When you are making decisions and acting on them, and are not fully concentrated, those human errors tend to happen. Typical human error might be writing your address wrong when ordering something. Or reading a back account number somehow wrong, from a handwritten note. Perhaps you are acting on too little information, and make a wrong decision. Those mistakes happen everyday to someone. They can typically be recovered by a bit of extra work, no harm done.
 
+![Accidents at sea (source listed at end of arcticle)](/img/safer-and-cleaner-seas/marine_casualty_information.png)
+
 Mistakes that happen at transportation, driving car, operating a large ship or an airplane, are typically much more severe. These are not just about embarrassment or monetary cost, any mistakes with a moving vehicle typically bring much higher costs to recover. Sometimes they may result in environmental disasters, bodily harm, or even loss of life.
 
 This is typically why any professional transportation takes things very severely, and typically has multiple safety controls in place to prevent any accidents. Still, accidents do happen, based on all previous reasons, they are just much rarer.
 
+Another interesting topic is optimization. Some of the lesser mistakes do not have such severe outcomes, but cost time, money, and fuel resources. If we were able to make these go away as well, it would instantly benefit both operating costs as well as pollution. Save some money, help save the planet. By optimizing things we can also expect to save some frustration from people who are running the ships, as well as people from port authorities.
+
+Finally, how about just improving feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in right format, right time, for people who are making the decisions. Baseline for having any information outside your ships own sensors might have been at some point, and still very much is, radio traffic. Radio traffic itself is very prone for miscommunication, things get lost in translation, etc. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right everytime.
+
 ### Sea Traffic Management
 
-Sea Traffic Management, formerly known as Mona Lisa, is an EU wide project, currently at Validation phase. Goals are various, but at the core is optimization of sea traffic across EU. Optimization means here better efficiency, improved safety, and of course, better use of resources. 
+Sea Traffic Management is an EU wide project, currently at Validation phase. Goals are various, but at the core is optimization of sea traffic across EU. Optimization means here better efficiency, improved safety, and of course, better use of resources. 
 
 Here are the currently listed goals for full deployment of STM by year 2030 in relation to year 2015:
 - Safety: 50% reduction of accidents.
@@ -81,8 +87,9 @@ Improved communicaton, more efficient use of resources, less pollution, these ar
 - [https://vayla.fi/web/en](https://vayla.fi/web/en)
 - [https://www.digitraffic.fi/](https://www.digitraffic.fi/)
 - [https://www.stmvalidation.eu/](https://www.stmvalidation.eu/)
+- [Youtube: Sea Traffic Management (STM) 2018 - Status, Results and Future](https://www.youtube.com/watch?v=vutEjuR4r6c)
 - [http://stmmasterplan.stmvalidation.eu/improvement-phases/](http://stmmasterplan.stmvalidation.eu/improvement-phases/)
 - [https://www.fuelseurope.eu/publication/statistical-report-2018/](https://www.fuelseurope.eu/publication/statistical-report-2018/)
-
+- [http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html][http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html]
 
 
