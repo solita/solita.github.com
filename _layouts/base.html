@@ -41,6 +41,12 @@
         {% include masthead.html %}
 
         <div class="main site-content-wrapper" role="main">
+            {% if page.url != "/" %}
+                <div class="breadcrumb">
+                    <a class="breadcrumb__link breadcrumb__link--root" href="/">{{ layout.back_title | default: "Back" }}</a>
+                </div>
+            {% endif %}
+
             <main class="primary">
                 {{ content }}
             </main>
