@@ -22,9 +22,9 @@ This is why any kind of professional transportation has multiple overlapping saf
 
 ### Optimization and Situational Awareness
 
-Another interesting topic is optimization. Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would instantly be beneficial to both operating costs as well as the environment. Use less fuel, save some money, help save the planet. By optimizing things we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
+Another interesting topic is optimization. Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would instantly be beneficial to both operating costs as well as the environment. Use less fuel, save some money, help save the planet. By optimizing things, we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
 
-Finally, how about just improving the feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in the right format, right time, for people who are making the decisions. A baseline for having any information outside your ships own sensors might have been at some point, and still very much is radio traffic. Radio traffic itself is very prone for miscommunication, things get lost in translation, etc. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right every time. If only we had a better way...
+Finally, how about just improving the feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in the right format, right time, for people who are making the decisions. A baseline for having any information outside your ships own sensors might have been at some point, and still very much is radio traffic. Radio traffic itself is very prone for miscommunication, and things might get lost in translation. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right every time. If only we had a better way...
 
 Well, one great part of working at Solita is that we sometimes get the opportunity to get a glimpse at the future, and even affect how it will look like. Those kinds of projects are the greatest because they recharge the feeling that we can have an impact, we can make the future just a little bit brighter.
 
@@ -37,7 +37,7 @@ Here are the currently listed goals for full deployment of STM by the year 2030 
 - Efficiency: 10% reduction in voyage costs and a 30% reduction in waiting time for berthing
 - Environment: 7% lower fuel consumption and 7% lower greenhouse gas emissions.
 
-7% might sound low, 100% would certainly be much better. But on EU-wide scale, in the year 2017, we spent 37 231 000 tonnes of fuel oil and gasoil combined. So using better optimization and coordination, we can still do much better. So, while waiting for better forms of energy to acquire wider use, optimization can bring those numbers down to more positive direction, already today. Achieve more, spend less. In other words, we are able to transport people, as well as items, cheaper than today. Possible, instead of polluting more and more, start polluting less and less every year. Meanwhile, new energy forms will certainly find their way in, and their use will be optimized as well, for further benefits.
+7% might sound low, 100% would certainly be much better. But on EU-wide scale, in the year 2017, we spent 37 231 000 tons of fuel oil and gasoil combined. So, using better optimization and coordination, we can still do much better. So, while waiting for better forms of energy to acquire wider use, optimization can bring those numbers down to more positive direction, already today. Achieve more, spend less. In other words, we are able to transport people, as well as items, cheaper than today. Possible, instead of polluting more and more, start polluting less and less every year. Meanwhile, new energy forms will certainly find their way in, and their use will be optimized as well, for further benefits.
 
 ![STM Route is shown on application screen (early draft)](/img/safer-and-cleaner-seas/fuel_consumption.png)
 
@@ -57,11 +57,11 @@ STM Validation was and still is a big project, with numerous teams working on di
 
 ![Visual Route editor](/img/safer-and-cleaner-seas/complex_route_editing.png)
 
-You have to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards. But this has lead to incompatibilities and caused all communication in most cases preferring radio calls and freeform emails. Of course, this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
+You have to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards. But this has led to incompatibilities and caused all communication in most cases preferring radio calls and freeform emails. Of course, this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
 
 ![Route information available in systems](/img/safer-and-cleaner-seas/route_and_vessel_popup.png)
 
-New RTZ format for routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So from any internal route models or schemas, it's possible to transform RTZ version for transport. We created some visual route editors to help with the validation. Note that this part was not actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
+New RTZ format for routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So, from any internal route models or schemas, it's possible to transform RTZ version for transport. We created some visual route editors to help with the validation. Note that this part was not actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
 
 ![Turn radius calculations](/img/safer-and-cleaner-seas/turn_radius.png)
 
@@ -75,7 +75,7 @@ Few of the other useful standard formats are Port Call Message Format, and Area 
 
 All of these standards can be used to replace traditional radio communication, which is very prone to human errors. Area, text and route information can be easily transported via existing simple channels, such as email attachments. Email systems are quite robust and asynchronous, so to some extent, they can also work over unreliable networks. 
 
-However, to achieve even more robust message delivery, STM has more parts that can be used to replace any email based communication. STM standard defines components called SeaSwim connectors, and Maritime Connectivity Platform. This means abstracting the communications protocol to a robust and secure platform that is able to identify parties using certificates and deliver any standards-based messages securely over the network, tolerating shaky/bad/missing network scenarios. There is also a registry for services and identities, which can be used to negotiate on how to communicate with a new, unknown party.
+However, to achieve even more robust message delivery, STM has more parts that can be used to replace any email-based communication. STM standard defines components called SeaSwim connectors, and Maritime Connectivity Platform. This means abstracting the communications protocol to a robust and secure platform that is able to identify parties using certificates and deliver any standards-based messages securely over the network, tolerating shaky/bad/missing network scenarios. There is also a registry for services and identities, which can be used to negotiate on how to communicate with a new, unknown party.
 
 ![Seaswim Connector architecture](/img/safer-and-cleaner-seas/ssc_architecture.png)
 
@@ -83,7 +83,7 @@ At the moment, STM is at the validation phase, which means things are still movi
 
 ### Conclusion
 
-The information available in the STM network is already being used to supplement existing navigation systems and communication methods, making them more intelligent. Right now it's used just as one of the ways to cross-check information. Traditional ways of working are still the main way of working at sea. But one day soon, marine traffic will catch up with air traffic.
+The information available in the STM network is already being used to supplement existing navigation systems and communication methods, making them more intelligent. Right now, it's used just as one of the ways to cross-check information. Traditional ways of working are still the main way of working at sea. But one day soon, marine traffic will catch up with air traffic.
 
 Improved communication, more efficient use of resources, less pollution, are some of the short term benefits we are already enjoying. On the longer term, we will probably see more intelligent algorithms taking over some of the routine work. Having more operational data available will definitely bring benefits for data analysis and larger scale optimizations as well. It seems future seas will be much safer than cleaner than they are today.
 
