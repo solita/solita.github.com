@@ -2,7 +2,7 @@
 layout: post
 title: Safer and cleaner seas via Sea Traffic Management
 author: arto
-excerpt: Air traffic has been digitalized long ago. Now, the seas are going same route as well. Future holds much safer and cleaner marine traffic for all of us. 
+excerpt: Air traffic has been digitalized long ago. Now, the seas are going same route as well. Future holds much safer and cleaner marine traffic for all of us.
 tags:
 - Environment
 - Automation
@@ -68,6 +68,32 @@ New RTZ format for routes is at its core a very simple XML schema, that can deli
 ### Technical solutions
 
 STM components and architecture are very simple, and platform agnostic. One big part is a set of standard schemas for specific messages. One of the first schemas that we were working on was RTZ route exchange format, which allows exchanging route information in many different lifecycle phases between parties. A ship might initiate the conversation by exporting their planned route to RTZ file, then sending it to harbor or icebreaker for optimization. Receiving party can then apply some guidance for the route, for example advising to avoid the specific area, or reroute via a waypoint where there's already a pathway in ice, suitable for the ship in question. After optimization, new route suggestion may be sent back to ship, then imported into actual navigation systems for verification and usage.
+
+Here's a simple example of RTZ route format:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<route xmlns:stm="http://stmvalidation.eu/STM/1/0/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xmlns="http://www.cirm.org/RTZ/1/1">
+<routeInfo routeName="Oslo Pilot Boarding" vesselVoyage="urn:mrn:stm:voyage:id:sma:201810191046" >
+<extensions>
+<extension xsi:type="stm:RouteInfoExtension" manufacturer="STM" name="routeInfoEx" version="1.0.0" routeStatusEnum="1" />
+</extensions>
+</routeInfo>
+<waypoints>
+<defaultWaypoint >
+<leg />
+</defaultWaypoint>
+<waypoint id="1" >
+      <position lat="59.07503333" lon="10.57360000" />
+<leg />
+</waypoint>
+<waypoint id="2" >
+      <position lat="59.07503333" lon="10.57360000" />
+<leg />
+</waypoint>
+</waypoints>
+</route>
+```
 
 Few of the other useful standard formats are Port Call Message Format, and Area Exchange Format (S124), which can be used to deliver geolocation information such as specific point or area. There's also a specification for generic Text Message Format, to deliver attachments, descriptions, or even chat messages between two parties. These together, for example, to share plans and updates on port arrival or departure, nautical warnings on areas to avoid, or to negotiate an optimal route that requires some discussion. Digitraffic already has excellent APIs making nautical warnings, so we simply converted that information, and made it available via STM channels in a wider scope.
 
