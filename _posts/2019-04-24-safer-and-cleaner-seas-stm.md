@@ -12,17 +12,17 @@ tags:
 - Java
 - XML
 ---
-Human errors can be expensive. When you are making decisions, and acting on them while not fully concentrating, it leaves room for mistakes. A typical human error might be writing your address wrong when ordering an item. Or copying a single digit of bank account number wrong, from a handwritten note. Perhaps you are acting on too little information, or are in a hurry. Those mistakes happen every day to someone. In most cases you can recover from them through some extra work, no harm done.
+**Human errors can be expensive**. When you are making decisions, and acting on them while not fully concentrating, it leaves room for mistakes. A typical human error might be writing your address wrong when ordering an item. Or copying a single digit of bank account number wrong, from a handwritten note. Perhaps you are acting on too little information, or are in a hurry. Those mistakes happen every day to someone. In most cases you can recover from them through some extra work, no harm done.
 
 ![Accidents at sea (source listed at end of the article)](/img/safer-and-cleaner-seas/marine_casualty_information.png)
 
-Mistakes that happen when operating a moving vehicle of any kind, such as a car, train, ship or an airplane, tend to be much more severe. These mistakes are not just about mild embarrassment or some monetary cost. Any mistakes involving a moving vehicle bring much higher costs to recover. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. Doing routine work that has to be repeated just right is a major reason for human errors.
+Mistakes that happen when operating a moving vehicle of any kind, such as a car, train, ship or an airplane, tend to be much more severe. These mistakes are not just about mild embarrassment or some monetary cost. **Any mistakes involving a moving vehicle bring much more costs to recover**. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. Doing routine work that has to be repeated just right is a major reason for human errors.
 
 This is why any kind of professional transportation has multiple overlapping safety controls in place to prevent any accidents. Still, sometimes things manage to go wrong, and accidents do happen. Sometimes it's a matter of failing equipment or parts, but often it can also be attributed to mistakes in judgment, not being informed enough, or trusting bad information.
 
 ### Optimization and Situational Awareness
 
-Another interesting topic is optimization. Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would instantly be beneficial to both operating costs as well as the environment. Use less fuel, save some money, help save the planet. By optimizing things, we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
+Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would be instantly beneficial to both operating costs as well as the environment. **Use less fuel, save some money, help save the planet**. By optimizing things, we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
 
 Finally, how about just improving the feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in the right format, right time, for people who are making the decisions. A baseline for having any information outside your ships own sensors might have been at some point, and still very much is radio traffic. Radio traffic itself is very prone for miscommunication, and things might get lost in translation. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right every time. If only we had a better way...
 
@@ -57,7 +57,7 @@ STM Validation was and still is a big project, with numerous teams working on di
 
 You have to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards. But this has led to incompatibilities and caused all communication in most cases preferring radio calls and freeform emails. Of course, this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
 
-![Visual Route editor](/img/safer-and-cleaner-seas/visual_route_editing.png)
+![Visual Route editor](/img/safer-and-cleaner-seas/visual_route_editor.png)
 
 New RTZ format for routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So, from any internal route models or schemas, it's possible to transform RTZ version for transport. We created some visual route editors to help with the validation. Note that this part was not actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
 
@@ -93,7 +93,7 @@ Here's a simple example of RTZ route format:
 </route>
 ```
 
-Few of the other useful standard formats are Port Call Message Format, and Area Exchange Format (S124), which can be used to deliver geolocation information such as specific point or area. There's also a specification for generic Text Message Format, to deliver attachments, descriptions, or even chat messages between two parties. These together, for example, to share plans and updates on port arrival or departure, nautical warnings on areas to avoid, or to negotiate an optimal route that requires some discussion. Digitraffic already has excellent APIs making nautical warnings, so we simply converted that information, and made it available via STM channels in a wider scope.
+Few of the other useful standard formats are Port Call Message Format, and Area Exchange Format (S124), which can be used to deliver geolocation information such as specific point or area. There's also a specification for generic Text Message Format, to deliver attachments, descriptions, or even chat messages between two parties. These together, for example, to share plans and updates on port arrival or departure, nautical warnings on areas to avoid, or to negotiate an optimal route that requires some discussion. Digitraffic APIs (see link at the end) already have nautical warnings available, so we simply converted that information, and made it available via STM channels in a much wider scope.
 
 ![Testing screen showing list of nautical warnings from Digitraffic, converted to STM S124 Area standard](/img/safer-and-cleaner-seas/nautical_warnings_test_screen.png)
 
