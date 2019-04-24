@@ -47,19 +47,17 @@ Of course, being able to make everyday communication and information exchange mo
 
 Finnish Transport Infrastructure Agency was, and still is participating in STM project validation phase. The goal is to find ways to improve communications, mainly at the Sea of Bothnia. For our northern hemisphere, icebreaking operations and ice conditions are creating unique challenges and solutions for the STM project. A small team from Solita, among people from other software consultancies, were working together to focus on STM validation aspect of another project.
 
-![Route visualization (early draft)](/img/safer-and-cleaner-seas/route_visualization.png)
+![Route visualization](/img/safer-and-cleaner-seas/route_visualization.png)
 
 The technical part of what we were doing was nothing spectacular. Quite a big part of it was just moving files from place to another, sometimes producing them, sometimes visualizing them. Of course, baseline being radio traffic, even this was a big improvement. The interesting part was the constantly evolving standards, evolving goals and milestones, and how to fit all pieces together, also in line with the special needs our northern hemisphere creates. Of course, security was an essential facet to take care of.
 
 STM Validation was and still is a big project, with numerous teams working on different aspects in different places. Our main focus was the ice navigation, routing through ice more efficiently, without causing merchant ships to get stuck on difficult routes, causing delays. Additionally, how to communicate with the Ice Breaker fleet so that existing pathways can be efficiently reused. All this will naturally bring great savings in both cost and environmental impact. Another aspect was digitalizing the communications between ports and vessels. This means better capabilities to estimate when a ship is going to be leaving port or arriving at the port, which can also help optimizing how icebreakers will be able to assist ships. Additionally, standards can be also used to route nautical warnings and even small text messages when conversing and optimizing routes.
 
-![Route editor](/img/safer-and-cleaner-seas/route_editing.png)
-
-![Visual Route editor](/img/safer-and-cleaner-seas/complex_route_editing.png)
+![Route listing and states](/img/safer-and-cleaner-seas/route_listing.png)
 
 You have to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards. But this has led to incompatibilities and caused all communication in most cases preferring radio calls and freeform emails. Of course, this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
 
-![Route information available in systems](/img/safer-and-cleaner-seas/route_and_vessel_popup.png)
+![Visual Route editor](/img/safer-and-cleaner-seas/visual_route_editing.png)
 
 New RTZ format for routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So, from any internal route models or schemas, it's possible to transform RTZ version for transport. We created some visual route editors to help with the validation. Note that this part was not actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
 
