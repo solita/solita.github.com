@@ -2,7 +2,7 @@ url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
 gems: [jekyll-paginate]
-paginate: 10
+paginate: 20
 paginate_path: "/:num"
 highlighter: rouge
 markdown: kramdown

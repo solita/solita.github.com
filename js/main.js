@@ -5,6 +5,14 @@
     $(document).ready(function () {
         var avatarTemplate = $('#templates .avatar').detach();
 
+        var menuToggle = $('#menu-toggle'),
+            primaryNav = $('#primary-navigation');
+        
+        menuToggle.on('click', function(){
+            menuToggle.toggleClass('menu-toggle--active');
+            primaryNav.css('display', menuToggle.hasClass('menu-toggle--active') ? 'block' : '');
+        });
+
         $('.post-meta').each(function () {
             var $this = $(this),
                 authorLink = $this.find('.author a'),

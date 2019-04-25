@@ -1,0 +1,17 @@
+.breadcrumb {
+    display: block;
+    margin-bottom: 1em;
+    margin-top: -1.5em;
+
+    &__link--root {
+        &:before {
+            content: '';
+            @include arrow-left($brand-red);
+            display: inline-block;
+        }
+        
+        &:hover:before {
+            @include arrow-left($brand-gray80);
+        }
+    }
+}
