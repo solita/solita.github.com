@@ -2,14 +2,20 @@
 layout: default
 back_title: See all posts
 ---
-{% assign author = site.authors[page.author] %}
 
 <div class="post single">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta post-meta-big minor-text">
         <div class="post-meta-rows">
             <div class="post-meta-basic-info">
-                <span class="author">by <a href="{{ author.url }}" title="{{ author.email }}">{{ page.author }}</a></span>
+                {% assign authors = page.author | split: ", " %}
+                <span class="author">by
+                    {% for authorName in authors -%}
+                        {%- assign author = site.authors[authorName] -%}
+                        {%- if authorName != authors[0] %}, {% endif -%}
+                        <a href="{{ author.url }}">{{ authorName }}</a>
+                    {%- endfor -%}
+                </span>
                 <span class="text-divider">|</span>
                 <span class="date" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</span>
             </div>
