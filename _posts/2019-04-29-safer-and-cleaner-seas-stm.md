@@ -2,7 +2,7 @@
 layout: post
 title: Safer and cleaner seas via Sea Traffic Management
 author: arto
-excerpt: Air traffic has been digitalized long ago. Now, the seas are going same route as well. Future holds much safer and cleaner marine traffic for all of us.
+excerpt: Air traffic has been digitalized long ago. Now, the seas are going the same route as well. The future holds much safer and cleaner marine traffic for all of us.
 tags:
 - Environment
 - Automation
@@ -12,25 +12,27 @@ tags:
 - Java
 - XML
 ---
-**Human errors can be expensive**. When you are making decisions, and acting on them while not fully concentrating, it leaves room for mistakes. A typical human error might be writing your address wrong when ordering an item. Or copying a single digit of bank account number wrong, from a handwritten note. Perhaps you are acting on too little information, or are in a hurry. Those mistakes happen every day to someone. In most cases you can recover from them through some extra work, no harm done.
+**Human errors can be expensive**. When you are making decisions and acting on them without your full concentration, mistakes are likely to happen. A typical human error might be writing your address wrong when ordering an item. You might mistype a bank account number when copying from a poorly handwritten note. Perhaps you are acting on too little information, or are in a hurry. These kinds of every day mistakes happen all the time when acting in a hurry or based on incomplete information. In most cases you can recover from them through some extra work, no harm done.
 
 ![Accidents at sea (source listed at end of the article)](/img/safer-and-cleaner-seas/marine_casualty_information.png)
 
-Mistakes that happen when operating a moving vehicle of any kind, such as a car, train, ship or an airplane, tend to be much more severe. These mistakes are not just about mild embarrassment or some monetary cost. **Any mistakes involving a moving vehicle bring much more costs to recover**. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. Doing routine work that has to be repeated just right is a major reason for human errors.
+Mistakes tend to be much more severe when operating a vehicle of any kind, such as a car, train, ship or an airplane, tend to be much more severe. These mistakes are not just about mild embarrassment or some monetary cost. **Any mistakes involving a vehicle bring much higher costs to recover**. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. 
 
-This is why any kind of professional transportation has multiple overlapping safety controls in place to prevent any accidents. Still, occasionally things manage to go wrong, and accidents do happen. Sometimes it's a matter of failing equipment or parts, but often it can also be attributed to mistakes in judgment, not being informed enough, or trusting bad information.
+This is why any kind of professional transportation has multiple overlapping safety controls in place to prevent any accidents. Still, occasionally things can go wrong and accidents do happen. Sometimes it is a matter of failing equipment or parts but often it can also be attributed to mistakes in judgment, not being informed enough, or trusting bad information.
 
 ### Optimization and Situational Awareness
 
-Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would instantly reduce the operating costs as well as benefit the environment. **Use less fuel, save some money, help save the planet**. By optimizing things, we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
+Some of the lesser mistakes do not have such severe outcomes, but they still cost time, money, and extra fuel resources. If we were able to optimize better and avoid even smaller mistakes, it would instantly reduce the operating costs as well as benefit the environment. **Use less fuel, save some money, help save the planet**. 
 
-Finally, how about just improving the feeling of safety and confidence, by improving situational awareness? This can be done by bringing the right information in the right format, at the right time, for people who are making the decisions. A baseline for having any information outside your ships own sensors might have been at some point, and still very much is radio traffic. Radio traffic itself is very prone to miscommunication, and things might get lost in translation. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right every time. If only we had a better way...
+Doing routine work that has to be repeated just right is a major reason for human errors. By optimizing things, we can also expect to avoid some frustration from people who are running the ships, as well as people from the port authorities' offices, pilots, ship owners, coast guard, and tugboats.
 
-Well, one great part of working at Solita is that we sometimes get the opportunity to get a glimpse of the future, and even affect how it will look. Those kinds of projects are the greatest because they recharge the feeling that we can have an impact; we can make the future just a little bit brighter.
+Finally, how about just improving the feeling of safety and confidence by improving situational awareness? This can be done by making sure that the people making the decisions have the right information, in the right format and at the right time. A baseline for having any information outside your ships own sensors might have been at some point, and still very much is radio traffic. Radio traffic itself is very prone to miscommunication, and things might get lost in translation. There are protocols again to cope with this, but it's still difficult to get the situational awareness just right every time. If only we had a better way...
+
+One great part of working at Solita is that we sometimes get the opportunity to get a glimpse of the future, and even affect how it will look. These projects are the greatest because they recharge the feeling that we can have an impact; we can make the future just a little bit brighter.
 
 ### Sea Traffic Management
 
-Sea Traffic Management is an EU wide project, currently in the validation phase. There are various goals, but at the core of it is the optimization of sea traffic across the EU. Optimization means here better efficiency, improved safety, and of course, better use of resources. 
+Sea Traffic Management is an EU wide project, currently in the validation phase. There are various goals, but at the core of it is the optimization of sea traffic across the EU. Here optimization means better efficiency, improved safety, and of course, better use of resources. 
 
 Here are the currently listed goals for full deployment of STM by the year 2030 in relation to the year 2015:
 - Safety: 50% reduction of accidents.
@@ -55,11 +57,11 @@ STM Validation was and still is a big project, with numerous teams working on di
 
 ![Route listing and states](/img/safer-and-cleaner-seas/route_listing.png)
 
-It is important to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards. But this has led to incompatibilities and resulted in most communication being by email and radio calls. Of course, this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
+It is important to note that before the STM project, there had not been a great common standard for digital communications at sea when the scope is any ships within the EU. To be more precise, there had been multiple different standards before the STM project. This had led to incompatibilities and resulted in most communication being by email and radio calls. Of course this communication takes place at sea, where weather conditions might bring a few more twists on how easy it is to communicate and understand each other.
 
 ![Visual Route editor](/img/safer-and-cleaner-seas/visual_route_editor.png)
 
-The new RTZ format for nautical routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So, from any internal route models or schemas, it's possible to transform it in to an RTZ version for transport. We created some visual route editors to help with the validation. Note that this part was not actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
+The new RTZ format for nautical routes is at its core a very simple XML schema, that can deliver basic route information, as well as some more interesting metadata. So, from any internal route models or schemas, it's possible to transform it in to an RTZ version for transport. We created some visual route editors to help with the validation. Note that this was not a part of the actual navigation tools, the main goal here was to experiment and validate. But we still had to get the turn radiuses just right, on our projected map surface.
 
 ![Turn radius calculations](/img/safer-and-cleaner-seas/turn_radius.png)
 
@@ -107,7 +109,7 @@ At the moment, STM is in the validation phase, which means things are still movi
 
 ### Conclusion
 
-The information available in the STM network is already being used to supplement existing navigation systems and communication methods, making them more intelligent. Right now, it's used just as one of the ways to cross-check information. Traditional ways of working are still the main way of working at sea. But one day soon, marine traffic will catch up with air traffic.
+The information available in the STM network is already being used to supplement existing navigation systems and communication methods, making them more intelligent. Right now, it's used as just one of the ways to cross-check information. Traditional ways of working are still the main way of working at sea. But one day soon, marine traffic will catch up with air traffic.
 
 Some of the short term benefits that we are already enjoying are improved communication, more efficient use of resources, and less pollution. In the longer term, we will probably see more intelligent algorithms taking over some of the routine work. Machine Learning can have its place in predicting vessel movement and optimal routes. Having more operational data available will definitely bring benefits for data analysis and larger scale optimizations as well. It seems future seas will be much safer and cleaner than they are today.
 
