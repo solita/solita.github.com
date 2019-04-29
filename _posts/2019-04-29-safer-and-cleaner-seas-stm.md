@@ -16,7 +16,7 @@ tags:
 
 ![Accidents at sea (source listed at end of the article)](/img/safer-and-cleaner-seas/marine_casualty_information.png)
 
-Mistakes tend to be much more severe when operating a vehicle of any kind, such as a car, train, ship or an airplane, tend to be much more severe. These mistakes are not just about mild embarrassment or some monetary cost. **Any mistakes involving a vehicle bring much higher costs to recover**. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. 
+Mistakes tend to be much more severe when operating a vehicle of any kind, such as a car, train, ship or an airplane. These mistakes are not just about mild embarrassment or some monetary cost. **Any mistakes involving a vehicle bring much higher costs to recover**. Sometimes they may result in environmental disasters, bodily harm, or even loss of life. 
 
 This is why any kind of professional transportation has multiple overlapping safety controls in place to prevent any accidents. Still, occasionally things can go wrong and accidents do happen. Sometimes it is a matter of failing equipment or parts but often it can also be attributed to mistakes in judgment, not being informed enough, or trusting bad information.
 
