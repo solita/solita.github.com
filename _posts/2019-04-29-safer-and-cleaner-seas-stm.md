@@ -32,7 +32,7 @@ One great part of working at Solita is that we sometimes get the opportunity to 
 
 ### Sea Traffic Management
 
-Sea Traffic Management is an EU wide project, currently in the validation phase. There are various goals, but at the core of it is the optimization of sea traffic across the EU. Here optimization means better efficiency, improved safety, and of course, better use of resources. 
+Sea Traffic Management (STM) is an EU wide project, currently in the validation phase. STM is co-funded by the EU Connecting Europe Facility (CEF) programme. There are various goals, but at the core of it is the optimization of sea traffic across the EU. Here optimization means better efficiency, improved safety, and of course, better use of resources.
 
 Here are the currently listed goals for full deployment of STM by the year 2030 in relation to the year 2015:
 - Safety: 50% reduction of accidents.
@@ -124,5 +124,8 @@ Stay tuned.
 - [STM Validation Phases](http://stmmasterplan.stmvalidation.eu/improvement-phases/)
 - [EU Wide Fuel Usage Statistics](https://www.fuelseurope.eu/publication/statistical-report-2018/)
 - [EMSA Analysis on Safety at Sea](http://www.emsa.europa.eu/infographics/item/3391-what-can-we-learn-from-the-analysis-on-ro-ro-ships.html)
+
+![Co-financed by the Connecting Europe Facility of the European Union](/img/safer-and-cleaner-seas/eb_logo.png)
+
 
 
