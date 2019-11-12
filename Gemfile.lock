@@ -220,7 +220,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    nokogiri (1.10.1)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     octokit (4.13.0)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -235,7 +235,7 @@ GEM
     ruby-enum (0.7.2)
       i18n
     ruby_dep (1.5.0)
-    rubyzip (1.2.2)
+    rubyzip (2.0.0)
     safe_yaml (1.0.4)
     sass (3.4.25)
     sawyer (0.8.1)
@@ -262,4 +262,4 @@ DEPENDENCIES
   therubyracer
 
 BUNDLED WITH
-   1.16.1
+   2.0.2
