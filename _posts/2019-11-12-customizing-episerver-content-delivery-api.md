@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Customizing episerver content delivery API.
+title: Customizing Episerver content delivery API.
 author: demonru
-excerpt: It was my first project with the use of Episerver as a Headless CMS. Episerver CMS supports such mode, but requires some customization for the exact needs. 
+excerpt: It was my first project with the use of Episerver as a Headless CMS. Episerver CMS supports such mode but requires some customization for the exact needs. 
 tags:
 - Episerver
 - Api
@@ -11,7 +11,7 @@ tags:
 ---
 
 ## Episerver as Headless CMS
-Episerver is a well known Content Management System (CMS). It officially supports working in a "headless CMS" mode. There is a bunch of [articles](https://world.episerver.com/documentation/developer-guides/content-delivery-api/) how to get started with it in this mode. In this article I will be talking only about Content delivery API part of the CMS usage. Default Alloy template allows you to quickly get content API up and running, but the default output result is far from being perfect for real case usage and usually requires customization.
+Episerver is a well known Content Management System (CMS). It officially supports working in a "headless CMS" mode. There is a bunch of [articles](https://world.episerver.com/documentation/developer-guides/content-delivery-api/) how to get started with it in this mode. In this article, I will be talking only about Content delivery API part of the CMS usage. Default Alloy template allows you to quickly get content API up and running, but the default output result is far from being perfect for real case usage and usually requires customization.
 
 To demonstrate the problem I'll start by adding `EPiServer.ContentDeliveryApi.Cms` dependency to default [Alloy site](https://world.episerver.com/documentation/developer-guides/CMS/getting-started/install-a-sample-site/). One gets predefined API endpoints and extensive output models with the default configuration. The endpoints support querying and searching content, authorization, can work with friendly URLs. 
 
@@ -219,9 +219,9 @@ Once I retrieve it via content delivery API by calling for example `http://local
 	}
 }
 ```
-The default output shows a lot of data. Fields like "existingLanguages", "masterLanguage", "changed", "created", "startPublish", "stopPublish" are probably not needed for the frontend. Other fields like "contentLink", "parentLink" are too intense in data and would be preferred as integer ids. At the same time "mainContentArea" lists only content links but not its content. Also, if I would use `enum` somewhere as `propertyDataType`, it will be serialized as number, while I would like it to be rendered as string name. Most of the fields have value and `propertyDataType` options which is in most cases useless. For a boolean field I would like to have only `fieldname : value`.
+The default output shows a lot of data. Fields like "existingLanguages", "masterLanguage", "changed", "created", "startPublish", "stopPublish" are probably not needed for the frontend. Other fields like "contentLink", "parentLink" are too intense in data and would be preferred as integer ids. At the same time, "mainContentArea" lists only content links but not its content. Also, if I would use `enum` somewhere as `propertyDataType`, it will be serialized as a number, while I would like it to be rendered as a string name. Most of the fields have value and `propertyDataType` options which is in most cases useless. For a boolean field, I would like to have only `fieldname : value`.
 
-In real project I would like to get something like this:
+In a real project I would like to get something like this:
 ```json
 {
 	"contentType": "ProductPage",
@@ -383,11 +383,11 @@ In real project I would like to get something like this:
 All URLs are absolute, only needed fields listed, data follows key-value principle wherever possible without data type attributes, extra field added. So, it's obvious that some customization is needed.
 
 ### Content data flow
-Before I dive into different ways of customizing results, let me quickly show how `PageData` gets transformed to the upper JSON in Episerver:
+Before I dive into different ways of customizing results, let me quickly show how `PageData` gets transformed into the upper JSON in Episerver:
 
 ![Content delivery API flow](/img/customizing-episerver-content-delivery-API/ContentDeliveryAPI_flow.png)
 
-Detailed description of the [serialization](https://world.episerver.com/documentation/developer-guides/content-delivery-api/serialization/) is available on the Episerver site. At the same time, it's not really clear how to use this info in order to tune result model, so I'll elaborate it.
+Detailed description of the [serialization](https://world.episerver.com/documentation/developer-guides/content-delivery-api/serialization/) is available on the Episerver site. At the same time, it's not clear how to use this info to tune the resulting model, so I'll elaborate it.
 
 So far I've found the following ways to customize content delivery API results:
 * Customize content model serialization within content delivery API flow
@@ -398,7 +398,7 @@ So far I've found the following ways to customize content delivery API results:
 * Create custom controller
 
 ### JSON attributes
-The first and simpliest way to modify the final model is to hide some of ContentData properties. It can be easily done with `[JsonIgnore]` attribute. Just decorate a property with it and would be ignored in result model. `ContentModelMapperBase` checks properties via reflection for the attribute during ContentApiModel building and ignores if it's present. 
+The first and simplest way to modify the final model is to hide some of ContentData properties. It can be easily done with `[JsonIgnore]` attribute. Just decorate a property with it and would be ignored in the resulting model. `ContentModelMapperBase` checks properties via reflection for the attribute during ContentApiModel building and ignores if it's present. 
 
 ```csharp
 	[JsonIgnore]
@@ -409,12 +409,12 @@ The first and simpliest way to modify the final model is to hide some of Content
 	[AllowedTypes(new[] { typeof(IContentData) },new[] { typeof(JumbotronBlock) })]
 	public virtual ContentArea RelatedContentArea { get; set; }
 ```
-And that's it. That's the only attribute that is checked by `ContentModelMapperBase`. So I couldn't get anything else useful out of it. 
+And that's it. That's the only attribute that is checked by `ContentModelMapperBase`. So I couldn't get anything more useful out of it. 
 
 ### Property Model mappers
-The second way to wedge into model building process is to implement and register custom property models. That is a fine-tuning mechanism that changes how a property type is serialized. As one can get it from the name it applies only to custom properties of the page data and does not have any influence on internal properties of the IContent object. It does not affect the visibility of the property in the final model either.
+The second way to wedge into the model building process is to implement and register custom property models. That is a fine-tuning mechanism that changes how a property type is serialized. As one can get it from the name it applies only to custom properties of the page data and does not have any influence on the internal properties of the IContent object. It does not affect the visibility of the property in the final model either.
 
-Create an implementation of `IPropertyModel` interface or derive an existing one. As an example, I've changed rendering for a Boolean values from "null, true, false" to "-1, 1, 0":
+Create an implementation of `IPropertyModel` interface or derive an existing one. As an example, I've changed rendering for Boolean values from "null, true, false" to "-1, 1, 0":
 ```csharp
     public class CustomBooleanPropertyModel : PropertyModel<int, PropertyBoolean>
     {
@@ -531,7 +531,7 @@ To make it work I would need to register this `CustomContentAreaPropertyModel` i
 As a result, all ContentArea properties will be expanded and all content of the referenced blocks and pages will be listed. 
 
 #### Enum property model 1
-Customizing rendering for enum values, i.e. as strings. I've found at least two ways to do it. First is "quick and dirty" option. 
+Customizing rendering for enum values, i.e. as strings. I've found at least two ways to do it. First is a "quick and dirty" option. 
 For a property of enum type in IContent of type ProductPage:
 ```csharp
         [Display(
@@ -579,10 +579,10 @@ Result:
 	},
 	...
 ```
-The drawback for this method is that it would try to convert all numbers, and I had to limit it by checking the name of the property.
+The drawback of this method is that it would try to convert all numbers, and I had to limit it by checking the name of the property.
 
 #### Enum property model 2
-A better way to do it is to use custom property type. That requires more efforts but gives a more reliable implementation. 
+A better way to do it is to use custom property types. That requires more effort but gives a more reliable implementation. 
 Property in class:
 ```csharp
         [Display(
@@ -654,7 +654,7 @@ The result value is like the first method, but coding implementation is solid an
 The only sad limitation with the PropertyModels is that it works only for custom properties. The built-in properties of the `PageData` are not affected by these customizations. So, "we need to go deeper".
 
 ### Working with ContentModelMapper 
-`IContentModelMapper` implementation is the key place to tweak built-in `PageData` properties. It gives full control over the way `ContentApiModel` is built and its properties are converted and mapped. 
+`IContentModelMapper` implementation is the key place to tweak built-in `PageData` properties. It gives the full control over the way `ContentApiModel` is built and its properties are converted and mapped. 
 The easiest way is to derive from `DefaultContentModelMapper` and override one or several virtual methods of `ContentModelMapperBase`. I did override `ResolveUrl` method in my `CustomContentModelMapper` to make URLs absolute:
 ```csharp
     [ServiceConfiguration(typeof(IContentModelMapper), Lifecycle = ServiceInstanceScope.Singleton)]
@@ -706,15 +706,15 @@ This makes URLs in built-in properties absolute:
 	"url": "http://localhost:54429/en/alloy-plan/",
 	...
 ``` 
-Another option can be to tweak `AddToPropertyMap` where converted properties are added to the dictionary of the result model. `ExtractPropertyDataCollection` contains invocation of the [ConvertToPropertyModel](#ConvertToPropertyModel) method, so instead of tweaking the method I could have changed the invocation parameters here.
+Another option can be to tweak `AddToPropertyMap` where converted properties are added to the dictionary of the resulting model. `ExtractPropertyDataCollection` contains the invocation of the [ConvertToPropertyModel](#ConvertToPropertyModel) method, so instead of tweaking the method, I could have changed the invocation parameters here.
 
-And it's also always possible to create you own custom implementation of `IContentModelMapper` where it's possible to do everything in the way you want it to be. A good [example](https://github.com/episerver/musicfestival-vue-template/blob/master/src/MusicFestival.Vue.Template/Models/ExtendedContentModelMapper.cs) is available in another Episerver site template. It has a nice model flattening implementation. 
+And it's also always possible to create your custom implementation of `IContentModelMapper` where it's possible to do everything in the way you want it to be. A good [example](https://github.com/episerver/musicfestival-vue-template/blob/master/src/MusicFestival.Vue.Template/Models/ExtendedContentModelMapper.cs) is available in another Episerver site template. It has a nice implementation of model flattening. 
 
-The only limitation which all IContentModelMapper implementations have is that resulting object will be of type `ContentApiModel`. So, all extra fields that I wanted to hide will stay in the result anyway. That is a place where model filtering customization comes into action.
+The only limitation which all IContentModelMapper implementations have is that the resulting object will be of type `ContentApiModel`. So, all extra fields that I wanted to hide will stay in the result anyway. That is a place where model filtering customization comes into action.
 
 ### Output model filtering
-Model filtering is a way to remove properties from the data returned by the Content Delivery API. It is done by filtering out properties in a custom `ContentResultService` as [recommended by Episerver](https://world.episerver.com/documentation/developer-guides/content-delivery-api/how-to-customize-data-returned-to-clients/). That is a very powerful way to shrink your model, because you can decide yourself which fields will stay. 
-Prior to discovery of `ContentModelMapperBase` capabilities I was using model filtering as my main model formatting tool. I used Episerver's sample a base and changed it quite heavily in order to go recursively over the expanded fields. 
+Model filtering is a way to remove properties from the data returned by the Content Delivery API. It is done by filtering out properties in a custom `ContentResultService` as [recommended by Episerver](https://world.episerver.com/documentation/developer-guides/content-delivery-api/how-to-customize-data-returned-to-clients/). That is a very powerful way to shrink your model because you can decide yourself which fields will stay. 
+Before the discovery of `ContentModelMapperBase` capabilities, I was using model filtering as my main model formatting tool. I used Episerver's sample a base and changed it quite heavily to go recursively over the expanded fields. 
 ```scharp
     [ServiceConfiguration(typeof(ContentResultService))]
     public class CustomContentResultService : ContentResultService
@@ -862,7 +862,7 @@ This service should be registered in Initialization module in order to be picked
 
 
 ### Custom controller 
-In my case I had some special requirements regarding the request URLs, authorization, output model and model properties serialization. So, I decided to create my own controller. Thanks to the guys from Episerver with the use of IoC principle it's easy to reuse the Content Delivery components whereever you need them. Here is a quick sample just to illustrate that it's easily doable. The actual implementation is more complicated:
+In my case, I had some special requirements regarding the request URLs, authorization, output model and model properties serialization. So, I decided to create my controller. Thanks to the guys from Episerver with the use of the IoC principle it's easy to reuse the Content Delivery components whenever you need them. Here is a quick sample just to illustrate that it's easily doable. The actual implementation is more complicated:
 ```csharp
     [RoutePrefix("api/v1/page")]
     public class CustomContentController : ApiController
@@ -900,8 +900,8 @@ In my case I had some special requirements regarding the request URLs, authoriza
     }
 ```
 It also gave me an ability to add a custom breadcrumb field to the final model.
-The drawback that you are now on your own, and need to worry yourself about request model validation, authorization, and some epi services might not be invoked any more.
-If you will decide to go for your own controller, do not forget to disable the original Episerver's content delivery endpoints.
+The drawback that you are now on your own, and need to worry yourself about request model validation, authorization, and some epi services that might not be invoked anymore.
+If you decide to go for your controller, do not forget to disable the original Episerver's content delivery endpoints.
 ```csharp
     [ModuleDependency(typeof(ContentApiCmsInitialization))]
     public class ExtendedContentApiCmsInitialization : IConfigurableModule
@@ -924,4 +924,4 @@ If you will decide to go for your own controller, do not forget to disable the o
     }
 ```
 ## Sum 
-Now when I've written all this, the whole process looks very strait and easy. It was not that obvious when I've started with it. For a log period I was considering dropping the use of Episerver's content delivery API classes and do everything myself. It might have even taken less time. Anyway, now I feel quite comfortable with the level of control that I have over the models. I hope this article might save some time to others.
+Now when I've written all this, the whole process looks very straight and easy. It was not that obvious when I've started with it. For a long period, I was considering dropping the use of Episerver's content delivery API classes and do everything myself. It might have even taken less time. Anyway, now I feel quite comfortable with the level of control that I have over the models. I hope this article might save some time for others.
