@@ -385,7 +385,7 @@ All URLs are absolute, only needed fields listed, data follows key-value princip
 ### Content data flow
 Before I dive into different ways of customizing results, let me quickly show how `PageData` gets transformed to the upper JSON in Episerver:
 
-![Content delivery API flow](/img/customizing-episerver-content-delivery-API/ContentDeliveryAPI_flow.png) Request gets PageData, Access check, PageData is mapped to ContentApiModel, ContentApiModel to ContentApiResult, -> Serialized
+![Content delivery API flow](/img/customizing-episerver-content-delivery-API/ContentDeliveryAPI_flow.png)
 
 Detailed description of the [serialization](https://world.episerver.com/documentation/developer-guides/content-delivery-api/serialization/) is available on the Episerver site. At the same time, it's not really clear how to use this info in order to tune result model, so I'll elaborate it.
 
