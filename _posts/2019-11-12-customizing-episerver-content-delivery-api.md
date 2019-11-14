@@ -13,7 +13,7 @@ tags:
 ## Episerver as Headless CMS
 Episerver is a well known Content Management System (CMS). It officially supports working in a "headless CMS" mode. There is a bunch of [articles](https://world.episerver.com/documentation/developer-guides/content-delivery-api/) how to get started with it in this mode. In this article, I will be talking only about Content delivery API part of the CMS usage. Default Alloy template allows you to quickly get content API up and running, but the default output result is far from being perfect for real case usage and usually requires customization.
 
-To demonstrate the problem I'll start by adding `EPiServer.ContentDeliveryApi.Cms` dependency to default [Alloy site](https://world.episerver.com/documentation/developer-guides/CMS/getting-started/install-a-sample-site/). One gets predefined API endpoints and extensive output models with the default configuration. The endpoints support querying and searching content, authorization, can work with friendly URLs. 
+To demonstrate the problem I'll start by adding `EPiServer.ContentDeliveryApi.Cms` dependency to default [Alloy site](https://world.episerver.com/documentation/developer-guides/CMS/getting-started/install-a-sample-site/). With the default configuration you get predefined API endpoints and extensive output models. The endpoints support querying and searching content, authorization and works with friendly URLs. 
 
 ProductPage class from the Alloy template site:
 ```csharp
@@ -47,7 +47,7 @@ namespace EpiAlloy.Models.Pages
 }
 ```
 
-Once I retrieve it via content delivery API by calling for example `http://localhost:54429/api/episerver/v2.0/content/6`, I get the following result:
+Once I retrieve it via content delivery API by calling for example `https://example.com/api/episerver/v2.0/content/6`, I get the following result:
 ```json
 {
 	"contentLink": {
@@ -224,166 +224,174 @@ The default output shows a lot of data. Fields like "existingLanguages", "master
 In a real project I would like to get something like this:
 ```json
 {
-	"contentType": "ProductPage",
-	"url": "http://localhost:54429/en/alloy-plan/",
-	"metaTitle": "Alloy Plan, online project management",
-	"teaserText": "Project management has never been easier!",
-	"hideSiteHeader": 1,
-	"metaDescription": "Project management has never been easier! Use Alloy Meet with Alloy Plan to get the whole team involved in the creation of project plans and see how this commitment translates into finite and achievable goals.",
-	"hideSiteFooter": 0,
-	"uniqueSellingPoints": [
-		"Project planning",
-		"Reporting and statistics",
-		"Email handling of tasks",
-		"Risk calculations",
-		"Direct communication to members"
-	],
-	"mainBody": "<p><img style=\"float: left;\" src=\"http://localhost:54429/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png\" alt=\"Alloy Plan - Efficient project planning\" /></p>\n<p>Planning is crucial to the success of any project. Alloy Plan takes into consideration all aspects of project planning; from well-defined objectives to staffing, capital investments and management support. Nothing is left to chance.</p>\n<p>Alloy Plan supports all project methodologies efficiently as the system is totally flexible in terms of setup and use.</p>\n<p>Realize the benefits of using Alloy Plan. Our customers see on average an 80% increase in delivery of their projects on time, on budget and with minimal risk involved.</p>\n<p>Work with an Alloy Technology partner to define the scale of your organization's needs and find the best fit with Alloy Plan.</p>",
-	"mainContentArea": [
-		{
-			"contentType": "TeaserBlock",
-			"heading": "Streamlined planning",
-			"text": "“Using Alloy Plan has saved time and money for our organization - but most importantly, has increased customer satisfaction greatly!” - Susan Peters, Trek Cyclery ",
-			"image": {
-				"contentType": "ImageFile",
-				"url": "http://localhost:54429/contentassets/c427705fd91b4f62977f99ddbf55651f/susanpeters.jpg"
-			}
-		},
-		{
-			"contentType": "StandardPage",
-			"url": "http://localhost:54429/en/about-us/contact-us/",
-			"metaTitle": "Online demo, Alloy Track, Alloy Plan, Alloy Meet",
-			"pageImage": {
-				"contentType": "ImageFile",
-				"url": "http://localhost:54429/contentassets/5df93cf8473c426cbdf3c09c3668d57e/teaser_contactus.png"
-			},
-			"teaserText": "Are you interested in our products?",
-			"hideSiteHeader": -1,
-			"metaDescription": "Are you interested in our products and want to have more detailed information or perhaps an online demo?",
-			"hideSiteFooter": -1,
-			"mainBody": "<p>Please contact Todd Slayton, our VP Sales at: +46 8 123 457.</p>"
-		},
-		{
-			"contentType": "StandardPage",
-			"url": "http://localhost:54429/en/how-to-buy/find-a-reseller/",
-			"metaTitle": "Alloy partner network, highly skilled project management concultancy companies worldwide",
-			"pageImage": {
-				"contentType": "ImageFile",
-				"url": "http://localhost:54429/contentassets/515c926b51da4862bc25041a4b18a049/teaser_findreseller.png"
-			},
-			"teaserText": "Buy the Alloy Product suite now.",
-			"hideSiteHeader": -1,
-			"metaDescription": "The Alloy product suite is implemented by our partner network. Our partners are  highly skilled project management consultancy companies with offices worldwide.",
-			"hideSiteFooter": -1,
-			"mainBody": "<p><img src=\"http://localhost:54429/contentassets/515c926b51da4862bc25041a4b18a049/findreseller.png\" alt=\"Our worldwide partner network\" width=\"770\" height=\"429\" /></p>"
-		},
-		{
-			"contentType": "ImageFile",
-			"url": "http://localhost:54429/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplan.png"
-		}
-	],
-	"relatedContentArea": [
-		{
-			"contentType": "PageListBlock",
-			"heading": "Events",
-			"includePublishDate": -1,
-			"includeIntroduction": 1,
-			"root": {
-				"contentType": "NewsPage",
-				"url": "http://localhost:54429/en/about-us/news-events/events/",
-				"metaTitle": "Alloy Events",
-				"hideSiteHeader": -1,
-				"metaDescription": "Become more productive in your projects. Alloy offers numerous courses and seminars to help get you started or improve your proficiency.",
-				"hideSiteFooter": -1,
-				"mainContentArea": [
-					{
-						"contentType": "StandardPage",
-						"url": "http://localhost:54429/en/about-us/news-events/events/risk-management-in-complex-projects/",
-						"metaTitle": "Seminar on Risk Management in Complex Projects",
-						"pageImage": {
-							"contentType": "ImageFile",
-							"url": "http://localhost:54429/contentassets/3ddf25ae230748ebb831daddd741fd8c/patrickjones.png"
-						},
-						"teaserText": "The theory behind risk management calculations.  ",
-						"hideSiteHeader": -1,
-						"metaDescription": "The theory behind risk management calculations. ",
-						"hideSiteFooter": -1,
-						"mainBody": "<p>On completion of this seminar, you will be prepared to measure, assess and manage risk in your projects using Alloy Plan.</p>\n<hr />\n<p><img style=\"float: left;\" src=\"http://localhost:54429/globalassets/events/patrick-jane_keynote.png\" alt=\"Patrick Jane, Risk Management Specialist\" />Key Note:</p>\n<h2>Patrick Jones</h2>\n<p>Risk Management Specialist</p>\n<p>Mr Jones has twenty years of experience in risk management. He has  been the leader of numerous large-scale, high-risk projects in various  industries.</p>\n<p>Don't miss this opportunity to learn from Patrick's expansive knowledge and wealth of experience.</p>",
-						"mainContentArea": [
-							{
-								"contentType": "EditorialBlock",
-								"mainBody": "<hr />\n<h3>When and where?</h3>\n<p>Start: 09/10/2012 3:00:00 PM<br />End: 09/11/2012 3:30:00 PM<br />Address: Mandalay Bay Las Vegas</p>"
-							}
-						]
-					},
-					{
-						"contentType": "StandardPage",
-						"url": "http://localhost:54429/en/about-us/news-events/events/reporting-made-simple/",
-						"metaTitle": "Configure Alloy Track for all team members and define the reporting parameters, layout, and frequency of updates",
-						"pageImage": {
-							"contentType": "ImageFile",
-							"url": "http://localhost:54429/contentassets/b141002e0c5449cf942080e4b60d6ed0/reports.png"
-						},
-						"teaserText": "No one likes writing reports, but everyone wants them. ",
-						"hideSiteHeader": -1,
-						"metaDescription": "Alloy takes the pain out of writing reports and enables the delivery of key statistics to stakeholders and decision-makers. ",
-						"hideSiteFooter": -1,
-						"mainContentArea": [
-							{
-								"contentType": "EditorialBlock",
-								"mainBody": "<hr />\n<h3>When and where?</h3>\n<p>Start: 11/01/2012 1:00:00 PM<br />End: 11/01/2012 3:30:00 PM<br />Address: Mandalay Bay Las Vegas</p>"
-							}
-						]
-					}
-				]
-			},
-			"pageTypeFilter": "StandardPage"
-		},
-		{
-			"contentType": "PageListBlock",
-			"heading": "News",
-			"includePublishDate": 1,
-			"includeIntroduction": 1,
-			"root": {
-				"contentType": "NewsPage",
-				"url": "http://localhost:54429/en/about-us/news-events/press-releases/",
-				"metaTitle": "Alloy Inc Press Releases",
-				"hideSiteHeader": -1,
-				"metaDescription": "Alloy is a leading manufacturer of project management software. Read about our success stories, future plans and accolades here. ",
-				"hideSiteFooter": -1,
-				"mainContentArea": [
-					{
-						"contentType": "ArticlePage",
-						"url": "http://localhost:54429/en/about-us/news-events/press-releases/newworld-wildlife-fund-chooses-alloy/",
-						"metaTitle": "Alloy saves polar bears",
-						"pageImage": {
-							"contentType": "ImageFile",
-							"url": "http://localhost:54429/contentassets/34b56b481f1946f889915e1294316a6f/polarbearonice.png"
-						},
-						"teaserText": "Alloy products to save endangered species.",
-						"hideSiteHeader": -1,
-						"metaDescription": "Alloy products have contributed to higher success rates of complex projects to save endangered species. World Wildlife Fund chooses Alloy to help save polar bears.",
-						"hideSiteFooter": -1,
-						"mainBody": "<p><strong>Huntsville AL – February 8, 2012</strong></p>\n<p>Alloy Technologies, the leader in collaborative project management, today announced that the World Wildlife Fund has used Alloy Technologies to improve the success rate of complex five nation resource efforts. The use of Alloy Meet, Alloy Plan, and Alloy Track has helped save over 200 polar bears in the project spanning Canada, Norway, Sweden, Finland and Russia.</p>\n<p><img src=\"http://localhost:54429/contentassets/34b56b481f1946f889915e1294316a6f/polarbearonice.png\" alt=\"World Wildlife Fund chooses Alloy to save polar bears\" /></p>"
-					}
-				]
-			},
-			"pageTypeFilter": "ArticlePage"
-		},
-		{
-			"contentType": "ImageFile",
-			"url": "http://localhost:54429/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png"
-		}
-	],
-	"anotherColumnsNumber": "Two",
-	"rows": "Three",
-	"Breadcrumb": ["Top", "Sub", "Bottom"]
+  "ContentType": "ProductPage",
+  "Url": "https://example.com/en/alloy-plan/",
+  "MetaTitle": "Alloy Plan, online project management",
+  "PageImage": {
+    "ContentType": "ImageFile",
+    "Url": "https://example.com/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplan.png"
+  },
+  "TeaserText": "Project management has never been easier!",
+  "HideSiteHeader": 1,
+  "MetaDescription": "Project management has never been easier! Use Alloy Meet with Alloy Plan to get the whole team involved in the creation of project plans and see how this commitment translates into finite and achievable goals.",
+  "HideSiteFooter": 0,
+  "UniqueSellingPoints": [
+    "Project planning",
+    "Reporting and statistics",
+    "Email handling of tasks",
+    "Risk calculations",
+    "Direct communication to members"
+  ],
+  "MainBody": "<p><img style=\"float: left;\" src=\"https://example.com/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png\" alt=\"Alloy Plan - Efficient project planning\" /></p>\n<p>Planning is crucial to the success of any project. Alloy Plan takes into consideration all aspects of project planning; from well-defined objectives to staffing, capital investments and management support. Nothing is left to chance.</p>\n<p>Alloy Plan supports all project methodologies efficiently as the system is totally flexible in terms of setup and use.</p>\n<p>Realize the benefits of using Alloy Plan. Our customers see on average an 80% increase in delivery of their projects on time, on budget and with minimal risk involved.</p>\n<p>Work with an Alloy Technology partner to define the scale of your organization's needs and find the best fit with Alloy Plan.</p>",
+  "MainContentArea": [
+    {
+      "ContentType": "TeaserBlock",
+      "Heading": "Streamlined planning",
+      "Text": "“Using Alloy Plan has saved time and money for our organization - but most importantly, has increased customer satisfaction greatly!” - Susan Peters, Trek Cyclery ",
+      "Image": {
+        "ContentType": "ImageFile",
+        "Url": "https://example.com/contentassets/c427705fd91b4f62977f99ddbf55651f/susanpeters.jpg"
+      }
+    },
+    {
+      "ContentType": "StandardPage",
+      "Url": "https://example.com/en/about-us/contact-us/",
+      "MetaTitle": "Online demo, Alloy Track, Alloy Plan, Alloy Meet",
+      "PageImage": {
+        "ContentType": "ImageFile",
+        "Url": "https://example.com/contentassets/5df93cf8473c426cbdf3c09c3668d57e/teaser_contactus.png"
+      },
+      "TeaserText": "Are you interested in our products?",
+      "HideSiteHeader": -1,
+      "MetaDescription": "Are you interested in our products and want to have more detailed information or perhaps an online demo?",
+      "HideSiteFooter": -1,
+      "MainBody": "<p>Please contact Todd Slayton, our VP Sales at: +46 8 123 457.</p>"
+    },
+    {
+      "ContentType": "StandardPage",
+      "Url": "https://example.com/en/how-to-buy/find-a-reseller/",
+      "MetaTitle": "Alloy partner network, highly skilled project management concultancy companies worldwide",
+      "PageImage": {
+        "ContentType": "ImageFile",
+        "Url": "https://example.com/contentassets/515c926b51da4862bc25041a4b18a049/teaser_findreseller.png"
+      },
+      "TeaserText": "Buy the Alloy Product suite now.",
+      "HideSiteHeader": -1,
+      "MetaDescription": "The Alloy product suite is implemented by our partner network. Our partners are  highly skilled project management consultancy companies with offices worldwide.",
+      "HideSiteFooter": -1,
+      "MainBody": "<p><img src=\"https://example.com/contentassets/515c926b51da4862bc25041a4b18a049/findreseller.png\" alt=\"Our worldwide partner network\" width=\"770\" height=\"429\" /></p>"
+    },
+    {
+      "ContentType": "ImageFile",
+      "Url": "https://example.com/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplan.png"
+    }
+  ],
+  "RelatedContentArea": [
+    {
+      "ContentType": "PageListBlock",
+      "Heading": "Events",
+      "IncludePublishDate": -1,
+      "IncludeIntroduction": 1,
+      "Root": {
+        "ContentType": "NewsPage",
+        "Url": "https://example.com/en/about-us/news-events/events/",
+        "MetaTitle": "Alloy Events",
+        "HideSiteHeader": -1,
+        "MetaDescription": "Become more productive in your projects. Alloy offers numerous courses and seminars to help get you started or improve your proficiency.",
+        "HideSiteFooter": -1,
+        "MainContentArea": [
+          {
+            "ContentType": "StandardPage",
+            "Url": "https://example.com/en/about-us/news-events/events/risk-management-in-complex-projects/",
+            "MetaTitle": "Seminar on Risk Management in Complex Projects",
+            "PageImage": {
+              "ContentType": "ImageFile",
+              "Url": "https://example.com/contentassets/3ddf25ae230748ebb831daddd741fd8c/patrickjones.png"
+            },
+            "TeaserText": "The theory behind risk management calculations.  ",
+            "HideSiteHeader": -1,
+            "MetaDescription": "The theory behind risk management calculations. ",
+            "HideSiteFooter": -1,
+            "MainBody": "<p>On completion of this seminar, you will be prepared to measure, assess and manage risk in your projects using Alloy Plan.</p>\n<hr />\n<p><img style=\"float: left;\" src=\"https://example.com/globalassets/events/patrick-jane_keynote.png\" alt=\"Patrick Jane, Risk Management Specialist\" />Key Note:</p>\n<h2>Patrick Jones</h2>\n<p>Risk Management Specialist</p>\n<p>Mr Jones has twenty years of experience in risk management. He has  been the leader of numerous large-scale, high-risk projects in various  industries.</p>\n<p>Don't miss this opportunity to learn from Patrick's expansive knowledge and wealth of experience.</p>",
+            "MainContentArea": [
+              {
+                "ContentType": "EditorialBlock",
+                "MainBody": "<hr />\n<h3>When and where?</h3>\n<p>Start: 09/10/2012 3:00:00 PM<br />End: 09/11/2012 3:30:00 PM<br />Address: Mandalay Bay Las Vegas</p>"
+              }
+            ]
+          },
+          {
+            "ContentType": "StandardPage",
+            "Url": "https://example.com/en/about-us/news-events/events/reporting-made-simple/",
+            "MetaTitle": "Configure Alloy Track for all team members and define the reporting parameters, layout, and frequency of updates",
+            "PageImage": {
+              "ContentType": "ImageFile",
+              "Url": "https://example.com/contentassets/b141002e0c5449cf942080e4b60d6ed0/reports.png"
+            },
+            "TeaserText": "No one likes writing reports, but everyone wants them. ",
+            "HideSiteHeader": -1,
+            "MetaDescription": "Alloy takes the pain out of writing reports and enables the delivery of key statistics to stakeholders and decision-makers. ",
+            "HideSiteFooter": -1,
+            "MainContentArea": [
+              {
+                "ContentType": "EditorialBlock",
+                "MainBody": "<hr />\n<h3>When and where?</h3>\n<p>Start: 11/01/2012 1:00:00 PM<br />End: 11/01/2012 3:30:00 PM<br />Address: Mandalay Bay Las Vegas</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "PageTypeFilter": "StandardPage"
+    },
+    {
+      "ContentType": "PageListBlock",
+      "Heading": "News",
+      "IncludePublishDate": 1,
+      "IncludeIntroduction": 1,
+      "Root": {
+        "ContentType": "NewsPage",
+        "Url": "https://example.com/en/about-us/news-events/press-releases/",
+        "MetaTitle": "Alloy Inc Press Releases",
+        "HideSiteHeader": -1,
+        "MetaDescription": "Alloy is a leading manufacturer of project management software. Read about our success stories, future plans and accolades here. ",
+        "HideSiteFooter": -1,
+        "MainContentArea": [
+          {
+            "ContentType": "ArticlePage",
+            "Url": "https://example.com/en/about-us/news-events/press-releases/newworld-wildlife-fund-chooses-alloy/",
+            "MetaTitle": "Alloy saves polar bears",
+            "PageImage": {
+              "ContentType": "ImageFile",
+              "Url": "https://example.com/contentassets/34b56b481f1946f889915e1294316a6f/polarbearonice.png"
+            },
+            "TeaserText": "Alloy products to save endangered species.",
+            "HideSiteHeader": -1,
+            "MetaDescription": "Alloy products have contributed to higher success rates of complex projects to save endangered species. World Wildlife Fund chooses Alloy to help save polar bears.",
+            "HideSiteFooter": -1,
+            "MainBody": "<p><strong>Huntsville AL – February 8, 2012</strong></p>\n<p>Alloy Technologies, the leader in collaborative project management, today announced that the World Wildlife Fund has used Alloy Technologies to improve the success rate of complex five nation resource efforts. The use of Alloy Meet, Alloy Plan, and Alloy Track has helped save over 200 polar bears in the project spanning Canada, Norway, Sweden, Finland and Russia.</p>\n<p><img src=\"https://example.com/contentassets/34b56b481f1946f889915e1294316a6f/polarbearonice.png\" alt=\"World Wildlife Fund chooses Alloy to save polar bears\" /></p>"
+          }
+        ]
+      },
+      "PageTypeFilter": "ArticlePage"
+    },
+    {
+      "ContentType": "ImageFile",
+      "Url": "https://example.com/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png"
+    }
+  ],
+  "AnotherColumnsNumber": "Two",
+  "Rows": "Three",
+  "Breadcrumb": [
+    "Top",
+    "Sub",
+    "Bottom"
+  ]
 }
 ```
 All URLs are absolute, only needed fields listed, data follows key-value principle wherever possible without data type attributes, extra field added. So, it's obvious that some customization is needed.
 
 ### Content data flow
-Before I dive into different ways of customizing results, let me quickly show how `PageData` gets transformed into the upper JSON in Episerver:
+Before I dive into different ways of customizing results, let me quickly show how `PageData` gets transformed into the JSON seen above in Episerver:
 
 ![Content delivery API flow](/img/customizing-episerver-content-delivery-API/ContentDeliveryAPI_flow.png)
 
@@ -454,7 +462,7 @@ Make image and file URLs absolute in texts. Not the best way, but so far, the mo
 As a result, XHtmlProperties will contain absolute URLs in its value:
 ```json
 	"mainBody": {
-		"value": "<p><img style=\"float: left;\" src=\"http://localhost:54429/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png\" alt=\"Alloy Plan - Efficient project planning\" /></p>\n<p>Planning is crucial to the success of any project. Alloy Plan takes into consideration all aspects of project planning; from well-defined objectives to staffing, capital investments and management support. Nothing is left to chance.</p>\n<p>Alloy Plan supports all project methodologies efficiently as the system is totally flexible in terms of setup and use.</p>\n<p>Realize the benefits of using Alloy Plan. Our customers see on average  an 80% increase in delivery of their projects on time, on budget and  with minimal risk involved.</p>\n<p>Work with an Alloy Technology partner to define the scale of your organization's needs and find the best fit with Alloy Plan.</p>",
+		"value": "<p><img style=\"float: left;\" src=\"https://example.com/contentassets/89bccbae16d14665b08fac3525c9a999/alloyplanscreen.png\" alt=\"Alloy Plan - Efficient project planning\" /></p>\n<p>Planning is crucial to the success of any project. Alloy Plan takes into consideration all aspects of project planning; from well-defined objectives to staffing, capital investments and management support. Nothing is left to chance.</p>\n<p>Alloy Plan supports all project methodologies efficiently as the system is totally flexible in terms of setup and use.</p>\n<p>Realize the benefits of using Alloy Plan. Our customers see on average  an 80% increase in delivery of their projects on time, on budget and  with minimal risk involved.</p>\n<p>Work with an Alloy Technology partner to define the scale of your organization's needs and find the best fit with Alloy Plan.</p>",
 		"propertyDataType": "PropertyXhtmlString"
 	},
 ```
@@ -547,7 +555,7 @@ The default rendering format is number:
 		"propertyDataType": "PropertyNumber"
 	}
 ```
-This property model give me a fine control over the value:
+This property model gives me fine control over the value:
 ```csharp
     public class EnumNumberPropertyModel : PropertyModel<string, PropertyNumber>
     {
@@ -654,7 +662,7 @@ The result value is like the first method, but coding implementation is solid an
 The only sad limitation with the PropertyModels is that it works only for custom properties. The built-in properties of the `PageData` are not affected by these customizations. So, "we need to go deeper".
 
 ### Working with ContentModelMapper 
-`IContentModelMapper` implementation is the key place to tweak built-in `PageData` properties. It gives the full control over the way `ContentApiModel` is built and its properties are converted and mapped. 
+`IContentModelMapper` implementation is the key place to tweak built-in `PageData` properties. It gives full control over the way `ContentApiModel` is built and its properties are converted and mapped. 
 The easiest way is to derive from `DefaultContentModelMapper` and override one or several virtual methods of `ContentModelMapperBase`. I did override `ResolveUrl` method in my `CustomContentModelMapper` to make URLs absolute:
 ```csharp
     [ServiceConfiguration(typeof(IContentModelMapper), Lifecycle = ServiceInstanceScope.Singleton)]
@@ -703,7 +711,7 @@ The easiest way is to derive from `DefaultContentModelMapper` and override one o
 This makes URLs in built-in properties absolute:
 ```json
 	...
-	"url": "http://localhost:54429/en/alloy-plan/",
+	"url": "https://example.com/en/alloy-plan/",
 	...
 ``` 
 Another option can be to tweak `AddToPropertyMap` where converted properties are added to the dictionary of the resulting model. `ExtractPropertyDataCollection` contains the invocation of the [ConvertToPropertyModel](#ConvertToPropertyModel) method, so instead of tweaking the method, I could have changed the invocation parameters here.
@@ -883,7 +891,7 @@ In my case, I had some special requirements regarding the request URLs, authoriz
         public IHttpActionResult Get([FromUri]string pageName)
         {
             // get the page content someway
-            UrlBuilder urlBuilder = new UrlBuilder($"http://localhost:54429/en/{pageName}");
+            UrlBuilder urlBuilder = new UrlBuilder($"https://example.com/en/{pageName}");
             IContent content = _urlResolver.Route(urlBuilder, ContextMode.Default);
 
             // Transform IContent to ContentApiModel
@@ -900,7 +908,7 @@ In my case, I had some special requirements regarding the request URLs, authoriz
     }
 ```
 It also gave me an ability to add a custom breadcrumb field to the final model.
-The drawback that you are now on your own, and need to worry yourself about request model validation, authorization, and some epi services that might not be invoked anymore.
+The drawback is that you are now on your own, and need to worry yourself about request model validation, authorization, and some epi services that might not be invoked anymore.
 If you decide to go for your controller, do not forget to disable the original Episerver's content delivery endpoints.
 ```csharp
     [ModuleDependency(typeof(ContentApiCmsInitialization))]
@@ -924,4 +932,4 @@ If you decide to go for your controller, do not forget to disable the original E
     }
 ```
 ## Sum 
-Now when I've written all this, the whole process looks very straight and easy. It was not that obvious when I've started with it. For a long period, I was considering dropping the use of Episerver's content delivery API classes and do everything myself. It might have even taken less time. Anyway, now I feel quite comfortable with the level of control that I have over the models. I hope this article might save some time for others.
+Now when I've written all this, the whole process looks very straightforward and easy. It was not that obvious when I started with it. For a long period, I was considering dropping the use of Episerver's content delivery API classes and do everything myself. It might have even taken less time. Anyway, now I feel quite comfortable with the level of control that I have over the models. I hope this article might save some time for others.
