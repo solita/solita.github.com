@@ -34,10 +34,10 @@ actually references, which are just thrown around and are either wildly mutable
 or completely immutable. Rust provides a way to write code where mutation is
 explicit and safe.
 
-Rust implements this by providing an unique feature: the borrow checker.
+Rust implements this by providing a unique feature: the borrow checker.
 Essentially, the borrow checker is a compile-time feature which ensures that
 objects live long enough, and at the same time prevents unsafe concurrent access
-to variables. This is implemented by following a couple simple rules:
+to variables. This is implemented by following a couple of simple rules:
 
 1. If an object drops out of scope, it is destroyed
 2. An object must outlive all references to it
@@ -82,14 +82,15 @@ optimization.
 
 ## Modeling database queries around ownership
 
-So, we need to be able to
-1. Make a single database query without a transaction
-2. Convert a database connection into a transaction
-3. Make multiple queries inside a transaction
+So, we need to be able to make a single database query without a transaction,
+convert a database connection into a transaction and make multiple queries
+inside a transaction.
 
 Sounds like while making a query without a transaction, the connection should
 refuse any additional queries. If the queries are made within a transaction,
-additional queries should be accepted. Let's sketch an API for it:
+additional queries should be accepted. Furthermore, the transactions should be
+cleaned up when dropped, which `postgres::Transaction` does by default,
+defaulting to rollback, rather than commit. Let's sketch an API for it:
 
 ```rust
 pub fn one(connection: db::Connection) {
@@ -97,13 +98,16 @@ pub fn one(connection: db::Connection) {
 }
 pub fn two(connection: db::Connection) {
     connection.transaction(|tx| {
-        db::find_person(&tx, "John")
+        let person = db::find_person(&tx, "John")?;
+        tx.commit()?;
+        Ok(person)
     });
 }
 pub fn three(connection: db::Connection) {
     connection.transaction(|tx| {
         let first = db::find_person(&tx, "Mary")?;
         let second =  db::find_person(&tx, "Suzy")?;
+        tx.commit()?;
         Ok((first, second))
     });
 }
@@ -152,6 +156,15 @@ impl<'a> IntoGenericConnection for &'a Transaction<'a> {
 
     fn into_generic_connection(&self) -> &Self::G {
         &self.0
+    }
+}
+
+impl Connection {
+    pub fn transaction<F, R, E>(self, callback: F) -> Result<R, E>
+    where F: FnOnce(Transaction) -> Result<R, E> {
+        let tx = self.0.transaction().unwrap();
+        let res = callback(Transaction(Box::new(tx)))?;
+        Ok(res)
     }
 }
 ```
