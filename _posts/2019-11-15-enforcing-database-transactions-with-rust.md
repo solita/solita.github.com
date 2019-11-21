@@ -13,15 +13,16 @@ tags:
 Consider this Clojure snippet:
 
 ```clojure
-(defn fetch-thing [user-id thing-id]
-  (if (db/has-permission user-id thing-id)
-    {:status 200 :body (db/fetch-thing thing-id)}
+(defn fetch-thing [db user-id thing-id]
+  (if (db/has-permission db user-id thing-id)
+    {:status 200 :body (db/fetch-thing db thing-id)}
     {:status 400})
 ```
 
 It's clean, does clearly what it looks like it does, but there's a small
-problem; it doesn't use a transaction. If something happens in the database
-between the second and the third line, for example if the `thing` referenced by
+problem; it doesn't enforce a transaction. If db is a simple database
+connection without a transaction and something happens in the database between
+the second and the third line, for example if the `thing` referenced by
 `thing-id` is deleted, the output of `db/fetch-thing` can get quite
 unpredictable. Could we make this kind of programs safer?
 
