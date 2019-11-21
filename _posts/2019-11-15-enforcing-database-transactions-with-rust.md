@@ -34,10 +34,51 @@ actually references, which are just thrown around and are either wildly mutable
 or completely immutable. Rust provides a way to write code where mutation is
 explicit and safe.
 
-In my opinion, the best benefit of the borrow checker is not the speedup it
-provides by eliminating the garbage collector, but the ability to catch logic
-bugs. If you manage to construct your problem as a problem around ownership,
-the rust compiler can check your logic at compile-time!
+Rust implements this by providing an unique feature: the borrow checker.
+Essentially, the borrow checker is a compile-time feature which ensures that
+objects live long enough, and at the same time prevents unsafe concurrent access
+to variables. This is implemented by following a couple simple rules:
+
+1. If an object drops out of scope, it is destroyed
+2. An object must outlive all references to it
+3. An object can only have either multiple immutable references, or a single mutable reference
+
+In this blog post we are mostly concerned about the first rule -- if an object
+drops out of scope, it is destroyed.
+
+The borrow checker is mostly praised for its ability to enable manual memory
+management without suffering from null pointer exceptions or segfaults -- Safe
+Rust doesn't have any null or otherwise invalid references! In my opinion, the
+best benefit of the borrow checker is not the speedup it provides by
+eliminating the garbage collector, but the ability to catch logic bugs. If you
+manage to construct your problem as a problem around ownership, the Rust
+compiler can check your logic at compile-time!
+
+## Trait interlude
+
+Rust doesn't have inheritance nor interfaces. Instead, generic code is
+implemented around *traits*. Traits are similar to interfaces in the sense that
+they contain a bunch of methods, and certain types implement those interfaces.
+Types can only implement traits either where the type is defined, or where the
+trait is defined. This unfortunately means that one cannot implement a
+third-party trait for a third-party type. However, unlike interfaces in eg.
+Java, one can implement their own traits for other types.
+
+When writing generic code, generic type parameters can receive trait bounds to
+specify things that can be done with the types. For example, in the following
+function
+
+```rust
+fn debug_print<T: Debug>(t: T) { dbg!(t); }
+```
+
+the type T is required to implement the trait `Debug`, which allows turning the
+object into an programmer-readable (but not necessarily human-readable) format.
+
+The generic functions are compiled similarily as in C++: any calls to the
+function are specialized to the types, which technically can create binary
+bloat, but practically reduces it as the compiler has better options for
+optimization.
 
 ## Modeling database queries around ownership
 
@@ -52,30 +93,31 @@ additional queries should be accepted. Let's sketch an API for it:
 
 ```rust
 pub fn one(connection: db::Connection) {
-    db::get_person(connection, "Joe"); // OK
+    db::find_person(connection, "Joe"); // OK
 }
 pub fn two(connection: db::Connection) {
     connection.transaction(|tx| {
-        db::get_person(&tx, "John")
+        db::find_person(&tx, "John")
     });
 }
 pub fn three(connection: db::Connection) {
     connection.transaction(|tx| {
-        let first = db::get_person(&tx, "Mary")?;
-        let second =  db::get_person(&tx, "Suzy")?;
+        let first = db::find_person(&tx, "Mary")?;
+        let second =  db::find_person(&tx, "Suzy")?;
         Ok((first, second))
     });
 }
 pub fn four(connection: db::Connection) {
-    db::get_person(connection, "Foo");
-    db::get_person(connection, "Bar"); // ERROR: use of moved value: `connection`
+    db::find_person(connection, "Foo");
+    db::find_person(connection, "Bar"); // ERROR: two queries without a transaction
 }
 ```
 
 ## Technical detals
 
-Clearly we need some wrappers around the typical `postgres` connection types.
-Let's start by defining them:
+The typical `postgres` connection types are modeled around typical usage rather
+than this special case, so we clearly need some wrappers around them. Let's
+start by defining them:
 
 ```rust
 pub struct Connection(Box<postgres::Connection>);
@@ -84,7 +126,9 @@ pub struct Transaction<'a>(Box<postgres::transaction::Transaction<'a>>);
 
 These types contain exactly one member: the respective `postgres` connection
 type, with the crucial difference that `Connection` and `Transaction` do not
-derive the `Clone` trait used to acquire new copies of the connection.
+derive the `Clone` trait used to acquire new copies of the connection. Ignore
+the `Box` and `'a`, they only tell Rust that the references to the variables
+exist long enough.
 
 Next, we need a trait and relevant implementations to convert these types to
 the trait provided by `postgres` which provides methods such as `query`.
@@ -116,13 +160,38 @@ Then we just call `into_generic_connection()` while inside the relevant
 database function:
 
 ```rust
-pub fn get_person<IGC: IntoGenericConnection>(db: IGC, name: &str) -> Option<Person> {
+pub fn find_person<IGC: IntoGenericConnection>(db: IGC, name: &str) -> Option<Person> {
     let conn = db.into_generic_connection();
     conn.query("SELECT id, name FROM account WHERE name=$1", &[&name]).unwrap()
         .into_iter()
         .map(|row| Person { id: row.get(0), username: row.get(1) })
         .next()
 }
+```
+
+With these couple lines of code, any database accesses are guarded against
+accidental unsafe usage. The programmers still have access to the backdoor used
+to gain a reference to the connection without using a transaction (through
+`IntoGenericConnection`), but using it is explicit, rather than accidental. The
+same wrapper types can also be used to enforce a transaction around database
+functions which make multiple queries simply by replacing the `IGC` generic
+with `Transaction`.
+
+Now, the last example gives an error message around the lines of the following
+snippet:
+
+```text
+error[E0382]: use of moved value: `connection`
+ --> src/backend/src/router.rs:3:20
+  |
+1 | pub fn four(connection: db::Connection) {
+  |             ---------- move occurs because `connection` has type
+  |             `db_traits::Connection`, which does not implement the
+  |             `Copy` trait
+2 |     db::find_person(connection, "Foo");
+  |                     ---------- value moved here
+3 |     db::find_person(connection, "Bar");
+  |                     ^^^^^^^^^^ value used here after move
 ```
 
 ## Performance
@@ -132,12 +201,11 @@ Does this provide any performance drawbacks? Both `Connection` and
 essentially free. Both implementations of `into_generic_connection` are no-ops,
 as boxes are secretly just pointers, and the trait methods are referencing the
 first and only member of the struct -- which is a no-op. Thus, there shouldn't
-be any performance downsides to this.
+be any performance hits when using this method.
 
 Another way to implement this would be to use a zero-sized type for connections
 and load the connection when converting to GenericConnection or Transaction,
 but the implementations would be more complex.
-
 
 ## Conclusion
 
