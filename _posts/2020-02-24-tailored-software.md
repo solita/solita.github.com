@@ -1,0 +1,60 @@
+---
+layout: post
+title: Why tailordmade software?
+author: arto
+excerpt: >
+  Software tailored to your needs is more expensive than just using a generic product. Why do that?
+tags:
+ - Development
+ - Tailored
+ - Custom
+ - ROI
+ - Competitiveness
+---
+
+Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software?
+
+# Tailored vs Off-the-rack
+
+Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit might fit okay for person who has very average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average.
+
+Have you ever owned a tailor-made suit? Process typically begins with designing together on the style and materials. Then measurements are carefully taken from your body, and work begins. Design will accomodate your style - whether you like old-fashioned or modern, how many pockets you need. Work is done in agile fashion, not based on single set of measurements. Tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements before suit is done.
+
+What we typically see in Finland is IT solutions that have been shaped around growing and changing business needs for multiple decades. There rarely is just a simple source of truth available for any domain data: More likely there are multiple systems, and you might need to combine their data, and perhaps syncronize any new data back to multiple systems to feed the existing processes.
+
+Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing.
+
+# Business models and processes
+
+Now buying off-the-rack software solution has one benefit: It comes with set of processes that are on industry average level: If your existing processes are worse, things might actually work even better once you update how your business works, and base it around off-the-rack software processes.
+
+However, if you have better than average processes, if you are seeking competitive advantage from doing some things differently, then off-the-rack software will be badly in your way.
+
+Idea of tailored software is to shape it around your current and future needs, in a more streamlined manner. Enabling the positive quirks and immediate future plans you have. Potentially giving you also flexibility for longer-reaching visions. 
+
+There is one catch, however. Getting a tailored suit does not immediately make your life perfect. If you have ever bought a suit in Thailand, you may have seen that while there are some excellent tailors available, not everyone is brilliant in their trade. To gain happiness it's essential to work with a trusted tailors who know their trade well. 
+
+Sadly there's also a lot of cases where job is just to build again old software solution with latest technologies, just to make it modern, without much changes or ambition to meet current needs or visions. Using our analogy, it would be a bit like asking a tailor to redo your old suit from the 70's, without any changes. Rarely that might work out, but oftentimes I would see that as missed potential.
+
+# Conclusion
+
+When you are building tailored software to meet your needs, there are some benefits
+
+- You can integrate existing sources of data to avoid and remove manual work, that can be expensive, but more importantly is very prone to human errors
+- Integration and automation additionally help you build services that are available 24 hours a day, as opposed to services that can only be used during business hours 
+- You can build the software around your business processes, instead of business processes around software - you can seek competitive advantage by doing things differently and experimenting
+- You don't have to do compromises on user experience either. User experience, usability and accessibility are essentials elements of any service you want to create. Doing them right leads to enhanced user satisfaction, which has more or less value depending on if you are creating a public-facing service or not. But it will always have value in having less error-prone manual work.
+- Today, solutions often come with an API, that can be leveraged in the future both internally, and for the brave ones, also externally.
+- Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users.
+
+On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is right, design and materials are beutiful, and then embark on a journey towards greater happiness.
+
+
+
+
+
+
+
+
+
+
