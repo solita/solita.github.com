@@ -51,9 +51,14 @@ When you are building tailored software to meet your needs, there are some benef
 - Today, solutions often come with an API, that can be leveraged in the future both internally, and for the brave ones, also externally.
 - Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users. This means ability to differentiate at the market as well.
 - Products are often done with reliable technologies from last decades (Swing Framework and Java 6, anyone?). When creating a customized solution, you get to choose how cutting edge you want to be. There's typically a great balance to be found for getting a modern yet mature technological stack when building a tailored software solution.
+- Up-to-date with current regulations, and localized to current market, instead of being generic and outdated
 
 On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is great, design and materials are beautiful, and then embark on a journey towards greater happiness.
 
+Need something tailored? Want to experience something beautiful? Contact us, and let's chat.
+
+
+[Solita](https://www.solita.fi/en/company/#contact)
 
 
 
