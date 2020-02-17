@@ -14,7 +14,7 @@ tags:
 
 Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software? Can't we just low-code/no-code everything?
 
-# Tailored vs Off-the-rack
+## Tailored vs Off-the-rack
 
 Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average.
 
@@ -26,7 +26,9 @@ What we typically see in Finland is IT solutions that have been shaped around gr
 
 Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing. Maintaining various off-the-rack software components that run on various platforms from multiple decades also adds expenses on maintenance side of things. So now and then you do need to modernize a little bit.
 
-# Business models and processes
+There are great off-the-shelf software solutions available, that serve common needs and are easy  to integrate and customize. You could think of these perhaps as made-to-measure tailored solutions. They have great benefits as well. So a good strategy is to digure out where they will be enough for you, and where full customization brings the best benefits. What is your core business, where does your competitiveness come from?
+
+## Business models and processes
 
 Buying off-the-rack software solution has one benefit: It comes with a set of processes that are on industry average level: If your existing processes are worse, things might actually work even better once you update how your business works, and base it around off-the-rack software processes.
 
@@ -38,7 +40,7 @@ There is one catch, however. Getting a tailored suit does not immediately make y
 
 Sadly there's also a lot of cases where job is just to build again old software solution with latest technologies, just to make it modern, without much changes or ambition to meet current needs or visions. Using our analogy, it would be a bit like asking a tailor to redo your old suit from the 70's, without any changes. Rarely that might work out, but oftentimes I would see that as missed potential.
 
-# Conclusion
+## Conclusion
 
 When you are building tailored software to meet your needs, there are some benefits
 
@@ -47,7 +49,8 @@ When you are building tailored software to meet your needs, there are some benef
 - You can build the software around your business processes, instead of business processes around software - you can seek competitive advantage by doing things differently and experimenting
 - You don't have to do compromises on user experience either. User experience, usability and accessibility are essentials elements of any service you want to create. Doing them right leads to enhanced user satisfaction, which has more or less value depending on if you are creating a public-facing service or not. But it will always have value in having less error-prone manual work.
 - Today, solutions often come with an API, that can be leveraged in the future both internally, and for the brave ones, also externally.
-- Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users.
+- Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users. This means ability to differentiate at the market as well.
+- Products are often done with reliable technologies from last decades (Swing Framework and Java 6, anyone?). When creating a customized solution, you get to choose how cutting edge you want to be. There's typically a great balance to be found for getting a modern yet mature technological stack when building a tailored software solution.
 
 On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is great, design and materials are beautiful, and then embark on a journey towards greater happiness.
 
