@@ -12,21 +12,23 @@ tags:
  - Competitiveness
 ---
 
-Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software?
+Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software? Can't we just low-code/no-code everything?
 
 # Tailored vs Off-the-rack
 
-Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit might fit okay for person who has very average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average.
+Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average.
 
-Have you ever owned a tailor-made suit? Process typically begins with designing together on the style and materials. Then measurements are carefully taken from your body, and work begins. Design will accomodate your style - whether you like old-fashioned or modern, how many pockets you need. Work is done in agile fashion, not based on single set of measurements. Tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements before suit is done.
+Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing.
+
+For bespoke suits and shirts, process typically begins by designing together the style and materials. Your body is then carefully measured from multiple points, and work begins. Design will accomodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not based on single set of measurements. Tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements before it's finished and delivered.
 
 What we typically see in Finland is IT solutions that have been shaped around growing and changing business needs for multiple decades. There rarely is just a simple source of truth available for any domain data: More likely there are multiple systems, and you might need to combine their data, and perhaps syncronize any new data back to multiple systems to feed the existing processes.
 
-Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing.
+Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing. Maintaining various off-the-rack software components that run on various platforms from multiple decades also adds expenses on maintenance side of things. So now and then you do need to modernize a little bit.
 
 # Business models and processes
 
-Now buying off-the-rack software solution has one benefit: It comes with set of processes that are on industry average level: If your existing processes are worse, things might actually work even better once you update how your business works, and base it around off-the-rack software processes.
+Buying off-the-rack software solution has one benefit: It comes with a set of processes that are on industry average level: If your existing processes are worse, things might actually work even better once you update how your business works, and base it around off-the-rack software processes.
 
 However, if you have better than average processes, if you are seeking competitive advantage from doing some things differently, then off-the-rack software will be badly in your way.
 
@@ -47,7 +49,7 @@ When you are building tailored software to meet your needs, there are some benef
 - Today, solutions often come with an API, that can be leveraged in the future both internally, and for the brave ones, also externally.
 - Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users.
 
-On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is right, design and materials are beutiful, and then embark on a journey towards greater happiness.
+On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is great, design and materials are beautiful, and then embark on a journey towards greater happiness.
 
 
 
