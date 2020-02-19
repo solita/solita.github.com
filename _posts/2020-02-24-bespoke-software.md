@@ -26,6 +26,8 @@ For bespoke suits and shirts, process typically begins by designing together the
 
 ![Modern Java code](/img/bespoke_software/suit_detail.jpg)
 
+## Bespoke software
+
 What we typically see in Finland is IT solutions that have been shaped around growing and changing business needs for multiple decades. There rarely is just a simple source of truth available for any domain data: More likely there are multiple systems, and you might need to combine their data, and perhaps syncronize any new data back to multiple systems to feed the existing processes.
 
 Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing. Maintaining various off-the-rack software components that run on various platforms from multiple decades also adds maintenance expenses. So now and then you do need to modernize a little bit.
