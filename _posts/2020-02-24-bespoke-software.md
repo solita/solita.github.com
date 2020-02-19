@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Why tailordmade software?
+title: Why bespoke software?
 author: arto
 excerpt: >
-  Software tailored to your needs is more expensive than just using a generic product. Why do that?
+  Software tailored to your exact needs is more expensive than just using a generic product. Why do that?
 tags:
  - Development
  - Tailored
@@ -12,15 +12,19 @@ tags:
  - Competitiveness
 ---
 
+![Modern Java code](/img/bespoke_software/java15.png)
+
 Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software? Can't we just low-code/no-code everything?
 
 ## Tailored vs Off-the-rack
 
-Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average.
+Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise.
 
 Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing.
 
-For bespoke suits and shirts, process typically begins by designing together the style and materials. Your body is then carefully measured from multiple points, and work begins. Design will accomodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not based on single set of measurements. Tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements before it's finished and delivered.
+For bespoke suits and shirts, process typically begins by designing together the style and which materials to use. Your body shape is then carefully measured, and work begins. Design will accommodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not only based on a single set of measurements. The tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements and fittings before it's finished and delivered.
+
+![Modern Java code](/img/bespoke_software/suit_detail.jpg)
 
 What we typically see in Finland is IT solutions that have been shaped around growing and changing business needs for multiple decades. There rarely is just a simple source of truth available for any domain data: More likely there are multiple systems, and you might need to combine their data, and perhaps syncronize any new data back to multiple systems to feed the existing processes.
 
@@ -40,7 +44,7 @@ There is one catch, however. Getting a tailored suit does not immediately make y
 
 Sadly there's also a lot of cases where job is just to build again old software solution with latest technologies, just to make it modern, without much changes or ambition to meet current needs or visions. Using our analogy, it would be a bit like asking a tailor to redo your old suit from the 70's, without any changes. Rarely that might work out, but oftentimes I would see that as missed potential.
 
-## Conclusion
+## So enough on suits, how about that code?
 
 When you are building tailored software to meet your needs, there are some benefits
 
@@ -53,9 +57,9 @@ When you are building tailored software to meet your needs, there are some benef
 - Products are often done with reliable technologies from last decades (Swing Framework and Java 6, anyone?). When creating a customized solution, you get to choose how cutting edge you want to be. There's typically a great balance to be found for getting a modern yet mature technological stack when building a tailored software solution.
 - Up-to-date with current regulations, and localized to current market, instead of being generic and outdated
 
-On the other hand, tailored solutions are only as good as the vision behind them. So make sure vision is right, and tailor is great, design and materials are beautiful, and then embark on a journey towards greater happiness.
+On the other hand, tailored solutions are only as good as the vision behind them. So first make sure that the vision is right, and tailor is great, and that the design and materials are beautiful. Then it's time to embark on a journey towards greater happiness - and better business.
 
-Need something tailored? Want to experience something beautiful? Contact us, and let's chat.
+Need something tailored? Want to experience something beautiful? Contact us, and let's talk.
 
 
 [Solita](https://www.solita.fi/en/company/#contact)
