@@ -3,7 +3,7 @@ layout: post
 title: Why bespoke software?
 author: arto
 excerpt: >
-  Software tailored to your exact needs is more expensive than just using a generic product. Why do that?
+  Software tailored to your exact needs is typically more expensive than just using a generic product. Why would you do that?
 tags:
  - Development
  - Tailored
@@ -18,7 +18,7 @@ Solita has more than 300 developers currently working on customer projects, most
 
 ## Tailored vs Off-the-rack
 
-Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise.
+Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise. Compromises can be expensive for business.
 
 Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing.
 
@@ -28,9 +28,9 @@ For bespoke suits and shirts, process typically begins by designing together the
 
 What we typically see in Finland is IT solutions that have been shaped around growing and changing business needs for multiple decades. There rarely is just a simple source of truth available for any domain data: More likely there are multiple systems, and you might need to combine their data, and perhaps syncronize any new data back to multiple systems to feed the existing processes.
 
-Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing. Maintaining various off-the-rack software components that run on various platforms from multiple decades also adds expenses on maintenance side of things. So now and then you do need to modernize a little bit.
+Worst case scenario is when new off-the-rack solutions are simply bought, not integrated. This typically leads to more manual work done by people, to have the data keep on flowing. Maintaining various off-the-rack software components that run on various platforms from multiple decades also adds maintenance expenses. So now and then you do need to modernize a little bit.
 
-There are great off-the-shelf software solutions available, that serve common needs and are easy  to integrate and customize. You could think of these perhaps as made-to-measure tailored solutions. They have great benefits as well. So a good strategy is to digure out where they will be enough for you, and where full customization brings the best benefits. What is your core business, where does your competitiveness come from?
+There are great off-the-shelf software solutions available, that serve common needs and are easy  to integrate and customize. You could think of these perhaps as made-to-measure tailored solutions. They have great benefits as well. So a good strategy is to figure out where they will be enough for you, and where full customization brings the best benefits. What is your core business, where does your competitiveness come from?
 
 ## Business models and processes
 
