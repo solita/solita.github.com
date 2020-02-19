@@ -20,7 +20,7 @@ Solita has more than 300 developers currently working on customer projects, most
 
 Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise. Compromises can be expensive for business.
 
-Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing.
+Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing. There are a few different tiers to customized clothing. You can have something off-the-rack and do some modifications. You can get a made-to-measure suit by taking careful measurements, perhaps making a few choices, then getting the suit done in a factory. Highest tier of customization is a bespoke suit.
 
 For bespoke suits and shirts, process typically begins by designing together the style and which materials to use. Your body shape is then carefully measured, and work begins. Design will accommodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not only based on a single set of measurements. The tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements and fittings before it's finished and delivered.
 
