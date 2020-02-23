@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why bespoke software?
+title: Value of bespoke software
 author: arto
 excerpt: >
   Software tailored to your exact needs is typically more expensive than just using a generic product. Why would you do that?
@@ -18,13 +18,14 @@ Solita has more than 300 developers currently working on customer projects, most
 
 ## Tailored vs Off-the-rack
 
-Off-the-rack suit and off-the-rack software are similar in the sense that they follow averages closely. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise. Compromises can be expensive for business.
+Off-the-rack suit and off-the-rack software are similar in the sense that they are created after based on most typical needs and measurements. Off-the-rack suit or dress might fit perfectly okay for person who has perfectly average measurements. Similarly, off-the-rack software suits average needs and requirements nicely. Both will probably fail if your needs are not average, and will most of the time be a compromise. Compromises can be expensive for business.
 
 Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing. There are a few different tiers to customized clothing. You can have something off-the-rack and do some modifications. You can get a made-to-measure suit by taking careful measurements, perhaps making a few choices, then getting the suit done in a factory. Highest tier of customization is a bespoke suit.
 
+![Modern Java code](/img/bespoke_software/suit_detail.jpg)
+
 For bespoke suits and shirts, process typically begins by designing together the style and which materials to use. Your body shape is then carefully measured, and work begins. Design will accommodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not only based on a single set of measurements. The tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements and fittings before it's finished and delivered.
 
-![Modern Java code](/img/bespoke_software/suit_detail.jpg)
 
 ## Bespoke software
 
@@ -58,11 +59,9 @@ When you are building tailored software to meet your needs, there are some benef
 - Sometimes we see business ideas for which there simply is no existing solution to buy at all - so only way to see their feasibility is to do at least a prototype, or minimum viable product, and have it in hands of real users. This means ability to differentiate at the market as well.
 - Products are often done with reliable technologies from last decades (Swing Framework and Java 6, anyone?). When creating a customized solution, you get to choose how cutting edge you want to be. There's typically a great balance to be found for getting a modern yet mature technological stack when building a tailored software solution.
 - Up-to-date with current regulations, and localized to current market, instead of being generic and outdated
+- When buying solution from reliable supplier, who can also take responsibility of running the solution, it's possible to do small-scale developments to keep it up-to-date every year instead of letting it get outdated. This can prolong the expected lifetime of said solution.
 
-On the other hand, tailored solutions are only as good as the vision behind them. So first make sure that the vision is right, and tailor is great, and that the design and materials are beautiful. Then it's time to embark on a journey towards greater happiness - and better business.
-
-Need something tailored? Want to experience something beautiful? Contact us, and let's talk.
-
+Finally, tailored solutions are only as good as the vision behind them. So first make sure that the vision is right, and tailor is great, and that the design and materials are beautiful. Then it's time to embark on a journey towards greater happiness - and better business.
 
 [Solita](https://www.solita.fi/en/company/#contact)
 
