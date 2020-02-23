@@ -12,7 +12,7 @@ tags:
  - Competitiveness
 ---
 
-![Modern Java code](/img/bespoke_software/java15.png)
+![Closeup of a suit detail](/img/bespoke_software/suit_detail.jpg)
 
 Solita has more than 300 developers currently working on customer projects, most of them producing customized software solutions for various needs. I thought it would be interesting to write a little piece on why we're doing this: Isn't everything already done by this day and age? Why does anyone need custom software? Can't we just low-code/no-code everything?
 
@@ -22,7 +22,7 @@ Off-the-rack suit and off-the-rack software are similar in the sense that they a
 
 Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for example? Having something done just for you, customized, can be a beautiful thing. There are a few different tiers to customized clothing. You can have something off-the-rack and do some modifications. You can get a made-to-measure suit by taking careful measurements, perhaps making a few choices, then getting the suit done in a factory. Highest tier of customization is a bespoke suit.
 
-![Modern Java code](/img/bespoke_software/suit_detail.jpg)
+![Closeup of a buttons](/img/bespoke_software/buttons_detail.jpg)
 
 For bespoke suits and shirts, process typically begins by designing together the style and which materials to use. Your body shape is then carefully measured, and work begins. Design will accommodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in agile fashion, not only based on a single set of measurements. The tailor will create the minimum viable product, then measure again, make sure suit is headed in the right direction. The better the suit typically the more there are measurements and fittings before it's finished and delivered.
 
@@ -60,6 +60,8 @@ When you are building tailored software to meet your needs, there are some benef
 - Products are often done with reliable technologies from last decades (Swing Framework and Java 6, anyone?). When creating a customized solution, you get to choose how cutting edge you want to be. There's typically a great balance to be found for getting a modern yet mature technological stack when building a tailored software solution.
 - Up-to-date with current regulations, and localized to current market, instead of being generic and outdated
 - When buying solution from reliable supplier, who can also take responsibility of running the solution, it's possible to do small-scale developments to keep it up-to-date every year instead of letting it get outdated. This can prolong the expected lifetime of said solution.
+
+![Staying on the edge](/img/bespoke_software/java15.png)
 
 Finally, tailored solutions are only as good as the vision behind them. So first make sure that the vision is right, and tailor is great, and that the design and materials are beautiful. Then it's time to embark on a journey towards greater happiness - and better business.
 
