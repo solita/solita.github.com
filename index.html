@@ -13,11 +13,11 @@ layout: default
             <div class="post-meta-rows">
                 <div class="post-meta-basic-info">
                     {% assign authors = post.author | split: ", " %}
-                    <span class="author">by
+                    <span class="author">by 
                         {% for authorName in authors -%}
                             {%- assign author = site.authors[authorName] -%}
                             {%- if authorName != authors[0] %}, {% endif -%}
-                            <a href="{{ author.url }}" title="{{ author.email }}">{{ authorName }}</a>
+                            <a href="{{ author.url }}" title="{{ author.email }}">{{ author.name }}</a>
                         {%- endfor -%}
                     </span>
                     <span class="text-divider">|</span>
