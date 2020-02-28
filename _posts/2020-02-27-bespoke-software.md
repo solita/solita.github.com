@@ -26,7 +26,7 @@ Have you ever owned a tailor-made suit? Or a dress? Or custom bicycle, for examp
 
 For bespoke suits and shirts, the process typically begins by designing together the style and which materials to use. Your body shape is then carefully measured, and work begins. The design will accommodate your style - whether you like old-fashioned or modern, wide or narrow design, and of course, how many pockets you need. Work is done in an agile fashion, not only based on a single set of measurements. The tailor will create the minimum viable product, then measure again, and make sure suit is headed in the right direction. The better the suit typically the more there are measurements and fittings before it's finished and delivered.
 
-Tailored suit would typically be more expensive than off-the-rack suit, due to the difference in amount of work put into it. On the other hand, a good suit with quality work will typically last for longer time, and sometimes people even make repairs as needed to keep using it. So there's also the cultural difference of something that's cheap and disposable, against something you plan on usign for longer.
+Tailored suit would typically be more expensive than off-the-rack suit, due to the difference in amount of work put into it. On the other hand, a good suit with quality work will typically last for longer time, and sometimes people even make repairs as needed to keep using it. So there's also the cultural difference of something that's cheap and disposable, against something you plan on using for longer.
 
 But we're not in suit business really, so let's discuss software.
 
