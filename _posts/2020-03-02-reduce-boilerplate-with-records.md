@@ -11,7 +11,7 @@ tags:
  - JEP 359
 ---
 
-# Reduce boilerplate in Java backends with Records
+# Reduce boilerplate in Java backends with records
 
 # Key takeaways
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
@@ -23,6 +23,7 @@ tags:
 # Introduction to Java records
 
 ![Java Versions](/img/java14-records/java-versions.png)
+Image 1. Something new in each Java version! Records are introduced in Java 14.
 
 Java 14 released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
 This is how records are declared:
