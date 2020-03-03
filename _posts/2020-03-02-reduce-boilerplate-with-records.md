@@ -13,8 +13,6 @@ tags:
 
 # Reduce boilerplate in Java backends with Records
 
-![Java Versions](/img/java14-records/java-versions.png)
-
 # Key takeaways
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
 - Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
@@ -24,6 +22,9 @@ tags:
 
 # Introduction to Java records
 
+![Java Versions](/img/java14-records/java-versions.png)
+
+Java 14 released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
 This is how records are declared:
 
 ```
