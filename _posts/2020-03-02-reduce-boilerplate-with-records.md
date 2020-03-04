@@ -8,24 +8,26 @@ tags:
  - Java
  - Java 14
  - Records
+ - Builder pattern
+ - Gson
  - JEP 359
 ---
 
-# Reduce boilerplate in Java backends with records
+# Reduce Boilerplate In Java Backends With Records
 
-# Key takeaways
+# Key Takeaways
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
 - Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
 - This blog is about records and rest/json APIs
 - Frameworks can easily translate values from and to json using records
-- If you want builder-pattern, you still need (IDE or annotation-based) code generation    
+- If you want to use the builder pattern, you still need code generation (IDE or annotation-based)
 
-# Introduction to Java records
+# Introduction to Java Records
 
 ![Java Versions](/img/java14-records/java-versions.png)
 
-As illustrated in the picture above, Java 14 released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
-This is how records are declared:
+As illustrated in the picture above, Java 14, which is being released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
+This is how a record is declared:
 
 ```
 record Point(x: int, y: int) {}
@@ -37,12 +39,21 @@ A record automatically acquires:
 - equals() and hashCode()
 - toString()
 
-Previously IDEs and annotation-based code generation have helped us generate these members.
+Previously, IDEs and annotation-based code generation have helped us generate these class members.
 Although records are not a complete replacement for code generation tools,  it's very nice to have this support built into the language.
 
-# Example app with records and Gson
+# Reducing Boilerplate, But How Much?
 
-## Download and setup Java 14
+![data class proportion of all code](/img/java14-records/data-class-file-counts.png)
+
+How much boilerplate code could be removed, if all data carrier classes were replaced by records? I picked three Java applications I've worked with lately and just counted the number of data carrier classes.
+As you can see in the picture above, almost a quarter of the code is data carrier classes! 
+
+Of course, it depends on the context, but to me it looks like we are talking about a significant effect on Java source code.  
+
+# Example App With Records and Gson
+
+## Download and Setup Java 14
 
 I wanted to test and play around with records and json serialization, so I 
 - downloaded [the early access build of JDK 14](http://jdk.java.net/14/),
@@ -54,9 +65,9 @@ jenv add /Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home/
 jenv use 14
 ```
 
-## Create a new project with Maven
+## Create a New Project With Maven
 
-It looks like there's no support from Gradle yet, so I went along with Maven, and created this pom.xml: 
+It looks like there's no support from Gradle yet, so I went along with Maven and created this pom.xml: 
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -114,9 +125,9 @@ It looks like there's no support from Gradle yet, so I went along with Maven, an
 </project>
 ```
 
-Note! The compiler needs a flag "--enable-preview", otherwise you'll get a compilation failure saying: "records are a preview feature and are disabled by default".
+Note! The compiler needs the ```--enable-preview```flag, otherwise you'll get a compilation failure saying: "records are a preview feature and are disabled by default".
 
-## Implement a sample application
+## Implement a Sample Application
 
 I created a ```test-java-14/src/test/java/fi/solita/BloggingAppTest.java``` and ran it with ```mvn test```.
 This is what the whole thing looks like:
@@ -177,7 +188,7 @@ public class BloggingAppTest {
 }
 ```
 
-## Thoughts after the experiment?
+# Thoughts After the Experiment?
 
 Records provide a compact syntax for declaring simple, immutable data carrier classes. Frameworks can easily translate values from and to json (or any other serialization format).
 
@@ -195,14 +206,14 @@ After setting up the RecordBuilder annotation processor, it's easier to build in
 var p1 = Point.builder().x(xCoord).y(yCoord).build();
 ```
  
-To conclude, I would say that Java 14 version of records is a definitely a nice step forward.
- 1. they reduce boilerplate from data carrier classes
+To conclude, I would say that Java 14 version of records is definitely a nice step forward:
+ 1. they reduce boilerplate code in data carrier classes
  2. data is modeled as data
 
 The fact that data is modeled as data is even more important than reducing boilerplate, because it allows tools and
 future versions of Java support cool features such as [pattern matching](https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html)!
 
-The new Java 14 will be released March 17, 2020. In general, it's possible that preview features are removed or change. I strongly believe, that records are here to stay and change the way we program Java. 
+The new Java 14 will be released on March 17, 2020. In general, it's possible that some preview features will be removed or modified. I strongly believe, however, that records are here to stay and will change the way we program in Java. 
 
 Happy coding and thanks for reading!
 
