@@ -23,9 +23,8 @@ tags:
 # Introduction to Java records
 
 ![Java Versions](/img/java14-records/java-versions.png)
-Image 1. Something new in each Java version! Records are introduced in Java 14.
 
-Java 14 released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
+As illustrated in the picture above, Java 14 released in March 2020 introduces a new interesting feature named [records](https://openjdk.java.net/jeps/359). 
 This is how records are declared:
 
 ```
@@ -203,7 +202,11 @@ To conclude, I would say that Java 14 version of records is a definitely a nice 
 The fact that data is modeled as data is even more important then reducing boilerplate, because it allows tools and
 future versions of Java support cool features such as [pattern matching](https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html)!
 
-The new Java 14 will be released March 17, 2020. You can find the complete [schedule and list of features here](https://openjdk.java.net/projects/jdk/14/). Here is a link to the sample project source code: [https://github.com/janneri/test-java-14-records](https://github.com/janneri/test-java-14-records).
+The new Java 14 will be released March 17, 2020.
 
 Happy coding and thanks for reading!
 
+## Links
+
+- You can find the complete [Java 14 schedule and list of features here](https://openjdk.java.net/projects/jdk/14/). 
+- Here is a link to the sample project source code: [https://github.com/janneri/test-java-14-records](https://github.com/janneri/test-java-14-records).
