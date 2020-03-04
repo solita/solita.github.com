@@ -18,7 +18,7 @@ tags:
 - Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
 - This blog is about records and rest/json APIs
 - Frameworks can easily translate values from and to json using records
-- If you want builder-pattern, you still need (IDE or annotation based) code generation    
+- If you want builder-pattern, you still need (IDE or annotation-based) code generation    
 
 # Introduction to Java records
 
@@ -37,7 +37,7 @@ A record automatically acquires:
 - equals() and hashCode()
 - toString()
 
-Previously IDEs and annotation based code generation have helped us generate these members.
+Previously IDEs and annotation-based code generation have helped us generate these members.
 Although records are not a complete replacement for code generation tools,  it's very nice to have this support built into the language.
 
 # Example app with records and Gson
@@ -46,7 +46,7 @@ Although records are not a complete replacement for code generation tools,  it's
 
 I wanted to test and play around with records and json serialization, so I 
 - downloaded [the early access build of JDK 14](http://jdk.java.net/14/),
-- extracted the tar.gz next to the other jdk:s 
+- extracted the tar.gz next to the other JDKs 
 - and switched it on using [jEnv](https://www.jenv.be/):
 
 ```
@@ -182,7 +182,7 @@ public class BloggingAppTest {
 Records provide a compact syntax for declaring simple, immutable data carrier classes. Frameworks can easily translate values from and to json (or any other serialization format).
 
 If you need to create instances of records by hand, you might get into trouble, because sometimes the data carrier classes contain a lot of fields.
-It's easy to mistype the order of two parameters with the same type. Proper typing helps mitigate the problem. In addition you can use the builder pattern. 
+It's easy to mistype the order of two parameters with the same type. Proper typing helps mitigate the problem. In addition, you can use the builder pattern. 
 For example, [Github - RecordBuilder](https://github.com/Randgalt/record-builder) seems very nice and allows you to write:
 
 ```
@@ -199,7 +199,7 @@ To conclude, I would say that Java 14 version of records is a definitely a nice 
  1. they reduce boilerplate from data carrier classes
  2. data is modeled as data
 
-The fact that data is modeled as data is even more important then reducing boilerplate, because it allows tools and
+The fact that data is modeled as data is even more important than reducing boilerplate, because it allows tools and
 future versions of Java support cool features such as [pattern matching](https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html)!
 
 The new Java 14 will be released March 17, 2020. In general, it's possible that preview features are removed or change. I strongly believe, that records are here to stay and change the way we program Java. 
