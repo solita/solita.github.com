@@ -28,7 +28,7 @@ As illustrated in the picture above, Java 14 released in March 2020 introduces a
 This is how records are declared:
 
 ```
-record Point(x: int, y: int)
+record Point(x: int, y: int) {}
 ```
 
 A record automatically acquires:
@@ -202,7 +202,7 @@ To conclude, I would say that Java 14 version of records is a definitely a nice 
 The fact that data is modeled as data is even more important then reducing boilerplate, because it allows tools and
 future versions of Java support cool features such as [pattern matching](https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html)!
 
-The new Java 14 will be released March 17, 2020.
+The new Java 14 will be released March 17, 2020. In general, it's possible that preview features are removed or change. I strongly believe, that records are here to stay and change the way we program Java. 
 
 Happy coding and thanks for reading!
 
