@@ -48,7 +48,16 @@ Although records are not a complete replacement for code generation tools,  it's
 How much boilerplate code could be removed, if all data carrier classes were replaced by records? I picked three Java applications I've worked with lately and just counted the number of data carrier classes.
 As you can see in the picture above, almost a quarter of the code is data carrier classes! 
 
-Of course, it depends on the context, but to me it looks like we are talking about a significant effect on Java source code.  
+Is there a genuine benefit in reducing boilerplate? You can always just generate the code, right? 
+Generating code is fast, but still, less code means less time used maintaining, testing, reading and reviewing code.
+And reducing boilerplate is just one of the benefits here. Records also:
+1. encourage rich typing
+2. encourage immutability
+3. standardize the implementation of hashCode, equals and toString
+4. discourage invalid reuse of data carrier classes, which makes APIs more clear and precise
+5. enable implementation of new tools and features to Java   
+
+Of course, it depends on the context, but to me it looks like we are talking about a significant effect on Java source code.
 
 ## Example App With Records and Gson
 
@@ -207,9 +216,10 @@ var p1 = Point.builder().x(xCoord).y(yCoord).build();
  
 To conclude, I would say that Java 14 version of records is definitely a nice step forward:
  1. they reduce boilerplate code in data carrier classes
- 2. data is modeled as data
+ 2. encourage rich typing and immutability
+ 3. data is modeled as data
 
-The fact that data is modeled as data is even more important than reducing boilerplate, because it allows tools and
+The fact that data is modeled as data could be even more important than reducing boilerplate, because it allows tools and
 future versions of Java support cool features such as [pattern matching](https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html)!
 
 The new Java 14 will be released on March 17, 2020. In general, it's possible that some preview features will be removed or modified. I strongly believe, however, that records are here to stay and will change the way we program in Java. 
