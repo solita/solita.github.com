@@ -3,7 +3,7 @@ layout: post
 title: Reduce boilerplate in Java backends with records
 author: janneri
 excerpt: >
-  Java 14 (March 2020) introduces records as a preview feature. Records provide a compact syntax for declaring simple, immutable data carrier classes, such as Point(x: int, y: int). This blog gives an example of records in rest/json APIs.
+  Java 14 (March 2020) introduces records as a preview feature. Records provide a compact syntax for declaring simple, immutable data carrier classes, such as Point(x: int, y: int). This blog gives an example of records in REST/JSON APIs.
 tags:
  - Java
  - Java 14
@@ -17,8 +17,8 @@ tags:
 
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
 - Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
-- This blog is about records and rest/json APIs
-- Frameworks can easily translate values from and to json using records
+- This blog is about records and REST/JSON APIs
+- Frameworks can easily translate values from and to JSON using records
 - If you want to use the builder pattern, you still need code generation (IDE or annotation-based)
 
 ## Introduction to Java Records
@@ -63,7 +63,7 @@ Of course, it depends on the context, but to me it looks like we are talking abo
 
 ### Download and Setup Java 14
 
-I wanted to test and play around with records and json serialization, so I 
+I wanted to test and play around with records and JSON serialization, so I 
 - downloaded [the early access build of JDK 14](http://jdk.java.net/14/),
 - extracted the tar.gz next to the other JDKs 
 - and switched it on using [jEnv](https://www.jenv.be/):
@@ -198,7 +198,7 @@ public class BloggingAppTest {
 
 ## Thoughts After the Experiment?
 
-Records provide a compact syntax for declaring simple, immutable data carrier classes. Frameworks can easily translate values from and to json (or any other serialization format).
+Records provide a compact syntax for declaring simple, immutable data carrier classes. Frameworks can easily translate values from and to JSON (or any other serialization format).
 
 If you need to create instances of records by hand, you might get into trouble, because sometimes the data carrier classes contain a lot of fields.
 It's easy to mistype the order of two parameters with the same type. Proper typing helps mitigate the problem. In addition, you can use the builder pattern. 
