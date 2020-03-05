@@ -13,16 +13,15 @@ tags:
  - JEP 359
 ---
 
-# Reduce Boilerplate In Java Backends With Records
+## Key Takeaways
 
-# Key Takeaways
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
 - Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
 - This blog is about records and rest/json APIs
 - Frameworks can easily translate values from and to json using records
 - If you want to use the builder pattern, you still need code generation (IDE or annotation-based)
 
-# Introduction to Java Records
+## Introduction to Java Records
 
 ![Java Versions](/img/java14-records/java-versions.png)
 
@@ -42,7 +41,7 @@ A record automatically acquires:
 Previously, IDEs and annotation-based code generation have helped us generate these class members.
 Although records are not a complete replacement for code generation tools,  it's very nice to have this support built into the language.
 
-# Reducing Boilerplate, But How Much?
+## Reducing Boilerplate, But How Much?
 
 ![data class proportion of all code](/img/java14-records/data-class-file-counts.png)
 
@@ -51,9 +50,9 @@ As you can see in the picture above, almost a quarter of the code is data carrie
 
 Of course, it depends on the context, but to me it looks like we are talking about a significant effect on Java source code.  
 
-# Example App With Records and Gson
+## Example App With Records and Gson
 
-## Download and Setup Java 14
+### Download and Setup Java 14
 
 I wanted to test and play around with records and json serialization, so I 
 - downloaded [the early access build of JDK 14](http://jdk.java.net/14/),
@@ -65,7 +64,7 @@ jenv add /Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home/
 jenv use 14
 ```
 
-## Create a New Project With Maven
+### Create a New Project With Maven
 
 It looks like there's no support from Gradle yet, so I went along with Maven and created this pom.xml: 
 
@@ -127,7 +126,7 @@ It looks like there's no support from Gradle yet, so I went along with Maven and
 
 Note! The compiler needs the ```--enable-preview```flag, otherwise you'll get a compilation failure saying: "records are a preview feature and are disabled by default".
 
-## Implement a Sample Application
+### Implement a Sample Application
 
 I created a ```test-java-14/src/test/java/fi/solita/BloggingAppTest.java``` and ran it with ```mvn test```.
 This is what the whole thing looks like:
@@ -188,7 +187,7 @@ public class BloggingAppTest {
 }
 ```
 
-# Thoughts After the Experiment?
+## Thoughts After the Experiment?
 
 Records provide a compact syntax for declaring simple, immutable data carrier classes. Frameworks can easily translate values from and to json (or any other serialization format).
 
