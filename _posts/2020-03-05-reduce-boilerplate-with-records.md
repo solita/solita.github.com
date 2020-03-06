@@ -3,7 +3,7 @@ layout: post
 title: Reduce boilerplate in Java backends with records
 author: janneri
 excerpt: >
-  Java 14 (March 2020) introduces records as a preview feature. Records provide a compact syntax for declaring simple, immutable data carrier classes, such as Point(x: int, y: int). This blog gives an example of records in REST/JSON APIs.
+  Java 14 (March 2020) introduces records as a preview feature. Records provide a compact syntax for declaring simple, immutable data carrier classes, such as Point(int x, int y). This blog gives an example of records in REST/JSON APIs.
 tags:
  - Java
  - Java 14
@@ -16,7 +16,7 @@ tags:
 ## Key Takeaways
 
 - Java 14 (March 2020) introduces [records](https://openjdk.java.net/jeps/359) as a preview feature
-- Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(x: int, y: int) {}```
+- Records provide a compact syntax for declaring simple, immutable data carrier classes, such as ```Point(int x, int y) {}```
 - This blog is about records and REST/JSON APIs
 - Frameworks can easily translate values from and to JSON using records
 - If you want to use the builder pattern, you still need code generation (IDE or annotation-based)
@@ -29,7 +29,7 @@ As illustrated in the picture above, Java 14, which is being released in March 2
 This is how a record is declared:
 
 ```
-record Point(x: int, y: int) {}
+record Point(int x, int y) {}
 ```
 
 A record automatically acquires:
