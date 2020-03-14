@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTTP Security Headers
+title: Staying un-pwned with HTTP Security Headers
 author: massimo
 excerpt: >
   Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? Well, that's why you have a WAF. What if there's a way to circumvent it? There's always a what if. This is not a comprehensive list of all security headers. These are the bare minimum every non-trivial site should use.
@@ -17,7 +17,7 @@ Defense in depth as defined by Wikipedia is a:
 
 ![onion](/img/http-security-headers/onion.jpg)
 
-The purpose of aforementioned security controls is to provide defense against attacks in a layered fashion. If one security control fails, there is another lower in the stack. This deters the attacker and gives the defender more time to contain the threat before the next control is breached. Like when an onion is peeled, every layer brings more tears.
+The purpose of the aforementioned security controls is to provide defense against attacks in a layered fashion. If one security control fails, there is another deeper in the stack. This deters the attacker and gives the defender more time to contain the threat before the next control is breached. Like when an onion is peeled, every layer brings more tears.
 
 ## Already fscked? :|
 
@@ -37,7 +37,7 @@ When thinking in a layered fashion, what protection do you have against XSS?
 
 Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? Well, that's why you have a WAF. What if there's a way to circumvent it? There's always a what if.
 
-An cheap and easy way to implement another layer of security is to use HTTP security headers.
+A cheap and easy way to implement another layer of security is to use HTTP security headers.
 
 ## Enough, where's the ~~beef~~ tofu
 
@@ -71,9 +71,9 @@ Side note: after the introduction of CSP, the previous header responsible for XS
 
 When you visit a site that redirects from HTTP to HTTPS, for a brief moment you are vulnerable. An attacker on the same network (e.g. coffee shop WiFi) can intercept your request and redirect it to their own site. This is known as a man-in-the-middle attack (MITM).
 
-The [HSTS header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) prevents the browser from ever loading a non-encrypted version of a site. There is however, a catch.
+The [HSTS header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) prevents the browser from ever loading a non-encrypted version of a site. There is, however, a catch.
 
-The HSTS header can only be sent via HTTPS. When connecting to a site for the very first time, the connection is unencrypted before the first redirect to HTTPS. After that the browser will force HTTPS for every request. This will last for the duration specified in the header's max-age value (recommendation is one year). The max-age value is refreshed after each request if the HSTS header is present.
+The HSTS header can only be sent via HTTPS. When connecting to a site for the very first time, the connection is unencrypted before the first redirect to HTTPS. After that, the browser will force HTTPS for every request. This will last for the duration specified in the header's max-age value (recommendation is one year). The max-age value is refreshed after each request if the HSTS header is present.
 
 So I can still get pwned? Yes, always. But most browsers nowadays use a [preload list](https://hstspreload.org/) which is a list of sites that support HSTS. Your browser will automatically use HTTPS when connecting to these sites.
 
@@ -90,7 +90,7 @@ Picture this. You've built an app that has a button that does stuff. Important s
 
 All of this hassle could've been prevented with a [single header.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-Some examples, check the [full spec.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+For more examples, check the [full spec.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 ```
 X-Frame-Options: deny
 X-Frame-Options: sameorigin
@@ -100,7 +100,7 @@ X-Frame-Options: sameorigin
 
 ![go forth](/img/http-security-headers/goforth.jpg)
 
-Also consider implementing:
+Also, consider implementing:
 - Referrer-Policy: prevents your URLs leaking to other sites
 - X-Content-Type-Options: prevents your browser from doing stupid file type guesswork
 - Feature-Policy: lock down browser APIs such as camera or microphone from being used by other sites you embed
