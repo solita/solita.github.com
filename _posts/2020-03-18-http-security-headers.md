@@ -90,7 +90,7 @@ Picture this. You've built an app that has a button that does stuff. Important s
 
 All of this hassle could've been prevented with a [single header.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-For more examples, check the [full spec.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+For more examples, check out the [full spec.](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 ```
 X-Frame-Options: deny
 X-Frame-Options: sameorigin
