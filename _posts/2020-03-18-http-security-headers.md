@@ -3,7 +3,7 @@ layout: post
 title: Staying un-pwned with HTTP Security Headers
 author: massimo
 excerpt: >
-  Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? Well, that's why you have a WAF. What if there's a way to circumvent it? There's always a what if. This is not a comprehensive list of all security headers. These are the bare minimum every non-trivial site should use.
+  Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? To protect your app, you need security layers. Like an onion, each layer means more tears for the attacker. HTTP security headers form one of these layers. Here are the essential security headers for every non-trivial site.
 tags:
 - infosec
 - software security
@@ -35,7 +35,7 @@ Yes, you.
 
 When thinking in a layered fashion, what protection do you have against XSS?
 
-Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? Well, that's why you have a WAF. What if there's a way to circumvent it? There's always a what if.
+There is your fancy WAF (Web application firewall), it'll block anything malicious! What if there was a way to circumvent it? Well, your fancy front-end framework won't ever print unscaped HTML! But what if it does after the next update? There's always a what if.
 
 A cheap and easy way to implement another layer of security is to use HTTP security headers.
 
