@@ -35,7 +35,7 @@ Yes, you.
 
 When thinking in a layered fashion, what protection do you have against XSS?
 
-There is your fancy WAF (Web application firewall), it'll block anything malicious! What if there was a way to circumvent it? Well, your fancy front-end framework won't ever print unscaped HTML! But what if it does after the next update? There's always a what if.
+There is your fancy WAF (Web application firewall), it'll block anything malicious! What if there was a way to circumvent it? Well, your fancy front-end framework won't ever print unescaped HTML! But what if it does after the next update? There's always a what if.
 
 A cheap and easy way to implement another layer of security is to use HTTP security headers.
 
