@@ -97,8 +97,9 @@ infected, each node has a small chance to die on every tick. The probability of
 death increases if the network has too many simultaneously infected nodes. With
 10000 persons, the simulator runs without any optimizations at roughly 1 second
 per tick. Since the simulator runs for roughly 50 ticks before nobody is
-infected anymore, this is fast enough. Note that the processes are not run
-concurrently.
+infected anymore, this is fast enough. Note that the processes are not executed
+concurrently: each process is sent a message, then that process is waited for a
+reply before sending a message to the next process.
 
 ```elixir
 def step(self) do
