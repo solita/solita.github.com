@@ -9,7 +9,8 @@ tags:
  - Elixir
 ---
 
- <img src="/img/simulating-pandemics-with-elixir/simulation.gif" alt="Simulation animation with 9 nodes" />
+<img src="/img/simulating-pandemics-with-elixir/simulation.gif"
+     alt="Simulation animation with 9 nodes" />
 
 As I'm typing this, Finland has entered a state of emergency over COVID-19 and
 it is generally recommended to apply social distancing for the time being. The
@@ -51,6 +52,30 @@ Behind the scenes, `Agent.update/2` sends a message to the prosess created by
 start_link. In the process itself, the process receives the message and handles
 the update to its state. In both `update` and `get` the caller waits until the
 operation is complete, and thus the functions are synchronous.
+
+Scientific stuff
+----------------
+
+<img src="/img/simulating-pandemics-with-elixir/science.jpeg"
+     alt="A picture of a dog behing chemistry equipment with text 'I have no idea what I'm doing'" />
+
+I'm not a virologist, statistician nor do I have anything to do with
+healthcare. That said, my computer science background has taught me
+to use the [Stetson-Harrison method](https://www.urbandictionary.com/define.php?term=Stetson-Harrison%20method)
+for approximating various results, so that's what we're using here. The end
+result looks nice, and that's all that matters, right?
+
+```elixir
+{dx, dy} = distance(person_count, a, b)
+delta = :math.sqrt(:math.pow(dx, 2) + :math.pow(dy, 2))
+probability = (person_count / (100 * delta)) * infection_rate
+```
+
+Nodes will be placed in a grid. On every simulation tick, each infected person
+has a chance to infect each connected cell based on node distance. Each
+infected person also has a small chance (0.001%) to die on each tick. If there
+are enough infected persons at any given time (20% of the population) the death
+chance grows tenfold.
 
 Scaling up
 ----------
@@ -111,3 +136,5 @@ complex system with thousands of processes with a couple of lines of code.
 
 Washing hands saves lifes. Check out more tips on keeping yourself and others
 safe from [WHO's web site.](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
+
+Check out the code behind this blog post at [GitHub](https://github.com/jgke/epidemic).
