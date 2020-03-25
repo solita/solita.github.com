@@ -60,8 +60,9 @@ Scientific stuff
      alt="A picture of a dog behing chemistry equipment with text 'I have no idea what I'm doing'" />
 
 I'm not a virologist, statistician nor do I have anything to do with
-healthcare. That said, my computer science background has taught me
-to use the [Stetson-Harrison method](https://www.urbandictionary.com/define.php?term=Stetson-Harrison%20method)
+healthcare. None of the numbers or formulas are based on real-life data. That
+said, my computer science background has taught me to use the
+[Stetson-Harrison method](https://www.urbandictionary.com/define.php?term=Stetson-Harrison%20method)
 for approximating various results, so that's what we're using here. The end
 result looks nice, and that's all that matters, right?
 
