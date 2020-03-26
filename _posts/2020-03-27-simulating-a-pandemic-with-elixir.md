@@ -47,7 +47,7 @@ A process is created here using the Agent abstraction, which is a wrapper
 around GenServer. GenServer is an abstraction for Erlang processes, while Agent
 provides a wrapper for managing its state. The process is initialized with a
 map containing a single key `:infected`. `Agent.update/2` (that is, a function
-taking 2 arguments) is then upsed to update the state of the process, and
+taking 2 arguments) is then used to update the state of the process, and
 `Agent.get/2` is used to get the current state of the process. The `&` syntax
 is shorthand for lambdas, consider the clojure equivalent `#(assoc % :infected
 true)`.
