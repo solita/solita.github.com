@@ -30,9 +30,9 @@ drawing graphs. It scales nicely into reasonable graph sizes.
 What is message passing?
 ------------------------
 
-A lot of Elixir is based around passing around messages. If you squint your
-eyes just right, it's actually pretty close to calling methods in an
-object-oriented language.
+A lot of Elixir is based on passing messages arond. If you squint your eyes
+just right, it's actually pretty close to calling methods in an object-oriented
+language.
 
 ```elixir
 # Create a process with initial state %{infected: false}
