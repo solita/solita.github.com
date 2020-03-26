@@ -35,16 +35,20 @@ eyes just right, it's actually pretty close to calling methods in some
 object-oriented language.
 
 ```elixir
+# Create a process with initial state %{infected: false}
 {:ok, pid} = Agent.start_link(fn -> %{infected: false} end)
+# Update the :infected key to be true
 Agent.update(pid, &Map.put(&1, :infected, true))
+# Assert that the state has been updated
 true = Agent.get(pid, &Map.get(&1, :infected))
 ```
 
 A process is created here using the Agent abstraction, which is a wrapper
-around GenServer. Essentially it creates a separate Erlang process and manages
-its state. The process is initialized with a map containing a single key
-`:infected`. `Agent.update/2` is then upsed to update the state of the process,
-and `Agent.get/2` is used to get the current state of the process. The `&` syntax
+around GenServer. GenServer is an abstraction for Erlang processes, while Agent
+provides a wrapper for managing its state. The process is initialized with a
+map containing a single key `:infected`. `Agent.update/2` (that is, a function
+taking 2 arguments) is then upsed to update the state of the process, and
+`Agent.get/2` is used to get the current state of the process. The `&` syntax
 is shorthand for lambdas, consider the clojure equivalent `#(assoc % :infected
 true)`.
 
@@ -103,6 +107,9 @@ reply before sending a message to the next process.
 
 ```elixir
 def step(self) do
+  # Get all persons from the simulator's state, then call Person.interact/1
+  # which returns a list of that person's connections while updating its state,
+  # then call Person.infect/2 which infects the person with probability p
   Agent.get(
     self,
     fn state ->
