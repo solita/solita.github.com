@@ -3,7 +3,7 @@ layout: post
 title: Simulating a pandemic with Elixir
 author: jgke
 excerpt: >
-  Wash your hands! Just how many deaths can you prevent by this simple trick?
+  Wash your hands! Just how many deaths can you prevent with this simple trick?
   Take a look with this Elixir-based pandemic simulator.
 tags:
  - Elixir
@@ -13,8 +13,8 @@ tags:
      alt="Simulation animation with 9 nodes" />
 
 As I'm typing this, Finland has entered a state of emergency over COVID-19 and
-it is generally recommended to apply social distancing for the time being. The
-drastic measures aim to lessen the exponential curve and thus the impact of the
+it is generally recommended to apply physical distancing for the time being. The
+drastic measures aim to flatten the exponential curve and thus the impact of the
 virus on Finland's healthcare services. How much does this actually help? Let's
 find out.
 
@@ -23,7 +23,7 @@ message passing and lightweight processes, building a simulator with nodes (=
 persons) communicating with each other sounds like a good opportunity to use
 Elixir.
 
-Additionally, we want to visualize the social graphs for persons. GraphViz,
+Additionally, we want to visualize the social graphs between people. GraphViz,
 also known by its markup language dot, is a piece of software designed for
 drawing graphs. It scales nicely into reasonable graph sizes.
 
@@ -31,7 +31,7 @@ What is message passing?
 ------------------------
 
 A lot of Elixir is based around passing around messages. If you squint your
-eyes just right, it's actually pretty close to calling methods in some
+eyes just right, it's actually pretty close to calling methods in an
 object-oriented language.
 
 ```elixir
@@ -79,8 +79,8 @@ probability = (person_count / (100 * delta)) * infection_rate
 Nodes will be placed in a grid. On every simulation tick, each infected person
 has a chance to infect each connected cell based on node distance. Each
 infected person also has a small chance (0.001%) to die on each tick. If there
-are enough infected persons at any given time (20% of the population) the death
-chance grows tenfold.
+are enough infected people at any given time (20% of the population) the chance
+of grows tenfold.
 
 Scaling up
 ----------
@@ -102,12 +102,12 @@ death increases if the network has too many simultaneously infected nodes. With
 10000 persons, the simulator runs without any optimizations at roughly 1 second
 per tick. Since the simulator runs for roughly 50 ticks before nobody is
 infected anymore, this is fast enough. Note that the processes are not executed
-concurrently: each process is sent a message, then that process is waited for a
-reply before sending a message to the next process.
+concurrently: the simulator sends each process a message and then waits for a
+reply from that process before sending a message to the next process.
 
 ```elixir
 def step(self) do
-  # Get all persons from the simulator's state, then call Person.interact/1
+  # Get all people from the simulator's state, then call Person.interact/1
   # which returns a list of that person's connections while updating its state,
   # then call Person.infect/2 which infects the person with probability p
   Agent.get(
@@ -133,7 +133,7 @@ cetera?
 
 <img src="/img/simulating-pandemics-with-elixir/graph-2.png" alt="Line graph from 10000 nodes" />
 
-The death rate is roughly halved, which means about 500 additional persons get
+The death rate is roughly halved, which means about 500 additional people get
 to live another day.
 
 Summary
@@ -144,6 +144,6 @@ optimized implementations. A straightforward implementation can simulate a
 complex system with thousands of processes with a couple of lines of code.
 
 Washing hands saves lives. Check out more tips on keeping yourself and others
-safe from [WHO's web site.](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
+safe on the [WHO web site.](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
 
 Check out the code behind this blog post at [GitHub](https://github.com/jgke/epidemic).
