@@ -19,8 +19,8 @@ virus on Finland's healthcare services. How much does this actually help? Let's
 find out.
 
 Elixir is a dynamic language designed with scalability in mind. Built around
-message passing and lightweight procesesses, building a simulator with nodes (=
-persons) communicating to each other sounds like a good opportunity to use
+message passing and lightweight processes, building a simulator with nodes (=
+persons) communicating with each other sounds like a good opportunity to use
 Elixir.
 
 Additionally, we want to visualize the social graphs for persons. GraphViz,
@@ -49,10 +49,10 @@ provides a wrapper for managing its state. The process is initialized with a
 map containing a single key `:infected`. `Agent.update/2` (that is, a function
 taking 2 arguments) is then used to update the state of the process, and
 `Agent.get/2` is used to get the current state of the process. The `&` syntax
-is shorthand for lambdas, consider the clojure equivalent `#(assoc % :infected
+is shorthand for lambdas, consider the Clojure equivalent `#(assoc % :infected
 true)`.
 
-Behind the scenes, `Agent.update/2` sends a message to the prosess created by
+Behind the scenes, `Agent.update/2` sends a message to the process created by
 start_link. In the process itself, the process receives the message and handles
 the update to its state. In both `update` and `get` the caller waits until the
 operation is complete, and thus the functions are synchronous.
@@ -94,9 +94,9 @@ Scaling up
 <br />
 
 How big graphs Elixir can handle without thinking too much about the
-implementation? I built a simple simulator which connects a bunch of nodes to
-each other, forming an weighted undirected graph with weights based on node
-distance. The weights are used for probabilities of infection spreading. If
+implementation? I built a simple simulator that connects a bunch of nodes to
+each other, forming a weighted undirected graph with weights based on node
+distance. The weights are used for probabilities of the infection spreading. If
 infected, each node has a small chance to die on every tick. The probability of
 death increases if the network has too many simultaneously infected nodes. With
 10000 persons, the simulator runs without any optimizations at roughly 1 second
@@ -143,7 +143,7 @@ Elixir can easily handle 10000 processes without having to think too much about
 optimized implementations. A straightforward implementation can simulate a
 complex system with thousands of processes with a couple of lines of code.
 
-Washing hands saves lifes. Check out more tips on keeping yourself and others
+Washing hands saves lives. Check out more tips on keeping yourself and others
 safe from [WHO's web site.](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
 
 Check out the code behind this blog post at [GitHub](https://github.com/jgke/epidemic).
