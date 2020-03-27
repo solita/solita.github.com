@@ -80,7 +80,7 @@ Nodes will be placed in a grid. On every simulation tick, each infected person
 has a chance to infect each connected cell based on node distance. Each
 infected person also has a small chance (0.001%) to die on each tick. If there
 are enough infected people at any given time (20% of the population) the chance
-of grows tenfold.
+of death grows tenfold.
 
 Scaling up
 ----------
