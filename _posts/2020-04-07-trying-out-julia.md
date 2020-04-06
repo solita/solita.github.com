@@ -3,34 +3,34 @@ layout: post
 title: Trying out Julia programming language
 author: hnybom
 excerpt: >
-  Julia is a programming language with it's roots in the mathematics. The language itself is increasingly gaining momentum and that combined with the boom were seeing in data science demand makes it a very interesting subject. This post is about my journey starting from zero knowledge to, well, some knowledge of the language. So if you, like me, are interested in trying out Julia language keep on reading. If you are already familiar with the subject you can safely skip this one.
+  Julia is a programming language with it's roots in the mathematics. The language itself is increasingly gaining momentum and that combined with the boom were seeing in the data science demand makes it a very interesting subject. This post is about my journey starting from zero knowledge to, well, some knowledge of the language. So if you, like me, are interested in trying out Julia language keep on reading. If you are already familiar with the subject you can safely skip this one.
 tags:
  - Julia
 ---
 
-## Let's try out Julia
+## Let's try out Julia programming language
 
-As forewords, I have never tried Julia programming language before but I've read couple of headlines about it and they have peaked my interest on the subject. The main motivations to get into the language for me are
+As forewords, I have never tried Julia programming language before but I've read a couple of headlines about it and they have piqued my interest on the subject. The main motivations to get into the language for me are
 
 * Julia seems to be gaining some momentum in both the programming and especially data science community.
-* Even as Julia is dynamically typed it has some static typing going on by enabling the programmer to declare a type if it makes the code more easy to understand. This is akin of Python's type annotation though it seems a little but more powerful. There is a long documentation about this at [docs.julialang.org/en/v1/manual/types/](https://docs.julialang.org/en/v1/manual/types/). One very definite upside I've learned is that you can only sub type abstract types and extending a concrete type is not possible, as a Spring framework user this warms my mind a lot ;) !
-* The benchmarks seems to indicate it's much faster than the main competition Python. This is due the fact the language is compiled to native code using LLVM.
+* Even as Julia is dynamically typed it has some static typing going on by enabling the programmer to declare a type if it makes the code easier to understand. This is akin to Python's type annotation though it seems a little bit more powerful. There is lengthy documentation about this at [docs.julialang.org/en/v1/manual/types/](https://docs.julialang.org/en/v1/manual/types/). One very definite upside I've learned is that you can only subtype abstract types and extending a concrete type is not possible, as a Spring framework user this warms my mind a lot ;) !
+* The benchmarks seem to indicate it's much faster than the main competition Python. This is due to the fact the language is compiled to native code using LLVM.
 * You can utilize Python packages.
 * I have some background with MatLab and similar plotting stuff seems to be the forte of Julia.
 
-This post is mostly about plotting as it was the main motivation for me to get into Julia language. I'll try to do same kind of stuff I did with MatLab with Julia. Basically this means scripting some plotting and I won't delve into the finer points of e.g. building server side software.
+This post is mostly about plotting as it was the main motivation for me to get into Julia language. I'll try to do the same kind of stuff I did with MatLab with Julia. This means scripting some plotting and I won't delve into the finer points of e.g. building server-side software.
 
 So if you want deep knowledge and insight into Julia as a language this is not the blog post for you, but if you just want to know how to display some data and setup your own Julia environment please do continue.
 
 ## Okay how to install this thing
 
-Well let's google it. The page [julialang.org/](https://julialang.org/) is the home page and it has a big download button. Straight away the installation is a bit bare bones since it's just a tar-package (mind you I'm using Linux based system) and not some fancy installer or CLI-tool. After I've added the extracted bin folder to my PATH it's time to take the first sip with the repl.
+Well let's google it. The page [julialang.org/](https://julialang.org/) is the home page and it has a big download button. Straight away the installation is a bit bare-bones since it's just a tar-package (mind you I'm using Linux based system) and not some fancy installer or CLI-tool. After I've added the extracted bin folder to my PATH it's time to take the first sip with the repl.
 
 ![Julia REPL](/img/trying-out-julia/julia-repl.png)
 
-Super! I now have a fancy calculator which seems to be even calculating correctly! After some 20-20 hindsight I can say there is some important information already displayed in the welcome ASCII-art, mainly the ]-mark. This is the way to access Julia package manager for adding dependencies. Also with hindsight using `activate <env_name>` with the package manager allows you to create python like virtual environments to contain your packages within your project.
+Super! I now have a fancy calculator that seems to be even calculating correctly! After some 20-20 hindsight I can say there is some important information already displayed in the welcome ASCII-art, mainly the ]-mark. This is the way to access Julia package manager for adding dependencies. Also with hindsight using `activate <env_name>` with the package manager allows you to create python like virtual environments to contain your packages within your project.
 
-So far so good, but I'm one of those guys who likes IDEs especially when learning new languages. The Julia homepage has a nice list of supported and familiar editors and IDEs. But why use something you already know? Let's go all in with new stuff and select Atom editor with JUNO plug-in. Ok yes, part of the reason selecting Juno was that it looked cool in screenshots at [junolab.org](https://junolab.org). The installation was quite straightforward as Atom had a .deb-package and after installing it I just needed to add the uber-juno plug-in with atom's built in tools. Now I had all the tools in place, time to start coding.
+So far so good, but I'm one of those guys who likes IDEs especially when learning new languages. The Julia homepage has a nice list of supported and familiar editors and IDEs. But why use something you already know? Let's go all-in with new stuff and select Atom editor with JUNO plug-in. Ok yes, part of the reason selecting Juno was that it looked cool in screenshots at [junolab.org](https://junolab.org). The installation was quite straightforward as Atom had a .deb-package and after installing it I just needed to add the uber-juno plug-in with atom's built-in tools. Now I had all the tools in place, time to start coding.
 
 ## What to do
 
@@ -50,14 +50,14 @@ As said I have some background with MatLab and wanted to do some visualizations 
 
 After some intensive document reading I found out that I had to add some additional packages to my Julia environment 
 
-| Package    | Purpose                                           |
-| :--------- | ------------------------------------------------- |
-| HTTP       | To make HTTP calls                                |
-| JSON       | Json tools for e.g. parsing                       |
-| Plots      | Basic plotting support                            |
-| StatsPlots | Extended plotting support e.g. dataframes support |
+| Package    | Purpose                                             |
+| :--------- | --------------------------------------------------- |
+| HTTP       | To make HTTP calls                                  |
+| JSON       | Json tools for e.g. parsing                         |
+| Plots      | Basic plotting support                              |
+| StatsPlots | Extended plotting support e.g. `DataFrames` support |
 
-This is achieved with the package manager in the REPL by first issuing the ]-character and then just `"activate <env_name>"` and then `"add HTTP"` and so on. This is quite handy, I especially like that the package manager is baked into the REPL instead of being a completely separate tool. Now for some basic coding
+​	This is achieved with the package manager in the REPL by first issuing the ]-character and then just `"activate <env_name>"` and then `"add HTTP"` and so on. This is quite handy, I especially like that the package manager is baked into the REPL instead of being a completely separate tool. Now for some basic coding
 
 ```julia
 using HTTP, JSON, Plots, StatsPlots
@@ -96,7 +96,7 @@ plot(cases)
 savefig("images/cases_simple.png") #Save plot as png image
 ```
 
-The map function takes a mapping function and the data to apply the function to. I pass a anonymous function to pick up the Cases field and the data I got from the API call. Now that the data is a nice array of values let's plot it and see what's what.
+The map function takes a mapping function and the data to apply the function to. I pass an anonymous function to pick up the Cases field and the data I got from the API call. Now that the data is a nice array of values let's plot it and see what's what.
 
 ![Plotted case data](/img/trying-out-julia/cases_simple.png)
 
@@ -132,7 +132,7 @@ end
 (even_finland, even_sweden) = even_data_sets(finland_confirmed, sweden_confirmed)
 ```
 
-Filtering returns a instance of a filter and to get the actual values you need to collect them, so lazy evaluation is used. Also as the dates are formatted year, month, day we can just use string comparision for the filtering. Okay now lets plot them together
+Filtering returns an instance of a filter and to get the actual values you need to collect them, so lazy evaluation is used. Also as the dates are formatted year, month, day we can just use string comparison for the filtering. Okay now lets plot them together
 
 ```julia
 function get_value_array_by_parameter(parameter_name, default_value)
@@ -183,7 +183,7 @@ julia> [1 2;3 4]
  3  4
 ```
 
-Well the graphs seem quite "nice" if that kind of term can be used in this kind of a situation. But as with everything GIFs are better so let's make one
+The graphs seem quite "nice" if that kind of term can be used in this kind of a situation. But as with everything GIFs are better so let's make one
 
 ```julia
 anim = @animate for i in 35:size(cases_finland)[1]
@@ -222,6 +222,6 @@ What is achieved here is that if we would have a simple `Assert.assert(1 == 0)` 
 
 ## Summary
 
-Well at least I learned a few things about Julia and it's features and for me it seems to be just the right tool when I crave some MatLab plotting (for some reason I haven't really liked Octave as an alternative).  Based on this "try out" it's hard to say how Julia will fare against e.g. Python in the future but at least the basis seems quite solid with good language features. It's quite clear that Julia has it's roots and target audience in the mathematics. This makes it a good alternative for Python in data science with cross language library support and good performance. 
+Well at least I learned a few things about Julia and it's features and for me it, seems to be just the right tool when I crave some MatLab plotting (for some reason I haven't really liked Octave as an alternative).  Based on this "try out" it's hard to say how Julia will fare against e.g. Python in the future but at least the basis seems quite solid with good language features. It's quite clear that Julia has it's roots and target audience in the mathematics. This makes it a good alternative for Python in data science with cross-language library support and good performance. 
 
-I also want to give a special mention the documentation seems to be excellent as it's not just a list of functions but also explanations behind the rationals why some decisions have been made. The community behind Julia seems to be very active. Community probably will be the determining factor if there is a future for Julia. For me at least it will be something I'll try to learn a bit more and add it to my tool belt.
+I also want to give a special mention the documentation seems to be excellent as it's not just a list of functions but also explanations behind the rationals why some decisions have been made. The community behind Julia seems to be very active. The community probably will be the determining factor if there is a future for Julia. For me at least it will be something I'll try to learn a bit more and add it to my tool belt.
