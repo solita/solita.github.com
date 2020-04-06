@@ -1,9 +1,9 @@
 ---
 layout: post
-title: I'd like to write a blog... Let's try out Julia
+title: Trying out Julia programming language
 author: hnybom
 excerpt: >
-  I've no former experience on Julia going into this one but a fair amount of interest and a mission to write a blog. So if you, like me, are interested trying out Julia keep on reading. If you are already familiar with the subject you can safely skip this one.
+  This post is about the Julia programming language and my journey starting from zero knowledge to, well, some knowledge of the language. So if you, like me, are interested trying out Julia language keep on reading. If you are already familiar with the subject you can safely skip this one.
 tags:
  - Julia
 ---
@@ -12,7 +12,7 @@ tags:
 
 Few forewords. I have never tried Julia programming language before but I've read couple of headlines about it. The main motivations to me are
 
-* Julia seems to be gaining some momentum in the programming community.
+* Julia seems to be gaining some momentum in the programming and especially data science community.
 * Even as Julia is dynamically typed it has some static typing going on by enabling the coder to declare a type if he or she wants to. This is akin of Python's type annotation though it seems a little but more powerful. There is a long documentation about this at [docs.julialang.org/en/v1/manual/types/](https://docs.julialang.org/en/v1/manual/types/). One very positive thing I read there is that you can only sub type abstract types not concrete ones, as a Spring framework user this warms my mind a lot ;) !
 * The benchmarks seems to indicate it's much faster than the main competition Python. This is due the fact the language is compiled to native code using LLVM.
 * You can utilize Python packages.
