@@ -3,22 +3,22 @@ layout: post
 title: Trying out Julia programming language
 author: hnybom
 excerpt: >
-  This post is about the Julia programming language and my journey starting from zero knowledge to, well, some knowledge of the language. So if you, like me, are interested trying out Julia language keep on reading. If you are already familiar with the subject you can safely skip this one.
+  Julia is a programming language with it's roots in the mathematics. The language itself is increasingly gaining momentum and that combined with the boom were seeing in data science demand makes it a very interesting subject. This post is about my journey starting from zero knowledge to, well, some knowledge of the language. So if you, like me, are interested in trying out Julia language keep on reading. If you are already familiar with the subject you can safely skip this one.
 tags:
  - Julia
 ---
 
 ## Let's try out Julia
 
-Few forewords. I have never tried Julia programming language before but I've read couple of headlines about it. The main motivations to me are
+As forewords, I have never tried Julia programming language before but I've read couple of headlines about it and they have peaked my interest on the subject. The main motivations to get into the language for me are
 
-* Julia seems to be gaining some momentum in the programming and especially data science community.
-* Even as Julia is dynamically typed it has some static typing going on by enabling the coder to declare a type if he or she wants to. This is akin of Python's type annotation though it seems a little but more powerful. There is a long documentation about this at [docs.julialang.org/en/v1/manual/types/](https://docs.julialang.org/en/v1/manual/types/). One very positive thing I read there is that you can only sub type abstract types not concrete ones, as a Spring framework user this warms my mind a lot ;) !
+* Julia seems to be gaining some momentum in both the programming and especially data science community.
+* Even as Julia is dynamically typed it has some static typing going on by enabling the programmer to declare a type if it makes the code more easy to understand. This is akin of Python's type annotation though it seems a little but more powerful. There is a long documentation about this at [docs.julialang.org/en/v1/manual/types/](https://docs.julialang.org/en/v1/manual/types/). One very definite upside I've learned is that you can only sub type abstract types and extending a concrete type is not possible, as a Spring framework user this warms my mind a lot ;) !
 * The benchmarks seems to indicate it's much faster than the main competition Python. This is due the fact the language is compiled to native code using LLVM.
 * You can utilize Python packages.
 * I have some background with MatLab and similar plotting stuff seems to be the forte of Julia.
 
-Plotting is actually the "entry point" for this blog. I'll try to do same kind of stuff I did with MatLab with Julia. So basically this means scripting some plotting. So I won't delve into the finer points of e.g. building server side software.
+This post is mostly about plotting as it was the main motivation for me to get into Julia language. I'll try to do same kind of stuff I did with MatLab with Julia. Basically this means scripting some plotting and I won't delve into the finer points of e.g. building server side software.
 
 So if you want deep knowledge and insight into Julia as a language this is not the blog post for you, but if you just want to know how to display some data and setup your own Julia environment please do continue.
 
@@ -100,11 +100,11 @@ The map function takes a mapping function and the data to apply the function to.
 
 ![Plotted case data](/img/trying-out-julia/cases_simple.png)
 
-Great now I have some data and a basic figure plotted.
+Amazing! I have a basic figure plotted from the data.
 
 ## More advanced plotting
 
-For trying more advanced plotting I want some more data so let's add Sweden's confirmed cases. As good programmer I want to be DRY so let's create a function to return the data
+For trying more advanced plotting I want some more data so let's add Sweden's confirmed cases. As a good programmer I want to be DRY so let's create a function to return the data
 
 ```julia
 function get_country_data(country::String, status::String)
@@ -116,7 +116,7 @@ finland_confirmed = get_country_data("finland", "confirmed")
 sweden_confirmed = get_country_data("sweden", "confirmed")
 ```
 
-Couple of things to note. Here is an example on the Julia typing system with the function arguments being typed as Strings. Julia supports string interpolation with perl syntax and contrary to python functions need an explicit end statement.
+Couple of things to note. Here is an example on the Julia typing system with the function arguments being typed as Strings. Julia supports string interpolation in perl syntax and contrary to python functions needs an explicit end statement.
 
 The first thing I see is that the data returned for Sweden has a different starting point to Finland's data so I want to align them by date.
 
@@ -132,7 +132,7 @@ end
 (even_finland, even_sweden) = even_data_sets(finland_confirmed, sweden_confirmed)
 ```
 
-Filtering returns a instance of a filter and to get the actual values you need to collect them, so lazy evaluation is in use. Also as the dates are formatted year, month, day we can just use string comparision for the filtering. Okay now lets plot them together
+Filtering returns a instance of a filter and to get the actual values you need to collect them, so lazy evaluation is used. Also as the dates are formatted year, month, day we can just use string comparision for the filtering. Okay now lets plot them together
 
 ```julia
 function get_value_array_by_parameter(parameter_name, default_value)
@@ -162,7 +162,7 @@ plot([cases_finland, cases_sweden],
 
 ![Little more advanced plotting of Finland and Sweden stats](/img/trying-out-julia/cases_fin_swe_advanced.png)
 
-Some interesting pointers on the code
+Some interesting points on the code
 
 1. `:topleft` , `:circle` and `:hexagon` are symbols like in Clojure.
 2. The label array. See how there is no comma between the strings? This means the array dimensions are row based as in a first row of a matrix. You can also define a matrix by separating rows with ;-marks, this too is reminiscent of MatLab. The following output elaborates how this works.
