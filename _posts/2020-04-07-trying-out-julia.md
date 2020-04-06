@@ -28,9 +28,9 @@ Well let's google it. The page [julialang.org/](https://julialang.org/) is the h
 
 ![Julia REPL](/img/trying-out-julia/julia-repl.png)
 
-Great we have a fancy calculator which seems to be even calculating correctly! After some 20-20 hindsight I can say there is some important information already displayed in the welcome ASCII-art, mainly the ]-mark. This is the way to access Julia package manager for adding dependencies. Also with hindsight using `activate <env_name>` with the package manager allows you to create python like virtual environments to contain your packages within your project.
+Super! I now have a fancy calculator which seems to be even calculating correctly! After some 20-20 hindsight I can say there is some important information already displayed in the welcome ASCII-art, mainly the ]-mark. This is the way to access Julia package manager for adding dependencies. Also with hindsight using `activate <env_name>` with the package manager allows you to create python like virtual environments to contain your packages within your project.
 
-So good so far but I'm one of those guys who likes IDEs especially when learning new languages. The Julia homepage has a nice list of supported and familiar editors and IDEs. But why use something you already know? Let's go all in with new stuff and select Atom editor with JUNO plug-in. Ok yes part of the reason selecting Juno was that it looked cool in screenshots at [junolab.org](https://junolab.org). The installation was quite straight forward as Atom had a .deb-package and after installing that I just needed to add the uber-juno plug-in with atom's built in tools. Yes now I had all the tools in place, time to start coding.
+So far so good, but I'm one of those guys who likes IDEs especially when learning new languages. The Julia homepage has a nice list of supported and familiar editors and IDEs. But why use something you already know? Let's go all in with new stuff and select Atom editor with JUNO plug-in. Ok yes, part of the reason selecting Juno was that it looked cool in screenshots at [junolab.org](https://junolab.org). The installation was quite straightforward as Atom had a .deb-package and after installing it I just needed to add the uber-juno plug-in with atom's built in tools. Now I had all the tools in place, time to start coding.
 
 ## What to do
 
@@ -48,7 +48,7 @@ As said I have some background with MatLab and wanted to do some visualizations 
 },
 ```
 
-After some document browsing I know I need to add some packages to my Julia environment 
+After some intensive document reading I found out that I had to add some additional packages to my Julia environment 
 
 | Package    | Purpose                                           |
 | :--------- | ------------------------------------------------- |
@@ -57,7 +57,7 @@ After some document browsing I know I need to add some packages to my Julia envi
 | Plots      | Basic plotting support                            |
 | StatsPlots | Extended plotting support e.g. dataframes support |
 
-This is achieved with the package manager in REPL by first issuing the ]-mark and then just `"activate <env_name>"` and then `"add HTTP"` and so on. Quite handy, I especially like that the package manager is baked into the REPL and not a completely separate tool. Now for some basic coding
+This is achieved with the package manager in the REPL by first issuing the ]-character and then just `"activate <env_name>"` and then `"add HTTP"` and so on. This is quite handy, I especially like that the package manager is baked into the REPL instead of being a completely separate tool. Now for some basic coding
 
 ```julia
 using HTTP, JSON, Plots, StatsPlots
@@ -78,7 +78,7 @@ in top-level scope at finland_confirmed.jl:6
 in getindex at base/array.jl:787
 ```
 
-Oh right, should have seen this coming, as with MatLab in Julia indexes start from 1!!!
+Buggers! I should have seen this coming, as with MatLab in Julia indexes start from 1!!!
 
 ```julia
 println(jobj[1])
@@ -87,7 +87,7 @@ println(jobj[1])
 "Cases" => 1,"Country" => "Finland","Province" => "")
 ```
 
-So now I can easily use the map function to modify it to a format suited for me. 
+So now I can easily use the map function to modify it to a format suited for my needs. 
 
 ```julia
 cases = map(x -> get(x, "Cases", 0), jobj)
@@ -96,7 +96,7 @@ plot(cases)
 savefig("images/cases_simple.png") #Save plot as png image
 ```
 
-The map function takes a mapping function and the data to apply the function to. Here I pass a anonymous function to pick up the Cases field and the data I got from the API call. Now that the data is a nice array of values let's plot it and see what's what.
+The map function takes a mapping function and the data to apply the function to. I pass a anonymous function to pick up the Cases field and the data I got from the API call. Now that the data is a nice array of values let's plot it and see what's what.
 
 ![Plotted case data](/img/trying-out-julia/cases_simple.png)
 
