@@ -165,7 +165,7 @@ plot([cases_finland, cases_sweden],
 Some interesting pointers on the code
 
 1. `:topleft` , `:circle` and `:hexagon` are symbols like in Clojure.
-2. The label array. See how there is no comma between the strings? This means the array dimensions are row based as in a first row of a matrix. The following output might elaborate it
+2. The label array. See how there is no comma between the strings? This means the array dimensions are row based as in a first row of a matrix. You can also define a matrix by separating rows with ;-marks, this too is reminiscent of MatLab. The following output elaborates how this works.
 
 ```julia
 julia> [1 2]
@@ -222,4 +222,6 @@ What is achieved here is that if we would have a simple `Assert.assert(1 == 0)` 
 
 ## Summary
 
-Well at least I learned a few things about Julia and it's features and for me it seems to be just the right tool when I crave some MatLab plotting (for some reason I haven't really liked Octave as an alternative).  Based on this "try out" it's hard to say how Julia will fare against e.g. Python in the future but at least the basis seems quite solid with cross language library support and good performance. Also as a special mention the documentation seems to be excellent as it's not just a list of functions but also explanations behind the rationals why some decisions have been made. The community is very active as well and that probably will be the determining factor if there is a future for Julia. For me at least it will be something I'll try to learn a bit more and add it to my tool belt.
+Well at least I learned a few things about Julia and it's features and for me it seems to be just the right tool when I crave some MatLab plotting (for some reason I haven't really liked Octave as an alternative).  Based on this "try out" it's hard to say how Julia will fare against e.g. Python in the future but at least the basis seems quite solid with good language features. It's quite clear that Julia has it's roots and target audience in the mathematics. This makes it a good alternative for Python in data science with cross language library support and good performance. 
+
+I also want to give a special mention the documentation seems to be excellent as it's not just a list of functions but also explanations behind the rationals why some decisions have been made. The community behind Julia seems to be very active. Community probably will be the determining factor if there is a future for Julia. For me at least it will be something I'll try to learn a bit more and add it to my tool belt.
