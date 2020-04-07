@@ -20,6 +20,7 @@ You should be familiar how developing software is divided in different phases. T
 * Implementation
 * Test
 * Deployment
+* Retirement
 
 What SSDLC does is to put security requirements for each of the phases. This leads you to consider security in all phases of the software project. 
 
@@ -41,7 +42,7 @@ There are laws and regulations. There are company policies and customer policies
 
 To sum up: 
 * Know the laws and regulations
-* Abide your and your customers policies
+* Follow your and your customers policies
 * Check for useful standards
 * Make security requirements
 * Data classification
@@ -60,7 +61,8 @@ To sum up:
 
 Implementation is where the stuff that developers love happens. There are numerous ways to improve security or fail bad at this phase. Most important thing will be your developers security awareness. Many of the security issues are more or less stuff that nobody came to think about. Yes, I mean the OWASP Top 10 stuff like SQL injections. One thing you need to understand about developers is that they love to solve problems. So normal trick is to try to dress security requirements as a solvable problems like "make sure that all input is sanitized against sql injections" and "make sure that all output is sanitized against XSS". This is important but of course covers only one problem at a time and it will become a pretty exhaustive list to implement all over again in every project. Often times more eye-pairs for the same problem will help in finding loopholes in your security design. 
 
-As a software developer and security enthusiastic I could go on forever on this topic but more or less I will just but a list here things that you should consider:
+As a software developer and security enthusiastic I could go on forever on this topic but more or less I will just b
+put a list here things that you should consider:
 * Know or setup secure coding practices for your language and frameworks
 * Validate all the 3rd party libraries you take in
 * Fail securely
@@ -71,6 +73,8 @@ As a software developer and security enthusiastic I could go on forever on this 
 * Use XP programming
 * Have a review process
 * Find tooling that supports your work
+* Sanitize inputs
+* Sanitize outputs
 
 #### Test
 
@@ -82,6 +86,7 @@ Things that you can automatically test that help security:
 * TLS and its configurations
 * Unit tests (also integration test, end-to-end tests, smoke tests and all the similar)
 * Known vulnerability analysis for your dependencies
+* Fuzz testing
 * Static code analysis for your source code
 * Best practice analysis in some cases
 
@@ -92,13 +97,23 @@ You should not forget the manual testing. For example:
 
 #### Deployment
 
-The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perpsective this means things that you need actively do and things that you need to have processes for. 
+The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perspective this means things that you need actively do and things that you need to have processes for. 
 
 * Change management
 * Reading news (and vulnerability informations)
 * Incident and response
 * Monitoring and alerting
 
+#### Retirement
+
+This is often forgotten in all projects. At some day the time of our beloved system will come to an end. At this point the system has had a great deal or organical growth and understanding retirements implications can be hard to see. System needs to be taken down in a managed manner so that business can move to new world as it will but at the same time all the resources of the system needs to be disposed in a governed manner. Failing to due so will lead into information leak. 
+
+Things that you should consider:
+* Migration plan
+* Archiving data (there might be laws)
+* Destroying virtual or physical resources
+* Cleaning up the data stores
+* Cleaning all the DNS names and such to avoid subdomain takeovers (especially with cloud)
 
 
 #### Example implementation
