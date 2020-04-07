@@ -11,9 +11,9 @@ tags:
 
 ## What is secure software development lifecycle
 
-Have you ever found youself wondering if the system you are implementing is secure enough? I have. Quite often actually. It is not an easy question to answer unless you are prepared. This blog post is about how to prepare yourslef for that question. The short answer is Secure Software Development Lifecycle which I will call SSDLC from this point onwards. 
+Have you ever found youself wondering if the system you are implementing is secure enough? I have. Quite often actually. It is not an easy question to answer unless you are prepared. This blog post is about how to prepare yourself for that question. The short answer is Secure Software Development Lifecycle which I will call SSDLC from this point onwards. 
 
-You should be familiar how developing software is divided in different phases. There can be more or there can be less depending on the chosen software project management framework in use. They phases can exists in short iterations or in a one long waterfall or anything between. These phases could be for example:
+You should be familiar on how developing software is divided into different phases. There can be more or there can be less depending on the chosen software project management framework in use. Phases can exists in short iterations or in a one long waterfall or anything between. These phases could be for example:
 
 ![ssdlc phases](/img/ssdlc/phases.png)
 
@@ -24,6 +24,8 @@ What SSDLC does is to put security requirements for each of the phases. This lea
 It is time for mandatorial motivation! Why does this matter? Why I am reading this? Is this yet another SAFe or ITIL? 
 
 You should think SSDLC to be more like agile development. Where agile development advocates for adaptiveness and continual improvement the SSDLC should do the same. By itself it does not mean anything unless you are able to set a useful set of tools and processes that supports your business goals. The same applies for SSDLC. Main goal is to provide a set of security oriented best practices for your existing development practices. 
+
+![processes](/img/ssdlc/processes.jpg)
 
 So what happened to build the software and let security engineers test it afterwards? The same happened as with all the other testing too. It is much cheaper to catch mistakes early. Security problems in requirements and/or in design are pretty expensive to fix if you let them go to the production. You want to fix them early. To catch them early you need supporting routines to have a systematic approach in finding them. That is what SSDLC is all about. 
 
@@ -37,7 +39,7 @@ There are laws and regulations. There are company policies and customer policies
 
 To sum up: 
 * Know the laws and regulations
-* Follow your and your customers policies
+* Follow company policies for your own company and for your customers company
 * Check for useful standards
 * Make security requirements
 * Data classification
@@ -56,8 +58,7 @@ To sum up:
 
 Implementation is where the stuff that developers love happens. There are numerous ways to improve security or fail bad at this phase. Most important thing will be your developers security awareness. Many of the security issues are more or less stuff that nobody came to think about. Yes, I mean the OWASP Top 10 stuff like SQL injections. One thing you need to understand about developers is that they love to solve problems. So normal trick is to try to dress security requirements as a solvable problems like "make sure that all input is sanitized against sql injections" and "make sure that all output is sanitized against XSS". This is important but of course covers only one problem at a time and it will become a pretty exhaustive list to implement all over again in every project. Often times more eye-pairs for the same problem will help in finding loopholes in your security design. 
 
-As a software developer and security enthusiastic I could go on forever on this topic but more or less I will just b
-put a list here things that you should consider:
+As a software developer and security enthusiastic I could go on forever on this topic but more or less I will just put a list here things that you should consider:
 * Know or setup secure coding practices for your language and frameworks
 * Validate all the 3rd party libraries you take in
 * Fail securely
@@ -73,7 +74,7 @@ put a list here things that you should consider:
 
 #### Test
 
-Testing is one that works relatively same as every testing. You should just remember that now that we have security requirements we will also need to verify that we fulfill them. Some helpful things to do is to setup a good continuous integration environment that gives your development team constant feedback about how they are doing. If they are more on the DevOps or DevSecOps then they most likely will build it by themselves but some organization have different people for these tasks. I consider continuous integration as a testing as it is something that is outsourced for a system that gives you a feedback about your work. Some could also think that it is part of the implementation. 
+Security testing is one that works relatively same as every testing. You should just remember that now that we have security requirements we will also need to verify that we fulfill them. Some helpful things to do is to setup a good continuous integration environment that gives your development team constant feedback about how they are doing. If they are more on the DevOps or DevSecOps then they most likely will build it by themselves but some organization have different people for these tasks. I consider continuous integration as a testing as it is something that is outsourced for a system that gives you a feedback about your work. Some could also think that it is part of the implementation. 
 
 Things that you can automatically test that help security:
 * Performance
@@ -89,6 +90,7 @@ You should not forget the manual testing. For example:
 * Review what others have done
 * Exploratory testing
 * Penetration testing
+* Trying out disaster recovery practices
 
 #### Deployment
 
