@@ -15,12 +15,7 @@ Have you ever found youself wondering if the system you are implementing is secu
 
 You should be familiar how developing software is divided in different phases. There can be more or there can be less depending on the chosen software project management framework in use. They phases can exists in short iterations or in a one long waterfall or anything between. These phases could be for example:
 
-* Requirements
-* Design
-* Implementation
-* Test
-* Deployment
-* Retirement
+![ssdlc phases](/img/ssdlc/phases.png)
 
 What SSDLC does is to put security requirements for each of the phases. This leads you to consider security in all phases of the software project. 
 
