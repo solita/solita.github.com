@@ -31,7 +31,7 @@ So what happened to "build the software and let security engineers test it after
 
 ## How to implement secure software development lifecycle
 
-Start small and make it evolve over time. Treat the improvements in SSDLC like you would treat any other process improvements or quality assurance tasks. Make them as a visible for in your agile boards and make a supporting document that clearly tells what you are after for.
+Start small and make it evolve over time. Treat the improvements in SSDLC like you would treat any other process improvements or quality assurance tasks. Make them as visible for in your agile boards and make a supporting document that clearly tells what you are after.
 
 #### Requirements
 
@@ -39,14 +39,14 @@ There are laws and regulations. There are company policies and customer policies
 
 To sum up: 
 * Know the laws and regulations
-* Follow company policies for your own company and for your customers company
+* Follow company policies for your own company and for your customer company
 * Check for useful standards
 * Make security requirements
 * Data classification
 
 #### Design
 
-Design sets a foundation for software architecture. Security was all about CIA (confidentiality, integrity and availability). Failures in software architecture most often affects one of the letters of CIA and they are also often pretty expensive to fix. To fight this we would like to setup extra care for design. There are plenty of tools and and practices in different software project management frameworks but I would like to bring out threat modeling. There are different approaches for threat modeling but what I have found useful is to create diagrams for software architecture from different approaches: deployment pipeline, infrastructure and networking, sequence diagrams and workflows. Reviewing those diagrams from the "how would I hack this?" -perspective is really useful. You can also go so far that you will create evil user stories for the backlog. 
+Design sets a foundation for software architecture. Security is all about CIA (confidentiality, integrity and availability). Failures in software architecture most often affects one of the letters of CIA and they are also often pretty expensive to fix. To fight this we would like to setup extra care for design. There are plenty of tools and practices in different software project management frameworks but I would like to bring out threat modeling. There are different approaches for threat modeling but what I have found useful is to create diagrams for software architecture from different approaches: deployment pipeline, infrastructure and networking, sequence diagrams and workflows. Reviewing those diagrams from the "how would I hack this?" -perspective is really useful. You can also go so far that you create evil user stories for the backlog. 
 
 To sum up:
 * Create architecture diagrams and review them
@@ -56,13 +56,13 @@ To sum up:
 
 #### Implementation
 
-Implementation is where the stuff that developers love happens. There are numerous ways to improve security or fail bad at this phase. Most important thing will be your developers security awareness. Many of the security issues are more or less stuff that nobody came to think about. Yes, I mean the OWASP Top 10 stuff like SQL injections. One thing you need to understand about developers is that they love to solve problems. So normal trick is to try to dress security requirements as a solvable problems like "make sure that all input is sanitized against sql injections" and "make sure that all output is sanitized against XSS". This is important but of course covers only one problem at a time and it will become a pretty exhaustive list to implement all over again in every project. Often times more eye-pairs for the same problem will help in finding loopholes in your security design. 
+Implementation is where the stuff that developers love happens. There are numerous ways to improve security or fail bad at this phase. Most important thing will be your developers security awareness. Many of the security issues are more or less stuff that nobody came to think about. Yes, I mean the OWASP Top 10 stuff like SQL injections. One thing you need to understand about developers is that they love to solve problems. So normal trick is to try to dress security requirements as a solvable problems like "make sure that all input is sanitized against SQL injections" and "make sure that all output is sanitized against XSS". This is important but of course covers only one problem at a time and it will become a pretty exhaustive list to implement all over again in every project. Oftentimes more eyes at the same problem will help in finding loopholes in your security design. 
 
-As a software developer and security enthusiastic I could go on forever on this topic but more or less I will just put a list here things that you should consider:
+As a software developer and a security enthusiast I could go on forever on this topic but more or less I will just list here things that you should consider:
 * Know or setup secure coding practices for your language and frameworks
 * Validate all the 3rd party libraries you take in
 * Fail securely
-* Make sure that your secrets management endures the daylight
+* Manage your secrets with best practices
 * Know the http security headers or atleast know how to check them
 * Understand the cryptography you are using
 * Basically memorize the whole OWASP TOP 10 and constantly consider them as a threats
@@ -74,7 +74,7 @@ As a software developer and security enthusiastic I could go on forever on this 
 
 #### Test
 
-Security testing is one that works relatively same as every testing. You should just remember that now that we have security requirements we will also need to verify that we fulfill them. Some helpful things to do is to setup a good continuous integration environment that gives your development team constant feedback about how they are doing. If they are more on the DevOps or DevSecOps then they most likely will build it by themselves but some organization have different people for these tasks. I consider continuous integration as a testing as it is something that is outsourced for a system that gives you a feedback about your work. Some could also think that it is part of the implementation. 
+Security testing works relatively similar to any other kind of testing. You should remember that now that we have security requirements we also need to verify that we fulfill them. A helpful thing to do is to setup a good continuous integration environment that gives your development team constant feedback about how they are doing. If they are more into DevOps or DevSecOps then they most likely will build it by themselves but some organizations have different people for these tasks. I consider continuous integration as testing as it is something that is outsourced to a system that gives you feedback on your work. Some could also think that it is part of the implementation. 
 
 Things that you can automatically test that help security:
 * Performance
@@ -94,7 +94,7 @@ You should not forget the manual testing. For example:
 
 #### Deployment
 
-The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perspective this means things that you need actively do and things that you need to have processes for. 
+The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perspective this means that you need to actively do the things that you need to have processes for. 
 
 * Change management
 * Reading news (and vulnerability informations)
