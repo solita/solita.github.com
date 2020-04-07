@@ -105,9 +105,18 @@ The moment you publish your source code as a software it becomes legacy and you 
 
 People at Unity Tech have been so awesomely kind that they have published their SSDLC as an [open source](https://github.com/UnityTech/unity-ssdlc/blob/master/Overview.md). I would strongly recommend looking at it as an example of an implementation.
 
+## My experience on the matter
+
+Taking security oriented tasks on the backlog has been natural since security has been brought up in front. Communication between different parties has been easy since we have had structure and documentation for the security conversations to take place. For example not a single threat modeling session has been in vain. It might feel before like we would already know everything but there is always something we had missed. 
+
+Key factor for making secure software development lifecycle to work is to find a spokesperson within your project for the matter. It does not need to be an extra guy but just somebody who likes to be a communication hub about security matters. This person does not need to be the brighest star on the cyber sky as delegating things is always possible. It is just a good idea to have somebody who keeps on track about all security related solutions on your project and understands the greater picture.
+
 ## Useful information sources
 
+The subject is not new and it has had many names. Microsoft SDL is maybe one of the first sources but it feels like more tailored towards product development. OWASP Testing Guide consideres the software lifecycle with the same idea. NIST has had its own publishments and there is also an ISO standard to dive in. Below is a list of useful sources that I have ventured on my journey. 
+
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
+* [OWASP Testing Guide](https://owasp.org/www-pdf-archive/OTGv4.pdf)
 * [NIST Secure Software Development Framework White paper](https://csrc.nist.gov/CSRC/media/Publications/white-paper/2019/06/07/mitigating-risk-of-software-vulnerabilities-with-ssdf/draft/documents/ssdf-for-mitigating-risk-of-software-vulns-draft.pdf)
 * [Unity Tech Open Sourced SSDLC](https://github.com/UnityTech/unity-ssdlc/blob/master/Overview.md)
 * [PCI Secure Software Lifecycle](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
