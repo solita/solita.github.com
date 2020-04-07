@@ -11,23 +11,23 @@ tags:
 
 ## What is secure software development lifecycle
 
-Have you ever found youself wondering if the system you are implementing is secure enough? I have. Quite often actually. It is not an easy question to answer unless you are prepared. This blog post is about how to prepare yourself for that question. The short answer is Secure Software Development Lifecycle which I will call SSDLC from this point onwards. 
+Have you ever found yourself wondering if the system you are implementing is secure enough? I have. Quite often actually. It is not an easy question to answer unless you are prepared. This blog post is about how to prepare yourself for that question. The short answer is Secure Software Development Lifecycle which I will call SSDLC from this point onwards. 
 
-You should be familiar on how developing software is divided into different phases. There can be more or there can be less depending on the chosen software project management framework in use. Phases can exists in short iterations or in a one long waterfall or anything between. These phases could be for example:
+Software development is usually divided into different phases. There can be more or there can be fewer depending on the software project management framework in use. Phases can exists in short iterations or in a one long waterfall or anything between. These phases could be for example:
 
 ![ssdlc phases](/img/ssdlc/phases.png)
 
-What SSDLC does is to put security requirements for each of the phases. This leads you to consider security in all phases of the software project. 
+SSDLC adds security requirements in each of the phases. This makes you consider security in all phases of the software project. 
 
 ## Why does secure software development lifecycle matter
 
 It is time for mandatorial motivation! Why does this matter? Why I am reading this? Is this yet another SAFe or ITIL? 
 
-You should think SSDLC to be more like agile development. Where agile development advocates for adaptiveness and continual improvement the SSDLC should do the same. By itself it does not mean anything unless you are able to set a useful set of tools and processes that supports your business goals. The same applies for SSDLC. Main goal is to provide a set of security oriented best practices for your existing development practices. 
+You should think SSDLC to be more like agile development. Where agile development advocates for adaptiveness and continual improvement the SSDLC should do the same. By itself it does not mean anything unless you are able to implement a useful set of tools and processes that supports your business goals. The same applies for SSDLC. Main goal is to provide a set of security oriented best practices for your existing development practices. 
 
 ![processes](/img/ssdlc/processes.jpg)
 
-So what happened to build the software and let security engineers test it afterwards? The same happened as with all the other testing too. It is much cheaper to catch mistakes early. Security problems in requirements and/or in design are pretty expensive to fix if you let them go to the production. You want to fix them early. To catch them early you need supporting routines to have a systematic approach in finding them. That is what SSDLC is all about. 
+So what happened to "build the software and let security engineers test it afterwards"? The same happened as with all the other testing too. It is much cheaper to catch mistakes early. Security problems in requirements and/or in design are pretty expensive to fix if you let them go to production. You want to fix them early. To catch them early you need supporting routines to have a systematic approach in finding them. That is what SSDLC is all about. 
 
 ## How to implement secure software development lifecycle
 
@@ -103,7 +103,7 @@ The moment you publish your source code as a software it becomes legacy and you 
 
 #### Retirement
 
-This is often forgotten in all projects. At some day the time of our beloved system will come to an end. At this point the system has had a great deal or organical growth and understanding retirements implications can be hard to see. System needs to be taken down in a managed manner so that business can move to new world as it will but at the same time all the resources of the system needs to be disposed in a governed manner. Failing to due so will lead into information leak. 
+This is often forgotten in all projects. Some day the time of our beloved system will come to an end. At this point the system has had a great deal of organical growth and understanding the implications of the retirement can be hard to see. System needs to be taken down in a managed manner so that business can move to a new world, but at the same time all the resources of the system need to be disposed in a governed manner. Failing to due so will lead into an information leak. 
 
 Things that you should consider:
 * Migration plan
@@ -115,17 +115,17 @@ Things that you should consider:
 
 #### Example implementation
 
-People at Unity Tech have been so awesomely kind that they have published their SSDLC as an [open source](https://github.com/UnityTech/unity-ssdlc/blob/master/Overview.md). I would strongly recommend looking at it as an example of an implementation.
+People at Unity Tech have been so awesomely kind that they have published their SSDLC as [open source](https://github.com/UnityTech/unity-ssdlc/blob/master/Overview.md). I would strongly recommend looking at it as an example of an implementation.
 
 ## My experience on the matter
 
-Taking security oriented tasks on the backlog has been natural since security has been brought up in front. Communication between different parties has been easy since we have had structure and documentation for the security conversations to take place. For example not a single threat modeling session has been in vain. It might feel before like we would already know everything but there is always something we had missed. 
+Taking security oriented tasks on the backlog has been natural since security has been brought up in front. Communication between different parties has been easy since we have had structure and documentation for the security conversations to take place. For example not a single threat modeling session has been in vain. It might feel before that we already know everything but there is always something we have missed.
 
-Key factor for making secure software development lifecycle to work is to find a spokesperson within your project for the matter. It does not need to be an extra guy but just somebody who likes to be a communication hub about security matters. This person does not need to be the brighest star on the cyber sky as delegating things is always possible. It is just a good idea to have somebody who keeps on track about all security related solutions on your project and understands the greater picture.
+Key factor for making secure software development lifecycle to work is to find a spokesperson within your project for the matter. It does not need to be an extra guy but just somebody who likes to be a spokesperson for security matters. This person does not need know everything about information security as software development is always team work. It is just a good idea to have somebody who keeps on track about all security related solutions in your project and understands the greater picture.
 
 ## Useful information sources
 
-The subject is not new and it has had many names. Microsoft SDL is maybe one of the first sources but it feels like more tailored towards product development. OWASP Testing Guide consideres the software lifecycle with the same idea. NIST has had its own publishments and there is also an ISO standard to dive in. Below is a list of useful sources that I have ventured on my journey. 
+The subject is not new and it has had many names. Microsoft SDL is maybe one of the first sources but it feels like more tailored towards product development. OWASP Testing Guide considers the software lifecycle with the same idea. NIST has had its own publications and there is also an ISO standard to dive in. Below is a list of useful sources that I have ventured on my journey. 
 
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
 * [OWASP Testing Guide](https://owasp.org/www-pdf-archive/OTGv4.pdf)
