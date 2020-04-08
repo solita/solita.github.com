@@ -135,4 +135,4 @@ The subject is not new and it has had many names. Microsoft SDL is maybe one of 
 * [PCI Secure Software Lifecycle](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
 * [SAFe Code Fundamental practices for secure software development](https://safecode.org/wp-content/uploads/2018/03/SAFECode_Fundamental_Practices_for_Secure_Software_Development_March_2018.pdf)
 * [BSA Software security framework](https://www.bsa.org/files/reports/bsa_software_security_framework_web_final.pdf)
-* And of cours the ISO 27034 application security guideline
+* And of course the ISO 27034 application security guideline
