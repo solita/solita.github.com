@@ -94,12 +94,13 @@ You should not forget the manual testing. For example:
 
 #### Deployment
 
-The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perspective this means that you need to actively do the things that you need to have processes for. 
+The moment you publish your source code as a software it becomes legacy and you need to support it. From SSDLC perspective this means that you need to actively do the things that you need to have processes for. It also means that you have published your software open for use. You will get feedback and you need to have processes to deal with it. You can gather insights of the usage by monitoring the software but you could also make your software open for hacking with bug bounty program. Minimum requirement is that you know how to process feedback.
 
 * Change management
 * Reading news (and vulnerability informations)
 * Incident and response
 * Monitoring and alerting
+* Bug bounty
 
 #### Retirement
 
