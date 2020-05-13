@@ -2,11 +2,12 @@
 layout: post
 title: 6 Easy Steps to Boost the Creation of Technical Debt in your Organization
 author: vili
-excerpt: Life chaning tricks for creating more Technical Debt you ever thought possible
+excerpt: >
+  You might have noticed that for a while now technical debt has been on the lips of everyone. Do you believe that your organization is lacking technical debt? Are your competitors shadowing over you with their mountains of technical debt? Have you been searching for a quick fix in order to ramp up the creation of your technical debt? If the answer is yes, look no further!
 tags:
 - technical debt
-- project management
 - software development
+- project management
 - best practice
 ---
 
