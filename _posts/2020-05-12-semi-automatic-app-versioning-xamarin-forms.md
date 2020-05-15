@@ -3,7 +3,7 @@ layout: post
 title: Semi-Automatic Mobile App Versioning in Xamarin.Forms
 author: spheroid-
 date: 2020-05-15
-excerpt: Implementing a reasonable versioning scheme in a cross-platform Xamarin.Forms project with just the bare minimum of manual labor.
+excerpt: Implementing a reasonable versioning scheme in a cross-platform Xamarin.Forms project with just the bare minimum of manual labor
 tags:
 - Xamarin
 - iOS
@@ -11,17 +11,17 @@ tags:
 - Git
 ---
 
-Software versioning is a classic example of [Sayre's law](https://en.wikipedia.org/wiki/Sayre%27s_law), with strong proponents of their personal choice, whether it's the de-facto [Semantic Versioning](https://semver.org) or the up-and-coming [CalVer](https://calver.org), or something [completely different](https://blog.codinghorror.com/whats-in-a-version-number-anyway/). Personally, I think that while libraries and frameworks (and their users!) benefit most from _SemVer_, the version number of a mobile application has a bit different significance to the end user, and therefore scheme like _CalVer_ might be a very good choice.
+Software versioning is a classic example of [Sayre's law](https://en.wikipedia.org/wiki/Sayre%27s_law), with strong proponents of their personal choice, whether it's the de-facto [Semantic Versioning](https://semver.org) or the up-and-coming [CalVer](https://calver.org), or something [completely different](https://blog.codinghorror.com/whats-in-a-version-number-anyway/). I think that while libraries and frameworks (and their users!) benefit most from _SemVer_, the version number of a mobile application has a bit different significance to the end user, and therefore scheme like _CalVer_ might be a very good choice.
 
-**But how do you implement a cross-platform mobile app versioning scheme in practice with just the bare minimum of manual labor?** This blog post has been written with Xamarin.Forms in mind but you can apply the same thinking on the other platforms as well.
+**But how do you implement a cross-platform mobile app versioning scheme in practice with just the bare minimum of manual labor?** This blog post has been written with Xamarin.Forms and Visual Studio for Mac in mind but you can apply the same thinking on the other platforms as well.
 
-Both Android and iOS have two different, but quite similar, special version properties we need to care about:
+Both Android and iOS have two different – but quite similar – special version properties we need to care about:
 
 1. The user-visible version string: [CFBundleShortVersionString](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring) on iOS and [versionName](https://developer.android.com/studio/publish/versioning) on Android. On iOS it's _a string of three period-separated integers_ but Android is more liberal about it. To keep things simple, we can go with the iOS format on both platforms. This is what I'll mean with **version number** later on.
 
-2. The actual internal version that the system uses to determine whether _version A_ is greater than _version B_. This is not visible to the user so the format here does not matter much – iOS uses a similarly formatted [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) as above and on Android, it's a single integer [versionCode](https://developer.android.com/studio/publish/versioning). We can, however, use the same format on both platforms as the iOS version can be abbreviated to a single integer. We'll call this one a **build number**.
+2. The actual internal version the system uses to determine whether _version A_ is greater than _version B_. As this is not visible to the user, the format here does not matter much. iOS uses a, similarly as above, formatted [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) and on Android, it's a single integer [versionCode](https://developer.android.com/studio/publish/versioning). We can, however, use the same format on both platforms as the iOS version can be abbreviated to a single integer. We'll call this one a **build number**.
 
-These are the versions that do matter in the grand scheme of things, but a Xamarin.Forms project has even more versions (assembly versions, project versions and the solution version to name a few). What should we do with them?
+These are the versions that do matter in the grand scheme of things, but a Xamarin.Forms project has even more version properties (assembly versions, project versions and the solution version to name a few). What should we do with them?
 
 ### My Prerequisites
 
@@ -34,13 +34,13 @@ These are the versions that do matter in the grand scheme of things, but a Xamar
 
 There's a logical place where to set the canonical app version in Visual Studio – the **Solution Options**. On the **Main Settings** tab (it should be the default one when you open the settings window), you can enter the **Version** number. If you haven't modified the Android and iOS project configurations, they should inherit the version number from this value[^1].
 
-You'd think that the version number would trickle down to the actual app resources, too? Well, it doesn't. But this is easily fixed with custom MSBuild targets in the .csproj files. For some reason these are not very well documented officially, but fortunately all the Xamarin MSBuild sources are in GitHub for us to peruse.
+You'd think that the version number would trickle down to the actual app resources, too? Well, it doesn't. But this is easily fixed with custom MSBuild targets in the .csproj files. For some reason these are not very well documented officially, but fortunately all the Xamarin MSBuild [sources are in GitHub](https://github.com/xamarin/xamarin-android/tree/master/src/Xamarin.Android.Build.Tasks) for us to peruse.
 
 ### Setting Up the Android Version
 
-The Android build process has a [secret feature](https://github.com/MicrosoftDocs/xamarin-docs/issues/2774) called `AndroidManifestPlaceholders` which lets us set variables in the AndroidManifest.xml that will be substituted with the provided values. We can use this feature by injecting a custom target that is run before the build starts[^2].
+The MSBuild system for Android has (at the time of writing) a [secret property](https://github.com/MicrosoftDocs/xamarin-docs/issues/2774) called `AndroidManifestPlaceholders` which lets us set variables in the _AndroidManifest.xml_ that will be then substituted with their corresponding values. We can set this property in a custom target that is run before the build starts[^2].
 
-Conveniently the app version is already defined in the `ReleaseVersion` property of the .csproj file, so our target ends up being very simple:
+Conveniently the app version is already defined in the `ReleaseVersion` property by Visual Studio, so our target ends up being very simple:
 
 ```xml
 <Target Name="SetAppVersion" BeforeTargets="BeforeBuild">
@@ -50,11 +50,11 @@ Conveniently the app version is already defined in the `ReleaseVersion` property
 </Target>
 ```
 
-Now all we need to do is that we add the placeholder into the _AndroidManifest.xml_ – set the Version name property to `${versionName}` either in the Manifest editor or in XML.
+Now all we need to do is that we add the placeholder into _AndroidManifest.xml_: either set the Version name property to `${versionName}` in the Manifest editor or edit the XML file directly and add it to the `android:versionName` attribute of the `<manifest>` tag.
 
 ### …And the iOS Version
 
-I could not find a similar, easy injection method in the iOS build targets, but we can modify the _Info.plist_ file after the build process has compiled it. This is done in the `_CompileAppManifest` target, so we can trigger our custom target to run just after. There's just one more gotcha: the compiled _Info.plist_ file is no longer XML but an optimized binary file that we cannot `XmlPoke` – we need to use the built-in macOS `plutil(1)` tool to do that:
+I could not find a similar, easy injection method in the [iOS build targets](https://github.com/xamarin/xamarin-macios/tree/master/msbuild/Xamarin.iOS.Tasks/Tasks), but we can modify the _Info.plist_ file right after the build process has compiled it. The compilation is done in the `_CompileAppManifest` target, so we inject our custom target to run after that. There's just one more gotcha: the compiled _Info.plist_ file is no longer XML but an optimized binary file that we cannot `XmlPoke` – we need to use the built-in macOS `plutil(1)` tool to do that:
 
 ```xml
 <Target Name="SetInfoPlistAppVersion" AfterTargets="_CompileAppManifest">
@@ -64,7 +64,7 @@ I could not find a similar, easy injection method in the iOS build targets, but 
 
 ## Build Numbering
 
-For the build number then, I want to use a single digit that we can use in the app resources and that is unique to a commit in the Git repository. We could use a CI/CD environment to keep track of these build numbers, but what if we need to be able to package the distributed binaries on the local machines as well?
+For the build number then, I want to use an integer that we can use in the app resources and that is unique to a single commit in the Git repository. We could use a CI/CD environment to keep track of these build numbers, but what if we need to be able to package the distributable binaries on the local machines as well?
 
 A common technique is to determine the Git commit count and use that. It does, however, have one problem: Should you do the actual development work in the master branch and build the releases and hotfixes in separate branches, you may end up having the same build numbers for different commits. This would not be a problem if the development was done in feature branches and every release would be merged into master, but that's just not how I roll.
 
@@ -124,7 +124,7 @@ Finally, it's time to output the build number into the _AndroidManifest.xml_ and
 <AndroidManifestPlaceholders>versionCode=$(BuildNumber);versionName=$(ReleaseVersion)</AndroidManifestPlaceholders>
 ```
 
-And add a new `Exec` task to the `SetInfoPlistAppVersion` in the iOS .csproj file:
+And append a new `Exec` task to the `SetInfoPlistAppVersion` in the iOS .csproj file:
 
 ```xml
 <Exec Command="plutil -replace CFBundleVersion -string '$(BuildNumber)' '$(_AppBundlePath)Info.plist'" />
@@ -148,4 +148,4 @@ That's it! If you have any comments or thoughts about this, feel free to comment
 
 [^1]: Well, technically it does not inherit the value per se, but Visual Studio will update all the .csproj files automatically when the version is updated in the Solution Options. Therefore it is important to commit every change it makes in the project files, too! Also, I found out that the initial .csproj files do not have a ReleaseVersion defined – when you adjust the Solution version for the first time it will add the missing project values.
 
-[^2]: I found out that you cannot inject your targets to run before the `Build` target. There's a special `BeforeBuild` target you can define that is run, like the name implies, before the build and turns out you can inject your targets to run before that. Weird!
+[^2]: I found out that you cannot inject your targets to run before the `Build` target. There's a special `BeforeBuild` target you can define that is run, like the name implies, before the build and turns out you can inject your targets to run even before that. Weird!
