@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Semi-Automatic App Versioning in Xamarin.Forms
+title: Semi-Automatic Mobile App Versioning in Xamarin.Forms
 author: spheroid-
 date: 2020-05-15
-excerpt: Implementing a reasonable versioning scheme in a cross-platform Xamarin.Forms project
+excerpt: Implementing a reasonable versioning scheme in a cross-platform Xamarin.Forms project with just the bare minimum of manual labor.
 tags:
 - Xamarin
 - iOS
@@ -11,9 +11,11 @@ tags:
 - Git
 ---
 
-After you've set up a fresh Xamarin.Forms project (_or a Solution_, as they say), you quickly learn that there's not just one place to adjust the app version, but many, and in some places they even ask for multiple _different_ versions. So how to tame the version number jungle in a sane way? I'll show you how I've done it, but first, some basics:
+Software versioning is a classic example of [Sayre's law](https://en.wikipedia.org/wiki/Sayre%27s_law), with strong proponents of their personal choice, whether it's the de-facto [Semantic Versioning](https://semver.org) or the up-and-coming [CalVer](https://calver.org), or something [completely different](https://blog.codinghorror.com/whats-in-a-version-number-anyway/). Personally, I think that while libraries and frameworks (and their users!) benefit most from _SemVer_, the version number of a mobile application has a bit different significance to the end user, and therefore scheme like _CalVer_ might be a very good choice.
 
-Both Android & iOS apps have two different version numbers we need to care about:
+**But how do you implement a cross-platform mobile app versioning scheme in practice with just the bare minimum of manual labor?** This blog post has been written with Xamarin.Forms in mind but you can apply the same thinking on the other platforms as well.
+
+Both Android and iOS have two different, but quite similar, special version properties we need to care about:
 
 1. The user-visible version string: [CFBundleShortVersionString](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring) on iOS and [versionName](https://developer.android.com/studio/publish/versioning) on Android. On iOS it's _a string of three period-separated integers_ but Android is more liberal about it. To keep things simple, we can go with the iOS format on both platforms. This is what I'll mean with **version number** later on.
 
@@ -130,7 +132,7 @@ And add a new `Exec` task to the `SetInfoPlistAppVersion` in the iOS .csproj fil
 
 ## Putting It All Together
 
-You can find the example project in [my GitHub](https://github.com/spheroid-/xamarin-forms-version-sample). Clone it, open the solution, and rebuild the project. Change the version number, play around with the branches and commits, and rebuild again. You can verify that the changes have been applied by looking into the build directories:
+You can find an [example project in my GitHub](https://github.com/spheroid-/xamarin-forms-version-sample). Clone it, open the solution, and rebuild the project. Change the version number, play around with the branches and commits, and rebuild again. You can verify that the changes have been applied by looking into the build directories:
 
 ```console
 $ grep versionName VersionSample.Android/obj/Debug/android/AndroidManifest.xml
