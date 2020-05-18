@@ -17,6 +17,7 @@ Are your competitors shadowing over you with their mountains of technical debt?
 Have you been searching for a quick fix to ramp up your technical debt creation?
 
 ![tech-debt](/img/tech-debt/bridge.jpg)
+<sub><sup>Illustration by Maria Niemi</sup></sub>
 
 If the answer is yes, look no further!
 Here are 6 easy tricks to help you to generate magnitudes of technical debt faster and easier than you ever believed to be possible!
@@ -94,6 +95,7 @@ Naturally more the merrier is the rule of thumb here.
 It is pretty much a grounded fact there cannot be too many tickets on a single sprint.
 
 ![hurry](/img/tech-debt/hurry.jpg)
+<sub><sup>Illustration by Maria Niemi</sup></sub>
 
 Remember: If all the tickets on sprint were completed before the midnight preceding the sprint review/demos,
 the project manager has failed as a supervisor.
