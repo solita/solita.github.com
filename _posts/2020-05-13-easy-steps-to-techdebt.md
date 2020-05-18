@@ -29,14 +29,14 @@ Yet some organizations still have not embraced this method.
 Start by establishing a sense of urgency.
 Fueled by this urgency proceed to convince your team that there is no time to write tests "Right Now".
 The key to success for this selling point is to paint a picture of a less urgent tomorrow,
-where the tests can be added to the code base.
+where the tests can be added to the codebase.
 
 Not only will this create a metric ton of technical debt,
-as a bonus you may be able create an illusion of hitting the market faster with your product.
+as a bonus you may be able to create an illusion of hitting the market faster with your product.
 
 ## Step 2) Forget Planning
 
-The second step is to forget about planning for rest of your life,
+The second step is to forget about planning for the rest of your life,
 because that is 100% what Agile is all about.
 Forgetting. Planning.
 Planning is expensive,
@@ -44,13 +44,13 @@ and organization's resources should not be wasted on something that can easily b
 
 Since Agile allows us to skip planning,
 we need to embrace it fanatically.
-Agile is all about creating new features for customers with out planning ahead.
+Agile is all about creating new features for customers without planning ahead.
 The key is to have as many features possible in production with as little planning as possible.
 Agile is purely a numbers game.
 More is more,
 thus there is no reason to rework on something that has been deployed already.
 
-The take away to is to remember that back in the Waterfall days technical debt did not exist yet,
+The takeaway is to remember that back in the Waterfall days technical debt did not exist yet,
 so we want to avoid falling back to that time with all cost.
 
 Take agile seriously.
@@ -141,12 +141,12 @@ The developers with interest towards so-called Dev(Sec)Ops culture are especiall
 They often act as advocates towards spending resources in tooling instead of valuable customer features.
 
 Tooling can easily seen as a way for developers to reduce their workloads,
-so it is often safe to argument and push for them to work on such things only on their personal time.
-After all, why should company sponsor something that makes employees work less?
+so it is often safe to argue and push for them to work on such things only on their personal time.
+After all, why should the company sponsor something that makes employees work less?
 
 ## Conclusion
 
-All of the pre mentioned steps support and empower each other,
+All of the pre-mentioned steps support and empower each other,
 so you should act quickly in case you have not yet implemented some of them.
 You will surely notice that implementing these methods will rapidly increase your technical debt.
 No longer will you be envious to mountains of technical debt possessed by your rivals.
