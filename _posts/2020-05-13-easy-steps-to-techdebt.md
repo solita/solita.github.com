@@ -149,12 +149,12 @@ After all, why should the company sponsor something that makes employees work le
 All of the pre-mentioned steps support and empower each other,
 so you should act quickly in case you have not yet implemented some of them.
 You will surely notice that implementing these methods will rapidly increase your technical debt.
-No longer will you be envious to mountains of technical debt possessed by your rivals.
+No longer will you be envious of mountains of technical debt possessed by your rivals.
 
 As a word of warning though,
 it might be smart to somehow control the debt.
 Some critics have mentioned that having too much technical debt might bankrupt the whole operation.
 Thus it is advisable to allow some light shedding of technical debt.
-This way you can boast with a truly crippling quantities of technical debt without fully bankrupting the organization.
+This way you can boast with truly crippling quantities of technical debt without fully bankrupting the organization.
 
 Remember, a bankrupt company cannot have technical debt at all.
