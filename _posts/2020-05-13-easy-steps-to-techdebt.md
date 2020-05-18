@@ -3,7 +3,7 @@ layout: post
 title: 6 Easy Steps to Boost the Creation of Technical Debt in your Organization
 author: vili
 excerpt: >
-  You might have noticed that for a while now technical debt has been on the lips of everyone. Do you believe that your organization is lacking technical debt? Are your competitors shadowing over you with their mountains of technical debt? Have you been searching for a quick fix in order to ramp up the creation of your technical debt? If the answer is yes, look no further!
+  You might have noticed that for a while now technical debt has been on the lips of everyone. Do you believe that your organization is lacking technical debt? Are your competitors shadowing over you with their mountains of technical debt? Have you been searching for a quick fix to ramp up your technical debt creation? If the answer is yes, look no further!
 tags:
 - technical debt
 - software development
@@ -14,7 +14,9 @@ tags:
 You might have noticed that for a while now technical debt has been on the lips of everyone.
 Do you believe that your organization is lacking technical debt?
 Are your competitors shadowing over you with their mountains of technical debt?
-Have you been searching for a quick fix in order to ramp up the creation of your technical debt?
+Have you been searching for a quick fix to ramp up your technical debt creation?
+
+![tech-debt](/img/tech-debt/bridge.jpg)
 
 If the answer is yes, look no further!
 Here are 6 easy tricks to help you to generate magnitudes of technical debt faster and easier than you ever believed to be possible!
@@ -38,7 +40,7 @@ The second step is to forget about planning for rest of your life,
 because that is 100% what Agile is all about.
 Forgetting. Planning.
 Planning is expensive,
-and organization's resources should not be wasted on something that can easily be skipped with the newest methologies.
+and organization's resources should not be wasted on something that can easily be skipped with the newest methodologies.
 
 Since Agile allows us to skip planning,
 we need to embrace it fanatically.
@@ -65,12 +67,12 @@ so slowly but steadily it increases by itself.
 Because of this we need to give it time and space to accumulate.
 One of the most dangerous things you can expose your technical debt is... Well, being exposed.
 
-We want to protect our technical debt from unnecessay attention.
+We want to protect our technical debt from unnecessary attention.
 Since we worked so hard to cultivate it,
 it would be a shame if it would be exposed before growing big as a mountain.
 
 The strongest way to protect our technical debt is by introducing a strict "Shoot the Messenger" culture to your organization.
-If it is repeatedly made clear by example that sheading light to existing issues is _really bad_ for individual's career,
+If it is repeatedly made clear by example that shedding light to existing issues is _really bad_ for individual's career,
 it is safe to assume that future whistle blowers think twice before speaking their mind.
 This is a great method for establishing dominance over your team,
 as well as keeping snitches at bay.
@@ -78,11 +80,11 @@ as well as keeping snitches at bay.
 ## Step 4) Permanent Hurry a.k.a. Eternal Death March
 
 Since we already created the sense of urgency,
-we are now able to ride that wave all the way to the neverending grind.
+we are now able to ride that wave all the way to the never-ending grind.
 
 The key for this to have minimum of 5 extra tickets added to each sprint,
 to ensure that the developers will have enough work at all times.
-It is a well known fact,
+It is a well-known fact,
 that when all the tickets on the sprint are completed,
 developers will cease working completely.
 In order to avoid this standstill,
@@ -90,10 +92,12 @@ we will always have to make sure that there is an absolute minimum of at least 5
 Naturally more the merrier is the rule of thump here.
 It is pretty much a grounded fact there cannot be too many tickets on a single sprint.
 
+![hurry](/img/tech-debt/hurry.jpg)
+
 Remember: If all the tickets on sprint were completed before the midnight preceeding the sprint review/demos,
 the project manager has failed as a supervisor.
 If the tickets are NOT completed by the same deadline,
-the developers have been slacking and should face serious concequences for doing so.
+the developers have been slacking and should face serious consequences for doing so.
 
 By pushing the developers to their mental and physiological capacity,
 we will ensure that all the corners that can be cut will be cut.
@@ -106,7 +110,7 @@ This will lay the ground work for all of the technical debt that you wish to acc
 
 No refactoring without tickets. Period.
 
-Under no circumstances should it be allowed for developers to do any sort of ad hoc refactorings.
+Under no circumstances should it be allowed for developers to do any sort of ad hoc refactoring.
 If you hear your team using slurs like "See it, fix it",
 you might be already in dealing with this undesired behavior.
 
@@ -128,12 +132,12 @@ They call this non-sense "Tooling".
 
 This so called tooling comes in many forms and shapes.
 Starting from code formating tools all the way to expensive dedicated build servers, pipelines, and other massive money drains.
-What all of these instruments have in common is their purpose.
+What these instruments have in common is their purpose.
 To standardize and ease the daily developer work and code deployments.
 
 Tooling is said to reduce technical debt in many ways.
 Standardizing development environments, shortening cycle times, enforcing coding practices and improving test coverage to mention few.
-The developers with interest towards so called Dev(Sec)Ops culture are especially dangerous to your technical debt with their vicious plans.
+The developers with interest towards so-called Dev(Sec)Ops culture are especially dangerous to your technical debt with their vicious plans.
 They often act as advocates towards spending resources in tooling instead of valuable customer features.
 
 Tooling can easily seen as a way for developers to reduce their workloads,
@@ -142,15 +146,15 @@ After all, why should company sponsor something that makes employees work less?
 
 ## Conclusion
 
-All of the prementioned steps support and empover each other,
-so you should act quickly in case you have not yet impletemented some of them.
-You will surely notice that implementing these methods will radiply increase your technical debt.
+All of the pre mentioned steps support and empower each other,
+so you should act quickly in case you have not yet implemented some of them.
+You will surely notice that implementing these methods will rapidly increase your technical debt.
 No longer will you be envious to mountains of technical debt possessed by your rivals.
 
 As a word of warning though,
 it might be smart to somehow control the debt.
 Some critics have mentioned that having too much technical debt might bankrupt the whole operation.
-Thus it is advisable to allow some light sheding of technical debt.
-This way you can boast with a truely crippling quantities of technical debt without fully bankrupting the organization.
+Thus it is advisable to allow some light shedding of technical debt.
+This way you can boast with a truly crippling quantities of technical debt without fully bankrupting the organization.
 
 Remember, a bankrupt company cannot have technical debt at all.
