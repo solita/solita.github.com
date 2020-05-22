@@ -42,7 +42,7 @@ This differs a lot depending on what development environment is used so please r
 
 One way is to:
 
-```shell script
+```bash
 # Start Shadowcljs compilation
 npm run watch 
 # Connect node to compilation unit
