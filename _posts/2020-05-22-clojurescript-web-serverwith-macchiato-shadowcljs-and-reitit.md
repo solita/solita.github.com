@@ -12,27 +12,35 @@ tags:
 - Web servers
 ---
 [ClojureScript](https://clojurescript.org) is a variant of [Clojure](https://clojure.org) which compiles to JavaScript. 
-This makes ClojureScript usable in devices which can run JavaScript such as browsers and backend services with using (Node.js)[https://nodejs.org]. 
+This makes ClojureScript usable in devices that can run JavaScript such as browsers and backend services using (Node.js)[https://nodejs.org]. 
 
 Traditionally ClojureScript has been mostly used in browsers and backends have been made with Clojure or with other technologies. 
-Pure ClojureScript backend usage has been more rare. Movement towards serverless technologies have although changed the industry.
-AWS Lambda and container tecnologies prefer fast starting and short living applications. Node.js is compared to JVM much faster
+Pure ClojureScript backend usage has been rarer. The movement towards serverless technologies have although changed the industry.
+AWS Lambda and container technologies prefer fast starting and short-living applications. Node.js is compared to JVM much faster
 in the startup and therefore this applies also to ClojureScript vs Clojure comparison. This means that in certain cases
 ClojureScript may be a better alternative for backend programming.
 
-One way to create backends in ClojureScript would be to use Express.js or other JavaScript frameworks and program only 
-handlers with ClojureScript.There exists fortunately alternative to that which also allows us to use existing Clojure web development tools 
-which many times have support also for ClojureScript. Especially this means that we could use existing [Ring](https://github.com/ring-clojure/ring/wiki/Concepts) middlewares 
-and routers
+One problem for this is that there exists few tutorials for ClojureScript web development. Googling "ClojureScript web development" returns at least 
+for me only results that show how to create webservers with Clojure. This leads to wonder is it really possible and how? Fortunately,
+yes it is.    
 
-Adapting Ring routers and middleware to Node.js web server is not complicated but fortunately [Macchiato project](https://macchiato-framework.github.io/) 
-is a ready framework which adapts Node.js internal web server to Ring framework. 
+# Server options
+
+First option would be to use existing JavaScript frameworks like Express.js and made route handlers with ClojureScript. 
+This is a valid alternative but personally I think that pure ClojureScript alternative would be better.
+  
+After a bit googling I found [Macchiato project](https://macchiato-framework.github.io/) which is a ready framework that 
+adapts Node.js internal web server to Ring framework. This means that we could use existing [Ring](https://github.com/ring-clojure/ring/wiki/Concepts) middlewares 
+and routers. Also existing knowledge of Clojure web development can be utilized.
 
 I also want to use Metosin [Reitit](https://github.com/metosin/reitit) which is an excellent router library.  Reitit also 
 supports Swagger generation and Clojure Spec based request and response coercion.  Personally I prefer to  
 use [Shadow CLJS](https://shadow-cljs.github.io/docs/UsersGuide.html) as a build tool for ClojureScript instead of [Leiningen](https://leiningen.org/). 
 
-Using Macchiato, Reitit and Shadow CLJS needs certain tweaks compared to normal Clojure Ring project which I will next introduce.
+Using Macchiato, Reitit and Shadow CLJS needs certain tweaks compared to normal Clojure Ring project which I will next introduce. 
+
+I have made a GIT repository (https://github.com/hjhamala/macchiato-example-solita-dev-blog)[https://github.com/hjhamala/macchiato-example-solita-dev-blog] 
+containing branches for different parts of the post.   
 
 As a prerequirement I will assume that Node.js and NPM is installed.
 
@@ -53,14 +61,11 @@ node target/main.js
 # Start coding :)
 ```
 
-# Getting example parts from GitHub repository
+# Installing Shadow CLJS
 
-I have made a GIT repository (https://github.com/hjhamala/macchiato-example-solita-dev-blog)[https://github.com/hjhamala/macchiato-example-solita-dev-blog] 
-containing branches for different parts of the project. If you don´t want to copy the texts then 
-you can simply clone the repository and switch to the branches. 
-
-# Installing shadow-cljs
-_Branch: 01_minimal_project_
+```shell
+git branch 01_minimal_project
+```
 
 Shadow-cljs is installed via NPM. 
 First create `package.json` file with next contents.
@@ -124,7 +129,9 @@ This should print out something like
 and then exit.
 
 # Making minimal Macchiato server
-_Branch:  02_add_minimal_macchiato_
+```shell
+git branch 02_add_minimal_macchiato
+```
 
 First we need to install Macchiato as dependency by adding the next dependency to `shadow-cljs.edn`:
 
@@ -175,7 +182,9 @@ We can test the server by invoking `curl localhost:3000` which should return
 `hello macchiato`
 
 # Adding Reitit
-_Branch:  03-reitit-added_
+```shell
+git branch 03-reitit-added
+```
 
 First we need to add Metosin Reitit and Spec-Tools to Shadowcljs dependencies. These dont have any NPM dependencies
 so there is no need to update `package.json` as well.
@@ -277,16 +286,16 @@ Then replace `core.cljs` with the next content.
 
 First two middlewares are needed for parameter wrapping. `params/wrap-params` does query params parsing and reads possible
 body of a HTTP request. `rf/wrap-restful-format` does encoding/decoding depending on Content-Type of the request. `wrap-body-to-params`
-is a new middleware which I made because Reitit expects body params to be in `body-params` named map in the Ring request.
+is a new middleware that I made because Reitit expects body params to be in `body-params` named map in the Ring request.
 
 `wrap-coercion-exception` is a middleware which catches request and response coercion errors and returns 400 or 500 level 
-error messages. In real development at least 400 error should include also some information why the request are rejected. 
-Reitit error object contains data which could be transformed to more human friendly way pretty easily.
+error messages. In real development at least 400 error should include also some information why the requests are rejected. 
+Reitit error object contains data that could be transformed to a more human friendly way pretty easily.
 
 ## Asynchronous handlers
 
-Compared to regular Clojure Ring handlers Macchiato uses asynchronous variant of a handler which have three parameters
-instead of regular one. The additional parameters are respond and raise callbacks. For Node.js we only need to use
+Compared to regular Clojure Ring handlers Macchiato uses an asynchronous variant of a handler which has three parameters
+instead of the regular one parameter. The additional parameters are respond and raise callbacks. For Node.js we only need to use
 respond.
 
 ## Testing the server
@@ -308,7 +317,11 @@ curl localhost:3000/bad-response-bug?name=heikki
 ```
 
 # Conclusion
-I hope that this post shows necessary ways to use Reitit with Macchiato. Personally I think that using Reitit and Macchiato 
-is also a very good way to develop AWS ApiGateway backed Lambdas locally. Development is of course possible by using local 
-ApiGateway but this leads to a situation where we cant use the REPL. I will introduce one way to mix Macchiato and Reitit 
-with Lambdas in the future post so stay tuned on Solita Dev Blog!
+I hope that this post shows the necessary ways to use Reitit with Macchiato. 
+
+But is it worth of it? Personally, I think that Macchiato could be used for Lambda development. ClojureScript development
+gets its power from developing with the REPL. AWS ApiGateway could not be run in local so the REPL could be connected to
+running Lambdas. 
+
+Instead of local ApiGateway, we could run Macchiato locally as an alternative to ApiGateway. I will introduce one way to 
+to do this in the future post so stay tuned on Solita Dev Blog!
