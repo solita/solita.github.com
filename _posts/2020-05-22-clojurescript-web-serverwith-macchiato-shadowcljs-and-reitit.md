@@ -15,14 +15,16 @@ tags:
 This makes ClojureScript usable in devices that can run JavaScript such as browsers and backend services using (Node.js)[https://nodejs.org]. 
 
 Traditionally ClojureScript has been mostly used in browsers and backends have been made with Clojure or with other technologies. 
-Pure ClojureScript backend usage has been rarer. The movement towards serverless technologies have although changed the industry.
-AWS Lambda and container technologies prefer fast starting and short-living applications. Node.js is compared to JVM much faster
+While pure ClojureScript backend usage has been rarer the recent movement towards serverless technologies has changed the industry.
+AWS Lambda and container technologies prefer fast starting and short-living applications. Compared to JVM, Node.js is much faster
 in the startup and therefore this applies also to ClojureScript vs Clojure comparison. This means that in certain cases
 ClojureScript may be a better alternative for backend programming.
 
 One problem for this is that there exists few tutorials for ClojureScript web development. Googling "ClojureScript web development" returns at least 
 for me only results that show how to create webservers with Clojure. This leads to wonder is it really possible and how? Fortunately,
-yes it is.    
+yes it is.
+
+This post is intended for everyone who would like to give ClojureScript a chance in web development.    
 
 # Server options
 
@@ -37,16 +39,16 @@ I also want to use Metosin [Reitit](https://github.com/metosin/reitit) which is 
 supports Swagger generation and Clojure Spec based request and response coercion.  Personally I prefer to  
 use [Shadow CLJS](https://shadow-cljs.github.io/docs/UsersGuide.html) as a build tool for ClojureScript instead of [Leiningen](https://leiningen.org/). 
 
-Using Macchiato, Reitit and Shadow CLJS needs certain tweaks compared to normal Clojure Ring project which I will next introduce. 
+Using Macchiato, Reitit and Shadow CLJS together needs certain tweaks compared to normal Clojure Ring project, which I will next introduce.  
 
 I have made a GIT repository (https://github.com/hjhamala/macchiato-example-solita-dev-blog)[https://github.com/hjhamala/macchiato-example-solita-dev-blog] 
 containing branches for different parts of the post.   
 
-As a prerequirement I will assume that Node.js and NPM is installed.
+As a prerequirement I will assume that Node.js and NPM are installed.
 
 # REPL driven development
-This differs a lot depending on what development environment is used so please read Shadow CLJS
-[documentation](https://shadow-cljs.github.io/docs/UsersGuide.html#_repl_2.)  for different scenarios. 
+This differs a lot depending on what development environment is used, so please read Shadow CLJS
+[documentation](https://shadow-cljs.github.io/docs/UsersGuide.html#_repl_2.) for different scenarios. 
 
 One way is to:
 
@@ -91,7 +93,7 @@ First create `package.json` file with next contents.
 }
 ````
 
-After this run command `npm install` in the same directory.
+After that, run command `npm install` in the same directory.
 
 Shadow CLJS compilation is configured in `shadow-cljs.edn` so create a new file with the next content: 
 ```clojure
@@ -320,8 +322,8 @@ curl localhost:3000/bad-response-bug?name=heikki
 I hope that this post shows the necessary ways to use Reitit with Macchiato. 
 
 But is it worth of it? Personally, I think that Macchiato could be used for Lambda development. ClojureScript development
-gets its power from developing with the REPL. AWS ApiGateway could not be run in local so the REPL could be connected to
-running Lambdas. 
+gets its power from developing with the REPL. There is no easy way to connect the REPL to either a cloud based Lambda or 
+local ApiGateway. 
 
-Instead of local ApiGateway, we could run Macchiato locally as an alternative to ApiGateway. I will introduce one way to 
+Instead of this, we could run Macchiato locally as an alternative to ApiGateway. I will introduce one way 
 to do this in the future post so stay tuned on Solita Dev Blog!
