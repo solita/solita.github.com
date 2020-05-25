@@ -2,7 +2,7 @@
 layout: post
 title: ClojureScript web server with Macchiato, Shadow CLJS and Reitit  
 author: hjhamala
-excerpt: ClojureScript is a valid alternative for backend development besides browser development. In this post I will explain how a simple server is created using Shadow CLJS as a compilation tool, Macchiato as the server software and Reitit as a Ring router. 
+excerpt: ClojureScript is a valid alternative for backend development besides browser development. In this post I will explain how to create a simple server using Shadow CLJS as a compilation tool, Macchiato as the server software and Reitit as a Ring router. 
 tags:
 - ClojureScript
 - Node.Js
@@ -15,12 +15,12 @@ tags:
 This makes ClojureScript usable in devices that can run JavaScript such as browsers and backend services using (Node.js)[https://nodejs.org]. 
 
 Traditionally ClojureScript has been mostly used in browsers and backends have been made with Clojure or with other technologies. 
-While pure ClojureScript backend usage has been rarer the recent movement towards serverless technologies has changed the industry.
-AWS Lambda and container technologies prefer fast starting and short-living applications. Compared to JVM, Node.js is much faster
-in the startup and therefore this applies also to ClojureScript vs Clojure comparison. This means that in certain cases
-ClojureScript may be a better alternative for backend programming.
+While pure ClojureScript backend usage remains rare, the recent movement towards serverless technologies has changed the industry.
+The serverless technologies typically scale instances up and down regularly and because of that the startup time of the language is
+important.  Compared to JVM, Node.js is much faster in the startup and therefore this applies also to the ClojureScript vs Clojure comparison. 
+That means that in certain cases, ClojureScript might be a better alternative for backend programming than Clojure
 
-One problem for this is that there exists few tutorials for ClojureScript web development. Googling "ClojureScript web development" returns at least 
+The problem is that there exists few tutorials for ClojureScript web development. Googling "ClojureScript web development" returns at least 
 for me only results that show how to create webservers with Clojure. This leads to wonder is it really possible and how? Fortunately,
 yes it is.
 
@@ -93,7 +93,7 @@ First create `package.json` file with next contents.
 }
 ````
 
-After that, run command `npm install` in the same directory.
+After this, run command `npm install` in the same directory.
 
 Shadow CLJS compilation is configured in `shadow-cljs.edn` so create a new file with the next content: 
 ```clojure
@@ -175,7 +175,7 @@ npm add ws concat-stream content-type cookies etag lru multiparty random-bytes q
 npm add source-map-support --save-dev
 ```
 
-After that running the server should print to console:
+After this, running the server should print to console:
 
 `INFO [macchiato-test.core:19] - macchiato-test started on 127.0.0.1 : 3000.`
 
@@ -304,7 +304,7 @@ respond.
 
 Start the server and run the next commands:
 
-`curl localhost:3000/swagger.json` returns the swagger file.
+`curl localhost:3000/swagger.json` returns the Swagger file.
 
 ```bash
 # Missing parameter gives error
@@ -322,8 +322,8 @@ curl localhost:3000/bad-response-bug?name=heikki
 I hope that this post shows the necessary ways to use Reitit with Macchiato. 
 
 But is it worth of it? Personally, I think that Macchiato could be used for Lambda development. ClojureScript development
-gets its power from developing with the REPL. There is no easy way to connect the REPL to either a cloud based Lambda or 
-local ApiGateway. 
+gets its power from developing with the REPL. There is no easy way to connect the REPL to either a cloud-based Lambda or 
+local AWS API Gateway. 
 
 Instead of this, we could run Macchiato locally as an alternative to ApiGateway. I will introduce one way 
-to do this in the future post so stay tuned on Solita Dev Blog!
+to do this in a future post so stay tuned on Solita Dev Blog!
