@@ -12,7 +12,9 @@ tags:
  - Competitiveness
 ---
 
-How much does an algorithm cost? What's the work estimate for function that calculates value-added tax for a price? How many euros does it cost to produce? Does not sound too complicated, right? Any monkey could write that function within within one hour of good concentrate work, right?
+How much does an algorithm cost? What's the work estimate for function that calculates value-added tax for a price? How many euros does it cost to produce? Does not sound too complicated, right? Any monkey could write that function within within one hour of good concentrated work, right?
+
+![Things always start simple](/img/cheap-software/simple.jpg)
 
 Wrong.
 
@@ -21,6 +23,8 @@ This article is not about getting a good bargain for a software product. This is
 ## Total cost of bugs
 
 Let's start with bugs. The origin of the word comes from actual insects, getting stuck inside complex machinery. Nowadays, instead of insects, we have programming mistakes or oversights. They tend to hide within imprecisely communicated requirements. They feed on added complexity, and they reproduce within human's imperfect mind. Human brain works on varying levels of efficiency, depending for example on caffeine levels in blood, ability to concentrate on a task, and of course on what is the general motivation at the moment.
+
+![Spot the bug?](/img/cheap-software/complicated.jpg)
 
 In other words: Sure, you can write an iteration of the code in 15 minutes. But it might have a bug or two, a blind spot where it fails to work. VAT is pretty simple algorithm - perhaps you copied it from the vastness of the Stackoverflow, congratulated yourself, and moved on. And now that off-by-one error or bad rounding rule due to using double type for money caused a massive mistake in one time payment, or huge accumulation of small errors over months and years.
 
@@ -55,7 +59,7 @@ But what just happened to work estimates that we started this article with?
 
 So, what's the realistic estimate now for that component? And which one would you rather buy? There is probably good middle-ground to be found, depending on what problem the software is trying to solve. But no matter what is the need, I would not myself be tempted to try luck-driven development.
 
-And don't even get me started with what does way too low hourly rate for work indicate... :)
+So in the end it is about balancing money, time, and features. But also how well you want those features to be done.
 
 ## Lifecycle of a software solution
 
@@ -69,7 +73,11 @@ So understand your lifecycle, are you creating a product, are you creating a lon
 
 Yes you can. Now that you reached this point, I will reveal a secret. Cheap is not a problem. Making shortcuts is a problem. You can find cheap by applying agile, and remembering that we're still doing about 80% of unnecessary ambitious features only 20% of people need, if even that. Scrum and Kanban as well as Lean are good ways to concentrate on the essential, perhaps do less features but do them properly. I'm always inspired by how much money Google has made using just one input box on an html form - but doing it in ingeniously engineered way. 
 
+![Features as defined. Jar represents money and time.](/img/cheap-software/overflowing.jpg)
+
 So drop that unneeded unwanted extra stuff that someone was daydreaming but is not really essential for success. Think about this like gardening: Good garden is not crowded by all vegetables and flowers one can imagine. Good garden is well though, has just what you want and need, and everything there deserves and gets your full attention. Well, you got me there, I have to admit that I just brought a greenhouse, so I'm full on into gardening right now.
+
+![Yeah, my new greenhouse](/img/cheap-software/greenhouse.jpg)
 
 So I would rather keep on doing excellent input boxes that really drive the business and are well and professionally made, than that fast-coded cowboy style php webshop that pretty much causes disaster after another. Actually, during my career, I've been brought more than once to salvage the steaming remains of unprofessionally coded steaming pile of cow manure. You can imagine how much it costs to have to do that in a hurry.
 
@@ -82,13 +90,19 @@ Well, perhaps that's a great topic for another blog in the future... :)
 
 ## Some links for your entertainment:
 
-https://en.wikipedia.org/wiki/Year_2000_problem
 
-https://en.wikipedia.org/wiki/Mariner_1
+- [Year2k cost](https://en.wikipedia.org/wiki/Year_2000_problem) 
+- [Year 2k38](https://en.wikipedia.org/wiki/Year_2038_problem) 
+- [Mariner 1](https://en.wikipedia.org/wiki/Mariner_1) 
+- [Splunk Datetime](https://docs.splunk.com/Documentation/Splunk/8.0.3/ReleaseNotes/FixDatetimexml2020) 
+- [Excellent blog on tech debt](https://dev.solita.fi/2020/05/18/easy-steps-to-techdebt.html)
 
-https://en.wikipedia.org/wiki/Year_2038_problem
 
-https://docs.splunk.com/Documentation/Splunk/8.0.3/ReleaseNotes/FixDatetimexml2020
+
+
+
+
+
 
 
 
