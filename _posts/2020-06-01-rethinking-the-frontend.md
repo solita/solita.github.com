@@ -2,16 +2,16 @@
 layout: post
 title: Rethinking the frontend
 author: tatut
-excerpt: Combining the old an the new for a simple approach to modern web frontends
+excerpt: Combining the old and the new for a simple approach to modern web frontends
 ---
 
-Modern frontends are complicated things. Most modern web applications are using some form of single
+Modern frontends are complicated things. Most modern web applications use some form of the single
 page application (SPA) approach, like React or Vue, to deliver the user interface. This approach
 makes sense in many cases as it separates the frontend and the backend work cleanly.
 
 The SPA approach also bundles JavaScript (or [anything](https://clojurescript.org) [that](https://www.typescriptlang.org/) [compiles](https://elm-lang.org/) [to](https://reasonml.github.io/) [it](https://fable.io/))
-and related assets into a something the browser can consume. The role of the backend becomes
-to serve the initial page with the frontend app and then serve its needs via an API (like [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) or [GraphQL](https://graphql.org/)).
+and related assets into something the browser can consume. The role of the backend becomes
+to serve the initial page that contains the frontend app bundle and then serve its needs via an API (like [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) or [GraphQL](https://graphql.org/)).
 
 <!---
 @startuml
@@ -34,13 +34,13 @@ group Interaction after page has been loaded
  backend -> db: SQL query
  db -> backend: result rows
  backend -> frontend: query results as JSON
- note left of frontend: frontedn renders\nupdated information
+ note left of frontend: frontend renders\nupdated information
 end
 @enduml
 -->
 ![typical SPA sequence](/img/2020-rethinking-frontend/spa-sequence.png)
 
-The above image shows a simplified startup sequence for a hypothetical SPA frontend that shows some
+The image above shows a simplified startup sequence for a hypothetical SPA frontend that shows some
 data queried from a database. There's quite a lot that needs to be done before the frontend is
 ready to render the data the user actually wants to see. The subsequent interaction after the initial
 page had been loaded is much less work.
@@ -48,26 +48,26 @@ page had been loaded is much less work.
 ## A new (old) approach
 
 The SPA approach is good for many applications, but it does add a lot of complexity. In the halcyon
-days of the early 2000s the go to way for web development was fully server side rendered, like [JSP](https://en.wikipedia.org/wiki/JavaServer_Pages) or [PHP](https://www.php.net/).
+days of the early 2000s the go-to way for web development was fully server side rendered, like [JSP](https://en.wikipedia.org/wiki/JavaServer_Pages) or [PHP](https://www.php.net/).
 There was no API, the server simply rendered full pages and used whatever database resources it needed
-to fill in dynamic parts. JavaScript was mostly used for simple enhancements like form validation before
+to fill in the dynamic parts. JavaScript was mostly used for simple enhancements like form validation before
 sending.
 
-There's nothing wrong with making a fully server rendered application today, but many applications
-have needs and user expectations that require more fine grained updates than reloading the page with
+There's nothing wrong with making a fully server-rendered application today, but many applications
+have needs and user expectations that require more fine-grained updates than reloading the page with
 each user interaction or refreshing the page to check for new updates.
 
-We can combine the server side rendering with [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
+We can combine the server-side rendering with [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
 to provide granular updates to the browser and receive callbacks. We can have our cake and eat it too!
 
 ## Ripley to the rescue
 
 [Ripley](https://github.com/tatut/ripley) is a new [Clojure](https://clojure.org/) library that
-implements a fully server side rendered programming model that can serve full pages but also
+implements a fully server-side-rendered programming model that can serve full pages but also
 takes care of updating things that change without page reloads. You can create rich webapps
-without the need for a SPA frontend.
+without the need for an SPA frontend.
 
-Creating user interfaces with ripley should feel similar to browser side frontend
+Creating user interfaces with Ripley should feel similar to browser side frontend
 development: you create functions that take in data and render HTML output.
 
 ```clojure
@@ -87,9 +87,9 @@ development: you create functions that take in data and render HTML output.
 The above example looks similar to [Reagent](https://github.com/reagent-project/reagent)
 (a ClojureScript React wrapper), but it is all rendered on the server.
 The button callbacks defined with `:on-click` are actually run on the server.
-The special `[::h/live ...]` element register a source on the server for this
-page. Whenever the atom changes, the component rerendered on the server and the
-resulting HTML sent via WebSocket to the client.
+The special `[::h/live ...]` element registers a source on the server for this
+page. Whenever the atom changes, Ripley re-renders the component on the server and sends
+the resulting HTML sent via WebSocket to the client.
 
 Ripley includes a tiny JS client library that does the WebSocket handling: sending
 event handler callbacks to the server and patching in new fragments received from
@@ -120,7 +120,7 @@ end
 -->
 ![ripley sequence](/img/2020-rethinking-frontend/ripley-sequence.png)
 
-The above image shows the same hypothetical application with ripley. The client
+The image above shows the same hypothetical application with Ripley. The client
 requests the page and directly receives HTML having all the content in place.
 The subsequent interaction is interesting as well. When user clicks the "next page"
 button, only the callback id and possible arguments are sent to the server via the
@@ -128,7 +128,7 @@ WebSocket. The server will run the query and send only the changed part of the
 page back over the WebSocket.
 
 The basic model is that a live component is rerendered on the server and its full
-HTML is sent back but ripley can also delete elements, append or prepend content
+HTML is sent back but Ripley can also delete elements, append or prepend content
 or change attributes. The update granularity can be decided per component when
 implementing live components.
 
@@ -142,12 +142,12 @@ it can render the page for the user to see and interact with. This problem has s
 arounds like module splitting and server side rendering with hydration. These solutions
 bring extra complexity that your application and build process needs to deal with.
 
-With ripley we just send the HTML of the page ready to go. The usual markup for a page in
+With Ripley we just send the HTML of the page ready to go. The usual markup for a page in
 the application is likely tiny compared to the frontend JS code and API payloads.
 
 ### No need for an API
 
-With SPA frontend you still need to backend to service the data needs.
+With an SPA frontend you still need a backend to service the data needs.
 Most applications will need to fetch things from a database and store new things to the database.
 This essentially turns the backend into a database API. That's fine if you need it for other clients
 as well, but it shouldn't be necessary just to service your frontend.
@@ -167,30 +167,31 @@ If you can skip it, that's more code that doesn't need to be written and debugge
 
 ### Leveraging browser strengths
 
-SPA frontend apps often require special handling to mimic browser's native navigation
+Single page application frontends often require special handling to mimic a browser's native navigation
 with [pushState](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState).
-Refreshing in a SPA frontend means losing all the accumulated state and having to
+Refreshing in an SPA frontend means losing all the accumulated state and having to
 refetch everything. That's mitigated with frontend routing libraries, but those too
 are another source of incidental complexity.
 
-The browser is very capable of caching your static assets so a server side rendered
-app doesn't need to care about working around
+The browser is very capable of caching your static assets so page reloads are not
+a big problem for most resources. Make sure you help the browser do its job by
+providing proper caching headers.
 
 ### Build complexity
 
-The traditional server side rendering can be done with a single server project.
+Traditional server side rendering can be done with a single server project.
 A separate frontend and backend requires two builds each with their own dependencies
 and build steps. Now many would say separation of concerns and differing skill sets
 needed for frontend and backend work makes this split beneficial. That split then
 requires synchronization between the projects or some flexible API like GraphQL.
 
-In my exprience full stack development is very common and the same people are
+In my experience full stack development is very common and the same people are
 doing everything from frontend to backend so the separation argument isn't very
 convincing to me in many cases.
 
 ### Server resources
 
-With server side rendering and WebSocket enhancement, the browser is effectively treated
+With WebSocket-enhanced server-side, Ripley effectively treats the browser
 as a dumb display client. The app logic for the dynamic parts have to exist somewhere.
 This requires server resources for each user that has the page open. This may or may not
 be a problem depending on the case. A single server can easily handle thousands of
@@ -202,7 +203,7 @@ serverless cloud platforms.
 ### Interaction latency
 
 Some applications require very rich interactions and those will benefit most from executing
-logic directly on the browser. But given the average [human reaction time](https://humanbenchmark.com/tests/reactiontime)
+logic directly on the browser. But given that the average [human reaction time](https://humanbenchmark.com/tests/reactiontime)
 is over 200 milliseconds there's plenty of time for a server round trip in most cases.
 Perhaps a rich text editor component will need browser side components still but common CRUD
 applications with tabular listings and forms are no problem.
@@ -210,7 +211,7 @@ applications with tabular listings and forms are no problem.
 
 ## Closing remarks
 
-While ripley is still a very young library, the techologies used are nothing novel.
+While Ripley is still a very young library, the techologies used are nothing novel.
 Server side rendering has been with us since the beginning of the web and WebSocket
 support in browsers has been around for nearly a decade.
 
