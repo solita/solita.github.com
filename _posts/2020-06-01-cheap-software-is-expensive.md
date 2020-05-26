@@ -20,6 +20,20 @@ Wrong.
 
 This article is not about getting a good bargain for a software product. This is also not about doing stuff with great existing components, or using a low-code/no-code approach to solve a repeating problem with a reusable answer. This blog is about being careful with the invisible costs of piling features on top of eachothers, and using any and all shortcuts to get there.
 
+Here's the 15 minute version. Will it work? Maybe... How do we know?
+
+```JavaScript
+// This is 15 minutes and done! Yihaa!
+function vatCalc (a) {
+  let b = 20;
+  let c = (a/100)*(b+100);
+  return c;
+}
+// TODO: Fix this
+```
+
+Did you try it with decimal numbers? More than 2 digits? What precision we would like to have? Where did that VAT percentage of 20 come from? Would this work if international application? Do the VAT rates change ever? What if VAT rate is a decimal number? What if someone tries to pass in a zero or negative value? What do the variables really mean? And most importanly, what was the original developer smoking when writing this one?
+
 ## Total cost of bugs
 
 Let's start with bugs. The origin of the word comes from actual insects, getting stuck inside complex machinery. Nowadays, instead of insects, we have programming mistakes or oversights. They tend to hide within imprecisely communicated requirements. They feed on added complexity, and they reproduce within human's imperfect mind. Human brain works on varying levels of efficiency, depending for example on caffeine levels in blood, ability to concentrate on a task, and of course on what is the general motivation at the moment.
@@ -68,6 +82,8 @@ One important thing to consider is of course the lifecycle expectency of your so
 I've sometimes been tasked to create software purely for a marketing campaign, that is expected to run for limited amount of time. Perhaps after that, some parts can be recycled to a new campaign, but in those cases it was not necessary to keep it clean, so ... go wild, I guess. Put that cowboy hat on and forget about refactoring and test automation. Other times, I've been involved in some POC projects, where we want to build rapidly and cheaply something that proves just enough to get the funding and vision for the real thing. Again, make it quick, make it dirty, as long as everybody understands that and is not stupid enough to use that steaming pile of ugliness as basis for the real thing - just recycle the ideas, vision and convication, and keep the codebase ugly.
 
 So understand your lifecycle, are you creating a product, are you creating a long-running service, or a quick-and dirty demo/poc/campaign app, one-short, with limited lifetime. Don't bring a hammer into a pillow party, or vice versa.
+
+And do note that this is not just about bugs, this is also about how easy the code is to maintain, and how flexible it is to make changes when requirements change on a longer run. And this is also about how to find new talent to recruit so we can maintain the code on longer run, without driving people insane.
 
 ## So, can I still have it cheap? Pretty please?
 
