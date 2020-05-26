@@ -10,247 +10,255 @@ kramdown:
    input: GFM
 
 authors:
-   jarno:
-      name: Jarno Peltoniemi
-      email: 30bad10249ad7938521a26ea1cafcd8a
-      url: http://www.solita.fi
-   ajk:
-      name: Antti-Jussi Kovalainen
-      email: 5ff6a8a0ce50e9de363cb9a00b1cc804
-      url: http://ajk.fi/
-   massimo:
-      name: Massimo Prencipe
-      email: 1d369f0b94f9ed31c2e84cbbceea00e1
-      url: https://twitter.com/yes_its_masse
-   lokori:
-      name: Antti Virtanen
-      email: a364d662d46eafc7684fda3c71278194
-      url: http://www.solita.fi
-   n1ko:
-      name: Niko Kurtti
-      email: e8c38258967f00e2a4a5b87a97ae135b
-      url: http://www.solita.fi
-   timole:
-      name: Timo Lehtonen
-      email: 5df17e991440842ef6b55570d5b61f90
-      url: http://www.solita.fi
-   empperi:
-      name: Niklas Collin
-      email: a046826c81ce53c8544d2e00e6033312
-      url: http://blogs.collin.fi/npe/
-   orfjackal:
-      name: Esko Luontola
-      email: a2bbd6c20c20edf4620cb8c6379aacc8
-      url: http://www.orfjackal.net/
-   harmia:
-      name: Juhana Harmanen
-      email: e1917d35d762436f76ca18eaa6018f37
-      url: http://www.solita.fi
-   noidi:
-      name: Timo Mihaljov
-      email: f3cc3f114c258a4f25e02c4b62fae433
-      url: https://twitter.com/noidi
-   ruoat:
-      name: Ari Ruotsalainen
-      email: f9d260198adcd6324956e91f328bd318
-      url: https://twitter.com/ruotsalaisenari
-   aautio:
-      name: Ari Autio
-      email: 7a2f51f46a11d56fb6f8581af89521b6
-      url: https://twitter.com/ariautio
-   pvto:
-      name: Paavo Toivanen
-      email: 3cfeb0502e2fd169e08348f77bb01a1d
-      url: http://www.solita.fi
-   arto:
-      name: Arto Santala
-      email: dc3bf4adfabce83f904b9563f927641d
-      url: https://www.linkedin.com/in/artosantala/
-   juuso:
-      name: Juuso Hyvönen
-      email: 8a528aee07705cfc166b57564e242db6
-      url: http://www.solita.fi
-   tatut:
-      name: Tatu Tarvainen
-      email: 6a2a988e9cff23f52444914d14bd0a96
-      url: http://www.solita.fi
-   jessek:
-      name: Jesse Korpela
-      email: ee6747c4fa0cd979a9995299e215feb4
-      url: http://www.solita.fi
-   jarzka:
-      name: Jari Hanhela
-      email: 429ac35a7d794684181d64a5befd040c
-      url: http://www.voimala.org
-   jerekapyaho:
-      name: Jere Käpyaho
-      email: 4ef76183965fe0d12de8dcdab512ca3a
-      url: http://www.coniferproductions.com
-   Rinorragi:
-      name: Joona Immonen
-      email: 2cb033c2473824d802cca09001da9025
-      url: https://www.linkedin.com/in/joonaimmonen
-   riipah:
-      name: Jukka Hyvärinen
-      email: fa431c5a37bbdde5c47570432789b73a
-      url: http://www.solita.fi/
-   bafe:
-      name: Pauli Kärpänoja
-      email: 339b324c15d0c88ebfbda2ca6ef677f7
-      url: https://twitter.com/karpanoja
-   pkalliok:
-      name: Panu Kalliokoski
-      email: e7a94f01372caecec47d6fd9b3f31f60
-      url: https://fi.linkedin.com/in/panu-kalliokoski-821768b2
-   dratini:
-      name: Jouni Huttunen
-      email: ea79677c8e7395e138a46fa304109957
-      url: https://www.linkedin.com/in/dratini
-   timovi:
-      name: Timo Viisteensaari
-      email: dd91a146d068fb2c15bb275e17fc568d
-      url: https://www.linkedin.com/in/timo-viisteensaari-1780596
-   Kauko:
-      name: Teemu Kaukoranta
-      email: d0f83e2b711ccaa7468cf6b0b11900e8
-      url: https://twitter.com/TeemuKaukoranta
-   riikkanen:
-      name: Riikka Taiminen
-      email: 9ce425a78928e0c957510acd215ea1b3
-      url: http://www.solita.fi/
-   juhofriman:
-      name: Juho Friman
-      email: 08441148498196c219300f1726632923
-      url: http://www.twitter.com/commafakir
-   HannuToi:
-      name: Hannu Toivola
-      email: 5e0d013c6e98920c51091f5958bc4a1a
-      url: http://www.solita.fi/
-   viesti:
-      name: Kimmo Koskinen
-      email: 68fe78dff2b49d1ae0184a5c321cc3f8
-      url: http://www.solita.fi/
-   fingerzam:
-      name: Juhana Laurinharju
-      email: 30622a7698cec913d62eac996cfcb4ca
-      url: http://www.solita.fi/
-   ilmoraunio:
-      name: Ilmo Raunio
-      email: c0201865365e35abb07057e909a67404
-      url: https://www.linkedin.com/in/ilmo-raunio-b982b031
-   jesperin:
-      name: Jesper Ingström
-      email: 3916c482cb5d11ab5ec5526f44861026
-      url: https://www.linkedin.com/in/jesper-ingstrom
-   ollimkn:
-      name: Olli Mäkinen
-      email: d6d50ad6d2224495e492895bd0b6d646
-      url: https://www.linkedin.com/in/ollimkn
-   jarnovayrynen:
-      name: Jarno Väyrynen
-      email: 803d2fa78db5d2fdde87e0b2fb9d61b0
-      url: https://www.linkedin.com/in/jarnovayrynen/
-   mikkoronkkomaki:
-      name: Mikko Rönkkömäki
-      email: a63a77db92a86ba8b7be27ce6ed1cf72
-      url: https://www.linkedin.com/in/mikkoronkkomaki/
-   tommiraunio:
-      name: Tommi Raunio
-      email: 23ae2bc8e203be2f8482edfb1efeeadb
-      url: https://www.linkedin.com/in/tommi-raunio-a3393138/
-   mkainula:
-      name: Matias Kainulainen
-      email: f96c5a4c85a6a0e088d142f6e1c09673
-      url: https://www.linkedin.com/in/mkainula
-   atteheino:
-      name: Atte Heino
-      email: b2b69c93b6f7fb94a730fcda0c415fee
-      url: http://www.solita.fi/
-   m1kma:
-      name: Mika Mäkelä
-      email: df54465fc47347fa0d8de03299142b14
-      url: https://www.linkedin.com/in/mika-mäkelä-3b72835a/
-   kimmokantojarvi:
-      name: Kimmo Kantojärvi
-      email: b6c4903bc2520e35d5ba3583a3f6579f
-      url: http://www.twitter.com/kimmokantojarvi
-   hjhamala:
-      name: Heikki Hämäläinen
-      email: b4db05c5d716e08972fff85f93c27662
-      url: https://www.linkedin.com/in/heikki-hamalainen-34036279
-   jooelkorpi:
-      name: Jooel Korpi
-      email: 10a4a19ff7fa5859998f685a1b7c3ad4
-      url: https://www.linkedin.com/in/jooelkorpi
-   tomila:
-      name: Tomi Lahtinen
-      email: ec590fb9d3bb8a96dd0e6dbaa44934e8
-      url: https://www.linkedin.com/in/tomi-lahtinen-56472728/
-   jessevuorinen:
-      name: Jesse Vuorinen
-      email: c63e0f0ac598014b8345741b628729a0
-      url: https://www.linkedin.com/in/jesse-vuorinen-a18368a3/
-   kaarelkorvemaa:
-      name: Kaarel Kõrvemaa
-      email: 3be0d237b0c0817152a25211daf17be3
-      url: https://www.linkedin.com/in/korvemaa/
-   mirvato:
-      name: Mirva Toivonen
-      email: 7ab561d95bdedd2c7fc431583c2a8e18
-      url: https://www.linkedin.com/in/mirva-toivonen/
-   mikaelahonen:
-      name: Mikael Ahonen
-      email: e137a4676afc3ed6fede9f64541fdcd3
-      url: https://mikaelahonen.com
-   tonidahl:
-      name: Toni Dahl
-      email: fec8c20c0dd58a95e4759ab46509f042
-      url: https://www.linkedin.com/in/tonidahl/
-   jgke:
-      name: Jaakko Hannikainen
-      email: 1588faf5a5021a823b811f7471ad4564
-      url: https://jaakkohannikainen.fi
-   aleksei:
-      name: Aleksei Hodunkov
-      email: 2d3cca2614704775fd867df1a2c4214c
-      url: https://www.linkedin.com/in/alekseihodunkov/
-   eerohe:
-      name: Eero Helenius
-      email: 5e22ca859f7176554d3c2dfe5d0b2f9d
-      url: https://github.com/eerohele
-   markkuko:
-      name: Markku Korkeala
-      email: 63cd9571193c86a77bc6e9f7a80ce27a
-      url: https://github.com/markkuko
-   miikasantala:
-      name: Miika Santala
-      email: ea1448265b1b0e19f3cc0a6c8cde413c
-      url: https://www.linkedin.com/in/miika-santala-75b92837
-   juholei:
-      name: Juho Leinonen
-      email: d3a41ef20fcba8ad8a97ee200d1a401c
-      url: https://twitter.com/juholei
-   aleksipekkala:
-      name: Aleksi Pekkala
-      email: 63938423a6515066496017ca774f2ca0
-      url: https://github.com/epiphone
-   mpajunen:
-      name: Mikael Pajunen
-      email: d315555cacf0ecdcfa79357790e8d3ef
-      url: https://github.com/mpajunen
-   demonru:
-      name: Vladimir Anaimanovich
-      email: fbce800f0242dcf4e11594774497babb
-      url: https://github.com/demonru/
-   janneri:
-      name: Janne Rintanen
-      email: bfbd935b3a3eab5d58690885f88471e1
-      url: https://github.com/janneri
-   hnybom:
-      name: Henri Nybom
-      email: 13b2d57201efc9c6efdba200e6f40aaa
-      url: https://www.linkedin.com/in/henri-nybom/
-   perttihu:
-      name: Pertti Husu
-      email: a8585f764dd4037653183b6eb25b027d
-      url: https://www.linkedin.com/in/perttihusu/
+  jarno:
+    name: Jarno Peltoniemi
+    email: 30bad10249ad7938521a26ea1cafcd8a
+    url: http://www.solita.fi
+  ajk:
+    name: Antti-Jussi Kovalainen
+    email: 5ff6a8a0ce50e9de363cb9a00b1cc804
+    url: http://ajk.fi/
+  massimo:
+    name: Massimo Prencipe
+    email: 1d369f0b94f9ed31c2e84cbbceea00e1
+    url: https://twitter.com/yes_its_masse
+  lokori:
+    name: Antti Virtanen
+    email: a364d662d46eafc7684fda3c71278194
+    url: http://www.solita.fi
+  n1ko:
+    name: Niko Kurtti
+    email: e8c38258967f00e2a4a5b87a97ae135b
+    url: http://www.solita.fi
+  timole:
+    name: Timo Lehtonen
+    email: 5df17e991440842ef6b55570d5b61f90
+    url: http://www.solita.fi
+  empperi:
+    name: Niklas Collin
+    email: a046826c81ce53c8544d2e00e6033312
+    url: http://blogs.collin.fi/npe/
+  orfjackal:
+    name: Esko Luontola
+    email: a2bbd6c20c20edf4620cb8c6379aacc8
+    url: http://www.orfjackal.net/
+  harmia:
+    name: Juhana Harmanen
+    email: e1917d35d762436f76ca18eaa6018f37
+    url: http://www.solita.fi
+  noidi:
+    name: Timo Mihaljov
+    email: f3cc3f114c258a4f25e02c4b62fae433
+    url: https://twitter.com/noidi
+  ruoat:
+    name: Ari Ruotsalainen
+    email: f9d260198adcd6324956e91f328bd318
+    url: https://twitter.com/ruotsalaisenari
+  aautio:
+    name: Ari Autio
+    email: 7a2f51f46a11d56fb6f8581af89521b6
+    url: https://twitter.com/ariautio
+  pvto:
+    name: Paavo Toivanen
+    email: 3cfeb0502e2fd169e08348f77bb01a1d
+    url: http://www.solita.fi
+  arto:
+    name: Arto Santala
+    email: dc3bf4adfabce83f904b9563f927641d
+    url: https://www.linkedin.com/in/artosantala/
+  juuso:
+    name: Juuso Hyvönen
+    email: 8a528aee07705cfc166b57564e242db6
+    url: http://www.solita.fi
+  tatut:
+    name: Tatu Tarvainen
+    email: 6a2a988e9cff23f52444914d14bd0a96
+    url: http://www.solita.fi
+  jessek:
+    name: Jesse Korpela
+    email: ee6747c4fa0cd979a9995299e215feb4
+    url: http://www.solita.fi
+  jarzka:
+    name: Jari Hanhela
+    email: 429ac35a7d794684181d64a5befd040c
+    url: http://www.voimala.org
+  jerekapyaho:
+    name: Jere Käpyaho
+    email: 4ef76183965fe0d12de8dcdab512ca3a
+    url: http://www.coniferproductions.com
+  Rinorragi:
+    name: Joona Immonen
+    email: 2cb033c2473824d802cca09001da9025
+    url: https://www.linkedin.com/in/joonaimmonen
+  riipah:
+    name: Jukka Hyvärinen
+    email: fa431c5a37bbdde5c47570432789b73a
+    url: http://www.solita.fi/
+  bafe:
+    name: Pauli Kärpänoja
+    email: 339b324c15d0c88ebfbda2ca6ef677f7
+    url: https://twitter.com/karpanoja
+  pkalliok:
+    name: Panu Kalliokoski
+    email: e7a94f01372caecec47d6fd9b3f31f60
+    url: https://fi.linkedin.com/in/panu-kalliokoski-821768b2
+  dratini:
+    name: Jouni Huttunen
+    email: ea79677c8e7395e138a46fa304109957
+    url: https://www.linkedin.com/in/dratini
+  timovi:
+    name: Timo Viisteensaari
+    email: dd91a146d068fb2c15bb275e17fc568d
+    url: https://www.linkedin.com/in/timo-viisteensaari-1780596
+  Kauko:
+    name: Teemu Kaukoranta
+    email: d0f83e2b711ccaa7468cf6b0b11900e8
+    url: https://twitter.com/TeemuKaukoranta
+  riikkanen:
+    name: Riikka Taiminen
+    email: 9ce425a78928e0c957510acd215ea1b3
+    url: http://www.solita.fi/
+  juhofriman:
+    name: Juho Friman
+    email: 08441148498196c219300f1726632923
+    url: http://www.twitter.com/commafakir
+  HannuToi:
+    name: Hannu Toivola
+    email: 5e0d013c6e98920c51091f5958bc4a1a
+    url: http://www.solita.fi/
+  viesti:
+    name: Kimmo Koskinen
+    email: 68fe78dff2b49d1ae0184a5c321cc3f8
+    url: http://www.solita.fi/
+  fingerzam:
+    name: Juhana Laurinharju
+    email: 30622a7698cec913d62eac996cfcb4ca
+    url: http://www.solita.fi/
+  ilmoraunio:
+    name: Ilmo Raunio
+    email: c0201865365e35abb07057e909a67404
+    url: https://www.linkedin.com/in/ilmo-raunio-b982b031
+  jesperin:
+    name: Jesper Ingström
+    email: 3916c482cb5d11ab5ec5526f44861026
+    url: https://www.linkedin.com/in/jesper-ingstrom
+  ollimkn:
+    name: Olli Mäkinen
+    email: d6d50ad6d2224495e492895bd0b6d646
+    url: https://www.linkedin.com/in/ollimkn
+  jarnovayrynen:
+    name: Jarno Väyrynen
+    email: 803d2fa78db5d2fdde87e0b2fb9d61b0
+    url: https://www.linkedin.com/in/jarnovayrynen/
+  mikkoronkkomaki:
+    name: Mikko Rönkkömäki
+    email: a63a77db92a86ba8b7be27ce6ed1cf72
+    url: https://www.linkedin.com/in/mikkoronkkomaki/
+  tommiraunio:
+    name: Tommi Raunio
+    email: 23ae2bc8e203be2f8482edfb1efeeadb
+    url: https://www.linkedin.com/in/tommi-raunio-a3393138/
+  mkainula:
+    name: Matias Kainulainen
+    email: f96c5a4c85a6a0e088d142f6e1c09673
+    url: https://www.linkedin.com/in/mkainula
+  atteheino:
+    name: Atte Heino
+    email: b2b69c93b6f7fb94a730fcda0c415fee
+    url: http://www.solita.fi/
+  m1kma:
+    name: Mika Mäkelä
+    email: df54465fc47347fa0d8de03299142b14
+    url: https://www.linkedin.com/in/mika-mäkelä-3b72835a/
+  kimmokantojarvi:
+    name: Kimmo Kantojärvi
+    email: b6c4903bc2520e35d5ba3583a3f6579f
+    url: http://www.twitter.com/kimmokantojarvi
+  hjhamala:
+    name: Heikki Hämäläinen
+    email: b4db05c5d716e08972fff85f93c27662
+    url: https://www.linkedin.com/in/heikki-hamalainen-34036279
+  jooelkorpi:
+    name: Jooel Korpi
+    email: 10a4a19ff7fa5859998f685a1b7c3ad4
+    url: https://www.linkedin.com/in/jooelkorpi
+  tomila:
+    name: Tomi Lahtinen
+    email: ec590fb9d3bb8a96dd0e6dbaa44934e8
+    url: https://www.linkedin.com/in/tomi-lahtinen-56472728/
+  jessevuorinen:
+    name: Jesse Vuorinen
+    email: c63e0f0ac598014b8345741b628729a0
+    url: https://www.linkedin.com/in/jesse-vuorinen-a18368a3/
+  kaarelkorvemaa:
+    name: Kaarel Kõrvemaa
+    email: 3be0d237b0c0817152a25211daf17be3
+    url: https://www.linkedin.com/in/korvemaa/
+  mirvato:
+    name: Mirva Toivonen
+    email: 7ab561d95bdedd2c7fc431583c2a8e18
+    url: https://www.linkedin.com/in/mirva-toivonen/
+  mikaelahonen:
+    name: Mikael Ahonen
+    email: e137a4676afc3ed6fede9f64541fdcd3
+    url: https://mikaelahonen.com
+  tonidahl:
+    name: Toni Dahl
+    email: fec8c20c0dd58a95e4759ab46509f042
+    url: https://www.linkedin.com/in/tonidahl/
+  jgke:
+    name: Jaakko Hannikainen
+    email: 1588faf5a5021a823b811f7471ad4564
+    url: https://jaakkohannikainen.fi
+  aleksei:
+    name: Aleksei Hodunkov
+    email: 2d3cca2614704775fd867df1a2c4214c
+    url: https://www.linkedin.com/in/alekseihodunkov/
+  eerohe:
+    name: Eero Helenius
+    email: 5e22ca859f7176554d3c2dfe5d0b2f9d
+    url: https://github.com/eerohele
+  markkuko:
+    name: Markku Korkeala
+    email: 63cd9571193c86a77bc6e9f7a80ce27a
+    url: https://github.com/markkuko
+  miikasantala:
+    name: Miika Santala
+    email: ea1448265b1b0e19f3cc0a6c8cde413c
+    url: https://www.linkedin.com/in/miika-santala-75b92837
+  juholei:
+    name: Juho Leinonen
+    email: d3a41ef20fcba8ad8a97ee200d1a401c
+    url: https://twitter.com/juholei
+  aleksipekkala:
+    name: Aleksi Pekkala
+    email: 63938423a6515066496017ca774f2ca0
+    url: https://github.com/epiphone
+  mpajunen:
+    name: Mikael Pajunen
+    email: d315555cacf0ecdcfa79357790e8d3ef
+    url: https://github.com/mpajunen
+  demonru:
+    name: Vladimir Anaimanovich
+    email: fbce800f0242dcf4e11594774497babb
+    url: https://github.com/demonru/
+  janneri:
+    name: Janne Rintanen
+    email: bfbd935b3a3eab5d58690885f88471e1
+    url: https://github.com/janneri
+  hnybom:
+    name: Henri Nybom
+    email: 13b2d57201efc9c6efdba200e6f40aaa
+    url: https://www.linkedin.com/in/henri-nybom/
+  vili:
+    name: Vili Heikkilä
+    email: b26483a28f9c0e1ff144e79383a7a8bf
+    url: https://www.linkedin.com/in/viliheikkila/
+  spheroid-:
+    name: Henry Jalonen
+    email: 0e245809c3a23ab42eb1b143dd621f6c
+    url: https://github.com/spheroid-
+  perttihu:
+    name: Pertti Husu
+    email: a8585f764dd4037653183b6eb25b027d
+    url: https://www.linkedin.com/in/perttihusu/
