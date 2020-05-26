@@ -12,7 +12,7 @@ tags:
 - Web servers
 ---
 [ClojureScript](https://clojurescript.org) is a variant of [Clojure](https://clojure.org) which compiles to JavaScript. 
-This makes ClojureScript usable in devices that can run JavaScript such as browsers and backend services using (Node.js)[https://nodejs.org]. 
+This makes ClojureScript usable in devices that can run JavaScript such as browsers and backend services using [Node.js](https://nodejs.org). 
 
 Traditionally ClojureScript has been mostly used in browsers and backends have been made with Clojure or with other technologies. 
 While pure ClojureScript backend usage remains rare, the recent movement towards serverless technologies has changed the industry.
@@ -41,7 +41,7 @@ use [Shadow CLJS](https://shadow-cljs.github.io/docs/UsersGuide.html) as a build
 
 Using Macchiato, Reitit and Shadow CLJS together needs certain tweaks compared to normal Clojure Ring project, which I will next introduce.  
 
-I have made a GIT repository (https://github.com/hjhamala/macchiato-example-solita-dev-blog)[https://github.com/hjhamala/macchiato-example-solita-dev-blog] 
+I have made a GIT repository [https://github.com/hjhamala/macchiato-example-solita-dev-blog](https://github.com/hjhamala/macchiato-example-solita-dev-blog) 
 containing branches for different parts of the post.   
 
 As a prerequirement I will assume that Node.js and NPM are installed.
@@ -108,7 +108,8 @@ Shadow CLJS compilation is configured in `shadow-cljs.edn` so create a new file 
 ```
 I added Timbre as a logging library but that part is optional.
 
-Then we create a new ClojureScript file for starting the server `src/macchiato_test/core.cljs':
+Then we create a new ClojureScript file for starting the server `src/macchiato_test/core.cljs`:
+
 ```clojure
 (ns macchiato-test.core
   (:require [taoensso.timbre :refer [info]]))
