@@ -210,7 +210,16 @@ Perhaps a rich text editor component will need browser side components still but
 applications with tabular listings and forms are no problem.
 
 
-## Conclusions and related work
+## Closing remarks
 
+While ripley is still a very young library, the techologies used are nothing novel.
+Server side rendering has been with us since the beginning of the web and WebSocket
+support in browsers has been around for nearly a decade.
 
-- mention Phoenix LiveView
+Ripley isn't unique in providing this sort of programming model. It was heavily inspired
+by [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view).
+
+I believe that server side rendering with live enhancements will be a good fit for
+many applications and we will see increasing adoption of these strategies. That said
+React and other client side UI frameworks will still likely rule the modern frontend
+landscape especially with serverless computing being on the rise.
