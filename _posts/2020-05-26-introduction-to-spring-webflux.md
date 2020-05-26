@@ -14,7 +14,7 @@ tags:
 
 ## What is Spring WebFlux?
 
-Traditionally Spring Framework web applications have been written with Spring Web MVC, which was a purpose-built web framework for Java Servlet API and Servlet containers, and has been part of the Spring Framework since the very beginning. Spring Framework 5.0, release in September 2017, introduced a non-blocking reactive-stack web framework called [Spring WebFlux](https://docs.spring.io/spring/docs/5.3.0-SNAPSHOT/spring-framework-reference/web-reactive.html#spring-webflux).
+Traditionally Spring Framework web applications have been written with Spring Web MVC, which is a purpose-built web framework for Java Servlet API and Servlet containers, and has been part of the Spring Framework since the very beginning. Spring Framework 5.0, release in September 2017, introduced a non-blocking reactive-stack web framework called [Spring WebFlux](https://docs.spring.io/spring/docs/5.3.0-SNAPSHOT/spring-framework-reference/web-reactive.html#spring-webflux).
 
 There were two major reasons for a new web framework. First, there was a need for a non-blocking implementation to handle concurrency with less threads (i.e. using fewer hardware resources). And then there were the possibilities of functional programming made possible with Java 8 lambda expressions which allow declarative composition of asynchronous logic.
 
@@ -53,7 +53,7 @@ There was indeed a learning curve with WebFlux and its functional programming st
 
 #### Returning an empty value
 Sometimes you just need to check something in a function, without returning a value. For example, you might need a function to check if some operation can be made. Your function returns a void value in a success case and throws an exception in an error case:
-```
+```java
 public Foo doSomething() {
 
   // Get state etc.
@@ -73,7 +73,7 @@ void checkOperationXxx(Bar bar) {
 }
 ```
 You might try to implement this with WebFlux as follows:
-```
+```java
 public Mono<Foo> doSomething() {
   return getBar() // Returns Mono<Bar>
     .map(bar -> checkOperationXxx(bar)
@@ -92,7 +92,7 @@ Mono<Void> checkOperationXxx(Bar bar) {
 However, when you return an empty value with `Mono.empty()` the result really is an empty value. You can't execute any operation such as map or flatMap to it. Your `operationXxx()` is never executed and you'll spend hours trying to figure out what's wrong.
 
 Your next attempt might be to write the caller function as:
-```
+```java
 public Mono<Foo> doSomething() {
   return getBar() // Returns Mono<Bar>
     .map(bar -> checkOperationXxx(bar)
@@ -103,7 +103,7 @@ public Mono<Foo> doSomething() {
 This does work in an success case: `checkOperationXxx()` completes with empty value and then you start executing a new Mono in `then()`-function. However, `operationXxx()` is executed also in an error case! This is not what you want.
 
 In our case we solved the issue by always returning a non-empty value, usually the same value which we pass to the function as a parameter:
-```
+```java
 public Mono<Foo> doSomething() {
   return getBar() // Returns Mono<Bar>
     .map(bar -> checkOperationXxx(bar)
@@ -131,7 +131,7 @@ By the way, if you use WebClient from MVC side and wonder how to get the resulti
 #### Unit testing
 
 For unit testing reactive code I recommend using the official tool, which is the `reactor-test` library. Previously we used either `subscribe()`- or `block()`-approaches, but for some reason they were not always reliable. Better to stick with the recommended way. Reactor test library comes with `StepVerifier` class for unit testing reactive flows. Here's an example:
-```
+```java
 @Test
 void testSuccessCase() {
   StepVerifier.create(doSomething())
@@ -150,12 +150,12 @@ void testErrorCase() {
 ```
 
 For testing your reactive REST Controllers you can use Spring `WebTestClient`:
-```
+```java
 @Test
 void testGetSomething() {
 
   webTestClient.get()
-    .uri("/something)
+    .uri("/something")
     .exchange()
     .expectStatus().isOk()
     .expectBody()
