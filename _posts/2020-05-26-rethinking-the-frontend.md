@@ -60,8 +60,6 @@ each user interaction or refreshing the page to check for new updates.
 We can combine the server side rendering with [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
 to provide granular updates to the browser and receive callbacks. We can have our cake and eat it too!
 
-FIXME: time for a picture here?
-
 ## Ripley to the rescue
 
 [Ripley](https://github.com/tatut/ripley) is a new [Clojure](https://clojure.org/) library that
