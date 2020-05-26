@@ -14,8 +14,6 @@ tags:
 
 How much does an algorithm cost? What's the work estimate for function that calculates value-added tax for a price? How many euros does it cost to produce? Does not sound too complicated, right? Any monkey could write that function within within one hour of good concentrated work, right?
 
-![Things always start simple](/img/cheap-software/simple.jpg)
-
 Wrong.
 
 This article is not about getting a good bargain for a software product. This is also not about doing stuff with great existing components, or using a low-code/no-code approach to solve a repeating problem with a reusable answer. This blog is about being careful with the invisible costs of piling features on top of eachothers, and using any and all shortcuts to get there.
