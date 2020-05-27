@@ -3,6 +3,9 @@ layout: post
 title: Rethinking the frontend
 author: tatut
 excerpt: Combining the old and the new for a simple approach to modern web frontends
+tags:
+- Clojure
+- frontend
 ---
 
 Modern frontends are complicated things. Most modern web applications use some form of the single
