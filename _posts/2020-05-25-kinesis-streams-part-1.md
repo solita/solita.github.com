@@ -29,7 +29,7 @@ After writing it to a stream, data is available to read **within milliseconds** 
 
 To achieve its massive scalability, _Kinesis Streams_ use a concept called **shard**. A shard is a unit of parallelism in a stream and you may think of it as an ordered queue within the stream, while the stream is a set of multiple such queues.
 
-A single _Kinesis Streams_ record is limited to a data payload of maximum **1MB**. Each shard, in turn, has a limited capacity of **1 MB/sec or 1000 records/sec** of incoming data (whichever limit is hit first) and **2 MB/sec** of outgoing data.
+A single _Kinesis Streams_ record is limited to a maximum data payload of **1 MB**. Each shard, in turn, has a limited capacity of **1 MB/sec or 1000 records/sec** of incoming data (whichever limit is hit first) and **2 MB/sec** of outgoing data.
 
 When you create a stream, you specify the number of shards you want to have. If the amount of incoming data is larger than your stream can accommodate, you just need to add more shards to it. This is called stream **[resharding](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-resharding.html)** and can be done either through API calls or from the console.
 
@@ -52,7 +52,7 @@ One thing _Kinesis Streams_ are lacking at the moment is built-in autoscaling th
 
 Why not just add an enormous amount of shards to a stream to accommodate all possible spikes in incoming traffic, you might be asking? You could, but that will cost you. In addition to paying for the amount of data being streamed, every open shard is being charged for on an hourly basis.
 
-Though being fully managed, in a sense, _Kinesis Streams_ are still not entirely serverless, while you need to provision the capacity in the form of shards, pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking :)
+Though being fully managed, in a sense, _Kinesis Streams_ are still not entirely serverless. After all, you do need to provision the capacity (shards), pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking :)
 
 But I digress.
 
@@ -62,7 +62,7 @@ But I digress.
 
 So, how do you actually write data to a Kinesis stream? Well, you have plenty of options for that!
 
-You can use the [Amazon Kinesis Agent](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html), which is a stand-alone Java application to stream data from files and is useful to f.ex. stream your server logs to the cloud. The next option you have is the [Amazon Kinesis Producer Library (KPL)](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html). It provides a higher level of abstraction over the API calls and has several useful features I'll be mentioning shortly.
+You can use the [Amazon Kinesis Agent](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html), which is a stand-alone Java application to stream data from files and is useful to e.g. stream your server logs to the cloud. The next option you have is the [Amazon Kinesis Producer Library (KPL)](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html). It provides a higher level of abstraction over the API calls and has several useful features I'll be mentioning shortly.
 
 There are also multiple direct AWS service integrations, meaning that many services, such as _AWS IoT Core_, _CloudWatch Logs_ and _Events_, and event _AWS Database Migration Service_ can write data directly to a Kinesis stream without you having to write any code (neat, right?). And then there is the API Gateway integration, which is a different beast altogether and which allows you to proxy the Kinesis API calls with some configuration and [VTL magic](https://docs.aws.amazon.com/apigateway/latest/developerguide/integrating-api-with-aws-services-kinesis.html).
 
@@ -70,7 +70,7 @@ There are also multiple direct AWS service integrations, meaning that many servi
 
 For ingesting data from mobile devices, there is the _AWS Mobile SDK_. To push Log4J output directly to a stream there is the _Apache Log4J Appender Interface_. There are also several other community-contributed tools and libraries to choose from. I told you, plenty of options.
 
-And, finally, there is the **AWS SDK**, which is the closest to the actual API calls, thus being the most flexible and giving you full control over how you write your data. But, of course, with more freedom comes more responsibility. Kinesis API and [Node.js SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html) (considerations hold for the other languages as well) will be my main focus going forward. So, if you are looking for more information about f.ex. Log4J integration, this is not the blog post you're looking for :) Otherwise, let's get into some details!
+And, finally, there is the **AWS SDK**, which is the closest to the actual API calls, thus being the most flexible and giving you full control over how you write your data. But, of course, with more freedom comes more responsibility. Kinesis API and [Node.js SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html) (considerations hold for the other languages as well) will be my main focus going forward. So, if you are looking for more information about e.g. Log4J integration, this is not the blog post you're looking for :) Otherwise, let's get into some details!
 
 
 ## AWS SDK
@@ -97,7 +97,7 @@ As a rule of thumb, if possible, always prefer batch operations. This applies to
 
 ## Batch operations
 
-When writing a batch of records to a Kinesis stream, the method call may look smth like this:
+When writing a batch of records to a Kinesis stream, the method call may look something like this:
 
 ```javascript
 kinesis.putRecords(params, callback)
@@ -128,7 +128,7 @@ There is an **array of records** and a **name of the stream** you are sending yo
 
 ![failure](/img/kinesis/everything_fails.png)
 
-So, what happens if the HTTP request to the Kinesis API fails, you might ask? And that is an excellent question! If the request fails because of a "retryable" failure (f.ex. due to the ServiceUnavailable or other transient 5xx error), AWS SDK retries the request on your behalf up to **three times** by default. It uses the so-called **exponential backoff** for the [retries](https://docs.aws.amazon.com/general/latest/gr/api-retries.html), where it starts with a base delay of 100ms by default, after which the time between the consequent retried will increase exponentially.
+So, what happens if the HTTP request to the Kinesis API fails, you might ask? And that is an excellent question! If the request fails because of a "retryable" failure (e.g. due to the ServiceUnavailable or other transient 5xx error), AWS SDK retries the request on your behalf up to **three times** by default. It uses the so-called **exponential backoff** for the [retries](https://docs.aws.amazon.com/general/latest/gr/api-retries.html), where it starts with a base delay of 100ms by default, after which the time between the consequent retried will increase exponentially.
 
 All these parameters can, and often should be configured. You can do that either when creating an instance of the [Kinesis service](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html):
 ```javascript
@@ -181,7 +181,7 @@ After a batch request went through successfully (either at once or after the aut
 }
 ```
 
-There is an array of records again, though having a different content this time, and an additional attribute called `FailedErrorCount`. If the value of `FailedErrorCount` is **greater than 0**, this means that you had a **partial failure** of your request. This, in turn, means that part of your records have been written to the stream successfully, while some of them have failed. I guess you could also call it a partial success if you fall on the more optimist side of the spectrum :)
+There is an array of records again, though having a different content this time, and an additional attribute called `FailedRecordCount`. If the value of `FailedRecordCount` is **greater than 0**, this means that you had a **partial failure** of your request. This, in turn, means that part of your records have been written to the stream successfully, while some of them have failed. I guess you could also call it a partial success if you fall on the more optimist side of the spectrum :)
 
 That's the tricky part about all the batch operations in general. They are **not atomic** (either all fail or all succeed). And if there are partial failures, AWS SDK will treat them as a success and go on with its life (there was the 200-response after all). This means you might be losing your valuable records without even knowing it! You look at your logs, or DLQ (because let's be fair, logs are not exactly the best way to handle failed records) and all looks bright and sunny. But the reality is, in the meantime, **you might actually be losing a lot of your data due to partial failures**.
 
@@ -207,7 +207,7 @@ kinesis.putRecords(payload, (err, response) => {
 })
 ```
 
-Here we check the number of failed records in the batch (the value of `FailedErrorCount`) and, in case of a partial failure, do the manual retries.
+Here we check the number of failed records in the batch (the value of `FailedRecordCount`) and, in case of a partial failure, do the manual retries.
 
 To know which records to retry, we need to use the array of records we got as a response. It contains individual record responses in the **exact same order** as the outgoing record array. We just need to compare the two arrays and pick the records that have an `ErrorCode` and `ErrorMessage` instead of a `RecordId`.
 
@@ -297,7 +297,7 @@ Each SDK has its own ways of configuring the request timeouts. Node.js SDK allow
 
 It's important to understand the differences between the two. It's equally important to know what the default values are and to configure the timeout values according to the expected latencies of the services you are using.
 
-In the case of Kinesis API, the default timeout on an existing socket (the `timeout` configuration) is **2 minutes**. This means that, by default, AWS SDK will wait for the response for the entire two minutes, before it gives up and retries the request. Add to that the default 2 minutes for establishing a new connection and possible retries that follow both of the timeouts, and you get a producer that is stuck for a while waiting for something that might never happen.
+In the case of Kinesis API, the default timeout for an existing socket (the `timeout` configuration) is **2 minutes**. This means that, by default, AWS SDK will wait for the response for the entire two minutes, before it gives up and retries the request. Add to that the default 2 minutes for establishing a new connection and possible retries that follow both of the timeouts, and you get a producer that is stuck for a while waiting for something that might never happen.
 
 So, it's usually a good idea to configure the timeouts to be considerably shorter than the default values. Similarly to the retry configurations, this can be done by setting the HTTP request timeouts for either all the AWS Services using the [Config object](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html):
 ```javascript
@@ -328,7 +328,7 @@ This is also a common consideration in distributed systems and the best way to a
 
 ## Few words on KPL
 
-I mentioned in the beginning that you could write your data to _Kinesis Streams_ using Kinesis Producer Library, or KPL in short. While AWS SDK also allows managing the stream itself (f.ex. do stream resharding), KPL is meant solely for writing data to a stream and is aimed to simplify it.
+I mentioned in the beginning that you could write your data to _Kinesis Streams_ using Kinesis Producer Library, or KPL in short. While AWS SDK also allows managing the stream itself (e.g. do stream resharding), KPL is meant solely for writing data to a stream and is aimed to simplify it.
 
 To be precise, KPL is not just a library but also a C++ daemon that you need to install, and that runs when you are using the KPL. It allows KPL to take care of several aspects of writing data to the stream on your behalf, including the handling of partial failures. In addition to several other useful features, it makes interacting with Kinesis API asynchronous, while KPL daemon abstracts the synchronous calls away from you. You can read [this article](http://www.hydrogen18.com/blog/using-aws-kinesis-with-the.html) for a pretty detailed explanation of how KPL works, as well as its pros and cons.
 
@@ -348,7 +348,7 @@ Finally, while there are several pros and cons to consider and argue about when 
 
 ## Bonus: Kinesis Data Generator
 
-There is one more way to write data to a stream I wanted to mention. It is often useful to simulate data being written to the stream, f.ex. to test consumer's behavior. To simplify this process, there is a tool called **Kinesis Data Generator (KDG)**. You can find it in [GitHub](https://github.com/awslabs/amazon-kinesis-data-generator) or use the hosted UI [here](http://amzn.to/datagen). There is also an extensive [blog post](https://aws.amazon.com/blogs/big-data/test-your-streaming-data-solution-with-the-new-amazon-kinesis-data-generator/) on using KDG.
+There is one more way to write data to a stream I wanted to mention. It is often useful to simulate data being written to the stream, e.g. to test consumer's behavior. To simplify this process, there is a tool called **Kinesis Data Generator (KDG)**. You can find it in [GitHub](https://github.com/awslabs/amazon-kinesis-data-generator) or use the hosted UI [here](http://amzn.to/datagen). There is also an extensive [blog post](https://aws.amazon.com/blogs/big-data/test-your-streaming-data-solution-with-the-new-amazon-kinesis-data-generator/) on using KDG.
 
 # Monitoring a stream
 
@@ -358,7 +358,7 @@ The so-called "**basic**" metrics are enabled by default and tell you about the 
 
 Below are the most important metrics to keep an eye on when writing to a Kinesis stream:
 
-- `IncomingRecords`: The **number** of records **successfully** written to the Kinesis stream. This includes records from both, `PutRecord` and `PutRecods` operations. In case you want to separate the two, each of them has its own metric as well: `PutRecord.Success` and `PutRecords.Records` respectively.
+- `IncomingRecords`: The **number** of records **successfully** written to the Kinesis stream. This includes records from both `PutRecord` and `PutRecods` operations. In case you want to separate the two, each of them has its own metric as well: `PutRecord.Success` and `PutRecords.Records` respectively.
 
 - `IncomingBytes`: This, in turn, shows the **size** of data **successfully** written to the Kinesis stream. Once again, it's a combined metric including `PutRecord` and `PutRecords` operations (`PutRecord.Bytes` and `PutRecords.Bytes` will tell you about the individual operations).
 
@@ -402,7 +402,7 @@ There seems to be a common misconception that serverless and fully managed mean 
 Here are some of the key takeaways I hope you find useful. The bonus here is that many of them apply to most of the API calls done through AWS SDK (think of _SQS_, _DynamoDB_, _Kinesis Firehose_, etc.)
 
 ### Batch operations and partial failures:
-When using batch operations, such as the `PutRecords` API for _Kinesis Streams_ (and let's face it, it will be most of the time, unless u have a solid reason not to), always allow for **partial failures**. They will happen. To be frank, if you haven't addressed them yet, they are probably happening right now and you might have no idea. And trust me, it's an awkward moment when you realize that. But the moment is better to come sooner rather than later :)
+When using batch operations, such as the `PutRecords` API for _Kinesis Streams_ (and let's face it, it will be most of the time, unless you have a solid reason not to), always allow for **partial failures**. They will happen. To be frank, if you haven't addressed them yet, they are probably happening right now and you might have no idea. And trust me, it's an awkward moment when you realize that. But the moment is better to come sooner rather than later :)
 
 ### Retries with backoff and jitter:
 And speaking of failures, make sure your retry algorithm uses some form of a **backoff** (exponential happens to be the most popular one) and some random **jitter**. I can't emphasize this enough. **USE JITTER!** Ok, maybe that's enough now :) I literally saw a drop of partial failures after all the retry attempts from several thousand to a steady 0 by just implementing this simple strategy.
@@ -434,6 +434,6 @@ Keep in mind, that in addition to the "baseline" fees of incoming data and open 
 ----
 
 
-And this is it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **Part 2**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
+And that's it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **Part 2**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
 
 Let me know if you think I've missed something critical and hope to see you in **Part 2** (it's coming soon!) :)
