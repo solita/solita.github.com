@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TBD, Part 1
+title: Mastering AWS Kinesis Data Streams, Part 1
 author: anahitpo
 excerpt: >
   I have been working with **AWS Kinesis Data Streams** for several years now, dealing with over 0.5TB of streaming data per day. Rather than telling you about all the reasons why you should use _Kinesis Data Streams_ (plenty is written on that subject), I'll talk about the things you should know when working with the service. At least it would have saved me some gray hair if I knew those beforehand. So if you are still reading, let's dive in!
@@ -36,7 +36,7 @@ When you create a stream, you specify the number of shards you want to have. If 
 
 ### Shards and Partition Keys
 
-Every record you write to the stream ends up in exactly one shard, where it is stored in the **same order it was written**, until it expires. To decide what shard to put a record to, Kinesis uses a so-called **partition key**. It's simply a string that you add to every record you write to the stream, along with your actual data payload. Kinesis calculates an MD5 hash function of that string and, based on this hash value, decides which shard the record goes to. Each shard is "assigned" a range of hash values and those ranges don't overlap, so each record ends up in exactly one shard.
+Every record you write to the stream ends up in exactly one shard, where it is stored in the **same order it was written**, until it expires. To decide which shard to put a record to, Kinesis uses a so-called **partition key**. It's simply a string that you add to every record you write to the stream, along with your actual data payload. Kinesis calculates an MD5 hash function of that string and, based on this hash value, decides which shard the record goes to. Each shard is "assigned" a range of hash values and those ranges don't overlap, so each record ends up in exactly one shard.
 
 ![kinesis](/img/kinesis/kinesis.png)
 
@@ -46,13 +46,13 @@ It's worth mentioning that while the partition key is not included in the 1MB li
 
 ### Serverless?
 
-One thing _Kinesis Streams_ are lacking at the moment is built-in autoscaling that would automatically respond to changes in the incoming traffic by resharding the stream. It is possible to implement your own version of "autoscaling" as described in [this post](https://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/). Disclaimer: one would need to use five other AWS services to make this work, so "autoscaling" is really a far-stretched term here IMO :)
+One thing _Kinesis Streams_ is lacking at the moment is built-in autoscaling that would automatically respond to changes in the incoming traffic by resharding the stream. It is possible to implement your own version of "autoscaling" as described in [this post](https://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/). Disclaimer: one would need to use five other AWS services to make this work, so "autoscaling" is really a far-stretched term here IMO :)
 
 ![autoscaling](/img/kinesis/autoscaling.png){: .img.centered }
 
 Why not just add an enormous amount of shards to a stream to accommodate all possible spikes in incoming traffic, you might be asking? You could, but that will cost you. In addition to paying for the amount of data being streamed, every open shard is being charged for on an hourly basis.
 
-Though being fully managed, in a sense, _Kinesis Streams_ are still not entirely serverless. After all, you do need to provision the capacity (shards), pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking :)
+Though being fully managed, in a sense, _Kinesis Streams_ is still not entirely serverless. After all, you do need to provision the capacity (shards), pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking :)
 
 But I digress.
 
@@ -91,9 +91,9 @@ Those are the HTTP requests being sent to AWS when each of the put requests is m
 
 While the size is somewhat easier to demonstrate, the number is probably even more important. For instance, if you have to wait for every single request to complete, a larger amount of requests will increase the latencies of your producer application.
 
-I should mention that from a perspective of stream throughput, there's no difference whether you batch the records in a single request or send them one by one. Each record is still considered separately and is counted towards the overall shard throughput limits.
+I should mention that from a perspective of stream throughput, there's no difference whether you batch the records in a single request or send them one by one. **Each record is still considered separately** and is counted towards the overall shard throughput limits.
 
-As a rule of thumb, if possible, always prefer batch operations. This applies to other AWS services like _SQS_, _DynamoDB_, and _Kinesis Firehose_ as well. Of course, yet again, with more perks comes more responsibility, or how did that saying go?
+As a rule of thumb, if possible, **always prefer batch operations**. This applies to other AWS services like _SQS_, _DynamoDB_, and _Kinesis Firehose_ as well. Of course, yet again, with more perks comes more responsibility, or how did that saying go?
 
 ## Batch operations
 
@@ -128,7 +128,7 @@ There is an **array of records** and a **name of the stream** you are sending yo
 
 ![failure](/img/kinesis/everything_fails.png)
 
-So, what happens if the HTTP request to the Kinesis API fails, you might ask? And that is an excellent question! If the request fails because of a "retryable" failure (e.g. due to the ServiceUnavailable or other transient 5xx error), AWS SDK retries the request on your behalf up to **three times** by default. It uses the so-called **exponential backoff** for the [retries](https://docs.aws.amazon.com/general/latest/gr/api-retries.html), where it starts with a base delay of 100ms by default, after which the time between the consequent retried will increase exponentially.
+So, what happens if the HTTP request to the Kinesis API fails, you might ask? And that is an excellent question! If the request fails because of a "retryable" failure (e.g. due to the `ServiceUnavailable` or other transient 5xx error), AWS SDK retries the request on your behalf up to **three times** by default. It uses the so-called **exponential backoff** for the [retries](https://docs.aws.amazon.com/general/latest/gr/api-retries.html), where it starts with a base delay of 100ms by default, after which the time between the consequent retried will increase exponentially.
 
 All these parameters can, and often should be configured. You can do that either when creating an instance of the [Kinesis service](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html):
 ```javascript
@@ -193,7 +193,7 @@ The main cause for these kinds of failures is **exceeding the throughput of a st
 
 To alleviate network latencies for producer applications running inside a VPC, you should always use an **[interface VPC endpoint](https://docs.aws.amazon.com/streams/latest/dev/vpc.html)** for _Kinesis Streams_. In that way, your requests will never have to leave the VPC, which can potentially significantly reduce the network latencies and other network-related issues.
 
-When it comes to traffic spikey, you could try to implement some form of backpressure in your producer application. But no matter what your network or backpressure setup looks like, the absolutely crucial, highly effective, and luckily also quite straightforward thing to do is to have proper **error handling and retries** for partial failures.
+When it comes to spiky traffic, you could try to implement some form of backpressure in your producer application. But no matter what your network or backpressure setup looks like, the absolutely crucial, highly effective, and luckily also quite straightforward thing to do is to have proper **error handling and retries** for partial failures.
 
 Let's see what it may look like in practice and rewrite the `putRecords` call:
 
@@ -222,7 +222,9 @@ function retryFailedRecords(payload, response, streamName) {
 }
 ```
 
-It is important to set an upper limit for the number of retries (similar to AWS SDK, we likely don't want to be retrying forever) and, for example, send our failed records to a dead letter queue. For that we need to keep track of the retry attempts for each record. One way to do that is to add the retry count to the data we send to our stream. So our `retryFailedRecords` function may end up looking similar to this:
+It is important to set an **upper limit** for the number of retries (similar to AWS SDK, we likely don't want to be retrying forever) and, for example, send our failed records to a dead letter queue. For that we need to keep track of the retry attempts for each record. One way to do this is to add the retry count to the data we send to our stream.
+
+So our `retryFailedRecords` function may end up looking similar to this:
 
 ```javascript
 function retryFailedRecords(payload, response, streamName) {
@@ -245,7 +247,7 @@ function retryFailedRecords(payload, response, streamName) {
 
 ## Retries & Jitter
 
-Now, when it comes to retrying, we would want to use a similar exponential back-off approach to the SDK's automatic retries. After all, we don't want to keep bombarding a stream or a shard that is probably already overwhelmed with more and more requests. So, let's iterate on our sample code one more time:
+Now, when it comes to retrying, we would want to use a similar **exponential back-off** approach to the SDK's automatic retries. After all, we don't want to keep bombarding a stream or a shard that is probably already overwhelmed with more and more requests. So, let's iterate on our sample code one more time:
 
 ```javascript
 function retryFailedRecords(payload, response, streamName) {
@@ -271,7 +273,7 @@ function delay(attempt) {
 }
 ```
 
-That is already pretty good, compared to where we started, right? However, we can do even better than that! To avoid sending bursts of retries, we should add a random *jitter* to the delay. In that way, we will spread the retry attempts more uniformly and significantly decrease the risk of overwhelming the stream. This is what our `delay` function might look like:
+That is already pretty good, compared to where we started, right? However, we can do even better than that! To avoid sending bursts of retries, we should add a **random jitter** to the delay. In that way, we will spread the retry attempts more uniformly and significantly decrease the risk of overwhelming the stream. This is what our `delay` function might look like:
 
 ```javascript
 function delay(attempt) {
@@ -292,7 +294,7 @@ And speaking of timeouts...
 Any remote call can timeout. This can happen due to a multitude of reasons, such as network glitches, service being busy, or the response being lost on its way to you in the vast space of the Internet. This happens all the time and this happens to AWS API calls as well. That's why AWS SDK has a **default value set for request timeouts**. After the timeout is reached, a request will fail and will be retried automatically, like any other retriable failed request.
 
 Each SDK has its own ways of configuring the request timeouts. Node.js SDK allows you to set two distinct types of timeous:
-- `connectTimeout`: a timeout for establishing a **new connection** on a socket; if not explicitly set, this value will default to the value of the `timeout`
+- `connectTimeout`: a timeout on establishing a **new connection** for a socket; if not explicitly set, this value will default to the value of the `timeout`
 - `timeout`: read timeout for an existing socket, or, in other words, the time between when the request ends and the response is received, **including service and network round-trips**
 
 It's important to understand the differences between the two. It's equally important to know what the default values are and to configure the timeout values according to the expected latencies of the services you are using.
@@ -314,14 +316,14 @@ const kinesis = new AWS.Kinesis({
 })
 ```
 
-The timeout configurations, along with the configurations related to the retry behavior, are extremely useful knobs that you can use to control the behavior of your producer in case of a failure.
+The timeout configurations, along with the configurations related to the retry behavior, are **extremely useful knobs** that you can use to control the behavior of your producer in case of a failure.
 
 
 ## 'At least once' guarantee
 
 There is one more thing to mention, that is implicitly related to request failures and retries. Though the records are guaranteed to be ordered within a shard and each record will end up in exactly one shard (thanks to the partition keys), _Kinesis Streams_ does not provide the "exactly once" guarantee. This means that you will have **duplicate records** in a shard every now and then.
 
-One of the reasons for this is the network timeouts and retries we discussed above. For instance, a request to write a record might actually go through but the response never gets back to the producer, so the request times out and the same record is being written again with a retry. And now we have two records with identical data. Also, there are various reasons why a consumer might consume the same record several times.
+One of the reasons for this is the network timeouts and retries we discussed above. For instance, a request to write a record might actually go through but the response never gets back to the producer, so the request times out and the same record is being written again with a retry. And now we have two records with identical data. Also, there are various reasons why a consumer might consume the same record multiple times.
 
 This is also a common consideration in distributed systems and the best way to address it is to build your downstream applications to be **idempotent**. That is, to build an application that will tolerate the possible [duplicates in data](https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-duplicates.html).
 
@@ -332,7 +334,7 @@ I mentioned in the beginning that you could write your data to _Kinesis Streams_
 
 To be precise, KPL is not just a library but also a C++ daemon that you need to install, and that runs when you are using the KPL. It allows KPL to take care of several aspects of writing data to the stream on your behalf, including the handling of partial failures. In addition to several other useful features, it makes interacting with Kinesis API asynchronous, while KPL daemon abstracts the synchronous calls away from you. You can read [this article](http://www.hydrogen18.com/blog/using-aws-kinesis-with-the.html) for a pretty detailed explanation of how KPL works, as well as its pros and cons.
 
-One of the benefits of KPL is **record aggregation**. It is an additional way of batching records (vs record **collection** achieved by the PutRecords). Remember I said that using PutRecords doesn’t affect the shard limits of 1000 records/sec or 1MB/sec? If you are writing a **large amount of small records** to your stream, you will reach the 1000 record/second limit long before the 1MB/second limit. This means that you are underutilizing your shards and thus, paying extra. The intuitive way to solve this issue is to **combine** several of your data records in a single Kinesis record before sending it to the stream. KPL implements just that on your behalf. Of course, when reading the aggregated data from the stream, the consumer must be able to recognize and de-aggregate it. Here's where the Kinesis Consumer Library (KCL) steps in. It automatically recognizes aggregated records and does all the "magic" of de-aggregation on your behalf.
+One of the benefits of KPL is **record aggregation**. It is an additional way of batching records (vs record **collection** achieved by the `PutRecords`). Remember I said that using `PutRecords` doesn’t affect the shard limits of 1000 records/sec or 1MB/sec? If you are writing a **large amount of small records** to your stream, you will reach the 1000 record/second limit long before the 1MB/second limit. This means that you are underutilizing your shards and thus, paying extra. The intuitive way to solve this issue is to **combine** several of your data records in a single Kinesis record before sending it to the stream. KPL implements just that on your behalf. Of course, when reading the aggregated data from the stream, the consumer must be able to recognize and de-aggregate it. Here's where the Kinesis Consumer Library (KCL) steps in. It automatically recognizes aggregated records and does all the "magic" of de-aggregation on your behalf.
 
 
 #### KPL vs AWS SDK?
@@ -362,7 +364,7 @@ Below are the most important metrics to keep an eye on when writing to a Kinesis
 
 - `IncomingBytes`: This, in turn, shows the **size** of data **successfully** written to the Kinesis stream. Once again, it's a combined metric including `PutRecord` and `PutRecords` operations (`PutRecord.Bytes` and `PutRecords.Bytes` will tell you about the individual operations).
 
-Note that these metrics do not include the failed record writes. So, you can't know the exact overall amount or size of incoming data based on this metric alone, but you will get quite close. There is one more metric that is crucial to get the overall picture of your stream's wellbeing:
+Note that these metrics do not include the failed record writes. So, you can't know the exact overall amount or size of incoming data based on these metrics alone, but you will get quite close. There is one more metric that is crucial to get the overall picture of your stream's wellbeing:
 
 - `WriteProvisionedThroughputExceeded`: The number of records **rejected** due to throttling for both, `PutRecord` and `PutRecords` combined. Note that this time, there are no separate metrics for individual operations.
 
@@ -372,7 +374,7 @@ So, to get the actual number of records that you attempted to write to your Kine
 
 All the _Kinesis Streams_ metrics, both basic and enhanced, are emitted **once a minute**. This means that the most granular information you can get about your stream is on the level of one minute. For example, use the Sum statistics of the `IncomingBytes` over one minute to get an idea of your stream's throughput in a minute.
 
-There's a catch though: as I mentioned before, all the kinesis limits are **per second** (1Mb/second or 1000 records/second per shard). So, when you have spikey traffic, the metrics won't reflect the entire picture. As we know by now, you may exceed stream throughput even if the stream capacity limits seem far away based on metrics.
+There's a catch though: as I mentioned before, all the kinesis limits are **per second** (1Mb/second or 1000 records/second per shard). So, when you have spiky traffic, the metrics won't reflect the entire picture. As we know by now, you may exceed stream throughput even if the stream capacity limits seem far away based on metrics.
 
 So, pay close attention to the `WriteProvisionedThroughputExceeded` metric at all times. Also, if enabled, check the shard-level metrics, to make sure you don't have overheated shards that may cause throttling.
 
@@ -389,7 +391,7 @@ There are also several other aspects to keep in mind when it comes to calculatin
   - **enhanced** (shard-level) _CloudWatch_ metrics: the pricing is the same as for having custom metrics and you pay per shard per metric per month. Though the price of _CloudWatch_ metrics is quite modest compared to the other Kinesis costs, if you just blindly enable all the available shard-level metrics (there are 7 of them) for each stream you have, those costs can start to accumulate pretty quickly.
 
 And then there are some possible extra costs associated with consuming the data:
-  - using enhanced fan-out:
+  - using enhanced fan-out
   - DynamoDB charges when using KCL
 
 I will just leave those here for now. Let's get back to them in **Part 2** when we discuss consuming data from a Kinesis stream.
@@ -417,7 +419,6 @@ If your producer application is running inside a VPC, always use an interface **
 The most valuable [metrics](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) when writing to a stream:
 
 - `IncomingRecords` / `IncomingBytes`
-- `ReadProvisionThroughputExceeded`
 - `WriteProvisionThroughputExceeded`
 
 Remember, that _CloudWatch_ metrics are **per minute**, while the stream limits are **per second** (1 MB/sec or 1 000 records/sec per shard). And though very important, just looking at the metrics is not enough. You must have proper **error handling** (am I repeating myself? :)).
