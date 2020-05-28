@@ -84,7 +84,7 @@ As you might have guessed, the first one is for writing individual records, whil
 Here is a simple example demonstrating one of the reasons why you should probably seldom use the `putRecord` and prefer the batch operation when possible:
           
 ![pbatch](/img/kinesis/batch.png "Three putRecord requests vs a single putRecords request with three records"){: .img.centered }
-<center><p>_Three `putRecord` requests vs a single `putRecords` request with three records_</p></center>
+<center><p><i>Three `putRecord` requests vs a single `putRecords` request with three records</i></p></center>
 
 
 Those are the HTTP requests being sent to AWS when each of the put requests is made. On the left, we write three separate records, while on the right we write the three records in the same request. You can see that the amount of the **request overhead** is quite considerable. By batching records, we **reduce the size and the number** of HTTP requests to AWS.
@@ -343,7 +343,7 @@ Moreover, unlike KPL, most AWS SDK considerations apply across many other AWS se
 
 Finally, while there are several pros and cons to consider and argue about when choosing between AWS SDK and KPL, there is one that is the big pink elephant in the room. While KCL does have support in several languages, KPL is **[only supported in Java](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-integration.html)**
 
-![kpl](/img/kinesis/kpl.png)
+![kpl](/img/kinesis/KPL.png)
 
 
 ## Bonus: Kinesis Data Generator
