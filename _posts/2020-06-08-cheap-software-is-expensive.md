@@ -32,6 +32,10 @@ function vatCalc (a) {
 
 Did you try it with decimal numbers? More than 2 digits? What precision we would like to have? Where did that VAT percentage of 20 come from? Would this work if international application? Do the VAT rates change ever? What if VAT rate is a decimal number? What if someone tries to pass in a zero or negative value? What do the variables really mean? And most importanly, what was the original developer smoking when writing this one?
 
+![Features as often defined.](/img/cheap-software/features.jpg)
+
+Also: Which devices should this software work on? How it should be tested? Which countries, cultures, languages, timezones? Do they have an effect on this? How about security and privacy? This will be part of something larger, probably, not living in isolation.
+
 ## Total cost of bugs
 
 Let's start with bugs. The origin of the word comes from actual insects, getting stuck inside complex machinery. Nowadays, instead of insects, we have programming mistakes or oversights. They tend to hide within imprecisely communicated requirements. They feed on added complexity, and they reproduce within human's imperfect mind. Human brain works on varying levels of efficiency, depending for example on caffeine levels in blood, ability to concentrate on a task, and of course on what is the general motivation at the moment.
@@ -88,8 +92,6 @@ And do note that this is not just about bugs, this is also about how easy the co
 
 Yes you can. Now that you reached this point, I will reveal a secret. Cheap is not a problem. Making shortcuts is a problem. You can find cheap by applying agile, and remembering that we're still doing about 80% of unnecessary ambitious features only 20% of people need, if even that. Scrum and Kanban as well as Lean are good ways to concentrate on the essential, perhaps do less features but do them properly. I'm always inspired by how much money Google has made using just one input box on an html form - but doing it in ingeniously engineered way. 
 
-![Features as defined. Jar represents money and time.](/img/cheap-software/overflowing.jpg)
-
 So drop that unneeded unwanted extra stuff that someone was daydreaming but is not really essential for success. Think about this like gardening: Good garden is not crowded by all vegetables and flowers one can imagine. Good garden is well though, has just what you want and need, and everything there deserves and gets your full attention. Well, you got me there, I have to admit that I just brought a greenhouse, so I'm full on into gardening right now.
 
 ![Yeah, my new greenhouse](/img/cheap-software/greenhouse.jpg)
@@ -104,7 +106,7 @@ Well, perhaps that's a great topic for another blog in the future... :)
 
 ## Conclusion
 
-Don't try to cut corners unless you really need tom that always tends to get very expensive. Either you are not getting the value you were seeking, or quality is so bad that you will pay more for years to come. Good cheap is either about getting a good bargain, excellent discount, without loosing quality. Or it can be about increasing the value you get from the money you spend. Former is very difficult to do, especially for anything custom made. Latter can be done by thinking hard where does the value come from, then prioritizing things so you start with the things that bring most value, and leaving the diminishing returns until later. 
+Don't try to cut corners unless you really need tom that always tends to get very expensive. Either you are not getting the value you were seeking, or quality is so bad that you will pay more for years to come. Good cheap is either about getting a good bargain, excellent discount, without loosing quality. Or it can be about *increasing the value* you get from the money you spend. Former is very difficult to do, especially for anything custom made. Latter can be done by thinking hard where does the value come from, then prioritizing things so you start with the things that bring most value, and leaving the diminishing returns until later. To do this you should have a good vision of what is needed now, as well as cool head for understanding what's essential and what is not right now.
 
 Also, try to cut hard any features that might be nice but not necessary. There's often things that are only used by tiny minority, or brought along for legacy reasons. Or requirements that sounds nice but come with a cost. Cross-cutting requirements like which devices will be supported increase cost for every feature that you will build, so their cost sneaks up on you. If they are essential, then let's do them, but be aware of the cost. Sometimes software development projects take place too late, only when there's absolute need to do something. This might cause the feature list to include wished from multiple decades. In that case might be a good thing to instead of trying to do them all and perhaps fail badly, to pick a suitable set of essentials, do something about them, and try to return to the others another time. If you manage to resolve 10 important problems with a software project, it's more valuable than trying to resolve 100 and eventually failing to improve anything.
 
