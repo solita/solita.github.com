@@ -42,7 +42,7 @@ In other words: Sure, you can write an iteration of the code in 15 minutes. But 
 
 What I'm pointing out here is that everyone makes mistakes. People are imperfect, even the most perfect ones. They are easily distracted, by any interruptions or even own worries and desires. Average coder has about 15 minutes of clarity a day, during which perfect code is made. Rest of the day is filled with sneaky bugs.
 
-There are some bugs in history of computer sciences that had a really devastating cost. For example year 2k bugs - relatively small things, people cutting corners, then realizing it is too big an issue to be fixed within normal coding, so they kind of decided to avoid thinking about it. Eventually it needed fixing, and estimated cost of those fixes and issues that were left unfixed was in the ballpark of 500 billion dollars. For example Mariner 1 spacecraft - minor bug caused destruction of 18.5 million dollar in an instance. Fortunately Mariner 2 worked better. Mars Climate Orbiter in 1999, NASA used metric system, Lockheed Martin used imperial units. Result: Probe lowered 50km too low, collapsed in atmosphere, and burned 193 million dollars of money in an instant, not to mention original scientific work that was planned. 
+There are some bugs in history of computer sciences that had a really devastating cost. For example year 2k bugs - relatively small things, people cutting corners, then realizing it is too big an issue to be fixed within normal coding, so they kind of decided to avoid thinking about it. Eventually it needed fixing, and estimated cost of those fixes and issues that were left unfixed was in the ballpark of 500 billion dollars. For example Mariner 1 spacecraft - minor bug caused destruction of 18.5 million dollar in an instance. Fortunately Mariner 2 worked better. Mars Climate Orbiter in 1999, NASA used metric system, Lockheed Martin used imperial units. Result: Probe lowered 50km too low, collapsed in atmosphere, and burned 193 million dollars of money in an instant, not to mention original scientific work that was planned. Bugs might end up costing especially much when they effect physical things, have an effect on people's health and lives, money or privacy. But to this day I've yet to see a software project where end result would be meaningless, and have no effect whether it's working properly or not.
 
 ## Making the bugs cheap
 
@@ -73,6 +73,7 @@ So, what's the realistic estimate now for that component? And which one would yo
 
 So in the end it is about balancing money, time, and features. But also how well you want those features to be done.
 
+
 ## Lifecycle of a software solution
 
 One important thing to consider is of course the lifecycle expectency of your software solution. If you are writing something that is expected to be used for few years, or for few decades, cost ratio of development to operations is very different, and then decisions you make on the quality and flexibility might be, as well. It might be ridiculous to try to cut corners during the development, if that cost is a fraction of total cost to run the software. If we are creating something that should be around for long time, it's especially important to avoid cutting too many corners, and instead create something that at least starts its life clean, refactored, documented, easy to understand, easy to modify, easy to maintain.
@@ -101,15 +102,17 @@ But, of course you have to remember that high price does not guarantee excellent
 
 Well, perhaps that's a great topic for another blog in the future... :)
 
+## Conclusion
 
-## Some links for your entertainment:
+Don't try to cut corners unless you really need tom that always tends to get very expensive. Either you are not getting the value you were seeking, or quality is so bad that you will pay more for years to come. Good cheap is either about getting a good bargain, excellent discount, without loosing quality. Or it can be about increasing the value you get from the money you spend. Former is very difficult to do, especially for anything custom made. Latter can be done by thinking hard where does the value come from, then prioritizing things so you start with the things that bring most value, and leaving the diminishing returns until later. 
 
+Also, try to cut hard any features that might be nice but not necessary. There's often things that are only used by tiny minority, or brought along for legacy reasons. Or requirements that sounds nice but come with a cost. Cross-cutting requirements like which devices will be supported increase cost for every feature that you will build, so their cost sneaks up on you. If they are essential, then let's do them, but be aware of the cost. Sometimes software development projects take place too late, only when there's absolute need to do something. This might cause the feature list to include wished from multiple decades. In that case might be a good thing to instead of trying to do them all and perhaps fail badly, to pick a suitable set of essentials, do something about them, and try to return to the others another time. If you manage to resolve 10 important problems with a software project, it's more valuable than trying to resolve 100 and eventually failing to improve anything.
 
-- [Year2k cost](https://en.wikipedia.org/wiki/Year_2000_problem) 
-- [Year 2k38](https://en.wikipedia.org/wiki/Year_2038_problem) 
-- [Mariner 1](https://en.wikipedia.org/wiki/Mariner_1) 
-- [Splunk Datetime](https://docs.splunk.com/Documentation/Splunk/8.0.3/ReleaseNotes/FixDatetimexml2020) 
-- [Excellent blog on tech debt](https://dev.solita.fi/2020/05/18/easy-steps-to-techdebt.html)
+And of course with the agile methodologies we use we like to stop often, demonstrate what we have, and check the direction. It's often possible that something that seemed important suddenly seems less important. Or something that was not thought at all rises to be essential. Or we might find a way to do an elegant shortcut that actually costs less and provides more or equal value to what was originally though. While we are doing the project and seeing the results evolve, our wisdom increases every week. It's at the peak near the end of the project. If we did the priorization well, that should be the point where all essentials were done, and we are working on tinier things that will bring some good and can still be done. 
+
+And speaking of methodology, try to be lean with it as well. Avoid creating ceremonies that include everyone often but involve only few of them. Endless meetings where only one person speaks are not a great way to use money, typically. Autonomy and empowerment tend to bring efficiency. You hire or rent excellent talents that are good at what they do, then you clearly set and communicate the value and priority, and let them loose. Demo days are great checkpoints. It's easier to iterate and polish something tangible that you have seen than something imaginary based on chain of imaginary steps, which can be seen differently by everyone.
+
+So it can be done. I've seen it happen now dozens of time. I've even seen two projects where features are not set before the project, they are designed in the beginning of the project, based on larger vision. Hopefully we will also one day read about those in this blog. That sounds like a great way to find the value.
 
 
 
