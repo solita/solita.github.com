@@ -92,7 +92,7 @@ The above example looks similar to [Reagent](https://github.com/reagent-project/
 The button callbacks defined with `:on-click` are actually run on the server.
 The special `[::h/live ...]` element registers a source on the server for this
 page. Whenever the atom changes, Ripley re-renders the component on the server and sends
-the resulting HTML sent via WebSocket to the client.
+the resulting HTML via WebSocket to the client.
 
 Ripley includes a tiny JS client library that does the WebSocket handling: sending
 event handler callbacks to the server and patching in new fragments received from
