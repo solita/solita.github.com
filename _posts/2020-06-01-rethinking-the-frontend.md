@@ -141,8 +141,7 @@ The model has many implications and some trade-offs we will explore next.
 ### Time to interactive
 
 SPA frontend apps are often large applications that the client needs to download before
-it can render the page for the user to see and interact with. This problem has some work
-arounds like module splitting and server side rendering with hydration. These solutions
+it can render the page for the user to see and interact with. This problem has some workarounds like module splitting and server side rendering with hydration. These solutions
 bring extra complexity that your application and build process needs to deal with.
 
 With Ripley we just send the HTML of the page ready to go. The usual markup for a page in
