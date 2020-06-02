@@ -118,6 +118,10 @@ While working towards that vision, don't try to cut corners unless you really ne
 
 Make sure that what you are building is done with acceptable quality considering the lifecycle of the software solution.
 
+### Set the realistic expectation for quality
+
+There exists endless amount of things that could always be done better in a software project. If you try to take every quality dimension to 100%, you would probably not get anything done. So it's essential to choose wisely what is your acceptable quality level. If it's a small, simple project, which you expect to run only for few years, or a one-shot marketing app, then you can cut corners more. If it's compicated application, with lots of expensive risks, and you are envisioning long lifecycle for running it, with constant smaller improvements along the way, then perhaps emphasize the build quality more. That being said, I think for almost all projects, definition of done should contain things like IAC, constant refactoring, test automation, threat analysis, continuous deployment and pair reviews, mainly to keep the development and deployment process stress free.
+
 ### Measure regularly, and check the direction
 
 And of course with the agile methodologies we use we like to stop often, demonstrate what we have, and check the direction. It's often possible that something that seemed important suddenly seems less important. Or something that was not thought at all rises to be essential. Or we might find a way to do an elegant shortcut that actually costs less and provides more or equal value to what was originally though. While we are doing the project and seeing the results evolve, our wisdom increases every week. It's at the peak near the end of the project. If we did the priorization well, that should be the point where all essentials were done, and we are working on tinier things that will bring some good and can still be done. 
