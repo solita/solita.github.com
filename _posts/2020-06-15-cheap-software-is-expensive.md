@@ -92,10 +92,6 @@ And do note that this is not just about bugs, this is also about how easy the co
 
 Yes you can. Now that you reached this point, I will reveal a secret. Cheap is not a problem. Making shortcuts is a problem. You can find cheap by applying agile, and remembering that we're still doing about 80% of unnecessary ambitious features only 20% of people need, if even that. Scrum and Kanban as well as Lean are good ways to concentrate on the essential, perhaps do less features but do them properly. I'm always inspired by how much money Google has made using just one input box on an html form - but doing it in ingeniously engineered way. 
 
-So drop that unneeded unwanted extra stuff that someone was daydreaming but is not really essential for success. Think about this like gardening: Good garden is not crowded by all vegetables and flowers one can imagine. Good garden is well though, has just what you want and need, and everything there deserves and gets your full attention. Well, you got me there, I have to admit that I just brought a greenhouse, so I'm full on into gardening right now.
-
-![Yeah, my new greenhouse](/img/cheap-software/greenhouse.jpg)
-
 So I would rather keep on doing excellent input boxes that really drive the business and are well and professionally made, than that fast-coded cowboy style php webshop that pretty much causes disaster after another. Actually, during my career, I've been brought more than once to salvage the steaming remains of unprofessionally coded steaming pile of cow manure. You can imagine how much it costs to have to do that in a hurry.
 
 Another thing to keep in mind is getting the requirements right. It's very difficult to do before we start coding, because that's the moment when we know the least about challenges, limitations and possibilities ahead. That's why all agile methodologies tend to shine bright, because we delay making decisions as late as we can. On the other hand, this requires good refactoring, it's essential to keep the codebase in good health, flexible even. And of course maintaining your codebase adds to expenses at that point.
