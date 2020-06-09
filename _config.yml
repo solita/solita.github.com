@@ -7,8 +7,7 @@ paginate_path: "/:num"
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  input: GFM
-
+   input: GFM
 
 authors:
   jarno:
@@ -259,3 +258,11 @@ authors:
     name: Henry Jalonen
     email: 0e245809c3a23ab42eb1b143dd621f6c
     url: https://github.com/spheroid-
+  anahitpo:
+    name: Anahit Pogosova
+    email: 7d5ac3b444be28a1d5f9c7dace2db72c
+    url: https://twitter.com/anahit_fi
+  perttihu:
+    name: Pertti Husu
+    email: a8585f764dd4037653183b6eb25b027d
+    url: https://www.linkedin.com/in/perttihusu/
