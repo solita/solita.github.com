@@ -133,17 +133,3 @@ And of course, with the agile methodologies, we like to stop often, demonstrate 
 And speaking of methodology, try to be lean with it as well. Avoid creating ceremonies that include everyone often but involve only a few of them. Endless meetings where only one person speaks are not a great way to use money, typically. Autonomy and empowerment tend to bring efficiency. You hire or rent excellent talents that are good at what they do, then you clearly set and communicate the value and priority, and let them loose. Demo days are great checkpoints. It's easier to iterate and polish something tangible that you have seen than something imaginary based on a chain of imaginary steps, which can be seen differently by everyone.
 
 So it can be done. I've seen it happen now dozens of times. I've even seen two projects where features are not set before the project, they are designed at the beginning of the project, based on a larger vision. Hopefully, we will also one day read about those in this blog. That sounds like a great way to find the value. Hopefully, reading this blog you were entertained, and perhaps got some new ideas as well, or may have different experiences. I would be happy to hear about them, you can find me in most social media channels and of course, my company email address works as well, any feedback is always much welcome.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
