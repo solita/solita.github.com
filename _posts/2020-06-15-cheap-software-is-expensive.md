@@ -88,6 +88,10 @@ Understand the lifecycle of what you are building. Are you creating a product, a
 
 And do note that this is not just about bugs, this is also about how easy the code is to maintain, and how flexible it is to make changes when requirements change on a longer run. And this is also about how to find new talent to recruit so we can maintain the code on the longer run, without driving people insane.
 
+A colleague of mine wrote an excellent article on technical debt - which is what you get when you just keep on piling features in a hurry, never fixing issues that arise, or refactoring code to try to battle the increasing complexity. You can go read it here: [6 Easy Steps to Boost the Creation of Technical Debt in your Organization](https://dev.solita.fi/2020/05/18/easy-steps-to-techdebt.html).
+
+The thing is again: By taking those shortcuts every daym you think you are producing faster, but you are instead only being messier. And the cost of all those shortcuts will become visible when development has been done for some time, or when development has ended and software or service is being mostly maintained with as little effort as possible. **So trying to be lazy and fast will eventually make you, and everyone working on that codebase, miserable and extremely slow.**
+
 ## So, can I still have it cheap? Pretty please?
 
 Yes, you can. 
@@ -112,7 +116,7 @@ Try to cut hard any features that might be nice but not necessary. There are oft
 
 ### Don't cut corners, instead try to increase the value
 
-While working towards that vision, don't try to cut corners unless you really need tom that always tends to get very expensive. Either you are not getting the value you were seeking, or quality is so bad that you will pay more for years to come. Good cheap is either about getting a good bargain, an excellent discount, without losing quality. Or it can be about *increasing the value* you get from the money you spend. Former is very difficult to do, especially for anything custom made. Latter can be done by thinking hard where the value comes from, then prioritizing things so you start with the things that bring the most value, and leaving the diminishing returns until later. Accept that you might not get all the things done with low priority and value, but you'll get the most important things done well, and they will serve you for a long time.
+While working towards that vision, don't try to cut corners unless you really need tom that always tends to get very expensive. Either you are not getting the value you were seeking, or quality is so bad that you will pay more for years to come. Good cheap is either about getting a good bargain, an excellent discount, without losing quality. Or it can be about **increasing the value you get for the money that you spend**. Former is very difficult to do, especially for anything custom made. Latter can be done by thinking hard where the value comes from, then prioritizing things so you start with the things that bring the most value, and leaving the diminishing returns until later. Accept that you might not get all the things done with low priority and value, but you'll get the most important things done well, and they will serve you for a long time.
 
 Make sure that what you are building is done with an acceptable quality considering the lifecycle of the software solution.
 
