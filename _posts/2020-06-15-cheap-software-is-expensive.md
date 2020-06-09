@@ -10,6 +10,10 @@ tags:
  - Custom
  - ROI
  - Competitiveness
+ - Agile
+ - Lean
+ - Testing
+ - Quality
 ---
 
 How much does an algorithm cost? What's the work estimate for function that calculates value-added tax for a price? How many euros does it cost to produce? It does not sound too complicated, right? Any monkey could write that function within one hour of good concentrated work, right?
