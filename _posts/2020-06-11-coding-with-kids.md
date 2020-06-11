@@ -17,7 +17,7 @@ tags:
 
 I have always loved to tinker with robotics, electronics and software with hacker mentality. Break something to figure out how it works. Build something with the knowledge you have gathered. Play with the things you have created. With kids I have tried to combine the things I love to do with the people I love to be with. This blog is not about making kids professional developers but more of a showcase of what we have done. I hope that this encourages people to try something similar with their children.  
 
-Code is not my own but I have permission to share it. No children has been harmed (hopefully, we will see that later) in the process.
+Most of the code is not my own but I have permission to share it. No children has been harmed (hopefully, we will see that later) in the process.
 
 ## How it all started with Turtle Roy
 
@@ -85,11 +85,11 @@ Neither of us has liked much on programming with Mindstorms EV3. We have deconst
 
 #### Lego BOOST
 
-Lego BOOST is awesome. The suggestion age is few years less and it provides more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST but instead it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces idea where the Lego model is not absolute. For example if you built up Frankie that cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play harmonica. That is awesome. Lots of building, deconstructing and programming happens in no time. Everything is even packaged in a way that our six year old could do it. Well to be honest he had some programming experience and a lots of Lego experience. This package made me hope to be a child again to have all time in the world to just rebuild it over and over again. 
+Lego BOOST is awesome. The suggestion age is few years less and it provides more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST but instead it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces idea where the Lego model is not absolute. For example if you built up Frankie the cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play harmonica. That is awesome. Lots of building, deconstructing and programming happens in no time. Everything is even packaged in a way that our six year old could do it. Well to be honest he had some programming experience and a lots of Lego experience. This package made me hope to be a child again to have all time in the world to just rebuild it over and over again. 
 
 #### Lego BOOST Star Wars Droid Commander
 
-Where Lego BOOST was awesome the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys which will color my opinions on the matter. The packet does not include instructions book but instead you will use tablet to use Lego app for the droids. The app is more comprehensive package than with the original BOOST. It has a whole Star Wars universe where your three droids will adventure. You can build all three droids at once but you will have only one programmable brick which is at times a bit awkward. 
+Where Lego BOOST was awesome the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys which will color my opinions on the matter. The package does not include instructions book but instead you will use tablet to use Lego app for the droids. The app is more comprehensive package than with the original BOOST. It has a whole Star Wars universe where your three droids will adventure. You can build all three droids at once but you will have only one programmable brick which is at times a bit awkward. 
 
 Software development process with Lego Boost Star Wars Droid commander is following
 - Venture in the galaxy and find somebody who has a problem
@@ -125,25 +125,25 @@ BBC micro:bit is a ARM-based credit-card sized microcomputer designed for educat
 
 I used the MakeCode that could also be found for Android and Apple as an app. Children might need some help in connecting the device to tablet and learning things like flashing the rom. Beside that the actual coding could also be done yet again with scratch. As our first project we did a simplified version of Flappy Bird for the device with these [instructions](https://makecode.microbit.org/projects/crashy-bird). All my kids where thrilled about that they could do such a thing and because of that they have used pretty impressive amount of time on playing Flappy Bird with 5x5 LED matrix. 
 
-And that is not all. [Tech Will Save Us](https://www.techwillsaveus.com/) that by my understanding has designed and created the micro:bit for the educational foundation also provides extension kits. It seems that there are lots of interesting electronics that supports coding hobby like [Arcade Coder](https://www.techwillsaveus.com/arcade-coder-home/) but also interesting electronics projects like building your own synthesizer that is at both time really fun and does provide infernal sounds. 
+And that is not all. [Tech Will Save Us](https://www.techwillsaveus.com/) (that by my understanding has designed and created the micro:bit for the educational foundation) also provides extension kits. It seems that there are lots of interesting electronics that supports coding hobby like [Arcade Coder](https://www.techwillsaveus.com/arcade-coder-home/) but also interesting electronics projects like building your own synthesizer that is at both time really fun and frustrating because it does provide infernal sounds. 
 
 ![synth](/img/coding-with-kids/synth.jpg)
 
 ## Looking into Sphero
 
-Sphero provides robots. I have a good feeling about them. Maybe even too good. They feel like complete products and they have provided Bluetooth connectivity that can be used both from computer and from tablet to program them. They are sturdy and have really impressive set of features I have hard times on figuring what I would like to have more. I have Sphero Bolt and Sphero RVR which both are surprisingly expensive when compared for example to Tech Will Save Us products. They have community behind them and the IDE that Sphero is providing also is a code-sharing-platform. You can instruct them with drawing routes and programming them with Scratch or JavaScript. Interestingly there is even [guidance](https://sdk.sphero.com/microbit/) how to connect the above mentioned micro:bit to your Sphero RVR. Below is a picture of my Spheros. 
+Sphero provides robots. I have a good feeling about them. Maybe even too good. They feel like complete products and they have provided Bluetooth connectivity that can be used both from computer and from tablet to program them. They are sturdy and have really impressive set of features. I have had hard times on figuring out what I would like to have more. I have Sphero Bolt and Sphero RVR which both are surprisingly expensive when compared for example to Tech Will Save Us products. They have community behind them and the IDE that Sphero is providing also is a code-sharing-platform. You can instruct them with drawing routes and programming them with Scratch or JavaScript. Interestingly there is even [guidance](https://sdk.sphero.com/microbit/) how to connect the above mentioned micro:bit to your Sphero RVR. Below is a picture of my Spheros. 
 
 ![Spheros](/img/coding-with-kids/sphero.jpg)
 
-Here is an example program that I did for my children as a showcase that what could be done. 
+Here is an example program that I did for my children as a showcase that what could be done. It provides matrix animations, some spinning around and scrolling text over the LED matrix and finally ends up celebrating goal by turning around while standing in one place. It seems that the 
 
 ![Sphero soccer](/img/coding-with-kids/sphero_soccer.jpg)
 
-Scratch code done by kids is yet to be done. Instead my youngest of the pack made his first computer program at age of three using only finger to draw the what should the robot do. I am missing video but you can still surely imagine how that Bolt ball move with these instructions. 
+Scratch code done by kids is yet to be done. Instead my youngest of the pack made his first computer program at age of three using only finger to draw the what should the robot do. Color of the line dictates the color of LED matrix. I am missing video but you can still surely imagine how that Bolt ball moves back and forth with these instructions. 
 
 ![Sphero draw](/img/coding-with-kids/sphero_draw.jpg)
 
-Long story short. They are awesome but still they are kind of gathering dust in our house. I do not know the actual reason but maybe the reason could be that they are too complete for me. I have found out that I would really like to build the robot myself. In contrast here is my old project built on top of netduino. If you look those two sphero robots and compare to this you surely get what I meant. Maybe I am just missing an angle from where to approach the RVR since you could things like robotic arm to it. Nevertheless I kind of would personally like to look into arduino/netduino/F7 meadow instead of Sphero when building something to robots just to make the process more comprehensive but same time it could be too hard for kids.
+Long story short. They are awesome but still they are kind of gathering dust in our house. I do not know the actual reason but maybe the reason could be that they are too complete for me. I have found out that I would really like to build the robot myself. In contrast here is my old project built on top of Netduino. If you look those two Sphero robots and compare to this you surely get what I meant. Maybe I am just missing an angle from where to approach the RVR since you could add things like robotic arm to it. Nevertheless I kind of would personally like to look into arduino/netduino/F7 meadow instead of Sphero when building robots just to make the process more comprehensive but same time it could be too hard for kids.
 
 ![Netduino](/img/coding-with-kids/netduino.jpg)
 
@@ -177,13 +177,15 @@ Which will lead into phrases like `Dad eats lion` and `Mother kicks airplane` or
 
 Quickly our learn how to implement software with Python turned into how to control characters in role playing game with Python. We have been using [https://codecombat.com/](Code Combat) for that. Beside Python it also supports JavaScript. Kids will quite quickly get grip on the game but there are missing translations and some new features that will require parent to support the kid on the way. Code Combat is implemented in a way that supports problem solving, learning algorhitms and learning basic of object oriented programming. It is implemented with kind of Domain Specific Language. You can only use given commands and equipment will give your character more options. For example your hero can't cleave with sword without sword. 
 
+We also tried once to go further and check if we could find something from [CodinGame](https://www.codingame.com/) that we could do. Unfortunately it seems that the challenges there were still a bit too hard. Maybe we get back there in few years. 
+
 
 ## Creating the first home page - the hard way
 
 Last and maybe the least is making the home pages. I was once told that the easiest way to make home pages is make a word document and then save it as a HTML file. If you know anything about home pages you might know that there are plenty of problems that will arise from that approach. Instead I teached my kids the same painful route that I took 25 years ago. Basically we opened up a notepad and then into another screen the [w3schools](https://www.w3schools.com/html/default.asp). Then we made an index document using the simplest possible syntax with having title with two words and the body with a sentence. We hosted it in Azure Blob Storage with static websites feature enabled that allows you to serve static html files from the blog storage. I had to check out what it has costed me and I figured out that less than 1c. Seems like a cheap way to start. 
 
-Needless to say this was kind of boring approach and maybe we come back to this later. Now the website is waiting. 
+Needless to say this was kind of boring approach and maybe we come back to this later. Now the website is "under construction" like all the webpages back in the nineties. 
 
 ## Afterwords
 
-In summary my kids knew to how to program in few different languages before school. You do not need to know how to read to start programming can be done with drawing like with Sphero. ScratchJr also is able to teach "try and learn" type of approach which does not require deep understanding. Later on Python is a great choice for first "real programming language" as it is widely supported and easy to learn. The basic idea for me has not been to make sure that they will be nerds but more of show what is possible. Later they can make their own decisions about what they want to do but now this is more of building something together. Still nothing beats Legos. 
+In summary my kids knew to how to program with few different languages before school. You do not need to know how to read to start programming because it can be done with drawing (Sphero). ScratchJr also is able to teach "try and learn" type of approach which does not require deep understanding. Later on Python is a great choice for first "real programming language" as it is widely supported and easy to learn. The basic idea for me has not been to make sure that they will be nerds but more of show what is possible. Later they can make their own decisions about what they want to do but now this is more of building something together. Still nothing beats Legos. 
