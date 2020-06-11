@@ -17,7 +17,7 @@ tags:
 
 I have always loved to tinker with robotics, electronics and software with hacker mentality. Break something to figure out how it works. Build something with the knowledge you have gathered. Play with the things you have created. With kids I have tried to combine the things I love to do with the people I love to be with. This blog is not about making kids professional developers but more of a showcase of what we have done. I hope that this encourages people to try something similar with their children.  
 
-Code is not my own but I have permission to share it. No childen have been harmed (hopefully, we will see that later) in the process.
+Code is not my own but I have permission to share it. No children has been harmed (hopefully, we will see that later) in the process.
 
 ## How it all started with Turtle Roy
 
@@ -57,19 +57,19 @@ function Speak-Aloud
 }
 ```
 
-Once I had done that I asked my kid that if she wanted to speak with the computer and learn some math. I showed her that you could make mathematical equations and let the computer to compute them for her. The computer would then both print the output and say it aloud. Robotlike speech synthesizer was fun eventhough that it did not speak her native language (it might be possible to change the language). 
+Once I had done that I asked my kid that if she wanted to speak with the computer and learn some math. I showed her that you could make mathematical equations and let the computer to compute them for her. The computer would then both print the output and say it aloud. Robotlike speech synthesizer was fun eventhought that it did not speak her native language (it might be possible to change the language). 
 
 ```powershell
 5*5 + 1 | speak-aloud
 ```
 
-At the age of six or seven my kid was so enthusiasted about PowerShell that she wanted to stay at home using PowerShell instead of coming to grocery with her parents. I would bet that is quite unique thing to be told as a parent.
+At the age of six or seven my kid was so enthusiastic about PowerShell that she wanted to stay at home using PowerShell instead of coming to grocery with her parents. I would bet that is quite unique thing to be told as a parent.
 
 ## Telling stories with Scratch
 
-One all time favorite for my kids has been ScratchJr (from Play Store). It is a Scracth IDE designed specially for kids. It is not necessary so much about programming in a sense I do it for work but more of a story telling. It allows childen to put cute figures into different scenes and orchestrate what the different characters do. Basically it is a way to make a short movie with programming language. 
+One all time favorite for my kids has been ScratchJr (from Play Store). It is a Scratch IDE designed specially for kids. It is not necessary so much about programming in a sense I do it for work but more of a story telling. It allows children to put cute figures into different scenes and orchestrate what the different characters do. Basically it is a way to make a short movie with programming language. 
 
-To get a grip what it is like I proudly present one of my chilred latest piece of art. Red dragon playing soccer with cat. Well just a screen capture, not a video.
+To get a grip what it is like I proudly present one of my childrens latest piece of art. Red dragon playing soccer with cat. Well just a screen capture, not a video.
 
 ![Red dragon playing soccer](/img/coding-with-kids/dragonsoccer.jpg)
 
@@ -77,19 +77,19 @@ This is also hassle free for the educator. You do not know understand anything a
 
 ## Scracthing with Lego
 
-When my my firstborn was just a few months old I decided that she needs Lego robots. So I went and bought Mindstorms EV3. Well it turned out that she was not that interested on robotics but his younger brother has been really enthusiastic on building anything. With him we have bought Lego Mindstorms EV3, Lego BOOST and Lego BOOST Star Wars Droid Commander. 
+When my firstborn was just a few months old I decided that she needs Lego robots. So I went and bought Mindstorms EV3. Well it turned out that she was not that interested on robotics but his younger brother has been really enthusiastic on building anything. With him we have bought Lego Mindstorms EV3, Lego BOOST and Lego BOOST Star Wars Droid Commander. 
 
 #### Mindstorms EV3
 
-Neither of us has liked much on programming with Mindstorms EV3. We have deconstructed and rebuilt it several times but rather used just readymade controllers to use it as a manually controlled electronics than automated robot. The out-of-the-box programmign environment feels somehow clumsy. There is possibility to run micropython with it but we haven´t yet tested it out. It might be that the era of Mindstorms EV3 comes later since the guy is missing few years still from the recommended age.
+Neither of us has liked much on programming with Mindstorms EV3. We have deconstructed and rebuilt it several times but rather used just readymade controllers to use it as a manually controlled electronics than automated robot. The out-of-the-box programming environment feels somehow clumsy. There is possibility to run MicroPython with it but we haven´t yet tested it out. It might be that the era of Mindstorms EV3 comes later since the guy is missing few years still from the recommended age.
 
 #### Lego BOOST
 
-Lego BOOST is awesome. The suggestion age is few years less and it provides more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST but instead it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces idea where the Lego model is not absolute. For example if you built up Frankie that cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play harmonica. That is awesome. Lots of building, deconstructing and programming happens in no time. Everything is even packeted in a way that our six year old could do it. Well to be honest he had some programming experience and a lots of Lego experience. This package made me hope to be a child again to have all time in the world to just rebuild it over and over again. 
+Lego BOOST is awesome. The suggestion age is few years less and it provides more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST but instead it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces idea where the Lego model is not absolute. For example if you built up Frankie that cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play harmonica. That is awesome. Lots of building, deconstructing and programming happens in no time. Everything is even packaged in a way that our six year old could do it. Well to be honest he had some programming experience and a lots of Lego experience. This package made me hope to be a child again to have all time in the world to just rebuild it over and over again. 
 
 #### Lego BOOST Star Wars Droid Commander
 
-Where Lego BOOST was awesome the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys which will color my opinions on the matter. The packet does not include instructions book but instead you will use tablet to use Lego app for the droids. The app is more comprehensive package than with the original BOOST. It has a whole Star Wars universe where your three droids will adventure. You can build all three droids at once but you will have only one programmable brick which is at times a bit akward. 
+Where Lego BOOST was awesome the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys which will color my opinions on the matter. The packet does not include instructions book but instead you will use tablet to use Lego app for the droids. The app is more comprehensive package than with the original BOOST. It has a whole Star Wars universe where your three droids will adventure. You can build all three droids at once but you will have only one programmable brick which is at times a bit awkward. 
 
 Software development process with Lego Boost Star Wars Droid commander is following
 - Venture in the galaxy and find somebody who has a problem
@@ -105,7 +105,7 @@ Here is a picture of the Lego BOOST App IDE.
 ![Star Wars BOOST](/img/coding-with-kids/starwars.jpg)
 
 
-## Making portable flappy bird game with micro:bit
+## Making portable Flappy Bird game with micro:bit
 
 BBC micro:bit is a ARM-based credit-card sized microcomputer designed for education. It is open sourced and it has an [educational foundation](https://microbit.org/) that publishes guides and more. I found a claim that over 25 million children would be using it in school, libraries and home. It costs around 20 euros and has pretty impressive list of features for a computer of that price tag.
 
@@ -175,7 +175,7 @@ Which will lead into phrases like `Dad eats lion` and `Mother kicks airplane` or
 
 #### RPG with Python
 
-Quickly our learn how to implement software with Python turned into how to control characters in role playing game with Python. We have been using [https://codecombat.com/](Code Combat) for that. Beside Python it also supports JavaScript. Kids will quite quickly get grip on the game but there are missing translations and some new features that will require parent to support the kid on the way. Code Combat is implemented in a way that supports problem solving, learning alghoritms and learning basic of object oriented programming. It is implemented with kind of Domain Specific Language. You can only use given commands and equipment will give your character more options. For example your hero can't cleave with sword without sword. 
+Quickly our learn how to implement software with Python turned into how to control characters in role playing game with Python. We have been using [https://codecombat.com/](Code Combat) for that. Beside Python it also supports JavaScript. Kids will quite quickly get grip on the game but there are missing translations and some new features that will require parent to support the kid on the way. Code Combat is implemented in a way that supports problem solving, learning algorhitms and learning basic of object oriented programming. It is implemented with kind of Domain Specific Language. You can only use given commands and equipment will give your character more options. For example your hero can't cleave with sword without sword. 
 
 
 ## Creating the first home page - the hard way
