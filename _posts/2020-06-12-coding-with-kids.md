@@ -77,7 +77,7 @@ This is also hassle-free for the educator. You do not need to understand anythin
 
 ## Scratching with Lego
 
-When my firstborn was just a few months old, I decided that she needs Lego robots. So I went and bought a Mindstorms EV3. Well, it turned out that she was not that interested in robotics, but his younger brother has been really enthusiastic in building anything. With him we have bought Lego Mindstorms EV3, Lego BOOST, and Lego BOOST Star Wars Droid Commander. 
+When my firstborn was just a few months old, I decided that she needs Lego robots. So I went and bought a Mindstorms EV3. Well, it turned out that she was not that interested in robotics, but her younger brother has been really enthusiastic in building anything. With him we have bought Lego Mindstorms EV3, Lego BOOST, and Lego BOOST Star Wars Droid Commander. 
 
 #### Mindstorms EV3
 
@@ -85,11 +85,11 @@ Neither of us has liked much on programming with Mindstorms EV3. We have deconst
 
 #### Lego BOOST
 
-Lego BOOST is awesome. The suggestion age is a few years less, and it provides a more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST, but instead, it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces an idea where the Lego model is not absolute. For example, if you build up Frankie the cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play the harmonica. That is awesome. Lots of building, deconstructing and programming happen in no time. Everything is even packaged in a way that our six years old could do it. Well, to be honest, he had some programming experience and lots of Lego experience. This package made me hope to be a child again to have all-time in the world to just rebuild it over and over again. 
+Lego BOOST is awesome. The suggestion age is a few years less, and it provides a more storylike environment to build a robot and to give the robot some different characteristics. We did not get any instructions book with the Lego BOOST, but instead, it comes with a tablet software that both tells you how to build different robots from the pieces and Scratch IDE. It introduces an idea where the Lego model is not absolute. For example, if you build up Frankie the cat you can decorate it as you wish. Do you want it to have a hat? Which hat? Do you want it to have a bowtie or not? You can even teach Frankie to have a birthday party and teach him to play the harmonica. That is awesome. Lots of building, deconstructing and programming happen in no time. Everything is even packaged in a way that our six years old could do it. Well, to be honest, he had some programming experience and lots of Lego experience. This package made me hope to be a child again to have all the time in the world to just rebuild it over and over again. 
 
 #### Lego BOOST Star Wars Droid Commander
 
-Where Lego BOOST was awesome, the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys, which will color my opinions on the matter. The package does not include an instructions book, but instead, you will use a tablet to use Lego app for the droids. The app is a more comprehensive package than with the original BOOST. It has a whole Star Wars universe, where your three droids will adventure. You can build all three droids at once, but you will have only one programmable brick which is at times a bit awkward. 
+Where Lego BOOST was awesome, the newer Lego BOOST Star Wars Droid Commander is something beyond that. Me and my boys are definitely Star Wars fanboys, which will color my opinions on the matter. The package does not include an instructions book, but instead, you will use a tablet to use the Lego app for the droids. The app is a more comprehensive package than with the original BOOST. It has a whole Star Wars universe, where your three droids will adventure. You can build all three droids at once, but you will have only one programmable brick which is at times a bit awkward. 
 
 Software development process with Lego Boost Star Wars Droid commander is following
 - Venture in the galaxy and find somebody, who has a problem
@@ -98,7 +98,7 @@ Software development process with Lego Boost Star Wars Droid commander is follow
 - Build up new adjustments
 - Implement software with Scratch to actually help the poor fellow in distress
 
-I can recall first grade aged boy to sit next to this thing eight hours straight to just build and deconstruct and programming repeatable. As a parent, I needed to trick him eat something of course but still. 
+I can recall first grade aged boy to sit next to this thing eight hours straight to just build-deconstruct-program repeatable. As a parent, I needed to trick him eat something while the cycle just went on and on. 
 
 Here is a picture of the Lego BOOST App IDE. 
 
@@ -107,7 +107,7 @@ Here is a picture of the Lego BOOST App IDE.
 
 ## Making portable Flappy Bird game with micro:bit
 
-BBC micro:bit is an ARM-based credit-card-sized microcomputer designed for education. It is open-sourced, and it is developed by an [educational foundation](https://microbit.org/) that publishes guides and more. I found a claim that over 25 million children would be using it in school, libraries, and home. It costs around 20 euros and has a pretty impressive list of features for a computer of that price tag.
+BBC micro:bit is an ARM-based credit-card-sized microcomputer designed for education. It is open-sourced, and it is developed by an [educational foundation](https://microbit.org/) which publishes guides and more. I found a claim that over 25 million children would be using it in school, libraries, and home. It costs around 20 euros and has a pretty impressive list of features for a computer of that price tag.
 
 - Two buttons (three if you count reset)
 - 5x5 LED Matrix
@@ -123,9 +123,9 @@ BBC micro:bit is an ARM-based credit-card-sized microcomputer designed for educa
 
 ![micro:bit](/img/coding-with-kids/microbit.jpg)
 
-I used the MakeCode that could also be found for Android and Apple as an app. Children might need some help in connecting the device to tablet and learning things like flashing the rom. Besides that, the actual coding could also be done yet again with scratch. As our first project, we did a simplified version of Flappy Bird for the device with these [instructions](https://makecode.microbit.org/projects/crashy-bird). All my kids were thrilled about that they could do such a thing, and because of that they have used a pretty impressive amount of time on playing Flappy Bird with 5x5 LED matrix. 
+I used the MakeCode that could also be found for Android and Apple as an app. Children might need some help in connecting the device to a tablet and learning things like flashing the board. Besides that, the actual coding could also be done yet again with scratch. As our first project, we did a simplified version of Flappy Bird for the device with these [instructions](https://makecode.microbit.org/projects/crashy-bird). All my kids were thrilled about that they could do such a thing, and because of that they have used a pretty impressive amount of time on playing Flappy Bird with 5x5 LED matrix. 
 
-And that is not all. [Tech Will Save Us](https://www.techwillsaveus.com/) (that by my understanding has designed and created the micro:bit for the educational foundation) also provides extension kits. It seems that there are lots of interesting electronics that support coding hobby like [Arcade Coder](https://www.techwillsaveus.com/arcade-coder-home/), but also interesting electronics projects like building your own synthesizer that is at both times really fun and frustrating because it does provide infernal sounds. 
+And that is not all. [Tech Will Save Us](https://www.techwillsaveus.com/) (which, as far as I have understood, has designed and created the micro:bit for the educational foundation) also provides extension kits. It seems that there are lots of interesting electronics that support coding hobby like [Arcade Coder](https://www.techwillsaveus.com/arcade-coder-home/), but also interesting electronics projects like building your own synthesizer that is both really fun and frustrating because it provides infernal sounds. 
 
 ![synth](/img/coding-with-kids/synth.jpg)
 
@@ -143,7 +143,7 @@ Scratch code done by kids is yet to be done. Instead, my youngest of the pack ma
 
 ![Sphero draw](/img/coding-with-kids/sphero_draw.jpg)
 
-Long story short. They are awesome, but still, they are kind of gathering dust in our house. I do not know the actual reason, but maybe the reason could be that they are too complete for me. I have found out that I would really like to build the robot myself. In contrast, here is my old project built on top of Netduino. If you look at those two Sphero robots and compare to this, you surely get what I meant. Maybe I am just missing an angle from where to approach the RVR since you could add things like a robotic arm to it. Nevertheless, I kind of would personally like to look into arduino/netduino/F7 meadow instead of Sphero when building robots, just to make the process more comprehensive, but at the same time, it could be too hard for kids.
+Long story short. They are awesome, but still, they are kind of gathering dust in our house. I do not know the actual reason, but maybe the reason could be that they are too complete for me. I have found out that I would really like to build the robot myself. In contrast, here is my old project built on top of Netduino. If you look at those two Sphero robots and compare to this, you surely get what I mean. Maybe I am just missing an angle from where to approach the RVR since you could add things like a robotic arm to it. Nevertheless, I kind of would personally like to look into arduino/netduino/F7 meadow instead of Sphero when building robots, just to make the process more comprehensive, but at the same time, it could be too hard for kids.
 
 ![Netduino](/img/coding-with-kids/netduino.jpg)
 
@@ -151,11 +151,11 @@ Long story short. They are awesome, but still, they are kind of gathering dust i
 
 I needed to learn more Python to my work project, so I implemented Space Invader clone with `pygame` with a twist that I replaced all the aliens with my own face. My kids loved to choose dads that were trying to catch their spaceship. The natural move was then to ask if they wanted to learn about making software like this, and of course they wanted. 
 
-Overall, Python is a really good language for learning programming. There is plenty of sources. It is supported in many situations, and it is simple to get started. It comes with much less boilerplate code than for example Java or C# would come, which helps kids to focus into the actual thing and not to be distracted about "important but not necessary" features of many other languages.  
+Overall, Python is a really good language for learning programming. There are plenty of sources for learning. It is supported in many situations, and it is simple to get started. It comes with much less boilerplate code than for example Java or C# would come, which helps kids to focus into the actual thing and not to be distracted about "important but not necessary" features of many other languages.  
 
 #### Using a book to learn Python
 
-I considered how to learn programming when you already knew Scratch, PowerShell and Turtle Roy. I decided that I could go into a more comprehensive direction and lend a book from the library. As always with programming books, there were lots of words, and we were not interested in every of them. We cherrypicked example projects from there that were written in English and translated them with my kid to Finnish. One of the examples was using `from turtle import *` to make a drawing robot that knew how to build a house, so you could command Python from the commandline to provide exactly the same house over and over again. That was a fun process, but the end result is rather boring. Instead, I will present you with a piece software that was faster to implement and provided much more fun on many occasions: generating funny phrases. The idea is really simple. Make a few arrays of words like subjects, deeds and objects and mix them randomly to provide unexpected phrases. Use your family names in subjects to make it even funnier. Here is a hastily from finnish-to-english translated version of the implementation.
+I considered how to learn programming when you already knew Scratch, PowerShell and Turtle Roy. I decided that I could go into a more comprehensive direction and lend a book from the library. As always with programming books, there were lots of words, and we were not interested in every one of them. We cherrypicked example projects from there that were written in English and translated them with my kid to Finnish. One of the examples was using `from turtle import *` to make a drawing robot that knew how to build a house, so you could command Python from the commandline to provide exactly the same house over and over again. That was a fun process, but the end result is rather boring. Instead, I will present you with a piece software that was faster to implement and provided much more fun on many occasions: generating funny phrases. The idea is really simple. Make a few arrays of words like subjects, deeds and objects and mix them randomly to provide unexpected phrases. Use your family names in subjects to make it even funnier. Here is a hastily translated version of the implementation from Finnish to English.
 
 ```python
 subjects = ["Dad","Mother","Kid1","Kid2"]
@@ -188,8 +188,8 @@ Needless to say, this was a kind of boring approach and maybe we come back to th
 
 ## Afterwords
 
-In summary. my kids knew to how to program with few different languages before school. You do not need to know how to read to start programming, because it can be done with drawing (Sphero). ScratchJr also is able to teach "try and learn" type of approach, which does not require necessary any reading skills. Later on, Python is a great choice for the first "real programming language" as it is widely supported and easy to learn. 
+In summary. my kids knew to how to program with few different languages before school. You do not need to know how to read to start programming, because it can be done with drawing (Sphero). ScratchJr is also able to teach "try and learn" type of approach, which does not necessarily require any reading skills. Later on, Python is a great choice for the first "real programming language" as it is widely supported and easy to learn. 
 
-There are some supporting sources that I did not mention earlier. [Code.org](https://code.org/) has been used at school and seems to have a great deal of material for learning the art of coding. There is also section for younglings starting from the age of four. Hello Ruby books by Linda Liukas have also been loved by our children, and I feel that they have also helped my children on learning to think like a programmer. Then there is a board game called RoboGem, which has been played both in school and at home, which definitely teaches you how to give instructions for machines. Hard recommendations for all three learning sources mentioned. 
+There are some supporting sources that I did not mention earlier. [Code.org](https://code.org/) has been used at school and seems to have a great deal of material for learning the art of coding. There is also section for younglings starting from the age of four. Hello Ruby books by Linda Liukas have also been loved by our children, and I feel that they have also helped my children in learning to think like a programmer. Then there is a board game called RoboGem, which has been played both in school and at home, which definitely teaches you how to give instructions for machines. Strong recommendations for all three learning sources mentioned. 
 
 The basic idea for me has not been to make sure that they will be nerds, but more of show what is possible. Later they can make their own decisions about what they want to do but now this is more of building something together. Still, nothing beats Legos. 
