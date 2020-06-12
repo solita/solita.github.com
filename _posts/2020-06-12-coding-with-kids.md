@@ -15,7 +15,7 @@ tags:
 
 ## Forewords
 
-I have always loved to tinker with robotics, electronics and software with hacker mentality. Break something to figure out how it works. Build something with the knowledge you have gathered. Play with the things you have created. With kids, I have tried to combine the things I love to do with the people I love to be with. This blog is not about making kids professional developers, but more of a showcase of what we have done. I hope that this encourages people to try something similar with their children.  
+I have always loved to tinker with robotics, electronics and software with hacker mentality. Break something to figure out how it works. Build something with the knowledge you have gathered. Play with the things you have created. With kids, I have tried to combine the things I love to do with the people I love to be with. This blog is not about making kids professional developers, but more of a showcase of what we have done over the past years. I hope that this encourages people to try something similar with their children.  
 
 Most of the code is not my own, but I have permission to share it. No children have been harmed (hopefully, we will see that later) in the process.
 
@@ -73,7 +73,7 @@ To get a grip what it is like I proudly present one of my children's latest piec
 
 ![Red dragon playing soccer](/img/coding-with-kids/dragonsoccer.jpg)
 
-This is also hassle free for the educator. You do not know understand anything about programming only open attitude towards trying things out. 
+This is also hassle free for the educator. You do not need to understand anything about programming only open attitude towards trying things out. 
 
 ## Scracthing with Lego
 
