@@ -2,13 +2,12 @@ url: http://dev.solita.fi
 title: /dev/solita
 description: Solita developer blog
 gems: [jekyll-paginate]
-paginate: 10
+paginate: 20
 paginate_path: "/:num"
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  input: GFM
-
+   input: GFM
 
 authors:
   jarno:
@@ -22,7 +21,7 @@ authors:
   massimo:
     name: Massimo Prencipe
     email: 1d369f0b94f9ed31c2e84cbbceea00e1
-    url: http://www.solita.fi
+    url: https://twitter.com/yes_its_masse
   lokori:
     name: Antti Virtanen
     email: a364d662d46eafc7684fda3c71278194
@@ -66,7 +65,7 @@ authors:
   arto:
     name: Arto Santala
     email: dc3bf4adfabce83f904b9563f927641d
-    url: https://spagettikoodi.wordpress.com/
+    url: https://www.linkedin.com/in/artosantala/
   juuso:
     name: Juuso Hyvönen
     email: 8a528aee07705cfc166b57564e242db6
@@ -178,7 +177,7 @@ authors:
   hjhamala:
     name: Heikki Hämäläinen
     email: b4db05c5d716e08972fff85f93c27662
-    url: https://www.linkedin.com/in/heikki-h%C3%A4m%C3%A4l%C3%A4inen-34036279/
+    url: https://www.linkedin.com/in/heikki-hamalainen-34036279
   jooelkorpi:
     name: Jooel Korpi
     email: 10a4a19ff7fa5859998f685a1b7c3ad4
@@ -207,3 +206,63 @@ authors:
     name: Toni Dahl
     email: fec8c20c0dd58a95e4759ab46509f042
     url: https://www.linkedin.com/in/tonidahl/
+  jgke:
+    name: Jaakko Hannikainen
+    email: 1588faf5a5021a823b811f7471ad4564
+    url: https://jaakkohannikainen.fi
+  aleksei:
+    name: Aleksei Hodunkov
+    email: 2d3cca2614704775fd867df1a2c4214c
+    url: https://www.linkedin.com/in/alekseihodunkov/
+  eerohe:
+    name: Eero Helenius
+    email: 5e22ca859f7176554d3c2dfe5d0b2f9d
+    url: https://github.com/eerohele
+  markkuko:
+    name: Markku Korkeala
+    email: 63cd9571193c86a77bc6e9f7a80ce27a
+    url: https://github.com/markkuko
+  miikasantala:
+    name: Miika Santala
+    email: ea1448265b1b0e19f3cc0a6c8cde413c
+    url: https://www.linkedin.com/in/miika-santala-75b92837
+  juholei:
+    name: Juho Leinonen
+    email: d3a41ef20fcba8ad8a97ee200d1a401c
+    url: https://twitter.com/juholei
+  aleksipekkala:
+    name: Aleksi Pekkala
+    email: 63938423a6515066496017ca774f2ca0
+    url: https://github.com/epiphone
+  mpajunen:
+    name: Mikael Pajunen
+    email: d315555cacf0ecdcfa79357790e8d3ef
+    url: https://github.com/mpajunen
+  demonru:
+    name: Vladimir Anaimanovich
+    email: fbce800f0242dcf4e11594774497babb
+    url: https://github.com/demonru/
+  janneri:
+    name: Janne Rintanen
+    email: bfbd935b3a3eab5d58690885f88471e1
+    url: https://github.com/janneri
+  hnybom:
+    name: Henri Nybom
+    email: 13b2d57201efc9c6efdba200e6f40aaa
+    url: https://www.linkedin.com/in/henri-nybom/
+  vili:
+    name: Vili Heikkilä
+    email: b26483a28f9c0e1ff144e79383a7a8bf
+    url: https://www.linkedin.com/in/viliheikkila/
+  spheroid-:
+    name: Henry Jalonen
+    email: 0e245809c3a23ab42eb1b143dd621f6c
+    url: https://github.com/spheroid-
+  anahitpo:
+    name: Anahit Pogosova
+    email: 7d5ac3b444be28a1d5f9c7dace2db72c
+    url: https://twitter.com/anahit_fi
+  perttihu:
+    name: Pertti Husu
+    email: a8585f764dd4037653183b6eb25b027d
+    url: https://www.linkedin.com/in/perttihusu/

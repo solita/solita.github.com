@@ -14,20 +14,14 @@
         <link rel="icon" type="image/png" href="/img/favicon-16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/img/favicon-96.png" sizes="96x96">
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-35431188-1']);
-            _gaq.push(['_trackPageview']);
 
-            (function () {
-                var ga = document.createElement('script');
-                ga.type = 'text/javascript';
-                ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-K8P8C7W');</script>
+        <!-- End Google Tag Manager -->
 
         <script src="https://use.typekit.net/cjv1dsv.js"></script>
         <script>try {
@@ -38,51 +32,44 @@
     </head>
 
     <body>
+        {% include masthead.html %}
 
-        <div>
+        <div class="main site-content-wrapper" role="main">
+            {% if page.url != "/" %}
+                <div class="breadcrumb">
+                    <a class="breadcrumb__link breadcrumb__link--root" href="/">{{ layout.back_title | default: "Back" }}</a>
+                </div>
+            {% endif %}
 
-            <div class="site-content-wrapper">
-                <header class="site-header">
-                    <a class="site-logo" href="http://dev.solita.fi">
-                        <img class="site-logo-img" src="/img/solita-dev-logo.svg" alt="Solita"/>
-                    </a>
+            <main class="primary">
+                {{ content }}
+            </main>
 
-                    <h5 class="site-title">{{ site.title }}</h5>
-                </header>
-            </div>
-
-            <div class="main site-content-wrapper" role="main">
-                <main class="primary">
-                    {{ content }}
-                </main>
-
-                <aside class="sidebar">
-                    {% include sidebar.html %}
-                </aside>
-            </div>
-
+            <aside class="sidebar">
+                {% include sidebar.html %}
+            </aside>
         </div>
 
         <footer class ="site-footer-wrapper">
             <div class="site-content-wrapper">
                 <div class="site-footer-content">
 
-                    <a class="site-logo" href="http://www.solita.fi">
+                    <a class="site-logo" href="https://www.solita.fi">
                         <img class="site-logo-img" src="/img/Solita-footer-logo-white.svg" alt="Solita"/>
                     </a>
 
                     <div class="site-footer-links">
-                        <a href="http://dev.solita.fi/">Solita.fi</a>
+                        <a href="https://www.solita.fi/">Solita.fi</a>
                         <span class="text-divider">|</span>
-                        <a href="http://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a>
+                        <a href="https://www.facebook.com/Solita?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Facebook</a>
                         <span class="text-divider">|</span>
-                        <a href="http://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a>
+                        <a href="https://www.linkedin.com/company/solita-oy/?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.3.1455535189712&amp;__hsfp=2012607753">LinkedIn</a>
                         <span class="text-divider">|</span>
                         <a href="https://twitter.com/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">Twitter</a>
                         <span class="text-divider">|</span>
                         <a href="https://www.instagram.com/solitaoy/">Instagram</a>
                         <span class="text-divider">|</span>
-                        <a href="http://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a>
+                        <a href="https://www.youtube.com/user/SolitaOy?__hstc=256420948.62ee05c43f7f28b4546e97a969f37bd8.1444921521532.1455107308943.1455535189712.18&amp;__hssc=256420948.4.1455535189712&amp;__hsfp=2012607753">YouTube</a>
                     </div>
                 </div>
             </div>

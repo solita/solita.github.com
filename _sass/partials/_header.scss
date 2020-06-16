@@ -1,45 +1,27 @@
 .site-header {
-  position: relative;
-  margin: $baseline*1 0 $baseline*2;
+    margin-top: 1.5em;
+    margin-bottom: 3em;
 
-  @media (min-width: $breakpoint-3) {
-    width: 520px;
-    padding-left: 160px;
-    margin: $baseline*2 0 $baseline*3;
-  }
-}
+    &__branding {
+        float: left;
+        padding-left: 0.25rem;
 
-.site-logo {
-  display: inline-block;
+        @media (min-width: $breakpoint-1) {
+            padding: 1rem 2rem 1rem 0.25rem;
+        }
+    }
 
-  @media (min-width: $breakpoint-3) {
-    position: absolute;
-    left: 0;
-  }
-}
+    &__navigation {
+        clear: both;
+        padding: 1rem 0;
 
-.site-header .site-logo-img {
-  vertical-align: middle;
-  width: 130px;
-}
+        @media (min-width: $breakpoint-1) {
+            clear: none;
+            float: left;
+        }
+    }
 
-.site-title {
-  display: inline-block;
-  margin: 0 0 0 0.1em;
-  vertical-align: middle;
-  position: static;
-  top: auto;
-
-  @media (min-width: $breakpoint-3) {
-    margin: 0;
-    position: relative;
-    top: 8px;
-  }
-}
-
-.site-description {
-  font-size: 0.75em;
-  font-weight: 400;
-  line-height: $baseline;
-  margin-bottom: 0;
+    &__hamburger {
+        float: right;
+    }
 }

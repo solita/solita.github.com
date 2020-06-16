@@ -1,0 +1,31 @@
+---
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link>{{ site.url }}</link>
+    <atom:link type="application/rss+xml" rel="self" href="{{ site.url }}/rss.xml" />
+    <description>{{ site.description }}</description>
+    <language>en-us</language>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+    {% for post in site.categories.Episerver %}
+    	{% if post.author == "demonru" %}
+        <item>
+          <title>{{ post.title }}</title>
+          <link>{{ site.url }}{{ post.url }}</link>
+          <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+          <author>open@solita.fi (Solita Oy)</author>
+          <guid>{{ site.url }}{{ post.id }}</guid>
+    	  {% for tag in post.tags %}
+    	  <category>{{ tag }}</category> 
+    	  {% endfor %}
+          <description>{{ post.content | xml_escape }}</description>
+        </item>
+    	{% endif %}
+    {% endfor %}
+
+  </channel>
+</rss>

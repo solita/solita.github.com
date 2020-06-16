@@ -3,8 +3,18 @@
     margin-top: 0;
   }
 
+  h5 {
+    border-top: 4px solid $brand-gray40;
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+
   h4, h5 {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
   }
 
   .none {
