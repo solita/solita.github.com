@@ -152,7 +152,7 @@ By chance, the Closure Compiler named our multimethod to ```XR``` which happens 
 
 Occasionally you can encounter errors like this when using an older version of Closure Compiler.
 Developers add new features to web browsers all the time. When a user upgrades his/her web browser there is a chance 
-a new reserved word was added that can collide with a munged variable. 
+a new reserved word was added that collides with a munged variable. 
 
 It turns out, XR is a reserved word added by the WebXR platform API. When the error occurred "XR" was added in the newest 
 version of Google Chrome, but not yet in Firefox. Newer Closure Compiler versions take this into account by providing
