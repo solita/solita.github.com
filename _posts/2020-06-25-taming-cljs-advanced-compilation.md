@@ -85,7 +85,8 @@ you add them to your own externs file.
 Read more about using external JavaScript libraries from [here](http://lukevanderhart.com/2011/09/30/using-javascript-and-clojurescript.html)
 
 ### Splitting code might cause name collisions
-If you use code splitting with CLJS, you might want to use `:rename-prefix "..."` compiler option. 
+If you are [splitting](https://clojurescript.org/guides/code-splitting) your CLJS code into ```:modules```, you might want
+to use `:rename-prefix "..."` compiler option.  
 Split modules are running in the global JavaScript scope, so they might interfere with other code loaded on the same page 
 (e.g. Google Analytics) and cause unpredictable errors if name collisions occur.
 When using `":rename-prefix"`, it is best to use a very short string as a prefix, for example: `:rename-prefix "r_"`
@@ -141,7 +142,7 @@ Uncaught Error: No protocol method IMultiFn.-add-method defined
     at (index):236
 ```
 
-The Stack Trace was pointing to a certain multimethod in the original source code. 
+The Stack Trace was pointing to a certain multimethod in the CLJS source code. 
 At the first glance, the error might make no sense. The compiled code is trying to invoke -add-method IMultiFn protocol method 
 for a function named XR. When searching for the munged ```XR``` in the build output, everything seems to be fine. 
 ```XR``` looks good and should work, right?
