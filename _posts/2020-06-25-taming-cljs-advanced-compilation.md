@@ -126,8 +126,8 @@ This will help you to deduce if an extern definition is missing.
 Additionally, if your error goes away after enabling the above-mentioned compiler options, it gives you a hint
 of a possible name collision problem. When there is a problem with a munged variable name colliding with an external 
 variable name, the problem disappears when the munged variable name changes, like what happens when enabling the :pseudo-names option.  
-Often, if not fixed properly, the name collision issues can arise and then be magically "fixed" when one adds new code
-changes and causes changes in munged variable names in the build output. It is best to eliminate these problems for good.
+Often, if not fixed properly, the name collision issues can arise and then be magically "fixed" when one adds new 
+changes, which in turn causes changes in munged variable names in the build output. It is best to eliminate these problems for good.
 
 ### Sometimes, something funky can happen
 In some rare cases, there might be some advanced compilation issues that are not so easy to avoid.
