@@ -65,7 +65,7 @@ I won't cover the differences in this blog post, but instead, I will provide som
 issues with advanced compilation in your project.
 
 ### Keep your externs in a good shape
-Extern is a mechanism for declaring names that should not be munged (renamed) by Closure Compiler.
+[Extern](https://clojurescript.org/guides/externs) is a mechanism for declaring names that should not be munged (renamed) by Closure Compiler.
 When you are using external libraries, make sure that they come [bundled](http://cljsjs.github.io/)
 with externs if you are using a build tool like lein-cljsbuild. Or, provide externs files of your own if needed. 
 Otherwise, Closure Compiler will munge references to externally defined symbols unintentionally during advanced 
