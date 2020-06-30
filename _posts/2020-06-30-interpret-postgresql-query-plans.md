@@ -146,7 +146,7 @@ So even if we got to something much faster, we still can see row and loop counts
 Next, we tried [Postgre's LATERAL JOIN](https://www.postgresql.org/docs/current/queries-table-expressions.html) to reduce the number of rows needed in result set aggregation and make the query even faster.
 
 
-```
+```sql
 -- Final version with a LATERAL JOIN
 SELECT
     s.id,
