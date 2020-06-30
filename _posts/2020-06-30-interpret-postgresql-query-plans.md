@@ -2,7 +2,7 @@
 layout: post
 title: Understand Your PostgreSQL Query Plans for Performance Gains 
 author: jarnovayrynen
-excerpt: A real-life example how to read PostgreSQL query plan (EXPLAIN ANALYZE) and act upon it for better performance and end user experience
+excerpt: A real-life example of how to read PostgreSQL query plan (EXPLAIN ANALYZE) and act upon it for better performance and end-user experience
 tags:
 - Postgres
 - PostgreSQL
@@ -20,8 +20,6 @@ The code we use in our example belongs to an [open-source software called Harja]
 -- Translations for relations, as the code has been written in Finnish
 -- silta = bridge, siltatarkastus = bridge inspection, siltatarkastuskohde = inspected property
 -- liite = appendix, siltatarkastus_kohde_liite = link table between inspected properties and appendixes
---
--- The original (and very slow) query looked like this
 SELECT
     s.id,
     siltanro,
@@ -141,9 +139,11 @@ With a simple refactoring, we got rid of the most complex nested subquery, and h
 ![Query version 2](/img/postgresql-query-plans/query2.png)
 *Improved Version Still Has Significant Execution Cost Because of the Looping*
 
+So even if we got to something much faster, we still can see row and loop counts in the plan that don't make sense. We know there are only 50k bridges and 250k appendixes in the production database. However, the join filter in SubPlan5 is looped 3.4M times. The database engine will spend quite a long time aggregating the result set after performing the queries and joins. Based on the huge number in loop count, we can assume that the LEFT JOIN of siltatarkastus can still be optimized quite a bit.
+
 ## The Power of a LATERAL Join
 
-So even if we got to something much faster, we still can see row and loop counts in the plan that don't make sense. We know there are only 50k bridges and 250k appendixes in the production database. However, the join filter in SubPlan5 is looped 3.4M times. The database engine will spend quite a long time aggregating the result set after performing the queries and joins. Based on the huge number in loop count, we can assume that the LEFT JOIN of siltatarkastus can still be optimized quite a bit. Next, we tried [Postgre's LATERAL JOIN](https://www.postgresql.org/docs/current/queries-table-expressions.html) to reduce the number of rows needed in result set aggregation and make the query even faster.
+Next, we tried [Postgre's LATERAL JOIN](https://www.postgresql.org/docs/current/queries-table-expressions.html) to reduce the number of rows needed in result set aggregation and make the query even faster.
 
 
 ```
@@ -184,7 +184,7 @@ SELECT
  ORDER BY siltanro;
 ```
 
-Lateral join allows us to cross-reference the retrieved value of s.id (bridge id) returned in the from clause, and use it in an SQL for-each kind of manner to retrieve columns of interest from bridge inspections (siltatarkastus). In our case, this seems to bring the query execution speed to a whole new level, from 6 seconds to 4 milliseconds! As we can see in the query plan after adding the LATERAL join, we can happily conclude that we finally got completely rid of the big amount of rows and loops in our plans that were signaling us something was not quite right. 
+Lateral join allows us to cross-reference elements of the main query in the subquery, which is often very powerful. In our case, we can use the retrieved value of s.id (bridge id) returned in the from clause and use it in an SQL for-each kind of manner to retrieve columns of interest from bridge inspections (siltatarkastus). In our case, this seems to bring the query execution speed to a whole new level, from 6 seconds to 4 milliseconds! As we can see in the query plan after adding the LATERAL join, we can happily conclude that we finally got rid of the big amount of rows and loops in our plans that were signaling us something was not quite right. 
  
 ![Query Plan with the Final Version](/img/postgresql-query-plans/lateral.png)
 *Query Plan of the Final Version*  
