@@ -37,7 +37,7 @@ For example:
 
 ## Previewing posts
 
-You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview).
+You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview) or [this one for VS Code](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles). You can also choose to preview post in GitHub. 
 
 ### Option A, Running solita-blag dockerized extravaganza
 
@@ -126,6 +126,14 @@ If you're interested in the changes the update brings, you can read about them h
 #### Update instructions
 
 First thing to do is to synch your fork with the changes in the main repository. If you don't know how to do this, GitHub has good instructions. First you need to add the main repository as a remote (https://help.github.com/articles/configuring-a-remote-for-a-fork/) after which you can sync your fork (https://help.github.com/articles/syncing-a-fork).
+
+To add upstream named remote and sync changes with your fork you want to do something like this. 
+
+1. `git remote add upstream https://github.com/solita/solita.github.com.git`
+2. `git checkout master`
+3. `git fetch upstream`
+4. `git merge upstream/master`
+5. `git push origin master`
 
 ##### Option A, if you're using Vagrant
 
