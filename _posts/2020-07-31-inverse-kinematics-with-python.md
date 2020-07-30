@@ -23,7 +23,7 @@ and artists started creating animations procedurally rather than using a
 pre-drawn set of animations. This enabled creating features like ragdolls,
 which have since then become a staple in 3D games. Further development into
 procedural animation has enabled making even more immersive games, with
-characters placing their hands onto nearby walls when walking.
+features like characters placing their hands onto nearby walls when walking.
 
 In an unrelated industry, many similar topics have been already been
 researched. How a hand should be positioned in order to touch the wall is
