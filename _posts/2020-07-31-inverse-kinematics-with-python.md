@@ -46,13 +46,13 @@ We'll be using PyGame for visualizations, which will also take care of most of
 the actual math. The only thing we have to think about is what vectors to
 rotate.
 
-<div style="display: flex">
-<img src="/img/inverse-kinematics-with-python/math1.png" alt="" />
-<img src="/img/inverse-kinematics-with-python/math2.png" alt="" />
+<div>
+<img width="49%" src="/img/inverse-kinematics-with-python/math1.png" alt="" />
+<img width="49%" src="/img/inverse-kinematics-with-python/math2.png" alt="" />
 </div>
-<div style="display: flex">
-<img src="/img/inverse-kinematics-with-python/math3.png" alt="" />
-<img src="/img/inverse-kinematics-with-python/math4.png" alt="" />
+<div>
+<img width="49%" src="/img/inverse-kinematics-with-python/math3.png" alt="" />
+<img width="49%" src="/img/inverse-kinematics-with-python/math4.png" alt="" />
 </div>
 
 A quick primer in vector math: In our use case vectors are essentially objects
