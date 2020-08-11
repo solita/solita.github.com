@@ -48,9 +48,9 @@ So, if we were in a very static world, this would be simple. We would just build
 
 So that's where DevOps comes in. You build it, you run it. This model also works in a more traditional environment, with separate ops. Mainly we just need someone to be responsible of the observability, and to haver resources to maintain it when things change. And here's an idea how. Let me introduce an iterative process for incident response. Sorry, there's no sexy acronym for this, it's just a model I've come up with, and used successfully a few times.
 
-This model will eat incidents, symptoms that something is wrong. And it will output iterative improvements, constantly making the environment more robust, and people working on it happier. Hei, since I invented this, I get to name it. How about AIRM - *Agile Incident Response Model*?
+This model will eat incidents, symptoms that something is wrong. And it will output iterative improvements, constantly making the environment more robust, and people working on it happier. Hei, since I invented this, I get to name it. How about AIRM - *Agile Incident Response Model*? :)
 
-[pic of the model]
+<img src="/img/observations/incident-response-model.png" alt="Agile incident response model for self-learning process">
 
 So, input is an incident. Incident is any symptom that something is going wrong. It might be a red light on a dashboard or alarm going off. It might also be observed anomaly not seen before with no clear indicators existing. It might be, as a worst case scenario, an angry phonecall that eventually reaches you when something is not working as it should be. For a devops team, you could also define it as: Something exceptional that breaks the normal development flow, and forces you to take some action.
 
@@ -71,6 +71,8 @@ Better level is then to make the process automatic or semi-automatic. This means
 Self-healing means for example a server that is able to boot itself as a response to alarm triggering, that tells of a failure. Or kick up another, healthy node. Or reroute some calls to a backup system. This is very cool level to be because it allows services to recover 24/7 without even necessarily needing to wake up anybody or take any actions. Of course, need to be very careful with fully autonymous self-healing systems, because if symptom is not correctly detected, and resolution is not correct, it can do something unexpected. For example, going to constant reboot cycle. Of course, serverless technologies cannot be rebooted, and typically self-heal automatically, at some point, or platform vendor will be responsible of fixing them. On the other hand if there's a rare failure on that level, there might not be much you can do about it.
 
 If process is not formalized via some kind of automation, there's always a risk that its quality depends a lot on who is doing it and how much coffee have they had in the morning. And that way attempt to fix things might easily do a lot more harm than the original incident.
+
+Whatever level you aim for, keep an incident log, it will help you see repeating issues, and progress in observability. And if you are working on DevSecOps, it's Security which nowadays benefits most from instant response, automated or not.
 
 # Jarvis, are you there?
 
