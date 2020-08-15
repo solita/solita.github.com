@@ -39,18 +39,26 @@ Basic concepts
 Concource pipelines are defined with [YAML](https://yaml.org/). Core concepts
 are [resources](https://concourse-ci.org/resources.html), [tasks](https://concourse-ci.org/tasks.html) 
 and [jobs](https://concourse-ci.org/jobs.html). For every pipeline there are inputs and outputs which are conceptually
-resources. Concourse itself doesn't know any details about these. Resources are just some external sources
-to get and put *things*. Each resource has a resource type. If resource is abstraction for some project artifact,
-Ie. your codebase in Git, then resource type is an abstraction for an actual implementation how your
-pipeline communicates with some resource, Ie. your Git repository.
+resource states with direction. Concourse itself doesn't know any details about these. Resources are just some external
+sources with state and which you can interact by using get and put operations. Each resource has a resource type.
+If resource is an abstraction for some project artifact, Ie. your codebase in Git at a certain point in time,
+then resource type is an abstraction of Git as whole. However, from implementation point of view resource type
+could also be seen as an abstraction of actual implementation how your pipeline interacts with some specific resource,
+Ie. your Git repository.
 
-There is some core resources available and [also third-party resources
-are listed on Concourse website](https://resource-types.concourse-ci.org/). In addition, there is
-also many other in the wild Internet.
+But, this is computer science. Sometimes it feels like, the more vague some concept is, the more
+popular it is (you probably have heard of service oriented architecture and can strictly define what is a service
+and what is not). Anyway, in context of this blog post we can just think that we have *things* where we get 
+something (input) and *things* where we put something (output). These can be external *things*, or 
+internal *things* to pass some result between jobs or tasks.
+
+There is some Concourse core resources available which you can use without defining resource type explicitly
+and [there is also some third-party resources listed on Concourse website](https://resource-types.concourse-ci.org/).
+In addition, there is also many other in the wild Internet.
 
 However, **keep security concerns in mind** whenever you use third-party resource types and especially
 with the ones which are not listed on Concource website. Resource types are in practice just Docker images, so
-programs running in such a container can be change to something nasty without you knowing it.
+if you are unlucky you can find yourself pulling an image which is changed to something nasty without you knowing it.
 Fortunately, it's quite an easy job to make your own resource type. So, if you feel like
 you don't trust enough for the publisher of some resource type, you can use it as base for your own resource type.
 However, remember to contribute to the base project if you make good improvements or bug fixes. 
@@ -74,8 +82,8 @@ Because every pipeline has least one input, let's start with it.
     branch: ((git-branch))
 ```
 
-So, now we have our input. Its type is *git*, which is one of core types of Concource, and you
-don't have to define explicitly these resource types in your definitions. So, this syntax is quite easy to understand,
+So, now we have our input. Its type is *git*, which is one of core types of Concource, so you
+don't have to define explicitly its resource type in your definition. This syntax is quite easy to understand,
 it's an abstraction of some Git-branch in some repository. This example snippet doesn't tell
 much about which branch and which repository we are using, though.
 
@@ -83,7 +91,7 @@ You can use exact path to your repository in pipeline definition if you wish, bu
 variables. My main goal has been to create pipeline definition which is more like a template for
 set of pipelines than just one pipeline for specific use. In this way you can easily create multiple
 pipelines from same template and just provide different variables for each. This is especially
-useful if you wish to use it with artifacts which have common steps on the process. One real world
+useful if you wish to use it with artifacts which have common steps. One real world
 example could be software with microservice architecture pattern. With this approach you have a shared pipeline definition
 for all of your services.
 
@@ -108,8 +116,9 @@ security point of view. However, this is out of the scope of this blog post.
 
 
 Right, now we have some input. Goal in this example is to get some input from git,
-make some *things* and then push the result to the output which is in this case Docker Hub.
-Output can be whatever is needed, ie. rsync your project artifacts to some server.
+make some *things* and then push the result (or output) into specific repository in Docker Hub.
+In general output can be whatever is needed, ie. rsync your project artifacts to some server,
+push something to git and so on.
 
 ```yaml
 - name: concource-example-registry
@@ -122,7 +131,7 @@ Output can be whatever is needed, ie. rsync your project artifacts to some serve
 ```
 
 So, now we have external input and output. Next phase is to define a job which uses those. Let's use
-our imagination and call our job *build-and-publish*. You could define as many jobs you wish,
+our imagination and call our job *build-and-publish*. You could define as many jobs as you wish,
 but in this case one is enough.
 
 ```yaml
@@ -152,10 +161,11 @@ plan:
       }
 ```
 
-So, while definition itself is very self-explanatory let's walk it through. First we fetch our input
+So, while this definition is very self-explanatory let's walk it through anyway. First we fetch our input
 from Git. Then we do some preliminary *things* before building our complex Docker image. Finally, we
-push image into the Docker Hub. One point to note is keyword in our first get. This boolean value
-controls if job should be triggered when resources state changes (Ie. you push something into your repository).
+put image into the Docker Hub. One point to note is keyword *trigger* in our first *get*. This boolean value
+controls if the job should be triggered automatically when resource state changes
+(Ie. you push something into your repository).
 
 I have divided my more complex tasks into separate files, so it's easier to see top-level flow from main pipeline file.
 For every task we can also define different running environment.
@@ -168,8 +178,8 @@ image_resource:
     tag: "bionic"
 ```
 
-Also, tasks can have their own inputs and outputs. These are basically folders to pass by in your pipeline. In my example,
-I make minor tuning to Dockerfile, based on pipeline variables, and then pass it on to actual build task.
+Also, tasks can have their own inputs and outputs. These are basically directories to pass by in your pipeline.
+In my example, I make minor append into Dockerfile, based on pipeline variables, and then pass it on to actual build task.
 
 Beyond inputs and outputs there is also caches available in Concourse.
 
@@ -177,8 +187,8 @@ Beyond inputs and outputs there is also caches available in Concourse.
 caches:
   - path: image-cache
 ```
-Caches are to preserve state of your task running environment between builds. Many times this is a useful feature to use
-with your build tasks, so Concourse does not need to download every dependency on every build.  
+Caches are used to preserve partial state of your tasks' running environment between builds. Many times this is a useful
+feature in your build tasks, Ie. Concourse doesn't need to download every dependency on every build.  
  
 Summary
 -------
@@ -186,16 +196,17 @@ Summary
 I have tried to keep my example project for this blog post as simple as possible, but although in a level to provide
 some useful tips on the first steps with Concourse.
 
-Concourse has some rough edges, that fact cannot be bypasses. It's also good to understand, that it's not
+Concourse has some rough edges, that fact cannot be bypassed. It's also good to understand, that it's not
 suitable for every need. It's definitely not a swiss-knife. Also, some flexibility in your mindset might
-be needed if you don't already share the same ideas with authors. There is also steep learning curve if you
+be needed if you don't already share same ideas with authors. There is also probably steep learning curve if you
 are just fine with Ie. Jenkins.
 
 Anyway, it's good we have alternatives and especially ones which are [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software).
-I myself have used Concourse in a couple of projects. There has been some hard moments, but at overall I have liked it.
+I myself have used Concourse in a couple of projects. There has been some hard moments, but at overall I have kind of liked it.
 However, I'm not here to tell which tool is the best, but just trying to provide first steps if you are interested to
-get familiar with Concourse. It's up to you to choose what suits best for your needs.
+get familiar with Concourse. It's up to you to decide what suits best for your needs. I hope this blog post has provided
+some good insights for you.
 
-Feel free to share you thoughts and provide for me new way if you think my approach have some flaws.
+Feel free to share your thoughts and let me know if you think my approach have some flaws.
 Every feedback is appreciated. Remember to check out the code behind this blog post at 
 [GitHub](https://github.com/solita-alperttiti/concource-ci-example).
