@@ -97,8 +97,8 @@ git-branch: master
 ``` 
 
 Variables are loaded into the Concourse when the pipeline is created. Be noted, that 
-variables can be loaded out from the concourse afterwards, so in real world cases it
-might be useful to consider using some credentials' manager if you have some sensitive data
+variables can be loaded out from the concourse afterwards by using fly client with proper access,
+so in real world cases it might be useful to consider using some credentials' manager if you have some sensitive data
 in your variables. [Concourse supports many out-of-the-box](https://concourse-ci.org/creds.html).
 By using external manager you only need to provide api key to your pipeline.
 You can also have multiple configuration files if you wish to split them up.
