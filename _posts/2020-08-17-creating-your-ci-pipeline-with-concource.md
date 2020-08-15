@@ -3,7 +3,7 @@ layout: post
 title: Creating your CI/CD-pipeline with Concource
 author: alperttiti
 excerpt: >
-  Choosing a CI/CD system is very much a same thing than choosing a good server name.
+  Choosing a CI/CD-system is very much a same thing than choosing a good server name.
   You probably have a long ride with your decision ahead. Concource CI is one option.
 tags:
  - Concource CI
@@ -27,8 +27,8 @@ Before we'll get further, it's good time for a disclaimer. Before you just start
 it's good to read a little what Concourse is and what direction it's heading in the future. Good place to start is
 their [blog post about roadmap towards v10](https://blog.concourse-ci.org/core-roadmap-towards-v10/).
 Core developers behind Concourse has also said, that Concource is not for everyone and for every need.
-In example, [they have ruled parametrized build out of their scope.](https://github.com/concourse/concourse/issues/783)
-Also, Concource is nothing new and fancy, it has been here from year 2014.
+In example, [they have ruled parametrized jobs out of their scope.](https://github.com/concourse/concourse/issues/783)
+Also, Concource is nothing new and fancy, it has been there from year 2014.
 
 Anyway, because you still be reading this, you probably think like I do, 
 one cannot know if it's good or not, without trying it. So, let's get forward.
@@ -42,7 +42,7 @@ and [jobs](https://concourse-ci.org/jobs.html). For every pipeline there are inp
 resource states with direction. Concourse itself doesn't know any details about these. Resources are just some external
 sources with state and which you can interact by using get and put operations. Each resource has a resource type.
 If resource is an abstraction for some project artifact, Ie. your codebase in Git at a certain point in time,
-then resource type is an abstraction of Git as whole. However, from implementation point of view resource type
+then resource type is an abstraction of Git as a whole. However, from implementation point of view resource type
 could also be seen as an abstraction of actual implementation how your pipeline interacts with some specific resource,
 Ie. your Git repository.
 
@@ -50,7 +50,7 @@ But, this is computer science. Sometimes it feels like, the more vague some conc
 popular it is (you probably have heard of service oriented architecture and can strictly define what is a service
 and what is not). Anyway, in context of this blog post we can just think that we have *things* where we get 
 something (input) and *things* where we put something (output). These can be external *things*, or 
-internal *things* to pass some result between jobs or tasks.
+internal *things* to pass some result between tasks.
 
 There is some Concourse core resources available which you can use without defining resource type explicitly
 and [there is also some third-party resources listed on Concourse website](https://resource-types.concourse-ci.org/).
@@ -117,8 +117,8 @@ security point of view. However, this is out of the scope of this blog post.
 
 Right, now we have some input. Goal in this example is to get some input from git,
 make some *things* and then push the result (or output) into specific repository in Docker Hub.
-In general output can be whatever is needed, ie. rsync your project artifacts to some server,
-push something to git and so on.
+So, next we define an output. In general, output can be whatever is needed,
+ie. rsync your project artifacts to some server, push something to git and so on.
 
 ```yaml
 - name: concource-example-registry
@@ -178,7 +178,7 @@ image_resource:
     tag: "bionic"
 ```
 
-Also, tasks can have their own inputs and outputs. These are basically directories to pass by in your pipeline.
+Also tasks can have their own inputs and outputs. These are basically directories to pass by in your pipeline.
 In my example, I make minor append into Dockerfile, based on pipeline variables, and then pass it on to actual build task.
 
 Beyond inputs and outputs there is also caches available in Concourse.
@@ -188,13 +188,13 @@ caches:
   - path: image-cache
 ```
 Caches are used to preserve partial state of your tasks' running environment between builds. Many times this is a useful
-feature in your build tasks, Ie. Concourse doesn't need to download every dependency on every build.  
+feature in your tasks, Ie. Concourse doesn't need to download every dependency on every build.  
  
 Summary
 -------
 
-I have tried to keep my example project for this blog post as simple as possible, but although in a level to provide
-some useful tips on the first steps with Concourse.
+I have tried to keep my example project for this blog post as simple as possible, but although in a such level that
+it can provide some useful tips on the first steps with Concourse.
 
 Concourse has some rough edges, that fact cannot be bypassed. It's also good to understand, that it's not
 suitable for every need. It's definitely not a swiss-knife. Also, some flexibility in your mindset might
@@ -203,7 +203,7 @@ are just fine with Ie. Jenkins.
 
 Anyway, it's good we have alternatives and especially ones which are [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 I myself have used Concourse in a couple of projects. There has been some hard moments, but at overall I have kind of liked it.
-However, I'm not here to tell which tool is the best, but just trying to provide first steps if you are interested to
+However, I'm not here to tell which tool is the best, but just trying to provide help on first steps if you are interested to
 get familiar with Concourse. It's up to you to decide what suits best for your needs. I hope this blog post has provided
 some good insights for you.
 
