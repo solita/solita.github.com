@@ -168,6 +168,11 @@ controls if the job should be triggered automatically when resource state change
 (Ie. you push something into your repository).
 
 I have divided my more complex tasks into separate files, so it's easier to see top-level flow from main pipeline file.
+When creating separate task files, it's important to understand, that only main pipeline definition will be stored in
+system memory. Everything else, including separate task definition files, will be fetched from some external resource
+(Ie. Git in our case). This means that when you are about to update your tasks, you have to push those into external
+resource to changes take an effect. 
+
 For every task we can also define different running environment.
 
 ```yaml
