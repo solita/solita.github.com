@@ -23,6 +23,8 @@ However, this blog post is about Concourse CI. Concourse is an open-source conti
 The most common way to run a Concourse binary is to use [Docker](https://www.docker.com/), so
 let's go on that path. I will show you how to create a simple pipeline with Concourse.
 
+![Concourse example pipeline](../img/creating-your-ci-cd-pipeline-with-concourse/concourse_example_pipeline.png)
+
 Before we'll get further, it's good time for a disclaimer. Before you just start *hacking*,
 it's good to read a little what Concourse is and what direction it's heading in the future. Good place to start is
 their [blog post about roadmap towards v10](https://blog.concourse-ci.org/core-roadmap-towards-v10/).
