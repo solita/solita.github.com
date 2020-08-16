@@ -1,34 +1,34 @@
 ---
 layout: post
-title: Creating your CI/CD-pipeline with Concource
+title: Creating your CI/CD-pipeline with Concourse
 author: alperttiti
 excerpt: >
   Choosing a CI/CD-system is very much a same thing than choosing a good server name.
-  You probably have a long ride with your decision ahead. Concource CI is one option.
+  You probably have a long ride with your decision ahead. Concourse CI is one option.
 tags:
- - Concource CI
+ - Concourse CI
  - Build pipeline
  - Continuous Integration
  - Continuous Delivery
  - DevOps
 ---
 
-There are many CI/CD systems available. If you are using Github you are probably already
+There are many CI/CD systems available. If you are using Github you have probably already
 tried Github Actions which are a great way to build and deploy your *things*, even it's
-still on its early days. If you work mainly in some cloud environment you probably have
+still in its early days. If you work mainly in some cloud environment you probably have
 tried tools available on that specific environment. There is also *good old Jenkins* and many more.
 
-However, this blog post is about Concource CI. Concourse is an open-source continuous
+However, this blog post is about Concourse CI. Concourse is an open-source continuous
 *thing-doer*, like they have put it on their [website](https://concourse-ci.org/).
-Most common way to run Concource binary is to use [Docker](https://www.docker.com/), so
-let's go on that path. I will show you how to create a simple pipeline with Concource.
+The most common way to run a Concourse binary is to use [Docker](https://www.docker.com/), so
+let's go on that path. I will show you how to create a simple pipeline with Concourse.
 
 Before we'll get further, it's good time for a disclaimer. Before you just start *hacking*,
 it's good to read a little what Concourse is and what direction it's heading in the future. Good place to start is
 their [blog post about roadmap towards v10](https://blog.concourse-ci.org/core-roadmap-towards-v10/).
-Core developers behind Concourse has also said, that Concource is not for everyone and for every need.
+Core developers behind Concourse has also said, that Concourse is not for everyone and for every need.
 In example, [they have ruled parametrized jobs out of their scope.](https://github.com/concourse/concourse/issues/783)
-Also, Concource is nothing new and fancy, it has been there from year 2014.
+Also, Concourse is nothing new and fancy, it has been there from year 2014.
 
 Anyway, because you still be reading this, you probably think like I do, 
 one cannot know if it's good or not, without trying it. So, let's get forward.
@@ -36,7 +36,7 @@ one cannot know if it's good or not, without trying it. So, let's get forward.
 Basic concepts
 ----
 
-Concource pipelines are defined with [YAML](https://yaml.org/). Core concepts
+Concourse pipelines are defined with [YAML](https://yaml.org/). Core concepts
 are [resources](https://concourse-ci.org/resources.html), [tasks](https://concourse-ci.org/tasks.html) 
 and [jobs](https://concourse-ci.org/jobs.html). For every pipeline there are inputs and outputs which are conceptually
 resource states with direction. Concourse itself doesn't know any details about these. Resources are just some external
@@ -57,7 +57,7 @@ and [there is also some third-party resources listed on Concourse website](https
 In addition, there is also many other in the wild Internet.
 
 However, **keep security concerns in mind** whenever you use third-party resource types and especially
-with the ones which are not listed on Concource website. Resource types are in practice just Docker images, so
+with the ones which are not listed on Concourse website. Resource types are in practice just Docker images, so
 if you are unlucky you can find yourself pulling an image which is changed to something nasty without you knowing it.
 Fortunately, it's quite an easy job to make your own resource type. So, if you feel like
 you don't trust enough for the publisher of some resource type, you can use it as base for your own resource type.
@@ -67,22 +67,22 @@ Let's build and deploy some dummy docker images into the Docker Hub
 ------------------
 
 I don't go into details how to start and run Concourse, but I have provided some instructions
-in [my example project in Github](https://github.com/solita-alperttiti/concource-ci-example).
+in [my example project in Github](https://github.com/solita-alperttiti/concourse-ci-example).
 Also, fully runnable pipeline example can be found from that project.
 
-Every pipeline in Concource has its main pipeline definition file. So, it's good to start by creating one.
-In my case it's called *concource-example-pipeline.yml*, but you can name it whatever you like.
+Every pipeline in Concourse has its main pipeline definition file. So, it's good to start by creating one.
+In my case it's called *concourse-example-pipeline.yml*, but you can name it whatever you like.
 Because every pipeline has least one input, let's start with it.
 
 ```yaml
-- name: concource-example
+- name: concourse-example
   type: git
   source:
     uri: ((git-source))
     branch: ((git-branch))
 ```
 
-So, now we have our input. Its type is *git*, which is one of core types of Concource, so you
+So, now we have our input. Its type is *git*, which is one of core types of Concourse, so you
 don't have to define explicitly its resource type in your definition. This syntax is quite easy to understand,
 it's an abstraction of some Git-branch in some repository. This example snippet doesn't tell
 much about which branch and which repository we are using, though.
@@ -98,7 +98,7 @@ for all of your services.
 In my example, project variables are defined in files on local disk with a prefix *runtime_variables*.
 
 ```yaml
-git-source: https://github.com/solita-alperttiti/concource-ci-example.git
+git-source: https://github.com/solita-alperttiti/concourse-ci-example.git
 git-branch: master
 ``` 
 
@@ -121,7 +121,7 @@ So, next we define an output. In general, output can be whatever is needed,
 ie. rsync your project artifacts to some server, push something to git and so on.
 
 ```yaml
-- name: concource-example-registry
+- name: concourse-example-registry
   type: registry-image-resource
   source:
     repository: ((docker-source))
@@ -143,19 +143,19 @@ Every job has some series of steps which is called a *plan*.
 
 ```yaml
 plan:
-    - get: concource-example
+    - get: concourse-example
       trigger: ((trigger-build))
     - task: prepare-build
-      file: concource-example/concource/pipelines/concource-example/concource-example-prepare-build.yml
+      file: concourse-example/concourse/pipelines/concourse-example/concourse-example-prepare-build.yml
       vars:
         docker-file: ((docker-file))
         docker-tag: ((docker-tag))
     - task: build
-      file: concource-example/concource/pipelines/concource-example/concource-example-build.yml
+      file: concourse-example/concourse/pipelines/concourse-example/concourse-example-build.yml
       privileged: true
       params:
         DOCKERFILE: prebuild-output/((docker-file))
-    - put: concource-example-registry
+    - put: concourse-example-registry
       params: {
         image: image/image.tar
       }
@@ -198,20 +198,20 @@ feature in your tasks, Ie. Concourse doesn't need to download every dependency o
 Summary
 -------
 
-I have tried to keep my example project for this blog post as simple as possible, but although in a such level that
+I have tried to keep my example project for this blog post as simple as possible, but although in a such level
 it can provide some useful tips on the first steps with Concourse.
 
 Concourse has some rough edges, that fact cannot be bypassed. It's also good to understand, that it's not
 suitable for every need. It's definitely not a swiss-knife. Also, some flexibility in your mindset might
-be needed if you don't already share same ideas with authors. There is also probably steep learning curve if you
+be needed if you don't already share the same ideas with authors. There is also probably a steep learning curve if you
 are just fine with Ie. Jenkins.
 
 Anyway, it's good we have alternatives and especially ones which are [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software).
-I myself have used Concourse in a couple of projects. There has been some hard moments, but at overall I have kind of liked it.
-However, I'm not here to tell which tool is the best, but just trying to provide help on first steps if you are interested to
+I myself have used Concourse in a couple of projects. There have been some hard moments, but overall I have kind of liked it.
+However, I'm not here to tell which tool is the best, but just trying to provide help on the first steps if you are interested to
 get familiar with Concourse. It's up to you to decide what suits best for your needs. I hope this blog post has provided
 some good insights for you.
 
-Feel free to share your thoughts and let me know if you think my approach have some flaws.
+Feel free to share your thoughts and let me know if you think my approach has some flaws.
 Every feedback is appreciated. Remember to check out the code behind this blog post at 
-[GitHub](https://github.com/solita-alperttiti/concource-ci-example).
+[GitHub](https://github.com/solita-alperttiti/concourse-ci-example).
