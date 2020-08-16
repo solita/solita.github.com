@@ -71,7 +71,7 @@ in [my example project in Github](https://github.com/solita-alperttiti/concource
 Also, fully runnable pipeline example can be found from that project.
 
 Every pipeline in Concource has its main pipeline definition file. So, it's good to start by creating one.
-In my case it's called *concource-example.pipeline.yml*, but you can name it whatever you like.
+In my case it's called *concource-example-pipeline.yml*, but you can name it whatever you like.
 Because every pipeline has least one input, let's start with it.
 
 ```yaml
@@ -110,7 +110,7 @@ define multiple configuration files if you wish to split them up.
 Be noted, that variables can be loaded out from the Concourse afterwards by using fly client with proper access,
 so in real world cases it might be useful to consider using some credentials' manager if you have some sensitive data
 in your variables. [Concourse supports many different credential managers out-of-the-box](https://concourse-ci.org/creds.html).
-By using external manager you only need to provide api key when you are creating your pipeline.
+By using external manager you only need to provide secrets required by the manager, when you are creating your pipeline.
 In general, when you are going to set up new CI-system, you should always do a very careful evaluation from the
 security point of view. However, this is out of the scope of this blog post.
 
