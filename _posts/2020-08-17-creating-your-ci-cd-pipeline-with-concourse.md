@@ -14,7 +14,7 @@ tags:
 ---
 
 There are many CI/CD systems available. If you are using Github you have probably already
-tried Github Actions which are a great way to build and deploy your *things*, even it's
+tried Github Actions which are a great way to build and deploy your *things*, even though it's
 still in its early days. If you work mainly in some cloud environment you probably have
 tried tools available on that specific environment. There is also *good old Jenkins* and many more.
 
@@ -32,7 +32,7 @@ Core developers behind Concourse have also said, that Concourse is not for every
 For example, [they have ruled parametrized jobs out of their scope.](https://github.com/concourse/concourse/issues/783)
 Also, Concourse is nothing new and fancy, it has been there since the year 2014.
 
-Anyway, because you still be reading this, you probably think as I do, 
+Anyway, because you still be reading this, you probably think as I do - 
 one cannot know if it's good or not, without trying it. So, let's get forward.
 
 Basic concepts
@@ -43,10 +43,10 @@ are [resources](https://concourse-ci.org/resources.html), [tasks](https://concou
 and [jobs](https://concourse-ci.org/jobs.html). For every pipeline, there are inputs and outputs which are conceptually
 resource states with direction. Concourse itself doesn't know any details about these. Resources are just some external
 sources with state and which you can interact by using get and put operations. Each resource has a resource type.
-If a resource is an abstraction for some project artifact, Ie. your codebase in Git at a certain point in time,
-then resource type is an abstraction of Git as a whole. However, from the implementation point of view resource type
+If a resource is an abstraction for some project artifact, e.g. your codebase in git at a certain point in time,
+then resource type is an abstraction of git as a whole. However, from the implementation point of view resource type
 could also be seen as an abstraction of an actual implementation of how your pipeline interacts with some specific resource,
-Ie. your Git repository.
+e.g. your git repository.
 
 But, this is computer science. Sometimes it feels like, the more vague some concept is, the more
 popular it is (you probably have heard of service-oriented architecture and can strictly define what is a service
@@ -86,7 +86,7 @@ Because every pipeline has at least one input, let's start with it.
 
 So, now we have our input. Its type is *git*, which is one of the core types of Concourse, so you
 don't have to define explicitly its resource type in your definition. This syntax is quite easy to understand,
-it's an abstraction of some Git-branch in some repository. This example snippet doesn't tell
+it's an abstraction of some git-branch in some repository. This example snippet doesn't tell
 much about which branch and which repository we are using, though.
 
 You can use the exact path to your repository in the pipeline definition if you wish, but I have used
@@ -120,7 +120,7 @@ security point of view. However, this is out of the scope of this blog post.
 Right, now we have some input. The goal in this example is to get some input from git,
 make some *things*, and then push the result (or output) into a specific repository in Docker Hub.
 So, next we define the output. In general, the output can be whatever is needed,
-ie. rsync your project artifacts to some server, push something to git and so on.
+e.g. rsync your project artifacts to some server, push something to git and so on.
 
 ```yaml
 - name: concourse-example-registry
@@ -164,15 +164,15 @@ plan:
 ```
 
 So, while this definition is very self-explanatory let's walk it through anyway. First, we fetch our input
-from Git. Then we do some preliminary *things* before building our complex Docker image. Finally, we
+from git. Then we do some preliminary *things* before building our complex Docker image. Finally, we
 put the image into the Docker Hub. One point to note is the keyword *trigger* in our first *get*. This boolean value
 controls if the job should be triggered automatically when resource state changes
-(Ie. you push something into your repository).
+(e.g. you push something into your repository).
 
 I have divided my more complex tasks into separate files, so it's easier to see a top-level flow from the main pipeline file.
 When creating separate task files, it's important to understand, that only the main pipeline definition will be stored in
 system memory. Everything else, including separate task definition files, will be fetched from some external resource
-(Ie. Git in our case). This means that when you are about to update your tasks, you have to push those into an external
+(e.g. git in our case). This means that when you are about to update your tasks, you have to push those into an external
 resource to changes take an effect. 
 
 For every task, we can also define a different running environment.
@@ -195,7 +195,7 @@ caches:
   - path: image-cache
 ```
 Caches are used to preserve the partial state of your tasks' running environment between builds. Many times this is a useful
-feature in your tasks, Ie. Concourse doesn't need to download every dependency on every build.  
+feature in your tasks, e.g. Concourse doesn't need to download every dependency on every build.  
  
 Summary
 -------
@@ -206,7 +206,7 @@ it can provide some useful tips on the first steps with Concourse.
 Concourse has some rough edges, that fact cannot be bypassed. It's also good to understand, that it's not
 suitable for every need. It's definitely not a swiss-knife. Also, some flexibility in your mindset might
 be needed if you don't already share the same ideas with authors. There is also probably a steep learning curve if you
-are just fine with Ie. Jenkins.
+are just fine with e.g Jenkins.
 
 Anyway, it's good we have alternatives and especially ones which are [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 I myself have used the Concourse in a couple of projects. There have been some hard moments, but overall I have kind of liked it.
