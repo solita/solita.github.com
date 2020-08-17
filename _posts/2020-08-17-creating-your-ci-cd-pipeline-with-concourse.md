@@ -28,8 +28,11 @@ let's go on that path. I will show you how to create a simple pipeline with Conc
 Before we'll get further, it's a good time for a disclaimer. Before you just start *hacking*,
 it's good to read a little what Concourse is and what direction it's heading in the future. A good place to start is
 their [blog post about the roadmap towards v10](https://blog.concourse-ci.org/core-roadmap-towards-v10/).
-Core developers behind Concourse have also said, that Concourse is not for everyone and for every need.
-For example, [they have ruled parametrized jobs out of their scope.](https://github.com/concourse/concourse/issues/783)
+As you can see, there are many new features and concepts on the planning table, such as prototypes and projects. However,
+beyond technical details of some specific feature, it's good to focus on the overall mindset behind it - it might be something
+else you're used to. For example, 
+[they have ruled parametrized jobs out of their scope.](https://github.com/concourse/concourse/issues/783)
+Concourse is clearly not for everyone and every need.
 Also, Concourse is nothing new and fancy, it has been there since the year 2014.
 
 Anyway, because you still be reading this, you probably think as I do - 
