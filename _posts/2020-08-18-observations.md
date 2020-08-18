@@ -28,11 +28,15 @@ So, well-behaving applications have logging, preferably logging that can be cont
 
 Both on-premise and modern cloud platforms offer many ways to tap into those metrics. Someone just has to do it. The problem is not that we would not have enough metrics. For example, AWS Cloudwatch has a crazy amount of technical metrics and details you could see and play with. But adding metrics does not necessarily increase happiness. It might cause information overflow, having a hundred lights and numbers blinking on and off constantly. Making whoever is operating the application need to combine meaningful information from all these metrics to conclude if the service is working or not.
 
-But when starting to build in the observability, or adding monitoring on top of an existing application, it's not too bad to just visualize anything you can easily access. Observing those for a bit lets you understand what metrics react to changes and problems and which ones do not. It's just important to not keep on adding more of those. Like with a good quality code you love - less is more. Sometimes you need to remove to increase value. That brings us to the next point.
+![Start by visualizing any interesting metrics, to learn how they behave](/img/observations/detailedMetrics.png)
+
+But when starting to build in the observability, or adding monitoring on top of an existing application, it's not too bad to just visualize anything you can easily access. **Observing those for a bit lets you understand what metrics react to changes and problems and which ones do not**. It's just important to stop adding more metrics every week. A dashboard with 100 detailed graphs to read can be difficult to understand. Like with a good quality code you love - less is more. Sometimes you need to remove to increase value. That brings us to the next point.
 
 # Distill the wisdom
 
 Now we get to the good part of this article. To make those real-time metrics useful, we need to find the meaningful ones, perhaps combine them, to create two levels of visibility. The first level questions: Is everything okay, or is something wrong? The second level offers tools for analyzing things when they are not okay. We want to find the root cause so that we can fix it.
+
+![High-level dashboard with simple red/green distilled metrics](/img/observations/HighlevelMetrics.png)
 
 This requires raising the abstraction a bit, typically to a more business-oriented direction. We're not hunting for every error in the logs, they are not equal, especially with systems that can self-heal from many errors or recover from network hiccups. Using a lot of memory or CPU might not be so interesting either, depending on the situation, it might be entirely normal behavior to use a lot of resources, especially under stress. So we want to find a level more related to business needs. To do that we have a few questions:
 
@@ -40,7 +44,9 @@ This requires raising the abstraction a bit, typically to a more business-orient
 - How can we observe that? And where?
 - How is the application behaving when it's not working? What are the symptoms?
 
-If you are simply chasing any errors or anomalies in the metrics, they might not indicate anything severe enough to warrant any actions. The best bang for your buck might be to find some metrics that indicate success. Then measure that it's on acceptable levels. If that metric is good enough, it will automatically include any severe errors. For example, is the throughput on expected levels? Are pages loading fast enough? Are we having an expected level of traffic? Are we getting enough data? You can take it even higher level by having a metric like orders per hour, or similar business level requirement. If you can measure the metric end-to-end, catching that single one will let you see a multitude of different error scenarios that might happen to disrupt it. For example, running out of disk space due to log files, one dependant system with no monitoring crashing, anything that would affect those metrics.
+If you are simply chasing any errors or anomalies in the metrics, they might not indicate anything severe enough to warrant any actions. The best bang for your buck might be to find some metrics that indicate success. Then measure that it's on acceptable levels. If that metric is good enough, it will automatically include any severe errors. 
+
+For example, is the throughput on expected levels? Are pages loading fast enough? Are we having an expected level of traffic? Are we getting enough data? You can take it even higher level by having a metric like orders per hour, or similar business level requirement. If you can measure the metric end-to-end, catching that single one will let you see a multitude of different error scenarios that might happen to disrupt it. For example, running out of disk space due to log files, one dependant system with no monitoring crashing, anything that would affect those metrics.
 
 # That familiar loop...
 
@@ -48,9 +54,9 @@ So, if we were in a very static world, this would be simple. We would just build
 
 So that's where DevOps comes in. You build it, you run it. This model also works in a more traditional environment, with separate ops. Mainly we just need someone to be responsible for the observability and to have resources to maintain it when things change. And here's an idea how. Let me introduce an iterative process for incident response. Sorry, there's no sexy acronym for this, it's just a model I've come up with and used successfully a few times.
 
-This model will eat incidents, symptoms that something is wrong. And it will output iterative improvements, constantly making the environment more robust, and people working on it happier. Hei, since I invented this, I can make up an acronym. How about AIRM - *Agile Incident Response Model*? :)
+This model will eat incidents, symptoms that something is wrong. And it will output iterative improvements, constantly making the environment more robust, and people working on it happier. Hei, since I invented this, I can make up an acronym. How about AIRM - **Agile Incident Response Model**? :)
 
-<img src="/img/observations/incident-response-model.png" alt="Agile incident response model for self-learning process">
+![Agile incident response model for continuously self-learning process](/img/observations/incident-response-model.png)
 
 So, the input for the process is an incident. Incident is any symptom that something is going wrong. It might be a red light on a dashboard or alarm going off. It might also be observed anomaly not seen before with no clear indicators existing. It might be, as a worst-case scenario, an angry phone call or email that eventually reaches you when something is not working as it should be. For a DevOps team, you could also define it as something exceptional that breaks the normal development flow, and forces you to take some action.
 
@@ -82,7 +88,7 @@ Any tools run on a specific laptop, that requires installation, credentials, or 
 
 So I've had a nasty habit of creating some chatbots with Slack or Teams webhooks or apps, to have some things easily available. A traditional way to route alarms has been via email, but I've seen it sometimes fail, or be delayed, and there's a big risk that people are using personal emails, which hides problems and work rather than helps with it. With Slack or Teams, when the alarm triggers, we can push some key metrics and tools immediately along with it, and the team can swarm on top of them, figure out and communicate the resolution. If the channels are opened to people outside the core team, it can also serve as extra visibility to health, incidents, and resolutions. 
 
-Of course, this needs to be done securely - if third parties with malicious intent would have access to these kind of tools, it would be a very bad day. On the other hand, typical company Slack/Teams channels already come with a lot of similar bots, that need to be checked as carefully. And of course, the same goes for traditional troubleshooting tools/access/laptops.
+Of course, this needs to be done securely - if third parties with malicious intent would have access to these kinds of tools, it would be a very bad day. On the other hand, typical company Slack/Teams channels already come with a lot of similar bots, that need to be checked as carefully. And of course, the same goes for traditional troubleshooting tools/access/laptops.
 
 # Is the heart beating?
 
@@ -92,7 +98,7 @@ An answer I have successfully used a few times is to introduce a heartbeat. And 
 
 There are, of course, some gotchas with this, as well, otherwise, everybody would be doing this. First thing is that since you're testing in production, you probably do need to cut out that signal at some point. For example, if it's an order or purchase, you probably don't want to deal with money or real products as a result, every minute. If it's data, you don't want it to corrupt or twist the data you are collecting. If it's a failing IoT device, you don't want someone to rush to try to fix the invisible device. If you are measuring things, you don't want to twist the statistics with something that generates proportionally a lot of traffic. 
 
-So the principle is: We want it to be as end-to-end as possible to cover as many layers the signal traverses as possible with that single metric. You want it to be as realistic as possible, so that it represents well the real signals. But you need to code in some recognition so that systems understand this is a test event, in production, and can dance around it instead of including it. A nice trick is to use a unique namespace of client ids, some special headers, etc, any kind of metadata that lets anyone examine the request or signal, and be able to differentiate them.
+So the principle is: We want it to be as end-to-end as possible to cover as many layers the signal traverses as possible with that single metric. You want it to be as realistic as possible so that it represents well the real signals. But you need to code in some recognition so that systems understand this is a test event, in production, and can dance around it instead of including it. A nice trick is to use a unique namespace of client ids, some special headers, etc, any kind of metadata that lets anyone examine the request or signal, and be able to differentiate them.
 
 Another thing is that heartbeat requires maintenance when things around it change, but fortunately, once it's been done, this maintenance work often stays quite minimal.
 
