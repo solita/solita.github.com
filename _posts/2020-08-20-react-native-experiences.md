@@ -63,7 +63,7 @@ In web development, I like that my frontend code is automatically reloaded into 
 ![React Native](/img/react-native-experiences/reactnative.jpg)
 *React Native's built-in debugging tools are pretty basic*
 
-Many little issues like these slightly lowered my expectations on easy mobile development with React Native - it seemed that the single codebase approach worked much better in theory than in practice. Even if we were able to build working software, the development process and tools occasionally felt like development in the 2000s. Luckily new versions of React Native were introduced during the project that could potentially make the development experience better. The problem, however, was that upgrading React Native and related libraries turned out to be intensely difficult.
+Many little issues like these slightly lowered my expectations on easy mobile development with React Native - it seemed that the single codebase approach worked much better in theory than in practice. Even if we were able to build working software, the development process and tools occasionally felt like web development in the 2000s. Luckily new versions of React Native were introduced during the project that could potentially make the development experience better. The problem, however, was that upgrading React Native and related libraries turned out to be intensely difficult.
 
 ## Working With Outdated Software
 
