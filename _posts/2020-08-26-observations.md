@@ -14,11 +14,13 @@ tags:
  - Iteration
 ---
 
-Running software that provides a service is a very easy task for the first few months. After it has been freshly written and carefully tested and works fine with the latest up-to-date frameworks. Running a system of applications with integrations between them, written with a multitude of technologies on a multitude of platforms during the last few decades where every failure can affect another application - that's a different beast. **And of course, even those fine state-of-the-art applications become legacy by time**, when business and technologies keep on changing around them and the code is not updated to reflect those changes.
+Running software that provides a service is a very easy task for the first few months. After it has been freshly written and carefully tested and works fine with the latest up-to-date frameworks. Running a system of applications with integrations between them, written with a multitude of technologies on a multitude of platforms during the last few decades where every failure can affect another application - that's a different beast. **And of course, even those fine state-of-the-art applications become legacy over time**, while business and technologies keep on changing around them but the code is not updated to reflect those changes.
 
-As a Software Architect in Solita, I've mostly been involved in creating new software solutions. Sometimes customer-facing applications, recently more and more components or systems that deal with data. Collecting data, analyzing data, refining data, and finally using that insight. Sometimes I get to do both. And sometimes I'm also called to help to productize a provided service that's not 100% reliable.
+As a Software Architect in Solita, I've mostly been involved in creating new software solutions. Sometimes customer-facing applications, recently more and more components or systems that deal with data. Collecting data, analyzing data, refining data, and finally using that insight. Sometimes I get to do both. And sometimes I'm also called to help to stabilize a provided service that's not 100% reliable.
 
-As I mentioned, when writing something anew that solution gets a lot of love and testing, and using modern tools and frameworks, many things are already taken care of. But if one of its legacy dependencies fails, it might cause a cascading effect, and the result is that service goes down, or is not working properly. Which means loss of data, customers, business, credibility, money, in many cases. So would be fun to try and stop that.
+As I mentioned, when writing something anew that solution gets a lot of love and testing, and using modern tools and frameworks, many things are already taken care of. But if one of its legacy dependencies fails, it might cause a cascading effect, and the result is that service goes down, or is not working properly. Which means loss of data, customers, business, credibility, money, in many cases. 
+
+So it would be fun to try and stop that.
 
 Then we need to take a bit larger view of things. It's not anymore about watching logs of a single modern application. We need to monitor all the things that can fail that contribute to running that service. The priority is to get some visibility to begin with.
 
@@ -106,12 +108,13 @@ Another thing is that heartbeat requires maintenance when things around it chang
 
 So, I assembled here a short TL;DR for the impatient: Key takeaways from this blog to remember when you are producing systems and services that run in a very robust fashion.
 
-1. Turn on the headlights: Start by seeing what visibility you have, and how much you can improve it
+1. Turn on the headlights: Start by seeing what visibility you have, and how much you can improve it. It's very easy to start from missing input, then add alarms for anomalies.
 2. Distill that wisdom: Instead of having 200 metrics out of which only 20 react to something, perhaps have 5 or 10 metrics that combine things, and are reliable
 3. Consider also having two tiers: A high-level tier for situational awareness and quick reads, and then analysis tools that give you all the information in the right context
 4. This is not a project, it's a process. It needs to evolve as requirements and systems do. DevOps teams can do this very well, but it's also possible to build this model around traditional dev and ops teams - as long as they can communicate and iterate together.
 5. Leverage incidents as food for your continuous improvement beast: Always iterate to make things better next time. Instead of seeing incidents as nasty interruptions, embrace them as learning situations. By reacting properly to incidents, we are building our response around things that actually can break, not around things that might theoretically break but never do.
 6. Heartbeat can be your friend: Artificial stimulus, and alarms on top of key metrics - this can get you a very good insight on if production system is working, without needing to chase individual errors or a multitude of things that may break
+7. **Embrace the incidents and anomalies**. Many teams are irritated when something breaks, and try to do a quick and dirty fix to get back to normal flow, even if they need to do it always again manually. True DevOps warriors embrace this as an imput, and opportunity for growth and improvement.
 
 That's all folks! I wanted to write down some of my learnings, while I still remember them. The first time I applied these with instinct, and they were successful. Now having used these ideas a few times with great success, I was getting confidence that these might be worth sharing. Hopefully useful to You as well!
 
