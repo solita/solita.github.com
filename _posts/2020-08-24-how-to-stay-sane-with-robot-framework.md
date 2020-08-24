@@ -1,21 +1,22 @@
 ---
 layout: post
-title: How to stay sane with robot framework and plaa plaa
-author: Tuomo Turunen
+title: How to stay sane with Robot Framework
+author: tuomoturunen
 excerpt: >
   Robot framework with Selenium offers a wide toolbox to work on with
   browser UI tests. With simple patterns and architechture, writing and 
   maintaining UI tests is not a big deal as it used to be.
 tags:
- - Robot framework
+ - Robot Framework
  - Test automation
+ - Selenium
 ---
 
 How to stay sane with web application test automation with the Robot Framework 
 
 Intro
 -----
-My first experience in Selenium was in university approx 15 years ago and it was an optional part of a bigger assignment. Wasn’t surprised that only a few people managed to complete it. Back in the days, writing browser UI tests were more and less black magic: keywords were high level yet translating low-level technical requirements into selenium keywords had a steep learning curve. After plus ten years of professional software development, I had a Deja Vu moment where there was an optional assignment and it involved Selenium with a twist of robot framework. 
+My first experience in Selenium was in university approx 15 years ago and it was an optional part of a bigger assignment. Wasn’t surprised that only a few people managed to complete it. Back in the days, writing browser UI tests were more and less black magic: keywords were high level yet translating low-level technical requirements into selenium keywords had a steep learning curve. After plus ten years of professional software development, I had a Deja Vu moment where there was an optional assignment and it involved Selenium with a twist of Robot Framework. 
 
 Compared to my previous experience with browser UI testing, the documentation and usage were much more userfriendly, and getting started didn’t include frustrating and complex setup. Over four months there were hard times when not everything worked as I thought yet with some trial and error I managed to achieve project goals without sacrificing too much of my sanity. Like always in software engineering, the winning receipt was to find common patterns and general solutions for 80% of requirements and avoid using duct tape solutions.
 
@@ -24,13 +25,13 @@ When designing UI tests, test fragility is the key thing to keep in mind. When t
 
 Getting started
 ---------------
-I don’t know if it is the Google and Youtube algorithms or lack of my research skills, but I simply couldn’t find anything more advanced than how to click a button or input a text. Since there are tens of youtube videos and blog posts about basic features, we're gonna skip those and enter into the realm of basic architecture and timing. If you’re not yet familiar with the Robot framework, I suggest you read a tutorial or two about basic functions and concepts. 
+I don’t know if it is the Google and Youtube algorithms or lack of my research skills, but I simply couldn’t find anything more advanced than how to click a button or input a text. Since there are tens of youtube videos and blog posts about basic features, we're gonna skip those and enter into the realm of basic architecture and timing. If you’re not yet familiar with the Robot Framework, I suggest you read a tutorial or two about basic functions and concepts. 
 
 Building architecture
 ---------------------
 Keeping code nice and tidy is the way to success in the long run. If you’re not planning to maintain the codebase by yourself for the next six years, putting some effort into the architecture will reduce the risk of cold glances during coffee breaks. 
 
-On the highest level, we have two boxes: test cases/scenarios and the page model. Page model models the structure of the application and works as an interface for actual tests. You can think of it as a class or module hierarchy in software development where entities encapsulate implementation. Then composing tests is only a matter of calling these modules with parameters and life is beautiful.  In the Robot framework, we separate these two by having them in separate directories, files, and inside robot-files the page models consist of task keywords and tests test keywords (more on that later). 
+On the highest level, we have two boxes: test cases/scenarios and the page model. Page model models the structure of the application and works as an interface for actual tests. You can think of it as a class or module hierarchy in software development where entities encapsulate implementation. Then composing tests is only a matter of calling these modules with parameters and life is beautiful.  In the Robot Framework, we separate these two by having them in separate directories, files, and inside robot-files the page models consist of task keywords and tests test keywords (more on that later). 
 
 
 Writing everything in a single test is fast and simple, and even preferable in some cases, yet eventually, you start to duplicate code which leaves you a bigger and bigger codebase to maintain. Not to mention how difficult it is to have different tests and test parameters in different environments.    
@@ -174,7 +175,7 @@ Quite an anti-climax after a long rant of different problems? Kinda, there are s
 
 What selenium sees is the dom tree and it has no clue of its state. Is it ready enough, complete, about to change, or loading? The gap between an asynchronous app and the synchronous Robot framework is deep yet not impossible to overcome but requires some detective work and experimenting. Since most UI frameworks generate lots of clutter into the DOM tree, writing a unique and readable selector might be tricky. 
 
-Since the Robot or selenium doesn’t know the state of the DOM and there’s a chance that both source and target pages contain the same elements, we have to be sure that we don’t click an element from the source page while we are in the middle of loading the target page.
+Since the Robot Framework or Selenium doesn’t know the state of the DOM and there’s a chance that both source and target pages contain the same elements, we have to be sure that we don’t click an element from the source page while we are in the middle of loading the target page.
 
 For example, we have a source page that contains:
 a list of products (or a single product if your test assumes so) 
@@ -191,7 +192,7 @@ Click Element When Visible //button[contains(text(), 'Add')]
 Do something else in the product page
 ```
 
-Now, what may or may not happen is that while the browser sends a request to the server, gets a response, and starts to render the new view, the Robot will perform the next action clicks the element in the source page. If adding a product in the product list page takes the user to the basket and the product detail page doesn’t, the browser is on a page where it should not be and the next actions cannot be performed.
+Now, what may or may not happen is that while the browser sends a request to the server, gets a response, and starts to render the new view, the Robot Framework will perform the next action clicks the element in the source page. If adding a product in the product list page takes the user to the basket and the product detail page doesn’t, the browser is on a page where it should not be and the next actions cannot be performed.
 
 You could check that if the URL has changed the browser is in the right place, but that depends on when the UI framework updates the URL, and sometimes it happens asynchronously so we cannot use it reliably. 
 
@@ -209,11 +210,12 @@ In English: we click a button element that reads “Add” that is inside of a d
 
 I tend to write the page model as simply as I could and avoid having complex XPath and CSS selectors. If my first selector is not unique enough or doesn’t work in certain situations, I make them more specific yet always try to keep them as readable as possible. 
 
-When actions are scattered in different robot files, my preferred pattern was that the keyword assumes that the correct page is loading and waits for the target element to be visible. Since the source page does not know what the next action is, it cannot implicitly wait for the target to be loaded even if the action is performed on the same page. Defensive programming and constant checking only hide problems in the action flow (actions are performed in the wrong order or are missing something) and adds unnecessary complexity. 
+When actions are scattered in different robot files, my preferred pattern was that the keyword assumes that the correct page is loading and waits for the target element to be visible. Since the source page does not know what the next action is, it cannot implicitly wait for the target to be loaded even if the action is performed on the same page. Defensive programming and constant checking only hide problems in the action flow (actions are performed in the wrong order or are missing something) and adds unnecessary complexity.
+
 
 Loading spinners
 ----------------
-Spinners are a great way to signal that the application is not stuck and loading the view and they can be easily used for waiting. Since the Robot framework does not support events, we have to explicitly wait for the spinner to appear and then disappear. This makes using them costly in places where the spinner rarely ever appears. The preferred way is to not detect them until your test starts to fail because the target element does not appear before timeout. Generic spinner detection may look like this
+Spinners are a great way to signal that the application is not stuck and loading the view and they can be easily used for waiting. Since the Robot Framework does not support events, we have to explicitly wait for the spinner to appear and then disappear. This makes using them costly in places where the spinner rarely ever appears. The preferred way is to not detect them until your test starts to fail because the target element does not appear before timeout. Generic spinner detection may look like this
 
 ```Python
 Wait Until Element Appears And Disappears
@@ -229,7 +231,7 @@ Since all Robot keywords are tests we have to ignore errors in case the spinner 
 
 Afterwords
 ----------
-After a few months with the Robot framework, I was pleasantly surprised at how less soul-crushing is to develop UI tests. However, I wish the Robotframe work had basic if-else statements or other ways to control the action flow or recover from unexpected events. When you write your tests against multiple different environments, it would be more efficient to have some control flow for special occasions and continuous testing.   
+After a few months with the Robot Framework, I was pleasantly surprised at how less soul-crushing is to develop UI tests. However, I wish the Robot Framework had basic if-else statements or other ways to control the action flow or recover from unexpected events. When you write your tests against multiple different environments, it would be more efficient to have some control flow for special occasions and continuous testing.   
 
 
 
