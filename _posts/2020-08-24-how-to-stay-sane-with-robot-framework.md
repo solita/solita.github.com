@@ -37,7 +37,6 @@ On the highest level, we have two boxes: test cases/scenarios and the page model
 Writing everything in a single test is fast and simple, and even preferable in some cases, yet eventually, you start to duplicate code which leaves you a bigger and bigger codebase to maintain. Not to mention how difficult it is to have different tests and test parameters in different environments.    
 Let’s take a generic e-commerce site as an example. I’m not a big fan of writing documentation so I prefer to have a self-explanatory structure and codebase, so my page model could look something like this:
 
-<use graphics maybe?>
 * Navigation
     * top-menu.robot
         * goto products
