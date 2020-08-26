@@ -16,6 +16,13 @@ To achieve that, I’ll begin by giving a high-level introduction on some common
 
 **Disclaimer**: I am *not* a security professional. Don’t take what I write here as gospel. If you spot any mistakes or outright falsehoods, please let me know.
 
+**Edit** (2020-08-26): An earlier version of this article incorrectly advised using an HTTP header (such as `X-CSRF-Token`) in the WebSocket handshake
+request to pass the anti-forgery token from the client to the server. However,
+as @Thw0rted points out in the comments, browsers do not allow you to set headers for the WebSocket handshake request. I amended this article to propose
+sending the anti-forgery token in a query string instead —  although that
+approach comes with its caveats (see the "Cross-Site Request Forgery"
+section).
+
 ## Same Origin Policy
 
 The [Same Origin Policy] (SOP)[^1] is a security mechanism built into modern web browsers. It stops scripts on one web page from accessing data on another web page.
@@ -74,19 +81,20 @@ Some sources advocate securing your WebSocket endpoint with an anti-CSRF token. 
 
 The [WebSocket handshake request] is an HTTP GET request on your WebSocket endpoint. For example, let’s say the address of your WebSocket endpoint is foo.com/ws. To open a CSRF-proof WebSocket connection, you’d make an HTTP GET request that looks something like this:
 
-```
-GET /ws HTTP/1.1
+```http
+GET /ws?csrf-token=U1e7Zk8mxu9HWVAQQFIVGkR5n0bVE59pq+LYwwbl7YPTrGaF3FySb0hexZhxWlg+LT+DAtBiVvbg32x3 HTTP/1.1
 Host: foo.com
 Upgrade: websocket
 Connection: Upgrade
 Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
 Sec-WebSocket-Version: 13
-X-CSRF-Token: U1e7Zk8mxu9HWVAQQFIVGkR5n0bVE59pq+LYwwbl7YPTrGaF3FySb0hexZhxWlg+LT+DAtBiVvbg32x3
 ```
 
-The bit we'll focus on here is the `X-CSRF-Token` header. It tells the server that the handshake request originates from a source that’s allowed to connect to the WebSocket endpoint. The server compares this token with its own, and if they match, the server sends the client a handshake response, accepting the connection request.
+The bit we'll focus on here is the `?csrf-token=...` query string. It tells the server that the handshake request originates from a source that’s allowed to connect to the WebSocket endpoint. The server compares this token with its own, and if they match, the server sends the client a handshake response, accepting the connection request.
 
-Anti-CSRF tokens are effective against CSRF attacks. However, it might not be immediately clear how to safely deliver the token to the user of your WebSocket endpoint.
+There's an important caveat here, however: putting sensitive information into a query string might [constitute a security risk in itself](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url). If you put the token in the query string, it will probably be stored in plain text at least in the HTTP server logs and your browser history. You should assess whether the risk of putting the anti-CSRF token in the query string outweighs the benefit in your case. Using the `Origin` header instead (see next section) doesn't have this issue.
+
+Anti-CSRF tokens, if you decide to use them, are effective against CSRF attacks. However, it might not be immediately clear how to safely deliver the token to the user of your WebSocket endpoint.
 
 Providing it in the handshake response isn’t useful. At that point, the WebSocket connection is already open and there’s nothing left for the token to secure.
 
@@ -103,17 +111,17 @@ However, evil.com can’t make an XMLHttpRequest to fetch the anti-CSRF token fr
 
 Note, though, that all of the above only applies when browsers adhere to SOP. There is a mechanism called [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (CORS) that allows you to relax Same Origin Policy. It allows you to set HTTP headers that allow scripts on other web pages to load resources on your web page.
 
-Therefore, whether you deliver the anti-CSRF token embedded into a HTML page or via a separate GET request, you must make sure that your site does not use CORS headers that allow cross-origin requests to those resources. Otherwise evil.com will be able to retrieve your anti-CSRF token and use it to connect to your WebSocket endpoint.
+Therefore, whether you deliver the anti-CSRF token embedded into an HTML page or via a separate GET request, you must make sure that your site does not use CORS headers that allow cross-origin requests to those resources. Otherwise evil.com will be able to retrieve your anti-CSRF token and use it to connect to your WebSocket endpoint.
 
 There’s much more to be said about CSRF attacks and anti-CSRF tokens. To get a more complete picture, see [OWASP’s Cross-Site Request Forgery Prevention Cheat Sheet][CSRF Cheat Sheet].
 
 ## The Origin Header
 
-An alternative to using an anti-CSRF token is to use the [`Origin` HTTP header][Origin]. Every request that browsers make on one web page that target another web page include the `Origin` header. As per its name, it contains the *origin* of the request. The origin comprises the scheme, hostname, and port of the source of the request.
+An alternative to using an anti-CSRF token is to use the [`Origin` HTTP header][Origin]. Every request that browsers make on one web page that targets another web page include the `Origin` header. As per its name, it contains the *origin* of the request. The origin comprises the scheme, hostname, and port of the source of the request.
 
 For example, if a browser makes a request from evil.com:8080/bar to foo.com/ws, `Origin` looks like this:
 
-```
+```http
 GET foo.com/ws HTTP/1.1
 …
 Origin: evil.com:8080/bar
@@ -156,13 +164,9 @@ For more information on CSP, see [Content Security Policy on MDN][Content Securi
 
 ## Conclusions
 
-To secure your WebSocket endpoint against CSRF attacks, consider these options:
+To secure your WebSocket endpoint against CSRF attacks, arguably the best option is to check the `Origin` header of every WebSocket handshake request. If you cannot check the `Origin` header, using an anti-CSRF token is also an option. Note, however, that that option [might have security implications](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url).
 
-1. Use an anti-CSRF token.
-2. Check the `Origin` header of every WebSocket handshake request.
-3. Both.
-
-If you use an anti-CSRF token, deliver it to your users such that cross-origin browser scripts cannot acccess it: either embed it into your HTML page or allow users to fetch it with a separate GET request. In both cases, make sure your CORS headers disallow requests to that resource.
+If you choose to use an anti-CSRF token, deliver it to your users such that cross-origin browser scripts cannot acccess it: either embed it into your HTML page or allow users to fetch it with a separate GET request. In both cases, make sure your CORS headers disallow requests to that resource.
 
 While using a Content Security Policy on your site is effective against XSS attacks, it does nothing to prevent someone from connecting to your WebSocket endpoint. It is therefore not a valid anti-CSRF strategy.
 
