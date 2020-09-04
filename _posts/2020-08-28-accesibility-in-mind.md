@@ -12,6 +12,9 @@ tags:
 
 The W3C has published the Web Content Accessibility Guidelines (WCAG) [document](https://www.w3.org/WAI/standards-guidelines/wcag/) in an effort to make the Web more accessible to people with disabilities. Our disabled fellow netizens may be a minority demographic, but the WCAG is relevant and useful to all Web Designers and Developers. In fact, the only fault in the document is its stated purpose, which might mislead you into thinking it won't help improve your flashy web app. Nothing could be farther from the truth! Let's examine why.
 
+![Accessibility in mind](/img/accessibility-in-mind/a11y.jpg)
+*Accessibility often abbreviated to A11y — as in "a" then 11 characters then "y"*
+
 ## 1. It improves UX across the board
 
 If learning what the WCAG acronym stands for makes you think the guidelines don't apply to modern, feature-rich interfaces, prepare to be surprised! The WCAG compiles common-sense approaches to providing functionality which match the cognitive patterns of all humans, not just the disabled. For example, consider guideline [1.4.1 -Use of Color](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=132%2C211%2C311%2C325%2C131#use-of-color), which forbids using color as:
@@ -37,6 +40,8 @@ Developers care about maintainability because they wish their designs to be read
 *All non-text content that is presented to the user has a text alternative that serves the equivalent purpose [...].*
 
 This forces the developer to ponder the content / presentation question. In the case of images, this translates to a decision on whether to use an  [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img) tag or a [`background-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image) CSS attribute, making the value of the guideline all the more evident.
+
+![Accessibility puzzle](/img/accessibility-in-mind/puzzle.jpg)
 
 ## 3. It improves robustness
 
