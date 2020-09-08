@@ -1,0 +1,73 @@
+---
+layout: post
+title: Your Brain on Java
+author: arto
+excerpt: >
+  Measuring your EEG with consumer solutions, analyzing it with data science tools, and finally connecting your brain to your environment with a little bit of code. Why I did all this, and what did I learn?
+tags:
+ - Software Development
+ - EEG
+ - Java
+ - Python
+ - Data Science
+ - IoT
+ - R&D
+---
+
+And now, something very different. This is not a story of a customer project. This is a tale of a personal research that's been cooking for some time now. To help you see why I'm talking about brains on a tech blog, I probably need to go back in history a bit first.
+
+# Why brains?
+
+For me, there are two entryways that led me to be interested in brains. One is biohacking. I am a dabbler in biohacking, because it makes much sense for my nerdy heart. Biohacking is about measuring, then making a theory, followed by a change, and then remeasuring. Much like self-optimizing devops model. You change your lifestyle based on measurable feedback, you know, how science is supposed to work. Now, of course you need to be able to measure. You can measure many things about yourself, even develop a bit of an addiction to it, for example pulse, temperature, amount of sleep, exercise, so why not add EEG to that list as well, to monitor deeper your recovery or ability to concentrate?
+
+Another thing is user interfaces. I also used to be a huge fan of science fiction and Cyberpunk roleplaying games. Wait - actually I still am. For me, it's always felt weird that tech professionals are still using ancient user interface for interacting with the machines. Keyboard layout that we use today was originally created to slow your writing so letterheards would not get stuck in old typewriters. But it stuck. Keyboards are also quite large, require you to touch surfaces. On the other hand they typically bind you to sit by your desk for that 8 hours stint, and encourage you to not move too much. Mouses are all another story. Let's just say, though they do have some good old-fashioned charm, and there's recently a cult in building your own lovely keyboards from scratch, I've always been interested in experimenting with alternatives. Not necessarily full replacements, but also supplemental user experiences. Especially in this year of the Great Pandemic, perhaps something with less touchy-feely?
+
+So this has led me to also think about how we can interact with our environment, now and in the future. Touch UIs make much sense, and I don't have to sell the idea of how useful they are anymore, since we have a new generation growing up who might have never encountered a keyboard, and actually might live their life without owning one. Touch UIs are well established and great ways to interact with environment. They have not replaced keyboards in all places, but in many places they have, and they have also found their way to many other places, where keyboards would not even be a good option. My 3-year old kid is constantly trying to swipe boring things out from TV screen, and is mildly frustrated when it does not work.
+
+I've dabbled with gesture sensors, which enable you to have precise 3d control, and most importantly, not be touching anything. They also typically do not take so much space. Many touch interfaces are already being replaced by gestures. I'll write another blog/do a video on those later on. That technology is so mature it's not really hype anymore, it's ready to be used.
+
+Voice control is also one favourite of mine, I've done a few apps with Alexa (I once wrote an office nagger in a hackathon, that you can set loose to remind people to log in their hours in a timely fashion, so that you don't need to :) - and control a lot of things in my house with voice. It's not a keyboard replacement, and has some security concerns as well, but becoming a father I often had my hands full, so it was blessed to be able to control lights and choose some relaxing music to play without needing to even use touch interfaces. Voice and speech is quite natural way of interacting, and also very mature technology today, so it's easy to create user interfaces with it. I've done my share of pizza orders via Alexa, for example (Until our 3-year old learned how to do that, too). We've had some queries already for creating voice interfaces in places where it's not convenient to keep on washing/sterilizing hands to do a bit of a process on computer, but of course in Finland there's not - yet - great support for natural language processing.
+
+Then there's Virtual Reality, and Augmented Reality. A huge topic on their own. I have a dream that one day my workday would consist of me moving around grabbing constructs, attaching them together, why using my voice to name things. I would get a full balanced workout during my day instead of needing to fix 8 hours of sitting afterwards. VR and AR have immense potential, and start to be mature enough to use, but again, perhaps a story for another time.
+
+So that brings us to brains. Being able to measure brainwave activity, makes it also tempting to use those measurements to control things. Afterall, it's very direct and fast line from thought to action, it's also very natural thing, since essentially we are already controlling everything with our brain. Also: No touch required, does not take space, does not limit you to sit at your desk. Unfortunately maturity here is far from the other control devices listed here. Because potential is still there, a lot of people have been and still are doing reseach on this area, for example Neuralink by Elon Musk, and now also Brains on Java by Yours Truly.
+
+# Brainwave theory 101
+
+Okay, I did not major in brain sciences while I was doing my studies. I only got interested in that later. Additionally, my core interest is in software applications, so take this bit with a grain of salt. But I do need to give a brief introduction how brainwaves work, so that we can progress to what we can read from them. There may be horrible mistakes and misunderstandings - feel free to correct me in the comments if that's the case, so we can get this right. There will be some over-simplifications to keep the length of this article down somewhat.
+
+Brain activity is all about electric impulses triggering in our brain. As it's electricity, we can measure it with suitable devices. Having a raw reading of that electricity of course only tells if there's some level of activity, or none. In other words, that's not very useful, but it's a starting point.
+
+Things get more interesting when we take that signal, and split it to wavelengths, based on its amplitude.
+
+Delta waves are the slowest bandwidth, from 0.1 to 3HZ, and indicate sleepest meditation or dreamless sleep, being unsconscious. Remember, I'm not a brain scientist. Real brain scientists could tell you that there's some variation on how these areas are actually defined, what are the limits, and how they are actually interpreted. But I'm not a brain scientist, so I simply equate slow brainwaves with very passive and resting mind.
+
+Next, we have Theta waves, about 4 to 7 HZ wavelength. Theta bandwidth typically activates when you are dreaming or daydreaming. It can be associated also with learning, intuition, and memory. Deep meditation, where your focus is drawn out from external world, and concentrated deep within, would activate Theta bandwidth. Also, when you are doing a task that's so automated you would not need to think about it at all, for example brushing your teeth, driving a car, or coding in Java.
+
+Alpha bandwidth is the next area, roughly 8 to 12HZ wavelength. This bandwidth activates when you're in a relaxed state, quietly flowing thoughts, not quite meditation, but not quite yet being active either. This could be associated with a short rest, self-reflection, your minds state ust before going to sleep (on a good night). I would call this Void state, from martial arts vocabulary. Relaxed, calm, ready to move to any direction.
+
+Then comes our next bandwidth, which would be called Beta, between 12 and 30HZ. This could be further split into lo/midrange/hi beta areas, which have a bit different nuances. But Beta bandwidth is overall associated with activity, when your consciousness is directed towards problem-solving or when you are actively processing and learning some new information. I would argue that in our normal day of work Beta area would have a lot of movement. On high Beta-area it can also be a tiresome state to maintain, which is why you need shorter and longer resting periods to balance things out.
+
+Final bandwidth area would be called Gamma, between 30 and 100HZ wavelength. This area was originally considered to be random noise, until more recent studies defined it as an area that activates in some very specific states. When you are multi-tasking, or experiencing feelings of universal love, altruism, or any of the higher virtues, you are probably activating Gamma. Gamma is above the frequency of neutronal firing, so how it is generated, is still a mystery. Gamma brainwaves have been observed to be much stronger and more regularly observed in very long-term meditators including Buddhist Monks.
+
+So there you have it, my meager knowledge of brainwave theory. To do something with it, we need to be able to measure the different wavelengths, somehow. Then we need to be able to interpret some sense out of all that. Hmm, this is somehow familiar. A network-connected device that provides a constant stream of information. Isn't that like.. a power generator? An elevator? A smart tv, a smart toaster or a smart fridge?
+
+# Brains as an IoT device
+
+I've been recently working a lot with IoT devices and cloud native services. So this is familiar place to be. You have a device producing some metrics or kpis, then you record or stream those, and do some analysis, with or without machine learning. You probably want to store that data also somewhere, for later use or larger batches of analysis. So let's go, what can we do with brains?
+
+First thing you need is a Brain-Computer Interface (BCI) of some kind, and an API/library to access it. I chose commercially available Neurosky Mindwave headset, which is cheap, simply, and enough for my needs. It's not going to stich electrodes to a pigs brain, but gives me enough data to get started.
+
+I created a git repository to store some tools and as of today, it's publically available at https://github.com/crystoll/illithid
+
+If you see something interesting, would like to experiment a bit too, go ahead, grab the code and build something fun on top of it. I decided to write the code in Python, after attempting some Java and Kotlin, due to ease of use for serial port interface across platforms.
+
+Unfortunately many available libraries were written in Python 2, using more fragile mechanisms to connect, or just generally messy and unkempt, so I created my own version. On top of that I created a recorder program. What it will simply do: It will connect to the headset, and do a 10 minute recording of your brain activity, storing it to a .csv file for later processing. This recording will contain raw data, calculated bandwith values, as well as calculated concentrated and meditation values. Once created, you can analyze it later with any tools you like. Here's a snapshot of my brain:
+
+[brain_csv_data]
+
+# Control the world with your brains
+
+# Conclusion: Did I learn anything useful?
+
+
