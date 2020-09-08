@@ -66,8 +66,31 @@ Unfortunately many available libraries were written in Python 2, using more frag
 
 [brain_csv_data]
 
+This was part of a recording I made while writing this blog. To make some sense of it, it helps to analyze it with some data sciency tooling, so I wrote a template for Jupyter Notbook that can be used to quickly graph some interesting things about the data, in much similar way than any other time-series data.
+
+[screenshot of brainwave visualization]
+
+And finally I packaged also in a real-time Jypyter Notebook, that can be used to hook up into brain directly, and plot any bandwidths realtime to a graph. That gives fun effects when you can immediately see how well you are concentrating/meditating for example. Talk about immediate feedback loop!
+
 # Control the world with your brains
+
+Being able to measure ones brains while doing various activities can be fun from that biohacker/feedback loop perspective. Some athletic teams are using tools like this to improve their concentration or meditation skills, or see effects of theoretical improvements. But you can go farther with this, too. Afterall, I started this story from user interfaces, so how does brain work as a user interface?
+
+Well, it turns out it's not so good, really. You can detect the brainwave acticity, and can deduce attention and meditation values, and eyeblinks pretty accuretely. However you cannot detect more specific thoughts, so if you were planning to control a drone by giving it mental commands like 'left', 'up', etc, well, let's just say you'd need to run some deep learning algorithms to be able to deduce that. Very deep ones.
+
+Another problem is our wild untrained brain. If you figured out a control scheme where a binary input would be enough, for example concentration/no concentration, problem is that brains are not maintaining that state in a cohesive manner. They will activate constantly multiple bandwidths at same time, and go from one state to another. That has not stopped some parties from experimenting with brainwave control, there are cases for example on how to control a wheelchair, or a mechanical hand - in this case another persons mechanical hand. So I decided to give it a go, as well.
+
+In the project repository there's a subfolder called 'huecontrol' - and that combines Mindwave headset library with a phue library for controlling Philips Hue lights. I hooked up very simple algorithm that rewards being able to maintain a concentrated state - by turning up the lights intensity. Intensity in this case means brightness of the light, and for colored lights, it also changes hue to more and more red. So you concentrate - and lights will turn bright and red.
+
+This blog post is obviously not the place for live demonstration, but I did this presentation on our internal developer days event, and there's a Youtube recording already out on how it looks like. Pretty simple actually, and I would say 95% useless, but fun!
 
 # Conclusion: Did I learn anything useful?
 
+Well it's pretty clear that using EEG to control things around me is pretty limited and difficult. Although I do believe with feedback loop one can train their mind to better be able to concentrate. I've seen people do that, and they can easily go to concentrated state, and maintain it for minutes without wavering. The technologies are also improving every year, new research being made, so if headsets improve, and we use machine learning algorithms to interpret the results, I believe things can improve. As I mentioned, brain-computer interface is actually the most intuitive user experience possible: It removes all intermediaries. You think it, you do it. So quite fascinating to follow up on this.
+
+As for recording and analyzing your brain, that's much more mature part. Tools are available, and with the fast feedback loops, you can actually improve whether you need to concentrate or relax better. I am already using Oura rings to measure my nights sleep, so combining daily brainwave data with that seems natural and interesting.
+
+And of course if I think about brain as an IoT device, any tools or methodologies that deal with that kind of data is practical for me. I did one experiment, which is not in the repository, but a little bit of Kotlin connected my headset feed to AWS Kinesis stream. Then I can apply some Kinesis Analytics to refine the information further, real-time. Now the fun thing about streams like that in the cloud is that they scale pretty well. So if I had more headsets, I could hook up more live feeds and interpret them simultaneously. For example, knowing which bandwidths activate on creative thinking, or practical problem-solving, or concentration, it would be possible to give some good feedback loops not just for individuals, but for the groups. Might be a fun exercise at least. 
+
+And of course, collecting recordings from multiple people doing multiple activities, perhaps todays scalable machine learning approches could actually dig a bit deeper, to find commonalities. I would actually bet that there are those to be found, since different activities seem to activate multiple wavelengths in a predictable patterns. So could we teach the AI to recognize words like 'dog'... I don't know. You tell me. If you got hooked, grab yourself a BMI, grab that code from github, and start building!
 
