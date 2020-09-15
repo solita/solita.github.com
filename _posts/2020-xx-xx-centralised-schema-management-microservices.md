@@ -85,10 +85,10 @@ In any case, we rolled our own because we could not find anything fitting our re
 As I said above, in our project ([Velho](https://vayla.fi/hankkeet/digitalisaatiohanke/tieverkon-kunnonhallinta/velho-allianssi), for the [Finnish Transport Infrastructure Agency](https://vayla.fi/)) we ended up creating our own, custom centralized schema management solution. This was due to a few reasons:
 
 - Our project has to produce a long-lived system, and our architectural solution to that was a "midi-service" (i.e. less granular than micro, but definitely not a monolith) approach. So we would have a moderately large amount of independent services, each with their own responsibility of data storage etc.
-- To allow for a [ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus) -type evolution path for the entire system, our internal architecture would explicitly and consistently support a polyglot implementation. This means every service chooses its own tech stack, and disallows the use of any integration technologies specific to any single language or platform. To keep us honest we dogfood, i.e. consume internally the same protocols and APIs we provide externally.
+- To allow for a [ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus) -type evolution path for the entire system, our internal architecture would explicitly and consistently support a polyglot implementation. This means every service chooses its own tech stack, and disallows the use of any integration technologies specific to any single language or platform. To keep us honest we [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food), i.e. consume internally the same protocols and APIs we provide externally.
 - The number of data types our system needs to manage is around 100, of varying complexity, each with their own properties, quirks etc.
 - The above made the need for a CSM evident early on.
-- The existing options did not feel suitable. Granted, we didn't do any really comprehensive research. So sue us.
+- The existing options did not feel suitable. Granted, we didn't do any really comprehensive research. So sue me.
 
 ## Our stack
 
