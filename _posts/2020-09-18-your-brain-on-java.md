@@ -16,6 +16,8 @@ tags:
 
 And now, something very different. This is not a story of a customer project. This is a tale of a personal research that's been cooking for some time now. To help you see why I'm talking about brains on a tech blog, I probably need to go back in history a bit first.
 
+![Presentation on brains](/img/your-brain-on-java/presentation.png)
+
 # Why brains?
 
 For me, there are two entryways that led me to be interested in brains. One is biohacking. I am a dabbler in biohacking, because it makes much sense for my nerdy heart. Biohacking is about measuring, then making a theory, followed by a change, and then remeasuring. Much like self-optimizing devops model. You change your lifestyle based on measurable feedback, you know, how science is supposed to work. Now, of course you need to be able to measure. You can measure many things about yourself, even develop a bit of an addiction to it, for example pulse, temperature, amount of sleep, exercise, so why not add EEG to that list as well, to monitor deeper your recovery or ability to concentrate?
@@ -40,6 +42,9 @@ Brain activity is all about electric impulses triggering in our brain. As it's e
 
 Things get more interesting when we take that signal, and split it to wavelengths, based on its amplitude.
 
+![Analyzing EEG in Jupyter Notebook](/img/your-brain-on-java/jupyter.png)
+
+
 Delta waves are the slowest bandwidth, from 0.1 to 3HZ, and indicate sleepest meditation or dreamless sleep, being unsconscious. Remember, I'm not a brain scientist. Real brain scientists could tell you that there's some variation on how these areas are actually defined, what are the limits, and how they are actually interpreted. But I'm not a brain scientist, so I simply equate slow brainwaves with very passive and resting mind.
 
 Next, we have Theta waves, about 4 to 7 HZ wavelength. Theta bandwidth typically activates when you are dreaming or daydreaming. It can be associated also with learning, intuition, and memory. Deep meditation, where your focus is drawn out from external world, and concentrated deep within, would activate Theta bandwidth. Also, when you are doing a task that's so automated you would not need to think about it at all, for example brushing your teeth, driving a car, or coding in Java.
@@ -58,17 +63,17 @@ I've been recently working a lot with IoT devices and cloud native services. So 
 
 First thing you need is a Brain-Computer Interface (BCI) of some kind, and an API/library to access it. I chose commercially available Neurosky Mindwave headset, which is cheap, simply, and enough for my needs. It's not going to stich electrodes to a pigs brain, but gives me enough data to get started.
 
-I created a git repository to store some tools and as of today, it's publically available at https://github.com/crystoll/illithid
+I created a git repository to store some tools and as of today, it's publically available at [https://github.com/crystoll/illithid](https://github.com/crystoll/illithid)  
 
 If you see something interesting, would like to experiment a bit too, go ahead, grab the code and build something fun on top of it. I decided to write the code in Python, after attempting some Java and Kotlin, due to ease of use for serial port interface across platforms.
 
 Unfortunately many available libraries were written in Python 2, using more fragile mechanisms to connect, or just generally messy and unkempt, so I created my own version. On top of that I created a recorder program. What it will simply do: It will connect to the headset, and do a 10 minute recording of your brain activity, storing it to a .csv file for later processing. This recording will contain raw data, calculated bandwith values, as well as calculated concentrated and meditation values. Once created, you can analyze it later with any tools you like. Here's a snapshot of my brain:
 
-[brain_csv_data]
+![Raw data directly from brain](/img/your-brain-on-java/eeg_csv.png)
 
 This was part of a recording I made while writing this blog. To make some sense of it, it helps to analyze it with some data sciency tooling, so I wrote a template for Jupyter Notbook that can be used to quickly graph some interesting things about the data, in much similar way than any other time-series data.
 
-[screenshot of brainwave visualization]
+![I could do Java all day long](/img/your-brain-on-java/brainwaves.png)
 
 And finally I packaged also in a real-time Jypyter Notebook, that can be used to hook up into brain directly, and plot any bandwidths realtime to a graph. That gives fun effects when you can immediately see how well you are concentrating/meditating for example. Talk about immediate feedback loop!
 
@@ -94,3 +99,8 @@ And of course if I think about brain as an IoT device, any tools or methodologie
 
 And of course, collecting recordings from multiple people doing multiple activities, perhaps todays scalable machine learning approches could actually dig a bit deeper, to find commonalities. I would actually bet that there are those to be found, since different activities seem to activate multiple wavelengths in a predictable patterns. So could we teach the AI to recognize words like 'dog'... I don't know. You tell me. If you got hooked, grab yourself a BMI, grab that code from github, and start building!
 
+Here are some resources if you want to dig deeper:
+
+[Presentation slides] (https://www.slideshare.net/crystoll/your-brain-on-java)
+[Python code] (https://github.com/crystoll/projectillithid)
+[Youtube video presentation] (https://www.youtube.com/watch?v=9l0tSy_u98E)
