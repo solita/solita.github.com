@@ -17,7 +17,7 @@ tags:
 
 So you've ended up in the microservice swamp, or somewhere else where you need to deal with a zoo full of fractious, opinionated, distributed systems. Now you've found out that there's a set of common things many of your services need to have a shared understanding about, but don't. You also prefer to retain even a bit of your dwindling sanity until the project is over. What to do?
 
-This article is an attempt to distill into a digestible format the experiences I and my team have had during the last few years building a distributed system around centralized schema management. I'm not sure whether we were that sane to begin with, but at least in our case the sanity loss has been manageable. Your mileage may vary, caveat emptor, etc.
+This article is an attempt to distill into a digestible format the experiences I and my team have had during the last few years building a distributed system around centralized schema management. I'm not entirely sure we were that sane to begin with, but at least in our case the sanity loss has been manageable. Your mileage may vary, caveat emptor, etc.
 
 __Centralized schema__, in its most simplified form, means that you have a *common authority* who can tell every other part of your system (service, API, lambda function, database, etc.) what kinds of objects or data structures your system contains. It's the responsibility of each service to determine what to do with that information &mdash; the assumption being, however, that whenever a service needs to communicate with other services (or the outside world) about a __Thing__ it should use the authority-provided definition of that __Thing__.
 
@@ -27,9 +27,9 @@ In our case we have a system that is supposed to manage all the assets of the Fi
 
 # Why centralize schema if everything else is distributed?
 
-The common wisdom around microservices is that everything needs to be decentralized. After all, that's how you are supposed to reap their benefits. Unfortunately, that wisdom tends to slink away (looking slightly guilty as it goes, with those benefits in its pocket) whenever you need to have more than two of your services talk about something, because it's a lot of work to keep all parties in agreement on what they're talking about.
+The common wisdom around microservices is that everything needs to be decentralized. That's how you are supposed to reap their benefits. Unfortunately, that wisdom tends to slink away (looking slightly guilty as it goes, with those benefits in its pocket) whenever you need to have more than two of your services talk about something, because it's a lot of work to keep all parties in agreement on what they're talking about.
 
-CSM is a way to manage that problem. It forces all parties interested in a given kind of data to use a standard definition of it &mdash; what properties the data has, what is the set of allowed values for each property, which ones are mandatory, and so forth. This is typically not optimal from the viewpoint of any particular service, since depending on how they're built they usually have a richer set of tools available than the smallest common denominator an external schema represents. For example, a TypeScript-based service would rather use its own type system for defining objects, and a relational schema defined in SQL in the fourth normal form is a thing of beauty compared to any JSON schema document.
+CSM is a tool and architectural pattern to manage that problem. It forces all parties interested in a given kind of data to use a standard definition of it &mdash; what properties the data has, what is the set of allowed values for each property, which ones are mandatory, and so forth. This is typically not optimal from the viewpoint of any particular service, since depending on how they're built they usually have a richer set of tools available than the smallest common denominator an external schema represents. For example, a TypeScript-based service would rather use its own type system for defining objects, and a relational schema defined in SQL in the fourth normal form is a thing of beauty compared to any JSON schema document.
 
 For systems that have just a few kinds of data, or just a few different services that deal with it, the tradeoff is likely not worthwhile. But when you have a dozen services that all need to be able to process some or all of the set of 100 data types, implementing CSM is the only way to stave off the impending madness. Even if that results in all of your services having to submit to a jackbooted overlord who controls what they may or may not say in public. (Please do not try to extrapolate this into anything human-related.)
 
@@ -55,9 +55,9 @@ The above is fine for a workshop demo. However, it's likely your system will nee
 - __Support for schema evolution__. Schemas are like war plans, they never survive enemy contact. You need to prepare for this by having a way to handle changes to your schemas without the need to rebuild everything and breaking all your external APIs.
   - But what to do if you end up with an object of version 1, and you need to upgrade it into version 3? Or the reverse?
   - __Transform__ is what you do. Your CSM system can help by providing transformation services, or supplying transformation instructions alongside your schemas. To do this efficiently and in a way compatible with as many languages and platforms as possible is difficult, though. More on this later on.
-- __Support for schema composition__. If you need CSM to begin with, then your data types probably have things in common between them. You'll want to be able to compose your schemas from components. It's boring and error-prone to copy-paste the same list of `create-time` , `created-by` , `modify-time` and `modified-by` properties to every schema.
+- __Support for schema composition__. If you need CSM to begin with, then your data types probably have things in common between them. You'll want to be able to compose your schemas from components. It's boring and error-prone to copy-paste the same list of `create-time`, `created-by`, `modify-time` and `modified-by` properties to every schema.
   - I don't need to mention this complicates evolution and transformation somewhat, do I?
-  - You could also consider deriving schemas from other schemas, but that smells a bit too much like OOP-style inheritance and we don't do that.
+  - You could also consider deriving schemas from other schemas, but that smells like OOP-style inheritance and we don't do that.
 - __Enumerations as first class citizens__. Real-world systems always have various lists of enumeration-type values which evolve over time. You need to be able to apply the same tools to them as the rest of your schemas: evolution, transformation, etc.
 - __API management integration__ &mdash; if you can connect your CSM with your API management solution you can have it handle inbound/outbound data validation for you.
 
@@ -84,23 +84,23 @@ In any case, we rolled our own because we could not find anything fitting our re
 
 As I said above, in our project ([Velho](https://vayla.fi/hankkeet/digitalisaatiohanke/tieverkon-kunnonhallinta/velho-allianssi), for the [Finnish Transport Infrastructure Agency](https://vayla.fi/)) we ended up creating our own, custom centralized schema management solution. This was due to a few reasons:
 
-- Our project has to produce a long-lived system, and our architectural solution to that was a "midi-service" (i.e. larger than micro, but definitely not a monolith) approach. So we would have a moderately large amount of independent services, each with their own responsibility of data storage etc.
-- To allow for a "ship of Theseus" -type evolution for the entire system, our internal architecture would explicitly and consistently support a polyglot implementation. This means every service chooses its own tech stack, and disallows the use of any integration technologies specific to any single language or platform. To keep us honest we dogfood, i.e. consume internally the same protocols and APIs we provide externally.
+- Our project has to produce a long-lived system, and our architectural solution to that was a "midi-service" (i.e. less granular than micro, but definitely not a monolith) approach. So we would have a moderately large amount of independent services, each with their own responsibility of data storage etc.
+- To allow for a [ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus) -type evolution path for the entire system, our internal architecture would explicitly and consistently support a polyglot implementation. This means every service chooses its own tech stack, and disallows the use of any integration technologies specific to any single language or platform. To keep us honest we dogfood, i.e. consume internally the same protocols and APIs we provide externally.
 - The number of data types our system needs to manage is around 100, of varying complexity, each with their own properties, quirks etc.
 - The above made the need for a CSM evident early on.
 - The existing options did not feel suitable. Granted, we didn't do any really comprehensive research. So sue us.
 
 ## Our stack
 
-AWS native. Containerized with AWS Fargate, FaaS with AWS Lambda. Multiple independent SQL databases (Aurora PostgreSQL). Elasticsearch. Redis. S3. AWS API Gateway. Infrastructure-as-Code via CloudFormation.
+[AWS native](https://aws.amazon.com/architecture/well-architected/). Containerized with AWS Fargate, FaaS with AWS Lambda. Multiple independent SQL databases (Aurora PostgreSQL). Elasticsearch. Redis. S3. AWS API Gateway. Infrastructure-as-Code via CloudFormation.
 
-Languages: Clojure backend services. ClojureScript frontend with Reagent, Re-frame and Web Components. Lambdas in Clojure, Python and Javascript.
+Languages: [Clojure](http://clojure.org) backend services. [ClojureScript](https://clojurescript.org/) frontend with [Reagent](https://reagent-project.github.io/), [Re-frame](https://github.com/day8/re-frame) and [Web Components](https://www.webcomponents.org/introduction). Lambdas in Clojure, Python and Javascript.
 
 ## What we use CSM for
 
 - We validate incoming data (APIs, import jobs, etc) using CSM-provided schemas.
   - Old schema versions are supported for inbound data, and we automatically transform them into the latest schema if needed.
-- We use Elasticsearch to provide advanced search capabilities, and generate ES indexes automatically based on our schemas, with custom mappings embedded in the schema metadata
+- We use [Elasticsearch](https://aws.amazon.com/elasticsearch-service/) to provide advanced search capabilities, and generate ES indexes automatically based on our schemas, with custom mappings embedded in the schema metadata
 - When we read data from our own storage, we validate and (if needed) upgrade its schema version. This allows us to not bother with updating our data in storage whenever our schemas change &mdash; we have multiple kinds of storage backends, not all of which are suited for in-place update.
 - We provide schema definitions for our external partners in [OpenAPI](https://openapis.org) format
 - We provide a "data catalog" user interface for our end users, which includes human-friendly descriptions of the various data types we manage
@@ -154,13 +154,13 @@ Here's a (sanitized and translated) example of the schemas for __Fence__, which 
 
 We don't serve these EDNs outside our schema registry service. EDN is a Clojure-specific format, therefore it's an implementation detail, and we want to punish everyone equivalently. Our schemas are transformed into an [OpenAPI 3](https://openapis.org) definition (which is an extension of JSON Schema) and served via a REST API.
 
-### Eat it up
+## Eat it up
 
 Currently we consume our schemas only from Clojure or ClojureScript code. We have a reverse transformer, from OpenAPI to EDN, after which we can feed the resulting data to [Data Spec](https://github.com/metosin/spec-tools), ending up with Clojure specs. (It's not a coincidence that the "native" data format is so close to Data Spec already. Hooray for dynamic languages and runtime `eval`).
 
-__Yes, we use runtime consumption of schemas and our services (both frontend and backend) can handle schemas that change on-the-fly.__
+__Yes, we do runtime consumption of schemas and our services (both frontend and backend) can handle schemas that change on-the-fly.__
 
-### About those transforms...
+## About those transforms...
 
 More than meets the eye, isn't it?
 
@@ -182,7 +182,8 @@ To summarize:
 - Planning for the future is _haram_ in the Agile methodology, but in this case you might want to make an exception, since CSM tends to infiltrate all parts of your system whether you want it to or not.
 - Properly done CSM makes microservice architecture slightly more manageable.
 - You can throw together a bespoke CSM if you need to and be pretty happy in the end.
-
+- I know this because we did it.
+- We ended up implementing quite a lot of advanced features, including schema evolution with embedded transformations, runtime schema loading, etc. 
 
 This took a long time to write. I sincerely hope it's not been completely boring and you got something useful out of it. 
 
