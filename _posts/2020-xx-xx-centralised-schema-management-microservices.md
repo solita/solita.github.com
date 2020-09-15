@@ -78,7 +78,7 @@ Yes.
 
 There are things like [Confluent Schema Registry](https://docs.confluent.io/current/schema-registry/index.html) which provides tight integration with Apache Kafka but also works with anything else that can consume JSON Schema, Avro or Protobuf. I don't have any hands-on experience with it, but looks like it provides most, but not all of the functionality described above.
 
-In any case, we rolled our own because we could not find anything fitting our requirements. This article is too long to include a market survey in any case.
+In any case, we rolled our own because we could not find anything fitting our requirements. Besides, this article is too long to include a market survey.
 
 # How we did it (and why)
 
