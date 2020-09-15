@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Centralised schema management in a microservice system
+title: Centralized schemas and microservices, match made in hell?
 author: vehvis
 excerpt: >
   **Schemas** - love 'em or hate 'em, can't live without 'em &mdash; not even when you're doing microservices. In this post I describe
