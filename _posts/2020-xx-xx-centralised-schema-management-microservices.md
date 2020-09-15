@@ -136,9 +136,9 @@ Here's a (sanitized, redacted and translated) example of the schemas for __Fence
                    {:properties {:code string?
                                  (ds/opt :material) (velho/enum :furniture/material)
                                  :type (velho/enum :furniture/type)
-                                 :width (ds/maybe pos-int?)}})}
+                                 :height (ds/maybe pos-int?)}})}
 
- :transforms {1 "$merge([$, {'properties': $merge([$sift($, function($v, $k) {$k != 'size'}), {'width': $.'size'}]),
+ :transforms {1 "$merge([$, {'properties': $merge([$sift($, function($v, $k) {$k != 'size'}), {'height': $.'size'}]),
                              'version': 2}])"}
 
  :metadata  {:oid-prefix "1.2.246.578.5.100"
@@ -166,7 +166,7 @@ More than meets the eye, isn't it?
 
 As I alluded to somewhere above, transformations between schema versions are an issue, primarily because we can't really define them in a language/platform-independent way. (Unless we go full XML Schema in which case XSLT would work. But we don't want to. Never go full XML.) Fortunately we have a good-enough solution in [JSONata](https://jsonata.org/) which is an expression language for querying and transforming JSON-like data. It has implementations for Java, JavaScript, Python and .NET (at least), covering the common platforms nicely.
 
-In the example above, the JSONata transform takes a version 1 object, adds a key `properties.width` which is set to the value of the `properties.size` key, and removes the now-unnecessary `size`. It additionally sets the `version` property to equal 2, as is good and correct for a version 2 object. (The version is not defined here, since it is imported from the `general/basic-props` component schema alongside many other properties).
+In the example above, the JSONata transform takes a version 1 object, adds a key `properties.height` which is set to the value of the `properties.size` key, and removes the now-unnecessary `size`. It additionally sets the `version` property to equal 2, as is good and correct for a version 2 object. (The version is not defined here, since it is imported from the `general/basic-props` component schema alongside many other properties).
 
 An astute reader would at this point note that JSON Schema and OpenAPI do not have support for these kinds of transformations. That's entirely correct &mdash; we have custom consumer-side code to run them, and we deliver the transformations via OpenAPI extensions. Our consumers so far have been solely Clojure or ClojureScript-based, so we only have client code for browsers (JSONata/JS used from ClojureScript) and the JVM (JSONata/Java via interop from Clojure).
 
