@@ -63,7 +63,7 @@ I've been recently working a lot with IoT devices and cloud native services. So 
 
 First thing you need is a Brain-Computer Interface (BCI) of some kind, and an API/library to access it. I chose commercially available Neurosky Mindwave headset, which is cheap, simply, and enough for my needs. It's not going to stich electrodes to a pigs brain, but gives me enough data to get started.
 
-I created a git repository to store some tools and as of today, it's publically available at [https://github.com/crystoll/illithid](https://github.com/crystoll/illithid)  
+I created a git repository to store some tools and as of today, it's publically available at [https://github.com/crystoll/projectillithid](https://github.com/crystoll/projectillithid)  
 
 If you see something interesting, would like to experiment a bit too, go ahead, grab the code and build something fun on top of it. I decided to write the code in Python, after attempting some Java and Kotlin, due to ease of use for serial port interface across platforms.
 
@@ -101,6 +101,6 @@ And of course, collecting recordings from multiple people doing multiple activit
 
 Here are some resources if you want to dig deeper:
 
-[Presentation slides] (https://www.slideshare.net/crystoll/your-brain-on-java)
-[Python code] (https://github.com/crystoll/projectillithid)
-[Youtube video presentation] (https://www.youtube.com/watch?v=9l0tSy_u98E)
+- [Presentation slides](https://www.slideshare.net/crystoll/your-brain-on-java)
+- [Python code](https://github.com/crystoll/projectillithid)
+- [Youtube video presentation](https://www.youtube.com/watch?v=9l0tSy_u98E)
