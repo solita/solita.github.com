@@ -156,7 +156,15 @@ We don't serve these EDNs outside our schema registry service. EDN is a Clojure-
 
 ## Eat it up
 
-Currently we consume our schemas only from Clojure or ClojureScript code. We have a reverse transformer, from OpenAPI to EDN, after which we can feed the resulting data to [Data Spec](https://github.com/metosin/spec-tools), ending up with Clojure specs. (It's not a coincidence that the "native" data format is so close to Data Spec already. Hooray for dynamic languages and runtime `eval`).
+Currently we consume our schemas only from Clojure or ClojureScript code. We do this by...
+1. Fetching the OpenAPI defintion via our REST API
+2. Translating it back into EDN
+3. Processing our custom extensions (`import` and `enum`)
+4. Feeding the processed and evaluated schemas to [Data Spec](https://github.com/metosin/spec-tools), which...
+5. ... ends up registering the schemas as [Clojure specs](https://clojure.org/about/spec).
+6. The resulting specs are then used in our code, both backend and frontend, in the usual Clojure/CLJS fashion.
+
+It's not a coincidence that our "native" data format is so close to Data Spec already. Hooray for dynamic languages and runtime `eval`.
 
 __Yes, we do runtime consumption of schemas and our services (both frontend and backend) can handle schemas that change on-the-fly.__
 
