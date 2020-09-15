@@ -158,7 +158,7 @@ We don't serve these EDNs outside our schema registry service. EDN is a Clojure-
 
 Currently we consume our schemas only from Clojure or ClojureScript code. We do this by...
 1. Fetching the OpenAPI definition via our REST API
-2. Translating it back into EDN
+2. Translating it back into the same EDN format as seen above
 3. Processing our custom extensions (`import` and `enum`)
 4. Feeding the processed and evaluated schemas to [Data Spec](https://github.com/metosin/spec-tools), which...
 5. ... ends up registering the schemas as [Clojure specs](https://clojure.org/about/spec).
