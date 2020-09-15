@@ -118,7 +118,7 @@ It's built in [Clojure](http://clojure.org) like most of the rest of our project
 - __Arbitrary metadata__ for the asset and all its properties. This includes human-readable names, Elasticsearch mappings and anything else we'll come up with. We also use metadata for routing: each asset defines which of our services "owns" it and thus requests for it can be routed to the correct service.
 
 
-Here's a (sanitized and translated) example of the schemas for __Fence__, which is part of the __Road Furniture__ namespace (and therefore owned by the `furniture-registry` service). There are two schema versions, a transformation from v1 to v2, and some metadata. The schemas refer to two generic components (the `velho/import` directive) which include properties defined elsewhere, and there's a property whose type is an enum schema (`velho/enum`).
+Here's a (sanitized, redacted and translated) example of the schemas for __Fence__, which is part of the __Road Furniture__ namespace (and therefore owned by the `furniture-registry` service). There are two schema versions, a transformation from v1 to v2, and some metadata. The schemas refer to two generic components (the `velho/import` directive) which include properties defined elsewhere, and there's a property whose type is an enum schema (`velho/enum`).
 
 ```clojure
 {:latest-version 2
