@@ -4,7 +4,7 @@ title: Centralized schemas and microservices, match made in hell?
 author: vehvis
 excerpt: >
   Schemas - love 'em or hate 'em, can't live without 'em &mdash; not even when you're doing microservices. In this post I describe
-  how we centralised our schema management into a (hopefully) long-term solution, all the while keeping a tenuous hold of our sanity.
+  how we centralized our schema management into a (hopefully) long-term solution, all the while keeping a tenuous hold of our sanity.
 tags:
  - Microservices
  - Clojure
