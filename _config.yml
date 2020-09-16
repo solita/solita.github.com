@@ -7,8 +7,7 @@ paginate_path: "/:num"
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  input: GFM
-
+   input: GFM
 
 authors:
   jarno:
@@ -251,3 +250,31 @@ authors:
     name: Henri Nybom
     email: 13b2d57201efc9c6efdba200e6f40aaa
     url: https://www.linkedin.com/in/henri-nybom/
+  vili:
+    name: Vili Heikkilä
+    email: b26483a28f9c0e1ff144e79383a7a8bf
+    url: https://www.linkedin.com/in/viliheikkila/
+  spheroid-:
+    name: Henry Jalonen
+    email: 0e245809c3a23ab42eb1b143dd621f6c
+    url: https://github.com/spheroid-
+  anahitpo:
+    name: Anahit Pogosova
+    email: 7d5ac3b444be28a1d5f9c7dace2db72c
+    url: https://twitter.com/anahit_fi
+  perttihu:
+    name: Pertti Husu
+    email: a8585f764dd4037653183b6eb25b027d
+    url: https://www.linkedin.com/in/perttihusu/
+  alperttiti:
+    name: Alpertti Tirronen
+    email: 4b2e6c80ee72eb0a2500c6664901fde7
+    url: https://github.com/solita-alperttiti
+  tuomoturunen:
+    name: Tuomo Turunen 
+    email: 494cbce68e384faedab5732d088bb3f1
+    url: https://www.linkedin.com/in/tuomo-turunen-59b5333/
+  jalef:
+    name: Evgenia Alefragki
+    email: 01b3ada56a6a3a8103fb3b45631bd7b0
+    url: https://github.com/jalef
