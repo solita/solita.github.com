@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Centralized schemas and microservices, match made in hell?
+title: Centralized schemas and microservices, match made in Hell?
 author: vehvis
 excerpt: >
   Schemas: love 'em or hate 'em, can't live without 'em -- not even when you're doing microservices. In this post I describe
@@ -12,12 +12,9 @@ tags:
  - Architecture
 ---
 
-
-# Intro
-
 So you've ended up in the microservice swamp, or somewhere else where you need to deal with a zoo full of fractious, opinionated, distributed systems. Now you've found out that there's a set of common things many of your services need to have a shared understanding about, but don't. You also prefer to retain even a bit of your dwindling sanity until the project is over. What to do?
 
-This post is an attempt to distill into a digestible format the experiences I and my team have had during the last few years building a distributed system around __centralized schema management__ (I'm going to just say __CSM__ from here on.) I'm not entirely sure we were that sane to begin with, but at least in our case the sanity loss has been manageable. Your mileage may vary, caveat emptor, etc.
+This post is an attempt to distill into a digestible format the experiences I and my team have had during the last few years building a distributed system around __centralized schema management__ (I'm going to just say __CSM__ from here on.) I'm not entirely sure we were that sane to begin with, but at least the loss in cognitive coherency has been manageable. Your mileage may vary, caveat emptor, etc.
 
 __Centralized schema__, in its most simplified form, means that you have a *common authority* who can tell every other part of your system (service, API, lambda function, database, etc.) what kinds of objects or data structures your system contains. It's the responsibility of each service to determine what to do with that information &mdash; the assumption being, however, that whenever a service needs to communicate with other services (or the outside world) about a __Thing__ it should use the authority-provided definition of that __Thing__.
 
