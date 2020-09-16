@@ -179,7 +179,7 @@ More than meets the eye, isn't it?
 
 As I alluded to somewhere above, transformations between schema versions are an issue, primarily because we can't really define them in a language/platform-independent way. (Unless we go full XML Schema in which case XSLT would work. But we don't want to. Never go full XML.) Fortunately we have a good-enough solution in [JSONata](https://jsonata.org/) which is an expression language for querying and transforming JSON-like data. It has implementations for Java, JavaScript, Python and .NET (at least), covering the common platforms nicely.
 
-It must be said that JSONata is not perfect. The various implementations differ in the set of features they support, and this is not really documented anywhere. It also has performance implications when you need to process large datasets.
+It must be said that JSONata is far from perfect. The various implementations differ in the set of features they support, and this is not really documented anywhere. 
 
 In the example above, the JSONata transform takes a version 1 object, adds a key `properties.height` which is set to the value of the `properties.size` key, and removes the now-unnecessary `size`. It additionally sets the `version` property to equal 2, as is good and correct for a version 2 object. The `version` property itself is imported from the `general/basic-props` component schema alongside many other properties, so it is not visible in the example.
 
