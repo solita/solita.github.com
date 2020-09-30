@@ -21,7 +21,7 @@ Typically it would be a good idea to document your infrastructure as code, for e
 
 # CodeCommit to store the source code
 
-It's not a requirement to use AWS CodeCommit, to be able to utilize CodeBuild or CodePipeline, but in my case it made sense as the original source code was not in a public repository like GitHub.
+It's not a requirement to use AWS CodeCommit to be able to utilize CodeBuild or CodePipeline, but in my case it made sense as the original source code was not in a public repository like GitHub.
 
 It's simple to create a new repository to CodeCommit. All of the repositories are Git-based.
 I needed to migrate an existing repository to CodeCommit and I did it by following [these simple instructions](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-migrate-repository-existing.html).
@@ -35,25 +35,27 @@ The rest is pretty much trivial by following the instructions on the guide.
 
 # CodePipeline to run the entire process
 
-After having the sources in CodeCommit, I took a look at the documentation on how to proceed. I figured out, that I would first create the CodePipeline that is triggered when ever the sources change in the Git repository. Second step would be to create the CodeBuild step and it's simple to add while building the CodePipeline. The CodePipeline I created is really simple:
+After having the sources in CodeCommit, I took a look at the documentation on how to proceed. I figured out that I would first create the CodePipeline that is triggered whenever the sources change in the Git repository. Second step would be to create the CodeBuild step and it's simple to add while building the CodePipeline. The CodePipeline I created is really simple:
 
 ![CodePipeline example](/img/aws-developer-tools-mule-cicd-solution/pipeline.png)
 
 Just two steps. One for reacting to the source code change, and one for building the software.
 
-There are several sources for the CodePipeline that one can choose from. AWS S3, AWS CodeCommit, GitHub, Bitbucket etc.
-You can also choose the Artifact Store and encryption key for the Artifacts stored in the store.
-You must also create a Service Worker Role or use a existing one to run the pipeline.
+Here are a few things you must do and can do to configure the CodePipeline:
+- You must create a Service Worker Role or use an existing one to run the pipeline.
+- You can select the source for the CodePipeline. There are several sources for the CodePipeline that one can choose from: AWS S3, AWS CodeCommit, GitHub, Bitbucket etc.
+- You can select the Artifact Store. Artifact Store is simply a AWS S3 bucket. Use the default artifact store, create a new one or use an existing bucket.
+- You can select an encryption key to encrypt the data in the artifact store.
 
 There is also possibility to define a Deploy Stage, but it's mostly about deploying to AWS infra, so it was not for me.
 
 # CodeBuild to build the software
 
-Final step is to use AWS CodeBuild to run Maven to build the MuleSoft app. MuleSoft apps use Maven by default, so it's a clear choise to use.
+Final step is to use AWS CodeBuild to run Maven to build the MuleSoft app. MuleSoft apps use Maven by default, so it's a clear choice to use.
 
 There are several ways you can create a CodeBuild Build Project. You can create one from scratch or you can create one by creating a CodePipeline and then defining the build-step to be implemented by CodeBuild. Either way, you define the source for the Build Project, the actual buildSpec, where to store artifacts and finally logging. I created the Build Project via CodePipeline so the source is automatically set to be CodePipeline (where you define the source originally).
 
-CodeBuild uses AWS S3 as the default Artifact Store. So anything you build in CodeBuild and specify to be published as an artifact is published to S3 bucket you define in the creation process or have previously created. 
+CodeBuild uses AWS S3 as the default Artifact Store. So anything you build in CodeBuild and specify to be published as an artifact is published to a S3 bucket you define in the creation process or have previously created. 
 
 BuildSpec is at the heart of CodeBuild. It's a yml file, that describes the build process. You can find the specification from [here](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html).
 
@@ -125,11 +127,22 @@ In the *build*-section the commands are listed that actually perform the build. 
 
 Here is where you can spcify artifacts from the build process to be stored in the S3 bucket. These can then later on be used in deployments to other Amazon Services or other services that can download from S3.
 
-### cache-section
+### cache-section and how to configure a cache for Maven repository
 
-As we all know, Maven tends to download half of the internet to do a build. To speed up builds we should setup a cache. See the [Cache for Maven repository](#cache-for-maven-repository) section to see how to set it up.
+Notoriously, Maven tends to download half of the internet to do a build. To speed up builds we should setup a cache.
 
 In the *cache*-section of the buildSpec we define the path for the local Maven repository to cache. 
+
+There is a good guide on how to specify the cache for the CodeBuild Project: [https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/](https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/)
+
+Basically all you do is specify a AWS S3 bucket that should be used as the cache location and some additional information. 
+
+There is one misleading part of information in the guide that I had some issues while enabling the cache:
+You will get this error if you specify the Cache path prefix to be `cache/archives/`:
+
+`Invalid cache: location must be a valid S3 bucket, followed by slash and the prefix`
+
+The correct form is `/cache/archives/`.
 
 ## Secrets
 
@@ -194,3 +207,12 @@ The `anypoint.platform.client_id` & `anypoint.platform.client_secret` properties
 
 ```
 
+# Summary
+
+So was it worth it? Yes. The use case we have is such that we make changes to the actual demo MuleSoft application maybe once or twice a year. Hosting a Jenkins server somewhere costs money and requires effort to keep it secure. One could host the Jenkins server in any hosting service and start it only when needed, but still would need to take care of the security updates etc. By using services like CodeBuild and CodePipeline, we set us free from those maintenance tasks and only pay for the resources we use during the build and the possible storage costs. So it's a perfect match for our use case.
+
+Setting up services in AWS is simple, but there are some things that are not that simple. Let's take security settings as an example. IAM (AWS Identity and Access Management) is the key to making the AWS services work together. IAM can be difficult to understand in the beginning and getting everything to work might not always be simple. So if you are already working with AWS services, using AWS Developer Tools makes perfect sense. 
+
+If you host your code in GitHub or GitLab they offer similar capabilities and it might be easier to setup the CI/CD pipeline there.
+
+Thank you for reading!
