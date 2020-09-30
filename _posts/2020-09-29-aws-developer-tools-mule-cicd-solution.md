@@ -19,6 +19,8 @@ I was given the option to try out AWS alternative to this setup. AWS has [CodeCo
 
 Typically it would be a good idea to document your infrastructure as code, for example by creating the services you need via CloudFormation templates. Here I was doing a Proof Of Concept, so I did all of the setup via the AWS Console UI.
 
+I'm going to show here how to build a CI/CD pipeline using AWS Developer tools, utilize Maven for the actual builing and deploying the MuleSoft Application to CloudHub. CloudHub is the PaaS (Platform as a Service) part of MuleSoft's Anypoint Platform. Technically it uses AWS services in the background. Find more information [here](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration).
+
 # CodeCommit to store the source code
 
 It's not a requirement to use AWS CodeCommit to be able to utilize CodeBuild or CodePipeline, but in my case it made sense as the original source code was not in a public repository like GitHub.
@@ -44,7 +46,7 @@ Just two steps. One for reacting to the source code change, and one for building
 Here are a few things you must do and can do to configure the CodePipeline:
 - You must create a Service Worker Role or use an existing one to run the pipeline.
 - You can select the source for the CodePipeline. There are several sources for the CodePipeline that one can choose from: AWS S3, AWS CodeCommit, GitHub, Bitbucket etc.
-- You can select the Artifact Store. Artifact Store is simply a AWS S3 bucket. Use the default artifact store, create a new one or use an existing bucket.
+- You can select the Artifact Store. Artifact Store is simply an AWS S3 bucket. Use the default artifact store, create a new one or use an existing bucket.
 - You can select an encryption key to encrypt the data in the artifact store.
 
 There is also possibility to define a Deploy Stage, but it's mostly about deploying to AWS infra, so it was not for me.
@@ -55,7 +57,7 @@ Final step is to use AWS CodeBuild to run Maven to build the MuleSoft app. MuleS
 
 There are several ways you can create a CodeBuild Build Project. You can create one from scratch or you can create one by creating a CodePipeline and then defining the build-step to be implemented by CodeBuild. Either way, you define the source for the Build Project, the actual buildSpec, where to store artifacts and finally logging. I created the Build Project via CodePipeline so the source is automatically set to be CodePipeline (where you define the source originally).
 
-CodeBuild uses AWS S3 as the default Artifact Store. So anything you build in CodeBuild and specify to be published as an artifact is published to a S3 bucket you define in the creation process or have previously created. 
+CodeBuild uses AWS S3 as the default Artifact Store. So anything you build in CodeBuild and specify to be published as an artifact is published to an AWS S3 bucket you define in the creation process or have previously created. 
 
 BuildSpec is at the heart of CodeBuild. It's a yml file, that describes the build process. You can find the specification from [here](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html).
 
@@ -135,7 +137,7 @@ In the *cache*-section of the buildSpec we define the path for the local Maven r
 
 There is a good guide on how to specify the cache for the CodeBuild Project: [https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/](https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/)
 
-Basically all you do is specify a AWS S3 bucket that should be used as the cache location and some additional information. 
+Basically all you do is specify an AWS S3 bucket that should be used as the cache location and some additional information. 
 
 There is one misleading part of information in the guide that I had some issues while enabling the cache:
 You will get this error if you specify the Cache path prefix to be `cache/archives/`:
@@ -151,19 +153,6 @@ Storing secrets and providing them to the pipeline and build process is somethin
 After adding the secrects to the Parameter Store, you must add *ssm:GetParameters* permission to the CodeBuild Service Worker role for it to be able to access the secrets. The easiest way to do so is by adding *AmazonSSMReadOnlyAccess* policy for the CodeBuild Service Worker Role.
 
 Maven Secrets are also used to encrypt the credentials needed to access the private Maven repository of MuleSoft and the deployment keys to CloudHub. The process is explained [here](https://docs.mulesoft.com/mule-runtime/3.9/mule-maven-plugin#encrypting-credentials). The actual Maven Master Password needs to be stored somewhere securely. I used AWS Secrects Manager, but any Password manager would do. 
-
-### Cache for Maven repository
-
-There is a good guide on how to specify the cache for the CodeBuild Project: [https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/](https://aws.amazon.com/blogs/devops/how-to-enable-caching-for-aws-codebuild/)
-
-Basically all you do is specify a AWS S3 bucket that should be used as the cache location and some additional information. 
-
-There is one misleading part of information in the guide that I had some issues while enabling the cache:
-You will get this error if you specify the Cache path prefix to be `cache/archives/`:
-
-`Invalid cache: location must be a valid S3 bucket, followed by slash and the prefix`
-
-The correct form is `/cache/archives/`.
 
 # Maven POM for CloudHub deployment
 
