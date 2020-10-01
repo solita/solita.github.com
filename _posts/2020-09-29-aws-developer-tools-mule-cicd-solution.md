@@ -19,7 +19,7 @@ I was given the option to try out AWS alternative to this setup. AWS has [CodeCo
 
 Typically it would be a good idea to document your infrastructure as code, for example by creating the services you need via CloudFormation templates. Here I was doing a Proof Of Concept, so I did all of the setup via the AWS Console UI.
 
-I'm going to show here how to build a CI/CD pipeline using AWS Developer tools, utilize Maven for the actual builing and deploying the MuleSoft Application to CloudHub. CloudHub is the PaaS (Platform as a Service) part of MuleSoft's Anypoint Platform. Technically it uses AWS services in the background. Find more information [here](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration).
+I'm going to show here how to build a CI/CD pipeline using AWS Developer tools and how to utilize Maven for the actual builing & deploying the MuleSoft Application to CloudHub. CloudHub is the PaaS (Platform as a Service) part of MuleSoft's Anypoint Platform. Technically it uses AWS services in the background. Find more information [here](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration).
 
 # CodeCommit to store the source code
 
