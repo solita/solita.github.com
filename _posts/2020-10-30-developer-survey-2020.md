@@ -21,6 +21,10 @@ Developer survey has now become a tradition here at Solita. Every two years we s
 ## Platforms?
 
 ## IDEs
+
+A new question this year asked what IDEs or editors we use. Most people use several, perhaps based on what languages they are working with currently. Of course then there are also those who only use one (emacs people wouldn't probably want to leave it for any task they need to do).
+
+Most popular one was IntelliJ Idea and other IDEs based on it. Idea is definitely very liked for Java work and Cursive for Clojure and Android Studio for Android app development are much used too. Visual Studio Code has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
 ## Operating Systems
 
 ## Trends
