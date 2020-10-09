@@ -1,6 +1,6 @@
 # /dev/solita/greetings
 
-Here are some developer-oriented thoughts from [Solita Oy](http://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at <http://dev.solita.fi>.
+Here are some developer-oriented thoughts from [Solita Oy](https://www.solita.fi/). Our stories have not yet been told. More will come. Stay tuned at <http://dev.solita.fi>.
 
 ## Writing
 
@@ -9,16 +9,16 @@ We use a combination of Jekyll and Github Pages to run the site.
 If you want to write a post, here's how:
 
 1. Fork this project to yourself (upper right corner)
-  - You need a Github account to do this
+    - You need a Github account to do this
 2. Clone your own fork to your computer (git clone)
 3. Add your author info to `_config.yml`
-  - The email value is a MD5 hash of your email
-  - Optional: Make sure you have a gravatar account (www.gravatar.com) with solita.fi email address and photo of yourself.
+    - The email value is a MD5 hash of your email
+    - Optional: Make sure you have a gravatar account (www.gravatar.com) with solita.fi email address and photo of yourself.
 4. Write a new post under the `_posts` folder using Markdown, look at other posts for example of what to write there
-5. If you have Ruby and Jekyll, preview your post locally (instructions below)
+5. Optionally preview your post locally (instructions below, Docker included)
 6. Create a pull request at https://github.com/solita/solita.github.com/pull/new/master
-  - Choose your fork on the right
-  - Write some info about the post
+    - Choose your fork on the right
+    - Write some info about the post
 7. Wait for comments and publish!
 
 ### Optional: Adding exact publication time to your post
@@ -28,17 +28,16 @@ Normally the publication date of a post is read from the filename of the post (Y
 If you want to specify the exact time your post was published, you can add a date-field to your post. In the date field you can specify the publication time in the format YYYY-MM-DD HH:MM:SS +/-TTTT.
 
 For example:
-```
----
-...
-date: 2016-04-25 13:30:00 +0200
-...
----
-```
+
+    ---
+    ...
+    date: 2016-04-25 13:30:00 +0200
+    ...
+    ---
 
 ## Previewing posts
 
-You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview).
+You need Ruby and Jekyll if you want to preview your posts locally on the blog. If you're fine with just previewing the Markdown, you can use a Markdown preview script, like [this one for Sublime Text](https://github.com/revolunet/sublimetext-markdown-preview) or [this one for VS Code](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles). You can also choose to preview post in GitHub. 
 
 ### Option A, Running solita-blag dockerized extravaganza
 
@@ -127,6 +126,14 @@ If you're interested in the changes the update brings, you can read about them h
 #### Update instructions
 
 First thing to do is to synch your fork with the changes in the main repository. If you don't know how to do this, GitHub has good instructions. First you need to add the main repository as a remote (https://help.github.com/articles/configuring-a-remote-for-a-fork/) after which you can sync your fork (https://help.github.com/articles/syncing-a-fork).
+
+To add upstream named remote and sync changes with your fork you want to do something like this. 
+
+1. `git remote add upstream https://github.com/solita/solita.github.com.git`
+2. `git checkout master`
+3. `git fetch upstream`
+4. `git merge upstream/master`
+5. `git push origin master`
 
 ##### Option A, if you're using Vagrant
 

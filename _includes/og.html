@@ -1,12 +1,19 @@
     <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:image" content="https://dev.solita.fi/img/solita-logomark-white-on-red-400px.png" />
+    <meta name="twitter:image" content="https://dev.solita.fi/img/solita-logomark-white-on-red-400px.png" />
+
     {% if page.title %}
       <meta property="og:url" content="{{ site.url }}{{ page.url }}">
       <meta property="og:type" content="article">
       <meta property="og:title" content="{{ page.title }}">
       <meta property="og:description" content="{{ page.excerpt }}">
+      <meta name="twitter:title" content="{{ page.title }}">
+      <meta name="twitter:description" content="{{ page.excerpt }}">
     {% else %}
        <meta property="og:url" content="{{ site.url }}">
        <meta property="og:type" content="website">
        <meta property="og:title" content="{{ site.title }}">
        <meta property="og:description" content="{{ site.description }}">
+       <meta name="twitter:title" content="{{ site.title }}">
+       <meta name="twitter:description" content="{{ site.description }}">
     {% endif %}
