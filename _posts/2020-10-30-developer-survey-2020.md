@@ -32,11 +32,13 @@ Developer survey has now become a tradition here at Solita. Every two years we s
 
 A new question this year asked what IDEs or editors we use. Most people use several, perhaps based on what languages they are working with currently. Of course then there are also those who only use one (emacs people wouldn't probably want to leave it for any task they need to do).
 
-Most popular one was IntelliJ Idea and other IDEs based on it. Idea is definitely very liked for Java work and Cursive for Clojure and Android Studio for Android app development are much used too. Visual Studio Code has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
+Most popular one was IntelliJ Idea and other IDEs based on it. Idea is definitely very liked for Java work and Cursive for Clojure and Android Studio for Android app development are much used too. Visual Studio Code has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey in 2019 ](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
 
 ## Operating Systems
 
 ![Operating systems](/img/developer-survey-2020/operating_systems.png)
+
+Over half of the respondents reported using macOS as their primary operating system. About a third reported using Windows and a bit over 10% used Linux. A few people reported using multiple operating systems and mostly working in virtual machines. Virtual machine usage for different use cases is probably more common than that, as the question was about the primary operating system in use and not about every operating system people use in some capacity.
 ## Trends
 
 Usage of cloud platforms is on the rise and that has an impact on lots of things. For example, Jenkins was still the most used CI/CD solution, but its usage had dropped quite significantly and the usage of the solutions provided by the cloud platforms, such as Code* tools in AWS were up. Same could be said about infrastructure-as-code tools: Ansible was still the most used, but its usage had dropped a lot and AWS CDK, Terraform etc. had a lot more usage now.
