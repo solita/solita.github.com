@@ -21,7 +21,7 @@ Developer survey has now become a tradition here at Solita. Every two years we s
 ## Languages we would like to use
 ![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)
 ## Frontend frameworks
-![Frontend frameworks](img/developer-survey-2020/frontend_frameworks_and_libraries.png)
+![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
 ## Backend frameworks
 
 ## Platforms?
