@@ -39,8 +39,11 @@ Most popular one was IntelliJ Idea and other IDEs based on it. Idea is definitel
 ![Operating systems](/img/developer-survey-2020/operating_systems.png)
 
 Over half of the respondents reported using macOS as their primary operating system. About a third reported using Windows and a bit over 10% used Linux. A few people reported using multiple operating systems and mostly working in virtual machines. Virtual machine usage for different use cases is probably more common than that, as the question was about the primary operating system in use and not about every operating system people use in some capacity.
+
 ## Trends
 
-Usage of cloud platforms is on the rise and that has an impact on lots of things. For example, Jenkins was still the most used CI/CD solution, but its usage had dropped quite significantly and the usage of the solutions provided by the cloud platforms, such as Code* tools in AWS were up. Same could be said about infrastructure-as-code tools: Ansible was still the most used, but its usage had dropped a lot and AWS CDK, Terraform etc. had a lot more usage now.
+Usage of cloud platforms is on the rise and that has an impact on lots of things. For example, Jenkins was still the most used CI/CD solution, but its usage had dropped quite significantly and the usage of the solutions provided by the cloud platforms, such as Code* tools in AWS were up. Same could be said about infrastructure-as-code tools: Ansible was still the most used, but its usage had dropped a lot and AWS CDK, Terraform etc. had a lot more usage now than two years ago (TARKISTA!!!).
+
+TypeScript usage has increased significantly in two years. When asking for generally used programming languages, TypeScript was reported by 35% of the respondents, where in 2018 it was only used by 19%. This change also meant that JavaScript,even though still the most widely used language in general, dropped from 84% to 69% of usage.
 
 ## Conclusion
