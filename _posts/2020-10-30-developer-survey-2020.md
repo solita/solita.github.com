@@ -17,6 +17,10 @@ The first question in the survey regarding programming languages asked to list a
 
 Apart from languages that are used for the actual system, scripting languages like Sh/Bash, PowerShell and Groovy were widely used.
 ![All languages](/img/developer-survey-2020/all_languages.png)
+
+Moving on to more focused questions, Java proved to be the most used language for backend development. 45% reported Java being one of the primary backend languages in ther projects. Rounding out top 3, are then Clojure with about 19% usage and Kotlin with 18%. Compared to results from 2018, percentage of Kotlin users rose from 15% to 24% (comparison based on the question of all languages used). Java and Clojure usage were both a little bit down when comparing 2020 to 2018, which could be explained by the increased usage of Clojure. Neither seem to be going away though, as shown by being top 1 and 2 used languages for backend.
+
+As this question was about backend languages, we can assume that JavaScript, TypeScript and ClojureScript here mean that they are run on NodeJS. TypeScript was then the most used language with only a slight margin over JavaScript (11% vs. 10%)
 ![Backend languages](/img/developer-survey-2020/backend_languages.png)
 ![Frontend languages](/img/developer-survey-2020/frontend_languages.png)
 
