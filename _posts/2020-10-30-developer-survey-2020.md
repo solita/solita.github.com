@@ -35,9 +35,15 @@ For frontend languages the clear number one was JavaScript with 68% usage. The o
 ![Liked languages](/img/developer-survey-2020/liked_languages.png)
 ## Languages we would like to use
 ![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)
-## Frontend frameworks
+
+## Frontend libraries and frameworks
 ![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
-## Backend frameworks
+
+React rules the frontend at the moment. 66% who answered to the question about used frontend libraries or frameworks reported having used React in the last year. All the competion (Angular, Aurelia, Vue) combined actually only just barely reached React's numbers. Over half of the React users also used Redux with it and a half also used React Router.
+
+For ready-made styles or React components, about a fifth of the answerers reported using Bootstrap or Material-UI.
+
+## Backend libraries, frameworks and tools
 
 ## Platforms?
 
