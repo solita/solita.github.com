@@ -33,13 +33,18 @@ For frontend languages the clear number one was JavaScript with 68% usage. The o
 
 ## Languages we like
 ![Liked languages](/img/developer-survey-2020/liked_languages.png)
+
+Next, we asked for opinions: what language do you like the most? The most used backend language was also the most liked one, as 17% of respondents said that Java was their favorite language. Clojure came second with 15%, which is impressive considering that even though it is used quite much, in terms of raw numbers Java developers outnumber Clojure developers by a mile. Clojure developers then really know what they want. Kotlin was the third most liked language, meaning that the top 3 of liked languages mirrors the top 3 of backend languages by usage.
+
+Compared to results from 2018, JavaScript fell down from number #2 spot to number #4. This could be explained TypeScript, which gained almost as many percents now than JavaScript lost. All in all, most top languages were in decline compared to the previous survey, except Kotlin, which received much more love this year compared to 2018. This time there also seemed to be a lot more niche languages getting a few votes than before, which also explains why the top languages were a bit in decline.
+
 ## Languages we would like to use
 ![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)
 
 ## Frontend libraries and frameworks
 ![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
 
-React rules the frontend at the moment. 66% who answered to the question about used frontend libraries or frameworks reported having used React in the last year. All the competion (Angular, Aurelia, Vue) combined actually only just barely reached React's numbers. Over half of the React users also used Redux with it and a half also used React Router.
+React rules the frontend at the moment. 66% who answered to the question about used frontend libraries or frameworks reported having used React in the last year. All the competion (Angular, Aurelia, Vue) combined actually only just barely reached React's numbers. Over half of the React users also used Redux with it and a half also used React Router. ClojureScript developers rely on Reagent as their React library and then most of them also use re-frame for state-management.
 
 For ready-made styles or React components, about a fifth of the answerers reported using Bootstrap or Material-UI.
 
