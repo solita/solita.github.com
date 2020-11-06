@@ -58,6 +58,14 @@ For ready-made styles or React components, about a fifth of the answerers report
 
 ## Backend libraries, frameworks and tools
 
+For backend libraries frameworks and tools the amount of things that could be included here made it a hard question to answer. Interpreting the results, the most used frameworks and libraries were:
+
+1. Spring Boot
+2. Spring Framework
+3. Log4J
+
+The most used tool was Docker, which in the context of this question means that it is used at least for setting up development environments.
+
 ## Platforms?
 
 ## IDEs
