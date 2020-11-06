@@ -41,6 +41,14 @@ Compared to results from 2018, JavaScript fell down from number #2 spot to numbe
 ## Languages we would like to use
 ![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)
 
+The answers to this question tells us several things. First, it tells us that for widely already used languages there is still interest in continuing to use them. Second, the answers can tell us that there's even more interest in some languages, so their usage could still grow in the future. Third, for languages that are not yet widely used, the answers tell us what languages we could be potentially be using in the future.
+
+Kotlin was the most wanted language here, with 29% of the respondents saying they would like to use Kotlin in the future. As such, people using Kotlin currently seem to want to continue using it and others would like to start using it. As such, Kotlin seems like a good choice for future projects.
+
+Clojure came third, with 22% wanting to work with it in future. TypeScript came third with 18%. With TypeScript usage having increased a lot in two years, the interest is still growing.
+
+For languages not currently in wide use, Rust was a clear winner, with 8% of respondents wanting to use it. With appropriate projects, we could very well see Rust move to the used languages category for the next survey.
+
 ## Frontend libraries and frameworks
 ![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
 
