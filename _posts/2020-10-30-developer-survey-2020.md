@@ -68,13 +68,17 @@ The most used tool was Docker, which in the context of this question means that 
 
 Other common answers were Node.js, Hibernate, .NET Core, ASP.NET, and parts of Clojure web stack such as Compojure, Reitit and Ring.
 
-## Platforms?
+## Platforms
+
+Where do we deploy our software? 50% reported that their software runs on Linux. That Linux can of course then be running in traditional servers or in some kind of cloud service. The most used cloud platform was AWS, followed by Azure which had a bit over half the users as AWS. 23% of respondents reported also using a serverless computing platform of their cloud service provider.
+
+When asked what platforms we would like to use in the future, the top 3 consisted of the three big cloud services. The most wanted was AWS, followed by Azure and then Google Cloud Platform. This mirrored the current usage.
 
 ## IDEs
 
 ![Editors](/img/developer-survey-2020/editors.png)
 
-A new question this year asked what IDEs or editors we use. Most people use several, perhaps based on what languages they are working with currently. Of course then there are also those who only use one (Emacs people wouldn't probably want to leave it for any task they need to do).
+A new question this year asked what IDEs or editors we use. Most people use several, perhaps based on what languages they are working with currently. Of course then there are also those who only use one (Emacs people wouldn't probably want to leave it for any task they need to do). All the cloud services had their usage increase compared to 2018 survey.
 
 Most popular one was IntelliJ Idea and other IDEs based on it. Idea is definitely very liked for Java work and Cursive for Clojure and Android Studio for Android app development are much used too. Visual Studio Code has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey in 2019 ](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
 
