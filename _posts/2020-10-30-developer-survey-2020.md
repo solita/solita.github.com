@@ -64,7 +64,9 @@ For backend libraries frameworks and tools the amount of things that could be in
 2. Spring Framework
 3. Log4J
 
-The most used tool was Docker, which in the context of this question means that it is used at least for setting up development environments.
+The most used tool was Docker, which in the context of this question means that it is used at least for setting up development environments. Integration frameworks in use were Camel, Mule ESB and Dell Boomi.
+
+Other common answers were Node.js, Hibernate, .NET Core, ASP.NET, and parts of Clojure web stack such as Compojure, Reitit and Ring.
 
 ## Platforms?
 
