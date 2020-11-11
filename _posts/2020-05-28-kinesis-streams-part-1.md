@@ -3,7 +3,7 @@ layout: post
 title: Mastering AWS Kinesis Data Streams, Part 1
 author: anahitpo
 excerpt: >
-  I have been working with **AWS Kinesis Data Streams** for several years now, dealing with over 0.5TB of streaming data per day. Rather than telling you about all the reasons why you should use _Kinesis Data Streams_ (plenty is written on that subject), I'll talk about the things you should know when working with the service. At least it would have saved me some gray hair if I knew those beforehand. So if you are still reading, let's dive in!
+  I have been working with AWS Kinesis Data Streams for several years now, dealing with over 0.5TB of streaming data per day. Rather than telling you about all the reasons why you should use Kinesis Data Streams (plenty is written on that subject), I'll talk about the things you should know when working with the service. At least it would have saved me some gray hair if I knew those beforehand. So if you are still reading, let's dive in!
 tags:
 - AWS
 - Data streaming
