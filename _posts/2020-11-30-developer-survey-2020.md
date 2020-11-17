@@ -29,7 +29,7 @@ As this question was about backend languages, we can assume that JavaScript, Typ
 
 ![Frontend languages](/img/developer-survey-2020/frontend_languages.png)
 
-For frontend languages the clear number one was JavaScript with 68% usage. The other languages that have wide usage are Typescript (37%) and ClojureScript (19%). ClojureScript is an obvious choice for projects that use Clojure in the backend, so it seems those two go hand in hand quite much. CoffeeScript has a handful of users - it seems that the number has been stable compared to 2018 figures (4% overall usage in 2020 compared to 5% in 2018). Most likely it's not used for any new projects but it is still in use in some long-time project(s). PureScript also had a handful users here, which seems to be new compared to 2018.
+For frontend languages the clear number one was JavaScript with 68% usage. The other languages that have wide usage are Typescript (37%) and ClojureScript (19%). ClojureScript is an obvious choice for projects that use Clojure in the backend, so it seems those two go hand in hand quite much. CoffeeScript has a handful of users - it seems that the number has been stable compared to 2018 figures (4% overall usage in 2020 compared to 5% in 2018). Most likely it's not used for any new projects but it is still in use in some long-time project. PureScript also had a handful users here, which is new compared to 2018.
 
 ## Languages we like
 ![Liked languages](/img/developer-survey-2020/liked_languages.png)
