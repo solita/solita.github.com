@@ -147,12 +147,29 @@ Visual Studio Code extension is a light-weight version of editing in the web por
 
 ![Using Azure Pipelines extension in Visual Studio Code](/img/azure-devops-pipeline-as-code/vs-code-intellisense.png)
 
-## Muistiinpanot
+## Migrating from Classic Pipeline
+
+Probably many companies have already existing classic pipelines and are thinking how to migrate them to the YAML pipelines. Unluckily there isn't any "press the button and migrate the pipeline" feature. But each classic pipeline step can be viewed in YAML and that YAML can be copied to a new YAML pipeline. Practically if there are many/big classic pipelines there isn't an easy way to migrate but one pipeline/step gradually.
+
+![View classic pipeline step as YAML](/img/azure-devops-pipeline-as-code/view-yaml.png)
+
+## Classic vs YAML Pipeline
+
+---
+**Rule of thumb**
+
+For new pipelines, use YAML. For existing pipelines, keep classic.
+
+---
+
+The biggest pro for YAML pipelines is that they will be stored to version control. And thus important rule "keep everything in version control" can be achieved. That is a big lack of classic pipelines.
+
+This feature supports also better different versions of the pipeline. If we want to restore the older version of the code, the pipeline's code will also be restored. But with classic pipelines, this doesn't happen: you have to manually search for the version you need to restore.
+
+Another good side with the version control is when making some changes to the pipeline. With YAML, you can first make changes in own branch and test the pipeline from that branch. And when you have tested the pipeline, you can merge it. This isn't impossible with classic pipelines but it is a more tricky task there as you have to put conditional steps that will run only with a given branch.
+
+There is one pro for the classic pipeline. As it is graphical, it is easier to understand especially if one doesn't use Azure Pipelines so often. For the same reason there is lower learning curve with classic pipelines than with YAML pipelines.
+
+## Conclusion
 
 TODO
-
-- build
-- deploy to staging
-- smoke test
-- check logs
-- swap to production
