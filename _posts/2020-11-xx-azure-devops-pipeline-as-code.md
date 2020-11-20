@@ -139,7 +139,13 @@ The web portal has also IntelliSense that helps if we make changes to the pipeli
 
 ## Use Visual Studio Code to Change the Pipeline Code
 
-Using the web portal is an easy but not so developer-like thing. Because pipeline code is in a plain text file, it can be edited with any text/code editor. Fortunately, there is a plugin for this for Visual Studio Code and probably also for other popular code editors.
+Using the web portal is an easy but not so developer-like thing. Because pipeline code is in a plain text file, it can be edited with any text/code editor. Fortunately, there is an extension for Visual Studio Code by Microsoft.
+
+![Azure Pipelines extension for Visual Studio Code](/img/azure-devops-pipeline-as-code/vs-code-azure-pipelines.png)
+
+Visual Studio Code extension is a light-weight version of editing in the web portal. It underlines syntax errors (1) and has IntelliSense (2). Unfortunately, there aren't configuration-settings like in the web portal. The developer has to know at least something about the syntax but fortunately, IntelliSense helps. Just press "CTRL + ." and IntelliSense will come to help.
+
+![Using Azure Pipelines extension in Visual Studio Code](/img/azure-devops-pipeline-as-code/vs-code-intellisense.png)
 
 ## Muistiinpanot
 
