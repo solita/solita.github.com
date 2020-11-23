@@ -1,13 +1,12 @@
 ---
 layout: post
-title: Azure DevOps CI/CD pipelines as code
+title: Azure DevOps Build Pipeline as Code
 author: lassiautio
 excerpt: >
   TODO: put an excerpt here
 tags:
  - Azure DevOps
  - DevOps
- - continuous delivery
  - continuous integration
 ---
 
@@ -70,7 +69,7 @@ Let's push "Save and run" from the upper right corner and run our build for the 
 
 ![Commit after "Save and run"](/img/azure-devops-pipeline-as-code/save-and-run.png)
 
-It will prompt us for a commit message because it is pipeline as code. We will commit it to the master branch for simplicity. Here we are doing this in browser but naturally, we could use any text/code editor to edit our pipeline. Lets run our very first build:
+It will prompt us for a commit message because it is YAML pipeline. We will commit it to the master branch for simplicity. Here we are doing this in browser but naturally, we could use any text/code editor to edit our pipeline. Lets run our very first build:
 
 ![Successfull build](/img/azure-devops-pipeline-as-code/successful-run.png)
 
@@ -81,7 +80,7 @@ We can see that build was successful and took 15 seconds to run (1). If we want 
 ---
 **Info**
 
-You don't have to remember the syntax of Azure pipelines because IntelliSense will help and there is also UI in the Azure DevOps web portal that will help us with the syntax. These will help you to switch from classic pipelines to pipeline as code.
+You don't have to remember the syntax of Azure pipelines because IntelliSense will help and there is also UI in the Azure DevOps web portal that will help us with the syntax. These will help you to switch from classic pipelines to YAML pipeline.
 
 ---
 
@@ -188,6 +187,19 @@ There is one pro for the classic pipeline.
 As it is graphical, it is easier to understand especially if one doesn't use Azure Pipelines so often.
 For the same reason, there is a lower learning curve with classic pipelines than with YAML pipelines.
 
+Feature                         | YAML pipeline                    | Classic pipeline
+--------------------------------|----------------------------------|-----------------
+Can be saved to version control | yes                              | no
+Restore old version             | yes, restored together with code | yes, but restored separately
+Changes in isolation            | yes, with branches               | no
+Graphical view                  | no (yes for settings)            | yes
+Easy to learn                   | no                               | yes
+
 ## Conclusion
 
-TODO
+At first, YAML pipelines look difficult compared to classic pipelines.
+One might doubt if it is too difficult to start using YAML pipelines.
+Fortunately, there isn't a need to know everything by heart.
+There is some graphical help in the Azure DevOps web portal and IntelliSense will also help with web portal and Visual Studio Code.
+If you are in doubt about YAML pipelines, I recommend to give them a chance.
+They can be a next upgrade for your pipelines and efficiency.
