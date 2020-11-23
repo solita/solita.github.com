@@ -11,8 +11,7 @@ tags:
  - continuous integration
 ---
 
-TODO
-Jotain klassisista pipelineista ja yaml-pipelineista.
+Azure DevOps used to have only graphical build pipelines (known as classic pipelines) which were edited only in the web portal. In Build 2019 Microsoft released pipeline as code were pipelines are defined with YAML. In this blog post I will go through the basics of YAML pipelines and compare them with the older classic pipelines.
 
 ## Azure DevOps
 
