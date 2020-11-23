@@ -3,7 +3,7 @@ layout: post
 title: Solita Developer Survey 2020 - what technologies do we use and like?
 author: juholei
 excerpt: >
-  todo
+  We conducted a developer survey to find out what technologies we use in the year 2020 and what may lie in the future
 tags:
  - Software Development
 
