@@ -11,7 +11,8 @@ tags:
  - continuous integration
 ---
 
-Azure DevOps used to have only graphical build pipelines (known as classic pipelines) which were edited only in the web portal. In Build 2019 Microsoft released pipeline as code were pipelines are defined with YAML. In this blog post I will go through the basics of YAML pipelines and compare them with the older classic pipelines.
+Azure DevOps used to have only graphical build pipelines, known as Classic Pipeline GUI, which were edited only in the web portal.
+In Build 2019 Microsoft released pipeline as code, where pipelines are defined with YAML (aka YAML pipeline). In this blog post, I will go through the basics of YAML pipelines and compare them with the older classic pipelines.
 
 ## Azure DevOps
 
@@ -146,26 +147,46 @@ Visual Studio Code extension is a light-weight version of editing in the web por
 
 ![Using Azure Pipelines extension in Visual Studio Code](/img/azure-devops-pipeline-as-code/vs-code-intellisense.png)
 
-## Migrating from Classic Pipeline
+## Converting Classic Pipeline to YAML
 
-TODO: https://devblogs.microsoft.com/premier-developer/converting-classic-azure-devops-pipelines-to-yaml/
+It is relatively easy to convert a classic pipeline to YAML. Or get one step from classic and convert it to YAML. In the classic pipeline, there is a "View YAML" button in a pipeline and in each step which will help with this. The simplified solution to convert classic pipeline to YAML is the following:
+
+1. Create an empty YAML pipeline and
+1. Copy configuration from the classic pipeline.
+
+![View YAML button](/img/azure-devops-pipeline-as-code/view-yaml-button.png)
+
+This is a really handy feature when converting pipelines or when learning YAML pipelines: you can get the YAML code from an old working classic pipeline with just two clicks.
+
+**Notice!** All configurations aren't in the converted YAML, and some parts have to be edited. For example, detailed pool information has to be changed to YAML.
+
+Source: [Converting Classic Azure DevOps Pipelines to YAML](https://devblogs.microsoft.com/premier-developer/converting-classic-azure-devops-pipelines-to-yaml/)
 
 ## Classic vs YAML Pipeline
 
 ---
 **Rule of thumb**
 
-For new pipelines, use YAML. For existing pipelines, keep classic.
+For new pipelines, use YAML. For existing pipelines, keep classic (but consider converting to YAML).
 
 ---
 
-The biggest pro for YAML pipelines is that they will be stored to version control. And thus important rule "keep everything in version control" can be achieved. That is a big lack of classic pipelines.
+The biggest pro for YAML pipelines is that they will be stored into version control.
+And thus important rule "keep everything in version control" can be achieved.
+That is a big lack of classic pipelines.
 
-This feature supports also better different versions of the pipeline. If we want to restore the older version of the code, the pipeline's code will also be restored. But with classic pipelines, this doesn't happen: you have to manually search for the version you need to restore.
+YAML pipeline supports also better different versions of the pipeline.
+If we want to restore the older version of the code, the pipeline's code will also be restored.
+But with classic pipelines, this doesn't happen: you have to manually search for the version you need to restore.
+This is a big thing if the pipeline has changed significantly between versions.
 
-Another good side with the version control is when making some changes to the pipeline. With YAML, you can first make changes in own branch and test the pipeline from that branch. And when you have tested the pipeline, you can merge it. This isn't impossible with classic pipelines but it is a more tricky task there as you have to put conditional steps that will run only with a given branch.
+Another good side with the version control is when making some changes to the pipeline with YAML, you can first make changes in own branch and test the pipeline from that branch.
+And when you have tested the pipeline, you can merge it.
+This isn't impossible with classic pipelines but it is a more tricky task there as you have to put conditional steps that will run only with a given branch.
 
-There is one pro for the classic pipeline. As it is graphical, it is easier to understand especially if one doesn't use Azure Pipelines so often. For the same reason there is lower learning curve with classic pipelines than with YAML pipelines.
+There is one pro for the classic pipeline.
+As it is graphical, it is easier to understand especially if one doesn't use Azure Pipelines so often.
+For the same reason, there is a lower learning curve with classic pipelines than with YAML pipelines.
 
 ## Conclusion
 
