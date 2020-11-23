@@ -148,9 +148,7 @@ Visual Studio Code extension is a light-weight version of editing in the web por
 
 ## Migrating from Classic Pipeline
 
-Probably many companies have already existing classic pipelines and are thinking how to migrate them to the YAML pipelines. Unluckily there isn't any "press the button and migrate the pipeline" feature. But each classic pipeline step can be viewed in YAML and that YAML can be copied to a new YAML pipeline. Practically if there are many/big classic pipelines there isn't an easy way to migrate but one pipeline/step gradually.
-
-![View classic pipeline step as YAML](/img/azure-devops-pipeline-as-code/view-yaml.png)
+TODO: https://devblogs.microsoft.com/premier-developer/converting-classic-azure-devops-pipelines-to-yaml/
 
 ## Classic vs YAML Pipeline
 
