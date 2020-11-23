@@ -3,15 +3,19 @@ layout: post
 title: Azure DevOps Build Pipeline as Code
 author: lassiautio
 excerpt: >
-  TODO: put an excerpt here
+  Azure DevOps' pipeline as code first sounds a bit scary for those who are familiar with older classic pipeline GUI.
+  This blog post will go through the basics of how to create build pipeline as code in YAML and gives some tips where to get help to write YAML pipelines.
+  If you're not yet familiar with YAML pipelines I consider reading this and try them.
 tags:
  - Azure DevOps
  - DevOps
  - continuous integration
+ - CI/CD
 ---
 
 Azure DevOps used to have only graphical build pipelines, known as Classic Pipeline GUI, which were edited only in the web portal.
-In Build 2019 Microsoft released pipeline as code, where pipelines are defined with YAML (aka YAML pipeline). In this blog post, I will go through the basics of YAML pipelines and compare them with the older classic pipelines.
+In Build 2019 Microsoft released pipeline as code, where pipelines are defined with YAML (aka YAML pipeline).
+In this blog post, I will go through the basics of YAML pipelines and compare them with the older classic pipelines.
 
 ## Azure DevOps
 
@@ -158,6 +162,8 @@ It is relatively easy to convert a classic pipeline to YAML. Or get one step fro
 This is a really handy feature when converting pipelines or when learning YAML pipelines: you can get the YAML code from an old working classic pipeline with just two clicks.
 
 **Notice!** All configurations aren't in the converted YAML, and some parts have to be edited. For example, detailed pool information has to be changed to YAML.
+
+**Info:** some changes and improvement is coming to "View YAML": [Replacing "View YAML"](https://devblogs.microsoft.com/devops/replacing-view-yaml/)
 
 Source: [Converting Classic Azure DevOps Pipelines to YAML](https://devblogs.microsoft.com/premier-developer/converting-classic-azure-devops-pipelines-to-yaml/)
 
