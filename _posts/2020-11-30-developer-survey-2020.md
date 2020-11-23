@@ -11,6 +11,8 @@ tags:
 
 Developer survey has become a tradition here at Solita. Every two years we survey our developer-minded people regarding technologies and practices we use in our every-day work. The first survey was conducted in 2016 and you can find a blog post about those results in [our previous blog post](https://dev.solita.fi/java/2016/05/13/Developers-love-spaces.html) and then in 2018 [(blog post in Finnish)](https://www.solita.fi/blogit/development-teknologiakartoitus/). This year we once again took a look at the survey and came up with a total of 27 questions that would give us interesting insight into what we use, what we like and what could be big in the future. Comparing these results to the previous ones can also give us some information on trends - what technologies are increasing in use and what are in decline?
 
+177 of our developers answered the survey. Majority of the people who answered the survey considered themselves full-stack developers. Other common roles were backend developers, frontend developers, software architects, data engineers, integration specialists and mobile developers.
+
 ## Languages we use
 
 ![All languages](/img/developer-survey-2020/all_languages.png)
