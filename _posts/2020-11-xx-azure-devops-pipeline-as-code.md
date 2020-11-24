@@ -31,7 +31,7 @@ Azure DevOps is Microsoft's development, CI/CD, agile, artifact repository, and 
 Practically it includes most of the things a software team needs except infrastructure to where to run the software.
 Its strength is the smooth integration with all of these features. For example, we can access source code repo from build pipelines, and run build automatically when there is a new commit. Or we can mark tasks on the board as done when its code is deployed via release pipeline.
 
-Even if Azure DevOps is Microsoft's product, it can be used with not-Microsoft programming languages and deploy to any AWS or GCP along with Azure or on-premises. You can use it even if you're not using Microsoft's products.
+Even if Azure DevOps is Microsoft's product, it can be used with "not Microsoft" programming languages and make deployments to AWS or GCP along with Azure, or on-premises. You can use it even if you're not using Microsoft's products.
 
 In this blog post, we will concentrate on pipelines; as code!
 
@@ -230,5 +230,6 @@ They can be the next upgrade for your pipelines and efficiency.
 
 ## Further Reading
 
-* [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
-* [YAML schema reference](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema)
+* [Automatized Code Deployment from Azure DevOps to Databricks](https://data.solita.fi/automatized-code-deployment-from-azure-devops-to-databricks/) by Reinhard Seifert in Solita Data blog
+* [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) by Microsoft
+* [YAML schema reference](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema) by Microsoft
