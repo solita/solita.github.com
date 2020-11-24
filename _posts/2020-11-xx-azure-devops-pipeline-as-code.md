@@ -16,6 +16,11 @@ tags:
 
 Azure DevOps used to have only graphical build pipelines, known as Classic Pipeline GUI, which were edited only in the web portal.
 In Build 2019 Microsoft released pipeline as code, where pipelines are defined with YAML (aka YAML pipeline).
+
+With YAML pipelines, it is possible to save pipelines to the version control.
+This is a big shortage of classic pipelines which are stored only somewhere in Azure DevOps (not in any files).
+An important rule "keep everything in version control" can be achieved with YAML pipelines, and it is more developer-like to have pipelines as code.
+
 In this blog post, I will go through the basics of YAML pipelines and compare them with the classic pipelines.
 
 ## Azure DevOps
@@ -211,13 +216,13 @@ There is one pro for the classic pipeline.
 As it is graphical, it is easier to understand especially if we don't use Azure Pipelines so often.
 For the same reason, there is a lower learning curve with classic pipelines than with YAML pipelines.
 
-Feature                         | YAML pipeline                    | Classic pipeline
---------------------------------|----------------------------------|-----------------
-Can be saved to version control | yes                              | no
-Restore old version             | yes, restored together with code | yes, but restored separately
-Changes in isolation            | yes, with branches               | no
-Graphical view                  | no (yes for settings)            | yes
-Easy to learn                   | no                               | yes
+Feature                         | YAML pipeline                     | Classic pipeline
+--------------------------------|-----------------------------------|-----------------
+Can be saved to version control | yes                               | no
+Restore old version             | yes, restored together with code  | yes, but restored separately
+Changes in isolation            | yes, with branches                | no
+Graphical view                  | no (yes for settings)             | yes
+Easy to learn                   | no (but not too difficult either) | yes
 
 ## Conclusion
 
