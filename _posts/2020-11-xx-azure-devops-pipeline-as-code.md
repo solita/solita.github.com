@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Azure DevOps Build Pipeline as Code
+title: Upgrade Your Classic Pipelines to Pipeline as Code in Azure DevOps
 author: lassiautio
 excerpt: >
   Azure DevOps' pipeline as code first sounds a bit scary for those who are familiar with older classic pipeline GUI.
@@ -10,7 +10,8 @@ tags:
  - Azure DevOps
  - DevOps
  - continuous integration
- - CI/CD
+ - Build pipeline
+ - CI
 ---
 
 Azure DevOps used to have only graphical build pipelines, known as Classic Pipeline GUI, which were edited only in the web portal.
@@ -226,3 +227,8 @@ Fortunately, there isn't a need to know everything by heart.
 There is some graphical help in the Azure DevOps web portal and IntelliSense will also help with the web portal and Visual Studio Code.
 If you are in doubt about YAML pipelines, I recommend to give them a chance.
 They can be the next upgrade for your pipelines and efficiency.
+
+## Further Reading
+
+* [Use Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
+* [YAML schema reference](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema)
