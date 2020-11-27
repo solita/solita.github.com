@@ -99,3 +99,7 @@ Usage of cloud platforms is on the rise and that has an impact on lots of things
 TypeScript usage has increased significantly in two years. When asking for generally used programming languages, TypeScript was reported by 35% of the respondents, where in 2018 it was only used by 19%. This change also meant that JavaScript, even though still the most widely used language in general, dropped from 84% to 69% of usage.
 
 ## Conclusion
+
+
+
+*Visualizations by Heini Kekki*
