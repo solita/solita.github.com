@@ -12,6 +12,24 @@ tags:
  - Antipatterns
 ---
 
+![TextComesHere](/img/aws-antipatterns/access_key_age.png)
+![TextComesHere](/img/aws-antipatterns/crazy_wide_policy.png)
+![TextComesHere](/img/aws-antipatterns/last_activity.png)
+![TextComesHere](/img/aws-antipatterns/lots_of_buckets.png)
+![TextComesHere](/img/aws-antipatterns/manual_work.png)
+![TextComesHere](/img/aws-antipatterns/manual_work_2.png)
+![TextComesHere](/img/aws-antipatterns/password_age.png)
+![TextComesHere](/img/aws-antipatterns/PowerUserAccess.png)
+![TextComesHere](/img/aws-antipatterns/public_buckets.png)
+![TextComesHere](/img/aws-antipatterns/security_group_open_ssh.png)
+![TextComesHere](/img/aws-antipatterns/security.png)
+![TextComesHere](/img/aws-antipatterns/trusted_advisor.png)
+![TextComesHere](/img/aws-antipatterns/trusted_advisor_2.png)
+![TextComesHere](/img/aws-antipatterns/wildcard_policy.png)
+
+
+
+
 Cloud platforms are cool. For anyone who used to create or operate software running in a traditional on-premises server room, they offers incredible speed in getting ideas to production, and experimentation with new things. However, this speed comes with a cost: Sometimes that cost is money, as AWS bills can sneak up on you. Sometimes the cost may be a bad architecture that gets more expensive as you progress, a badly compromised security that makes you vulnerable for many new attack vectors - or it can be that you are paying for lots of new services just because you can - without getting the benefits you were actually looking for. 
 
 In this article I'm going to go through some of the worst mistakes that might happen when you start working on AWS platform. These mistakes are based on both personal experience, aka my mistakes, and things I've seen, aka other people's mistakes. I will also try to provide some insights into why we need to pay attention here, and what could we do to avoid the negative impact while benefiting from the newfound speed and agility. I've been working pretty much in cloud and serverless for last five years, before that I had a lot of on-premises experience. I'm most well versed with AWS architecture and best practices, but most of these thoughts will probably apply also to Azure and Google Cloud Platform projects.
