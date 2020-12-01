@@ -100,6 +100,8 @@ TypeScript usage has increased significantly in two years. When asking for gener
 
 ## Conclusion
 
+What does our technology usage then tell about us as a company and a community of developers? We are passionate to learn and tinker with new shiny toys. There's a time and place for that, but for unproven and bleeding edge technologies that place is probably not in actual projects. To be a professional means to use things that get the job done the best possible way, not to use all the shiny things. This can be seen how many quite hyped up technologies of the past years are nowhere to be seen. Elm might have been cool a few years ago, but what would be the situation in five years on, when the system we built is still in use and developed further?
 
+On the other hand, when something has proven to be good, we are quick to embrace it. This happened all those years ago with Clojure and it has long since been a household technology for us instead of a niche language. The same kind of thing is now happening with TypeScript and Kotlin: their usage is rising as they have proven their worth and at some point they could become the default choice for their use cases. Similarly for example React has become de facto front end library: we can count on it doing its job well for the foreseeable future. In five years time, there may have been a handful of newer and shinier things that have come and gone. Maybe something else has become the best option for new projects. But those things we chose to use are probably still there and get the job done well.
 
 *Visualizations by Heini Kekki*
