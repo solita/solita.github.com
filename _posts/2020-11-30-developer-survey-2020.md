@@ -15,44 +15,44 @@ Developer survey has become a tradition here at Solita. Every two years we surve
 
 ## Languages we use
 
-![All languages](/img/developer-survey-2020/all_languages.png)
+[![All languages](/img/developer-survey-2020/all_languages.png)](/img/developer-survey-2020/all_languages.png)
 
 The first question in the survey regarding programming languages asked to list all the languages you have worked with in the previous year. [**JavaScript**](https://en.wikipedia.org/wiki/JavaScript) and [**SQL**](https://en.wikipedia.org/wiki/SQL) were the dominant ones: SQL is present in some form in most projects we do and JavaScript is ubiquitous in frontend and hard to miss even if you primarily use different languages for frontend. Following them were [**Java**](https://en.wikipedia.org/wiki/Java_%28programming_language%29) and [**Python**](https://www.python.org/).
 
-Apart from languages that are used for the actual system, scripting languages like [**Sh/Bash**](https://www.gnu.org/software/bash/) (third most used overall), [**PowerShell**](https://docs.microsoft.com/fi-fi/powershell/) and [**Groovy**](http://www.groovy-lang.org/) were widely used.
+Apart from languages that are used for the actual system, scripting languages like [**Sh/Bash**](https://www.gnu.org/software/bash/) (fourth most used overall), [**PowerShell**](https://docs.microsoft.com/fi-fi/powershell/) and [**Groovy**](http://www.groovy-lang.org/) were widely used.
 
 The following questions about main backend and frontend languages were new this year and were added to get better information on how the languages are used. As such, these can't be compared as such to previous years. Usage comparisons are then based on the question about all languages used.
 
-![Backend languages](/img/developer-survey-2020/backend_languages.png)
+[![Backend languages](/img/developer-survey-2020/backend_languages.png)](/img/developer-survey-2020/backend_languages.png)
 
 Java proved to be the most used language for backend development. 45% reported Java being one of the primary backend languages in ther projects. Rounding out top 3 are then [**Clojure**](https://clojure.org/) with about 19% usage and [**Kotlin**](https://kotlinlang.org/) with 18%. Compared to results from 2018, percentage of Kotlin users rose from 15% to 24% (comparison based on the question of all languages used). Java and Clojure usage were both a little bit down when comparing 2020 to 2018, which could be explained by the increased usage of Kotlin. Neither seem to be going away though, as shown by being top 1 and 2 used languages for backend and both are well liked (more on that later).
 
-As this question was about backend languages, we can assume that JavaScript, [**TypeScript**](https://www.typescriptlang.org/) and [**ClojureScript**](https://clojurescript.org/) here mean that they are run on [**NodeJS**](https://nodejs.org/en/). TypeScript was the most used language with NodeJS, with only a slight margin over JavaScript (11% vs. 10%)
+As this question was about backend languages, we can assume that JavaScript, [**TypeScript**](https://www.typescriptlang.org/) and [**ClojureScript**](https://clojurescript.org/) here mean that they are run on [**NodeJS**](https://nodejs.org/en/). TypeScript was the most used language with NodeJS, with only a slight margin over JavaScript.
 
-![Frontend languages](/img/developer-survey-2020/frontend_languages.png)
+[![Frontend languages](/img/developer-survey-2020/frontend_languages.png)](/img/developer-survey-2020/frontend_languages.png)
 
-For frontend languages the clear number one was JavaScript with 68% usage. The other languages that have wide usage are Typescript (37%) and ClojureScript (19%). ClojureScript is an obvious choice for projects that use Clojure in the backend, so it seems those two go hand in hand quite much. [**CoffeeScript**](https://coffeescript.org/) has a handful of users - it seems that the number has been stable compared to 2018 figures (4% overall usage in 2020 compared to 5% in 2018). Most likely it's not used for any new projects but it is still in use in some long-time project. [**PureScript**](https://www.purescript.org/) also had a handful users here, which is new compared to 2018.
+For frontend languages the clear number one was JavaScript with 68% usage. The other languages that have wide usage are Typescript (37%) and ClojureScript (19%). ClojureScript is an obvious choice for projects that use Clojure in the backend, so it seems those two go hand in hand quite much. [**CoffeeScript**](https://coffeescript.org/) has a handful of users - it seems that the number has been stable compared to 2018 figures (4% overall usage in 2020 compared to 5% in 2018). Most likely it's not used for any new projects but it is still in use in some long-time projects. [**PureScript**](https://www.purescript.org/) also had a handful users here, which is new compared to 2018.
 
 ## Languages we like
-![Liked languages](/img/developer-survey-2020/liked_languages.png)
+[![Liked languages](/img/developer-survey-2020/liked_languages.png)](/img/developer-survey-2020/liked_languages.png)
 
-Next, we asked for opinions: what language do you like the most? The most used backend language was also the most liked one, as 17% of respondents said that Java was their favorite language. Clojure came second with 15%, which is impressive considering that even though it is used quite much, in terms of raw numbers Java developers outnumber Clojure developers by a mile. Clojure developers then really know what they want. Kotlin was the third most liked language, meaning that the top 3 of liked languages mirrors the top 3 of backend languages by usage.
+Next, we asked for opinions: what language do you like the most? The most used backend language was also the most liked one, as 17% of respondents said that Java was their favorite language. Clojure came second with 15%, which is impressive considering that even though it is used quite much, in terms of raw numbers Java developers outnumber Clojure developers by a mile. Clojure developers then really know what they like. Kotlin was the third most liked language, meaning that the top 3 of liked languages mirrors the top 3 of backend languages by usage.
 
-Compared to results from 2018, JavaScript fell down from number #2 spot to number #4. This could be explained by TypeScript, which gained almost as many percents now than JavaScript lost. All in all, most top languages were in decline compared to the previous survey, except Kotlin, which received much more love this year compared to 2018. This time there also seemed to be a lot more niche languages getting a few votes than before, which also explains why the top languages were a bit in decline.
+Compared to results from 2018, JavaScript fell down from number #2 spot to number #4. This could be explained by TypeScript, which gained almost as many percentages now than JavaScript lost. All in all, most top languages were in decline compared to the previous survey, except Kotlin, which received much more love this year compared to 2018. This time there also seemed to be a lot more niche languages getting a few votes than before, which also explains why the top languages were a bit in decline.
 
 ## Languages we would like to use
-![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)
+[![Languages we would like to use](/img/developer-survey-2020/would_like_to_use_languages.png)](/img/developer-survey-2020/would_like_to_use_languages.png)
 
 The answers to this question tells us several things. First, it tells us that for already widely used languages there is still interest in continuing to use them. Second, the answers can tell us that there's even more interest in some languages, so their usage could still grow in the future. Third, for languages that are not yet widely used, the answers tell us what languages we could potentially be using in the future.
 
-Kotlin was the most wanted language here, with 29% of the respondents saying they would like to use Kotlin in the future. As such, people using Kotlin currently seem to want to continue using it and others would like to start using it. As such, Kotlin seems like a good choice for future projects.
+Kotlin was the most wanted language here, with 29% of the respondents saying they would like to use Kotlin in the future. People using Kotlin currently seem to want to continue using it and others would like to start using it. As such, Kotlin seems like a good choice for future projects.
 
 Clojure came second, with 22% wanting to work with it in future. TypeScript came third with 18%. With TypeScript usage having increased a lot in two years, the interest is still growing.
 
-For languages not currently in wide use, [**Rust**](https://www.rust-lang.org/) was a clear winner, with 8% of respondents wanting to use it. With appropriate projects, we could very well see Rust move to the used languages category for the next survey.
+For languages not currently in wide use, [**Rust**](https://www.rust-lang.org/) was a clear winner, with 8% of respondents wanting to use it. With appropriate projects, we could very well see Rust move to the used languages category for the next survey. Go was at similar numbers with Rust: the difference between the languages is that Go is already used here and there.
 
 ## Frontend libraries and frameworks
-![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
+[![Frontend frameworks](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)](/img/developer-survey-2020/frontend_frameworks_and_libraries.png)
 
 [**React**](https://reactjs.org/) rules the frontend at the moment. 66% who answered to the question about used frontend libraries or frameworks reported having used React in the last year. All the competition ([**Angular.JS**](https://angularjs.org/), [**Angular**](https://angular.io/), [**Aurelia**](http://aurelia.io/), [**Vue.JS**](https://vuejs.org/)) combined actually only just barely reached React's numbers. Over half of the React users also used [**Redux**](https://redux.js.org/) with it and a half also used [**React Router**](https://reactrouter.com/). ClojureScript developers rely on [**Reagent**](https://reagent-project.github.io/) as their React library and then most of them also use [**re-frame**](https://github.com/Day8/re-frame) for state-management.
 
@@ -78,19 +78,19 @@ When asked what platforms we would like to use in the future, the top 3 consiste
 
 ## IDEs
 
-![Editors](/img/developer-survey-2020/editors.png)
+[![Editors](/img/developer-survey-2020/editors.png)](/img/developer-survey-2020/editors.png)
 
 A new question this year asked what IDEs or editors we use. Most people use several, perhaps based on what languages they are working with currently. Of course then there are also those who only use one (Emacs people wouldn't probably want to leave it for any task they need to do). All the cloud services had their usage increase compared to 2018 survey.
 
-Most popular one was [**IntelliJ Idea**](https://www.jetbrains.com/idea/) and other IDEs based on it. Idea is definitely very liked for Java work and [**Cursive**](https://cursive-ide.com/) for Clojure and [**Android Studio**](https://developer.android.com/studio) for Android app development are much used too. [**Visual Studio Code**](https://code.visualstudio.com/) has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey in 2019 ](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
+Most popular one was [**IntelliJ Idea**](https://www.jetbrains.com/idea/) and other IDEs based on it. Idea is definitely very liked for Java work. **Cursive**](https://cursive-ide.com/) for Clojure and [**Android Studio**](https://developer.android.com/studio) for Android app development are much used too. [**Visual Studio Code**](https://code.visualstudio.com/) has gathered a huge following in a relatively short time and it's no surprise being used a lot among our developers too, considering that [StackOverflow survey in 2019 ](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) had it as the most popular editor.
 
 [The eternal war](https://en.wikipedia.org/wiki/Editor_war) between [**Vim**](https://www.vim.org/) and [**Emacs**](https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html) users ended this time in favor of Vim, as Vim was used by 9% and Emacs was used by 7%.
 
 ## Operating Systems
 
-![Operating systems](/img/developer-survey-2020/operating_systems.png)
+[![Operating systems](/img/developer-survey-2020/operating_systems.png)](/img/developer-survey-2020/operating_systems.png)
 
-Over half of the respondents reported using **macOS** as their primary operating system. About a third reported using **Windows** and a bit over 10% used **Linux**. A few people reported using multiple operating systems and mostly working in virtual machines. Virtual machine usage for different use cases is probably more common than that, as the question was about the primary operating system in use and not about every operating system people use in some capacity.
+Over half of the respondents reported using **macOS** as their primary operating system. About a third reported using **Windows** and 11% used **Linux**. A few people reported using multiple operating systems and mostly working in virtual machines. Virtual machine usage for different use cases is probably more common than that, as the question was about the primary operating system in use and not about every operating system people use in some capacity.
 
 ## Trends
 
