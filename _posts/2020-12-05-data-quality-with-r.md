@@ -3,7 +3,7 @@ layout: post
 title: An unexpected acquaintance? Data Validation in R
 author: filipwastberg
 excerpt: R is popular programming language and is famous for statistical analysis and stunning visualizations. But it is not limited to those tasks, here we take a look how it can be used to do data validation on a Snowflake database.
-#date: 2020-12-17 06:30:00 +0100
+date: 2020-12-17 06:30:00 +0100
 tags:
  - R
  - Data validation
