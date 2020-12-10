@@ -23,7 +23,7 @@ As we can see, the information security must be considered in software projects 
 
 Of course there are software projects where the baseline of the information security must be higher and achieving that level costs more money. However, I like to think that implementing basic things in a secure way does not increase costs. If you decide to do, for example, SQL queries in a way where SQL injection is impossible from the beginning, it takes as much time as making them in a less secure way. The costs increase only if you first make them in a less secure way, and then in more secure way afterwards.
 
-![Bobby Tables we call him(/img/why-owasp/exploits_of_a_mom.png)
+![Bobby Tables we call him](/img/why-owasp/exploits_of_a_mom.png)
 Bobby Tables we call him, classic from [https://xkcd.com/327/](https://xkcd.com/327/)
 
 In a software project the possible risks must be examined carefully and sufficient security level needs to be decided. If the information system is going to be used in restricted network by a certain amount of users, you might not need the same amount of security as in open banking systems. However, it is a desicion which need to be done knowingly. 
