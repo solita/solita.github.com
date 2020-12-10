@@ -16,9 +16,7 @@ tags:
 
 My first interaction with Android was with the very first device during the summer of 2006. As a device, the HTC Dream (T-Mobile G1 in the US) Android phones were revolutionary, especially if you were coming from other feature phones (Nokia, Blackberry, Motorola). Android devices promised to bring into someone's pocket a tiny "laptop" that also did phone calls. The keyboard made it easy to relate. I started learning to develop on Android 1.0 and Eclipse. When Apple announced the iPhone in January 2007, everything changed: touch and swipes are here to stay. Android completely changed after that.
 
-<center>![HTC Dream]('/img/cross-platform-juggle/htc_dream.png')</center>
-
-<center>![Apple iPhone]('/img/cross-platform-juggle/iphone.png')</center>
+<img src="/img/cross-platform-juggle/htc_dream.png" height="100px" /><img src="/img/cross-platform-juggle/iphone.png" height="100px" />
 
 There is no denying smartphones have significantly changed. The same applies to the look and feel of the apps on Android and iOS devices. With each iteration, the design language evolved. Under the hood, the programming languages changed too (Java -> Kotlin on Android, Objective-C -> Swift on iOS), further fragmenting developers.
 
@@ -78,17 +76,13 @@ Other more recent platforms, such as React Native, Xamarin, and others, solved t
 
 ##### Protocol in React Native, Xamarin, etc...
 
-<center>
-![JavaScript bridge approach]('/img/cross-platform-juggle/javascript-bridge-protocol.png')
-</center>
+![JavaScript bridge approach](/img/cross-platform-juggle/javascript-bridge-protocol.png)
 
 Every time an application (1) needs to talk with the rendering engine (4), it has to be compiled to native code (2) to communicate with the platform widgets (3) using the JavaScript bridge. In a single interaction in (1), say a touch, the bridge needs to be crossed twice: once from the application to the device, and then back from the device back to the application.
 
 ##### Protocol in Flutter
 
-<center>
-![Flutter approach]('/img/cross-platform-juggle/flutter-protocol.png')
-</center>
+![Flutter approach](/img/cross-platform-juggle/flutter-protocol.png)
 
 Flutter, being a rendering engine on itself (2), eliminates the need for a bridge. Being compiled to native code, Flutter handles the rendering of the visuals: the canvas (where the rendering occurs) and events are handled on the device itself (3) and there is no conversion between non-native and native counterparts.
 
@@ -98,7 +92,7 @@ Flutter, being a rendering engine on itself (2), eliminates the need for a bridg
 
 **Desktop**: Currently in [Alpha](https://flutter.dev/desktop), you can build native Windows, macOS, or Linux desktop applications. To compile targeting a specific platform, you need to be on that platform, i.e., you can not create a macOS app on a Windows machine. Once could assume that by being alpha the support would be lacking. There is already a plethora of plugins for each of the OS ([Windows](https://pub.dev/flutter/packages?platform=windows), [macOS](https://pub.dev/flutter/packages?platform=macos), and [Linux](https://pub.dev/flutter/packages?platform=linux)). To get started, you can find a guided CodeLab [here](https://codelabs.developers.google.com/codelabs/flutter-github-graphql-client/index.html#0).
 
-**Backend**: [Aquaduct](https://aqueduct.io/) - OK! This is not Flutter... but it is built with Dart! :sweat_smile: Aqueduct is an object-oriented, multi-threaded HTTP server framework, running on top of Dart VM. It has an integrated test library allowing for end-to-end integration tests without requiring mocking, and supports the continuous integration tools we love.
+**Backend**: [Aquaduct](https://aqueduct.io/) - OK! This is not Flutter... but it is built with Dart! Aqueduct is an object-oriented, multi-threaded HTTP server framework, running on top of Dart VM. It has an integrated test library allowing for end-to-end integration tests without requiring mocking, and supports the continuous integration tools we love.
 
 To showcase Flutter across platforms, you can take a look at [Flutter Gallery](https://github.com/flutter/gallery), a truly cross-platform app shared by Google. All in all, I'm excited for Flutter. There is a fear that Flutter will disappear. However, given the ongoing secrecy on [Fucshia OS](https://www.theverge.com/2020/12/8/22163225/google-fuchsia-os-call-contributors-mailing-list-governance), I would not be surprised to find Flutter powering future devices, in all shapes and forms.
 
@@ -106,14 +100,14 @@ To showcase Flutter across platforms, you can take a look at [Flutter Gallery](h
 
 > In regards to my first assignment, the use of Flutter was a joyful experience. We were able to create both an Android and iOS application, using one codebase, that included the rebranding (approved on Sprint 3 and implemented throughout the app in under 2 weeks!), the approved functionality, and native visuals on both Android and iOS. It made sense to use Flutter for this project! In fact, in a couple of pair-programming sessions, our app designer could visually inspect and suggest tweaks to the UI and see the results immediately due to Flutter's hot-reload capabilities, greatly reducing the overhead of the rebranding.
 
-Would I use Flutter again? "Yes, please." The non-biased answer though is: **it depends**.
+Would I use Flutter again? **"Yes, please."** The non-biased answer though is: **it depends**.
 
-At the end of the day, all comes down to the project resourcing and the shared knowledge within a team. As I see it, with Flutter, we could have a unified team - **we are stronger together** <3 - where iOS and Android (and perhaps backend and desktop?) are all embraced and have a shared role, working within the "app" for native-only dependencies. An "app" then transcends from mobile-only to omnipresent across platforms and form factors. Given the plugin architecture of Flutter and Dart, one can build reusable cross-platform plugins for mobile, desktop, and web, useful to any future projects. And to me, that is a future I look forward to. One that we leverage our shared collective know-how.
+At the end of the day, all comes down to the project resourcing and the shared knowledge within a team. As I see it, with Flutter, we could have a unified team - **we are stronger together** - where iOS and Android (and perhaps backend and desktop?) are all embraced and have a shared role, working within the "app" for native-only dependencies. An "app" then transcends from mobile-only to omnipresent across platforms and form factors. Given the plugin architecture of Flutter and Dart, one can build reusable cross-platform plugins for mobile, desktop, and web, useful to any future projects. And to me, that is a future I look forward to. One that we leverage our shared collective know-how.
 
 # References
-* [1] https://www.icicletech.com/blog/react-native-flutter-ionic-xamarin-nativescript
-* [2] https://medium.com/capital-one-tech/flutter-a-production-ready-checklist-c202525fab48
-* [3] https://medium.com/better-programming/flutter-for-swiftui-developers-3ee038ef1d4f
-* [4] https://appleinsider.com/articles/20/09/16/be-patient-with-developers-as-a-one-day-warning-before-the-full-ios-14-release-is-too-short
-* [5] https://www.telerik.com/blogs/what-is-accessibility-for-web-apps-and-why-do-i-care
-* [6] Flutter in Action, by Erin Windmill - https://www.manning.com/books/flutter-in-action
+* [1] [https://www.icicletech.com/blog/react-native-flutter-ionic-xamarin-nativescript](https://www.icicletech.com/blog/react-native-flutter-ionic-xamarin-nativescript)
+* [2] [https://medium.com/capital-one-tech/flutter-a-production-ready-checklist-c202525fab48](https://medium.com/capital-one-tech/flutter-a-production-ready-checklist-c202525fab48)
+* [3] [https://medium.com/better-programming/flutter-for-swiftui-developers-3ee038ef1d4f](https://medium.com/better-programming/flutter-for-swiftui-developers-3ee038ef1d4f)
+* [4] [https://appleinsider.com/articles/20/09/16/be-patient-with-developers-as-a-one-day-warning-before-the-full-ios-14-release-is-too-short](https://appleinsider.com/articles/20/09/16/be-patient-with-developers-as-a-one-day-warning-before-the-full-ios-14-release-is-too-short)
+* [5] [https://www.telerik.com/blogs/what-is-accessibility-for-web-apps-and-why-do-i-care](https://www.telerik.com/blogs/what-is-accessibility-for-web-apps-and-why-do-i-care)
+* [6] [Flutter in Action, by Erin Windmill](https://www.manning.com/books/flutter-in-action)
