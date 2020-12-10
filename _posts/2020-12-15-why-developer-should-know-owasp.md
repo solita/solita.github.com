@@ -2,9 +2,10 @@
 layout: post
 title: Why a developer should know OWASP?
 author: riikkanen
-excerpt: 
-tags:
- - 
+excerpt: OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cyber security specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
+tags: 
+- security
+- developers
 ---
 
 OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cyber security specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
