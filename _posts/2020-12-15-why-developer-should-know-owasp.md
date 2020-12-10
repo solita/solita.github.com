@@ -2,45 +2,45 @@
 layout: post
 title: Why a developer should know OWASP?
 author: riikkanen
-excerpt: OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cyber security specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
+excerpt: OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cybersecurity specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
 tags: 
 - security
 - developers
 ---
 
-OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cyber security specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
+OWASP stands for Open Web Application Security Project. Why should I be interested in OWASP as a developer? If I'm not a hacker or cybersecurity specialist, and we don't even handle any sensitive information in our project, can I just skip the OWASP? Well, the answer is "nope".
 
 # Different projects, different requirements
 
-If you think about a big patient information system used in hospitals, it is obvious that information security must be concerned in every phase of building such a system: in planning, implementation, and testing. The system contains sensitive data, e.g., social security numbers and personal medical reports. In addition to the valuable content, the system might interest hackers because it most likely has integrations to other critical information systems. The patient information system must have restricted access, strong authentication, audit logging and what not. You might rightfully presume that the project team includes also hard-boiled information security professionals.
+If you think about a big patient information system used in hospitals, it is obvious that information security must be concerned in every phase of building such a system: in planning, implementation, and testing. The system contains sensitive data, e.g., social security numbers, and personal medical reports. In addition to the valuable content, the system might interest hackers because it most likely has integrations to other critical information systems. The patient information system must have restricted access, strong authentication, audit logging, and whatnot. You might rightfully presume that the project team includes also hard-boiled information security professionals.
 
 ![Information security](/img/why-owasp/hacker-1944688_640.jpg)
 
-How about a web store? It differs from a patient information system because it's by default available to everyone. However, also the web store contains information that must be protected: the customer information, accounts, credit card information, purchase history, and so on. It would also be nice if the purchase event is secure and reliable. If one thinks about big web stores like Amazon, one can predict that information security is tightly entwined in building the whole system. On the contrary, we cannot be so sure about smaller web stores. Are the building blocks of the store something which are widely used and acknowledged or has someone coded, for example, authentication by themselves?
+How about a web store? It differs from a patient information system because it's by default available to everyone. However, also the web store contains information that must be protected: the customer information, accounts, credit card information, purchase history, and so on. It would also be nice if the purchase event is secure and reliable. If one thinks about big web stores like Amazon, one can predict that information security is tightly entwined in building the whole system. On the contrary, we cannot be so sure about smaller web stores. Are the building blocks of the store something that is widely used and acknowledged or has someone coded, for example, authentication by themselves?
 
-Finally, let's think about implementing a simple feedback form to an existing web site. Well, implementing a simple feedback form sounds quite easy and straight-forwards task and it might look like we don't need to consider information security at all. However, a simple feedback form can provide a way for a hacker to harm other parts of the system, for example, by using an SQL injection. The form can also tempt spam bots, either filling your database (and site) with numerous falsie feedbacks or misusing the form to relay email spam messages to others. Furthermore, if we collect the usernames, phone numbers and hometown, it quickly becomes a person registry, where the data must be protected.
+Finally, let's think about implementing a simple feedback form to an existing web site. Well, implementing a simple feedback form sounds quite an easy and straightforward task and it might look like we don't need to consider information security at all. However, a simple feedback form can provide a way for a hacker to harm other parts of the system, for example, by using an SQL injection. The form can also tempt spam bots, either filling your database (and site) with numerous false feedbacks or misusing the form to relay email spam messages to others. Furthermore, if we collect the usernames, phone numbers, and hometown, it quickly becomes a person registry, where the data must be protected.
 
 # All software projects are also information security projects
 
-As we can see, the information security must be considered in software projects of any size. Also, the information security is something you can't just add on the top of the software afterwards. It must be taken into account from the beginning, already in the planning phase. The baseline of information security should be something you can just rely on. Just as you expect to get the software with good quality, you should get a secure software.
+As we can see, information security must be considered in software projects of any size. Also, information security is something you can't just add to the top of the software afterward. It must be taken into account from the beginning, already in the planning phase. The baseline of information security should be something you can just rely on. Just as you expect to get the software of good quality, you should get secure software.
 
-Of course, there are software projects where the baseline of the information security must be higher and achieving that level costs more money. However, I like to think that implementing basic things in a secure way does not increase costs. If you decide to do, for example, SQL queries in a way where SQL injection is impossible from the beginning, it takes as much time as making them in a less secure way. The costs increase only if you first make them in a less secure way, and then in more secure way afterwards.
+Of course, there are software projects where the baseline of the information security must be higher, and achieving that level costs more money. However, I like to think that securely implementing basic things does not increase costs. If you decide to do, for example, SQL queries in a way where SQL injection is impossible from the beginning, it takes as much time as making them less securely. The costs increase only if you first make them less securely, and then in a more secure way afterward.
 
 ![Bobby Tables we call him](/img/why-owasp/exploits_of_a_mom.png)
 
 *Bobby Tables we call him, a classic from [https://xkcd.com/327/](https://xkcd.com/327/)*
 
-In a software project the possible risks must be examined carefully, and sufficient security level needs to be decided. If the information system is going to be used in restricted network by a certain number of users, you might not need the same amount of security as in open banking systems. However, it is a decision which need to be done knowingly. 
+In a software project, the possible risks must be examined carefully, and sufficient security level needs to be decided. If the information system is going to be used in a restricted network by a certain number of users, you might not need the same amount of security as in open banking systems. However, it is a decision which needs to be done knowingly. 
 
 # Where the information security comes from?
 
 The information security in a project comes from people. Depending on the project there might be some security specialists but all the people involved in the project need to aware of security issues.
 
-One security aspect are the practises used in the project. Do people behave in a secure way? When working on a project, you can't tell everyone about it, at least not in detailed level. You must not keep your passwords on post-its, you should use always good passwords, perhaps utilize a password manager, and enable multifactor authentication whenever it's possible. Do not push sensitive data, such as database passwords, to version control. Use VPN instead of unprotected WLANs. Recognize if the risk is bearable before pasting project specific things into third party services, like pastebin, xml validator or some language translator. After all that the other aspect is being aware of different security threats which exists in a digital environment. 
+One security aspect is the practises used in the project. Do people behave securely? When working on a project, you can't tell everyone about it, at least not at a detailed level. You must not keep your passwords on post-its, you should use always good passwords, perhaps utilize a password manager, and enable multi-factor authentication whenever it's possible. Do not push sensitive data, such as database passwords, to version control. Use a VPN instead of unprotected WLANs. Recognize if the risk is bearable before pasting project-specific things into third-party services, like Pastebin, XML validator or some language translator. After all that the other aspect is being aware of different security threats which exist in a digital environment. 
 
 ![Passwords on post-its](/img/why-owasp/passwords.jpg)
 
-The developers are basically problem solvers. We need to solve a problem which is given to us. Sometimes the problem is easy and simple to solve. However, just solving the problem might not be enough. For example, a testing specialist might find a bug from the implementation in seconds. They have a different point of view, and typically try all the nasty corner cases. Does this work with empty input? Or with negative numbers? If the developer is experienced, they have been already taken care of all those corner cases. Also, the hackers have a different point of view. They are used to finding vulnerabilities from the software. To be able to secure the software, also the developers must be aware of the threats. 
+The developers are basically problem solvers. We need to solve a problem which is given to us. Sometimes the problem is easy and simple to solve. However, just solving the problem might not be enough. For example, a testing specialist might find a bug from the implementation in seconds. They have a different point of view and typically try all the nasty corner cases. Does this work with empty input? Or with negative numbers? If the developer is experienced, they have been already taken care of all those corner cases. Also, hackers have a different point of view. They are used to finding vulnerabilities from the software. To be able to secure the software, also the developers must be aware of the threats. 
 
 # This is where OWASP comes in
 
@@ -48,11 +48,11 @@ The developers should be aware of the threats, but how. One way is to familiariz
 
 Of course, you don't have to have all the knowledge by yourself. The main point is to recognize that there might be some spots in your software where the information security issues should be thought more carefully. You can collect information by yourself, ask teammates or an information security specialist. The implementations concerning high-risk spots should at least be reviewed by someone with more experience on security issues. Developing your competence in information security helps to notice the possible pitfalls.
 
-Test automation can also be utilized here. There are several commercial and open-source vulnerability scanning tools available. These tools can be integrated to the CI/CD pipeline and with the help of those, you can actively monitor the information security level of your software. The vulnerability scanners point out the places where some hardening is needed. Also, the tools can be used to list outdated and vulnerable third-party libraries used in the project, so they can be updated to more secure versions if available.
+Test automation can also be utilized here. There are several commercial and open-source vulnerability scanning tools available. These tools can be integrated into the CI/CD pipeline and with the help of those, you can actively monitor the information security level of your software. The vulnerability scanners point out the places where some hardening is needed. Also, the tools can be used to list outdated and vulnerable third-party libraries used in the project, so they can be updated to more secure versions if available.
 
 # Tighten your foil hats
 
-Being a information security oriented developer requires a suspicious mind. Never trust anyone is a good advice for a software developer. Always assume that the user might have something bad in mind. Don't trust any data coming directly from user.
+Being an information security oriented developer requires a suspicious mind. Never trust anyone is good advice for a software developer. Always assume that the user might have something bad in mind. Don't trust any data coming directly from a user.
 
 ![Onions have layers](/img/why-owasp/layers.jpg)
 
