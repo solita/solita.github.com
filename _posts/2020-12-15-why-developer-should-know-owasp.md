@@ -53,9 +53,9 @@ Test automation can also be utilized here. There are several commercial and open
 
 Being a information security oriented developer requires a suspicious mind. Never trust anyone is a good advice for a software developer. Always assume that the user might have something bad in mind. Don't trust any data coming directly from user.
 
-Information security is about layers. Do not trust only validation on the user interface, validate data also in the server level. It is quite usual that a quite harmful looking vulnerability is enough for a hacker to provide a backdoor to the system. When in the system, it is easier to find more vulnerabilities and dig deeper. Onions have layers, [ogres have layers](https://www.youtube.com/watch?v=-FtCTW2rVFM) and also information security should have layers to protect the valuable system and its contents.
-
 ![Onions have layers](/img/why-owasp/layers.jpg)
+
+Information security is about layers. Do not trust only validation on the user interface, validate data also in the server level. It is quite usual that a quite harmful looking vulnerability is enough for a hacker to provide a backdoor to the system. When in the system, it is easier to find more vulnerabilities and dig deeper. Onions have layers, [ogres have layers](https://www.youtube.com/watch?v=-FtCTW2rVFM) and also information security should have layers to protect the valuable system and its contents.
 
 Tighten your foil hats, fellows, and read your OWASP!
 
