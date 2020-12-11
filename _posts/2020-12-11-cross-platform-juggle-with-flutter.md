@@ -10,8 +10,6 @@ tags:
  - Flutter
 ---
 
-> Author disclaimer: This is my personal view on Flutter and may not reflect the opinion of other Solitans nor the company's stance on Flutter.
-
 # Once upon a time...
 
 My first interaction with Android was with the very first device during the summer of 2006. As a device, the HTC Dream (T-Mobile G1 in the US) Android phones were revolutionary, especially if you were coming from other feature phones (Nokia, Blackberry, Motorola). Android devices promised to bring into someone's pocket a tiny "laptop" that also did phone calls. The keyboard made it easy to relate. I started learning to develop on Android 1.0 and Eclipse. When Apple announced the iPhone in January 2007, everything changed: touch and swipes are here to stay. Android completely changed after that.
@@ -90,7 +88,7 @@ Flutter, being a rendering engine on itself (2), eliminates the need for a bridg
 
 **Web**: Currently in [Beta](https://flutter.dev/web), you can build responsive, offline-first, PWAs, websites, blogs using Flutter, supported across a multitude of web browsers, shielded from Javascript and DOM compatibility woes. A nice overview of what is currently supported in Flutter Web is [here](https://medium.com/fluttersg/the-art-of-flutter-flutter-web-383d5db568a0). And see this [DEMO](https://sbis04.github.io/explore/#/) if you are looking for a demo, opening it on your mobile phone and desktop browsers.
 
-**Desktop**: Currently in [Alpha](https://flutter.dev/desktop), you can build native Windows, macOS, or Linux desktop applications. To compile targeting a specific platform, you need to be on that platform, i.e., you can not create a macOS app on a Windows machine. Once could assume that by being alpha the support would be lacking. There is already a plethora of plugins for each of the OS ([Windows](https://pub.dev/flutter/packages?platform=windows), [macOS](https://pub.dev/flutter/packages?platform=macos), and [Linux](https://pub.dev/flutter/packages?platform=linux)). To get started, you can find a guided CodeLab [here](https://codelabs.developers.google.com/codelabs/flutter-github-graphql-client/index.html#0).
+**Desktop**: Currently in [Alpha](https://flutter.dev/desktop), you can build native Windows, macOS, or Linux desktop applications. To compile targeting a specific platform, you need to be on that platform, i.e., you can not create a macOS app on a Windows machine. One could assume that by being an alpha, the support would be lacking. There is already a plethora of plugins for each of the OS ([Windows](https://pub.dev/flutter/packages?platform=windows), [macOS](https://pub.dev/flutter/packages?platform=macos), and [Linux](https://pub.dev/flutter/packages?platform=linux)). To get started, you can find a guided CodeLab [here](https://codelabs.developers.google.com/codelabs/flutter-github-graphql-client/index.html#0).
 
 **Backend**: [Aquaduct](https://aqueduct.io/) - OK! This is not Flutter... but it is built with Dart! Aqueduct is an object-oriented, multi-threaded HTTP server framework, running on top of Dart VM. It has an integrated test library allowing for end-to-end integration tests without requiring mocking, and supports the continuous integration tools we love.
 
