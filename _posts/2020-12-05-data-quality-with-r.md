@@ -3,33 +3,40 @@ layout: post
 title: An unexpected acquaintance? Data Validation in R
 author: filipwastberg
 excerpt: R is popular programming language and is famous for statistical analysis and stunning visualizations. But it is not limited to those tasks, here we take a look how it can be used to do data validation on a Snowflake database.
-date: 2020-12-17 06:30:00 +0100
+date: 2020-12-16 06:30:00 +0100
 tags:
  - R
  - Data validation
  - Snowflake
  - ETL
 ---
+
+## Do Data Scientists do Data Engineering?
+
 Data Engineering is a common task for any Data Scientist. Sure, we
 rarely do the “real” Data Engineering, e.g. loading data from a
 business system into a relational database. Rather, we work with data 
-that already is in a database, and sometimes (if we're lucky) is put there by a Data Engineer. 
+that already is in a database, and sometimes (if we're lucky) it's put there by a Data Engineer. 
 We usually transform this data into an analytical format from which we can derive
 aggregations, visualizations and statistical models. In the start of any
-Data Science project these jobs may not be of any significant
+Data Science project these, jobs may be simple and not always of any significant
 concern but as your Data Science products get used more and more the
 importance of your data will increase.
 
-Therefore it might be a good idea to invest some time into data
+Therefore it might be a good idea for any Data Scientist to invest some time into data
 validation. There are many frameworks for data validation in different
 programming languages. But Data Scientists usually feel comfortable
 using tools they know, such as R and Python. R is a popular functional
 programming language for data analysis. However, even though data
-analysis is what R is famous for, the language is turing complete and
-can do a lot of things besides statistics. In this case we’ll use the R
-package `pointblank` that have made data validation and data quality
-controls ridiculously easy to do in R. And it’s not just easy, it’s
-really pretty too. And I love pretty things.
+analysis is what R is famous for, the language can do a lot more besides 
+statistics. In this post we’ll take a look at the R
+package [`pointblank`](https://github.com/rich-iannone/pointblank) that have made data validation and data quality
+controls easy to do in R. `pointblank` also produces pretty tables for your
+data validation steps, and I love pretty things. But there's more to the package
+than being easy and pretty, it's a serious tool for any Data Scientist who wants
+to get control over their data.
+
+## Using Snowflake in R
 
 Data can come in many formats, but for this blog post I’ll focus on
 databases and especially the increasingly popular database `Snowflake`.
@@ -66,7 +73,7 @@ group the result by a column I can use `dplyr` code on a database table:
     property_tbl <- metering_tbl %>% 
       group_by(PROPERTY, UNIT_OF_MEASURE) %>% 
       summarise(
-        n = n(),
+        n = n(), #count all records
         mean_value = mean(VALUE),
         sd_value = sd(VALUE)
       )
@@ -104,6 +111,8 @@ modeling and reporting.
 But this post is not about that, rather we’ll use R for something it is
 not famous for, but really good at: data validation.
 
+## pointblank
+
 The package [`pointblank`](https://github.com/rich-iannone/pointblank) is one of many data validation packages in R,
 check out [`assertr`](https://github.com/ropensci/assertr), [`validate`](https://github.com/data-cleaning/validate) and [`dataMaid`](https://github.com/ekstroem/dataMaid) for other examples.
 
@@ -119,7 +128,7 @@ memory (maybe data comes from a csv-file or a json-file), but since
 database tables.
 
 So let's do that. We can start by taking a look at a database table in our database.
-This table consist of hourly observations of [District Heating](https://en.wikipedia.org/wiki/District_heating) consumption. 
+This table holds hourly observations of [District Heating](https://en.wikipedia.org/wiki/District_heating) consumption. 
 Data is imported from a District Heating network on a daily basis. It comes in JSON but I have
 an R-script that transforms it into a table that can be used for statistical analysis.
 Since the original format is in JSON there is a risk that the format might change,
@@ -143,6 +152,8 @@ so data validation of this table seems like a natural step.
     ##  9 2020-10-31 02:43:48 2020-07-04 16:00:00 cf767121-4f64-4… flow_te…
     ## 10 2020-10-31 02:43:48 2020-07-04 16:00:00 cf767121-4f64-4… return_…
     ## # … with more rows, and 2 more variables: UNIT_OF_MEASURE <chr>, VALUE <dbl>
+
+## pointblank usage
 
 In `pointblank` we first create an `agent` that defines which table we
 want to validate. Then we use a `validation function` (these can also be
@@ -1181,6 +1192,8 @@ style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit
 </table>
 </div>
 <!--/html_preserve-->
+
+## Defining actions
 
 Another useful feature is to define actions with `action_level()` to
 decide what should happen if a validation function fails. For instance,
@@ -2389,7 +2402,7 @@ R is often regarded as a niche programming language. And there is no
 reason to sugar code it, R is a weird language. But today it is one of
 the [top ten most popular programming
 languages](https://www.tiobe.com/tiobe-index/) (not bad for a niche
-language), it has over 15 000 open source libraries and is used for
+language), it has over 15 000 open-source libraries and is used for
 everything from building machine learning models to advanced web
 applications and, as we have showed here, data validation. Furthermore,
 the development of R the last few years have had a lot of focus on
