@@ -10,27 +10,12 @@ tags:
  - Best Practices
  - Lessons Learned
  - Antipatterns
+ - Security
 ---
 
-![TextComesHere](/img/aws-antipatterns/access_key_age.png)
-![TextComesHere](/img/aws-antipatterns/crazy_wide_policy.png)
-![TextComesHere](/img/aws-antipatterns/last_activity.png)
-![TextComesHere](/img/aws-antipatterns/lots_of_buckets.png)
-![TextComesHere](/img/aws-antipatterns/manual_work.png)
-![TextComesHere](/img/aws-antipatterns/manual_work_2.png)
-![TextComesHere](/img/aws-antipatterns/password_age.png)
-![TextComesHere](/img/aws-antipatterns/PowerUserAccess.png)
-![TextComesHere](/img/aws-antipatterns/public_buckets.png)
-![TextComesHere](/img/aws-antipatterns/security_group_open_ssh.png)
-![TextComesHere](/img/aws-antipatterns/security.png)
-![TextComesHere](/img/aws-antipatterns/trusted_advisor.png)
-![TextComesHere](/img/aws-antipatterns/trusted_advisor_2.png)
-![TextComesHere](/img/aws-antipatterns/wildcard_policy.png)
+![Speed and agility of cloud development can be unsurpassed](/img/aws-antipatterns/aws_rider.png)
 
-
-
-
-Cloud platforms are cool. For anyone who used to create or operate software running in a traditional on-premises server room, they offers incredible speed in getting ideas to production, and experimentation with new things. However, this speed comes with a cost: Sometimes that cost is money, as AWS bills can sneak up on you. Sometimes the cost may be a bad architecture that gets more expensive as you progress, a badly compromised security that makes you vulnerable for many new attack vectors - or it can be that you are paying for lots of new services just because you can - without getting the benefits you were actually looking for. 
+Cloud platforms are incredible. For anyone who used to create or operate software running in a traditional on-premises server room, they offers incredible speed in getting ideas to production, and experimentation with new things. However, this speed comes with a cost: Sometimes that cost is money, as AWS bills can sneak up on you. Sometimes the cost may be a bad architecture that gets more expensive as you progress, a badly compromised security that makes you vulnerable for many new attack vectors - or it can be that you are paying for lots of new services just because you can - without getting the benefits you were actually looking for. 
 
 In this article I'm going to go through some of the worst mistakes that might happen when you start working on AWS platform. These mistakes are based on both personal experience, aka my mistakes, and things I've seen, aka other people's mistakes. I will also try to provide some insights into why we need to pay attention here, and what could we do to avoid the negative impact while benefiting from the newfound speed and agility. I've been working pretty much in cloud and serverless for last five years, before that I had a lot of on-premises experience. I'm most well versed with AWS architecture and best practices, but most of these thoughts will probably apply also to Azure and Google Cloud Platform projects.
 
@@ -38,9 +23,13 @@ So who should read this? Whoever feels responsibility for success. Many of these
 
 ## Antipattern #1: Too wide permissions
 
-Normal on-premises systems use firewalls and isolation maintained by network administrators between separate servers and applications, to try and limit accidental access. Or they might not. On the other hand, building and combining services in a cloud environment, there might not be any protection in place, unless you build it yourself. And sadly each and every AWS tutorial and video training course online tends to do the examples by giving full and wide access for any services that are used - for speed and convenience. And this is exactly the first deadly sin we want to shut down.
+Normal on-premises systems use firewalls and isolation maintained by network administrators between separate servers and applications, to try and limit accidental access. Or they might not. On the other hand, building and combining services in a cloud environment, there might not be any protection in place, unless you build it yourself. And sadly each and every AWS tutorial and video training course online tends to do the examples by giving full and wide access for any services that are used - for speed and convenience. And this is exactly the first antipattern we want to shut down.
+
+!['Allow everything' - policy](/img/aws-antipatterns/crazy_wide_policy.png)
 
 The wider concept here is to minimize the **blast radius**. And we do that with Principle of Least Permission (**POLP**). Blast radius means area of services and infrastructure that may be affected if a security breach or misconfiguration takes place. In other words, if your lambda has full access to anything in the account, and it gets compromised, damage can be horrendous. Also, if anyone is auditing your solution, this mess will be revealed and require actions to fix.
+
+![Allow some things for ALL s3 buckets](/img/aws-antipatterns/wildcard_policy.png)
 
 Symptoms of too wide a blast radius are:
 - AWS Policies with a lot of asterisks giving wide or unlimited access to services, or resources
@@ -54,9 +43,11 @@ There are some tools also to help with this, that can review the templates or po
 
 ## Antipattern #2: Manual work on AWS console 
 
-Manual work in our field is most of the time a sin. Manual work implies that it's done by humans in variety of conditions, and results may vary as well. Manual work also implies that if the one who knows how to do this is not present, nothing will happen, so there's a severe bus factor included. Manual work may also be delayed, a lot. And while manual work can be made better with good, up-to-date, precise documentation on the process and steps, if such exists, I have yet to see it - at least as project has been running for longer than a year. It also implies replicating those environments might be difficult and at least costly.
+Manual work in our field is most of the time an antipattern. Manual work implies that it's done by humans in variety of conditions, and results may vary as well. Manual work also implies that if the one who knows how to do this is not present, nothing will happen, so there's a severe bus factor included. Manual work may also be delayed, a lot. And while manual work can be made better with good, up-to-date, precise documentation on the process and steps, if such exists, I have yet to see it - at least as project has been running for longer than a year. It also implies replicating those environments might be difficult and at least costly.
 
 Manual work is especially error prone when something breaks badly and people are under pressure to fix it, or stressed, or hungry, or thinking of next vacation.. I think you got the point.
+
+![Lots of choices in AWS console - do you remember them all?](/img/aws-antipatterns/manual_work_2.png)
 
 Specific to cloud environments, manual work also implies that developer accounts have and need to have wide access to APIs and services underneath. And it implies that when they make a human mistake, such as dropping a database in wrong environment, because they had one too few cups of coffee in the morning, the results can be immediate and irreplaceable.
 
@@ -74,7 +65,7 @@ So, cure for this is to automate, follow the Infrastructure as Code (IaC) princi
 
 Good ways to automate creation of infrastructure and services include (but are not limited to) Cloudformation, CDK, Terraform (which also support many other vendors), I've also used Troposphere and Sceptre for AWS. There's a lot of choices, they all come with pros and cons, so you need to pick up what makes sense to you and stick to it. But as long as you are using ANY of them, you are in much better place already. You could even use command line client and bash scripts if you really wanted, or raw Python and an SDK. But the real solutions designed for this are typically better.
 
-Then why is this a sin? Isn't this obvious? Aren't everybody already doing this?
+Then why is this an antipattern? Isn't this obvious? Aren't everybody already doing this?
 
 Well sadly, no. Because there's some effort involved. And because many cloud related things may begin as small quick-and-dirty prototypes, until the momentum catches up and they grow bigger and go into production. In my career I've been called a few times to salvage or 'productize' such a project. And let me tell you, it's much more expensive done after than if it was build in from the very beginning.
 
@@ -84,36 +75,44 @@ When you use automation to create the resources, you naturally want to also auto
 
 Security Misconfiguration is one of the largest potential vulnerabilities of cloud platforms. It means that instead of only concentrating on OWASP TOP 10 attack vectors and vulnerabilities within code, we need to also consider infrastructure around the code, especially serverless components.
 
+![Public buckets](/img/aws-antipatterns/public_buckets.png)
+
 With AWS, I've seen most security breach related news with S3 buckets, that have been used carelessly, and accidentally been left open for whole world to discover. This may happen very easily, since there can potentially be just one innocent question or toggle. And if you don't know the jargon or effects of those coices very well, one can accidentally expose the bucket and all the data, even give permissions to modify or remove it for everyone. And once you open it in the Internet, it's only matter of time until someone finds it. Then if they are evil enough, they do not vandalize it, but silently grab what they can now and in the future, and see if they can use this as a foothold to go deeper.
 
 So let's not do that. Protecting against misconfigured buckets is easy, there are many ways to do that. If you implement multiple ways, odds are you should be good.
 
 - Education. Have teams that know what they are doing. AWS Certificates are good way to guarantee basic level of knowledge. If they are not on the level, make sure they can self-educate themselves, there's plenty of information available, starting from AWS own resources. Already reading this blog you have started that path, reading the links at end is good next step :)
-- Policies. If you are not supposed to be dealing with open S3 buckets within your account, set up an accountwide policy to not allow that. Or leverage fixes for sin #1 and #2: auto-audit your templates, and deny changes if they conflict with the policies. If you need to use also public buckets, pay extra attention to those, and see if you can make it rather an exception than general approach.
+- Policies. If you are not supposed to be dealing with open S3 buckets within your account, set up an accountwide policy to not allow that. Or leverage fixes for antipatterns #1 and #2: auto-audit your templates, and deny changes if they conflict with the policies. If you need to use also public buckets, pay extra attention to those, and see if you can make it rather an exception than general approach.
 - AWS also has some built in audit tools that are sensitive to especially AWS S3 buckets, for example AWS Security Advisor or AWS Config.
 - Also, speaking of policies, note that bucket policies can also accidentally compromise you to wider audience than intended, or give too much power for access. So as said, be extra careful with these. Peer review them, validate and audit the policies with any tools you have, test them carefully.
 
-While at this sin, you can also take a look if there's other things you should immediately build in. AWS Buckets have marvelous support for encryption at rest, automated audit trails, cross-region replication to have better disaster recovery, versioning to have faster disaster recovery, lifecycle policies to take care of data you don't need anymore. I've seen so many buckets used simply as a forgotten data dump, but since these are among the best serverless resources when used right, please use them right. :)
+While at this antipattern, you can also take a look if there's other things you should immediately build in. AWS Buckets have marvelous support for encryption at rest, automated audit trails, cross-region replication to have better disaster recovery, versioning to have faster disaster recovery, lifecycle policies to take care of data you don't need anymore. I've seen so many buckets used simply as a forgotten data dump, but since these are among the best serverless resources when used right, please use them right. :)
 
 ## Antipattern #4: IAM users without user lifecycle management
 
-IAM users may not be a horrible sin in themselves, afterall IAM is just a built-in access-control mechanism for AWS that you can use as a service. However, if your authentication and authorization model is based on solely on IAM users, it does raise some concerns.
+IAM users may not be a horrible antipattern in themselves, afterall IAM is just a built-in access-control mechanism for AWS that you can use as a service. However, if your authentication and authorization model is based on solely on IAM users, it does raise some concerns.
 
 - How are the users created, and who can create them? More importantly, how are they removed, when user does not need access anymore? Do we leave users with God-permissions in system long after their part in the project officially ended? Because that's often what happens. It's easy to create users, but harder to remember to 100% clean them up once they are not needed anymore.
 - How are their permissions decided? Are they given by a busy developer who would rather be coding? Are they uniform across the accounts, or unique snowflakes, each one different, permission boundaries defined by how loudly they demanded access?
 - How are the passwords rotated? Any policies for password length? Asking because if developers are tasked to create the account, they might not have the incentive to follow up on these, make sure they are secure, and keep them secure. Probably password is going to be 'changeme' in that case, forever.
 
+![Last activity: 281 days ago (Are they alive?)](/img/aws-antipatterns/last_activity.png)
+
 So mainly I'm pointing out that while technically IAM users are not bad, they become horrible if not maintained, or if maintained half-heartedly. For this reason, most organizations like to integrate some well maintained user directory to AWS, directory such as Azure AD. This means that user roles and lifecycles are already taken care of, and project team just has to map them to roles they can assume, and their permissions. That being said, IAM users have some perfectly valid usecases, such as bot users (Jenkins) that need to access 
+
+![Access key age - perhaps they will wake up soon?](/img/aws-antipatterns/access_key_age.png)
 
 Most big organizations already are doing this quite right, because they understand what happens if this is not done right, and have the proper infrastructure and organization in place for centralized user account management.
 
-So this sin and advice is mostly for those POCs and MVPs and startup projects that are created with someone's credit card. If there's an obvious hole in system, this is one of the areas where it happens if not done right.
+So this antipattern and corresponding fixes is mostly for those POCs and MVPs and startup projects that are created with someone's credit card. If there's an obvious hole in system, this is one of the areas where it happens if not done right.
 
 ## Antipattern #5: Misconfigured networks
 
 This is more akin the traditional wisdom, also related to blast radius discussed earlier. If you put all your resources in same network, which is what is again shown in many tutorials, and often done when doing something in a rush, it means if any one piece is compromised, it may have access to other parts. Ít can be okay to just have that one network, as long as you have subnets, security groups and access control lists configured properly. If you don't - it means if someone can exploit a library vulnerability in your web layer, they may have way too much access to any other servers, services running in the same network. And if someone is able to run exploit code in that machine, it would seem to be coming from within, from that network, so might have wider permissions than a call from outside. In some cases the whole network may have exposed way too many vulnerable ports for the public internet to find.
 
-This sin also includes wild manually created Bastion hosts. Bastion hosts are typically used as intermediate steps to access something within the network from public internet. They can be carefully designed, deployed and maintained, with good security controls implemented, or might be quick-and-dirty, abandoned-and-forgotten holes in your network.
+![SSH port wide open to the world, thanks launch wizard 2!](/img/aws-antipatterns/security_group_open_ssh.png)
+
+This antipattern also includes wild manually created Bastion hosts. Bastion hosts are typically used as intermediate steps to access something within the network from public internet. They can be carefully designed, deployed and maintained, with good security controls implemented, or might be quick-and-dirty, abandoned-and-forgotten holes in your network.
 
 So fix here is a bit similar than with buckets:
 
@@ -129,7 +128,7 @@ And by the way, if you define the networks as code (IaC), it's easier and cheape
 
 ## Antipattern #6: Multiple applications and teams sharing same account
 
-I've seen this sin a few times.  Here are the symptoms:
+I've seen this antipattern a few times. Here are the symptoms:
 
 - Same AWS account is used to serve multiple services. Which is not yet bad. 
 - But those services are built and maintained by multiple different teams, who all then have access to same environment
@@ -140,6 +139,8 @@ I've seen this sin a few times.  Here are the symptoms:
 
 This is typically caused by some cost/time/bureaucracy/ownership related problems related to opening new AWS accounts. If it costs €300 a month per new account, or if it takes weeks to resolve a ticket, it's not encouraging creating them, especially for small purposes. Also, when people ask who should receive bills, it might be realized that there is no owner to be found to pay them. These are excellent indicators that we're trying to cram more waste inside a working environment. We are starting to organically grow a garden of evil.
 
+![A few buckets. Fortunately their purpose, security and settings are well known for all of them](/img/aws-antipatterns/lots_of_buckets.png)
+
 While it IS possible to use things like taggings to separate resources, just be very disciplined and careful, and share the same account, easiest path is to treat the AWS accounts as natural blast radiuses, and not put too much inside one. When there's good enough prospect for a service with some ROI, it should be possible to find owner/sponsor (who is paying the bills) and create those accounts. Definitely use accounts to separate lifecycle phases like dev, test, production, and any others you need. You can use AWS Organizations to group the accounts together and have some governance over all of them.
 
 For wilder experimentations or ad-hoc pocs, you can try to build a different capability: Either have a shared sandbox environment, in which anything goes, and it is nuked entirely regularly, to keep it clean and not hit any region limits. Or create capability to create throwaway accounts easily, cheaply, rapidly, use them for a bit, then throw away. Be mindful of not allowing anyone to run any production loads in a sandbox: Regular nuking, deleting anything in the account, helps with that too.
@@ -148,7 +149,9 @@ For wilder experimentations or ad-hoc pocs, you can try to build a different cap
 
 Here is a lifecycle of a typical cloud migration. First people are protective of their beutiful handcrafted on-premises setups, where they have built a lot of controls and governance over the years. Then they hear the seductive whisper of a cloud platform, offering potentially limitless scalability and cost-effectiveness. Then they are a bit suspicious on how things could be migrated, or if new things are being built, how secure could that be, being in a public cloud. Then they find the courage or other incentives to make the first leap. And eventually they fall in love. They realize that cloud services are typically much better maintained by much bigger workforces than any they have used before. Real cloud services typically don't have any offline maintenance breaks, and while that scalability is not always limitless, or effortless, it's still there and it's incredible. 
 
-It's possible to do AWS in a very restricted and controlled manner, by going through slow and expensive ticketing for each resource, but this is not the sin here. It's a bigger sin, because it would kill all the benefits mentioned here. But most companies use a model where the devops teams have a lot of access within the account given to them, and traditional IT administration is only creating and monitoring the accounts. This model gives the benefits of speed and cost effectiveness.
+![Bills can creep up on you unless you keep an eye on them](/img/aws-antipatterns/trusted_advisor.png)
+
+It's possible to do AWS in a very restricted and controlled manner, by going through slow and expensive ticketing for each resource, but this is not the antipattern here. It's a bigger antipattern, because it would kill all the benefits mentioned here. But most companies use a model where the devops teams have a lot of access within the account given to them, and traditional IT administration is only creating and monitoring the accounts. This model gives the benefits of speed and cost effectiveness.
 
 When a team starts building stuff within AWS, in an agile manner, they pretty soon discover that given enough power, they can create and scale resources pretty much immediately, even dynamically. This supports agile operations very well. Many of the resources are extremely cheap, and you get a lot of extra options that are ridiculously cheap to turn on and enjoy immediate benefits. Things like setting up the network to your needs, using encryption-at-rest or in-transit, getting storage without needing to worry about CPUs, licences or memory. Getting redundancy and disaster recovery by just clicking a few buttons. And it's all very cheap, compared to setting up the servers to do all that yourself. And this is where the trouble starts.
 
@@ -175,7 +178,7 @@ For each antipattern there's a cure. If you build it in your development process
 
 So remember a lot of acronyms and concepts: Do IaC and POLP, limit the Blast Radius.
 
-I could have picked up a lot more of sins but you gotta start from somewhere, and hopefully these ones made you pause for a bit - or smile a happy smile because all this is already taken care of and you are an enlightened developer.
+I could have picked up a lot more of antipatterns but you gotta start from somewhere, and hopefully these ones made you pause for a bit - or smile a happy smile because all this is already taken care of and you are an enlightened developer.
 
 Also remember: You can fake it until you make it. In case you cannot automate everything immediately, including some of these in code reviews is already an improvement. Automation might bring more support for people who would like immediate feedback loops when they create an increment of value, in other words, might be something you want to invest periodically more and more.
 
