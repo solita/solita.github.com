@@ -3,7 +3,7 @@ layout: post
 title: An unexpected acquaintance? Data Validation in R
 author: filipwastberg
 excerpt: R is popular programming language and is famous for statistical analysis and stunning visualizations. But it is not limited to those tasks, here we take a look how it can be used to do data validation on a Snowflake database.
-date: 2020-12-17 06:30:00 +0100
+date: 2020-12-16 06:30:00 +0100
 tags:
  - R
  - Data validation
@@ -19,7 +19,7 @@ business system into a relational database. Rather, we work with data
 that already is in a database, and sometimes (if we're lucky) it's put there by a Data Engineer. 
 We usually transform this data into an analytical format from which we can derive
 aggregations, visualizations and statistical models. In the start of any
-Data Science project these, jobs may be simple and not always of any significant
+Data Science project, these jobs may be simple and not always of any significant
 concern but as your Data Science products get used more and more the
 importance of your data will increase.
 
@@ -61,7 +61,7 @@ Scientists should know some SQL, because sometimes the translations
 don’t work as expected. But in 95% of the cases you can write R code
 instead of SQL, which usually saves me a lot of time.
 
-For instance, if I want to calculate how many observations there in a table and
+For instance, if I want to calculate how many observations there are in a table and
 group the result by a column I can use `dplyr` code on a database table:
 
     library(tidyverse) ## dplyr is included in the package tidyverse
@@ -118,7 +118,7 @@ check out [`assertr`](https://github.com/ropensci/assertr), [`validate`](https:/
 
 However, I’ve been extremely impressed by the work of the creator behind
 `pointblank` *Rich Iannone*. The documentation of `pointblank` is really
-something special. Furthermore, the time spent on tests in the package
+something special. Furthermore, the time spent on tests
 give us an indication of the ambition behind the package, there are more
 than 3000 unit tests for this package.
 
@@ -174,7 +174,7 @@ columns:
       col_is_posix(vars(IMPORT_TIMESTAMP, TIMESTAMP)) %>% 
       interrogate()
 
-When the “interrogation” is completed we can print the agent and we’ll
+When the “interrogation” is complete we can print the agent and we’ll
 get a pretty table telling us what has happened.
 
     agent
@@ -2388,7 +2388,7 @@ Which, if there are any warnings, result in this mail:
 Of course, this is a simple example and can be further developed. This
 can also be configured to be run with Docker or a Data Science platform
 such as [`RStudio Connect`](https://rstudio.com/products/connect/),
-which would be a recommendation if something like this is to be run in
+which would be the recommendation if something like this is to be run in
 “production”.
 
 And it doesn’t end here. `pointblank` can generate `YAML`-files for you
@@ -2408,8 +2408,7 @@ applications and, as we have showed here, data validation. Furthermore,
 the development of R the last few years have had a lot of focus on
 syntax and making it easy to use, an often overlooked part of
 programming development, and this, I think, is one reason it continues
-to attract more users. `pointblank` is one of those packages who takes a
-complex task and gives it a nice API through what is basically a domain
-specific language. Making R even more user friendly.
+to attract more users. `pointblank` is one of those packages that makes R useful and a joy to use, it takes a
+complex task and make it look easy through a carefully thought through API.
 
 And last but not least, it is pretty. And we love pretty things.
