@@ -3,7 +3,7 @@ layout: post
 title: Mastering AWS Kinesis Data Streams, Part 2
 author: anahitpo
 excerpt: >
-  This is the second part of the blog post where I talk about the things you should know when working with AWS Kinesis Data Streams. You can find Part 1 [here](https://dev.solita.fi/2020/05/28/kinesis-streams-part-1.html).
+  This is the second part of the blog post where I talk about the things you should know when working with AWS Kinesis Data Streams.
 tags:
 - AWS
 - Data streaming
@@ -33,7 +33,7 @@ But first, let’s take a short detour. Kinesis family has two more extremely us
 - _Kinesis Data Firehose_, which is meant to load data to a destination with plenty to choose from (think _S3_, _Redshift_, even HTTP endpoints), and
 - _Kinesis Data Analytics_, which can run queries on your streaming data in near real-time.
 
-I won't be going into details of those services here, each of them deserves an own blog post (or two 😉). I will just say that both, _Kinesis Firehose_ and _Kinesis Data Analytics_ can be used as **stream consumers**, providing you with out-of-the-box possibilities to analyze the data being streamed, as well as to deliver your data to a destination of your choice. 
+I won't be going into details of those services here, each of them deserves an own blog post (or two 😉). I will just say that both _Kinesis Firehose_ and _Kinesis Data Analytics_ can be used as **stream consumers**, providing you with out-of-the-box possibilities to analyze the data being streamed, as well as to deliver your data to a destination of your choice. 
 
 One of the main superpowers of _Kinesis Streams_ though is that you can attach **custom data consumers** to it to process and handle data in any way you prefer, in near real-time. There are once again plenty of options to choose from.
 
@@ -41,7 +41,7 @@ If you are inclined to do so, you can use an [EMR cluster as your custom consume
 
 On a perhaps more familiar side of things, you can have your own consumer application reading from the stream. For that purpose, you can once again use either AWS SDK or Kinesis Consumer Library (KCL), which is the counterpart of the already [familiar KPL](https://dev.solita.fi/2020/05/28/kinesis-streams-part-1.html#few-words-on-kpl) and which I’ll be mentioning briefly.
 
-And finally, you can use _AWS Lambda_ as you stream consumer, which gives you all the scalability and resilience that comes with it. You might have already guessed that _AWS Lambda_ is exactly what I’ll be focusing on in this post.
+And finally, you can use _AWS Lambda_ as your stream consumer, which gives you all the scalability and resilience that comes with it. You might have already guessed that _AWS Lambda_ is exactly what I’ll be focusing on in this post.
 
 But first, let’s lay some groundwork.
 
@@ -55,14 +55,15 @@ As with writing to a stream, when reading from it it’s important to know that 
 
 Now, this might not seem to be that useful at first. However, the higher outgoing throughput also means that you can actually have **at least two different consumers** reading from the same Kinesis stream at all times.
 
-A thing to remember here is that, by default, the 2 MBs are shared between all the consumers you attach to the stream. So, if you would want to have more than the **recommended two to three consumers**, you may face a situation when the data is being written to the stream faster than it can be read. This, in turn, may lead to some of the data expiring (that is, being deleted from the stream) before any of the consumers get a chance to read it. You can think of it as a sink that you pour water into: if u do it faster than it can be drained, it ends up overflowing and u get water all over your floor. We will be returning to this unfortunate scenario on several occasions.
+A thing to remember here is that, by default, the 2 MBs are shared between all the consumers you attach to the stream. So, if you would want to have more than the **recommended two to three consumers**, you may face a situation when the data is being written to the stream faster than it can be read. This, in turn, may lead to some of the data expiring (that is, being deleted from the stream) before any of the consumers get a chance to read it. You can think of it as a sink that you pour water into: if you do it faster than it can be drained, it ends up overflowing and you get water all over your floor. We will be returning to this unfortunate scenario on several occasions.
 
 
 ![sink](/img/kinesis/sink.jpg){: .img.centered }
 
 
 ### Too many consumers
-To add more weight to the situation, both, direct integration with _Kinesis Data Analytics_ and _Kinesis Firehose_, use this shared throughput of 2 MB, when acting as stream consumers. So, to be on the safe side, you are supposed to add just one custom consumer to the stream if you are using any of those direct integrations.
+
+To add more weight to the situation, direct integration with _Kinesis Data Analytics_ and _Kinesis Firehose_ use this shared throughput of 2 MB when acting as stream consumers. So, to be on the safe side, you are supposed to add just one custom consumer to the stream if you are using any of those direct integrations.
 
 But wait: what if you are feeling greedy and want even more ways to process your data from a single stream? For example, you may have a _Kinesis Firehose_ writing data to _S3_, a _Kinesis Analytics_ application doing some real-time data aggregation and you also want to add a few Lambda functions for custom processing.
 
@@ -70,7 +71,7 @@ But wait: what if you are feeling greedy and want even more ways to process your
 ![consumers](/img/kinesis/consumers.png){: .img.centered }
 
 
-As we established, If all of the consumers are sharing the throughput of 2 MB, they might start lagging behind the stream and you may end up losing your data.
+As we established, if all of the consumers are sharing the throughput of 2 MB, they might start lagging behind the stream and you may end up losing your data.
 
 But worry not! There is one more way to consume your stream and it’s called **enhanced fan-out**.
 
@@ -78,9 +79,9 @@ But worry not! There is one more way to consume your stream and it’s called **
 
 ### Enhanced Fan-out
 
-Instead of sharing the throughput of 2 MB per second per shard with other consumers, enhanced fan-out is an “elite” way to read from the stream, where each custom consumer will have its own **dedicated throughput** of up to 2 MB per second per shard. In fact, as of today, you can have [up to 20](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) such “elite” consumers attached to as single stream! 
+Instead of sharing the throughput of 2 MB per second per shard with other consumers, enhanced fan-out is an “elite” way to read from the stream, where each custom consumer will have its own **dedicated throughput** of up to 2 MB per second per shard. In fact, as of today, you can have [up to 20](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) such “elite” consumers attached to a single stream! 
 
-Though the direct integrations with _EMR_, _Kinesis Firehose_, or _Analytics_ can only use the shared throughput, the great news is, you can use enhanced fan-out with your custom consumers. In consumer applications using KCL enabling enhanced fan-out is just a matter of configuration. With both, custom consumers using AWS SDK and _AWS Lambda_, you need to create a so-called **enhanced stream consumer** first.
+Though the direct integrations with _EMR_, _Kinesis Firehose_, or _Analytics_ can only use the shared throughput, the great news is that you can use enhanced fan-out with your custom consumers. In consumer applications using KCL enabling enhanced fan-out is just a matter of configuration. With custom consumers using either AWS SDK or _AWS Lambda_ you need to create a so-called **enhanced stream consumer** first.
 
 I know, naming gets confusing here, but bear with me...
 
@@ -96,31 +97,31 @@ aws kinesis register-stream-consumer --consumer-name my_highway \
       --stream-arn arn:aws:kinesis:<region>:<account_id>:stream/the-best-stream
 ```
 
-Though apparently, there's no way to register an enhanced consumer through the _AWS Kinesis_ console yet (if you find one, let me know!), you can list and delete the existing ones:
+Though apparently there's no way to register an enhanced consumer through the _AWS Kinesis_ console yet (if you find one, let me know!), you can list and delete the existing ones:
 
 
 ![consumer_console](/img/kinesis/consumer_console.png){: .img.centered }
 
  
 
-In the case of _AWS Lambda_, you can now use this enhanced consumer when configuring the Kinesis trigger for your function. Note, that you can only have **a single Lambda function** using a given enhanced consumer. You will need to create a separate enhanced stream consumer for each of your Lambda functions.
+In the case of _AWS Lambda_, you can now use this enhanced consumer when configuring the Kinesis trigger for your function. Note that you can only have **a single Lambda function** using a given enhanced consumer. You will need to create a separate enhanced stream consumer for each of your Lambda functions.
 
 
 
-### Which one to chose?
+### Which one to choose?
 
 Though the dedicated throughput sounds great on its own, this is not the only perk you are getting with enhanced fan-out. Together with it comes even less **read propagation latency**, aka the time between when the data is written to the stream and when it is consumed. This is in part due to the dedicated throughput “highway" each consumer is getting, and in part to the fact that enhanced fan-out uses **HTTP2** instead of HTTP, allowing to use persistent connections and to **push** records to the consumers, instead of consumers **polling** the stream.
 
 When using enhanced fan-out, you will have records available to be consumed about _70ms_ after you wrote them to the stream. In comparison, it takes about _200ms_ for the shared throughput consumers and this latency increases with each additional consumer that shares the throughput. Why is that? You will have to keep reading to find out 😉 
 
-By now, you might be thinking, why would anyone use the standard shared throughput at all? One important reason is this: while the standard shared throughput consumers normally read the data **for free**, you will have to [pay](https://aws.amazon.com/kinesis/data-streams/pricing/) for having all the perks of enhanced fan-out. You will pay for both, the **amount of data** consumed, as well as for the **number of consumers per shard**.
+By now you might be thinking: why would anyone use the standard shared throughput at all? One important reason is this: while the standard shared throughput consumers normally read the data **for free**, you will have to [pay](https://aws.amazon.com/kinesis/data-streams/pricing/) for having all the perks of enhanced fan-out. You will pay for both, the **amount of data** consumed, as well as for the **number of consumers per shard**.
 
 So, your highway turns out to be a toll road.
 
 
 ### Too many consumers are barely enough
 
-Lastly, you don’t need to choose one way of consuming the stream over the other. The same way you can mix and match different types of consumers (direct service integrations with _Kinesis Firehose_ and _Analytics_, Lambda functions, etc.), you can also use **both**, shared throughput and enhanced fan-out with the same Kinesis stream. This will allow you to have up to **20 consumers with dedicated throughput, as well as 2-3 consumers that will share the 2 MB throughput**.
+Finally, you don’t need to choose one way of consuming the stream over the other. In the same way that you can mix and match different types of consumers (direct service integrations with _Kinesis Firehose_ and _Analytics_, Lambda functions, etc.), you can also use **both** shared throughput and enhanced fan-out with the same Kinesis stream. This will allow you to have up to **20 consumers with dedicated throughput, as well as 2-3 consumers that will share the 2 MB throughput**.
 
 
 
@@ -186,7 +187,7 @@ After that _ESM_ invokes your Lambda function **synchronously** and passes it th
 }
 ```
 
-There is the array of records, each containing record meta-data, as well as information about the invocation event. The data payload itself is **base64 encoded**, so you will need to decode it firs:
+There is the array of records, each containing record meta-data, as well as information about the invocation event. The data payload itself is **base64 encoded**, so you will need to decode it first:
 
 ```javascript
 const decodedDataStrings = event.Records.map((record) => Buffer.from(
@@ -233,7 +234,7 @@ No discussion will be complete without talking about failures. Well, maybe some 
 
 As with writing to a Kinesis stream, reading from it may fail. While there are plenty of reasons why this may happen, in the case of Lambda consuming a Kinesis stream, we can separate two possible failure scenarios:
 - **System errors**, where something goes wrong behind the scenes **before invoking** the actual Lambda function, while _Lambda service_ is trying to read a batch of records from a shard
-- **Errors within the Lambda function** itself, while trying to process the batch of records it received from the _ESM_.
+- **Errors within the Lambda function** itself while trying to process the batch of records it received from the _ESM_.
 
 The great news is, the _ESM_ will take care of the system errors on your behalf. We will be returning to this shortly.
 
@@ -249,7 +250,7 @@ As we have learned in [Part 1](https://dev.solita.fi/2020/05/28/kinesis-streams-
 
 In this unfortunate scenario, by default, Lambda will be retrying the “bad” batch unsuccessfully for 24 hours, causing an extensive number of fruitless Lambda invocations. What if you have configured your stream to have a longer retention period. How about 7 days? Or even, one year? Well, in that case, you got yourself a year's worth of some unnecessary Lambda invocations.
 
-Moreover, those fruitless retries will likely cause multiple reprocessing of some of the records. You see, from the perspective of the _ESM_, either the entire batch succeeds or it fails. When a Lambda function throws an error because of that one “bad” record, it causes the **entire batch** to fail and to be retried all over again, even if some of the records in that batch were already successfully processed earlier, before the error occurred.
+Moreover, those fruitless retries will likely cause multiple reprocessing of some of the records. You see, from the perspective of the _ESM_, either the entire batch succeeds or fails. When a Lambda function throws an error because of that one “bad” record, it causes the **entire batch** to fail and to be retried all over again, even if some of the records in that batch were already successfully processed earlier, before the error occurred.
 
 
 ![retries](/img/kinesis/retries.png){: .img.centered }
@@ -269,7 +270,7 @@ In our scenario, in 24 hours the poison pill finally leaves the shard, together 
 
 So, even though we started off with just one “bad" record which could not be processed, we ended up losing a lot of valid and valuable data. All this because we didn’t have **proper error handling**.
 
-The good news is, there are several ways to mitigate this kind of situations.
+The good news is that there are several ways to mitigate these kinds of situations.
 
 
 
@@ -303,7 +304,7 @@ One thing to note here is that you can not use Lambda’s own retry and DLQ sett
 ![async](/img/kinesis/async.png){: .img.centered }
 
 
-Instead, you need to configure the on-failure destination and other error handling settings on the **event source mapping**, when defining your function trigger.
+Instead, you need to configure the on-failure destination and other error handling settings on the **event source mapping** when defining your function trigger.
 
 
 ![sync](/img/kinesis/sync.png){: .img.centered }
@@ -324,9 +325,9 @@ As briefly mentioned before, the shared throughput consumers (also known as the 
 
 An important detail to note here is that no matter what your batch window or size is, or whether you have a parallelization factor configured or not, the _ESM_ will do the polling at the steady rate of exactly **one _GetRecords_ call per second** for each shard in your stream. Your Lambda function may of course be invoked more often than once per second per shard (if the configured batch size is reached earlier), but under the hood, the _ESM_ will use the records it has buffered with the previous _GetRecords_ calls. This also means that the records your Lambda function gets can be as much as **one second old** (aka, the record propagation latency is 1 second).
 
-The _GetRecords API_ comes with some important [limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) we haven’t discussed yet. First of all, there is a limit on **how much data** can a single _GetRecords_ call retrieve from a shard (either 10 000 records or 10 MB, whichever comes first). The good thing is, in the case of Lambda, the _ESM_ automatically makes sure this limit is never reached (remember, you can not have a batch bigger than 10 000 records?).
+The _GetRecords API_ comes with some important [limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) we haven’t discussed yet. First of all, there is a limit on **how much data** can a single _GetRecords_ call retrieve from a shard (either 10 000 records or 10 MB, whichever comes first). The good thing is, in the case of Lambda, the _ESM_ automatically makes sure this limit is never reached (remember, you can not have a batch bigger than 10 000 records).
 
-The second, and a somewhat more noticeable limit, is that there can be **at most 5 _GetRecords_ calls** made per second in each shard. Once again, the good thing is, this is already taken care of by the _ESM_ that only polls the shards once per second. However, this limit also means that you can have at most **5 different consumers** using the shared throughput before they start to get **throttled**.
+The second and a somewhat more noticeable limit is that there can be **at most 5 _GetRecords_ calls** made per second in each shard. Once again, the good thing is that this is already taken care of by the _ESM_ that only polls the shards once per second. However, this limit also means that you can have at most **5 different consumers** using the shared throughput before they start to get **throttled**.
 
 
 ![shared_throughput](/img/kinesis/shared_throughput.png){: .img.centered }
@@ -338,9 +339,9 @@ All this means, that while technically there’s no limit on how many Lambda fun
 - the 5 _GetRecords_ call limit means you can have at most 5 consumers before they start to get **throttled**, and
 - the 2 MB throughput limit means you might start **getting behind your stream** if u have more than 2 consumers.
 
-The 5 request limit also means that the records can be read from the stream roughly once every **200 milliseconds** (1 000 ms / 5 calls). This is why the average propagation latency for a shared throughput consumer is estimated at roughly 200 ms. This is also the reason, why adding more consumers means **increasing the propagation latency** to up to 1 second.
+The 5 _GetRecords_ request limit also means that the records can be read from the stream roughly once every **200 milliseconds** (1 000 ms / 5 calls). This is why the average propagation latency for a shared throughput consumer is estimated at roughly 200 ms. This is also the reason, why adding more consumers means **increasing the propagation latency** to up to 1 second.
 
-This all explains why, if you need to have more than 2 to 3 separate consumers reading from your stream, or you need to have really low, near real-time read latencies, enhanced fan-out is the way to go.
+This all explains why enhanced fan-out is the way to go either if you need to have more than 2 to 3 separate consumers reading from your stream, or you need to have really low, near real-time read latencies.
 
 
 ### Enhanced fan-out
@@ -373,12 +374,12 @@ One last word about the things that might go wrong with _Lambda_. And this one i
 
 Though _Lambda_ is a service that can scale massively, concurrent Lambda executions is a [limited resource](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html). By default, you can only have up to **1 000 concurrent Lambda executions** in the same region for one account. And though it’s a "soft limit" that you can increase by contacting AWS support, there still is going to be a limit. And once that limit is reached, all the new Lambda executions in the same account **will be throttled**.
 
-We have learned by now that in the case of _Lambda_ as a stream consumer, with just a single consumer application there might be up to 10 times as many concurrent Lambda executions as we have shards in our stream. Imagine having a stream with 100 shards and a parallelization factor of 10, and you get yourself 1 000 Lambda executions reading from your stream at all times. This means that some of your other, possibly business-critical Lambda functions might stop working because your stream consumer takes up all of the Lambda "budget" for the account/region.
+We have learned by now that in the case of _Lambda_ as a stream consumer, with just a single consumer application there might be up to 10 times as many concurrent Lambda executions as we have shards in our stream. Imagine having a stream with 100 shards and a parallelization factor of 10, and you get 1 000 Lambda executions reading from your stream at all times. This means that some of your other, possibly business-critical Lambda functions might stop working because your stream consumer takes up all of the Lambda "budget" for the account/region.
 
 
 ## A very special window
 
-To finally close our _Lambda_ chapter, there is one more trick the _ESM_ has under its sleeve the I wanted to share with you. Though it is just another configuration, not unlike the parallelization factor, for instance, this one is quite different in nature. It is called a **tumbling window**.
+To finally close our _Lambda_ chapter, there is one more trick the _ESM_ has under its sleeve that I want to share with you. Though it is just another configuration, not unlike the parallelization factor, for instance, this one is quite different in nature. It is called a **tumbling window**.
 
 Tumbling windows are simply consecutive time intervals of a fixed length that do not overlap. Each window has a clear start and end time. Each record in each shard will end up in **exactly one** such tumbling window, based on its value of _approximateArrivalTimestamp_.
 
@@ -448,9 +449,9 @@ You are not allowed to have concurrent batch processing with parallelization fac
  
 
 
-# Few words on KCL
+# A few words on KCL
 
-I mentioned in the beginning, that Kinesis Consumer Library or KCL can be used to create custom consumer applications.
+I mentioned in the beginning that Kinesis Consumer Library or KCL can be used to create custom consumer applications.
 
 Just like Kinesis Producer Library, or the [KPL](https://dev.solita.fi/2020/05/28/kinesis-streams-part-1.html#few-words-on-kpl), KCL adds another layer of abstraction over Kinesis API calls. While the situation with supported languages is a bit better than with KPL, you will still need a separate Java-based daemon running in the background at all times.
 
