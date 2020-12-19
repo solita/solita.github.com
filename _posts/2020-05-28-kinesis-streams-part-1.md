@@ -15,6 +15,7 @@ tags:
 I have been working with **AWS Kinesis Data Streams** for several years now, dealing with over **0.5TB** of streaming data per day. Rather than telling you about all the reasons why you should use _Kinesis Data Streams_ (plenty is written on that subject), I'll talk about the things you should know when working with the service. At least it would have saved me some gray hair if I knew those beforehand. So if you are still reading, let's dive in!
 
 ![stream](/img/kinesis/stream.jpg){: .img.centered }
+<center><p style="font-size:70%"><i>The Kawarau River, South Island, New Zealand, 2017</i></p></center>
 
 
 # What is it all about?
@@ -394,7 +395,7 @@ And then there are some possible extra costs associated with consuming the data:
   - using enhanced fan-out
   - DynamoDB charges when using KCL
 
-I will just leave those here for now. Let's get back to them in **Part 2** when we discuss consuming data from a Kinesis stream.
+I will just leave those here for now. Let's get back to them in **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)** when we discuss consuming data from a Kinesis stream.
 
 
 # Conclusions
@@ -435,6 +436,6 @@ Keep in mind, that in addition to the "baseline" fees of incoming data and open 
 ----
 
 
-And that's it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **Part 2**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
+And that's it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
 
-Let me know if you think I've missed something critical and hope to see you in **Part 2** (it's coming soon!) :)
+Let me know if you think I've missed something critical and hope to see you in **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)** :)
