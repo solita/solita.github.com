@@ -329,7 +329,7 @@ One of the reasons for this is the network timeouts and retries we discussed abo
 This is also a common consideration in distributed systems and the best way to address it is to build your downstream applications to be **idempotent**. That is, to build an application that will tolerate the possible [duplicates in data](https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-duplicates.html).
 
 
-## Few words on KPL
+## A few words on KPL
 
 I mentioned in the beginning that you could write your data to _Kinesis Streams_ using Kinesis Producer Library, or KPL in short. While AWS SDK also allows managing the stream itself (e.g. do stream resharding), KPL is meant solely for writing data to a stream and is aimed to simplify it.
 
