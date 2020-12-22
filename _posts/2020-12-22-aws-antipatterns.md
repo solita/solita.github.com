@@ -3,10 +3,9 @@ layout: post
 title: AWS Antipatterns
 author: arto
 excerpt: >
-  Cloud platforms offer unprecedented agility, innovation, and speed. Yet I see the same mistakes being repeated over and over again. This blog post is a collection of some things people often get wrong - and some thoughts on how to dodge those mistakes.
+  Cloud platforms offer unprecedented agility, innovation, and speed. Yet I see the same mistakes being repeated over and over again. This blog post is a collection of some of the pitfalls we unknowingly fall into.
 tags:
  - AWS
- - Amazon Web Services
  - Best Practices
  - Lessons Learned
  - Antipatterns
@@ -15,7 +14,7 @@ tags:
 
 ![Speed and agility of cloud development can be unsurpassed](/img/aws-antipatterns/aws_rider.png)
 
-Cloud platforms are incredible. For anyone who used to create or operate software running in a traditional on-premises server room, they offer incredible speed in getting ideas to production, and experimentation with new things. However, this speed comes with a cost: Sometimes that cost is money, as AWS bills can sneak up on you. Sometimes the cost may be a bad architecture that gets more expensive as you progress, a badly compromised security that makes you vulnerable for many new attack vectors - or it can be that you are paying for lots of new services just because you can - without getting the benefits you were looking for. 
+Cloud platforms are magnificent. For anyone who used to create or operate software running in a traditional on-premises server room, they offer incredible speed in getting ideas to production, and experimentation with new things. However, this speed comes with a cost: Sometimes that cost is money, as AWS bills can sneak up on you. Sometimes the cost may be a bad architecture that gets more expensive as you progress, a badly compromised security that makes you vulnerable for many new attack vectors - or it can be that you are paying for lots of new services just because you can - without getting the benefits you were looking for. 
 
 In this article, I'm going to go through some of the worst mistakes that might happen when you start working on the AWS platform. These mistakes are based on both personal experience, aka my mistakes, and things I've seen, aka other people's mistakes. I will also try to provide some insights into why we need to pay attention here, and what could we do to avoid the negative impact while benefiting from the newfound speed and agility. I've been working pretty much in cloud and serverless for the last five years, before that I had a lot of on-premises experience. I'm most well versed with AWS architecture and best practices, but most of these thoughts will probably apply also to Azure and Google Cloud Platform projects.
 
@@ -27,9 +26,15 @@ Normal on-premises systems use firewalls and isolation maintained by network adm
 
 !['Allow everything' - policy](/img/aws-antipatterns/crazy_wide_policy.png)
 
-The wider concept here is to minimize the **blast radius**. And we do that with the Principle of Least Permission (**POLP**). Blast radius means an area of services and infrastructure that may be affected if a security breach or misconfiguration takes place. In other words, if your lambda has full access to anything in the account, and it gets compromised, damage can be horrendous. Also, if anyone is auditing your solution, this mess will be revealed and require actions to fix.
+If a user or a service has access to this policy, they are allowed to do anything to everything, including creating, changing, deleting the resources, covering their tracks, etc. Furthermore, this kind of policy does nothing to document what that service or user is actually dependent on, what it needs to work. It's a lazy and extremely dangerous way of declaring the permissions.
+
+The wider concept here is to minimize the **blast radius**. And we do that with the Principle of Least Permission (**POLP**). Blast radius means an area of services and infrastructure that may be affected if a security breach or misconfiguration takes place. In other words, if your Lambda function has full access to anything in the account, and it gets compromised, damage can be horrendous. Also, if anyone is auditing your solution, this mess will be revealed and require actions to fix.
+
+See: [Permission boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html).
 
 ![Allow some things for ALL s3 buckets](/img/aws-antipatterns/wildcard_policy.png)
+
+In this example, we are limiting the allowed actions a bit, but they can still be targeted towards ANY bucket in the system, not just the expected ones. Any bucket that now exists, or will be created in the future. This is of course okay when you need to do that, but often you will only be accessing a single bucket instead, or a few of them.
 
 Symptoms of too wide a blast radius are:
 - AWS Policies with a lot of asterisks giving wide or unlimited access to services, or resources
@@ -39,7 +44,7 @@ Symptoms of too wide a blast radius are:
 
 So, how do you fix this? Well, you invest some time, effort, and perspiration. You create those boundaries and walls. You create minimal permissions that are required to do the task. If you create them in a good manner, they do not limit the valid uses of software, but they limit the damage if an 'explosion' happens within. They limit the width of a potential exploit. They also document what parts of services you are using. These boundaries are much cheaper and easier to create while building the solution, and they can be costly to fix afterward. So the second your POC grows to an MVP, and you start doing implementation sprints, you should start doing the POLP dance, including it in the code and review workflow.
 
-There are some tools also to help with this, that can review the templates or policies, and alert if they seem a bit too wide. For example, AWS has services like IAM access advisor, or AWS Trusted Advisor/AWS Organizations can be used to audit this constantly yourself. I've also had success with tools such as CFRipper. There are also plenty of commercial tools if you wish to go that route. You can run these as part of your build, or set up a Cloudformation event-triggered lambda that can stop deployment if the quality gate is not passed. With good tools, it's possible to create exceptions to rules or modify and evolve the rules yourself. But a good tool is also cost-effective and cheap. If you introduce some automation in your development process, this cleanup and tightening are automatically done when it's the cheapest.
+There are some tools also to help with this, that can review the templates or policies, and alert if they seem a bit too wide. For example, AWS has services like IAM access advisor, or AWS Trusted Advisor/AWS Organizations can be used to audit this constantly yourself. I've also had success with tools such as CFRipper. There are also plenty of commercial tools if you wish to go that route. You can run these as part of your build, or set up a CloudFormation event-triggered Lambda function that can stop deployment if the quality gate is not passed. With good tools, it's possible to create exceptions to rules or modify and evolve the rules yourself. But a good tool is also cost-effective and cheap. If you introduce some automation in your development process, this cleanup and tightening are automatically done when it's the cheapest.
 
 ## Antipattern #2: Manual work on AWS console 
 
@@ -58,12 +63,12 @@ The cure for all of this is to automate, follow the Infrastructure as Code (IaC)
 - It means your environments do not become unique snowflakes where test environments are so different that they don't represent production anymore - but identical copies that may be nuked and recreated in hours if necessary
 - This also means your disaster recovery plan has a good solid foundation: You just need to take care of the backups too
 - It also means cleanup becomes easy: You have a manifest of all resources, so if you need to remove them, you have a solid starting point
-- IaC means that your infrastructure is also documented, so you don't need to try to find the service inventories from depts of AWS console
+- **IaC** means that your infrastructure is also documented, so you don't need to try to find the service inventories from depts of AWS console
 - This also means that sometimes you can also visualize the architecture based on the templates, using 3rd party tools
-- IaC means infrastructure changes can also be part of peer review, validation, automated audits, etc, everytime they change
+- **IaC** means infrastructure changes can also be part of peer review, validation, automated audits, etc, everytime they change
 - You can put them in the version control, so they are properly backed up, you can branch and merge changes, and go back to old versions when needed
 
-Good ways to automate the creation of infrastructure and services include (but are not limited to) Cloudformation, CDK, Terraform (which also support many other vendors), I've also used Troposphere and Sceptre for AWS. There's a lot of choices, they all come with pros and cons, so you need to pick up what makes sense to you and stick to it. But as long as you are using ANY of them, you are in a much better place already. You could even use command-line client and bash scripts if you want to, or raw Python and an SDK. But the real solutions designed for this are typically better.
+Good ways to automate the creation of infrastructure and services include (but are not limited to) CloudFormation, CDK, Terraform (which also support many other vendors), I've also used Troposphere and Sceptre for AWS. There's a lot of choices, they all come with pros and cons, so you need to pick up what makes sense to you and stick to it. But as long as you are using ANY of them, you are in a much better place already. You could even use command-line client and bash scripts if you want to, or raw Python and an SDK. But the real solutions designed for this are typically better.
 
 Then why is this an antipattern? Isn't this obvious? Isn't everybody already doing this?
 
@@ -108,7 +113,7 @@ So this antipattern and corresponding fixes are mostly for those POCs and MVPs a
 
 ## Antipattern #5: Misconfigured networks
 
-This is more akin to the traditional wisdom, also related to the blast radius discussed earlier. If you put all your resources in the same network, which is what is again shown in many tutorials, and often done when doing something in a rush, it means if any part is compromised, it may have access to other parts. Ít can be okay to just have that one network, as long as you have subnets, security groups, and access control lists configured properly. If you don't - it means if someone can exploit a library vulnerability in your web layer, they may have way too much access to any other servers, services running in the same network. And if someone can run exploit code in that machine, it would seem to be coming from within, from that network, so might have wider permissions than a call from outside. In some cases, the whole network may have exposed way too many vulnerable ports for the public internet to find.
+This is more akin to the traditional wisdom, also related to the blast radius discussed earlier. If you put all your resources in the same network, which is what is again shown in many tutorials, and often done when doing something in a rush, it means if any part is compromised, it may have access to other parts. It can be okay to just have that one network, as long as you have subnets, security groups, and access control lists configured properly. If you don't - it means if someone can exploit a library vulnerability in your web layer, they may have way too much access to any other servers, services running in the same network. And if someone can run exploit code in that machine, it would seem to be coming from within, from that network, so might have wider permissions than a call from outside. In some cases, the whole network may have exposed way too many vulnerable ports for the public internet to find.
 
 ![SSH port wide open to the world, thank you launch wizard 2!](/img/aws-antipatterns/security_group_open_ssh.png)
 
@@ -130,7 +135,7 @@ And by the way, if you define the networks as code (IaC), it's easier and cheape
 
 I've seen this antipattern a few times. Here are the symptoms:
 
-- Same AWS account is used to serve multiple services. Which is not yet bad. 
+- The same AWS account is used to serve multiple services. Which is not yet bad. 
 - But those services are built and maintained by multiple different teams, who all then have access to the same environment
 - And previous problems with policy permission scopes, blast radiuses
 - Also: the lifecycle phases of those services get confused. One team is running production workloads, another is doing a crazy POC and opening services and ports for the whole wide world, while still sharing the same VPC (in the worst case)
@@ -157,15 +162,13 @@ When a team starts building stuff within AWS, in an agile manner, they pretty so
 
 You see, AWS has more than 175 products and services, and more are coming each year. Each has a different pricing model. Due to being able to immediately toggle on new services, which they have varying levels of experience, it's relatively easy to turn on something that would cost a lot. Here are some examples:
 
-- I've once seen a badly written SQL query that was being run in Athena every hour by a timed lambda. It was artfully missing all nicely generated indexes, and going through terabytes of data in the bucket, all of it. It was generating tens of thousands of euros of billing before it was discovered.
+- I've once seen a badly written SQL query that was being run in Athena every hour by a timed Lambda function. It was artfully missing all nicely generated indexes, and going through terabytes of data in the bucket, all of it. It was generating tens of thousands of euros of billing before it was discovered.
 - Creating virtual servers, it's possible to choose their type and capacity, and some of them can be very expensive if they are left running. Machine learning projects might often run these servers, but are typically not supposed to run them 24/7, only on demand.
 - Sagemaker developer endpoints can also rack up some bill quite fast, it's easy to create them and use them, but if you forget to shut them down, euros will start accumulating rapidly
 - There are often few ways to model things, and the cost may vary quite a lot. Different patterns depending on your case.
 - If you're not seeing how much things cost, you might be enticed to create a new feature for the product, based on some new service just because you can. Perhaps it's something you wouldn't have even considered before.
 
-This can often be a problem because I've seen that billing is often abstracted, denied, and hidden from the development team. So they can freely 
-
-So the fix is rather simple: Create visibility for the costs. Use billing and costs as one input for your architecture, from the very beginning. This allows applying one AWS Architects centric skill: Cost optimization. This is again one of those things that can be expensive to fix afterward, it's cheapest to build in cost optimization from the beginning. Having this visibility can help you make educated choices between different architectures. What you're looking for is a steady growth of expenses as your resource usage grows, but any dramatic anomalies or changes in the bills should immediately be studied and understood.
+This can often be a problem because I've seen that billing is often abstracted, denied, and hidden from the development team. So the fix is rather simple: Create visibility for the costs. Use billing and costs as one input for your architecture, from the very beginning. This allows applying one AWS Architects centric skill: Cost optimization. This is again one of those things that can be expensive to fix afterward, it's cheapest to build in cost optimization from the beginning. Having this visibility can help you make educated choices between different architectures. What you're looking for is a steady growth of expenses as your resource usage grows, but any dramatic anomalies or changes in the bills should immediately be studied and understood.
 
 Highly recommended also to enable billing alerts, so that you get a notification if you are going over budgeted amounts. Early warning, so you don't need to study the reports every day. When you get a warning, you check if the change is valid, aka in line with improved architecture and increased value. Or if the change was unexpected, a result of a bad pattern or badly scaling architecture. Even experienced cloud developers have sometimes been surprised by the bills.
 
@@ -174,7 +177,7 @@ So: Keep that agility and velocity - but also keep your eyes open. Do also cost-
 
 ## Conclusion
 
-For each antipattern, there's a cure. If you build it in your development process, from the very beginning, life will be much better for you. Some of these are impossible to solve on very high and abstract levels, so are best taken care of by empowered DevOps teams that want to carry the responsibility of not only building the services but making sure they run smoothly as well.
+For each antipattern, there's mitigation. If you build it in your development process, from the very beginning, life will be much better for you. Some of these are impossible to solve on very high and abstract levels, so are best-taken care of by empowered DevOps teams that want to carry the responsibility of not only building the services but making sure they run smoothly as well.
 
 So remember a lot of acronyms and concepts: Do IaC and POLP, limit the Blast Radius.
 
@@ -182,13 +185,13 @@ I could have picked up a lot more of antipatterns but you gotta start from somew
 
 Also remember: You can fake it until you make it. In case you cannot automate everything immediately, including some of these in code reviews is already an improvement. Automation might bring more support for people who would like immediate feedback loops when they create an increment of value, in other words, might be something you want to invest in periodically more and more.
 
-https://aws.amazon.com/blogs/security/automate-analyzing-permissions-using-iam-access-advisor/
+## Further reading:
 
-https://www.slideshare.net/AmazonWebServices/aws-reinvent-2016-how-to-automate-policy-validation-sec311
-
-https://github.com/aws-samples/aws-iam-accessadvisor-permissionboundary
-
-https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html
+- [Using IAM Access advisor to automate analyzing permissions](https://aws.amazon.com/blogs/security/automate-analyzing-permissions-using-iam-access-advisor/)
+- [Automating policy validation](https://www.slideshare.net/AmazonWebServices/aws-reinvent-2016-how-to-automate-policy-validation-sec311)
+- [General security best practices](https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html)
+- [Tighten s3 permissions for iam roles using their actual access history](https://aws.amazon.com/blogs/security/tighten-s3-permissions-iam-users-and-roles-using-access-history-s3-actions/)
+- [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected/)
 
 
 
