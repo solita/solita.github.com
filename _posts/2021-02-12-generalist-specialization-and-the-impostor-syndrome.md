@@ -9,7 +9,7 @@ tags:
  - Impostor syndrome
 ---
 
-I don't know how to do this. This is all too overwhelming. Why did I want to do this? Everybody else knows what they are doing. They will soon discover how out of my league I am here.
+_I don't know how to do this. This is all too overwhelming. Why did I want to do this? Everybody else knows what they are doing. They will soon discover how out of my league I am here._
 
 ![Feeling of self-doubt](/img/impostor-syndrome/doubt.jpg)
 
@@ -55,7 +55,7 @@ This actually goes nicely with agile methodologies, too, because a failure IS an
 
 So if you feel unsure, stop for a bit, take a deep breath, and try to see things from another angle. Try this question:
 
-***"What would I need to change to be able to succeed?"***
+**"What would I need to change to be able to succeed?"**
 
 ## Impostor syndrome as a positive thing?
 
@@ -65,7 +65,7 @@ See, growth comes from the combination of applying what you know but being also 
 
 So for me, the impostor syndrome visiting is actually a signal that I've once again managed to push myself to a new uncomfortable zone, where I don't already know everything. So I've managed to create a learning and growth opportunity for this year, too. And that's exactly why I mean it when I say:
 
-***Hello, old friend, nice to see you again, Impostor Syndrome.***
+**Hello, old friend, nice to see you again, Impostor Syndrome.**
 
 
 ## More on the subject:
