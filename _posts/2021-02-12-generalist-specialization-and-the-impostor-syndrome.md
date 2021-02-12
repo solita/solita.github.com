@@ -11,7 +11,7 @@ tags:
 
 ![Feeling of self-doubt](/img/impostor-syndrome/doubt.jpg)
 
-*_I don't know how to do this. This is all too overwhelming. Why did I want to do this? Everybody else knows what they are doing. They will soon discover how out of my league I am here._*
+_I don't know how to do this. This is all too overwhelming. Why did I want to do this? Everybody else knows what they are doing. They will soon discover how out of my league I am here._
 
 Sounds familiar? Maybe not. Not everyone is suffering from Impostor Syndrome. But it is quite common in our field of work. I've had those thoughts myself, and many times have also seen others go through moments like this. It's not typically a permanent state in life, but join me for a bit and let's talk about it.
 
