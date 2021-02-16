@@ -19,15 +19,16 @@ So if you have something like **"company.auth version >= 1.0"** as a dependency 
 
 ## Which tools and languages are affected
 
-* Python (pip)
+* Python (PyPi)
 * Javascript (npm)
+* PHP (Composer)
 * Docker containers (allegedly) 
 * .NET NuGet 
 * There might be others that are not yet widely known.
 
 ## How to mitigate / check if you are safe 
 
-* Visma has published a tool for Javascript (package.json) and Python: (https://github.com/visma-prodsec/confused)
+* Visma has published a tool for PHP (Composer), Javascript (package.json) and Python: (https://github.com/visma-prodsec/confused)
 * Visma has also published a tool for NuGet: (https://github.com/visma-prodsec/ConfusedDotnet)
 * Check and understand how your dependencies are resolved. Are you using **--extra-index-url** with **pip install**? If you are, you are affected.
 
