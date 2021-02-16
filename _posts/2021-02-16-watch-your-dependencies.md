@@ -11,7 +11,7 @@ tags:
 
 Nowadays most software developers have set up some kind of dependency analysis to detect known security issues in outdated packages, using tools like [OWASP Dependency Check](https://owasp.org/www-project-dependency-check/), [retire.js](https://github.com/retirejs/retire.js/) and others, but **dependency confusion** is a new subtle type of attack. Is your project vulnerable to it? How can you know? Read on.
 
-**Dependency confusion** means that a package resolver erroneously downloads a private package from a public repository. Since that package doesn't exist, and build tools don't usually require signatures, anyone can create such a package in a public repository. Subtle, easy to exploit and simple. And quite effective! People have made over 100k in just a few days from bug bounty programs by pwning Google, Facebook and other big companies with this. And it's not over yet - fun & profit indeed.
+**Dependency confusion** means that a package resolver erroneously downloads a private package from a public repository. If a package (namespace) doesn't exist, anyone can create it in a public repository as there are no signature verifications. Subtle, easy to exploit and simple. And quite effective! People have made over 100k in just a few days from bug bounty programs by pwning Google, Facebook and other big companies with this. And it's not over yet - fun & profit indeed.
 
 ![Confused dog](/img/watch-your-dependencies/confused-doggy.jpg)
 
