@@ -13,6 +13,8 @@ Nowadays most software developers have set up some kind of dependency analysis t
 
 **Dependency confusion** means that a package resolver erroneously downloads a private package from a public repository. Since that package doesn't exist, and build tools don't usually require signatures, anyone can create such a package in a public repository. Subtle, easy to exploit and simple. And quite effective! People have made over 100k in just a few days from bug bounty programs by pwning Google, Facebook and other big companies with this. And it's not over yet - fun & profit indeed.
 
+![Confused dog](/img/watch-your-dependencies/confused-doggy.jpg)
+
 ## How it works in a nutshell
 
 So if you have something like **"company.auth version >= 1.0"** as a dependency and it's supposed to be downloaded just from your private repository, your build nevertheless might check for this dependency in the public repositories. And if version 1.1 exists out there, the build tool might download that, as it's a new version, leading to a catastrophe as we would give unknown 3rd party accidentally access to run code on your servers and include "interesting" functionality to the software. Would you notice? Maybe. Maybe not.
