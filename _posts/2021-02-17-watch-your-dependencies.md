@@ -17,7 +17,7 @@ Nowadays most software developers have set up some kind of dependency analysis t
 
 ## How it works in a nutshell
 
-So if you have something like **"company.auth version >= 1.0"** as a dependency and it's supposed to be downloaded just from your private repository, your build nevertheless might check for this dependency in the public repositories. And if version 1.1 exists out there, the build tool might download that, as it's a new version, leading to a catastrophe as we would give unknown 3rd party accidentally access to run code on your servers and include "interesting" functionality to the software. Would you notice? Maybe. Maybe not.
+So if you have something like **"company.auth version >= 1.0"** as a dependency and it's supposed to be downloaded just from your private repository, your build nevertheless might check for this dependency in the public repositories. And if version 1.1 exists out there, the build tool might download that, as it's a new version, leading to a catastrophe as you would give unknown 3rd party accidentally access to run code on your servers and include "interesting" functionality to the software. Would you notice? Maybe. Maybe not.
 
 ## Which tools and languages are affected
 
@@ -30,8 +30,8 @@ So if you have something like **"company.auth version >= 1.0"** as a dependency 
 
 ## How to mitigate / check if you are safe 
 
-* Visma has published a tool for PHP (Composer), Javascript (package.json) and Python: (https://github.com/visma-prodsec/confused)
-* Visma has also published a tool for NuGet: (https://github.com/visma-prodsec/ConfusedDotnet)
+* Visma has published a tool for PHP (Composer), Javascript (package.json) and Python: [confused](https://github.com/visma-prodsec/confused)
+* Visma has also published a tool for NuGet: [ConfusedDotNet](https://github.com/visma-prodsec/ConfusedDotnet)
 * Check and understand how your dependencies are resolved. Are you using **--extra-index-url** with **pip install**? If you are, you are affected.
 
 I can't stress the latter point enough: **Try to understand how exactly your tools work.** The devil is in the details. Looking at my own experiences, [Bower](https://bower.io/) was hot years ago for Javascript dependencies (before npm), but it was actually a horrible mess introducing huge security and continuity risks. Me and my team found out the hard way when our build broke. But instead of a missing dependency we could've been pwned very badly so we were actually lucky.
