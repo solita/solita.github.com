@@ -40,8 +40,8 @@ If you think you know your tools inside out based on your own use cases, what ab
 
 ## More information
 
-This post by Alex Birsan made this whole thing famous: (https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-Microsoft has also published an article about mitigating this risk: (https://azure.microsoft.com/en-gb/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)
+This post by Alex Birsan made this whole thing famous: [Dependency Confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+Microsoft has also published an article about mitigating this risk: [Microsoft advisory](https://azure.microsoft.com/en-gb/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)
 
 Is that all? Certainly not, the general threat model for dependency attacks provides plenty of potential: 
 
