@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beware of dependency confusion (and other dependency attacks)
+title: Watch your dependencies (dependency confusion and other attacks)
 author: lokori
 excerpt: Do you know how exactly your build tool resolves your dependencies? Are you sure? Dependency confusion is yet another subtle attack that can hit you if you are not careful, but it's definitely not the only one.
 tags:
