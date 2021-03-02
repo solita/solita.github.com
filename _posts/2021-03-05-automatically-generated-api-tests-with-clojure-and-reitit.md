@@ -327,3 +327,6 @@ This kind of semi-automatic testing isn't a replacement for more exact unit
 tests -- you should still write those as well. They will provide you a lot
 clearer error messages if you have bugs in your server. After all, this test is
 closer to a smoke test than a complete test suite.
+
+See the code for this blog post at
+[GitHub](https://github.com/solita-jaakkoha/clojure-generating-tests).
