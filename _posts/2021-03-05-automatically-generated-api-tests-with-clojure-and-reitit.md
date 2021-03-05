@@ -10,7 +10,7 @@ tags:
  - Testing
 ---
 
-Have you ever forgotten to write a test for some API endpoint, which then
+Have you ever forgotten to write a test for an API endpoint, which then
 eventually happens to break? Would it be possible to check whether all of your
 API is tested? If you are using a data-driven router, it's possible to write
 tests which ensure that every endpoint is tested.
@@ -146,8 +146,8 @@ automatically test that endpoint.
 ```
 
 But since some routes require some endpoint-specific payload and some
-preconditions (eg. to update a resource, one needs to create it first), let's
-add those into the object:
+preconditions (eg. to update a resource, in this api one needs to create it
+first), let's add those into the object:
 
 ```clojure
 (def test-routes
