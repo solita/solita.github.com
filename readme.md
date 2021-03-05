@@ -52,6 +52,7 @@ Super-fast, live-reload for posts, sass and templates.
 Next time when conjuring new post, only `docker/start.sh` should do it.
 
 Troubleshooting:
+- If you don't see your post, change the date on the file to today - time travelling is not allowed.
 
 `docker rmi solita-blag` -> Delete image
 `docker/troubleshoot.sh` -> Opens bash to container without starting jekyl and compass
