@@ -258,7 +258,7 @@ When your API looks something like this:
        :delete delete-resource}]]]])
 ```
 
-You can use the `reitit-impl/resolve-routes` function to get a list of routes,
+You can use the `reitit.core/routes` function to get a list of routes,
 and check that all of those are tested:
 
 ```clojure
@@ -266,7 +266,7 @@ and check that all of those are tested:
   [route (keys (select-keys properties [:get :post :put :patch :delete :options]))])
 
 (deftest all-paths-tested
-  (let [route-data      (reitit-impl/resolve-routes handler/api (reitit-core/default-router-options))
+  (let [route-data      (reitit.core/routes (reitit.core/router handler/api))
         routes          (into {} (map route-to-data-row route-data))
         missing-routes  (apply dissoc routes (keys test-routes))
         extra-routes    (apply dissoc test-routes (keys routes))
