@@ -265,7 +265,7 @@ The thing is, while _Lambda_ keeps retrying that one unfortunate batch from the 
 
 In our scenario, in 24 hours the poison pill finally leaves the shard, together with the rest of the records that were unlucky enough ending up in the same batch. But at that moment when _Lambda_ can finally start taking in new batches, the shard is potentially filled with records that were written to the stream around the same time. This, in turn, means that they **expire around the same time** as the already discarded batch. 
 
-So, u may end up in a situation, where your Lambda function just doesn’t have enough time to catch up with the shard and your records will keep on falling off the edge of the stream (remember our overflowing sink analogy?).
+So, you may end up in a situation, where your Lambda function just doesn’t have enough time to catch up with the shard and your records will keep on falling off the edge of the stream (remember our overflowing sink analogy?).
 
 
 ![thisisfine](/img/kinesis/this_is_fine.jpg){: .img.centered }
@@ -340,7 +340,7 @@ When throttling (or other intermittent error) happens with _Lambda_ service, the
 
 All this means that while technically there’s no limit on how many Lambda functions you can attach to a single stream when using the shared throughput, in reality
 - the 5 _GetRecords_ call limit means you can have at most 5 consumers before they start to get **throttled**, and
-- the 2 MB throughput limit means you might start **getting behind your stream** if u have more than 2 consumers.
+- the 2 MB throughput limit means you might start **getting behind your stream** if you have more than 2 consumers.
 
 The 5 _GetRecords_ request limit also means that the records can be read from the stream once every **200 milliseconds** (1 000 ms / 5 calls). This is why the average propagation latency for a shared throughput consumer is estimated at roughly 200 ms. This is also the reason, why adding more consumers means **increasing the propagation latency** to up to 1 second.
 
