@@ -367,9 +367,10 @@ Below are the most important metrics to keep an eye on when writing to a Kinesis
 
 Note that these metrics do not include the failed record writes. So, you can't know the exact overall amount or size of incoming data based on these metrics alone, but you will get quite close. There is one more metric that is crucial to get the overall picture of your stream's wellbeing:
 
-- `WriteProvisionedThroughputExceeded`: The number of records **rejected** due to throttling for both, `PutRecord` and `PutRecords` combined. There is also a separate metric for the partial failures in batch operations: `PutRecords.ThrottledRecords`.
+- `WriteProvisionedThroughputExceeded`: The number of records **rejected** due to throttling for both, `PutRecord` and `PutRecords` combined. There is also a separate metric for the partial failures in batch operations: `PutRecords.ThrottledRecords`.  
+**Note:** as of March 2021, there are some known issues with the combination metric and it is recommended to use the `WriteProvisionedThroughputExceeded` **only** in case you write **individual records** with `PutRecord` operation. If you are using the batch `PutRecords` operation, use the dedicated `PutRecords.ThrottledRecords` instead.
 
-So, to get the actual number of records that you attempted to write to your Kinesis stream, you should add the `IncomingRecords` to the `WriteProvisionedThroughputExceeded`. Note that these metrics also include all the retry attempts.
+So, to get the actual number of records that you attempted to write to your Kinesis stream, you should add the `IncomingRecords` to the `WriteProvisionedThroughputExceeded` (or `PutRecords.ThrottledRecords`). Note that these metrics also include all the retry attempts.
 
 ## Metrics vs reality
 
@@ -377,7 +378,7 @@ All the _Kinesis Streams_ metrics, both basic and enhanced, are emitted **once a
 
 There's a catch though: as I mentioned before, all the kinesis limits are **per second** (1Mb/second or 1000 records/second per shard). So, when you have spiky traffic, the metrics won't reflect the entire picture. As we know by now, you may exceed stream throughput even if the stream capacity limits seem far away based on metrics.
 
-So, pay close attention to the `WriteProvisionedThroughputExceeded` metric at all times. Also, if enabled, check the shard-level metrics, to make sure you don't have overheated shards that may cause throttling.
+So, pay close attention to the `WriteProvisionedThroughputExceeded` and `PutRecords.ThrottledRecords` metrics at all times. Also, if enabled, check the shard-level metrics, to make sure you don't have overheated shards that may cause throttling.
 
 
 # Pricing model
@@ -420,7 +421,7 @@ If your producer application is running inside a VPC, always use an interface **
 The most valuable [metrics](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) when writing to a stream:
 
 - `IncomingRecords` / `IncomingBytes`
-- `WriteProvisionThroughputExceeded`
+- `WriteProvisionThroughputExceeded` / `PutRecords.ThrottledRecords`
 
 Remember, that _CloudWatch_ metrics are **per minute**, while the stream limits are **per second** (1 MB/sec or 1 000 records/sec per shard). And though very important, just looking at the metrics is not enough. You must have proper **error handling** (am I repeating myself? 🙂).
 
