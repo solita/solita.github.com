@@ -157,4 +157,4 @@ If you currently have Ruby 1.x, you must first install Ruby 2 and then install t
 
 /dev/solita is built using all the hippiest hip technologies available:
 
-    git, Github Pages, Ruby, Jekyll, Markdown, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics, AddThis
+    git, Github Pages, Ruby, Jekyll, Markdown, Sass, Compass, foreman, jQuery, Gravatar, Google Analytics, AddThis
