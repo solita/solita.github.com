@@ -173,7 +173,7 @@ Response time percentiles (approximated)
  None     Aggregated                                         76     76     76     76     76     76     76     76     76     76     76      2
 ```
 
-The parameters can also be given as parameters or in a file named `locust.conf`, which looks like this:
+You can use command line parameters or write a file named `locust.conf`:
 ```
 headless = true
 host = http://localhost:3000
