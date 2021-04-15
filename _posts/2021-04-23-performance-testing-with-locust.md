@@ -105,13 +105,13 @@ app.listen(port, () => console.log(`App listening on port ${port}!`))
 
 Here's a quick tutorial on how to test the above dummy application with Locust.
 
-### Setup
+### Step 1: Setup
 
 - Install Python unless you already have it
 - Optional/recommended: create a Python virtual environment with `python3 -m venv env` and activate it with `source env/bin/activate`.
 - Install Locust with `pip install locust`
 
-### Define your tests in a locustfile.py
+### Step 2: Define your tests in a locustfile.py
 
 A simple locustfile.py looks like this:
 
@@ -143,7 +143,7 @@ class WebsiteUser(HttpUser):
         self.client.get("/books?title=JavaScript")
 ```
 
-### Run Locust in headless mode
+### Step 3: Run Locust
 
 You can run Locust either in headless mode or using a web interface.
 
@@ -182,9 +182,9 @@ spawn-rate = 1
 run-time = 30sec
 ```
 
-### Option 2: Run Locust with the web interface
+## Locust web interface
 
-To start the web interface you simply run the command `locust`:
+In addition to running Locust in headless mode, you can start the web interface by simply runnig the command `locust`:
 
 ```
 (env) ➜  locust-tests locust
