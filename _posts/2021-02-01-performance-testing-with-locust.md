@@ -260,6 +260,43 @@ class Api:
         self.client.delete("/books/" + book_isbn, auth=credentials.LIBRARIAN_AUTH, name="/books/:isbn")
 ```
 
+When you have the API client ready, using it from the `locustfile.py` is a blast:
+
+```python
+class OnlineLibraryUser(HttpUser):
+    wait_time = between(3, 10)
+    
+    def on_start(self):
+        self.api = api.Api(self.client)
+
+    @task
+    def search_all(self):
+        self.api.search_all()
+
+    @task
+    def search_with_filter(self):
+        self.api.search_by_title("JavaScript")
+
+
+class LibraryAdminUser(HttpUser):
+  wait_time = between(3, 10)
+
+  def on_start(self):
+    self.api = api.Api(self.client)
+    self.my_books = []
+
+  @task
+  def add_books(self):
+    self.my_books.append(
+      self.api.add_book(testdata.get_random_existing_library_guid(),
+                        testdata.get_next_isbn(),
+                        testdata.get_random_book_title())
+    )
+
+  def on_stop(self):
+    [self.api.delete_book(isbn) for isbn in self.my_books]
+```
+
 ### Test data setup and clean up
 
 Sometimes you need to set up some data, which is then used by the tasks. 
