@@ -353,8 +353,8 @@ class OnlineUser(HttpUser):
 ### Load testing in CI/CD pipeline
 
 CI/CD is adopted in many projects and you probably have some automated tests already.
-What if you want to test for performance and detect possible performance regression?
-You have at least two options presented below to do this.
+What if you want to test performance and detect possible performance regressions?
+You have at least two options to do this.
 
 #### Running Locust with a simple shell command
 
@@ -362,9 +362,9 @@ The simplest way of adding Locust to your build pipeline is to add a step and ju
 After that you can check the (console) output to see the stats.
 The build fails if there are any errors in calls made by Locust.
 
-In Jenkins this is an Execute Shell -build step which fails the build if return value from Locust is anything else but 0.
-The same works with Github Actions where you have Jobs and Steps and a Step can be a shell command running Locust.
-A ready made GitHub action for load testing using Locust can help you with the setup:
+In Jenkins, an "Execute Shell" -build step can run Locust and fail the build, if return value from Locust is anything else but 0.
+The same principle works with Github Actions.
+The following GitHub action can help you with the setup:
 [https://github.com/marketplace/actions/locust-load-test](https://github.com/marketplace/actions/locust-load-test)
 
 #### Response time tracking across builds
@@ -372,7 +372,7 @@ A ready made GitHub action for load testing using Locust can help you with the s
 What if you want response time tracking across builds?
 
 With Jenkins you can use the [Performance Plugin](https://plugins.jenkins.io/performance/), which works with
-most of the popular Open Source tools including: Apache JMeter, Gatling, Grinder and Locust. 
+most of the popular Open Source load testing tools including: Apache JMeter, Gatling, Grinder and Locust. 
 For more information, read [http://jenkinsci.github.io/performance-plugin/RunTests.html](http://jenkinsci.github.io/performance-plugin/RunTests.html).
 
 There is a Github Action for [continuous benchmarking](https://github.com/marketplace/actions/continuous-benchmark),
