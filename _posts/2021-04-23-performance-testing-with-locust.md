@@ -13,11 +13,11 @@ tags:
 
 Here's a quick comparison of some load testing tools you might be familiar with.
 
-| Tool | Language | Test definition | Run with |
-| --- | --- | --- | --- |
-| [JMeter](https://jmeter.apache.org/) | Java | GUI based | Run from the GUI |
-| [Gatling](https://gatling.io/) | Scala | Write with a Scala DSL | Run from command line |
-| [Locust](https://locust.io/) | Python | Write with Python code | Run from command line
+| Tool | Language | Test definition | Run with | Clustering support? |
+| --- | --- | --- | --- | --- |
+| [JMeter](https://jmeter.apache.org/) | Java | GUI based | Run from the GUI | [Yes](https://jmeter.apache.org/usermanual/remote-test.html)
+| [Gatling](https://gatling.io/) | Scala | Write with a Scala DSL | Run from command line | [Kind of - read more](https://gatling.io/docs/current/cookbook/scaling_out/)
+| [Locust](https://locust.io/) | Python | Write with Python code | Run from command line | [Yes](https://docs.locust.io/en/stable/running-locust-distributed.html)
 
 To sum this up, Locust might be an interesting tool for you, if the JMeter GUI feels clunky and you rather use Python than Scala. 
 Personally, I've felt JMeter a bit difficult to use and I'm using less and less Scala, so Locust seems a good alternative.
@@ -350,16 +350,36 @@ class OnlineUser(HttpUser):
 ```
 
 
-### Locust with Jenkins
+### Load testing in CI/CD pipeline
 
-The simplest way of adding Locust to your build pipeline is to add a shell step and just call ```locust```.
-After that you can check the console output to see the stats, The build fails if there are any errors in calls made by Locust.
+CI/CD is adopted in many projects and you probably have some automated tests already.
+What if you want to test for performance and detect possible performance regression?
+You have at least two options presented below to do this.
 
-If you want response time tracking across builds, you can use the [Performance plugin](https://plugins.jenkins.io/performance/) 
-Performance Plugin for Jenkins uses Taurus Tool to execute load tests. 
-Main benefit of Taurus is that it provides abstraction layer over popular Open Source tools, including: 
-Apache JMeter, Gatling Tool, Grinder and Locust.io. 
-For more information, read http://jenkinsci.github.io/performance-plugin/RunTests.html.
+#### Running Locust with a simple shell command
+
+The simplest way of adding Locust to your build pipeline is to add a step and just call ```locust```.
+After that you can check the (console) output to see the stats.
+The build fails if there are any errors in calls made by Locust.
+
+In Jenkins this is an Execute Shell -build step which fails the build if return value from Locust is anything else but 0.
+The same works with Github Actions where you have Jobs and Steps and a Step can be a shell command running Locust.
+A ready made GitHub action for load testing using Locust can help you with the setup:
+[https://github.com/marketplace/actions/locust-load-test](https://github.com/marketplace/actions/locust-load-test)
+
+#### Response time tracking across builds
+
+What if you want response time tracking across builds?
+
+With Jenkins you can use the [Performance Plugin](https://plugins.jenkins.io/performance/), which works with
+most of the popular Open Source tools including: Apache JMeter, Gatling, Grinder and Locust. 
+For more information, read [http://jenkinsci.github.io/performance-plugin/RunTests.html](http://jenkinsci.github.io/performance-plugin/RunTests.html).
+
+There is a Github Action for [continuous benchmarking](https://github.com/marketplace/actions/continuous-benchmark),
+but it doesn't support Locust out of the box. I couldn't find an example of Locust, Github Actions and continuous benchmarking.
+It would be fun to experiment with this! You can configure Locust to [output the results in csv format](https://docs.locust.io/en/stable/retrieving-stats.html).
+Maybe you could push the CSV-report to a Github Pages branch or perhaps [Amazon S3](https://aws.amazon.com/s3/)? 
+Visualizing CSV data is straightforward with many open source graphing tools.
 
 
 ## Summary
@@ -372,3 +392,5 @@ Locust is a Python based load testing tool, that just recently skyrocketed to th
 because it's easy to use and easy to understand.
 
 You can find the full source code of this blog post from [https://github.com/janneri/locust-tutorial](https://github.com/janneri/locust-tutorial). 
+This repo contains a sample NodeJS app which is tested and an example of Locust test implementation.
+Thanks for reading and happy perf testing with Locust!
