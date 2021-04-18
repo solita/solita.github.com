@@ -3,13 +3,17 @@ layout: post
 title: Load testing with Locust
 author: janneri
 excerpt: >
-  Locust is a load testing tool where user behaviour is defined with Python code. 
+  Locust is a load testing tool where user behavior is defined with Python code. 
   This blog post gives you a few hints on how and why to use Locust.  
 tags:
  - Testing
  - Performance
  - Software Development
 ---
+
+In this article, I'll introduce you to a performance testing tool called [Locust](https://locust.io/).
+I'll also explain why you should do performance testing in the first place. 
+Finally, I'll share some tips and tricks, backed up with example code, to get off to a good start with Locust.
 
 Here's a quick comparison of some load testing tools you might be familiar with.
 
@@ -19,17 +23,22 @@ Here's a quick comparison of some load testing tools you might be familiar with.
 | [Gatling](https://gatling.io/) | Scala | Write with a Scala DSL | Run from command line | [Kind of - read more](https://gatling.io/docs/current/cookbook/scaling_out/)
 | [Locust](https://locust.io/) | Python | Write with Python code | Run from command line | [Yes](https://docs.locust.io/en/stable/running-locust-distributed.html)
 
-To sum this up, Locust might be an interesting tool for you, if the JMeter GUI feels clunky and you rather use Python than Scala. 
-Personally, I've felt JMeter a bit difficult to use and I'm using less and less Scala, so Locust seems a good alternative.
+Each one of the previous tools is excellent for performance testing! Consider using Locust if:
+1. Defining tests as program code doesn't scare you off
+1. The JMeter GUI feels a bit clunky 
+1. You rather use Python than a Scala DSL
 
-In this blog post, I'll explain what I learned from using Locust and a few ideas on how to use it.
+Personally, I enjoy the flexibility of defining tests as program code. 
+Since I'm using less and less Scala, Locust felt interesting.
+Now after studying and using Locust, I can warmly recommend it and it's probably the tool I'm going to use in my future projects also.
+
+Let's start with why?
 
 ## Why should you load test in every project?
 
 Let's be honest. Implementing load test setups, which perfectly match production is next to impossible. 
 To do that, you need realistic data, realistic amount of load, realistic amount of CPU and so on.
-In real life projects, environments are complex. Setting up a load testing environment which closely 
-mimics production is expensive. 
+In real-life projects, environments are complex. Setting up a load testing environment that closely mimics production is expensive. 
 
 If getting realistic metrics is this difficult, should we just give up and trust the performance is good enough?   
 
@@ -38,27 +47,27 @@ done to predict the maximum number of concurrent users your system can handle.
 There are several benefits you can get from load testing besides the surrogate metrics of maximum performance. 
 
 The benefits I've seen from load testing in my projects:
-- Load testing reveals clear problems in implementations. Even with a modest load the performance seems bad and test results kick off the work on improvements. 
+- Load testing reveals clear problems in implementations. Even with a modest load, the performance seems bad. Load test results kick off the work on improvements. 
 - Load testing reveals surprising properties of the system. Not clear problems but something that leads to small improvements. 
-  It could be caching, logging, API design and so on. Load test is one of the users of your system, and gives you feedback from a new viewpoint.
+  It could be caching, logging, API design, and so on. Load test is one of the users of your system and gives you feedback from a new viewpoint.
 - Performance is a complete mystery. Load testing provides you a basic level of understanding of the system's performance.
 
 When you run load tests in different phases of system implementation:
-- You can react on potential problems early and detect changes which lower performance.
-- Load testing implementation stays accurate and valid. Of course this requires continuous maintenance so you have to consider the costs and benefits.
-- When done in different phases of system implementation, reveals a performance trend, which helps devs implement high quality systems.
+- You can react to potential problems early and detect changes that lower performance.
+- Load testing implementation stays accurate and valid. Of course, this requires continuous maintenance. You have to consider the costs and benefits here.
+- When done in different phases of system implementation, reveals a performance trend, which helps devs implement high-quality systems.
 
 
 To sum this up. The only way to get accurate performance metrics from production is to monitor production.
 Still, load testing before entering production makes sense, 
 because many times it leads to several minor and sometimes even major improvements in implementations.
-Locust is a tool that lowers the costs of implementing load testing, so let's take a closer look of that.
+Locust is a tool that lowers the costs of implementing load testing, so let's take a closer look at that.
 
 
 ## A dummy application for performance testing
 
 I implemented a small NodeJS application, which is just background information here. 
-The Locust examples later on will test this application. 
+The Locust examples will test this dummy application. 
 
 ```js
 const express = require('express');
@@ -133,7 +142,7 @@ class WebsiteUser(HttpUser):
 
     # When a load test is started, an instance of a User class will be created for each simulated user.
     # Each user will start running within their own green thread.
-    # When these users run they pick tasks that they execute, sleep for awhile, and then pick a new task and so on.
+    # When these users run they pick tasks that they execute, sleep for a while, and then pick a new task and so on.
     @task
     def search_all(self):
         self.client.get("/books")
@@ -198,9 +207,9 @@ The web interface in [http://0.0.0.0:8089](http://0.0.0.0:8089) looks like this:
 
 You can fill in the parameters and start the load tests. 
 
-### Stats and graphs that update in real time
+### Stats and graphs that update in real-time
 
-Locust provides you with a nice looking UI with stats and graphs that update in real time. 
+Locust provides you with a nice-looking UI with stats and graphs that update in real-time. 
 You can hit the Stop button to stop the tests.
 
 ![Locust UI stats](/img/locust/locust_ui_stats.png)
@@ -215,15 +224,15 @@ I've felt that the documentation is well written and easy to follow. Locust look
 
 ### How to structure the test code?
 
-When the `locustfile.py` grows too big, I've splitted the test code like this:   
+When the `locustfile.py` grows too big, I've structured the test code like this:   
 
-- locust.conf (parameters such as the amount of users)
+- locust.conf (parameters such as the number of users)
 - locustfile.py (the users and their tasks and nothing more)
 - api.py (API client which is used by the tasks in locustfile.py)
 - testdata.py (test data builder / json for the API calls)
 - credentials.py (usernames and passwords for the API calls)
 
-With this structure, the locustfile stays clean and it's easier to see what the users are actually doing.
+With this structure, the locustfile stays clean and it's easier to see what the users are doing.
 
 ### API client to simplify the test definitions
 
@@ -359,10 +368,10 @@ You have at least two options to do this.
 #### Running Locust with a simple shell command
 
 The simplest way of adding Locust to your build pipeline is to add a step and just call ```locust```.
-After that you can check the (console) output to see the stats.
+After that, you can check the (console) output to see the stats.
 The build fails if there are any errors in calls made by Locust.
 
-In Jenkins, an "Execute Shell" -build step can run Locust and fail the build, if return value from Locust is anything else but 0.
+In Jenkins, an "Execute Shell" -build step can run Locust and fail the build if return value from Locust is anything else but 0.
 The same principle works with Github Actions.
 The following GitHub action can help you with the setup:
 [https://github.com/marketplace/actions/locust-load-test](https://github.com/marketplace/actions/locust-load-test)
@@ -371,8 +380,8 @@ The following GitHub action can help you with the setup:
 
 What if you want response time tracking across builds?
 
-With Jenkins you can use the [Performance Plugin](https://plugins.jenkins.io/performance/), which works with
-most of the popular Open Source load testing tools including: Apache JMeter, Gatling, Grinder and Locust. 
+With Jenkins, you can use the [Performance Plugin](https://plugins.jenkins.io/performance/), which works with
+most of the popular Open Source load testing tools including Apache JMeter, Gatling, Grinder, and Locust. 
 For more information, read [http://jenkinsci.github.io/performance-plugin/RunTests.html](http://jenkinsci.github.io/performance-plugin/RunTests.html).
 
 There is a Github Action for [continuous benchmarking](https://github.com/marketplace/actions/continuous-benchmark),
@@ -388,9 +397,10 @@ In my opinion, some level of load testing makes perfect sense in pretty much eve
 In addition to providing surrogate metrics of system performance, 
 it is likely to see surprising results and benefits you can get from performance testing. 
 
-Locust is a Python based load testing tool, that just recently skyrocketed to the list of "my favourite developing tools",
+Locust is a Python based load testing tool, that just recently skyrocketed to the list of "my favorite developing tools",
 because it's easy to use and easy to understand.
 
 You can find the full source code of this blog post from [https://github.com/janneri/locust-tutorial](https://github.com/janneri/locust-tutorial). 
-This repo contains a sample NodeJS app which is tested and an example of Locust test implementation.
-Thanks for reading and happy perf testing with Locust!
+This repo contains a sample NodeJS app that is tested and an example of Locust test implementation.
+
+Thanks for reading and happy load testing with Locust!
