@@ -62,6 +62,12 @@ The modeling with OutSystems is done  by a graphical interface where you create 
 
 OutSystems creates basic CRUD methods to access the data automatically and you can create your own aggregates. Aggregations are done with drag and dropping entities to a excel like interface where you define the query parameters, functional attributes and joins. OutSystems shows a preview of the fetched data so you can immediately see how changes affect the results.
 
+![OS aggregate](../img/i-challenged-low-code-with-code/os-aggregate.png)
+
+***OutSystems aggregate creation***
+
+In the picture the event table is left joined, "with or without" in OutSystems terms. It also has a functional attribute ParticipantCount.
+
 With OutSystems you can also use custom SQL-queries to access data. So the access pattern is really comprehensive. This kind of shows that developing with OutSystems really requires coding knowledge and is not just magic all over the place. 
 
 ### Front-end 
