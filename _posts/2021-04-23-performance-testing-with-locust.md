@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Load testing with Locust
+title: Locust makes performance testing easy
 author: janneri
 excerpt: >
   Locust is a load testing tool where user behavior is defined with Python code. 
