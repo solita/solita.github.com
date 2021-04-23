@@ -95,9 +95,10 @@ Writing logic is probably the thing you do most when coding. With OutSystems you
 The above logic is from my training application when I studied for the certification exam. The idea is to populate a 5 element array with boolean values that indicate if a star is on or off for a movie rating.  So basically the above code is equivalent to this
 
 ```kotlin
-val list = MutableList()
-for(i < 5) {
-    list.add(i < rating)
+val list = mutableListOf<Boolean>()
+var i = 0
+while (i < 5) {
+    list.add(i++ < rating)
 }
 return list
 ```
