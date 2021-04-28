@@ -418,10 +418,10 @@ Modern cloud platforms are pretty great as they are infrastructure implemented w
 
 To achieve a similar level of "out of the boxness" as OutSystems I decided to host my application in Heroku. Steps to get a deployment pipeline in Heroku 
 
-* At Heroku web site and registerer an account.
+* Go to Heroku web site and register an account.
 * Create a deployment pipeline. 
-* Add 2 applications to the pipeline, staging, and prod. 
-* Link applications to Github repository
+* Add 2 applications to the pipeline: staging and prod. 
+* Link applications to GitHub repository.
 * Add PostgreSQL database add-on.
 
 ![Heroku apps](/img/i-challenged-low-code-with-code/heroku-app-creation.png)
