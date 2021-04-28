@@ -24,7 +24,7 @@ Well...maybe not, there still might be a chance for us traditional developers as
 
 I'm going to use OutSystems as the representation for low-code platforms. OutSystems is a platform I've used and I also have an OutSystems developer certificate. So, I know at least something about it. The intention of this blog is not to undersell low-code. On the contrary, I feel that OutSystems can do many things very well, not all, but many.
 
-Low-code platforms usually use graphical-based programming where many commonly used features come out of the box. From these graphical presentations, OutSystems creates C# code and jQuery or React-based web applications. If you're interested to learn  OutSystems they provide a free development environment to test out the platform and, in my opinion, one of the best practice materials I've come across:
+Low-code platforms usually use graphical programming tool, where many commonly used features come out of the box. From these graphical presentations, OutSystems creates C# code and jQuery or React-based web applications. If you're interested to learn OutSystems, they provide a free development environment to test out the platform and, in my opinion, one of the best practice materials I've come across:
 
 >  https://www.outsystems.com/training/paths/
 
