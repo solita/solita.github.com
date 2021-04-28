@@ -32,7 +32,7 @@ I'm going to focus on certain aspects of development so this is not a deep dive 
 
 ### Development environment 
 
-In OutSystems the development is always done in the cloud environment. This has multiple implications
+In OutSystems the development is always done in the cloud environment. This has multiple implications:
 
 * No need to set up anything 
 * The environment is shared with all the developers
