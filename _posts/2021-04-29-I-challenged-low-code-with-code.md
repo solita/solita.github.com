@@ -250,7 +250,7 @@ For more complex queries we can use the JDBC template to write pure SQL. In my o
 
 ### Front-end
 
-There are many great alternatives for creating rich client applications. I've chosen Vaadin flow which enables very fast UI development. With Vaadin flow the UI is implemented at the backend and the actual client code is generated from the Kotlin / Java code. The UI Components generate events that you listen to e.g. value changed and so on. Vaadin takes care of the communication between the client application and the backend so you can just concentrate on writing the logic. I've also added karibu dsl library that enables structured coding style using the idea behind Kotlin's type-safe builders
+There are many great alternatives for creating rich client applications. I've chosen Vaadin Flow which enables very fast UI development. With Vaadin Flow the UI is implemented at the backend and the actual client code is generated from the Kotlin / Java code. The UI Components generate events that you listen to e.g., value changed and so on. Vaadin takes care of the communication between the client application and the backend, so you can just concentrate on writing the logic. I've also added the Karibu-DSL library that enables structured coding style using the idea behind Kotlin's type-safe builders:
 
 > https://kotlinlang.org/docs/type-safe-builders.html
 
