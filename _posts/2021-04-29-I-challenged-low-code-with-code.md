@@ -432,7 +432,7 @@ To achieve a similar level of "out of the boxness" as OutSystems I decided to ho
 
 ***Deployment pipeline***
 
-Heroku automatically detected that I had a spring boot application and build and deployed it to staging. It also set the database environment variables so that the spring would pick them up and use that for its database. This took 10 minutes and the cost for a small application is 0€. 
+Heroku automatically detected that I had a Spring Boot application and built and deployed it to staging. It also set the database environment variables so that the Spring would pick them up and use them for its database. This took 10 minutes and the cost for a small application is 0€. 
 
 > **Note** the free level at Heroku isn't feasible for production-level software
 >
