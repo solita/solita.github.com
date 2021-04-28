@@ -1,7 +1,7 @@
 layout: post
 title: I challenged low-code with code
 author: hnybom
-excerpt: > Low-code platforms will account for 65% of application development by 2024. Why? Can low-codes productive gains be challenged with traditional coding? In this blog, I'm going to try to find out.
+excerpt: > Low-code platforms will account for 65% of application development by 2024. Why? Can the low-code productivity gains be challenged with traditional coding? In this blog, I'm going to try to find out.
 
 tags:
  - Low-code
