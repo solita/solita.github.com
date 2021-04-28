@@ -1,7 +1,9 @@
+---
 layout: post
 title: I challenged low-code with code
 author: hnybom
-excerpt: > Low-code platforms will account for 65% of application development by 2024. Why? Can the low-code productivity gains be challenged with traditional coding? In this blog, I'm going to try to find out.
+excerpt: > 
+  Low-code platforms will account for 65% of application development by 2024. Why? Can the low-code productivity gains be challenged with traditional coding? In this blog, I'm going to try to find out.
 
 tags:
  - Low-code
@@ -9,12 +11,13 @@ tags:
  - Spring
  - Vaadin
  - Kotlin
+---
 
 # Low-codecalypse
 
 Low-code platforms will account for 65% of application development by 2024 says Gartner 
 
-> https://venturebeat.com/2021/02/14/no-code-low-code-why-you-should-be-paying-attention/
+[https://venturebeat.com/2021/02/14/no-code-low-code-why-you-should-be-paying-attention/](https://venturebeat.com/2021/02/14/no-code-low-code-why-you-should-be-paying-attention/)
 
 Development with the low-code platforms is stated to be 5 to 7 times faster than traditional development. Time to apply for early retirement I guess, so long, and thanks for all the fishes!
 
@@ -26,7 +29,7 @@ I'm going to use OutSystems as the representation for low-code platforms. OutSys
 
 Low-code platforms usually use graphical programming tool, where many commonly used features come out of the box. From these graphical presentations, OutSystems creates C# code and jQuery or React-based web applications. If you're interested to learn OutSystems, they provide a free development environment to test out the platform and, in my opinion, one of the best practice materials I've come across:
 
->  https://www.outsystems.com/training/paths/
+[https://www.outsystems.com/training/paths/](https://www.outsystems.com/training/paths/)
 
 I'm going to focus on certain aspects of development so this is not a deep dive to low-coding. For that, I recommend the learning material. Let's start with a focus on OutSystems and after that see what traditional coding can offer.
 
@@ -80,9 +83,7 @@ OutSystems has multiple variants for front-ends.
 
 With OutSystems creating views is done using components such as a list. To populate a list with data you create a data aggregate from your entities and then drag and drop the fields of the aggregate to the list. This creates a list component with the selected fields. The same model applies to other components as well. Using components is the main benefit of OutSystems. The speed at which you can create views by composing them of components and then populating them with data is very fast. The quite tight coupling of the database entities and UI is somewhat worrying but OutSystems tooling does help with that as it will point out errors caused by changes in the DB entities and disable deployment.
 
-OutSystems also has a large catalog of view templates that you can use as a basis for your application. Templates create views that are already populated with components and then you can select what data is used in the views components. You can also add and remove components to suit the application needs. You can find the built-in templates at
-
-> https://outsystemsui.outsystems.com/OutSystemsUIWebsite/ScreenOverview?RuntimeId=2
+OutSystems also has a large catalog of view templates that you can use as a basis for your application. Templates create views that are already populated with components and then you can select what data is used in the views components. You can also add and remove components to suit the application needs. You can find the built-in templates at [OutSystems templates](https://outsystemsui.outsystems.com/OutSystemsUIWebsite/ScreenOverview?RuntimeId=2)
 
 ### Logic
 
@@ -119,13 +120,9 @@ OutSystems platform can be run in
 
 I'll concentrate on the OutSystems cloud where you get 3 stages out of the box (dev, test, and prod). You can publish your changes straight from the service studio with its one-click deployment to the dev environment. To promote the application version to higher stages you use the lifetime web application. Publishing changes can cause merge conflicts when multiple developers are working on the same thing. Merging is a little hard with OutSystems as the presentation is graphical. Service studio tries to highlight the conflicts but it's not easy to do merging. It's recommended that only two developers work with the same modules at once. The rationale is that with OutSystems the speed is higher so you don't even need more. This does help with the merging as well as there won't be as many conflicts.
 
-This is continuous deployment but with human interaction. Lifetime does have APIs to integrate e.g. Jenkins to it You can find more information from the link below
+This is continuous deployment but with human interaction. Lifetime does have APIs to integrate e.g. Jenkins to it You can find more information at [Lifetime APIs and Jenkins](https://success.outsystems.com/Documentation/How-to_Guides/DevOps/How_to_automate_container_deployment_by_using_LifeTime_API_v2_and_Jenkins)
 
-> https://success.outsystems.com/Documentation/How-to_Guides/DevOps/How_to_automate_container_deployment_by_using_LifeTime_API_v2_and_Jenkins
-
-For automated testing, OutSystems has a separate BDD framework that you need to add to your testing project. This is out of scope of this blog. More info at
-
-> https://success.outsystems.com/Documentation/How-to_Guides/DevOps/How_to_Automate_Unit_Testing_and_API_Testing
+For automated testing, OutSystems has a separate BDD framework that you need to add to your testing project. This is out of scope of this blog. More info at [Automated unit testing and API testing with OS](https://success.outsystems.com/Documentation/How-to_Guides/DevOps/How_to_Automate_Unit_Testing_and_API_Testing)
 
 So in summary you get 3 environments and manually triggered deployment to them. Anything more requires just as much work as it does with any other CI / CD solution.
 
@@ -148,7 +145,7 @@ To challenge the speed of low-code I'm going to use the following stack
 
 To save some time on starting the development I'm going to use Spring initializr web app 
 
-> https://start.spring.io/ 
+[https://start.spring.io/](https://start.spring.io/)
 
 to generate the needed skeleton for the project. 
 
@@ -252,7 +249,7 @@ For more complex queries we can use the JDBC template to write pure SQL. In my o
 
 There are many great alternatives for creating rich client applications. I've chosen Vaadin Flow which enables very fast UI development. With Vaadin Flow the UI is implemented at the backend and the actual client code is generated from the Kotlin / Java code. The UI Components generate events that you listen to e.g., value changed and so on. Vaadin takes care of the communication between the client application and the backend, so you can just concentrate on writing the logic. I've also added the Karibu-DSL library that enables structured coding style using the idea behind Kotlin's type-safe builders:
 
-> https://kotlinlang.org/docs/type-safe-builders.html
+[https://kotlinlang.org/docs/type-safe-builders.html](https://kotlinlang.org/docs/type-safe-builders.html)
 
 Following code will create a grid view of the games in the database.
 
@@ -398,7 +395,7 @@ This means that if the dialog is open in multiple different browsers they update
 
 ### Logic
 
-I've encountered a little problem. My application is so simple it has hardly any business logic. So let's revisit the example from the OutSystems chapter. If you recall it used a loop to populate an array with five boolean values. I remember that when I was doing the exercise it felt cumbersome to write, or draw. The reason it felt that way is that it was slow and not a natural way for me to express what I wanted. With Kotlin I would write it like this
+I've encountered a little problem. My application is so simple it has hardly any business logic. So let's revisit [the example](#logic) from the OutSystems chapter. If you recall it used a loop to populate an array with five boolean values. I remember that when I was doing the exercise it felt cumbersome to write, or draw. The reason it felt that way is that it was slow and not a natural way for me to express what I wanted. With Kotlin I would write it like this
 
 ```kotlin
 fun createStarArray(rating: Int) = (0..4).map { it < rating }
@@ -408,9 +405,9 @@ When it comes to implementing logical operations traditional coding is faster an
 
 OutSystems long-running business processes are a little bit out of scope here but there are OS tools to achieve similar modeling. I'll just list some of the tools here and won't go through them in any more detail
 
-* https://spring.io/projects/spring-statemachine
-* https://www.activiti.org/
-* https://camunda.com/products/camunda-platform/
+* [https://spring.io/projects/spring-statemachine](https://spring.io/projects/spring-statemachine)
+* [https://www.activiti.org/](https://www.activiti.org/)
+* [https://camunda.com/products/camunda-platform/](https://camunda.com/products/camunda-platform/)
 
 ### Deployment
 
@@ -443,15 +440,15 @@ I'd say Heroku is pretty close to getting a ready-made environment. Heroku also 
 
 The application in this blog is available for a limited time at
 
->  https://lowcode-challenge-staging.herokuapp.com/
+[https://lowcode-challenge-staging.herokuapp.com/](https://lowcode-challenge-staging.herokuapp.com/)
 
 and
 
-> https://lowcode-challenge-prod.herokuapp.com/
+[https://lowcode-challenge-prod.herokuapp.com/](https://lowcode-challenge-prod.herokuapp.com/)
 
 Also, source code for it is available at
 
->  https://github.com/hnybom/low-code-vs-code
+[https://github.com/hnybom/low-code-vs-code](https://github.com/hnybom/low-code-vs-code)
 
 ## Final thoughts
 
@@ -472,6 +469,6 @@ So what about the speed of developing applications. The development speed differ
 
 The actual benefit you gain from low-code is that it enables more people to do coding as the learning curve is not that steep. That doesn't mean you don't need to understand software architecture because you do. Otherwise, the systems will become very hard to maintain and to develop further efficiently. I strongly disagree with the whole citizen developer idea in the context of production-quality applications with long lifespans
 
-> https://www.outsystems.com/blog/posts/citizen-developer/
+[https://www.outsystems.com/blog/posts/citizen-developer/](https://www.outsystems.com/blog/posts/citizen-developer/)
 
 So where does this leave us? Is low-code going to take over the solution landscape? Low-code will lower the bar for investment decisions to build solutions. Especially if you have already bought the platform. This means companies will create more applications internally as well as externally. So instead of replacing the traditional solutions, there will just be more of them and applications will be built by a wider group of developers. Which in turn will accelerate the need for more features and APIs for other systems like the existing backend solutions. I would thus argue this means even more demand for all kinds of developers.
