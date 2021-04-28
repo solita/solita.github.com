@@ -38,7 +38,7 @@ In OutSystems the development is always done in the cloud environment. This has 
 * The environment is shared with all the developers
 * Internet connection is needed for the development
 
-You write your applications mainly with the OutSystems service studio IDE. Service studio is currently a Windows-only tool so that restricts the developer to the windows platform. OutSystems is building a new cross-platform version of the service studio so after that, you'll be able to use it with a mac as well. Service studio has different views for the processes, UI, logic, and data. All of them are graphical by nature 
+You write your applications mainly with the OutSystems service studio IDE. Service studio is currently a Windows-only tool so that restricts the developer to the Windows platform. OutSystems is building a new cross-platform version of the service studio so after that, you'll be able to use it with a Mac as well. Service studio has different views for the processes, UI, logic, and data. All of them are graphical by nature.
 
 ![OS logic coding](/img/i-challenged-low-code-with-code/os-events-logic.png)
 
