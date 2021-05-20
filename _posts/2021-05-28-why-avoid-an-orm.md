@@ -7,9 +7,13 @@ excerpt: >
 
 tags:
  - ORM
+ - Object-orientation
  - Hibernate
  - Java
- - 
+ - Antipatterns
+ - Best practices
+ - Database
+ - SQL
 ---
 
 I happened to discourage using an ORM in our company internal Slack and suddenly found myself needing to explain some problems common in ORMs. I got a little bit carried away, and the explanation turned into this blog post.
