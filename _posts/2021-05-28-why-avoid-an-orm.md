@@ -14,7 +14,7 @@ tags:
 
 I happened to discourage using an ORM in our company internal Slack and suddenly found myself needing to explain some problems common in ORMs. I got a little bit carried away, and the explanation turned into this blog post.
 
-I'm certainly not alone with this opinion, see for example [here](https://wozniak.ca/blog/2014/08/03/1/index.html), [here](https://abe-winter.github.io/2019/09/03/orms-backwards.html) or [Ted Neward's classic](http://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
+I'm certainly not alone with this opinion, see for example [here](https://wozniak.ca/blog/2014/08/03/1/index.html), [here](https://abe-winter.github.io/2019/09/03/orms-backwards.html), or [Ted Neward's classic](http://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf).
  
 ## What is an ORM?
  
@@ -26,7 +26,7 @@ _N+1 queries_, _object identity_ and _managing object relationships_ are concept
  
 My opinion? ORM stands for **object-relational mapping**, so I'd say an ORM is a tool that does some kind of _mapping_ between a relational and an object-oriented representation of data, including querying and modifications. Just writing the tables and columns as classes and types in another language, and using them to create SQL queries, doesn't yet count as an ORM. Your mileage may vary.
  
-Here follows some explanations about [N+1 queries](#n+1-queries), [Object identity](#object-identity) and [Managing object relationships](#managing-object-relationships), and how they manifest as problems. Feel free to point out any mistakes or misunderstandings I may have.
+Here follows some explanations about [N+1 queries](#n+1-queries), [Object identity](#object-identity), and [Managing object relationships](#managing-object-relationships), and how they manifest as problems. Feel free to point out any mistakes or misunderstandings I may have.
  
  
  
@@ -141,7 +141,7 @@ Department getDepartment(Department depId) {
 ...
 }
 ```
-But then you run into problems with transaction boundaries. The UI can print out the department's identifier (even if it happens to be a proxy), and the name (if it's an actual instance), but the moment it tries to call its `getEmployees()` method it blows up because the database transaction isn't open anymore. This is because you shouldn't keep it open during the rendering of the end result - at least for modifying transactions or if your database is not [MVCC](https://en.wikipedia.org/wiki/Multiversion_concurrency_control) - or you'll run into problems.
+But then you run into problems with transaction boundaries. The UI can print out the department's identifier (even if it happens to be a proxy), and the name (if it's an actual instance), but the moment it tries to call its `getEmployees()` method it blows up because the database transaction isn't open anymore. This is because you shouldn't keep it open during the rendering of the result - at least for modifying transactions or if your database is not [MVCC](https://en.wikipedia.org/wiki/Multiversion_concurrency_control) - or you'll run into problems.
  
 So, is it better to always use `Id<Department>` or `Department` for referencing the identity? There's no simple answer because I think `Id<Department>` would be strictly better but it's not compatible with the approach of representing the data as an object graph, which was the main point of using an ORM in the first place.
  
@@ -175,7 +175,7 @@ There's still the problem of keeping the sides in sync, though. And the results 
 - unless some earlier code within the same session (~transaction) had already called `getEmployess()` -method of the same department which might have been a different department object retrieved from `em.get(depId)` but which at least Hibernate caches in memory and returns the same object instance on subsequent calls within the same transaction
   - thus making the collection already populated even though the code looks like everything was directly fetched from the database
  
-Who's going to be able to spot this kind of problem in an actual code base with actual business logic everywhere? Who even knows if you particular ORM happens to work exactly like this?
+Who's going to be able to spot this kind of problem in an actual code base with actual business logic everywhere? Who even knows if your particular ORM happens to work exactly like this?
 Not me.
  
  
