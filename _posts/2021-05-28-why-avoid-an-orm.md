@@ -30,11 +30,11 @@ _N+1 queries_, _object identity_ and _managing object relationships_ are concept
  
 My opinion? ORM stands for **object-relational mapping**, so I'd say an ORM is a tool that does some kind of _mapping_ between a relational and an object-oriented representation of data, including querying and modifications. Just writing the tables and columns as classes and types in another language, and using them to create SQL queries, doesn't yet count as an ORM. Your mileage may vary.
  
-Here follows some explanations about [N+1 queries](#n+1-queries), [Object identity](#object-identity), and [Managing object relationships](#managing-object-relationships), and how they manifest as problems. Feel free to point out any mistakes or misunderstandings I may have.
+Here follows some explanations about [Amount of queries](#amount-of-queries), [Object identity](#object-identity), and [Managing object relationships](#managing-object-relationships), and how they manifest as problems. Feel free to point out any mistakes or misunderstandings I may have.
  
  
  
-## N+1 queries
+## Amount of queries
  
 A notable part of ORMs is to represent relational data in memory as objects with relationships. For example, _employees_ which all belong to a single _department_. This representation is not only to represent data fetched from the database but also to query new data, which is the problem.
  
@@ -82,17 +82,17 @@ The correct answer is ”not enough information” since it depends on how the r
  
 The most obvious (and usually the best) configuration is to configure all relationships as lazily fetched, and everything else (that is, "ordinary data") as eagerly fetched (oddly, [Java Persistence API](https://en.wikibooks.org/wiki/Java_Persistence) decided to default to fetching to-one relationships eagerly). In this case on `line 2` a single query is made for all departments, and on `line 3` one query is made for each department to get its employees. On `line 4` no more queries would be made since employee names would be fetched already on `line 3`. So if there are 10 departments, this is 10+1 queries. If there are 100 departments, this is 100+1 queries.
  
-This is going to blow up if there are more departments. You can say ”hey, that code is easy to fix” but the problem is that in real life that object graph traversing is separated into multiple different functions each performing their own thing, and they cannot know when they are doing database fetches.
+This is called _n+1 queries_ and it's going to blow up when there are more departments. You can say ”hey, that code is easy to fix” but the problem is that in real life that object graph traversing is separated into multiple different functions each performing their own thing, and they cannot know when they are doing database fetches.
  
-Imagine if you only wanted to print the number of employees for each department. You’d be performing the same amount of queries and still fetching half the database to memory for nothing. Some ORMs optimize for this by providing collection _proxies_, which they only populate with item references (proxies) without actual data. But it’s only a hack at best, and we get to step into the rabbit hole of proxies.
- 
-ORMs of course provide ways to avoid n+1 problems. One way is to configure the fetching strategy for a relationship to be eager so that you can say that the employees of a department are always fetched from the database whenever the department data is fetched. But imagine the performance when there are departments with thousands of employees and your use case is only interested in the department data and not the employees.
+ORMs of course provide ways to avoid the problem. One way is to configure the fetching strategy for a relationship to be eager so that you can say that the employees of a department are always fetched from the database whenever the department data is fetched. But imagine the performance when there are departments with thousands of employees and your use case is only interested in the department data and not the employees.
  
 This can be improved by providing different fetching strategies for different use cases, but since the mapping configuration is more or less static, you can’t handle different needs easily. Well, you can (for example by using annotations/metadata to specify different fetching strategies that can be enabled one way or another), but you need to fall back to using some kind of query language where you can specify how much data you want to fetch. And since you are falling back to a query language, why not just use a query language in the first place and forget about object graphs.
+
+Imagine if you only wanted to print the number of employees for each department. You’d be performing the same amount of queries and still fetching half the database to memory for nothing. Some ORMs optimize for this by providing collection _proxies_, which they only populate with item references (proxies) without actual data. But it’s only a hack at best, and we get to step into the rabbit hole of proxies.
  
 Another problem is that maybe you have pagination and you want to display only 50 employees at a time. But you can’t specify this in an object graph since all you are saying is `getEmployees()` and doing the pagination afterward. ORMs handle this by not fetching all employees in one query, but some configurable amount at a time. Again, the amount of actual queries (or physical database fetches of the result of a single query) depends on static configuration and you’d need to fall back to a query language to vary it for different use cases.
  
-Even though ORMs provide these means to handle the issue, the biggest problem is that you’d have to know if, when, and how to use them. And since you don’t even know when actual queries are being performed in the first place, it’s practically impossible. At least I’m not smart enough for it. Modern computers are blazingly fast, so these problems are rarely visible with any ordinary test data, and thus they creep up in production or only manifest themselves as ”well, this app feels somewhat sluggish...”.
+Even though ORMs provide these means to handle the problems, the biggest problem is that you’d have to know if, when, and how to use them. And since you don’t even know when actual queries are being performed in the first place, it’s practically impossible. At least I’m not smart enough for it. Modern computers are blazingly fast, so these problems are rarely visible with any ordinary test data, and thus they creep up in production or only manifest themselves as ”well, this app feels somewhat sluggish...”.
  
  
  
@@ -199,7 +199,7 @@ would look like this:
 ```java
 Collection<Employee> emps = dao.getMany(query.related(department, Department_.employees));
 ```
-It makes performing queries just as easy, but explicit. And it completely avoids both n+1 and relationship problems. This is even better typed since it returns a Collections instead of an (ordered) List since we didn't give an explicit ordering for the query.
+It makes performing queries just as easy, but explicit. And it completely avoids both n+1 and relationship problems. The amount of actual queries in more complex cases may be more than one, but it's still statically determined from the structure of the code and doesn't demend on the amount of data. This is even better typed since it returns a Collections instead of an (ordered) List since we didn't give an explicit ordering for the query.
  
 We can just as easily do projections instead of fetching the whole employees:
 ```java
