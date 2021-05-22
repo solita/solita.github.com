@@ -174,7 +174,7 @@ Since the ORMs don't do this (at least I think none do), you could implement `se
 There's still the problem of keeping the sides in sync, though. And the results aren't even (locally) deterministic. If you set the department of an employee via `employee.setDepartment(newDep)`, and after that call `department.getEmployees()`, the new employee is going to be found in the collection
 - unless the employees were configured to be eagerly fetched
   - in which case the collection was already populated when the department was fetched, and won't be re-populated automatically
-- unless the previous code in the previous lines (or the previous functions) had already called `department.getEmployees()` at least once
+- unless the code in the previous lines (or the previous functions) had already called `department.getEmployees()` at least once
   - in which case the collection was already populated before the modification, and will be returned in the original state
 - unless some earlier code within the same session (~transaction) had already called `getEmployess()` -method of the same department which might have been a different department object retrieved from `em.get(depId)` but which at least Hibernate caches in memory and returns the same object instance on subsequent calls within the same transaction
   - thus making the collection already populated even though the code looks like everything was directly fetched from the database
