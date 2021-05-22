@@ -100,9 +100,11 @@ Even though ORMs provide these means to handle the problems, the biggest problem
  
 If you have an employee, what is its identity? When are two employees the same? How do you reference a specific employee?
  
-In a relational database, the identity is defined by a key, but in object graphs, it would more naturally be defined by object equality. These need to be in sync, otherwise you run into weird problems, like objects disappearing when you fetch them from the database to a `Set`. 
- 
-As far as I know, ORMs tend to handle this by forbidding object identity (don’t override object equality) and always use the database identity. Too bad you now have to live with objects that look equal but are not. A company named "Solita" isn’t equal to a company named "Solita” until you fetch them both from the database to compare their keys.
+In a relational database, the identity is defined by a key. In an object graph, the identity is defined by object equality. When using an ORM, these need to be in sync. Otherwise you'll run into weird problems, like objects disappearing when you fetch them from the database to a `Set`. 
+
+When not using an ORM, these don't need to be in sync, since after the rows are retrieved from the database they are "just data" and don't represent particular database rows anymore. For example, it might be that `email` table in the database has duplicate email addresses for some reason (maybe the data comes from somewhere else, or maybe we know we are going to extend that table later). In our object model, however, it might be beneficial to define equality on our `Email` class by the address since obviously `foo@example.com` and `foo@example.com` are equal emails. But that would break our ORM.
+
+You can of course keep `Email` class referencing the database row with database equality, and make an ordinary `EmailAddress` type with proper equality for the actual address column. This avoids the problem but results in a bit more awkward object model. Anyway, [equality is hard](https://www.craigstuntz.com/posts/2020-03-09-equality-is-hard.html) but ORMs certainly don't make it any easier.
  
 What if you want to fetch objects that don't have an identity? This is quite common in a relational database. The ORM would have to support result objects _with_ identity and result objects _without_ identity. [Hibernate](https://hibernate.org) or _Java Persistence API_ doesn't, so apparently, it's not trivial to support for some reason. If you do `SELECT firstname, lastname FROM employees` you don't have any identifiers and easily get duplicate rows, which is fine until your ORM forces you to represent everything as objects with identity.
  
