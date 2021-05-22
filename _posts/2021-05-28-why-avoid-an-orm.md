@@ -216,7 +216,7 @@ We can use `Id<Department>` for referencing the identity everywhere since we are
 if You decide to take it into account:
 - don't use an ORM
   - In my current Java project, we use Hibernate, but something like [jOOQ](http://www.jooq.org) would probably be a lot better, and a lot less of an ORM.
-- think database first
+- think [database first](https://blog.jooq.org/2018/06/06/truth-first-or-why-you-should-mostly-implement-database-first-designs/)
   - design your database in SQL, and make your Java/C#/etc tool understand that. Not the other way round. This also applies to migrations where (in Java) something like [DBMaintain](http://www.dbmaintain.org) or [Flyway](https://flywaydb.org) are nice tools.
 - use a tool to represent database concepts (tables, views, functions, types...) in Java/C#/whatever structures
   - Hibernate has wide support for mapping different kinds of structures to Java code. Some tools may provide more, some less.
