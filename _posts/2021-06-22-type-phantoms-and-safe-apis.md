@@ -28,6 +28,9 @@ in TS are compile-time only but can be derived from the runtime code. This code 
 validate data at the edges of the type system. [io-ts](https://gcanti.github.io/io-ts/) uses this
 approach.
 
+Libraries like [tRPC](https://trpc.io/) derive the API types from the server implementation. This
+avoids writing separate models entirely and can integrate well with validation code.
+
 My colleague
 Jaakko [also blogged about typed APIs](https://dev.solita.fi/2018/09/06/fullstack-typed-api-with-typescript.html)
 earlier. Using type casts can enable some powerful features, such as runtime type checks.
@@ -227,13 +230,13 @@ type EndpointBase<
 > = Call<PathParams, Body, Result> & RouteBase<Pattern, Method>
 
 export type Endpoint<T = any> =
-  T extends EndpointBase<infer PathParams, infer Body, infer Result, infer Path, infer Method>
-    ? EndpointBase<PathParams, Body, Result, Path, Method>
+  T extends EndpointBase<infer PathParams, infer Body, infer Result, infer Pattern, infer Method>
+    ? EndpointBase<PathParams, Body, Result, Pattern, Method>
     : never
 
 export type Route<T> =
-  T extends EndpointBase<infer PathParams, infer Body, infer Result, infer Path, infer Method>
-    ? RouteBase<Path, Method>
+  T extends EndpointBase<infer PathParams, infer Body, infer Result, infer Pattern, infer Method>
+    ? RouteBase<Pattern, Method>
     : never
 
 export type Endpoints<T = any> = { [K in keyof T]: Endpoint<T[K]> }
@@ -501,6 +504,9 @@ const createHandler = <EP extends Endpoint>(handler: Handler<EP>): RouteHandler<
   }
 ```
 
+This example uses a plain `string` as the error type. The error type could also be some structured
+error, or even depend on the result type.
+
 Of course, the backend code could throw exceptions regardless, so still catching those as well would
 be useful.
 
@@ -522,7 +528,7 @@ export type Handler<EP extends Endpoint> =
 
       return client.request<EP['result']>({ data, method, url })
         .then(r => ({ ok: true, value: r.data }))
-        .catch(e => ({ ok: false, value: e?.response ?? 'Request failed' }))
+        .catch(e => ({ ok: false, error: e?.response ?? 'Request failed' }))
     }
 
     return handler
@@ -663,8 +669,8 @@ perhaps some could even be removed entirely? It's easy to make some types simple
 inference can suffer, and the error messages could become more cryptic.
 
 It's also possible to derive all the API model types from the server-side implementation. Then
-separate types wouldn't have to be written at all. However, this would make the API model less
-understandable in most cases and make some error messages incomprehensible.
+separate types wouldn't have to be written at all. However, this could make the API model less
+understandable, and some error messages incomprehensible.
 
 Despite these challenges, there's probably a lot that could be improved, without adverse effects on
 readability.
