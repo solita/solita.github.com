@@ -45,20 +45,36 @@ Choosing the right approach depends on the problem: Is the API external, or only
 How important is API documentation? What kind of validation logic is needed? Are you starting a
 greenfield project or expanding existing functionality?
 
-We'll start with an example that can be adapted to any typical REST API. This means using a normal
-route structure, some path parameters, and common HTTP methods. After a basic example, we'll explore
-expanding the functionality to cover real-world use cases and ponder a bit how all this could be
-simpler or even more useful.
+## Application structure
+
+Often using a REST API in a web application means writing some extra glue code for each endpoint. In
+frontend this code creates HTTP requests with the correct path, method and parameters. Similarly,
+the backend code matches the request URLs with specific functions to handle the requests. In this
+post we'll try to reduce the amount of this glue code to a minimum:
+
+![Type-safe REST API application](/img/type-phantoms-and-safe-apis/rest-type-map.svg)
+
+The client components or services are still custom application code. The same goes for the server
+handlers. We also create a declarative API model. This model connects the application code and the
+client and server libraries using common utility functions. This structure isn't really tied to the
+type safety, but a declarative model is a good match for a type-safe API.
+
+This post describes one way to write those utility functions. We'll start with an example of a basic
+REST API: It includes a route structure and uses some path parameters and common HTTP methods. After
+the basics, we'll explore expanding the functionality to cover real-world use cases and ponder a bit
+how all this could be simpler or even more useful.
 
 Complete source code, including a working example
 application, [is available on GitHub](https://github.com/mpajunen/rest-type-map).
 
 ## Designing an API model
 
-As an example, let's create a simple API for spaceships. The ships have features like `name`
-and `size`. We'll give them numeric `id` values as well:
+Let's create a simple API for spaceships. The ships have features like `name` and `size`. We'll give
+them numeric `id` values as well:
 
 ```typescript
+// common/model.ts
+
 type ShipSize = 'small' | 'medium' | 'large' | 'huge'
 
 type ShipFeatures = {
@@ -112,7 +128,7 @@ easier. This enables type manipulation
 using [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
 ```typescript
-// common/Model.ts
+// common/model.ts
 
 type ShipHandlers = {
   getShips: {
@@ -143,7 +159,7 @@ we'll declare an object with keys that match the `ShipHandlers` type. The values
 HTTP method and path pattern. The route types can then be combined with the handler types:
 
 ```typescript
-// common/Model.ts
+// common/model.ts
 
 // Declare routes as a readonly object:
 const routes = {
