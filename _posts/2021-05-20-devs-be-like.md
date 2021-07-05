@@ -3,7 +3,7 @@ layout: post
 title: Devs be like
 author: marja
 excerpt: >
-  Is the life of a developer just coding? Do we all spend our free time exploring new programming languages or other related stuff?
+  Is the (work) life of a developer just coding? Do we all spend our free time exploring new programming languages or other related stuff?
 tags:
  - continuous learning
  - personal growth
@@ -11,7 +11,7 @@ tags:
  - programming
 ---
 
-You all know that stereotype about developers, right? Especially Hollywood loves to keep that idea about Silicon Valley nerds alive and breathing. That we live and breathe to code, non-developers have to constantly remind us to "speak English and not jargon", how we do nothing but code from morning till night, no matter if we are getting paid for it or not. 
+What are developers like? Are we all like that Hollywood stereotype? You know the one about Silicon Valley nerds. That we live and breathe to code, non-developers have to constantly remind us to "speak English and not jargon", how we do nothing but code from morning till night, no matter if we are getting paid for it or not. 
 
 ![Programmer](/img/devs-be-like/programmer.png)
 
@@ -23,7 +23,7 @@ I'm sure people like that exist but I'm not sure I know any personally.
 
 I began my journey to be a developer in my mid-20s when I started studying computer science at a university. I had absolutely no experience with programming (well, I used to have a MySpace page and I updated the theme probably twice a week, so I had tinkered with css a lot). In the beginning of my university studies I was very nervous about fitting in and not being "outed as a hoax" because I thought everybody else knew how to code before coming to university. At least in Finland the stereotype about knowing how to code before going to a school to learn how to code sits very tight. I think very few of those students who I spent my first year with actually knew any coding. You wouldn't expect a person starting at a medical school to already know how to do surgery or to make diagnosis so why should computer science students know how to code?
 
-The stereotype about self-learned developers can be motivating to some. And I think it is great that you can find work as a developer without any formal education. If a teenager spends their time learning programming, that's great, especially since there are probably worse ways for a teenager to spend their time. But the industry has possible missed great developers, because someone didn't have the time or the means as a kid to learn programming. Not everybody has a good enough computer at home that allows them to learn and develop their skills. Or they might have a computer at home, but they need to share it with the rest of the family. Especially if the decision about one's future career has to be made around your teenage years, the current stereotypes about developers surely do not encourage to seek the profession if you do not have had the opportunity to learn.
+The stereotype about self-learned developers can be motivating to some. And I think it is great that you can find work as a developer without any formal education. If a teenager spends their time learning programming, that's great, especially since there are probably worse ways for a teenager to spend their time. But the industry has possibly missed great developers because someone didn't have the time or the means as a kid to learn programming. Not everybody has a good enough computer at home that allows them to learn and develop their skills. Or they might have a computer at home, but they need to share it with the rest of the family. Especially if the decision about one's future career has to be made around your teenage years, the current stereotypes about developers surely do not encourage to seek the profession if you do not have had the opportunity to learn.
 
 ![Child learning](/img/devs-be-like/kid-learning.png)
 
@@ -37,7 +37,7 @@ Getting your first job as a developer can either be easy as heck or the most str
 
 For a junior developer, having some hobby projects to show can be that crucial thing to land that first job. I never had anything special or grand in my Github. I had some css stuff and, if I recall correctly, a very sad skeleton of a project. I definitely could've invested more in those. But for me, they were there just to show possible employers, that I've done _something_. Since I joined Solita in 2017, excluding some university courses, I haven't done _any_ programming whatsoever that I wasn't paid to do. 
 
-Most employers want some kind of proof of a person's skills as a developer before making any decisions about hiring. Therefore, maintaining some projects or such are most probably an asset when thinking about switching jobs. Personally, I just can't find the motivation to do any of that. Maybe if I wasn't this content at Solita and felt the need to find another job, I might actually do something about it.
+Most employers want some kind of proof of a person's skills as a developer before making any decisions about hiring. Therefore, maintaining some projects or such are most probably an asset when thinking about switching jobs. Personally, I just can't find the motivation to do any of that. Maybe, if I wasn't this content at Solita and felt the need to find another job, I might actually do something about it.
 
 ## Keeping your job
 
@@ -45,9 +45,9 @@ No job in the world is static and stays the same. And software development is de
 
 But that does not mean that you need to use your own free time to do all that learning. And obviously, if you want to make a more drastic move in your professional path, you might need to invest some of your own time to learn the basics of that new competence area. But I think that normal project work or time allocated by your company should provide you with enough chances to learn those new, hot and hip programming languages, frameworks, etc.
 
-And besides, software development is definitely not all about programming. Communication is super important. Good people skills come in very handy when you're part of a team. At least someone in the project should have pretty solid skills in coordination and organization. Each team needs a variety of skills and not every developer needs to be the best in programming. They can be a solid 8+ (in Finland we are graded from 4 to 10, 10 being the best), but have good people skills. Or they can be a Jira-wizard and use some of their time organizing the team's backlog.
+And besides, software development is definitely not all about programming. Communication is super important. Good people skills come in very handy when you're part of a team. At least someone in the project should have pretty solid skills in coordination and organization. Each team needs a variety of skills and not every developer needs to be the best in programming. They can be a solid 8- (in Finland we are graded from 4 to 10, 10 being the best), but have good people skills. Or they can be a Jira-wizard and use some of their time organizing the team's backlog.
 
-At least here in Solita, learning new things on company time is very strongly recommended. Feedback is collected from us regularly and one of the things asked is whether or not we are able to learn and to develop ourselves in our daily work life. For me, this is a message that I do not have to spend my evenings learning new things. I can do that during the day and get paid for it. And that leaves me with more time to do things I enjoy and things that energize me.
+At least here in Solita, learning new things on company time is very strongly recommended. Feedback is collected from us regularly and one of the things asked is whether or not we are able to learn and to develop ourselves in our daily work life. For me, this is a message that I do not have to spend my evenings learning new things. I can do that during the day and get paid for it. And that leaves me with more time after work to do things I enjoy and things that energize me.
 
 ## Everything else
 
@@ -55,7 +55,7 @@ Sure, it is possible that your life consists mostly of programming. But in the l
 
 Personally, variance in the things I do is super important. For a short while I might be able to focus on some free time programming tasks, but after a while, I know I'd just drop it and forget about it. 
 
-Instead, I want to use my time with my spouse. I want to take time to go to the indoor climbing gym. I want to take time to see my friends. Having those things in my life and being able to do other things after work than just switching to a hobby project helps me keep balance in my life. 
+Instead, I want to use my time with my spouse. I want to take time to go to the indoor climbing gym. I want to take time to see my friends. Having those things in my life and being able to do other things after work than just switching to a hobby project helps me keep balance in my life and my thoughts clear (or at least clearer...). 
 
 ![Balance](/img/devs-be-like/balance.png)
 
