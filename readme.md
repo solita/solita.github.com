@@ -23,7 +23,7 @@ If you want to write a post, here's how:
 
 ### Optional: Adding exact publication time to your post
 
-Normally the publication date of a post is read from the filename of the post (YYYY-MM-DD-post-name.md, e.g. 2016-03-02-elasticon.md). In this case the puslishing time will show up as 00:00:00.
+Normally the publication date of a post is read from the filename of the post (YYYY-MM-DD-post-name.md, e.g. 2016-03-02-elasticon.md). In this case the publishing time will show up as 00:00:00.
 
 If you want to specify the exact time your post was published, you can add a date-field to your post. In the date field you can specify the publication time in the format YYYY-MM-DD HH:MM:SS +/-TTTT.
 
