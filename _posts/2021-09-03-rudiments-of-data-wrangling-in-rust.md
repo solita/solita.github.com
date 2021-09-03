@@ -5,6 +5,10 @@ author: jerekapyaho
 excerpt: The Rust programming language is typically positioned 
 for systems programming, but there is nothing stopping us from
 enjoying it for basic data wrangling tasks like those often done in Python.
+tags:
+ - rust
+ - data
+ - programming
 ---
 
 The [Rust](https://www.rust-lang.org) programming 
@@ -17,8 +21,8 @@ the list goes on.
 Rust is typically positioned as a language for "systems programming",
 which usually means something rather close to the operating system,
 such as networking or device drivers.
-However, Rust is a general-purpose programming language, and there is
-nothing stopping you from using it for tasks that often are done in
+However, Rust is a general-purpose programming language, and nothing is 
+stopping you from using it for tasks that often are done in
 Python.
 
 Since I started really diving into Rust in the spring of 2021, I've
@@ -31,7 +35,7 @@ by presenting my solution to a quick (and maybe a little dirty)
 data wrangling task. It involves reading and parsing a large CSV file, 
 and then extracting rows that meet certain criteria. It's nothing 
 that couldn't be done in Python, or even with a shell script in Unix,
-but hopefully it serves as an example of how these kinds of common 
+but I hope it serves as an example of how these kinds of common 
 tasks could be done in Rust, and as a basis for extension.
 
 The Rust program presented here can be found on 
@@ -57,12 +61,12 @@ C++, or Python, but it also has many unique features borrowed
 from slightly less mainstream programming languages, for a good 
 reason.
 
-![Rudiments of the Rust programming language (actually named after a fungus)](/img/rudiments-of-data-wrangling-in-rust/rusty-chain.png)
+![Rudiments of the Rust programming language (actually named after a fungus)](/img/rudiments-of-data-wrangling-in-rust/rusty-chain.jpg)
 
 *Photo by <a href="https://unsplash.com/@zmachacek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Zdeněk Macháček</a> on <a href="https://unsplash.com/s/photos/rust?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>*
 
 The most challenging part of learning Rust is its memory management,
-which is based on reference counting and strict control over memory
+which is based on tracking ownership and strict control over memory
 access, but doesn't have garbage collection like Java or Go. The Rust
 compiler has a feature called "the borrow checker", which is responsible
 for this control, so that Rust programs are as safe as possible at 
@@ -93,7 +97,7 @@ and it is also responsible for resolving crate dependencies.
 Once you indicate in your program's `Cargo.toml` file that
 you would like to include a crate, Cargo picks it up,
 downloads it from the [crates.io](https://crates.io) registry, and compiles it 
-with your program.
+into your program.
 
 Many of the tasks in the small Rust program you are about to see
 are actually dependent on functionality found in crates
@@ -118,7 +122,7 @@ only pick up as we try to meet ambitious climate preservation goals
 also in Finland. I thought it would be interesting to know exactly 
 how quickly EVs have become more popular here in the recent years.
 
-![Electric vehicles](/img/rudiments-of-data-wrangling-in-rust/electric-vehicles.png)
+![Electric vehicles](/img/rudiments-of-data-wrangling-in-rust/electric-vehicles.jpg)
 
 *Photo by <a href="https://unsplash.com/@michaelfousert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Michael Fousert</a> on <a href="https://unsplash.com/s/photos/electric-vehicles?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>*
 
@@ -345,14 +349,13 @@ I'm only interested in cars, so a record is only processed
 if it passes the `is_car` predicate test. Similarly, even if 
 the record describes a car, but doesn't pass the `is_electric`
 predicate test, I discard it by moving to the next record
-with the continue statement.
+with the `continue` statement.
 
 At this point I'm confident that I have a record that describes
 an electric car, so I get the first registration date field
 and parse it into a date:
 
     let field = &record[Field::FirstRegistrationDate as usize];
-
     let reg_date = NaiveDate::parse_from_str(field, "%Y-%m-%d");
 
 I know from the data description that the registration dates
@@ -473,7 +476,7 @@ I just use the common Rust technique of "unwrapping" the result.
 Keep in mind that if you're not writing a quick and dirty utility
 like this one, unwrapping is not the best thing to do, because
 failure will cause the program to panic. Using unwrap is somewhat
-opinion based, but in a case like this I think it can be justified.
+opinion-based, but in a case like this I think it can be justified.
 
 Finally, I can print the total number.
 
@@ -482,7 +485,7 @@ Finally, I can print the total number.
 Just by eyeballing the numbers you can see that the growth 
 in EV registrations has been quite rapid. I could have also 
 computed the count while printing out the results, instead
-of collecting it as we progressed through the records.
+of collecting it as I progressed through the records.
 
 ## There's plenty more where that came from
 
@@ -497,18 +500,20 @@ counts using the [`plotters`](https://crates.io/crates/plotters) crate, and exte
 vehicle data using the [`ndarray`](https://crates.io/crates/ndarray) crate.
 
 As for performance, it would be interesting to compare
-of this program and an equivalent Python solution in terms
+this program and an equivalent Python solution in terms
 of speed, but also in terms of ergonomics. When you're first
 starting out with any programming language it takes a lot
 of time to look things up and assemble the parts to a 
 working whole. With Rust the learning curve can be steep,
 but I think it's time well invested.
 
-Here are the three biggest takeways for anyone considering
+Here are the three biggest takeaways for anyone considering
 a deeper dive into Rust:
 
-* The borrow checked is your friend.
+* The borrow checker is your friend.
 * Embrace the crates.
 * Algebraic data types FTW!
 
 Hope you enjoy wrangling data, or anything else, in Rust!
+
+See also: [Enforcing Database Transactions with Rust](https://dev.solita.fi/2019/11/21/enforcing-database-transactions-with-rust.html)
