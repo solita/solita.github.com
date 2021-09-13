@@ -2,9 +2,10 @@
 layout: post
 title: Rudiments of Data Wrangling in Rust
 author: jerekapyaho
-excerpt: The Rust programming language is typically positioned 
-for systems programming, but there is nothing stopping us from
-enjoying it for basic data wrangling tasks like those often done in Python.
+excerpt: > 
+  The Rust programming language is typically positioned 
+  for systems programming, but there is nothing stopping us from
+  enjoying it for basic data wrangling tasks like those often done in Python.
 tags:
  - rust
  - data
