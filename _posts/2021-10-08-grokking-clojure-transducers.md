@@ -105,7 +105,7 @@ Of course, we can give `inc-transducer` *any* reducing function, not just `conj`
 
 It worked! When we used `inc-transducer` with `+`, for each number in the input collection, it incremented the number, then added it into the accumulated sum.
 
-However... what if there comes a day when we want to do something else than increment a number? That's all `inc-transducer` lets us do, increment numbers! What do?
+However... what if there comes a day when we want to do something else than increment a number? That's all `inc-transducer` lets us do, increment numbers! What to do?
 
 I think it was Benjamin Franklin who used to say, "Functions are like violence: if it's not working, you're not using enough of it. Or them. Or whatever, you know." Stimulated by this enlightening adage, let us beat this problem into submission by employing an additional function. Instead of baking in `inc` as the function that transforms the input, let's make a new function. This new function takes any function and uses it to transform the input. Here's the new function:
 
@@ -269,7 +269,7 @@ Next, we'll take a brief look at what each function is good for. We won't go too
 
 ### `transduce`
 
-`transduce` is like `reduce`, but specifically for transducers. To show how `transduce` it works, let's rewrite our previous example using `transduce` instead of `reduce`.
+`transduce` is like `reduce`, but specifically for transducers. To show how `transduce` works, let's rewrite our previous example using `transduce` instead of `reduce`.
 
 ```clojure
 (transduce
