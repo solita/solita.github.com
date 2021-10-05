@@ -157,7 +157,10 @@ With transducers (like the one `mapping` returns), on the other hand, we can dec
 ;; This is otherwise equivalent to the previous example, but we're just
 ;; forgoing the intermediate vars `inc-mapper` and `inc-rf`, and passing in `+`
 ;; instead of `conj`.
-(reduce ((mapping inc) +) 0 [1 2 3 4 5])
+(reduce
+  ((mapping inc) +)
+  0
+  [1 2 3 4 5])
 ;;=> 20
 ```
 
@@ -243,7 +246,11 @@ So far, to illustrate how transducers work, we've been creating our own transduc
 Now, uh... there's something I must confess. We did not actually need to define `mapping` and `filtering` ourselves. Giving only the first argument to the `map` or `filter` core functions actually returns a transducer. That means we can simply replace `filtering` and `mapping` in our previous example with `filter` and `map`, like so:
 
 ```clojure
-(reduce ((comp (filter even?) (map inc)) conj) [] [1 2 3 4 5])
+(reduce
+  ((comp (filter even?) (map inc)) conj) ;; <- reducing fn (awesome conj)
+  [] ;; <- initial value
+  [1 2 3 4 5] ;; <- input collection
+  )
 ;;=> [3 5]
 ```
 
@@ -265,7 +272,11 @@ Next, we'll take a brief look at what each function is good for. We won't go too
 `transduce` is like `reduce`, but specifically for transducers. To show how `transduce` it works, let's rewrite our previous example using `transduce` instead of `reduce`.
 
 ```clojure
-(transduce (comp (filter even?) (map inc)) conj [] [1 2 3 4 5])
+(transduce
+  (comp (filter even?) (map inc))
+  conj
+  []
+  [1 2 3 4 5])
 ;;=> [3 5]
 ```
 
@@ -298,7 +309,10 @@ Note that `into` doesn't let you choose which reducing function to transform. Wi
 Use `sequence` whenever you need your transformation to produce a [lazy sequence](https://www.braveclojure.com/core-functions-in-depth/#Lazy_Seqs). There are many situations where you want a lazy sequence. One is when you need to use the transformation result more than once. Check out this example:
 
 ```clojure
-(def xs (sequence (comp (filter even?) (map inc)) (range 100)))
+(def xs
+  (sequence
+    (comp (filter even?) (map inc))
+    (range 100)))
 
 ;; in one case, we might need to take the first ten things from `xs`
 (take 10 xs)
@@ -348,7 +362,10 @@ Here's another way to think about `eduction`: it lets you bundle just the input 
 ;; increments the remaining numbers.
 ;;
 ;; Don't transform anything just yet, though.
-(def xf (eduction (comp (filter even?) (map inc)) (range 100)))
+(def xf
+  (eduction
+    (comp (filter even?) (map inc))
+    (range 100)))
 
 ;; Apply the eduction to sum the transformed numbers.
 (reduce + 0 xf)
