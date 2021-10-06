@@ -3,7 +3,7 @@ layout: post
 title: Grokking Clojure transducers
 author: eerohe
 excerpt: >
-  Transducers are great and if you're not already using them, you're a terrible person and you should feel bad.
+  What are transducers and why should I care? Here's an attempt to answer that question.
 tags:
  - clojure
  - transducers
