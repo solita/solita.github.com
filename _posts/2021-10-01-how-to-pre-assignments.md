@@ -3,7 +3,7 @@ layout: post
 title: Do's and Dont's of Dev Academy Pre-assignments
 author: noora & aija
 excerpt: >
-  The applicants to fall 2021 Solita Dev Academy were required to submit a as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
+  The fall 2021 Solita Dev Academy applicants were required to submit a pre-assignment as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
 tags:
 - academy
 - pre-assignment
