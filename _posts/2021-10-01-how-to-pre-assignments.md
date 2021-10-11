@@ -3,6 +3,7 @@ layout: post
 title: Do's and Dont's of Dev Academy Pre-assignments
 author: noora & aija
 excerpt: >
+  The applicants to fall 2021 Solita Dev Academy were required to submit a as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
 tags:
 - academy
 - pre-assignment
@@ -12,7 +13,7 @@ tags:
 # Do's and Dont's of Dev Academy Pre-assignments
 
 ## Introduction
-The applicants to fall 2021 Solita Dev Academy were required to submit a pre-assignment as part of the recruitment process. (linkki harjoitustyöhön) We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
+The applicants to fall 2021 Solita Dev Academy were required to submit a [pre-assignment](https://github.com/solita/vaccine-exercise-2021) as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
 
 The purpose of this blog is to give some general feedback to the Dev Academy applicants and to act as a guide for any future applicants on how to make your project stand out as more professional. These tips can, of course, be applied to any other pre-assignments as well.
 
@@ -46,13 +47,13 @@ First, think about the content of your commit. A good rule of thumb is to have o
 A good commit message describes your changes your commit makes to the repository. Try to be concise but yet descriptive, not easy, we know :) Try to think what is the one main thing you did in this commit, if there are several, then maybe that is an indication that you should have several commits instead of one.
 
 Examples of good commit messages:
-// kuva
+![Git history](/img/pre-assignments/git-history.png)
 
 When looking beyond individual commit messages, it also matters how your commit messages look together. For instance, one "update readme" is an ok message but if you have several "update readme" commit messages in a row, it doesn't look so good.
 
 It often happens that despite your best efforts your git history starts to look cluttered and you have several commits like 'bug fixes', 'fix typos', 'update readmes' and 'some more of the same stuff as the previous commit'. There are ways to clean your git history by e.g. amending or squashing your commits, but that is a rather advanced feature and we will not go into that in more detail in this post.
 
-An excellent material for practicing git commands: https://learngitbranching.js.orghttps://gitexplorer.com
+An excellent material for practicing git commands: https://learngitbranching.js.org https://gitexplorer.com
 
 ## Make sure that code compiles and tests pass
 Make sure that the instructions on how to run the project actually work. The reviewer checking out your project does not want to fix stuff to make it work. If you have tests, they should all pass or at least you should have some explanation for failing tests. 
