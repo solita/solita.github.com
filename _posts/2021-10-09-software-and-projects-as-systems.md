@@ -16,7 +16,7 @@ Have you ever wondered why a change to software produces unexpected results?
 
 Software designers build systems.
 
-Taking a system theory flavored view might help. Following may help fresh software developers especially on seeing the big picture around them in software projects.
+Taking a system theory flavored view might help. Following highlights may help especially fresh software developers to see the big picture around them in software projects.
 
 Read on to find out more!
 
@@ -39,15 +39,15 @@ Read on to find out more!
 
 A change is something which alters the structure or state of a **system**.
 
-A change may take a system a step towards a desired state or away from it.
+A change may take the system a step towards a desired state or away from it.
 
 One can argue that the whole **art of software engineering simply produces changes to systems**.
 
-There are no features, bugs, change requests and whatnot. They are all equally and simply changes to a specific system. The change in the behavior or state of that system in turn affects other systems.
+There are no features, bugs, change requests or whatnot. They are all equally and simply changes to a specific system. The change in the behavior or state of that system in turn affects other systems.
 
-A software engineering change may implement, alter or remove a feature, fix a problem, create or alter documentation and so forth. A change is _any difference_ to previous structure, functionality or state of a deliverable which is part of the end system.
+A software engineering change may implement, alter or remove a feature, fix a problem, create or alter documentation and so forth. A change is _any difference_ to previous structure, functionality or state of a deliverable (see ["Project"](#project) section) which is part of the end system.
 
-We are distracted because we tend to value a change more if it has a fancy name. However, a change of "lesser nature" may have just as big an impact as some "important change".
+We are distracted because we tend to value a change more if it has a fancy name. However, a change of "lesser nature" may have just as big of an impact as some "important change".
 
 Changes to the system often have unpredicted consequences because systems quickly grow in complexity past human comprehension.
 
@@ -81,7 +81,7 @@ Software developers should forget their own interests and peer groups if those l
 
 Software developers may be distracted from this cornerstone because the time of a developer is spent building all those shiny features. Users have their real work to do and there the specific software application is only one smallish step towards their business goal. Users do not want to spend their time learning every this 'n that about a software application.
 
-To recap: changes to the system may have unexpected results if the business goal of each application user role is not clear.
+To recap: changes to the system may have unexpected results if the business goal of each user role is not clear.
 
 ### What are the motivation and goals of IT specialists?
 
@@ -100,12 +100,14 @@ Changes to the system may have unexpected results if the IT operations are not c
 - Rollback procedures
 - System health monitoring
 
+and so forth depending on the enterprise.
+
 ## The Producing System
 
 ![Charlie Chaplin CC BY-SA 2.0](/img/software-and-project-as-systems/charlie-chaplin-modern-times.jpg "Charlie Chapling in a mahine in Modern times")
 ([Image source](#image-sources))
 
-Systems produced by software developers, or their tool systems, are not the only systems they are working with. Software developers themselves are part of:
+Systems produced by software developers, or their tool systems, are not the only systems developers are working with. Software developers themselves are part of:
 
 - a project or a service team or several
 - a higher-level organization or several
@@ -120,14 +122,16 @@ Project is an endeavor with the following attributes - also known as the project
 
 An old rule is that not all three should be fixed, but that is a subject for a separate discussion.
 
-Project itself produces deliveries to meet the project goals. Deliveries are groups of specified and approved changes which affect people called stakeholders.
+A project produces deliveries to meet project goals.
+
+**Deliveries** are groups of specified and approved deliverables which affect people called [stakeholders](#organization-and-stakeholders). A project delivery consists of deliverables. One deliverable could be for example a software change, new software component, documentation, configuration and so on. Semantically speaking you could argue that system view changes and project management view deliverables as synonyms. In the other hand, if you prefer, you could differentiate them for example so that: a deliverable is some larger logical entity which brings business value itself and aims to meet a project goal, when a change alone might not yet bring both.
 
 Changes to the system may have unexpected results if all those are not considered:
 
 - A project has a very high risk of failing or producing waste if schedule, goals and budget are not clear and agreed by project stakeholders.
 - Evaluation and approval of deliveries is difficult if goals are not clear.
 - For example
-  - Software developers should prioritize work differently when all mandatory goals are already met than if delivery is only halfway ready.
+  - Software developers should prioritize work differently when all mandatory goals are already met when compared to e.g. when delivery is only halfway ready.
   - It is a waste to do technical refactoring if the result won't have a long enough lifespan.
   - Software developers not aware of all stakeholders and user roles cannot reliably evaluate the impacts of changes.
 
@@ -174,7 +178,11 @@ The following describes typical stakeholders for a software project:
 
 ## Final words
 
-The everyday challenge for many software engineers is to remind themselves to take the step back and demand the big picture. A common pitfall is when a customer or end user comes to the table with a ready solution. It is tempting to take that for granted and trust that "someone" has already asked the "what if" questions. The presented thoughts are not groundbreaking, but hopefully a good reminder.
+The everyday challenge for many software engineers is to remind themselves to take the step back and demand the big picture.
+
+A common pitfall is when a customer or end user comes to the table with a ready solution. It is tempting to take that for granted and trust that "someone" has already asked the "what if" questions.
+
+The presented thoughts are not groundbreaking, but hopefully a good reminder on the world where software engineers send their children...meaning here of course the created software.
 
 ## Further reading
 
