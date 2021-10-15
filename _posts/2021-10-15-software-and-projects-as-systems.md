@@ -124,9 +124,9 @@ An old rule is that not all three should be fixed, but that is a subject for a s
 
 A project produces deliveries to meet project goals.
 
-**Deliveries** are groups of specified and approved deliverables which affect people called [stakeholders](#organization-and-stakeholders). A project delivery consists of deliverables. One deliverable could be for example a software change, new software component, documentation, configuration and so on. Semantically speaking you could argue that system view changes and project management view deliverables as synonyms. In the other hand, if you prefer, you could differentiate them for example so that: a deliverable is some larger logical entity which brings business value itself and aims to meet a project goal, when a change alone might not yet bring both.
+**Deliveries** are groups of specified and approved deliverables which affect people called [stakeholders](#organization-and-stakeholders). One deliverable could be for example a software change, new software component, documentation, configuration and so on. Semantically speaking you could argue that system view changes and project management view deliverables are synonyms. In the other hand, if you prefer, you could differentiate them for example so that: a deliverable is some larger logical entity which brings business value itself and aims to meet a project goal, when a change alone might not yet bring both.
 
-Changes to the system may have unexpected results if all those are not considered:
+Changes to the system may have unexpected results if the project-system is not considered:
 
 - A project has a very high risk of failing or producing waste if schedule, goals and budget are not clear and agreed by project stakeholders.
 - Evaluation and approval of deliveries is difficult if goals are not clear.
@@ -168,8 +168,8 @@ The following describes typical stakeholders for a software project:
 - Regulations and legal
   - Delivery may have to comply with national or international regulations. Compliancy could be ensured by collaboration with a domain expert.
   - In some domains delivery may be a pioneering pilot project whose results will affect upcoming domain standards.
-- IPR
-  - Is delivery respecting Intellectual Property Rights (IPR) like previous patents and licensing terms?
+- Intellectual Property Rights
+  - Is delivery respecting Intellectual Property Rights (IPR) like existing patents and licensing terms?
     - A common software developer challenge is evaluating software licenses of software components and tools.
   - Will any new IPR be created for the delivery or customer organizations?
 - Open-source community
@@ -182,7 +182,7 @@ The everyday challenge for many software engineers is to remind themselves to ta
 
 A common pitfall is when a customer or end user comes to the table with a ready solution. It is tempting to take that for granted and trust that "someone" has already asked the "what if" questions.
 
-The presented thoughts are not groundbreaking, but hopefully a good reminder on the world where software engineers send their children...meaning here of course the created software.
+The presented thoughts are not groundbreaking, but hopefully a good reminder on the world where software engineers send their children...by children meaning here of course the created software.
 
 ## Further reading
 
