@@ -256,7 +256,7 @@ Now, uh... there's something I must confess. We did not actually need to define 
 
 Besides `map` and `filter`, there's [a whole bunch of functions](https://clojure.org/reference/transducers#_defining_transformations_with_transducers) in the Clojure core that return a transducer when you give them all the arguments you usually do, *except* for the input collection (the last argument).
 
-Also... I've got another confession to make. `mapping` and `filtering` are not "real" transducers. Each transducer is a function that can take either one, two, or three arguments. Since that is something you only really need to know when you're creating your own transducers (which is not likely to be all that often), we won't discuss that detail here. If you want to know more about the different arities of proper transducers, check out [the official documentation](https://clojure.org/reference/transducers#_creating_transducers).
+Also... I've got another confession to make. `mapping` and `filtering` are not "real" transducers. Each transducer is a function that can take either zero, one, or two arguments. Since that is something you only really need to know when you're creating your own transducers (which is not likely to be all that often), we won't discuss that detail here. If you want to know more about the different arities of proper transducers, check out [the official documentation](https://clojure.org/reference/transducers#_creating_transducers).
 
 So if we shouldn't use `reduce` with transducers, what should we use? There are four functions in the Clojure core that take transducers as arguments:
 
@@ -282,7 +282,7 @@ Next, we'll take a brief look at what each function is good for. We won't go too
 
 The result is the same. So what's the difference to the `reduce` version? For one, the `transduce` version avoids the slightly awkward `((comp (filter even?) (map inc)) conj)` construction. Also, `reduce` doesn't work perfectly with every kind of transducer, for reasons we won't go into here. The upshot? Don't use transducers with `reduce`. Use `transduce` or one of the other functions we discuss here instead.
 
-Besides that, an important property of `transduce` is that unless you tell it to stop using `halt-when`, `take`, or the like, `transduce`consumes the entire input collection. If you want to be able to consume only a part of the input, consider using `sequence` or `eduction` instead. For a more comprehensive discussion of how `transduce`, `sequence`, and `eduction` consume their inputs, see the section titled "Laziness" in [Renzo Borgatti's article *Clojure transducers from the ground up: the practice*](https://reborg.net/post/621473763865821184/clojure-transducers-from-the-ground-up-the).
+Besides that, an important property of `transduce` is that unless you tell it to stop using `halt-when`, `take`, or the like, `transduce` consumes the entire input collection. If you want to be able to consume only a part of the input, consider using `sequence` or `eduction` instead. For a more comprehensive discussion of how `transduce`, `sequence`, and `eduction` consume their inputs, see the section titled "Laziness" in [Renzo Borgatti's article *Clojure transducers from the ground up: the practice*](https://reborg.net/post/621473763865821184/clojure-transducers-from-the-ground-up-the).
 
 ### `into`
 
@@ -397,4 +397,4 @@ Note that you might be able to use transducers even if you don't use Clojure. Th
 
 ## Acknowledgements
 
-Thanks to Pedro Girardi for his valuable feedback on an earlier version of this article.
+Thanks to Pedro Girardi and Antti Riikonen for their valuable feedback on an earlier version of this article.
