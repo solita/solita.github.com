@@ -150,7 +150,7 @@ fun testLinking() {
 
 The output of this looks like this
 
-```Loaded DB rows in 4564ms
+```
 Loaded DB rows in 4592ms
 Matched at 0 to 
  Demography(id=961344, address=Apt. 719 Manninengatan 51, Lakano, NC 96443, city=Niahe, firstname=Laura, lastname=Mäkinen, postalcode=16660, birthday=2021-08-12) 
@@ -245,9 +245,9 @@ That's a real performance gain. The downside, it takes 3 GB of memory as we load
 
 All the necessary pieces that we need to execute the matching logic completely in the DB are available in PostgreSQL 
 
-* A conditional operation to determine if to use the matching or non-matching function for an attribute. https://www.postgresql.org/docs/14/functions-conditional.html
-* Fuzzy matching for strings https://www.postgresql.org/docs/14/fuzzystrmatch.html
-* Basic sorting https://www.w3schools.com/sql/sql_orderby.asp
+* A conditional operation to determine if to use the matching or non-matching function for an attribute. [PostgreSQL conditional](https://www.postgresql.org/docs/14/functions-conditional.html)
+* Fuzzy matching for strings [PostgreSQL fuzzystrmatch](https://www.postgresql.org/docs/14/fuzzystrmatch.html)
+* Basic sorting [SQL order by](https://www.w3schools.com/sql/sql_orderby.asp)
 
 So the SQL for a static entity matching would be like this
 
@@ -292,13 +292,13 @@ fun sortInDB(weights : List<QueryWeight<*>>) : List<Demography> {
 
     val generatedWeights = weights.mapIndexed { index, queryWeight ->
 		val q = if(queryWeight.fuzzyTarget  != 0) {
-			""" case when levenshtein(d.${queryWeight.field}, :${queryWeight.field}) 
+            """ case when levenshtein(d.${queryWeight.field}, :${queryWeight.field}) 
                 < ${queryWeight.fuzzyTarget} then ln(:${queryWeight.field}Pos / :${queryWeight.field}Neg)
                 else ln((1 - :${queryWeight.field}Pos) / (1 - :${queryWeight.field}Neg)) end
             """.trimIndent()
 		} else {
-			""" case when d.${queryWeight.field} = :${queryWeight.field} 
-				then ln(:${queryWeight.field}Pos / :${queryWeight.field}Neg)
+            """ case when d.${queryWeight.field} = :${queryWeight.field} 
+                then ln(:${queryWeight.field}Pos / :${queryWeight.field}Neg)
                 else ln((1 - :${queryWeight.field}Pos) / (1 - :${queryWeight.field}Neg)) end
             """.trimIndent()
 			}
@@ -306,9 +306,9 @@ fun sortInDB(weights : List<QueryWeight<*>>) : List<Demography> {
 	}.reduce { acc, s -> acc + s }
 
     return db.findAll(Demography::class.java, SqlQuery.namedQuery(
-        	"""select d.id, d.address, d.city, d.firstname, d.lastname, d.postalcode, d.birthday,
-            	( """ + generatedWeights + """ ) as probability
-            	from demography as d order by probability desc limit 10
+            """select d.id, d.address, d.city, d.firstname, d.lastname, d.postalcode, d.birthday,
+                ( """ + generatedWeights + """ ) as probability
+                from demography as d order by probability desc limit 10
             """.trimIndent(),
         params)
 	)
@@ -325,7 +325,7 @@ That's quite the improvement and the memory usage is non-existent when compared 
 
 ## Actual entity matching results
 
-Now that I have a good way to run the matching algorithm and a lot of testing data it is a good time to actually see if I can match some entities. Let's first try with an exact match
+Now that I have a good way to run the matching algorithm and a lot of testing data it is a good time to actually see if I can match some entities. Let's first try with an exact match. I also added percentages for probability by calculating the maximum possible value and dividing the result's weight with it.
 
 ```kotlin
 // ----- The weights to use for the fields ------
