@@ -26,19 +26,19 @@ Probabilistic linking, as the name implies, is based on probabilities. This mean
 
 The input for the algorithm is the entity attributes and a match probability *m* and non-match probability *u* for each attribute. If an attribute is a match, say *X.name == Y.name*, we use the match and non-match weights with the following formula
 
-![Matching formula](/home/henriny/work/own/blogs/am-i-you-probabilistic-entity-matching/img/matching-probability-formula.svg)  
+![Matching formula](/img/am-i-you-probabilistic-entity-linking/matching-probability-formula.svg)  
 
 If *X.name != Y.name* is not a match we use the non-match formula 
 
-![Non-matching formula](/home/henriny/work/own/blogs/am-i-you-probabilistic-entity-matching/img/non-matching-probability-formula.svg) 
+![Non-matching formula](/img/am-i-you-probabilistic-entity-linking/non-matching-probability-formula.svg) 
 
 So how do different matching and non-matching probabilities affect a single attribute's calculated weight. If the attribute is a match the effect of different weights is depicted in the following 3d mesh with the m and u values ranging from 0..1 (figures are generated with Octave, high recommendations for it for mathematical analysis)
 
-![Matching weights](/home/henriny/work/own/blogs/am-i-you-probabilistic-entity-matching/img/matching-probability.svg)
+![Matching weights](/img/am-i-you-probabilistic-entity-linking/matching-probability.svg)
 
 If the attribute is not a match the weights act like this
 
-![Non matching weights](/home/henriny/work/own/blogs/am-i-you-probabilistic-entity-matching/img/non-matching-probability.svg)
+![Non matching weights](/img/am-i-you-probabilistic-entity-linking/non-matching-probability.svg)
 
 So it's obvious that if the attribute is a match, high match probability combined with low non-match probability gives higher weight. For a non-matching attribute, it's reverse. Note also that the weight might be negative ranging from -3..3. 
 
