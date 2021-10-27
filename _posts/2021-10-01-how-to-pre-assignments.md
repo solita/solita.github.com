@@ -17,6 +17,8 @@ The applicants to fall 2021 Solita Dev Academy were required to submit a [pre-as
 
 The purpose of this blog is to give some general feedback to the Dev Academy applicants and to act as a guide for any future applicants on how to make your project a bit better. The most important thing in your pre-assignment project is, of course, that you have been able to implement (at least some of) the required features. When you have that covered, these tips should help your project to stand out as more professional.
 
+![A person sitting in front of a laptop](/img/pre-assignments/image.png)
+
 ## README
 If your project is published in Github, the first thing we will see of your pre-assignment is README. With good README we get a clear picture of your project even without looking at the code or running it. 
 
