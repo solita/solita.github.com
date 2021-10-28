@@ -24,7 +24,9 @@ This is a hard problem and the internet and science community has many possible 
 
 Probabilistic linking, as the name implies, is based on probabilities. This means that a piece of data X is compared against multiple possible matches Y and a probability is calculated for if the X and Y are a match. 
 
-The input for the algorithm is the entity attributes and a match probability *m* and non-match probability *u* for each attribute. If an attribute is a match, say *X.name == Y.name*, we use the match and non-match weights with the following formula
+The input for the algorithm is the entity attributes and a match probability *m* and non-match probability *u* for each attribute. If an attribute is a match, say *X.name == Y.name*, we use the match and non-match weights with the following formula. 
+
+> I'm using natural logarithm but some implementations use log2, it slightly modifies the curve and affects the maximum and minimum values but the end results are quite similar.
 
 ![Matching formula](/img/am-i-you-probabilistic-entity-linking/matching-probability-formula.svg)  
 
@@ -165,15 +167,15 @@ Matched at 2 to
 Found matches in 11311ms
 ```
 
-From this, I can see that the DB operation takes 4,5 seconds and running the algorithm around 7 seconds. Let's try to optimize this a bit. First I'll use streaming for loading data from the DB 
+From this, I can see that the DB operation (query execution and data serialization) takes 4,5 seconds and running the algorithm around 7 seconds. Let's try to optimize this a bit. First I'll use streaming for loading data from the DB 
 
 ```kotlin
-// Streming using Kotlin sequences
+// Streaming using Kotlin sequences
 fun findAllStreaming(): Sequence<Demography> {
     return streamQuery().asSequence()
 }
 
-// Streming using Java streams
+// Streaming using Java streams
 fun findAllStreamingJava(): Stream<Demography> {
     return streamQuery()
     
@@ -321,11 +323,18 @@ I must admit the SQL generation function is kind of horrible but it serves its p
 Found matches in 826ms
 ```
 
-That's quite the improvement and the memory usage is non-existent when compared to the 3 GB of the previous tries. This is the way to go.
+That's quite the improvement and the memory usage is non-existent when compared to the 3 GB of the previous tries. I've logged the memory and CPU usage of the postgres docker image with googles [cAdvisor](https://github.com/google/cadvisor) and there really is not a lot difference between the four different versions I tried. 
+
+![Matching weights](/img/am-i-you-probabilistic-entity-linking/postgres-cpu-all.png)
+
+![Matching weights](/img/am-i-you-probabilistic-entity-linking/postgres-memory-all.png)
+
+
+Using the DB for the whole process is the way to go.
 
 ## Actual entity matching results
 
-Now that I have a good way to run the matching algorithm and a lot of testing data it is a good time to actually see if I can match some entities. Let's first try with an exact match. I also added percentages for probability by calculating the maximum possible value and dividing the result's weight with it.
+Now that I have a good way to run the matching algorithm and a lot of testing data it is a good time to actually see if I can match some entities. Let's first try with an exact match. I also added percentages for probability by calculating the maximum and minimum possible values and comparing the weight in that scale.
 
 ```kotlin
 // ----- The weights to use for the fields ------
@@ -357,15 +366,15 @@ Matched at 0
  with probability of 100.0%
 Matched at 1 
  Demography(id=913919, address=Lehtogatan 0, Lainen, NE 82349, city=Orinen, firstname=Henrik, lastname=Lahtinen, postalcode=64548, birthday=2021-08-31, probability=2.916791101824054) 
- with probability of 42.83973530714408%
+ with probability of 82.39632310340626%
 Matched at 2 
  Demography(id=18583, address=Mattilakatu 510, Rainen, GA 25052, city=Rainen, firstname=Henrik, lastname=Laitinen, postalcode=80015, birthday=2021-08-31, probability=2.916791101824054) 
- with probability of 42.83973530714408%
+ with probability of 82.39632310340626%
 Matched at 3
 */
 ```
 
-The algorithm seems to work with an exact match. Let's try with the wrong address and postal code. The results are the same but the probability for the number one candidate is down to 61.23941910327593%. As the attribute count is quite low the granularity of the probabilities is quite coarse. With more attributes, there would be more differences between the entities. Also in a real solution, it's possible to use human input with the sorted entities to select the right one and if the probability of a match is very high do the linking automatically. 
+The algorithm seems to work with an exact match. Let's try with the wrong address and postal code. The results are the same but the probability for the number one candidate is down to 88.06288343665607%. As the attribute count is quite low the granularity of the probabilities is quite coarse. With more attributes, there would be more differences between the entities. Also in a real solution, it's possible to use human input with the sorted entities to select the right one and if the probability of a match is very high do the linking automatically. 
 
 When it comes to the field match and non-match probabilities, I can only say the age-old proverb that it depends on the use-case. The values should come from the domain knowledge. For example, we might know that in our process the birthday is quite often right so we would give that a high matching probability and low non-matching probability. Tweaking the probabilities is an incremental process that greatly benefits from testing and simulation. 
 
