@@ -41,6 +41,14 @@ Some people like to keep their git history extra neat by amending and squashing 
 Examples of good commits:
 ![Git history](/img/pre-assignments/git-history.png)
 
+## Write tests
+
+Writing tests is an important part of software development. Even though your pre-assingment probably won't be deployed to production or developed further, we value your ability to do automated testing. 
+
+When creating tests keep in mind what are the most important features of your program to be tested. If you just add tests that don't really test anything, that is just unnecessary code. Remember to also give descriptive names to your tests. 
+
+You can also test for example frontend and your database. A nice bonus is setting up for example github actions to run your tests automatically.
+
 ## Make sure that code compiles and tests pass
 Make sure that the instructions on how to run the project work. The reviewer checking out your project does not want to fix stuff to make it work. If you have tests, they should all pass or at least you should have some explanation for failing tests. 
 
