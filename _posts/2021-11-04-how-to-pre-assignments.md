@@ -10,8 +10,6 @@ tags:
 - recruitment
 ---
 
-# Do's and Dont's of Dev Academy Pre-assignments
-
 ## Introduction
 The applicants to fall 2021 Solita Dev Academy were required to submit a [pre-assignment](https://github.com/solita/vaccine-exercise-2021) as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
 
