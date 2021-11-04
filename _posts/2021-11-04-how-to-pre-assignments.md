@@ -34,7 +34,7 @@ A good README includes the following things:
 ## Git History
 Your git history is also something that we will often look into before digging deeper into your code. From your git history, we can get a glimpse of your development process: where you started, in which order you did things, which parts were refactored during the process, etc. Knowing how to use version control (nowadays analogous to git) is one of the most essential skills of a developer. To make your project look more professional you should pay some attention to how your git history looks. 
 
-During the Dev Academy recruitment process we saw many git histories that had practically two commits. One that contained all the application code and the second that updated readme. Please try to have more commits than that. A good rule of thumb is to have one commit per one major change in your code. A good commit message describes the changes your commit makes to the repository. Try to be concise but yet descriptive, not easy, we know :) Try to think what is the one main thing you did in this commit, if there are several, then maybe that is an indication that you should have several commits instead of one.
+During the Dev Academy recruitment process we saw many git histories that had practically two commits: one that contained all the application code and the second that updated readme. Please try to have more commits than that. A good rule of thumb is to have one commit per one major change in your code. A good commit message describes the changes your commit makes to the repository. Try to be concise but yet descriptive, not easy, we know :) Try to think what is the one main thing you did in this commit, if there are several, then maybe that is an indication that you should have several commits instead of one.
 
 Some people like to keep their git history extra neat by amending and squashing their commits. In a recruitment pre-assignment, it is usually enough to just commit frequently enough and in reasonably sized chunks.
 
@@ -62,7 +62,7 @@ Good quality code is easy to read and looks nice. For instance, make sure that y
 
 When using linters make sure to fix all problems before submitting your project. It doesn't look good if your application runs with a bunch of linter errors in the console.
 
-Try to make your code easily understandable without using any comments: Logically organise your code both into different files and within a single file. Use descriptive names for your variables and functions, for instance instead of adding a comment that tells what your function does, try to name your functions in such a way that their purpose can be understood from its name.
+Try to make your code easily understandable without using any comments: Logically organise your code both into different files and within a single file. Use descriptive names for your variables and functions, for instance instead of adding a comment that tells what your function does, try to name your functions in such a way that their purpose can be understood from the name.
 
 Also, avoid mixing English and Finnish (or any other language) in your code. If you want to use some other language than English, then everything but the programming language commands should be in that language.
 
