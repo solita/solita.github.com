@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Do's and Dont's of Dev Academy Pre-assignments
-author: noora & aija
+author: noora, aija
 excerpt: >
   The fall 2021 Solita Dev Academy applicants were required to submit a pre-assignment as part of the recruitment process. We were part of the team reviewing the pre-assignments and wanted to share some insights gained from the experience.
 tags:
@@ -17,19 +17,19 @@ The applicants to fall 2021 Solita Dev Academy were required to submit a [pre-as
 
 The purpose of this blog is to give some general feedback to the Dev Academy applicants and to act as a guide for any future applicants on how to make your project a bit better. The most important thing in your pre-assignment project is, of course, that you have been able to implement (at least some of) the required features. When you have that covered, these tips should help your project to stand out as more professional.
 
-![A person sitting in front of a laptop](/img/pre-assignments/image.png)
+![A person sitting in front of a laptop](/img/pre-assignments/image.jpg)
 
 ## README
 If your project is published in Github, the first thing we will see of your pre-assignment is README. With good README we get a clear picture of your project even without looking at the code or running it. 
 
 A good README includes the following things:
-- Prerequisites. Should the reviewer install something on their computer before they can compile and run the project? Does the project only work on Windows or Linux? List all steps that need to be done before trying to run the project. If versions are important, remember to mention those as well.
-- Configurations. Do you have to configure for example database connections locally? Provide clear instructions on what needs to be changed and where. In case you have an .env file which you, of course, should not add to GitHub, you can send that file to the reviewers by other means.
+- Prerequisites: Should the reviewer install something on their computer before they can compile and run the project? Does the project only work on Windows or Linux? List all steps that need to be done before trying to run the project. If versions are important, remember to mention those as well.
+- Configurations: Do you have to configure for example database connections locally? Provide clear instructions on what needs to be changed and where. In case you have an .env file which you, of course, should not add to GitHub, you can send that file to the reviewers by other means.
 - How to run the project? Do you have to install some packages or compile the code? If you have separate services for example for backend and frontend, remember to write instructions for all needed services.
-- Tests. If your project has tests, include instructions on how to run them.
-- Description of the project. What is the purpose of the project and what features it has?
-- Technology choices. List chosen technologies. It's also nice to know why you chose those technologies.
-- TODO. If some things are missing or not working, you can list them in README.
+- Tests: If your project has tests, include instructions on how to run them.
+- Description of the project: What is the purpose of the project and what features it has?
+- Technology choices: List chosen technologies. It's also nice to know why you chose those technologies.
+- TODO: If some things are missing or not working, you can list them in README.
 
 ## Git History
 Your git history is also something that we will often look into before digging deeper into your code. From your git history, we can get a glimpse of your development process: where you started, in which order you did things, which parts were refactored during the process, etc. Knowing how to use version control (nowadays analogous to git) is one of the most essential skills of a developer. To make your project look more professional you should pay some attention to how your git history looks. 
@@ -39,6 +39,7 @@ During the Dev Academy recruitment process we saw many git histories that had pr
 Some people like to keep their git history extra neat by amending and squashing their commits. In a recruitment pre-assignment, it is usually enough to just commit frequently enough and in reasonably sized chunks.
 
 Examples of good commits:
+
 ![Git history](/img/pre-assignments/git-history.png)
 
 ## Write tests
@@ -78,5 +79,7 @@ We hope you found these insights useful. There are, of course, a lot of things t
 
 ## Some links to check out
 [Solita Careers](https://www.solita.fi/en/careers/)
+
 [Solita Academy](https://www.solita.fi/en/academy/)
+
 [SolitaTech Videos playlist on YouTube](https://www.youtube.com/watch?v=bYeJ3xfwjjg&list=PLsaEf6-Yla5oOMz04xXQ-NsVnYqPCcmZH)
