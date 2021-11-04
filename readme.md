@@ -103,6 +103,14 @@ about this working with that so use RVM
 9. Type in: `bundle exec foreman start`
 10. Open browser to: http://localhost:4000/
 
+### Option D, Using podman
+
+[Podman](https://podman.io/) is a by-default secure and daemonless OCI runtime, which facilitates the use of rootless containers, offering much higher security posture compared to a default Docker setup.
+
+Podman is a drop-in replacement for the Docker CLI, so it is really easy to substitute existing docker-scripts to use podman.
+
+    alias docker=podman
+
 ## Development
 
 For development, you need Ruby and Jekyll. If you want to tweak the CSS, you need Compass. Also, if you want to make stuff easier, install foreman.
