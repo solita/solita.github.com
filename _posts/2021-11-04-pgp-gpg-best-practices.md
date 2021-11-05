@@ -600,6 +600,22 @@ Finally reload your shell to update the changes. Then get the ssh-version of you
 
 And put that into the /home/username/.ssh/authorized_keys of the servers you want to login to.
 
+#### SSH ProxyCommand over SSH ForwardAgent
+
+When jumping the ssh-connection over multiple hosts, it is important to not confuse these two terms.
+
+ForwardAgent aka Agent forwarding, creates a local UNIX socket on the remote host. This socket can be easily abused by a rooted attacker to use your ssh-agent to access all other servers with your credentials.
+You can protect against this by hardening the ssh-agent with
+
+    $ ssh-add -c -t 30m
+
+ProxyCommand simply forwards the connection immediately to the next host, without creating a local agent forwarding socket for each host jumped.
+
+GPG Agent Forwarding has a similar vulnerability. However gpg by default always asks the user for confirmation to use the cryptographic capabilities from the local developer machine.
+Thus the gpg-agent is by default hardened against unauthorized use.
+
+See [the Mozilla Foundation's excellent article on he matter](https://infosec.mozilla.org/guidelines/openssh.html).
+
 # Thank you for reading
 
 I hope this article helped you have a more in-depth understanding of PGP and GPG.
