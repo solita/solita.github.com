@@ -15,6 +15,7 @@ tags:
 _One day soon, AI will be writing the code. I, for one, welcome our new robot overlords._
 
 ![Copilot helping with Markdown](/img/github-copilot/copilot_helping_with_markdown_3.png)
+*Copilot is writing this blog text for me*
 
 ## What is Github Copilot?
 
@@ -32,28 +33,32 @@ Copilot is using the code you have written as a hint for the code suggestions. I
 
 Let's see how Copilot could help you implement a simple temperature system conversion function. Easy mode is to start defining a function, let's do this in Python. Once you start writing the function name, you get the suggestion for implementation (in gray). You can accept it by pressing the TAB key.
 
-![Celsius to Fahrenheit function](/img/github-copilot/celsius_to_fahrenheit.png)
+![Github Copilot generating Celsius to Fahrenheit function](/img/github-copilot/copilot_celsius_to_fahrenheit_cropped.gif)
+*Copilot is creating Celsius to Fahrenheit function based on function name*
 
 What if you did not like that suggestion, but would like to see more ideas? Well, you can press Ctrl+Enter to see more suggestions. Let's do that.
 
 ![More suggestions for Celsius to Fahrenheit function](/img/github-copilot/celsius_to_fahrenheit_suggestions.png)
+*Copilot is giving me 9 more options for the implementation*
 
 How about those pesky unit tests? Can we generate a good base for a unit test? Let's write a comment and see if we get a suggestion.
 
-![Test for Celsius to Fahrenheit function](/img/github-copilot/celsius_to_fahrenheit_test.png)
+![Github Copilot generating a Test for Celsius to Fahrenheit function](/img/github-copilot/copilot_generate_test_from_comment_cropped.gif)
+*Copilot is creating a test for my function*
 
 Of course, the final question is: Can it handle coding challenges typically used in the work interviews? I grabbed a random task from a google search and put it in the comments. Then I pressed Ctrl+Enter for suggestions.
 
 ![Nailing the work inteview challenges?](/img/github-copilot/copilot_interview_questions.png)
+*Copilot is implementing answer to work interview challenge*
 
 Oops! I suppose we best ask to turn off the Copilot for the interview challenges. :)
-
 
 ## Where Copilot will fail you
 
 The current version of Copilot is mainly getting its hints from the code you write. If you provide nicely structured code, short well-named functions, it works quite intelligently. If you provide huge blobs of code, badly named things, obscure or impossible comments, you will get quite weird suggestions. Aka, garbage in, garbage out.
 
 ![Copilot suggestions don't always make much sense](/img/github-copilot/copilot_bad_suggestions.png)
+*Copilot is being humble about its abilities*
 
 Also, localization may throw some challenges in your way, suggestions might not be compatible with your language system, date formats, currencies, or any number of other local things. Not to say you cannot still use them as inspiration and modify them to work of course.
 
@@ -92,6 +97,7 @@ And you know, while I do believe that Assembler coders are not lazy or undiscipl
 Well, this one is a bit concerning. You see, the architecture for this extension/plugin involves sending your code over the network, securely of course, but still to 3rd party server. As per their FAQ, the private code you're working on will not be used to synthesize solutions for other people. Right now it's supposedly only sending the one file you're working on, and the code is stored securely, processed by mostly automated tools.
 
 ![Github Copilot Architecture](/img/github-copilot/architecture.png)
+*Github Copilot Architecture*
 
 But it's still sent out, and stored. It's still processed by automation and may be processed by people as well. So if you're working on a project where code is not public, or are under an NDA, this area will need more clarification, to say the least. I would not say it's an immediate no-go, as this is not the only tool that would send things from your IDE to a third party. But let's say it's definitely a concern and probably not something a developer can decide without consulting the rules. So for now, I'm happy to use this as an experiment, and for personal projects, but for work, I would need to clear its use. I'll drop a few related links at the end of this article.
 
@@ -115,7 +121,8 @@ On the other hand, the concerns I listed above, are still valid and must be addr
 
 ## Links and refs
 - [Github Copilot](https://copilot.github.com/)
+- [Github copilot in action - let AI write your code? (Video)](https://youtu.be/wL41Xx2YzD4)
 - [Github Copilot Telemetry](https://docs.github.com/en/github/copilot/about-github-copilot-telemetry)
 - [Terms of Github Copilot Telemetry](https://docs.github.com/en/github/copilot/github-copilot-telemetry-terms)
 - [Github Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement)
-- [Github copilot in action - let AI write your code?](https://youtu.be/wL41Xx2YzD4)
+- [Research recitation](https://docs.github.com/en/github/copilot/research-recitation)
