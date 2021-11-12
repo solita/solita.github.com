@@ -118,3 +118,4 @@ On the other hand, the concerns I listed above, are still valid and must be addr
 - [Github Copilot Telemetry](https://docs.github.com/en/github/copilot/about-github-copilot-telemetry)
 - [Terms of Github Copilot Telemetry](https://docs.github.com/en/github/copilot/github-copilot-telemetry-terms)
 - [Github Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement)
+- [Github copilot in action - let AI write your code?](https://youtu.be/wL41Xx2YzD4)
