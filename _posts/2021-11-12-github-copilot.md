@@ -57,7 +57,7 @@ Oops! I suppose we best ask to turn off the Copilot for the interview challenges
 
 The current version of Copilot is mainly getting its hints from the code you write. If you provide nicely structured code, short well-named functions, it works quite intelligently. If you provide huge blobs of code, badly named things, obscure or impossible comments, you will get quite weird suggestions. Aka, garbage in, garbage out.
 
-![Copilot suggestions don't always make much sense](/img/github-copilot/copilot_bad_suggestions.png)
+![Copilot suggestions don't always make much sense](/img/github-copilot/copilot_bad_suggestions_1.png)
 *Copilot is being humble about its abilities*
 
 Also, localization may throw some challenges in your way, suggestions might not be compatible with your language system, date formats, currencies, or any number of other local things. Not to say you cannot still use them as inspiration and modify them to work of course.
