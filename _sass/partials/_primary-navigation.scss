@@ -1,6 +1,5 @@
 .primary-navigation {
     display: none;
-    text-transform: uppercase;
     letter-spacing: .04rem;
     font-size: 0.875rem;
     line-height: (22/14);
@@ -14,10 +13,10 @@
     @media (min-width: $breakpoint-3) {
         font-size: 0.875rem;
         line-height: (22/14);
-        letter-spacing: .09rem;
     }
 
     &__items {
+        font-family: ShartSansDisplayNo1,Helvetica,Arial,sans-serif;
         list-style: none;
         padding: 0;
         margin: 0;
