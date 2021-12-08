@@ -23,7 +23,7 @@ If you want to write a post, here's how:
 
 ### Optional: Adding exact publication time to your post
 
-Normally the publication date of a post is read from the filename of the post (YYYY-MM-DD-post-name.md, e.g. 2016-03-02-elasticon.md). In this case the puslishing time will show up as 00:00:00.
+Normally the publication date of a post is read from the filename of the post (YYYY-MM-DD-post-name.md, e.g. 2016-03-02-elasticon.md). In this case the publishing time will show up as 00:00:00.
 
 If you want to specify the exact time your post was published, you can add a date-field to your post. In the date field you can specify the publication time in the format YYYY-MM-DD HH:MM:SS +/-TTTT.
 
@@ -52,6 +52,7 @@ Super-fast, live-reload for posts, sass and templates.
 Next time when conjuring new post, only `docker/start.sh` should do it.
 
 Troubleshooting:
+- If you don't see your post, change the date on the file to today - time travelling is not allowed.
 
 `docker rmi solita-blag` -> Delete image
 `docker/troubleshoot.sh` -> Opens bash to container without starting jekyl and compass
@@ -101,6 +102,14 @@ about this working with that so use RVM
 8. Make sure the installation succeeds
 9. Type in: `bundle exec foreman start`
 10. Open browser to: http://localhost:4000/
+
+### Option D, Using podman
+
+[Podman](https://podman.io/) is a by-default secure and daemonless OCI runtime, which facilitates the use of rootless containers, offering much higher security posture compared to a default Docker setup.
+
+Podman is a drop-in replacement for the Docker CLI, so it is really easy to substitute existing docker-scripts to use podman.
+
+    alias docker=podman
 
 ## Development
 
@@ -156,4 +165,4 @@ If you currently have Ruby 1.x, you must first install Ruby 2 and then install t
 
 /dev/solita is built using all the hippiest hip technologies available:
 
-    git, Github Pages, Ruby, Jekyll, Markdown, Sass, Compass, foreman, jQuery, Gravatar, disqus, Google Analytics, AddThis
+    git, Github Pages, Ruby, Jekyll, Markdown, Sass, Compass, foreman, jQuery, Gravatar, Google Analytics, AddThis

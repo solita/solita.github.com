@@ -282,6 +282,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   line-height: 1.5;
 }
 
+// Navigation items
+
+.primary-navigation {
+  &__items {
+    font-family: 'Sharp Sans', Helvetica, Arial, sans-serif;
+  }
+}
+
 // Other elements
 
 .text-divider {

@@ -65,7 +65,7 @@ authors:
   arto:
     name: Arto Santala
     email: dc3bf4adfabce83f904b9563f927641d
-    url: https://www.linkedin.com/in/artosantala/
+    url: https://www.youtube.com/channel/UCz_QEfF3VBqWPliHy3JiJ_g
   juuso:
     name: Juuso Hyvönen
     email: 8a528aee07705cfc166b57564e242db6
@@ -85,7 +85,7 @@ authors:
   jerekapyaho:
     name: Jere Käpyaho
     email: 4ef76183965fe0d12de8dcdab512ca3a
-    url: http://www.coniferproductions.com
+    url: https://www.linkedin.com/in/jerekapyaho
   Rinorragi:
     name: Joona Immonen
     email: 2cb033c2473824d802cca09001da9025
@@ -235,7 +235,7 @@ authors:
     email: 63938423a6515066496017ca774f2ca0
     url: https://github.com/epiphone
   mpajunen:
-    name: Mikael Pajunen
+    name: Mikael Kujanpää
     email: d315555cacf0ecdcfa79357790e8d3ef
     url: https://github.com/mpajunen
   demonru:
@@ -290,3 +290,35 @@ authors:
     name: Tuomas Ukkola
     email: a5a65199b38450400633f90c85a44368
     url: https://www.linkedin.com/in/tuomas-ukkola/
+  filipwastberg:
+    name: Filip Wästberg
+    email: 3cb7f73a45e0e4418727666973671a9c
+    url: https://www.linkedin.com/in/filipwastberg/
+  denzilferreira:
+    name: Denzil Ferreira
+    email: 0e3ce2c05701678f894f52aa26d9bd55
+    url: https://www.linkedin.com/in/denzilferreira/
+  tuulik:
+    name: Tuuli Mutkala
+    email: 7ffb475d5b3a620f2769c66762a5d150
+    url: https://www.linkedin.com/in/tuuli-mutkala-6a6b97a8/  
+  jyrimatti:
+    name: Jyri-Matti Lähteenmäki
+    email: eb1701a5523291ed4651a47e2da49610
+    url: https://lahteenmaki.net
+  tommi.kenakkala:
+    name: Tommi Kenakkala
+    email: cb75690c3a305b4b0dc86c5d650b131e
+    url:
+  marja:
+    name: Marja Ahonen
+    email: 0631daa90a7a9d27f7647a398a945903
+    url: https://www.linkedin.com/in/marja-ahonen/
+  noora:
+    name: Noora Vainio
+    email: 5efbe4e4a442e9e437ce04e8a38118f9
+    url: https://www.linkedin.com/in/noora-e-vainio/
+  aija:
+    name: Aija Valleala
+    email: 3a497cda94512bfd8d6d686f366a66da
+    url: https://www.linkedin.com/in/aija-valleala/

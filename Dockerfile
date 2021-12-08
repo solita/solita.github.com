@@ -12,3 +12,4 @@ ADD Gemfile.lock /solita-blag
 RUN bundle install
 
 CMD ["bundle", "exec", "jekyll", "serve", "--watch", "--host", "0.0.0.0"]
+EXPOSE 4000/tcp

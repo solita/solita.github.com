@@ -15,6 +15,7 @@ tags:
 I have been working with **AWS Kinesis Data Streams** for several years now, dealing with over **0.5TB** of streaming data per day. Rather than telling you about all the reasons why you should use _Kinesis Data Streams_ (plenty is written on that subject), I'll talk about the things you should know when working with the service. At least it would have saved me some gray hair if I knew those beforehand. So if you are still reading, let's dive in!
 
 ![stream](/img/kinesis/stream.jpg){: .img.centered }
+<center><p style="font-size:70%"><i>The Kawarau River, South Island, New Zealand, 2017</i></p></center>
 
 
 # What is it all about?
@@ -23,7 +24,7 @@ _Kinesis Data Streams_ is an essential service in the AWS ecosystem while a lot 
 
 One thing about _Kinesis Streams_ that makes it a very powerful tool, in addition to its nearly endless scalability, is that you can attach **custom data consumers** to it to process and handle data in any way you prefer, in near real-time.
 
-After writing it to a stream, data is available to read **within milliseconds** and is safely stored in the stream for at least **24 hours**, during which you can "replay" the data as many times as you want. You can increase that time even further, to up to 7 days, but you will be charged extra for any time over 24h.
+After writing it to a stream, data is available to read **within milliseconds** and is safely stored in the stream for at least **24 hours**, during which you can "replay" the data as many times as you want. You can increase that time even further and store the data for as long as 365 days, but you will be charged extra for any time over 24h.
 
 ### Shards
 
@@ -46,13 +47,13 @@ It's worth mentioning that while the partition key is not included in the 1MB li
 
 ### Serverless?
 
-One thing _Kinesis Streams_ is lacking at the moment is built-in autoscaling that would automatically respond to changes in the incoming traffic by resharding the stream. It is possible to implement your own version of "autoscaling" as described in [this post](https://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/). Disclaimer: one would need to use five other AWS services to make this work, so "autoscaling" is really a far-stretched term here IMO :)
+One thing _Kinesis Streams_ is lacking at the moment is built-in autoscaling that would automatically respond to changes in the incoming traffic by resharding the stream. It is possible to implement your own version of "autoscaling" as described in [this post](https://aws.amazon.com/blogs/big-data/scaling-amazon-kinesis-data-streams-with-aws-application-auto-scaling/). Disclaimer: one would need to use five other AWS services to make this work, so "autoscaling" is really a far-stretched term here IMO 🙂
 
 ![autoscaling](/img/kinesis/autoscaling.png){: .img.centered }
 
 Why not just add an enormous amount of shards to a stream to accommodate all possible spikes in incoming traffic, you might be asking? You could, but that will cost you. In addition to paying for the amount of data being streamed, every open shard is being charged for on an hourly basis.
 
-Though being fully managed, in a sense, _Kinesis Streams_ is still not entirely serverless. After all, you do need to provision the capacity (shards), pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking :)
+Though being fully managed, in a sense, _Kinesis Streams_ is still not entirely serverless. After all, you do need to provision the capacity (shards), pay for that provisioned capacity even if it is not fully utilized and manage the scaling yourself. In a way, it is like DynamoDB in its early days. And like in the case with DynamoDB, I do firmly believe the actual autoscaling is coming, at some point, soon. This, of course, might be just my wishful thinking 🙂
 
 But I digress.
 
@@ -70,7 +71,7 @@ There are also multiple direct AWS service integrations, meaning that many servi
 
 For ingesting data from mobile devices, there is the _AWS Mobile SDK_. To push Log4J output directly to a stream there is the _Apache Log4J Appender Interface_. There are also several other community-contributed tools and libraries to choose from. I told you, plenty of options.
 
-And, finally, there is the **AWS SDK**, which is the closest to the actual API calls, thus being the most flexible and giving you full control over how you write your data. But, of course, with more freedom comes more responsibility. Kinesis API and [Node.js SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html) (considerations hold for the other languages as well) will be my main focus going forward. So, if you are looking for more information about e.g. Log4J integration, this is not the blog post you're looking for :) Otherwise, let's get into some details!
+And, finally, there is the **AWS SDK**, which is the closest to the actual API calls, thus being the most flexible and giving you full control over how you write your data. But, of course, with more freedom comes more responsibility. Kinesis API and [Node.js SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html) (considerations hold for the other languages as well) will be my main focus going forward. So, if you are looking for more information about e.g. Log4J integration, this is not the blog post you're looking for 🙂 Otherwise, let's get into some details!
 
 
 ## AWS SDK
@@ -181,7 +182,7 @@ After a batch request went through successfully (either at once or after the aut
 }
 ```
 
-There is an array of records again, though having a different content this time, and an additional attribute called `FailedRecordCount`. If the value of `FailedRecordCount` is **greater than 0**, this means that you had a **partial failure** of your request. This, in turn, means that part of your records have been written to the stream successfully, while some of them have failed. I guess you could also call it a partial success if you fall on the more optimist side of the spectrum :)
+There is an array of records again, though having a different content this time, and an additional attribute called `FailedRecordCount`. If the value of `FailedRecordCount` is **greater than 0**, this means that you had a **partial failure** of your request. This, in turn, means that part of your records have been written to the stream successfully, while some of them have failed. I guess you could also call it a partial success if you fall on the more optimist side of the spectrum 🙂
 
 That's the tricky part about all the batch operations in general. They are **not atomic** (either all fail or all succeed). And if there are partial failures, AWS SDK will treat them as a success and go on with its life (there was the 200-response after all). This means you might be losing your valuable records without even knowing it! You look at your logs, or DLQ (because let's be fair, logs are not exactly the best way to handle failed records) and all looks bright and sunny. But the reality is, in the meantime, **you might actually be losing a lot of your data due to partial failures**.
 
@@ -328,7 +329,7 @@ One of the reasons for this is the network timeouts and retries we discussed abo
 This is also a common consideration in distributed systems and the best way to address it is to build your downstream applications to be **idempotent**. That is, to build an application that will tolerate the possible [duplicates in data](https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-duplicates.html).
 
 
-## Few words on KPL
+## A few words on KPL
 
 I mentioned in the beginning that you could write your data to _Kinesis Streams_ using Kinesis Producer Library, or KPL in short. While AWS SDK also allows managing the stream itself (e.g. do stream resharding), KPL is meant solely for writing data to a stream and is aimed to simplify it.
 
@@ -354,21 +355,22 @@ There is one more way to write data to a stream I wanted to mention. It is often
 
 # Monitoring a stream
 
-Now when we have been talking about failures for quite some time (because everything fails, all the time, right? :)), it's time to talk about how you can detect failures and monitor your stream's performance. _CloudWatch_ has a [set of metrics](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) related to _Kinesis Streams_.
+Now when we have been talking about failures for quite some time (because everything fails, all the time, right? 🙂), it's time to talk about how you can detect failures and monitor your stream's performance. _CloudWatch_ has a [set of metrics](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) related to _Kinesis Streams_.
 
 The so-called "**basic**" metrics are enabled by default and tell you about the stream in overall. You can also enable the "**enhanced**" metrics, which allow you to monitor the stream on the level of individual shards. The enhanced shard-level metrics can be very useful, especially when you suspect having an "overheated" shard, but they will cost you extra. The basic stream-level metrics are free.
 
 Below are the most important metrics to keep an eye on when writing to a Kinesis stream:
 
-- `IncomingRecords`: The **number** of records **successfully** written to the Kinesis stream. This includes records from both `PutRecord` and `PutRecods` operations. In case you want to separate the two, each of them has its own metric as well: `PutRecord.Success` and `PutRecords.Records` respectively.
+- `IncomingRecords`: The **number** of records **successfully** written to the Kinesis stream. This includes records from both `PutRecord` and `PutRecods` operations. In case you want to separate the two, each of them has its own metric as well: `PutRecord.Success` and `PutRecords.SuccessfulRecords` respectively.
 
 - `IncomingBytes`: This, in turn, shows the **size** of data **successfully** written to the Kinesis stream. Once again, it's a combined metric including `PutRecord` and `PutRecords` operations (`PutRecord.Bytes` and `PutRecords.Bytes` will tell you about the individual operations).
 
 Note that these metrics do not include the failed record writes. So, you can't know the exact overall amount or size of incoming data based on these metrics alone, but you will get quite close. There is one more metric that is crucial to get the overall picture of your stream's wellbeing:
 
-- `WriteProvisionedThroughputExceeded`: The number of records **rejected** due to throttling for both, `PutRecord` and `PutRecords` combined. Note that this time, there are no separate metrics for individual operations.
+- `WriteProvisionedThroughputExceeded`: The number of records **rejected** due to throttling for both, `PutRecord` and `PutRecords` combined. There is also a separate metric for the partial failures in batch operations: `PutRecords.ThrottledRecords`.  
+**Note:** as of March 2021, there are some known issues with the combination metric and it is recommended to use the `WriteProvisionedThroughputExceeded` **only** in case you write **individual records** with `PutRecord` operation. If you are using the batch `PutRecords` operation, use the dedicated `PutRecords.ThrottledRecords` instead.
 
-So, to get the actual number of records that you attempted to write to your Kinesis stream, you should add the `IncomingRecords` to the `WriteProvisionedThroughputExceeded`. Note that these metrics also include all the retry attempts.
+So, to get the actual number of records that you attempted to write to your Kinesis stream, you should add the `IncomingRecords` to the `WriteProvisionedThroughputExceeded` (or `PutRecords.ThrottledRecords`). Note that these metrics also include all the retry attempts.
 
 ## Metrics vs reality
 
@@ -376,7 +378,7 @@ All the _Kinesis Streams_ metrics, both basic and enhanced, are emitted **once a
 
 There's a catch though: as I mentioned before, all the kinesis limits are **per second** (1Mb/second or 1000 records/second per shard). So, when you have spiky traffic, the metrics won't reflect the entire picture. As we know by now, you may exceed stream throughput even if the stream capacity limits seem far away based on metrics.
 
-So, pay close attention to the `WriteProvisionedThroughputExceeded` metric at all times. Also, if enabled, check the shard-level metrics, to make sure you don't have overheated shards that may cause throttling.
+So, pay close attention to the `WriteProvisionedThroughputExceeded` and `PutRecords.ThrottledRecords` metrics at all times. Also, if enabled, check the shard-level metrics, to make sure you don't have overheated shards that may cause throttling.
 
 
 # Pricing model
@@ -387,14 +389,14 @@ You can find a detailed description of how the costs of a Kinesis stream are cal
 
 There are also several other aspects to keep in mind when it comes to calculating the overall cost of a Kinesis stream. In addition to the basic costs associated with a Kinesis stream, you will pay for the following:
 
-  - having **data retention over 24 h**: if you actually need to store the data for some extra time, you will have to pay for it per shard per hour
+  - having **data retention over 24 h**: if you actually need to store the data for some extra time, you will have to pay for it. For the first extra 6 days, the pricing is per shard per hour. This is called  **extended data retention**. After the data has been in the stream for 7 days (24 hours + 6 days of the extended data retention), the **long-term retention** kicks in and you start to pay for the amount of data stored in the stream per month.
   - **enhanced** (shard-level) _CloudWatch_ metrics: the pricing is the same as for having custom metrics and you pay per shard per metric per month. Though the price of _CloudWatch_ metrics is quite modest compared to the other Kinesis costs, if you just blindly enable all the available shard-level metrics (there are 7 of them) for each stream you have, those costs can start to accumulate pretty quickly.
 
 And then there are some possible extra costs associated with consuming the data:
   - using enhanced fan-out
   - DynamoDB charges when using KCL
 
-I will just leave those here for now. Let's get back to them in **Part 2** when we discuss consuming data from a Kinesis stream.
+I will just leave those here for now. Let's get back to them in **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)** when we discuss consuming data from a Kinesis stream.
 
 
 # Conclusions
@@ -404,10 +406,10 @@ There seems to be a common misconception that serverless and fully managed mean 
 Here are some of the key takeaways I hope you find useful. The bonus here is that many of them apply to most of the API calls done through AWS SDK (think of _SQS_, _DynamoDB_, _Kinesis Firehose_, etc.)
 
 ### Batch operations and partial failures:
-When using batch operations, such as the `PutRecords` API for _Kinesis Streams_ (and let's face it, it will be most of the time, unless you have a solid reason not to), always allow for **partial failures**. They will happen. To be frank, if you haven't addressed them yet, they are probably happening right now and you might have no idea. And trust me, it's an awkward moment when you realize that. But the moment is better to come sooner rather than later :)
+When using batch operations, such as the `PutRecords` API for _Kinesis Streams_ (and let's face it, it will be most of the time, unless you have a solid reason not to), always allow for **partial failures**. They will happen. To be frank, if you haven't addressed them yet, they are probably happening right now and you might have no idea. And trust me, it's an awkward moment when you realize that. But the moment is better to come sooner rather than later 🙂
 
 ### Retries with backoff and jitter:
-And speaking of failures, make sure your retry algorithm uses some form of a **backoff** (exponential happens to be the most popular one) and some random **jitter**. I can't emphasize this enough. **USE JITTER!** Ok, maybe that's enough now :) I literally saw a drop of partial failures after all the retry attempts from several thousand to a steady 0 by just implementing this simple strategy.
+And speaking of failures, make sure your retry algorithm uses some form of a **backoff** (exponential happens to be the most popular one) and some random **jitter**. I can't emphasize this enough. **USE JITTER!** Ok, maybe that's enough now 🙂 I literally saw a drop of partial failures after all the retry attempts from several thousand to a steady 0 by just implementing this simple strategy.
 
 ### Connection timeouts:
 Be ready for services and API calls to time out. Don't fall back on the default HTTP timeout values, but rather **set them yourself**. In the case of Node.js, remember to set both, the `timeout` and the `connectTimeout`.
@@ -419,14 +421,14 @@ If your producer application is running inside a VPC, always use an interface **
 The most valuable [metrics](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) when writing to a stream:
 
 - `IncomingRecords` / `IncomingBytes`
-- `WriteProvisionThroughputExceeded`
+- `WriteProvisionThroughputExceeded` / `PutRecords.ThrottledRecords`
 
-Remember, that _CloudWatch_ metrics are **per minute**, while the stream limits are **per second** (1 MB/sec or 1 000 records/sec per shard). And though very important, just looking at the metrics is not enough. You must have proper **error handling** (am I repeating myself? :)).
+Remember, that _CloudWatch_ metrics are **per minute**, while the stream limits are **per second** (1 MB/sec or 1 000 records/sec per shard). And though very important, just looking at the metrics is not enough. You must have proper **error handling** (am I repeating myself? 🙂).
 
 And finally,
 ### Pricing:
 Keep in mind, that in addition to the "baseline" fees of incoming data and open shards, _Kinesis Streams_ can cost you extra:
-  - having data retention over 24 h (pricing is per shard per hour)
+  - having data retention over 24 h (pricing is per shard per hour at first, and per GB per month after the day 7)
   - Enhanced (shard-level) CloudWatch metrics (per shard per metric per month)
   - using enhanced fan-out
   - DynamoDB charges when using KCL
@@ -435,6 +437,6 @@ Keep in mind, that in addition to the "baseline" fees of incoming data and open 
 ----
 
 
-And that's it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **Part 2**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
+And that's it, my friends! If you managed to read this till the end, you should have a solid idea of how _Kinesis Streams_ work and how you can write data to a stream, avoiding some of the most common pitfalls. In **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)**, I'll be talking about reading from a stream, in particular using _AWS Lambda_ as a stream consumer.
 
-Let me know if you think I've missed something critical and hope to see you in **Part 2** (it's coming soon!) :)
+Let me know if you think I've missed something critical and hope to see you in **[Part 2](https://dev.solita.fi/2020/12/21/kinesis-streams-part-2.html)** 🙂

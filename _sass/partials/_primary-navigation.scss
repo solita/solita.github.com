@@ -1,6 +1,5 @@
 .primary-navigation {
     display: none;
-    text-transform: uppercase;
     letter-spacing: .04rem;
     font-size: 0.875rem;
     line-height: (22/14);
@@ -14,7 +13,6 @@
     @media (min-width: $breakpoint-3) {
         font-size: 0.875rem;
         line-height: (22/14);
-        letter-spacing: .09rem;
     }
 
     &__items {
@@ -35,7 +33,7 @@
 
         &__link {
             color: $brand-gray40;
-            font-weight: 700;
+            font-weight: 600;
             padding: 1em 0;
             display: block;
             border-top: 1px solid $brand-gray230;
