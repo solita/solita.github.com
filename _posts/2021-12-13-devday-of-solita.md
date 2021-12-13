@@ -84,7 +84,7 @@ During the years, we have had the tradition to gather in that cabin after the of
 
 ![Bubbly in women's cabin](/img/devday/bubbles_in_womens_cabin.jpg)
 
-*Appetizers in the women's cabin*
+*Aperitifs in the women's cabin*
 
 ## Karaoke
 
