@@ -7,7 +7,7 @@ paginate_path: "/:num"
 highlighter: rouge
 markdown: kramdown
 kramdown:
-   input: GFM
+  input: GFM
 
 authors:
   jarno:
@@ -271,7 +271,7 @@ authors:
     email: 4b2e6c80ee72eb0a2500c6664901fde7
     url: https://github.com/solita-alperttiti
   tuomoturunen:
-    name: Tuomo Turunen 
+    name: Tuomo Turunen
     email: 494cbce68e384faedab5732d088bb3f1
     url: https://www.linkedin.com/in/tuomo-turunen-59b5333/
   jalef:
@@ -301,7 +301,7 @@ authors:
   tuulik:
     name: Tuuli Mutkala
     email: 7ffb475d5b3a620f2769c66762a5d150
-    url: https://www.linkedin.com/in/tuuli-mutkala-6a6b97a8/  
+    url: https://www.linkedin.com/in/tuuli-mutkala-6a6b97a8/
   jyrimatti:
     name: Jyri-Matti Lähteenmäki
     email: eb1701a5523291ed4651a47e2da49610
@@ -322,3 +322,7 @@ authors:
     name: Aija Valleala
     email: 3a497cda94512bfd8d6d686f366a66da
     url: https://www.linkedin.com/in/aija-valleala/
+  tepsley:
+    name: Teppo Ruokosalmi
+    email: 4de3aae7f22060b74d830ca5ae3c90b3
+    url: https://www.linkedin.com/in/teppo-ruokosalmi-a1aa063b/
