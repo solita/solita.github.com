@@ -3,9 +3,9 @@ layout: post
 title: Can you keep a secret?
 author: denzilferreira, eetupajuoja, spheroid-
 
-excerpt: 
-> Building a mobile application that keeps secrets (API, tokens, certificates, server URLs) safe is hard. In this post, we share 
-  a strategy to create an app that is OWASP compliant and prevents deobfuscation and 
+excerpt: > 
+  Building a mobile application that keeps secrets (API, tokens, certificates, server URLs) safe is hard. In this post, we share 
+  a strategy to create an app that uses Themis as a safeguard against deobfuscation and 
   binary deconstruction exploits to flood our backend.
     
 tags:
@@ -30,8 +30,8 @@ device internal storage and the retrieval of application binaries is possible...
 (**.ipa** and **.apk**, for iOS and Android respectively). A technically and driven individual could deconstruct the binary 
 and dig out exploitable API keys, tokens, especially if they are injected via a CI pipeline and stored internally in clear text.
 
-What can we do? Fortunately, there are tools to help us and a set of steps we can follow to protect our secrets. 
-Let's start with Android and then iOS.
+What can we do? Luckily for us, there is a solution for this which is recommended by OWASP: a cross-platform
+high-level cryptographic library called **[Themis](https://www.cossacklabs.com/themis/)**. Let's start with Android and then iOS.
 
 ## Android
 
@@ -82,8 +82,7 @@ defaultConfig {
 
 Now our "secrets" are available in Kotlin/Java from the Gradle generated BuildConfig object for our app module.
 Doing this will prevent us from committing the secrets to VCS, but doesn't protect the secrets from being in the clear
-inside the binary 😱 Luckily for us, there is a solution for this, which is endorsed by OWASP: a cross-platform
-high-level cryptographic library called **[Themis](https://www.cossacklabs.com/themis/)**.
+inside the binary 😱
 
 ### Using Themis 🔐
 
