@@ -26,6 +26,7 @@ tags:
 ### Continue on WSL2 with the following
 
 1. Install pre-required packages
+   - `sudo apt update`
    - `sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2`
 2. Configure package repository
    - `source /etc/os-release`
