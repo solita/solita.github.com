@@ -180,3 +180,10 @@ in a haystack.
 
 ## iOS
 
+# Closing thoughts
+
+Is Themis a 100%-guarantee in keeping secrets away from preying eyes? Unfortunately, no. According to the documentation,
+on its own, Themis addresses 90% of the exploits surrounding safeguarding secret encryption and decryption. Those remaining 10% 
+often fall onto external factors that can and do compromise your application security, e.g., the backend or the CI/CD itself may be compromised, 
+or simply human-error: one may commit the secrets to VCS. Themis is no silver-bullet to security, but it is better than providing
+secrets in the clear on an application binary.
