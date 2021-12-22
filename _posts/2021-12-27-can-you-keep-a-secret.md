@@ -60,7 +60,7 @@ To support both local deployments, and CI/CD deployments, create a tiny utility
 Groovy function before the **android** code block:
 
 ```groovy
-String getSecret(String key) {
+String getValue(String key) {
     return project.findProperty(key) ? System.getenv(key) : ""
 }
 
@@ -74,9 +74,9 @@ Then inside the **defaultConfig** code block, we retrieve these values:
 ```groovy
 defaultConfig {
   //...
-  buildConfigField "String", "SECRET_1", "\"${getSecret("secret1")}\""
-  buildConfigField "String", "SECRET_2", "\"${getSecret("secret2")}\""
-  buildConfigField "String", "SECRET_URL", "\"${getSecret("secretUrl")}\""
+  buildConfigField "String", "SECRET_1", "\"${getValue("secret1")}\""
+  buildConfigField "String", "SECRET_2", "\"${getValue("secret2")}\""
+  buildConfigField "String", "SECRET_URL", "\"${getValue("secretUrl")}\""
 }
 ```
 
@@ -176,7 +176,7 @@ val endpoint = BuildConfig.SECRET_URL.decode()
 ```
 
 This whole process should make it very time consuming to dig out all the steps required to restore your secrets. Using
-code obfuscation on top of this, and recreating the encryption key and restoring the secrets becomes a finding a needle
+code obfuscation on top of this, and recreating the encryption key and restoring the secrets makes this task as hard as finding a needle
 in a haystack.
 
 ## iOS
