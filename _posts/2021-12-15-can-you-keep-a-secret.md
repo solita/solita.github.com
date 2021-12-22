@@ -44,9 +44,9 @@ systems (VCS) e.g., GitHub, the recommended strategy is to declare these within 
 ### Keep your secrets in ~/.gradle/gradle.properties
 
 ```properties
-api_key=hk5j43hk5jh34k5jh345kj34h5kjg345kjg34k5jg3kj45
-hmac_code=kj3h45kj3h4k5hjg34lö23hl423lk4h23lk4h23g4kl1k2h3
-server_url=https://hacker-honeypot.fi
+secret1=hk5j43hk5jh34k5jh345kj34h5kjg345kjg34k5jg3kj45
+secret2=kj3h45kj3h4k5hjg34lö23hl423lk4h23lk4h23g4kl1k2h3
+secretUrl=https://hacker-honeypot.fi
 ```
 
 The benefit of this approach is that such variables will be available to any project that uses Gradle we may be working
@@ -74,9 +74,9 @@ Then inside the **defaultConfig** code block, we retrieve these values:
 ```groovy
 defaultConfig {
   //...
-  buildConfigField "String", "API_KEY", "\"${getSecret("api_key")}\""
-  buildConfigField "String", "HMAC_CODE", "\"${getSecret("hmac_code")}\""
-  buildConfigField "String", "STATS_URL", "\"${getSecret("stats_url")}\""
+  buildConfigField "String", "SECRET_1", "\"${getSecret("secret1")}\""
+  buildConfigField "String", "SECRET_2", "\"${getSecret("secret2")}\""
+  buildConfigField "String", "SECRET_URL", "\"${getSecret("secretUrl")}\""
 }
 ```
 
@@ -95,7 +95,89 @@ dependencies {
 }
 ```
 
+Themis encrypts and decrypts in runtime our secrets using an encryption key. So we'll an encryption key into our
+user's gradle.properties file:
 
+```groovy
+xpto=3hgjkh6g23jlhg65hj345g6kjh3g456uhyjg
+```
+
+and then in the application build.gradle, in the defaultConfig block:
+
+```groovy
+defaultConfig {
+  //...
+  buildConfigField "String", "SECRET_1", "\"${getSecret("secret1")}\""
+  buildConfigField "String", "SECRET_2", "\"${getSecret("secret2")}\""
+  buildConfigField "String", "SECRET_URL", "\"${getSecret("secretUrl")}\""
+  buildConfigField "String", "XPTO", "\"${getSecret("xpto")}\""
+}
+```
+
+#### Obfuscating the encryption key
+
+This encryption key will then be manipulated in runtime and used to encode/decode the secrets. We start by creating an 
+encryption key obfuscation function. It is good practice naming this function as something 
+that would make it harder to identify in deconstructed binaries (in this example, **crashIt()**) so be creative here!
+
+```kotlin
+private fun crashIt() : ByteArray {
+    val rawKey = buildString(5) {
+        append(byteArrayOf(0x11, 0x07, 0x10).toBase64())
+        append(BuildConfig.XPTO)
+        append("87bvc765bds876fg87sfd6g876309480")
+    }
+    return rawKey.toByteArray()
+}
+```
+
+#### Creating encoded versions of the secrets
+
+Then we create an encoding function to encrypt the original keys as a Base64 string - **be creative here and call it something else**!:
+
+```kotlin
+fun String.encode(): String {
+    val encodingKey = crashIt()
+    val cell = SecureCell.SealWithKey(encodingKey)
+    val protected = cell.encrypt(this.toByteArray())
+    return Base64.encodeToString(protected, Base64.NO_WRAP)
+}
+```
+
+We can then replace the secrets in our CI/CD pipeline with these encoded Base64 strings. This means that even the CI/CD
+will not know what the secrets are! The only key that is on the CI/CD is the encryption key. Because we are obfuscating
+the encryption key in runtime as well, even if someone found the encryption key, they would still need to find what 
+runtime operations we do to it in order to restore the real encryption key.
+
+#### Decoding the encoded versions of the secrets
+
+To decode the encrypted Base64 strings, we then need a function to restore the original secret in runtime - **be creative here and call it something else**:
+
+```kotlin
+fun String.decode(): String? {
+    val encodingKey = crashIt()
+    val cell = SecureCell.SealWithKey(encodingKey)
+    return try {
+        val decoded = Base64.decode(this, Base64.NO_WRAP)
+        val unprotected = cell.decrypt(decoded)
+        val decrypted = String(unprotected)
+        decrypted
+    } catch (error: SecureCellException) {
+        Timber.d("Failed to decrypt")
+        null
+    }
+}
+```
+
+Now we can use the decode() function on the Base64 string to restore in runtime the original value:
+
+```kotlin
+val endpoint = BuildConfig.SECRET_URL.decode()
+```
+
+This whole process should make it very time consuming to dig out all the steps required to restore your secrets. Using
+code obfuscation on top of this, and recreating the encryption key and restoring the secrets becomes a finding a needle
+in a haystack.
 
 ## iOS
 
