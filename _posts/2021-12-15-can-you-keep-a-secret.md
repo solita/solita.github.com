@@ -25,13 +25,13 @@ and is protected with an API key and an [HMAC](https://en.wikipedia.org/wiki/HMA
 
 # Watching out for tinkerers 🕵️
 
-So, how do we keep these "secret" values (API key, HMAC code, server URL...), secret? Rooted/jailbroken smartphones, allow access to the 
-device internal storage and the retrieval of application binaries (**.ipa** and **.apk**, for iOS and Android respectively)
-is possible... a technically and driven individual could deconstruct the binary and dig out exploitable API keys, tokens, 
-especially if they are injected via a CI pipeline and stored internally in clear text.
+So, how do we keep these "secrets" (API key, HMAC code, server URL...)? Rooted/jailbroken smartphones, allow access to the 
+device internal storage and the retrieval of application binaries is possible... 
+(**.ipa** and **.apk**, for iOS and Android respectively). A technically and driven individual could deconstruct the binary 
+and dig out exploitable API keys, tokens, especially if they are injected via a CI pipeline and stored internally in clear text.
 
-What can we do? Fortunately, there are tools to help us and a set of steps we can follow to protect our secrets. Shall we 
-"spill the beans"? 😅 Let's start with Android and then iOS.
+What can we do? Fortunately, there are tools to help us and a set of steps we can follow to protect our secrets. 
+Let's start with Android and then iOS.
 
 ## Android
 
@@ -85,9 +85,9 @@ Doing this will prevent us from committing the secrets to VCS, but doesn't prote
 inside the binary 😱 Luckily for us, there is a solution for this, which is endorsed by OWASP: a cross-platform
 high-level cryptographic library called **[Themis](https://www.cossacklabs.com/themis/)**.
 
-### Themis to the rescue 🔐
+### Using Themis 🔐
 
-Let's start by adding Themis as a project dependency, editing **build.gradle** inside the app module:
+Let's start by adding Themis as a project dependency, by editing **build.gradle** inside the app module:
 
 ```groovy
 dependencies {
