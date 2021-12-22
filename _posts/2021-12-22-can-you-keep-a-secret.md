@@ -30,7 +30,7 @@ device internal storage and the retrieval of application binaries is possible...
 (**.ipa** and **.apk**, for iOS and Android respectively). A technically and driven individual could deconstruct the binary 
 and dig out exploitable API keys, tokens, especially if they are injected via a CI pipeline and stored internally in clear text.
 
-What can we do? Luckily for us, there is a solution for this which is recommended by OWASP: a cross-platform
+What can we do? Luckily for us, there is a solution for this which is acknowledged by OWASP: a cross-platform
 high-level cryptographic library called **[Themis](https://www.cossacklabs.com/themis/)**. Let's start with Android and then iOS.
 
 ## Android
