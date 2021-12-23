@@ -260,7 +260,7 @@ To decode the encrypted Base64 strings, we then need a function to restore the o
 static func decode(configKey: String) -> String? {
     let key = getKey().data(using: .utf8)!
     let cell = TSCellSeal(key: key)
-    let encryptedSecret = try? Configuration.value(for: configKey)
+    let encryptedSecret = Bundle.main.object(forInfoDictionaryKey: configKey)
 
     if let es = encryptedSecret, let esDecoded = es.fromBase64() {
         let decodedData = try? cell?.decrypt(esDecoded)
