@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Can you keep a secret?
+title: Can you keep a secret? Using Themis on native mobile development.
 author: denzilferreira, eetupajuoja, spheroid-
 
 excerpt: > 
@@ -106,10 +106,10 @@ and then in the application build.gradle, in the defaultConfig block:
 ```groovy
 defaultConfig {
   //...
-  buildConfigField "String", "SECRET_1", "\"${getSecret("secret1")}\""
-  buildConfigField "String", "SECRET_2", "\"${getSecret("secret2")}\""
-  buildConfigField "String", "SECRET_URL", "\"${getSecret("secretUrl")}\""
-  buildConfigField "String", "XPTO", "\"${getSecret("xpto")}\""
+  buildConfigField "String", "SECRET_1", "\"${getValue("secret1")}\""
+  buildConfigField "String", "SECRET_2", "\"${getValue("secret2")}\""
+  buildConfigField "String", "SECRET_URL", "\"${getValue("secretUrl")}\""
+  buildConfigField "String", "XPTO", "\"${getValue("xpto")}\""
 }
 ```
 
