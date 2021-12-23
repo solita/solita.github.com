@@ -180,6 +180,103 @@ in a haystack.
 
 ## iOS
 
+The way of keeping secrets on iOS is somewhat similar to that of Android's. To prevent the API secrets from leaking to the VCS the plan is to have a configuration file that is populated locally with local test values and then in the CI/CD pipeline with production values. This file is committed to git as an empty configuration file. This way we don't have to worry about the secrets leaking to our repository. Let's see how we can achieve this. (Please note that all the names of functions and variables are quite obvious here for the sake of an example. In the real implementation it might be a good idea to name them something completely unrelated to encrypting/decrypting secrets.)
+
+### Keep your secrets in .../Secrets.xcconfig
+
+First we will create a file called Secrets.xcconfig. Then we can add this file to the project's configurations. We can do this by selecting the top level project in Xcode's project navigator, selecting the info tab and setting **Secrets** as the configuration set for each configuration under **Configurations**. Now we can push this empty configuration file to the VCS. This way any new developer pulling our project should be able to build it without the need to set configurations.
+
+Next we need to make sure that changes to this file will not be committed to the VCS. We can tell git to ignore changes to the file by setting
+
+```properties
+git update-index --skip-worktree .../Secrets.xcconfig
+```
+
+This way git will always consider this file to be up to date and so it ignores changes made to it. One caveat of this approach is that if changes have been made to the file, git will not allow you to switch branches. Depending on the way git branches are used in your project this might be a bit of a show stopper.
+
+In the xcconfig file we can store the secrets like so:
+
+```properties
+SECRET = hk5j43hk5jh34k5jh345kj34h5kjg345kjg34k5jg3kj45
+```
+
+We can read the values stored in the file like this:
+
+```swift
+if let secret = Bundle.main.object(forInfoDictionaryKey: "SECRET") {
+    print("We got it.")
+}
+```
+
+Now we just need to make sure the CI/CD pipeline populates the Secrets.xcconfig based on the environment variables set there. This way the secrets will be safe from whoever gains access to our repository. Next we will see how to encrypt the secrets using Themis on iOS to prevent the actual secrets from being visible in a decompiled binary.
+
+
+### Using Themis 🔐
+
+Using Themis on iOS is very similar to using it on Android. Some differences do exist in the libraries though so let's check them out.
+
+Let's start by adding Themis as a project dependency, by adding **https://github.com/cossacklabs/themis** to swift packages
+
+We will also need an encryption key that we use to encode and decode our secrets. We'll store the key in Secrets.xcconfig:
+
+```properties
+KEY = 3hgjkh6g23jlhg65hj345g6kjh3g456uhyjg
+```
+
+#### Obfuscating the encryption key
+
+We will also manipulate the key in runtime by adding some junk around it:
+
+```swift
+static func getKey() -> String {
+    let key = Bundle.main.object(forInfoDictionaryKey: "KEY")
+    return "97HkkQEmdf44AMio569n".toBase64()! +
+        "\(key)" +
+        "\(777 * 4 / 99.2)"
+}
+```
+
+#### Creating encoded versions of the secrets
+
+Then we create an encoding function that encrypts the original secrets with Themis and encodes the encrypted values with Base64:
+
+```swift
+static func encode(secret: String) -> String? {
+    let key = getKey().data(using: .utf8)!
+    let cell = TSCellSeal(key: key)
+    let data = secret.data(using: .utf8)!
+    let encryptedData = try? cell?.encrypt(data)
+    return encryptedData?.base64EncodedString()
+}
+```
+
+Notice here how the class used to encrypt the secrets differs from the one of the Android library. Using this function we can generate the encrypted values of our secrets that we can then add to our CI/CD pipeline and the local config.
+
+#### Decoding the encoded versions of the secrets
+
+To decode the encrypted Base64 strings, we then need a function to restore the original secret in runtime
+
+```swift
+static func decode(configKey: String) -> String? {
+    let key = getKey().data(using: .utf8)!
+    let cell = TSCellSeal(key: key)
+    let encryptedSecret = try? Configuration.value(for: configKey)
+
+    if let es = encryptedSecret, let esDecoded = es.fromBase64() {
+        let decodedData = try? cell?.decrypt(esDecoded)
+        return String(data: decodedData, encoding: .utf8)
+    } else {
+        Log.e("Failed to fetch config value for \(configKey)")
+    }
+}
+```
+
+Now we can pass the Themis encrypted and Base64 encoded string to the decode(configKey: String) function to figure out the original secret value:
+
+```swift
+let originalSecretValue = decode(configKey: "SECRET")
+```
+
 # Closing thoughts
 
 Is Themis a 100%-guarantee in keeping secrets away from preying eyes? Unfortunately, no. According to the documentation,
