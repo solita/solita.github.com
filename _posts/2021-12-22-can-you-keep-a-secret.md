@@ -18,16 +18,16 @@ tags:
 ---
 
 # Preface
-We are currently building an app that has sensitive data. Both applications are available 
+We are currently building apps that contain sensitive data. Both applications are available 
 worldwide and therefore our backend is not geofenced. Our apps communicate with the backend for several read-only RESTful 
-API endpoints, except for one write-only for statistics. This write-only endpoint is offered over HTTPS POST, 
+API endpoints, except for one write-only endpoint for statistics. This write-only endpoint is offered over HTTPS POST, 
 and is protected with an API key and an [HMAC](https://en.wikipedia.org/wiki/HMAC) signature code.
 
 # Watching out for tinkerers 🕵️
 
-So, how do we keep these "secrets" (API key, HMAC code, server URL...)? Rooted/jailbroken smartphones, allow access to the 
-device internal storage and the retrieval of application binaries is possible... 
-(**.ipa** and **.apk**, for iOS and Android respectively). A technically and driven individual could deconstruct the binary 
+So, how do we keep these "secrets" (API key, HMAC code, server URL...)? Rooted/jailbroken smartphones allow access to the 
+internal storage of the devices and make the retrieval of application binaries possible... 
+(**.ipa** and **.apk**, for iOS and Android respectively). A technically capable and driven individual could deconstruct the binary 
 and dig out exploitable API keys, tokens, especially if they are injected via a CI pipeline and stored internally in clear text.
 
 What can we do? Luckily for us, there is a solution for this which is acknowledged by OWASP: a cross-platform
@@ -49,8 +49,8 @@ secret2=kj3h45kj3h4k5hjg34lö23hl423lk4h23lk4h23g4kl1k2h3
 secretUrl=https://hacker-honeypot.fi
 ```
 
-The benefit of this approach is that such variables will be available to any project that uses Gradle we may be working
-on for our local machine, and there is no risk of having this gradle.properties committed to VCS. This allows you to 
+The benefit of this approach is that such variables will be available to any project that uses Gradle that we may be working
+on on our local machine, and there is no risk of having this gradle.properties committed to VCS. This allows you to 
 compile, test and deploy the app to a development unit or environment without relying on a third-party source for the 
 keys or tokens. Reading the values is as simple as reading them as a Gradle property and using them as we wish.
 
@@ -192,7 +192,7 @@ Next we need to make sure that changes to this file will not be committed to the
 git update-index --skip-worktree .../Secrets.xcconfig
 ```
 
-This way git will always consider this file to be up to date and so it ignores changes made to it. One caveat of this approach is that if changes have been made to the file, git will not allow you to switch branches. Depending on the way git branches are used in your project this might be a bit of a show stopper.
+This way git will always consider this file to be up to date and so it ignores changes made to it. One caveat of this approach is that if changes have been made to the file, git will not allow you to switch branches locally. You would have to either reverse the command above or discard changes made to the file in order to switch branches. Depending on the way git branches are used in your project this might be a bit of a show stopper.
 
 In the xcconfig file we can store the secrets like so:
 
