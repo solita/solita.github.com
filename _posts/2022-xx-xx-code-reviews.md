@@ -12,7 +12,7 @@ Code reviews are something we all have been involved, and what we do continuousl
 
 # Reasons to do code reviews
 
-**Learning and sharing knowledge**
+## Learning and sharing knowledge
 
 This might be little surprising for someones, but reducing bugs or code quality are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share the knowledge about code base and also programming in general.
 
@@ -20,7 +20,7 @@ This might be little surprising for someones, but reducing bugs or code quality 
 
 With code reviews at least two persons know something about the code and it reduces the bus factor.
 
-**Better code quality**
+## Better code quality
 
 > Code review remains the number one thing a company can do to improve code quality. - [State of Software Quality | Code Review 2021, Presented by SmartBear](https://smartbear.com/state-of-software-quality/code-review/)
 
@@ -32,7 +32,7 @@ Code quality is really important thing, and without code reviews, we know it wil
 
 (I personally think that unit tests are number one thing that improves code quality. It was #2 in SmartBear's questionnaire. Not far behind code reviews.)
 
-**Increased collaboration**
+## Increased collaboration
 
 Code reviews force us to communicate with others about the code. Common problem is how to ask for a feedback. Reviews give us a nice organized way to get and give feedback and communicate.
 
@@ -58,15 +58,34 @@ Why? How about feature B that I'm now programming? It is a super important featu
 
 Reason is simple: the feature D is **closest to be done** and thus has highest value after feature C.
 
-**Make impact and do the code review soon.**
+## Make impact and do the code review soon
 
-Only done work has real value (€$£). All cards in agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
+*Only done work has real value (€$£)*. All cards in agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
 
-"In review" is close to be done. It will soon create value, sooner than cards in todo or in progress columns. The more right you go in agile board, the sooner it will have real value. Thus things on right are more important than things on left. Help your co’worker to finish his/her task and create value by reviewing the code as soon as possible.
+"In review" is close to be done. It will soon create value, sooner than cards in todo or in progress columns. The more right you go in agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co’worker to finish his/her task and create value by reviewing the code as soon as possible.
 
-# Shift-left code reviews
+# Shift-left code reviews - how to review sooner?
 
-TODO
+> I recommend that you do your initial code walkthrough much earlier. Instead of waiting for the completion of a feature, make it a practice to present and discuss each implementation at one-third completion. (Adam Tornhill, Software Design X-Rays)
+
+There is a problem when we review "completed" code. When the code comes to review, it is too late or much more difficult to make significant changes to it. All of us have heard "we are busy, we can fix it later." And by experience we know that "later" comes never.
+
+Example - Urgent and Big Code Review Just Before The Deadline:
+
+- Manager: "This must be accepted/merged in an hour. Our code ships then."
+- Reviewer: "This is horrible code; I can’t let it pass the review!"
+- Then the manager forces reviewer to accept it and promises that this was the last time reviewer must accept this kind of code.
+
+This shouldn't happen but we know it happens now and then.
+It is the situation that Tornhill describes: it is too late to change the code.
+
+## Fix = Review Unfinished Code
+
+What if that code was already reviewed when it wasn't ready yet? If it was reviewed when it was only 70% done? A reviewer could've mentioned about problems earlier and a programmer would've fixed them in time.
+
+My suggestion is to review code before it is 100% ready, and receive feedback earlier. Ie. "shift-left" code review a bit in agile board.
+
+For example with GitHub you can create [draft pull requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/). "Draft" is a good sign for a reviewer not to look at tiny details but to look for a big picture. And when you publish the code review (ie. remove "draft" from it), it requires also less time to review because review has already reviewed most of it.
 
 # Tips
 
