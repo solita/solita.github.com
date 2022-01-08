@@ -3,7 +3,9 @@ layout: post
 title: Code Reviews
 author: lassiautio
 excerpt: >
-  TODO
+  Why should we do code reviews? What makes code reviews even more important than programming? Why amd how to shift-left code reviews?
+  This blog post will give answers to these questions, and go deeper to the world of code reviews.
+  In the end there will be also some tips why code reviews should be small, and why you shoulnd't comment too much on code reviews.
 tags:
  - code review
 ---
