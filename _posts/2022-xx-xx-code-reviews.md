@@ -16,7 +16,7 @@ Code reviews are something we all have been involved, and what we do continuousl
 
 This might be little surprising for someones, but reducing bugs or code quality are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share the knowledge about code base and also programming in general.
 
-"Oh, I didn’t know it can also be done this way. I will use it next time!". This is something I've said many times when I've reviewed code.
+"Oh, I didn't know it can also be done this way. I will use it next time!". This is something I've said many times when I've reviewed code.
 
 With code reviews at least two persons know something about the code and it reduces the bus factor.
 
@@ -27,7 +27,7 @@ With code reviews at least two persons know something about the code and it redu
 Code quality is really important thing, and without code reviews, we know it will decrease. My ordered list why code reviews improve code quality:
 
 1. You don't dare to write bad code when you know someone else will review it,
-1. The reviewer will notify you if there is a code he/she doesn’t understand, and you will fix it and
+1. The reviewer will notify you if there is a code he/she doesn't understand, and you will fix it and
 1. There will be fewer bugs because some of the bugs will be found and fixed already in code review.
 
 (I personally think that unit tests are number one thing that improves code quality. It was #2 in SmartBear's questionnaire. Not far behind code reviews.)
@@ -62,7 +62,7 @@ Reason is simple: the feature D is **closest to be done** and thus has highest v
 
 *Only done work has real value (€$£)*. All cards in agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
 
-"In review" is close to be done. It will soon create value, sooner than cards in todo or in progress columns. The more right you go in agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co’worker to finish his/her task and create value by reviewing the code as soon as possible.
+"In review" is close to be done. It will soon create value, sooner than cards in todo or in progress columns. The more right you go in agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co'worker to finish his/her task and create value by reviewing the code as soon as possible.
 
 # Shift-left code reviews - how to review sooner?
 
@@ -73,13 +73,13 @@ There is a problem when we review "completed" code. When the code comes to revie
 Example - Urgent and Big Code Review Just Before The Deadline:
 
 - Manager: "This must be accepted/merged in an hour. Our code ships then."
-- Reviewer: "This is horrible code; I can’t let it pass the review!"
+- Reviewer: "This is horrible code; I can't let it pass the review!"
 - Then the manager forces reviewer to accept it and promises that this was the last time reviewer must accept this kind of code.
 
 This shouldn't happen but we know it happens now and then.
 It is the situation that Tornhill describes: it is too late to change the code.
 
-## Fix = Review Unfinished Code
+## Fix = Review unfinished code
 
 What if that code was already reviewed when it wasn't ready yet? If it was reviewed when it was only 70% done? A reviewer could've mentioned about problems earlier and a programmer would've fixed them in time.
 
@@ -87,6 +87,72 @@ My suggestion is to review code before it is 100% ready, and receive feedback ea
 
 For example with GitHub you can create [draft pull requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/). "Draft" is a good sign for a reviewer not to look at tiny details but to look for a big picture. And when you publish the code review (ie. remove "draft" from it), it requires also less time to review because review has already reviewed most of it.
 
-# Tips
+# Tips for authors
 
-TODO
+## Keep it short
+
+How many of us have faced this?
+
+![10 lines of code = 10 issues. 500 lines of code = "looks fine."](/img/code-reviews/10-lines-vs-500-lines-code-review.png)
+
+Reasons why long code reviews are bad:
+1. They are difficult to understand,
+1. The reviewer doesn't really do the code review.
+
+When the code review is longer, the reviewer will find fewer errors.
+Think also about the reviewer and make it easier to review by keeping it short. He/she will make you a service by reading your code and giving feedback. Rarely reviewers are happy when they are requested to review a code. Make his/her job easier. You will also receive better feedback.
+
+Split the task if it grows too large to have shorter code reviews.
+
+Lassi's rule of thumb: max 10 files per code review.
+
+## Pre-review your code
+
+My simple advice is to review your code before pushing it to code review.
+I always find something to fix when I pre-review my code.
+
+This also saves time from the reviewer, and he/she can find something new to improve: not those obvious ones you fixed in this phase.
+
+# Tips for reviewers
+
+## Do the review on breaks
+
+* "I don't have time to review."
+* "I am in the flow now and don't want to break it"
+ 
+ These are common problems, or excuses, with code reviews. But that is not true. We have many natural breaks during the day when could review a code. Review at those times and you don't have to break your flow.
+
+* Very first in the morning,
+* When you have finished another task before switching to a new task,
+* After meeting, lunch or coffee break before starting or continuing another task or
+* As the last task before leaving.
+
+Also, remember importance of the code review. It is more important than than programming itself. Thus it should have high priority. I don't say you have to stop your coding immediately when there is a code review waiting for you. But to not postpone review many hours, and do it within few hours from the request.
+
+As I said earlier, help your co'worker to finish his/her task and create value by reviewing the code as soon as possible.
+
+## What should I review?
+
+Common problem for new developers or if you are not familiar with the code base. My tip is: **review what is important for you**. That is something you are good at, and you can teach it to others.
+
+"I am not an expert on this, how can I review it?"
+If you don't understand it, then learn at least something from it. Or ask stupid questions from the author.
+
+Keep an eye on the things that static code analyzers can't do. One of the best is namings. Namings are really important, but static code analyzers don't know if some variable name is good or not. Design and architecture are also something human is better than static code analyzers.
+
+![Code review: hierarchy of needs](/img/code-reviews/hierachy-of-needs.png)
+
+Image: http://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html
+
+## Don't comment too much
+
+This tip is especially for me.
+When you comment much, there is a risk that most of the comments will be ignored.
+If you write only a few comments, those comments are more powerful, because they will be certainly read.
+
+Lassi's rule of thumb: write max 10 comments per code review.
+
+"What if there are more than 10 issues?" – comment 10 most critical ones.
+Short code reviews help with this, so again, keep them short.
+
+Notice: if there really is more than 10 bugs, then you should comment all of those (or even have a meeting).
