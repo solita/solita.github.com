@@ -8,7 +8,11 @@ tags:
  - code review
 ---
 
-Code reviews are something we all have been involved, and what we do continuously in our projects. We might have contradictory feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us feedback on our code. When we see poor code, we might think that we should've reviewed the code better. In this blog post I will explain why code reviews are important, even more important than programming itself. I will also give motivation to do code reviews now, not after few days. Some practical tips will be also given to make reviewing easier.
+Code reviews are something we all have been involved, and what we do continuously in our projects. We might have contradictory feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us a feedback on our code. When we see poor code, we might think that we should've reviewed the code better.
+
+In this blog post I will explain why code reviews are important, even more important than programming itself. I will also give motivation to do code reviews now, not after few days. Some practical tips will be also given to make reviewing easier.
+
+This is a blog post version from my presentation that I had at [DevDay 2021](https://dev.solita.fi/2021/12/13/devday-of-solita.html).
 
 # Reasons to do code reviews
 
@@ -156,3 +160,11 @@ Lassi's rule of thumb: write max 10 comments per code review.
 Short code reviews help with this, so again, keep them short.
 
 Notice: if there really is more than 10 bugs, then you should comment all of those (or even have a meeting).
+
+# Conclusion
+
+Hopefully I've told clearly importance of code reviews, and after reading this you value them more. If I had to take three most important things from this blog post, those would be:
+
+* Code reviews are more important than programming itself,
+* Keep it short (Lassi's rule of thumb: max 10 files) and
+* Don't comment too much (Lassi's rule of thumb: max 10 comments).
