@@ -4,7 +4,7 @@ title: Code Reviews
 author: lassiautio
 excerpt: >
   Why should we do code reviews? What makes code reviews even more important than programming? Why and how to shift-left code reviews?
-  This blog post will give answers to these questions, and go deeper into the world of code reviews.
+  This blog post will give answers to these questions and go deeper into the world of code reviews.
   In the end, there will be also some tips on why code reviews should be small, and why you shouldn't comment too much on code reviews.
 tags:
  - code review
@@ -22,7 +22,7 @@ This is a blog post version from my presentation that I had at [DevDay 2021](htt
 
 This might be a little surprising for someones, but reducing bugs or code quality are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share knowledge about the code base and also programming in general.
 
-"Oh, I didn't know it can also be done this way. I will use it next time!". This is something I've said many times when I've reviewed code.
+"Oh, I didn't know it can also be done this way. I will use it next time!" This is something I've said many times when I've reviewed code.
 
 With code reviews, at least two persons know something about the code and it reduces the bus factor.
 
@@ -68,7 +68,7 @@ The reason is simple: the feature D is **closest to be done** and thus has the h
 
 *Only done work has real value (€$£)*. All cards in an agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
 
-"In review" is close to being done. It will soon create value, sooner than cards in todo or in-progress columns. The more right you go in an agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
+In-review is close to being done. It will soon create value sooner than cards in todo or in-progress columns. The more right you go in an agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
 
 # Shift-left code reviews - how to review sooner?
 
@@ -83,7 +83,7 @@ Example - Urgent and Big Code Review Just Before The Deadline:
 - Then the manager forces reviewer to accept it and promises that this was the last time reviewer must accept this kind of code.
 
 This shouldn't happen but we know it happens now and then.
-It is the situation that Tornhill describes: it is too late to change the code.
+It is the situation that Tornhill described: it is too late to change the code.
 
 ## Fix = Review unfinished code
 
@@ -124,9 +124,9 @@ This also saves time from the reviewer, and he/she can find something new to imp
 ## Do the review on breaks
 
 * "I don't have time to review."
-* "I am in the flow now and don't want to break it"
+* "I am in the flow now and don't want to break it."
  
- These are common problems, or excuses, with code reviews. But that is not true. We have many natural breaks during the day when could review a code. Review at those times and you don't have to break your flow.
+ These are common problems, or excuses, with code reviews. But that is not true. We have many natural breaks during the day when we could review a code. Review at those times and you don't have to break your flow.
 
 * Very first in the morning,
 * When you have finished another task before switching to a new task,
@@ -135,7 +135,7 @@ This also saves time from the reviewer, and he/she can find something new to imp
 
 Also, remember the importance of the code review. It is more important than programming itself. Thus it should have high priority. I don't say you have to stop your coding immediately when there is a code review waiting for you. But to not postpone review many hours, and do it within few hours from the request.
 
-As I said earlier, help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
+As I said earlier, help your co-worker to finish his/her task and create value by reviewing the code as soon as possible. When you request someone to review the code, you want it to be reviewed soon. So, do to others what you want them to do to you.
 
 ## What should I review?
 
@@ -144,7 +144,7 @@ A common problem for new developers or if you are not familiar with the code bas
 "I am not an expert on this, how can I review it?"
 If you don't understand it, then learn at least something from it. Or ask stupid questions from the author.
 
-Keep an eye on the things that static code analyzers can't do. One of the best is namings. Namings are really important, but static code analyzers don't know if some variable name is good or not. Design and architecture are also something human is better than static code analyzers.
+Keep an eye on the things that static code analyzers can't do. One of the best is namings. Namings are really important, but static code analyzers don't know if some variable name is good or not. Design and architecture are also something human is better to analyze than static code analyzers.
 
 ![Code review: hierarchy of needs](/img/code-reviews/hierachy-of-needs.png)
 
