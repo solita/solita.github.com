@@ -154,8 +154,19 @@ const salary = (employee) => employee.salary;
 // We need a function that sorts given list in ascending order
 const sortAscending = (list) => list.sort((a, b) => a - b);
 
-// We need a function that returns the item in the center of list
-const median = (list) => list[Math.floor(list.length / 2)];
+// We need a function that returns the middle item
+const medianOdd = (list) => list[Math.floor(list.length / 2)];
+
+// And a function that returns average of summed middle items even numbered lists
+const medianEven = (list) => {
+  const middleIndex = Math.floor(list.length / 2);
+  return (list[middleIndex] + list[middleIndex + 1]) / 2;
+};
+
+// We need a function that returns the item in the center of list or average of
+// 2 middle items in lists that contain even number of items
+const median = (list) =>
+  list.length % 2 === 0 ? medianEven(list) : medianOdd(list);
 
 // We need a mapping function that takes a list of employees and returns their salaries
 const salaries = (list) => list.map(salary);
@@ -208,12 +219,35 @@ const converge = curry((convergingFunction, branches, value) =>
 // branching functions return values to the converging function. It should clear up when we
 // implement median with this. However, we still need a few functions to implement it.
 
+const add = curry((a, b) => a + b);
 const divide = curry((a, b) => a / b);
 const floor = (n) => Math.floor(n);
 const middleIndex = compose(floor, flip(divide)(2), length);
+const slice = curry((index, amount, list) => list.slice(index, index + amount));
 
-// And now for the median.
-const median = converge(nth, [middleIndex, ascending]);
+// Now the 2 cases of median
+const medianOdd = converge(nth, [middleIndex, ascending]);
+const medianEven = (employees) =>
+  compose(
+    flip(divide)(2),
+    apply(add),
+    slice(middleIndex(employees), 2),
+    ascending
+  )(employees);
+
+// Just for the fun of it, let's wrap ifElse branching into a function.
+const ifElse = curry((pred, ifT, ifF, value) => pred(value) ? ifT(value) : ifF(value));
+
+// Generic isEven-function
+const equals = curry((expected, value) => expected === value);
+const mod = curry((a,b) => a % b);
+
+const isEven = compose(
+  equals(0),
+  flip(mod)(2)
+);
+
+const median = ifElse(compose(isEven, length), medianEven, medianOdd),
 
 // Voilà. Median implemented with combining very primitive functions. Now to generalize this
 // for lists.
@@ -229,7 +263,6 @@ Considering we implemented a bunch of generalized functions in the previous solu
 
 ```javascript
 // We need a function that sums up a list of numbers
-const add = curry((a, b) => a + b);
 const reduce = curry((fn, initialValue, list) => list.reduce(fn, initialValue));
 const sum = reduce(add, 0);
 
@@ -246,7 +279,6 @@ Still reusing the same functions:
 ```javascript
 // This is just filtering based by gender and then running the average function
 const filter = curry((fn, list) => list.filter(fn));
-const equals = curry((expected, value) => expected === value);
 const propEq = curry((expectedProp, expectedValue, obj) =>
   compose(equals(expectedValue), prop(expectedProp))(obj)
 );
