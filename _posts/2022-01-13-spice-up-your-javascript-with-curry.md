@@ -42,8 +42,6 @@ function add(a) {
     return a + b;
   };
 }
-
-// As an aside, this is the last example where I use the function keyword.
 ```
 
 In addition to currying there are also [_partially applied_](https://en.wikipedia.org/wiki/Partial_application) functions. The significant difference between a curried and partially applied function is that curried functions always take parameters one at a time (unary) while partially applied functions can be called multiple parameters at a time (variadic).
@@ -95,6 +93,8 @@ const curry = (fn) =>
       ? fn(...args)
       : (...args2) => _curry(...args, ...args2);
   };
+
+// As an aside, this is the last part where I use the function keyword.
 
 const add = curry((a, b, c) => a + b + c);
 
@@ -260,7 +260,7 @@ const averageFemaleSalary = averageGenderSalary("female");
 const averageOtherSalary = averageGenderSalary("other");
 ```
 
-## Problem 4 : Write a function that formats an employees name in the form of {firstName} {middleName initials separated by .} {lastName}:
+## Problem 4: Write a function that formats an employees name in the form of {firstName} {middleName initials separated by .} {lastName}:
 
 ```javascript
 const join = curry((separator, list) => list.join(separator));
@@ -304,6 +304,8 @@ compose(
   subtract(9)
 )(5);
 ```
+
+# Spice... conclusion
 
 I personally am very enthusiastic about this style of programming. All functions I created in previous examples are pure functions and have single responsibilities. Pure functions mean they have no side-effects. They do not depend on some global state that tends to change during the lifetime of an application. They are referentially transparent, so they always return the same output with the same input. This should make f.ex. [memoization](https://en.wikipedia.org/wiki/Memoization#:~:text=In%20computing%2C%20memoization%20or%20memoisation,the%20same%20inputs%20occur%20again.) a breeze.
 
