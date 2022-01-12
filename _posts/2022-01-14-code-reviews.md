@@ -10,7 +10,7 @@ tags:
  - code review
 ---
 
-Code reviews are something we all have been involved, and what we do continuously in our projects. We might have contradictory feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us feedback on our code. When we see poor code, we might think that we should've reviewed the code better.
+Code reviews are something we all have been involved in, and what we do continuously in our projects. We might have mixed feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us feedback on our code. When we see poor code, we might think that we should've reviewed the code better.
 
 In this blog post, I will explain why code reviews are important, even more important than programming itself. I will also give the motivation to do code reviews now, not after few days. Some practical tips will be also given to make reviewing easier.
 
@@ -22,7 +22,7 @@ This is a blog post version from my presentation that I had at [DevDay 2021](htt
 
 This might be a little surprising for someones, but reducing bugs or code quality are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share knowledge about the code base and also programming in general.
 
-"Oh, I didn't know it can also be done this way. I will use it next time!" This is something I've said many times when I've reviewed code.
+"Oh, I didn't know it can also be done this way. I will use it next time!" This is something I've thought many times when I've reviewed code.
 
 With code reviews, at least two persons know something about the code and it reduces the bus factor.
 
@@ -68,7 +68,7 @@ The reason is simple: the feature D is **closest to be done** and thus has the h
 
 *Only done work has real value (€$£)*. All cards in an agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
 
-In-review is close to being done. It will soon create value sooner than cards in todo or in-progress columns. The more right you go in an agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
+In-review is close to being done. It will create value sooner than cards in todo or in-progress columns. The more right you go in an agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
 
 # Shift-left code reviews - how to review sooner?
 
