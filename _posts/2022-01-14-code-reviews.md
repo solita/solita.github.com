@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reviewing finished code is too late - and other tips and motivations for code reviews
+title: Code reviews are more important than programming - and other tips and motivations for code reviews
 author: lassiautio
 excerpt: >
   Why should we do code reviews? What makes code reviews even more important than programming? Why and how to shift-left code reviews?
