@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Code Reviews
+title: Code reviews
 author: lassiautio
 excerpt: >
   Why should we do code reviews? What makes code reviews even more important than programming? Why and how to shift-left code reviews?
