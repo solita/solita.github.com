@@ -16,7 +16,7 @@ Most of us know curry as a delicious food item or a spice blend. While this is t
 
 Currying is an extremely powerful technique and it should be essential for every developer to have basic understanding about it in their toolbox. It truly enables us to write functional code with heavy emphasis on reuse, testing and robustness on the solutions we implement.
 
-Currying refers to a technique of turning a function that accepts _multiple parameters_ (`variadic`) to a function that accepts a single parameter (`unary`) at a time. It turns a function into a function that sums two numbers, most of us would write it as a function that accepts numbers `a` and `b` and returns the sum.
+Currying refers to a technique of turning a function that accepts _multiple parameters_ (`variadic`) to a function that accepts a single parameter (`unary`) at a time. Let's use a sum of two numbers as an example, most of us would write it as a function that takes numbers a and b and returns the sum.
 
 ```javascript
 // using arrow function expression style
@@ -126,6 +126,12 @@ const compose =
 // note: I like reading compositional definitions in reverse.
 // Arguments come last so the reading direction naturally starts there.
 // This choice is purely stylistic and it will vary by language ecosystem and project.
+
+// Now we can use composition with add-function for an example.
+compose(add(1), add(2), add(3));
+
+// The function returned from the compose above could be written in more simple terms.
+// n => n + 3 + 2 + 1;
 ```
 
 Functional composition allows us to build new more abstract functions from primitive functions. This way we can assemble our software from highly reusable primitive functions by just building more abstract layers on top of them with composition.
