@@ -190,7 +190,7 @@ const ascending = sort(subtract);
 
 // note: we could implement a flip function for descending order,
 // flip is a function that takes 2 arguments and flips their order in the invoked function.
-const flip = (fn) => curry((arg1, arg2) => fn(arg2, arg1));
+const flip = (fn) => curry((arg1, arg2, ...rest) => fn(arg2, arg1, ...rest));
 const descending = sort(flip(subtract));
 
 // The length itself is a property on an array object
@@ -225,15 +225,18 @@ const floor = (n) => Math.floor(n);
 const middleIndex = compose(floor, flip(divide)(2), length);
 const slice = curry((index, amount, list) => list.slice(index, index + amount));
 
-// Now the 2 cases of median
+// Now the 2 cases of median, notice that we use converge here.
+// In the medianOdd function we get the middle index and sort the given list in ascending order
+// feeding the result as input to nth-function for getting the value directly.
+// In medianEven we do the same, but instead feed the result into slice-function to take 2
+// values from the middle of the sorted list.
 const medianOdd = converge(nth, [middleIndex, ascending]);
-const medianEven = (employees) =>
+const medianEven = (list) =>
   compose(
     flip(divide)(2),
     apply(add),
-    slice(middleIndex(employees), 2),
-    ascending
-  )(employees);
+    converge(flip(slice)(2), [middleIndex, ascending]),
+  )(list);
 
 // Just for the fun of it, let's wrap ifElse branching into a function.
 const ifElse = curry((pred, ifT, ifF, value) => pred(value) ? ifT(value) : ifF(value));
