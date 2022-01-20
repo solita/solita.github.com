@@ -12,7 +12,7 @@ tags:
 
 Code reviews are something we all have been involved in, and what we do continuously in our projects. We might have mixed feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us feedback on our code. When we see poor code, we might think that we should've reviewed the code better.
 
-In this blog post, I will explain why code reviews are important, even more important than programming itself. I will also give the motivation to do code reviews now, not after few days. Some practical tips will be also given to make reviewing easier.
+In this blog post, I will explain why code reviews are important, even more important than programming itself. I will also give the motivation to do code reviews now, not after a few days. Some practical tips will be also given to make reviewing easier.
 
 This is a blog post version from my presentation that I had at [DevDay 2021](https://dev.solita.fi/2021/12/13/devday-of-solita.html).
 
@@ -20,7 +20,7 @@ This is a blog post version from my presentation that I had at [DevDay 2021](htt
 
 ## Learning and sharing knowledge
 
-This might be a little surprising for someones, but reducing bugs or code quality are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share knowledge about the code base and also programming in general.
+This might be a little surprising for someone, but code quality or reducing bugs are not the most important reasons to do code reviews. It is sharing the knowledge. Code reviews are meant to share knowledge about the code base and also programming in general.
 
 "Oh, I didn't know it can also be done this way. I will use it next time!" This is something I've thought many times when I've reviewed code.
 
@@ -60,9 +60,9 @@ Now let's add an in-review column to our agile board and feature D to it. Which 
 
 Drum rolls... Feature D!
 
-Why? How about feature B that I'm now programming? It is a super important feature. I will review D after I've done B.
+Why? How about feature B which I'm now programming? It is a super important feature. I will review D after I've done B.
 
-The reason is simple: the feature D is **closest to be done** and thus has the highest value after feature C.
+The reason is simple: feature D is **closest to be done** and thus has the highest value after feature C.
 
 ## Make an impact and do the code review soon
 
@@ -91,7 +91,7 @@ What if that code was already reviewed when it wasn't ready yet? If it was revie
 
 My suggestion is to review the code before it is 100% ready and receive feedback earlier. Ie. "shift-left" code review a bit in an agile board.
 
-For example, with GitHub you can create [draft pull requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/). "Draft" is a good sign for a reviewer not to look at tiny details but to look for a big picture. And when you publish the code review (ie. remove "draft" from it), it requires also less time to review because the reviewer has already reviewed most of it.
+For example, with GitHub, you can create [draft pull requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/). "Draft" is a good sign for a reviewer not to look at tiny details but to look for a big picture. And when you publish the code review (ie. remove "draft" from it), it requires also less time to review because the reviewer has already reviewed most of it.
 
 # Tips for authors
 
@@ -139,12 +139,12 @@ As I said earlier, help your co-worker to finish his/her task and create value b
 
 ## What should I review?
 
-A common problem for new developers or if you are not familiar with the code base. My tip is **review what is important for you**. That is something you are good at, and you can teach it to others.
+A common problem for new developers or if you are not familiar with the codebase. My tip is to **review what is important for you**. That is something you are good at, and you can teach it to others.
 
 "I am not an expert on this, how can I review it?"
 If you don't understand it, then learn at least something from it. Or ask stupid questions from the author.
 
-Keep an eye on the things that static code analyzers can't do. One of the best is namings. Namings are really important, but static code analyzers don't know if some variable name is good or not. Design and architecture are also something human is better to analyze than static code analyzers.
+Keep an eye on the things that static code analyzers can't do. One of the best is namings. Namings are important, but static code analyzers don't know if some variable name is good or not. Design and architecture are also something human is better to analyze than static code analyzers.
 
 ![Code review: hierarchy of needs](/img/code-reviews/hierachy-of-needs.png)
 
@@ -161,7 +161,7 @@ Lassi's rule of thumb: write max 10 comments per code review.
 "What if there are more than 10 issues?" – comment 10 most critical ones.
 Short code reviews help with this, so again, keep them short.
 
-Notice: if there really are more than 10 bugs, then you should comment all of those (or even have a meeting).
+Notice: if there are more than 10 bugs, then you should comment on all of those (or even have a meeting).
 
 # Conclusion
 
