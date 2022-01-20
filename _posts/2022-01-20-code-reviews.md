@@ -66,13 +66,13 @@ The reason is simple: feature D is **closest to be done** and thus has the highe
 
 ## Make an impact and do the code review soon
 
-*Only done work has real value (€$£)*. All cards in an agile board that are not yet done don't have any value yet. They will have value when they are done (and deployed to the production).
+*Only done work has real value (€$£)*. All cards in an agile board that are not yet done, don't have any value yet. They will have value when they are done (and deployed to the production).
 
 In-review is close to being done. It will create value sooner than cards in todo or in-progress columns. The more right you go in an agile board, the sooner it will have real value. Thus *things on right are more important than things on left*. Help your co-worker to finish his/her task and create value by reviewing the code as soon as possible.
 
 # Shift-left code reviews - how to review sooner?
 
-> I recommend that you do your initial code walkthrough much earlier. Instead of waiting for the completion of a feature, make it a practice to present and discuss each implementation at one-third completion. (Adam Tornhill, Software Design X-Rays)
+> I recommend that you do your initial code walkthrough much earlier. Instead of waiting for the completion of a feature, make it a practice to present and discuss each implementation at one-third completion. (Adam Tornhill, in his book [Software Design X-Rays](https://pragprog.com/titles/atevol/software-design-x-rays/))
 
 There is a problem when we review the "completed" code. When the code comes to review, it is too late or much more difficult to make significant changes to it. All of us have heard "we are busy, we can fix it later." And by experience, we know that "later" never comes.
 
