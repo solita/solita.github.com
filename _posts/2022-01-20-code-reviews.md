@@ -28,7 +28,7 @@ With code reviews, at least two persons know something about the code and it red
 
 ## Better code quality
 
-> Code review remains the number one thing a company can do to improve code quality. - [State of Software Quality | Code Review 2021, Presented by SmartBear](https://smartbear.com/state-of-software-quality/code-review/)
+> Code review remains the number one thing a company can do to improve code quality. - [State of Software Quality, Code Review 2021, Presented by SmartBear](https://smartbear.com/state-of-software-quality/code-review/)
 
 Code quality is a really important thing, and without code reviews, we know it will decrease. My ordered list of why code reviews improve code quality:
 
