@@ -33,7 +33,7 @@ Boreout is the lesser-known sibling of [burnout](https://en.wikipedia.org/wiki/O
 
 If you've heard about burnout, the list above is eerily similar. We could say that boreout and burnout have the same symptoms but different causes.
 
-A Toxic aspect in our working culture is to place individuals and their work performances on a pedestal skewing our views on these disorders in perverse ways. Burning out is something that I feel is more socially acceptable. Burnout victims are seen as _heroes reaching for the sun and landing amongst the stars_. On the contrary, victims of boreout could be seen as lazy and ungrateful.
+A toxic aspect in our working culture is to place individuals and their work performances on a pedestal skewing our views on these disorders in perverse ways. Burning out is something that I feel is more socially acceptable. Burnout victims are seen as _heroes reaching for the sun and landing amongst the stars_. On the contrary, victims of boreout could be seen as lazy and ungrateful.
 
 It requires a certain amount of hubris to say that your assigned work does not meet your requirements. Combined with the imminent impostor syndrome one has achieved is a perfect match made in misery. The desire for adequate work is hindered by feeling unqualified. A vicious circle indeed.
 
@@ -79,9 +79,9 @@ All the work you find comes with multiple rolls of red tape. All work requires m
 
 Sprints go by; daily routines start to lose their meaning. You never have anything to share. Your team members seem to be speaking in a language you do not understand. Your contributions fade away as you find a residence on the fringes of the project. A scribble in the margins of the project annals highlighting a mistake.
 
-You feel alone, isolated, discarded; An Ill-fitting cog. "Give me something" you lash out in vain. Yet your cries only echo with silence.
+You feel alone, isolated, discarded. "Give me something" you lash out in vain. Yet your cries echo with silence.
 
-Anticipation of changing the world turns into antipathy. You feel useless like an unfitting bent cog with no place in this mechanism. As your professionally meaningless existence slips to your personal life, you blame yourself for not listening to your subconscious self; Unsustainable.
+Anticipation of changing the world turns into antipathy. You feel like an unfitting toothless cog, useless and discarded. As your professionally meaningless existence slips to your personal life, you blame yourself for not listening to your subconscious self; unsustainable.
 
 ## Lack of difference
 
@@ -113,13 +113,13 @@ Sometimes speaking out is the hardest part. There are multiple reasons not to sp
 
 Get a confidante who listens to your venting. Speaking out forces you to concretize your thoughts and gives you insight into why you feel this way.
 
-If you are the one who is listening to a venting. Never attempt to solve the venting person's problems unless asked. Most of the time you should be a rubber duck in these scenarios. There is nothing more patronizing than providing simple solutions to complex problems during venting.
+If you are the one who is listening to a venting, never attempt to solve the venting person's problems unless asked. Most of the time you should be a rubber duck in these scenarios. There is nothing more patronizing than providing simple solutions to complex problems during venting.
 
 ## Diversify your work
 
 Never be afraid of broadening your horizons professionally. Here I am writing a blog post. While in the past I disliked writing, I have to admit being wrong. I do enjoy this. Without prior experiences with boring out, I would never have written any of this. Forever I would have been deprived of this enjoyment.
 
-I have also dipped into marketing, recruitment, mentoring, and "janitorial" work. Create a habit of having professional "Me-time". Take control of your work; be it customer work, self-improvement, or helping others. In our line of work, we are the most valuable assets companies have.
+I have also dipped into marketing, recruitment, mentoring, and "janitorial" work. Create a habit of having professional "me-time". Take control of your work; be it customer work, self-improvement, or helping others. In our line of work, we are the most valuable assets companies have.
 
 The point is to try new things. If the things make you feel warm and fuzzy inside, they're worth continuing.
 
@@ -129,7 +129,7 @@ When it comes to the eventual impostor syndrome we feel from time to time. My ad
 
 > No one knows what they're doing. Some only hide it better than others.
 
-A Motto I have incorporated in my daily work. It might seem cynical and misanthropic, but this motto has been the most monumental and professionally formative thing for me. Whether the statement is true or not is secondary.
+A motto I have incorporated in my daily work. It might seem cynical and misanthropic, but this motto has been the most monumental and professionally formative thing for me. Whether the statement is true or not is secondary.
 
 This realization has freed me to pursue self-improvement over maintaining a facade of infallible professionalism. There is no shame in having unrefined skills. Every time you freely admit not knowing something creates a learning opportunity. You are more valuable if your focus shifts from proving yourself to improving yourself.
 
