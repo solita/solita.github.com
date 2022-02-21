@@ -57,7 +57,7 @@ The emotional package has changed to a more rich flavor. You have now scratched 
 
 The emotional package has aged and turned into vinegar. You know every nook and cranny of the problem. You have nibbled its core until it has become hollow, all the while trying to pour your soul into it for filling in vain. The only thing void of meaning is you.
 
-You have learned everything you feel you need to know. Now what? You are on autopilot, working on pure routine while your mind wanders around. At some point, you turn that inner eye on yourself and realize you haven't learned anything new in a while. Doubt creeps in your soul asking nasty questions. Are you stagnating? Are your skills applicable when emergent tech has replaced the old ones? Do I still have it?
+You have learned everything you feel you need to know. Now what? You are on autopilot, working on pure routine while your mind wanders around. At some point, you turn that inner eye on yourself and realize you haven't learned anything new in a while. Doubt creeps in your soul asking nasty questions. Are you stagnating? Are your skills applicable when emergent tech has replaced the old ones? Do You still have it?
 
 Doubt does not work from 9-to-5. It is a constant companion that feasts on your inner being. Even when you try to sleep, that part of you is fully awake, leering at you from the corner of your mind. It stalks patiently to consume you whole.
 
