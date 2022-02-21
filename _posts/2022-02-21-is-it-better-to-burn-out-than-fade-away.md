@@ -143,7 +143,7 @@ During my latest stint with boreout, I whipped up multiple angles for working ou
 
 Is it better to burn out than fade away? Neither. Burnout and boreout are both debilitating states and neither of them are worse than the other. But the fact that knowledge of boreout amongst people is so much less than burnout bothers me. All I can do is pry on the lid of this pandora's box.
 
-Working in a big company might have some advantage in combatting boreout. Plenty of people, means plenty of ears that listen and understand your problems. Also, it might make diversifying and switching projects a lot easier.
+Working in a big company might have some advantage in combatting boreout. Plenty of people means plenty of ears that listen and understand your problems. Also, it might make diversifying and switching projects a lot easier.
 
 I'm a human first and a professional second. I hope I have managed to transfer some of the anxiety and hopelessness that those afflicted with boreout may feel.
 
