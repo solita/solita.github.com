@@ -68,7 +68,7 @@ Then it's time to create a launch script for `dockerd`. There are two options, m
        export DOCKER_HOST="unix://$DOCKER_SOCK"<br/>
     if [ ! -S "$DOCKER_SOCK" ]; then<br/>
     &nbsp;&nbsp;&nbsp;mkdir -pm o=,ug=rwx "$DOCKER_DIR"<br/>
-     &nbsp;&nbsp;&nbsp;chgrp docker "$DOCKER_DIR"<br/>
+     &nbsp;&nbsp;&nbsp;sudo chgrp docker "$DOCKER_DIR"<br/>
     &nbsp;&nbsp;&nbsp;/mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd <code /dev/null > $DOCKER_DIR/dockerd.log 2>&1"<br/>
     fi
     </code>
