@@ -4,7 +4,7 @@ title: Running Clojure programs on constrained memory
 author: joonas.sarajarvi
 excerpt: >
   How much main memory is required to run a web service written
-  in Clojure? Does choosing a dynamic JVM-based language
+  in Clojure? Does choosing a dynamic, JVM based language
   for side projects require a hefty personal IT budget?
   How to find out if your Clojure program is close to running
   out of memory?
@@ -38,7 +38,7 @@ budget for computational resources is either small or non-existent.
 
 My original motivation for exploring this topic comes from the desire
 to run a small side project without wasting too much money. At the
-moment, even free compute nodes are convenienty available from
+moment, even free compute nodes are conveniently available from
 [fly.io](https://fly.io/docs/about/pricing/), but only for programs
 that can fit into a compute instance equipped with 256 megabytes of
 main memory. I wanted to try Clojure for the project, but my initial
@@ -71,7 +71,7 @@ for the requirements of this post, even though it is not exactly a
 shining example of software architecture.
 
 In addition to the basics of getting and returning metrics, there are
-some gratuoitous database parts and a logging framework as well, just
+some gratuitous database parts and a logging framework as well, just
 to include a few things that tend to exist in almost every HTTP
 service in some form. So in addition to the application code and the
 data that is processed, all of these and their dependencies need to be
@@ -82,7 +82,7 @@ loaded into the JVM:
 - [reitit](https://github.com/metosin/reitit) to define endpoints
 - [muuntaja](https://github.com/metosin/muuntaja) to coerce responses
 - [clojure.java.jdbc](https://github.com/clojure/java.jdbc),
-  Postgresql [jdbc driver](https://jdbc.postgresql.org/),
+  PostgreSQL [jdbc driver](https://jdbc.postgresql.org/),
   [hikari-cp](https://github.com/brettwooldridge/HikariCP) for
   database connectivity.
 - [logback](https://logback.qos.ch/) to format logs
@@ -138,8 +138,8 @@ has two important consequences that I wish to point out. First, a direct
 effect that happens regardless of if our program runs on the JVM or some other
 runtime, is that the operating system must provide its services with
 less memory. This affects especially the page cache, but it also may result
-in swapping-out of memory content. Even in absence swap, heavy filesystem
-read load can result from having to reclaim cached-in filesystem content
+in swapping-out of memory content. Even in absence swap, heavy file system
+read load can result from having to reclaim cached-in file system content
 too soon. Finally, if the memory reclamation mechanisms fail to
 otherwise find memory needed for the operating system to operate, it
 will be necessary to terminate some memory-intensive process or even
@@ -159,7 +159,7 @@ the operating system is lean
 enough, it may be advantageous to use more than half of the main memory
 for the JVM heap.
 
-I suppose that most people using JVM-based programming languages are
+I suppose that most people using JVM based programming languages are
 familiar with the heap size of JVM being manually tunable. On the
 other hand, at least I previously had only vague ideas on what exactly I
 should pick on a small-memory system. Selecting a small heap will make
@@ -190,7 +190,7 @@ unused memory or at least easily reclaimable memory is available. For
 this, it seems that the `MemAvailable` line in the `/proc/meminfo`
 file is a pretty good metric.
 [Documentation](https://man7.org/linux/man-pages/man5/proc.5.html)
-on the `proc` pseudo-filesystem states that it gives an estimate for
+on the `proc` pseudo file system states that it gives an estimate for
 memory that can be used to start new applications. It seems safe to
 assume that it is convenient for growing existing ones as well. In addition,
 this seems to be exactly what the popular `free` tool from the
@@ -243,7 +243,7 @@ metrics.
     $
 
 At the moment of checking, the young generation has been collected
-just twice, and old generation has not had a single collcetion. One
+just twice, and the old generation has not been through a single collection. One
 option in this case would be to programmatically trigger GC runs to
 force a minimal heap size. I went for making the heap smaller instead,
 because it kind of has the same effect without requiring code
@@ -473,8 +473,8 @@ really minimizing the heap size have quite lousy returns in memory
 capacity, compared to the hit on performance and reliability that they
 have.
 
-The one thing of these attempts that I feel like recommending is to
-turn off the JIT compiler infrastructure and run the JVM in
+The one option of the ones I tried and feel like recommending is to
+deactivate the JIT compiler infrastructure and run the JVM in
 interpreter-only mode. The `-Xint` option does just that. This will
 also naturally come with a pretty performance penalty, but at least it
 is simple and the effect on memory use is measured in tens of
