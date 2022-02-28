@@ -519,3 +519,11 @@ program could be altered so that some endpoint would allow the caller
 to effect how memory intensive it is to serve the request. Then various
 tunables could be changed to find settings that maximize the "size" of the
 request that can be handled.
+
+From this exercise, I got a good refresh on my assumptions on memory
+requirements of Clojure. Hopefully this encourages others to check
+their assumptions as well. Especially for non-critical workloads
+running on pay-as-you-go cloud infrastructure, use of smaller
+computational resources can save some money every month. On top of
+this, it seems safe to assume that small instances in general have
+small environmental footprints as well.
