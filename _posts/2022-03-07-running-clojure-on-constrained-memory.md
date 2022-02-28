@@ -138,7 +138,7 @@ has two important consequences that I wish to point out. First, a direct
 effect that happens regardless of if our program runs on the JVM or some other
 runtime, is that the operating system must provide its services with
 less memory. This affects especially the page cache, but it also may result
-in swapping-out of memory content. Even in absence swap, heavy file system
+in swapping-out of memory content. Even in absence of swap, heavy file system
 read load can result from having to reclaim cached-in file system content
 too soon. Finally, if the memory reclamation mechanisms fail to
 otherwise find memory needed for the operating system to operate, it
@@ -170,12 +170,12 @@ unlike how the operating system might find itself unable to reclaim
 memory. In this case, a new memory allocation inside the JVM likely
 throws an
 [OutOfMemoryError](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/OutOfMemoryError.html).
-This error can in theory be caught and handled, but it difficult to do it
+This error can in theory be caught and handled, but it is difficult to do it
 reliably or even figure out a sensible course of action. Doing almost
 anything is likely to require further allocations from the heap.
 
 To summarize, it seems that the range of reasonable values for the
-heap size is quite large. The low end low end of the range is
+heap size is quite large. The low end of the range is
 constrained at least by the risk of having the program terminate on an
 unhandled OutOfMemoryError. On the high end, the constraining factor
 is the increasing risk of starving the operating system of available
