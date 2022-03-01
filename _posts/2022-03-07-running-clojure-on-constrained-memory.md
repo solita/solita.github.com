@@ -170,14 +170,15 @@ unlike how the operating system might find itself unable to reclaim
 memory. In this case, a new memory allocation inside the JVM likely
 throws an
 [OutOfMemoryError](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/OutOfMemoryError.html).
-This error can in theory be caught and handled, but it is difficult to do it
-reliably or even figure out a sensible course of action. Doing almost
-anything is likely to require further allocations from the heap.
+This error can in theory be caught and handled, but it is difficult to
+do it reliably. Almost any response is likely to require further
+allocations from the heap, so a typical way to handle it would be to
+terminate the program.
 
 To summarize, it seems that the range of reasonable values for the
 heap size is quite large. The low end of the range is
-constrained at least by the risk of having the program terminate on an
-unhandled OutOfMemoryError. On the high end, the constraining factor
+constrained at least by the risk of OutOfMemoryError.
+On the high end, the constraining factor
 is the increasing risk of starving the operating system of available
 memory, which also tends to result in some kind of termination of the
 program.
