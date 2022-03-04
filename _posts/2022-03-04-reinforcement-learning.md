@@ -75,8 +75,33 @@ Additionally - who's to say there would not be customer demand in this area, too
 
 ## What have I learned so far from this?
 
+I used to race with Deepracer some years back, then life happened, and had a bit of break there. Now that I decided to resurrect my old interest, and it's been fun to see it's still much alive. Some new things have also happened: The local training has become more viable and easy to get started with. And the new obstacle avoidance mode has been added. Obviously lots more tracks available.
+
+Last time I was training I used a combination of an Ubuntu machine with a great graphics card, and sometimes the AWS console services. This time I was happy to see that I can also do local training with Windows, WSL2, and a Docker installation, and it works great also with AWS console. So I can train a model locally, once it's good enough, I can refine it in AWS console, and race with it. This is a very cost effective way to have some fun.
+
+Other insights. As a coder I've been very fixated on the reward algorithm. Now I'm also trying to understand the hyperparameters, and action space, a lot better. Some experiments I've been running:
+
+- Custom action space where the fastest speeds do not include dramatic turns: I noticed when you up the speed a lot, the car starts to spin due to simulation physics. I can customize allowed turn angles in the action space, allowing tighter turns only for the slower speeds.
+- I'm also pumping up that speed, trying to find the limit where it starts to be hard to make the model stable. Right now that's around 4m/s speed, which is fastest I've ever tried before.
+- I've been dabbling with the hyperparameters a bit, and I'm trying to find the best combination of them. To be honest the measurable effect for me is not very consistent nor very dramatic.
+- I've been practicing retraining the models, and learning the rules for that. It allows to take a model that performs well on one track, and retrain it against a new track. I need to learn how to get the settings right so it makes sense.
+- Overfitting is also a thing. Models do not get better and better eternally the more you train them. Typically sweet spot is around 3-5 hours I hear. Depends of course on your training environment.
+- I've been learning how to use the Jupyter notebooks in local training mode. They are much more rich than the ones in AWS console, and sky is the limit to insights you can get that way.
+- I've set up the physical car, but haven't got - yet - to building even a short track for it. Perhaps one day....
+
 ## Where will it go from here?
+
+- I've been putting focus on local training mode. I still have things to figure out there.
+  - For some reason my training stops working after a while. I'm not sure why. Haven't been yet able to track that in the logs. I get okay models now, but once I figure this out, I can get awesome models.
+  - I'm using CPU training mode for now, as it's simpler to set up. If I got GPU training mode working with my RTX 3080...
+- Getting a good handle on hyperparameters would really rock
+- Some other people in Solita are also working on this, learning and having fun. So if we get some interesting models, we might even build that track one day, and race it out.
+- Haven't started obstacle avoidance yet, but I think that would be really interesting, both in virtual world and on a physical track with a physical car. I plan to play with that too before I am done.  
 
 ## Links and refs
 
 - [AWS Deepracer](https://aws.amazon.com/deepracer/)
+- [Deepracer Community](https://github.com/aws-deepracer-community)
+- [Deepracer Slack Community](https://deepracing.io/)
+- [Deepracer Local Training](https://github.com/aws-deepracer-community/deepracer-for-cloud)
+- [Deepracer League](https://aws.amazon.com/deepracer/league/)
