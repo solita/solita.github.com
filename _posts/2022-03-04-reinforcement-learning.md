@@ -1,0 +1,82 @@
+---
+layout: post
+title: Reinforcement Learning With Deepracer
+author: arto
+excerpt: >
+  Machine Learning is a wide field, and Reinforcement Learning is a very interesting part of it. I chose to learn something new by starting to train a Deepracer car to autonomously drive around a track, as fast as possible. This blog tells how I got started with AWS Deepracer, and what I learned about reinforcement learning.
+tags:
+ - Software Development
+ - AI
+ - Machine Learning
+ - Competence Development
+---
+
+![AWS Deepracer car with stereo vision](/img/reinforcement-learning-deepracer/deepracer_without_shell.jpg)
+*AWS Deepracer car with stereo vision*
+
+So, we've got a new toy. This one is called Deepracer, although my nickname for it is Diddy. It's a 1/18th scale race car that can learn how to navigate a racetrack, without human intervention. I've spent a bit of time with it now, as have some of my colleagues, so wanted to write an article on my experiences.
+
+## What is reinforcement learning?
+
+Machine learning is a wide field with lots of different subtopics. One of the most interesting subtopics is reinforcement learning. It's a form of unsupervised learning, which means idea is not to teach a car how to drive, but to teach it how to learn how to drive. It's not unlike training a puppy. You let it dwell in the inherent chaos, but keep a good feedback loop going, so you can reward it for making good decisions. Eventually the trainee, in this case Deepracer, will learn to associate good input with good decisions that further its goals, in this case ability to navigate a racetrack fast.
+
+What fascinates me in reinforcement learning is that we as human have used to expert rules system: We think we can see which actions produce favorable outcomes. And often we do, we're very good at that. But that's also very old-fashioned and very rigid way of thinking - making it slow to apply for training, and nearly impossible to adapt. With reinforcement learning, we can leverage the muscle of modern cloud platforms, the computing power at our fingertips, to accelerate the learning process, using simulations to run multiple scenarios even in parallel. And because it's unsupervised, every now and then we can learn something new from that data, too.
+
+In a nutshell, this is how you do it with a dog:
+
+- Dog is playing randomly in the backyard, doing the dog things.
+- You add a bit of stimulus, for example a sound, or a visual stimulus, trying to activate the dog towards doing something, for example fetch, bark, stay in place, or run.
+- When it does things that you don't want it to do, you ignore it. When it does useful things that you want it to perform, you immediately reward it.
+- In essence, you are reinforcing good actions to the stimuli. Eventually reward is not even needed, at least not every time, as the dog has learned what you want it to do.
+
+Have to say, in real life, with dogs, they often have no clue what you want, so you would typically alter the order of things above slightly. When a dog sits down, you give it a treat, and repeat the audio stimulus you want to associate. This is a difference to machine learning version, because due to processing power we have these days, we can run a million simulations in parallel, eventually one will figure out the right thing to do even without any human intervention.
+
+Here is a bit more technical explanation of the reinforcement learning for the Deepracer:
+
+- You have a model of the environment, but it's not straightforward to 'solve' the problem.
+- We have an agent, that is able to act in said environment. Agent must have some kind of input (for example camera feed), some kind of output (for example steering angle and speed), and some kind of memory, to keep track of favorable actions.
+- We also need a reward algorithm for the training. Reward algorithm decides how to interpret the environment, for example: is car on the track? How far is it from centerline? What's its current speed?
+- Based on the environment state, reward algorithm will assign rewards of varying size, based on how well the agent is doing.
+- Reward function is only used for training the model, so once we have evaluated the model to be good enough, and we start using it, reward function is forgotten - until the next time we want to train some models.
+- A suitable amount of chaos aka randomness is injected first into actions, so the actor will start taking random actions, to trigger the reward function evaluation. 
+- From there, the training will combine a bit of chaos, and a lot of previous learnings, and keep note of which action for which state brings the best rewards.
+- Training typically also contains evaluations, so you can focus on the best performing models.
+
+## What is AWS Deepracer?
+
+AWS Deepracer is many things. It's an AWS service you can use (for a cost). It's a physical scale model car you can drive on a physical track. It also is associated to Deepracer league, and community, where you can race your models, should you choose to do so. Races happen both virtually, and sometimes also in physical racetracks. Therefore it's also a sport, you can participate in. There's even significant rewards for the best racers, every year.
+
+It was designed to be a fun entry to machine learning and AWS services, similar to Deeplens, and Deep Composer initiatives. So it's a great way to learn about machine learning and AWS, and have some fun.
+
+Underneath the Deepracer service are normal AWS services like IAM, S3, and Sagemaker notebooks. Robomaker service is used for the simulation environment. All these services can also be used directly for training, and there's even a local environment where you can use these as containerized services, without running anything in the cloud. Perhaps more on that in a future blog.
+
+We decided to get one physical scaled-down car, mostly for the fun factor. This is a new model, with stereo vision, and a Lidar sensor, to be able to understand its environments better than before. Having these available opens up new modes for the car. Old cars can only do time trial, but with stereo cameras and Lidar, it's also possible to do obstacle avoidance, or even race with multiple cars on the track simultaneously.
+
+![AWS Deepracer car with Lidar on top](/img/reinforcement-learning-deepracer/deepracer_with_shell_side.jpg)
+*AWS Deepracer car with Lidar on top*
+
+In theory, there's a possibility to set up a racetrack somewhere and try some time trials and even obstacle avoidance one day. We'll see..
+
+## Why is it fun?
+
+As mentioned, it's a great way to learn something new, and that's always fun. It attaches to sports part, which some people, including me, enjoy a lot. You can test how good model you got, vs others. It's a bit creative coding, because there are many variables to nudge and tweak. It's not all about the reward algorithm, it's also about the hyperparameters, and your ambition level - is your model the fastest on a good lap? Or a consistent, robust model that can always handle the track? Or is it a general purpose model that can be used against multiple tracks?
+
+The tracks themselves also keep on chancing, so to get the best results, you need to be able to adapt, even your old superios models, to the new environment. And obstacle avoidance makes things much more interesting and dynamic - a tiny boulder on the track can really become a huge obstacle some models never learn how to avoid.
+
+As many things, this one is also best shared with friends. We decided to do a bit of Deepracer training mostly to get a good excuse to sit down with friends, and share some pizza. I'm also right now sharing this with you, the reader, in hopes you find it interesting, and perhaps a small spark ignites today because of that. There's also a global deepracer Community - I'll drop the link in the end of this article, who's been doing this for years, and are very friendly.
+
+## Why is it useful?
+
+Idea was to pick something that would unlikely be part of our customer projects, or customer needs, just for fun. It leaves more artistic freedom to play with it, as you like, simply focus on the fun of learning.
+
+That being said.. There's a huge demand for people who understand the cloud services well, and even though Deepracer is just a toy, it's still a great way to learn about the AWS services. In fact, it's essential you learn at least a bit of them. While services like IAM, S3 and Sagemaker have everyday uses, the Robomaker environment is a bit more exotic one, that might be fun to learn as well.
+
+Additionally - who's to say there would not be customer demand in this area, too? That might be a happy accident. Perhaps someone wants to train an autonomous bot, car or a drone to deliver food, purchases, supplies. Or challenge Tesla at their own game. Or build automated systems to pick up people's shopping carts from shelves, and put them in delivery boxes. Future will bring more autonomous systems, and people who are experienced enough to be able to make them robust and safe are always in demand. And this is a great way to start that path.
+
+## What have I learned so far from this?
+
+## Where will it go from here?
+
+## Links and refs
+
+- [AWS Deepracer](https://aws.amazon.com/deepracer/)
