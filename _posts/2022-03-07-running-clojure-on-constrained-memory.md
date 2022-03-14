@@ -72,7 +72,7 @@ shining example of software architecture.
 
 In addition to the basics of getting and returning metrics, there are
 some gratuitous database parts and a logging framework as well, just
-to include a few things that tend to exist in almost every HTTP
+to include a few features that tend to exist in almost every HTTP
 service in some form. So in addition to the application code and the
 data that is processed, all of these and their dependencies need to be
 loaded into the JVM:
@@ -152,7 +152,7 @@ size. To avoid driving the operating system into a memory-starved
 state, at least OpenJDK defaults to only using half of the main
 memory for its heap. This is a quite sensible default, but it is not
 always the best value. The JVM process needs memory for quite a few
-things other than just the application heap, so the remaining half may
+purposes other than just the application heap, so the remaining half may
 be insufficient. The operating system might also be running some other
 programs that require memory. On the other hand, if the workload of
 the operating system is lean
@@ -163,7 +163,7 @@ I suppose that most people using JVM based programming languages are
 familiar with the heap size of JVM being manually tunable. On the
 other hand, at least I previously had only vague ideas on what exactly I
 should pick on a small-memory system. Selecting a small heap will make
-it less likely that things apart from the JVM run out of memory, but
+it less likely that programs apart from the JVM run out of memory, but
 it at the very least increases the frequency of GC runs. More
 severely, it may also happen that the GC finds nothing to free, not
 unlike how the operating system might find itself unable to reclaim
@@ -505,7 +505,7 @@ but the RSS of the process got reduced by 50 megabytes.
 I did not test this very much, but it seems that this reduces the
 throughput by a factor somewhere between 5 and 10. The memory headroom
 certainly does not come free, but this might be a useful option for
-some low-traffic thing that otherwise would not fit.
+some low-traffic service that otherwise would not fit.
 
 # Conclusion
 
