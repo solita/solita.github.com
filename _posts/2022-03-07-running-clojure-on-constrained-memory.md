@@ -500,8 +500,9 @@ With this deployed on fly.io, the `sys-summary` looks like this:
       "process-rss-kib": 101308
     }
 
-Heap use is again quite similar to the previous case. I did not do
-thorough testing on it, but in my testing this seems to reduce the
+Heap use is again quite similar to the previous case,
+but the RSS of the process got reduced by 50 megabytes.
+I did not test this very much, but it seems that this reduces the
 throughput by a factor somewhere between 5 and 10. The memory headroom
 certainly does not come free, but this might be a useful option for
 some low-traffic thing that otherwise would not fit.
