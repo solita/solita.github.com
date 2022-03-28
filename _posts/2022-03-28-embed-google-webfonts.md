@@ -17,6 +17,8 @@ As a ripple effect, this judgment is now spreading through European Union member
 
 This does pose a minor challenge though, what is the best way to embed Google fonts in 2022? Thankfully, turns out it's not that hard at all.
 
+![Upper case characters](/img/embed-google-webfonts/font-case.png)
+
 ## Download the fonts
 
 You'll be happy to know that the legwork is already done. I highly recommend the [Google Webfont Downloader](https://nextgenthemes.com/google-webfont-downloader/) which has up-to-date usage instructions right there on its homepage.
