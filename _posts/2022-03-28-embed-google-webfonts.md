@@ -11,7 +11,7 @@ tags:
  - Privacy
 ---
 
-Recently the regional court in Germany in Munich declared that embedding Google Fonts on a website violates GDPR ([news article](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/), [judgement](https://rewis.io/s/u/zH2/)).
+Recently the regional court in Germany in Munich declared that embedding Google Fonts on a website violates GDPR ([news article](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/), [judgment](https://rewis.io/s/u/zH2/)).
 
 As a ripple effect, this judgment is now spreading through European Union member nations, and especially public sector projects should take heed and replace the embedded fonts with self-hosted versions - after all, the issue isn't the fonts themselves, just the method of serving from an untrustworthy source.
 
