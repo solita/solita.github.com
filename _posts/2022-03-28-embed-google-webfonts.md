@@ -3,7 +3,7 @@ layout: post
 title: Embedding Google Fonts for better Privacy and GDPR conformance
 author: esko.suomi
 excerpt: >
-  Regional court in Munich, Germany recently rules Google Fonts as non-GDPR compliant due to the serving mechanism. This does pose a minor challenge, how does one embed webfonts to stay GDPR compliant?
+  Regional court in Munich, Germany recently ruled Google Fonts as non-GDPR compliant due to the serving mechanism. This does pose a minor challenge, how does one embed webfonts to stay GDPR compliant?
 
 tags:
  - Google Fonts
