@@ -40,7 +40,7 @@ tags:
 5. Configure `dockerd`
    - `DOCKER_DIR=/mnt/wsl/shared-docker`
    - `mkdir -pm o=,ug=rwx "$DOCKER_DIR"`
-   - `chgrp docker "$DOCKER_DIR"`
+   - `sudo chgrp docker "$DOCKER_DIR"`
    - `sudo mkdir /etc/docker`
    - `sudo <your_text_editor> /etc/docker/daemon.json`<br/><br/>
      <code>
