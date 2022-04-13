@@ -195,6 +195,11 @@ function makeImmutable(thing, key, value) {
     },
   });
 }
+
+const person = {};
+makeImmutable(person, 'name', 'Ismo');
+console.log(person.name); // 'Ismo'
+person.name = 'Seppo'; // Error: Nope!
 ```
 
 _Doesn't all of this feel a bit... inconvenient?_
