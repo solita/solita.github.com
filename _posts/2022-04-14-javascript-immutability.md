@@ -58,7 +58,7 @@ This doesn't actually change the string `'Hello'` _itself_. Instead, we create a
 
 ## Mutability
 
-In contrast to immutable primitive types, objects and arrays in JavaScript are **mutable**. Modifications truly modify the original data _inside_ the variable:
+In contrast to immutable primitive types, objects and arrays in JavaScript are **mutable**. Modifications truly modify the original data _inside_ them:
 
 ```js
 let oldPerson = {name: 'Ismo'};
