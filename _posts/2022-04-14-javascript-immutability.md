@@ -402,6 +402,9 @@ import { fp } from 'lodash/fp';
 
 const person = {name: 'Ismo', streetAddress: {name: 'Address 123'}};
 const newPerson = fp.set('streetAddress.name', 'New Address 123', person);
+
+console.log(person); // {name: 'Ismo', streetAddress: {name: 'Address 123'}}
+console.log(newPerson); // {name: 'Ismo', streetAddress: {name: 'New Address 123'}}
 ```
 
 _This is way more convenient than using the ... operator everywhere!_
