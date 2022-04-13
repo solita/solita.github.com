@@ -19,7 +19,7 @@ One of my colleagues once said that programming is just moving data from one pla
 
 Once the data has been baked into a form that is ready to be used, you wouldn't like anyone to change it in the middle of the process, would you? Unfortunately, it is quite possible if your data is mutable. And if you are using JavaScript, like many frontend developers, your data is mostly mutable by default - unprotected from an external change.
 
-I have been programming web frontend professionally for more than seven years now. What makes things interesting is that for most of my career I haven't touched JavaScript very much. I'm familiar with the language, but frontend apps that me and my teammates have built have been mainly written in [ClojureScript](https://clojurescript.org) - A Lisp dialect that compiles into JavaScript. Clojure has built-in support for functional programming and immutability, to which I am now highly addicted.
+I have been programming web frontend professionally for more than seven years now. What makes things interesting is that for most of my career I haven't touched JavaScript very much. I'm familiar with the language, but frontend apps that me and my teammates have built have been mainly written in [ClojureScript](https://clojurescript.org) - a Lisp dialect that compiles into JavaScript. Clojure has built-in support for functional programming and immutability, to which I am now highly addicted.
 
 I think this concept of immutability would be useful in the JavaScript world too. Unfortunately, JavaScript, by nature, is highly focused on object-oriented programming and mutable data. Luckily for us, it's still versatile enough for doing functional programming and modifying data immutably. Let's see how.
 
