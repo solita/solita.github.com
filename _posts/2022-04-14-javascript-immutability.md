@@ -142,7 +142,7 @@ Even if `const` does not make objects and arrays immutable, it is still a good h
 We can make JavaScript objects immutable by calling `Object.freeze(object)`:
 
 ```js
-let person = Object.freeze({name: 'Ismo'});
+const person = Object.freeze({name: 'Ismo'});
 person.name = 'Seppo';
 console.log(person.name); // person still has the name 'Ismo' after this. Great!
 ```
@@ -158,8 +158,8 @@ Yes. When we freeze an object with `Object.freeze`, it is so called _shallow fre
 Let's have an example in which our person has an address, which is another object. While we cannot modify the `streetAddress` property itself, we can still mutate the actual `streetAddress` object:
 
 ```js
-let oldPerson = Object.freeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
-let newPerson = oldPerson;
+const oldPerson = Object.freeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
+const newPerson = oldPerson;
 newPerson.streetAddress.name = 'New Address 123';
 console.log(oldPerson.streetAddress.name); // Oops, the address of oldPerson has been mistakenly updated!
 ```
@@ -176,8 +176,8 @@ const deepFreeze = (thing) => {
     return Object.freeze(thing);
 };
 
-let oldPerson = deepFreeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
-let newPerson = oldPerson;
+const oldPerson = deepFreeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
+const newPerson = oldPerson;
 newPerson.streetAddress.name = 'New Address 123';
 console.log(oldPerson.streetAddress.name); // Finally, nothing changed in oldPerson!
 ```
