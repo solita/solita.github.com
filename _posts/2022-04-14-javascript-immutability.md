@@ -111,7 +111,7 @@ If a single human being has faced a problem in JavaScript and solved it, they ha
 
 ### The const Keyword
 
-In 2015, when EcmaScript 6 was released, a new keyword was added to JavaScript: `const`. That sounds good: const... constant... something that cannot be changed.
+In 2015, when EcmaScript 6 was released, a new keyword was added to JavaScript: `const`. That sounds good! Const... constant... something that cannot be changed.
 
 _That's immutable! Right?_
 
