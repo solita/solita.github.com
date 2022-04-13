@@ -254,7 +254,7 @@ things.pop(); // ['C', 'B']
 things.sort(); // ['B', 'C']
 ```
 
-We can, of course, do similar things immutably. In the following example, we always create a new array, make use of the previous state and do the needed modifications.
+We can do similar operations immutably. In the following example, we always create a new array, make use of the previous state and do the needed modifications.
 
 ```js
 const things = ['B'];
