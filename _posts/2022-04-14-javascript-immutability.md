@@ -382,7 +382,7 @@ Solution like this can prevent mutations done by a mistake, but it requires to w
 
 ### Solution 2: Modifying Native Types By Returning New Versions
 
-If we don't want to replace native JavaScript objects and arrays with 3rd party data structures, we could use tools that modify plain JavaScript types immutably. Libraries such as [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [Ramda](https://ramdajs.com/) can help we do just that.
+If we don't want to replace native JavaScript objects and arrays with 3rd party data structures, we could use tools that modify plain JavaScript types immutably. Libraries such as [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [Ramda](https://ramdajs.com/) can help us do just that.
 
 From these libraries, Lodash might be a familiar name to many JavaScript developers. It has been around since 2012, but it now has additional module called **lodash/fp**. It's the functional counterpart of Lodash that encourages immutability.
 
