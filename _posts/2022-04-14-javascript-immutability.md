@@ -274,7 +274,7 @@ By creating a new array with every modification, we make sure that we do not mut
 
 _But... I think the previous version, in which we mutated the original array, looked much simpler..._
 
-You are quite right. That's basically because JavaScript is a mutable language by its nature, and simple array methods like `push`, `unshift`, `pop` and `sort` are designed to modify the original array. If you do these data mutations in a _complete isolation_, for example in a single function in which the outside world cannot ever modify your data, you are probably good to go with the standard mutating methods. Otherwise, immutable modifications are your friend, even if they require a bit more work.
+You are quite right. That's basically because JavaScript is a mutable language by its nature, and simple array methods like `push`, `unshift`, `pop` and `sort` are designed to modify the original array. If you do these data mutations in a _complete isolation_, for example in a single function in which the outside world cannot modify your data, you are probably good to go with the standard mutating methods. Otherwise, immutable modifications are your friend, even if they require a bit more work.
 
 Luckily for us, not all array methods in JavaScript are actually mutable! The `slice` method we used returns a new array and does not modify the original. Also, if you are familiar with functional programming, methods like `map` and `filter` are available in plain JavaScript arrays and are supported in old browsers too. These too create new arrays instead of modifying the original.
 
