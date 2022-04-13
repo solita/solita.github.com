@@ -15,7 +15,7 @@ tags:
  - Rambda
 ---
 
-One of my colleagues once said that programming is just moving data from one place to another. From a database to a server, from the server to a client, from an application state to pixels on the screen. This data is rarely presented in only one form: it often needs to be modified, transformed, merged and split in order to be useful in different layers of the application.
+One of my colleagues once said that programming is just moving data from one place to another. From a database to a server, from the server to a client, from an application state to pixels on the screen. This data is rarely presented in one form: it needs to be modified, transformed, merged and split in order to be useful in different layers of the application.
 
 Once the data has been baked into a form that is ready to be used, you wouldn't like anyone to change it in the middle of the process, would you? Unfortunately, it is quite possible if your data is mutable. And if you are using JavaScript, like many frontend developers, your data is mostly mutable by default - unprotected from an external change.
 
