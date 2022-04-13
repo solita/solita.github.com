@@ -17,7 +17,7 @@ tags:
 
 One of my colleagues once said that programming is just moving data from one place to another. From a database to a server, from the server to a client, from an application state to pixels on the screen. This data is rarely presented in one form: it needs to be modified, transformed, merged and split in order to be useful in different layers of an application.
 
-Once the data has been baked into a form that is ready to be used, you wouldn't like anyone to change it in the middle of the process, would you? Unfortunately, it is quite possible if your data is mutable. And if you are using JavaScript, like many frontend developers, your data is mostly mutable by default - unprotected from an external change.
+Once the data has been baked into a form that is ready to be used, you wouldn't like anyone to change it in the middle of the process, would you? Unfortunately, it is quite possible if your data is mutable. If you are using JavaScript, like many frontend developers, your data is mostly mutable by default - unprotected from an external change.
 
 I have been programming web frontend professionally for more than seven years now. What makes things interesting is that for most of my career I haven't touched JavaScript very much. I'm familiar with the language, but frontend apps that me and my teammates have built have been mainly written in [ClojureScript](https://clojurescript.org) - a Lisp dialect that compiles into JavaScript. Clojure has built-in support for functional programming and immutability, to which I am now highly addicted.
 
