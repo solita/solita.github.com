@@ -284,7 +284,7 @@ Luckily for us, not all array methods in JavaScript are actually mutable! The `s
 const result = things.filter(character => character !== 'A');
 ```
 
-In any case, if use the well-known JavaScript array methods, remember to be sure if the method mutates the original array or returns a new copy. It's a big difference between mutability and immutability.
+In any case, if you use the well-known JavaScript array methods, remember to be sure if the method mutates the original array or returns a new copy. It's a big difference between mutability and immutability.
 
 #### Objects
 
