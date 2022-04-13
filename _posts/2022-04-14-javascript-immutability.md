@@ -384,7 +384,7 @@ From these libraries, Lodash might be a familiar name to many JavaScript develop
 For instance, one could use the `set` function in **lodash/fp** to return a new version of an object instead of modifying it, like the original Lodash `set` function does.
 
 ```js
-import { fp } from `lodash/fp`;
+import { fp } from 'lodash/fp';
 
 const person = {name: 'Ismo'};
 const newPerson = fp.set('name', 'Seppo', person); // Returns a new person with 'Seppo' as its name
@@ -393,7 +393,7 @@ const newPerson = fp.set('name', 'Seppo', person); // Returns a new person with 
 The property name argument passed to `set` can even be a path:
 
 ```js
-import { fp } from `lodash/fp`;
+import { fp } from 'lodash/fp';
 
 const person = {name: 'Ismo', streetAddress: {name: 'Address 123'}};
 const newPerson = fp.set('streetAddress.name', 'New Address 123', person);
@@ -414,11 +414,11 @@ import produce from "immer";
 
 const persons = [
     {
-        name: 'Ismo'
+        name: 'Ismo',
         age: 53
     },
     {
-        name: 'Seppo'
+        name: 'Seppo',
         age: 56
     }
 ];
@@ -431,7 +431,7 @@ const nextState = produce(persons, draft => {
 
 How immer achieves this? It's `produce` function takes the base state as an argument, and a `recipe` function that is passed a `draft` to which we can safely mutate. Once all mutations are completed, Immer will produce a new state, without modifying the original. Immer will also freeze the data, preventing accidental modifications in the future.
 
-Immer offers multiple benefits. In addition to be able to use standard JavaScript types with well-known methods, it's API is simple to use with built-in object freezing and deep updates. It's also very small in size. However, we need to wrap our operations with 3rd party function in order to be able to modify it immutably.
+Immer offers multiple benefits. In addition to be able to use standard JavaScript types with well-known methods, it's API is simple to use with built-in object freezing and deep updates. However, we need to wrap our operations with 3rd party function in order to be able to modify it immutably.
 
 ## Conclusion
 
