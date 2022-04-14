@@ -336,7 +336,7 @@ console.log(newPerson.location.place.city.name);
 // Prints: 'Turku'. Oops, we have once again mutated things we did not meant to.
 ```
 
-Because the city is an object, and we made a shallow copy of it, the city object is shared between the two person objects. Making modifications to one city modifies both persons' cities. 
+Because the `city` is an object, and we made a shallow copy of it, the `city` object is shared between the two person objects. Making modifications to one `city` modifies both persons' cities. 
 
 _But does it matter if we encourage immutability and never mutate object properties?_
 
