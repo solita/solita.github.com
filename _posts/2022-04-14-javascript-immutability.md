@@ -332,7 +332,7 @@ And that's not all. Remember when we froze objects and learned that freezing was
 
 ```js
 oldPerson.location.place.city.name = 'Turku';
-console.log(newPerson.location.place.city.name)
+console.log(newPerson.location.place.city.name);
 // Prints: 'Turku'. Oops, we have once again mutated things we did not meant to.
 ```
 
