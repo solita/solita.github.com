@@ -340,7 +340,7 @@ Because the `city` is an object, and we made a shallow copy of it, the `city` ob
 
 _But does it matter if we encourage immutability and never mutate object properties?_
 
-In that case, it doesn't. Like we have learned, it is possible to modify JavaScript objects by creating new ones, without making changes to the original. Even if shallow copies are not protected from accidental mutations, they are much faster to create than making deep copies of big objects.
+In that case, it doesn't. Like we have learned, it is possible to modify JavaScript objects by creating new ones, without making changes to the original. However, sometimes it's easier to create copies with nested objects being copied only shallowly. Even if shallow copies are not protected from accidental mutations, they are much faster to create than making deep copies of big objects.
 
 Sometimes you still want to make a truly deep copy of an object. In that case, you can always use a good old JSON-based hack: `JSON.parse(JSON.stringify(object))`. Modern browsers also support a new global [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) function. It should be more robust and often faster than the classic hack.
 
