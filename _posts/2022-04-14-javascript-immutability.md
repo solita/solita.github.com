@@ -185,7 +185,7 @@ console.log(oldPerson.streetAddress.name); // Finally, nothing changed in oldPer
 An alternative way to freeze objects, kind of, is making it's individual properties virtually impossible to modify. One could use something like `Object.defineProperty` to achieve this:
 
 ```js
-function makeImmutable(thing, key, value) {
+function makePropertyImmutable(thing, key, value) {
   Object.defineProperty(thing, key, {
     get() {
       return value;
@@ -197,7 +197,7 @@ function makeImmutable(thing, key, value) {
 }
 
 const person = {};
-makeImmutable(person, 'name', 'Ismo');
+makePropertyImmutable(person, 'name', 'Ismo');
 console.log(person.name); // 'Ismo'
 person.name = 'Seppo'; // Error: Nope!
 ```
