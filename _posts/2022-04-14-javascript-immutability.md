@@ -314,7 +314,7 @@ const oldPerson = {name: 'Ismo',
                    location: {name: 'Finland',
                               place: {city: {name: 'Helsinki'},
                                       street: {area: 6,
-                                               name: 'Pihlajakatu 23 B'}}}};
+                                               name: 'Pihlajakatu 23 B9'}}}};
 
 // Let's change the street address without modifying the original object:                           
 
@@ -323,7 +323,7 @@ const newPerson = {...oldPerson,
                    location: {...oldPerson.location,
                               place: {...oldPerson.location.place,
                                       street: {...oldPerson.location.place.street,
-                                               name: 'Pihlajakatu 23 C'}}}};
+                                               name: 'Pihlajakatu 23 B3'}}}};
 ```
 
 _Ouch! That's ugly!_
