@@ -158,9 +158,9 @@ Yes. When we freeze an object with `Object.freeze`, it is so called _shallow fre
 Let's have an example in which our person has an address, which is another object. While we cannot modify the `streetAddress` property itself, we can still mutate the actual `streetAddress` object:
 
 ```js
-const oldPerson = Object.freeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
+const oldPerson = Object.freeze({name: 'Ismo', streetAddress: {name: 'Pihlajakatu 23 B'}});
 const newPerson = oldPerson;
-newPerson.streetAddress.name = 'New Address 123';
+newPerson.streetAddress.name = 'Pihlajakatu 23 C';
 console.log(oldPerson.streetAddress.name); // Oops, the address of oldPerson has been mistakenly updated!
 ```
 
@@ -176,9 +176,9 @@ const deepFreeze = (thing) => {
     return Object.freeze(thing);
 };
 
-const oldPerson = deepFreeze({name: 'Ismo', streetAddress: {name: 'Address 123'}});
+const oldPerson = deepFreeze({name: 'Ismo', streetAddress: {name: 'Pihlajakatu 23 B'}});
 const newPerson = oldPerson;
-newPerson.streetAddress.name = 'New Address 123';
+newPerson.streetAddress.name = 'Pihlajakatu 23 C';
 console.log(oldPerson.streetAddress.name); // Finally, nothing changed in oldPerson!
 ```
 
@@ -312,9 +312,9 @@ And it is. But let me disappoint you once again. If we have a deeply nested obje
 const oldPerson = {name: 'Ismo',
                    age: 50,
                    location: {name: 'Finland',
-                              place: {city: {name: 'Tampere'},
+                              place: {city: {name: 'Helsinki'},
                                       street: {area: 6,
-                                               name: 'Address 123'}}}};
+                                               name: 'Pihlajakatu 23 B'}}}};
 
 // Let's change the street address without modifying the original object:                           
 
@@ -323,7 +323,7 @@ const newPerson = {...oldPerson,
                    location: {...oldPerson.location,
                               place: {...oldPerson.location.place,
                                       street: {...oldPerson.location.place.street,
-                                               name: 'New Address 123'}}}};
+                                               name: 'Pihlajakatu 23 C'}}}};
 ```
 
 _Ouch! That's ugly!_
@@ -400,11 +400,11 @@ The property name argument passed to `set` can even be a path:
 ```js
 import { fp } from 'lodash/fp';
 
-const person = {name: 'Ismo', streetAddress: {name: 'Address 123'}};
-const newPerson = fp.set('streetAddress.name', 'New Address 123', person);
+const person = {name: 'Ismo', streetAddress: {name: 'Pihlajakatu 23 B'}};
+const newPerson = fp.set('streetAddress.name', 'Pihlajakatu 23 C', person);
 
-console.log(person); // {name: 'Ismo', streetAddress: {name: 'Address 123'}}
-console.log(newPerson); // {name: 'Ismo', streetAddress: {name: 'New Address 123'}}
+console.log(person); // {name: 'Ismo', streetAddress: {name: 'Pihlajakatu 23 B'}}
+console.log(newPerson); // {name: 'Ismo', streetAddress: {name: 'Pihlajakatu 23 C'}}
 ```
 
 _This is way more convenient than using the ... operator everywhere!_
