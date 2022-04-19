@@ -111,7 +111,7 @@ If a single human being has faced a problem in JavaScript and solved it, they ha
 
 ### The const Keyword
 
-In 2015, when EcmaScript 6 was released, a new keyword was added to JavaScript: `const`. That sounds good! Const... constant... something that cannot be changed.
+When ECMAScript 2015 (ES6) was released, a new keyword was added to JavaScript: `const`. That sounds good! Const... constant... something that cannot be changed.
 
 _That's immutable! Right?_
 
@@ -236,7 +236,7 @@ Naturally, these are not yet ready for production as I'm writing this. Still, I'
 
 Now that we have learned making things truly, _deeply_, constant in JavaScript, let's learn how to manipulate our data immutably.
 
-In 2015, EcmaScript 6 introduced a new `...` operator (dotdotdot or spread operator), which "spreads" values from another object or array. We can take advantage of it. Let's begin with arrays.
+ECMAScript 2015 and 2018 introduced a new `...` operator (dotdotdot or spread operator), which "spreads" values from another object or array. We can take advantage of it. Let's begin with arrays.
 
 #### Arrays
 
