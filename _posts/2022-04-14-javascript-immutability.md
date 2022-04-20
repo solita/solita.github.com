@@ -25,7 +25,7 @@ I think this concept of immutability would be useful in the JavaScript world too
 
 ## Brief Concept of Immutability
 
-Immutability is a simple concept: **an immutable value is some data that cannot be changed**. If you _do_ want to change it, you create a completely **new version of it with the updated data**.
+Immutability is a simple concept: **an immutable value is some data that cannot be changed**. If you _do_ want to change it, you create a completely new value, which is equal to the original except for the modified parts.
 
 In JavaScript, primitive types like numbers, strings and booleans are **immutable.** Modifications create new values:
 
@@ -103,11 +103,11 @@ let temporaryNumbersPlusOne = numbers.push(1);
 
 See, it is very easy to _accidentally_ modify mutable state. If the `state` object had been immutable, we could not have made such a mistake. Thus, I believe having immutable values and making modifications only by creating new versions of the old data helps us to write code that is more predictable, safer and also easier to test.
 
-_I sure did a mistake! I want to learn how to work with objects and arrays immutably!_
+_I sure made a mistake! I want to learn how to work with objects and arrays immutably!_
 
 ## Immutability Using Vanilla JavaScript
 
-If a single human being has faced a problem in JavaScript and solved it, they have probably packed the solution into a JavaScript library. Things are no different with the concept of immutability: there are many possible libraries that can help you with that. The good news is that you don't necessarily need anyone of those to encourage immutability. Immutable code can be written in vanilla JavaScript. Let's take a look! 
+Every single JavaScript solution has probably been packaged as a library. Things are no different with the concept of immutability: there are many possible libraries that can help you with that. The good news is that you don't necessarily need any of those to encourage immutability. Immutable code can be written in vanilla JavaScript. Let's take a look! 
 
 ### The const Keyword
 
@@ -274,9 +274,9 @@ By creating a new array with every modification, we make sure that we do not mut
 
 _But... I think the previous version, in which we mutated the original array, looked much simpler..._
 
-You are quite right. That's basically because JavaScript is a mutable language by its nature, and simple array methods like `push`, `unshift`, `pop` and `sort` are designed to modify the original array. If you do these data mutations in a _complete isolation_, for example in a single function in which the outside world cannot modify your data, you are probably good to go with the standard mutating methods. Otherwise, immutable modifications are your friend, even if they require a bit more work.
+You are quite right. That's basically because JavaScript is a mutable language by its nature, and simple array methods like `push`, `unshift`, `pop` and `sort` are designed to modify the original array. If you do these data mutations in _complete isolation_, for example in a single function in which the outside world cannot modify your data, you are probably good to go with the standard mutating methods. Otherwise, immutable modifications are your friend, even if they require a bit more work.
 
-Luckily for us, not all array methods in JavaScript are actually mutable! The `slice` method we used returns a new array and does not modify the original. Also, if you are familiar with functional programming, methods like `map` and `filter` are available in plain JavaScript arrays and are supported in old browsers too. These too create new arrays instead of modifying the original.
+Luckily for us, not all array methods in JavaScript are actually mutating! The `slice` method we used returns a new array and does not modify the original. Also, if you are familiar with functional programming, methods like `map` and `filter` are available in plain JavaScript arrays and are supported in old browsers too. These too create new arrays instead of modifying the original.
 
 ```js
 // Removing a single letter from an array using filter method
@@ -445,7 +445,7 @@ Immer offers multiple benefits. In addition to be able to use standard JavaScrip
 
 So, which solution should we use to encourage immutability and avoid accidental data mutations? Vanilla JavaScript or one of the introduced 3rd party tools? The answer depends on the application you want to build and also comes down to personal preferences.
 
-[ImmutableJS](https://immutable-js.com) appeared somewhere around 2013 and is well know by many who want to work with immutable data. The main issue with it is that it's data structures are not backwards-compatible with plain JavaScript. You probably need to often convert data back to plain JavaScript objects and then back to ImmutableJS format. [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) promises to tackle this problem, but as I'm writing this, the GitHub repository has not been updated in many years.
+[ImmutableJS](https://immutable-js.com) appeared somewhere around 2013 and is well-know by many who want to work with immutable data. The main issue with it is that its data structures are not backwards-compatible with plain JavaScript. You probably need to often convert data back to plain JavaScript objects and then back to ImmutableJS format. [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) promises to tackle this problem, but as I'm writing this, the GitHub repository has not been updated in many years.
 
 For me, it sounds like a good idea to stick with plain old JavaScript types (objects and arrays) for compatibility, possibly deep freezing them in critical places, and simply avoid mutating them as much as possible. The vanilla `...` operator and the new global `structuredClone` function help with this, but one can also use libraries such as [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [Ramda](https://ramdajs.com/) to make immutable data modifications easier. [ImmerJS](https://immerjs.github.io/immer/) is also good if you want to use the standard data modification methods JavaScript already offers and you possibly don't care about functional programming that much. In the future, I hope that new JavaScript types [Record and Tuple](https://github.com/tc39/proposal-record-tuple) will provide us a built-in standard for working with immutable data. 
 
