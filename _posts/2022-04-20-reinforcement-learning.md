@@ -65,6 +65,8 @@ In theory, there's a possibility to set up a racetrack somewhere and try some ti
 
 As mentioned, it's a great way to learn something new, and that's always fun. It attaches to the sports part, which some people, including me, enjoy a lot. You can test how good a model you got, vs others. It's a bit of creative coding because there are many variables to nudge and tweak. It's not all about the reward algorithm, it's also about the hyperparameters, and your ambition level - is your model the fastest on a good lap? Or a consistent, robust model that can always handle the track? Or is it a general-purpose model that can be used against multiple tracks?
 
+![Deepracer Virtual Racing](/img/reinforcement-learning-deepracer/deepracer_video.gif)
+
 The tracks themselves also keep on changing, so to get the best results, you need to be able to adapt, even your old superior models, to the new environment. And obstacle avoidance makes things much more interesting and dynamic - a tiny boulder on the track can become a huge obstacle some models never learn how to avoid.
 
 As with many things, this one is also best shared with friends. We decided to do a bit of Deepracer training mostly to get a good excuse to sit down with friends, and share some pizza. I'm also right now sharing this with you, the reader, in hopes you find it interesting, and perhaps a small spark ignites today because of that. There's also a global Deepracer Community - I'll drop the link at the end of this article - who's been doing this for years, and are very friendly.
@@ -89,7 +91,7 @@ Last time I was training I used a combination of an Ubuntu machine with a great 
 
 Other insights. As a coder, I've been very fixated on the reward algorithm. Now I'm also trying to understand the hyperparameters, and action space, a lot better. Some experiments I've been running:
 
-- Custom action space where the fastest speeds do not include dramatic turns: I noticed when you up the speed a lot, the car starts to spin due to simulation physics. I can customize allowed turn angles in the action space, allowing tighter turns only for the slower speeds.
+- Custom action space where the fastest speeds do not include dramatic turns: I noticed when you increase the speed a lot, the car starts to spin due to simulation physics. I can customize allowed turn angles in the action space, allowing tighter turns only for the slower speeds.
 - I'm also pumping up that speed, trying to find the limit where it starts to be hard to make the model stable. Right now that's around 4m/s speed, which is the fastest I've ever tried before.
 - I've been dabbling with the hyperparameters a bit, and I'm trying to find the best combination of them. To be honest, the measurable effect for me is not very consistent nor very dramatic.
 - I've been practicing retraining the models and learning the rules for that. It allows to take a model that performs well on one track, and retrain it against a new track. I need to learn how to get the settings right so it makes sense.
