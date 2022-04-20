@@ -27,7 +27,7 @@ I think this concept of immutability would be useful in the JavaScript world too
 
 Immutability is a simple concept: **an immutable value is some data that cannot be changed**. If you _do_ want to change it, you create a completely new value, which is equal to the original except for the modified parts.
 
-In JavaScript, primitive types like numbers, strings and booleans are **immutable.** Modifications create new values:
+In JavaScript, primitive types like numbers, strings and booleans are **immutable**. Modifications create new values:
 
 ```js
 let oldString = 'Hello';
