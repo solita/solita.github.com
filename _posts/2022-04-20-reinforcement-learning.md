@@ -18,7 +18,7 @@ So, we've got a new toy. This one is called Deepracer, although my nickname for 
 
 ## What is reinforcement learning?
 
-Machine learning is a wide field with lots of different subtopics. One of the most interesting subtopics for me is reinforcement learning. It's a form of unsupervised learning, which means that the idea is not to teach a car how to drive but to teach it **how to learn how to drive**. It's not unlike training a puppy. You let it dwell in the inherent chaos, but keep a good feedback loop going, so you can reward it for making good decisions. Eventually the trainee, in this case, Deepracer will learn to associate good input (state) with good decisions (actions) that further its goal: the ability to navigate a racetrack fast.
+Machine learning is a wide field with lots of different subtopics. One of the most interesting subtopics for me is reinforcement learning. It's a form of unsupervised learning, which means that the idea is not to teach a car how to drive but to teach it **how to learn how to drive**. It's not unlike training a puppy. You let it dwell in the inherent chaos, but keep a good feedback loop going, so you can reward it for making good decisions. Eventually the trainee, in this case Deepracer will learn to associate good input (state) with good decisions (actions) that further its goal: the ability to navigate a racetrack fast.
 
 What fascinates me in reinforcement learning is that we as humans are used to expert rules system: We think we can see which actions produce favorable outcomes. And often we do, we're very good at that. This is how old-school hierarchical management works: Based on your superior experience, you tell how things should be done - even micro-managing things to get the details in. But that's a very rigid way of thinking - and makes also an assumption that the expert rule is so far optimized, there's nothing left to learn or to improve, and also idea is that one size fits all: For a new situation, new expert rules are needed, because there's no adaptation. By the way, you cannot do this with dogs, because they wouldn't understand your explanation, and would not be automatically motivated to follow it.
 
@@ -26,7 +26,7 @@ With the reinforcement learning approach, we take a bit of a different viewpoint
 
 In a nutshell, this is how you do it with a dog:
 
-- Dog is playing randomly in the backyard, doing dog things.
+- Dog is playing randomly in the backyard, doing dog things
 - You add a bit of stimulus, for example, a sound, a visual stimulus, or both, trying to activate the dog towards doing something. For example: fetch, bark, stay in place, or run. This would be the state the dog is observing, with its sensors, eyes, and ears.
 - When it does things that you don't want it to do, you ignore it. When it does useful things that you want it to perform, you immediately reward it.
 - In essence, you are reinforcing good actions as a response to the specific stimuli/state. Eventually, the reward is not even needed, at least not every time, as the dog has learned what you want it to do.
@@ -75,15 +75,15 @@ The racing part is also a bit addictive, due to competitiveness. There are const
 
 ## Why is it useful?
 
-Idea was to pick something that would unlikely be part of our customer projects, or customer needs, just for fun. It leaves more artistic freedom to play with it, as you like, simply focus on the fun of learning.
+The idea was to pick something that would unlikely be part of our customer projects, or customer needs, just for fun. It leaves more artistic freedom to play with it, as you like, simply focus on the fun of learning.
 
-That being said.. There's a huge demand for people who understand the cloud services well, and even though Deepracer is just a toy, it's still a great way to learn about the AWS services. In fact, it's essential to learn at least a bit of them. While services like IAM, S3, and Sagemaker have everyday uses, the Robomaker environment is a bit more exotic, which might be fun to learn as well.
+That being said, there's a huge demand for people who understand the cloud services well, and even though Deepracer is just a toy, it's still a great way to learn about the AWS services. In fact, it's essential to learn at least a bit of them. While services like IAM, S3, and Sagemaker have everyday uses, the Robomaker environment is a bit more exotic, which might be fun to learn as well.
 
 Additionally - who's to say there would not be customer demand in this area, too? That might be a happy accident. Perhaps someone wants to train an autonomous bot, car, or drone to deliver food, purchases, and supplies. Or challenge Tesla at their own game. Or build automated systems to pick up people's shopping carts from shelves, and put them in delivery boxes. The future will bring more autonomous systems, and people who are experienced enough to be able to make them robust and safe are always in demand. And this is a great way to start that path.
 
 ## What have I learned so far from this?
 
-I used to race with Deepracer some years back, then life happened, and had a bit of a break there. Now that I decided to resurrect my old interest, it's been fun to see it's still much alive. Some new things have also happened: The local training has become more viable and easy to get started with. And the new obstacle avoidance mode has been added. Obviously, lots more tracks are available.
+I used to race with Deepracer some years back, then life happened, and had a bit of a break there. Now that I decided to resurrect my old interest, it's been fun to see it's still much alive. Some new things have also happened: The local training has become more viable and easy to get started with. And the new obstacle avoidance mode has been added. Obviously, many more tracks are available.
 
 Last time I was training I used a combination of an Ubuntu machine with a great graphics card, and sometimes the AWS console services. This time I was happy to see that I can also do local training with Windows, WSL2, and a Docker installation, and it works great also with the AWS console. So I can train a model locally, once it's good enough, I can refine it in the AWS console, and race with it. This is a very cost-effective way to have some fun.
 
@@ -91,9 +91,9 @@ Other insights. As a coder, I've been very fixated on the reward algorithm. Now 
 
 - Custom action space where the fastest speeds do not include dramatic turns: I noticed when you up the speed a lot, the car starts to spin due to simulation physics. I can customize allowed turn angles in the action space, allowing tighter turns only for the slower speeds.
 - I'm also pumping up that speed, trying to find the limit where it starts to be hard to make the model stable. Right now that's around 4m/s speed, which is the fastest I've ever tried before.
-- I've been dabbling with the hyperparameters a bit, and I'm trying to find the best combination of them. To be honest the measurable effect for me is not very consistent nor very dramatic.
+- I've been dabbling with the hyperparameters a bit, and I'm trying to find the best combination of them. To be honest, the measurable effect for me is not very consistent nor very dramatic.
 - I've been practicing retraining the models and learning the rules for that. It allows to take a model that performs well on one track, and retrain it against a new track. I need to learn how to get the settings right so it makes sense.
-- Overfitting is also a thing. Models do not get better and better eternally the more you train them. Typically sweet spot is around 3-5 hours I hear. Depends of course on your training environment.
+- Overfitting is also a thing. Models do not get better and better eternally the more you train them. Typically sweet spot is around 3-5 hours I hear. It depends of course on your training environment.
 - I've been learning how to use the Jupyter notebooks in local training mode. They are much richer than the ones in the AWS console, and the sky is the limit to insights you can get that way.
 - I've set up the physical car, but haven't got - yet - to building even a short track for it. Perhaps one day...
 
@@ -103,7 +103,7 @@ Other insights. As a coder, I've been very fixated on the reward algorithm. Now 
 - I'm using CPU training mode for now, as it's simpler to set up. If I got GPU training mode working with my RTX 3080...
 - Getting a good handle on hyperparameters would rock
 - Some other people in Solita are also working on this, learning and having fun. So if we get some interesting models, we might even build that track one day, and race it out.
-- Haven't started obstacle avoidance yet, but I think that would be interesting, both in the virtual world and on a physical track with a physical car. I plan to play with that too before I am done.
+- I haven't started obstacle avoidance yet, but I think that would be interesting, both in the virtual world and on a physical track with a physical car. I plan to play with that too before I am done.
 - I found a great way to train a model by using, instead of the current position, the position of where the car is going next - this gives better control of where the car's nose is pointing. But this algorithm also goes only so far - it's great to get a great model fast, but then needs to be supplemented with something else. I'm investigating having some memory of benchmarks to beat, to make it remember to focus on speed too.
 
 I hope this was a fun read for you, this has been a very fun and interesting journey for me. I truly anticipate more of this kind of algorithm training in the future, much much more, so it's fun to stay a bit up to date with what's going on. Stay tuned for more interesting dev blogs on this same channel! And perhaps I see you in the virtual Metaverse races somewhere in 2030 or 2040!
