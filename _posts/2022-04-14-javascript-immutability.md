@@ -75,7 +75,7 @@ newArray.push('Hello world');
 console.log(oldArray); // Oops, both arrays now have the string 'Hello world'.
 ```
 
-Objects and arrays in JavaScript are so called _reference types_. We cannot make copies of them as easily as with primitive types, we simply create a **new reference** to the original data. If we make modifications to our "copies", we actually mutate both values.
+Objects and arrays in JavaScript are so-called _reference types_. We cannot make copies of them as easily as with primitive types, we simply create a **new reference** to the original data. If we make modifications to our "copies", we actually mutate both values.
 
 _So... why is this a problem?_
 
@@ -152,7 +152,7 @@ Except, we can still modify it.
 
 _What!?_
 
-Yes. When we freeze an object with `Object.freeze`, it is so called _shallow freeze_. See, objects in JavaScript can contain other objects, and `Object.freeze` only freezes the top level object properties. 
+Yes. When we freeze an object with `Object.freeze`, it is so-called _shallow freeze_. See, objects in JavaScript can contain other objects, and `Object.freeze` only freezes the top level object properties. 
 
 Let's have an example in which our person has an address, which is another object. While we cannot modify the `streetAddress` property itself, we can still mutate the actual `streetAddress` object:
 
@@ -181,7 +181,7 @@ newPerson.streetAddress.name = 'Pihlajakatu 23 C';
 console.log(oldPerson.streetAddress.name); // Finally, nothing changed in oldPerson!
 ```
 
-An alternative way to freeze objects, kind of, is making it's individual properties virtually impossible to modify. One could use something like `Object.defineProperty` to achieve this:
+An alternative way to freeze objects, kind of, is making its individual properties virtually impossible to modify. One could use something like `Object.defineProperty` to achieve this:
 
 ```js
 function makePropertyImmutable(thing, key, value) {
@@ -305,7 +305,7 @@ const newPerson = {...oldPerson, name: 'Seppo'};
 
 _That looks quite simple!_
 
-And it is. But let me disappoint you once again. If we have a deeply nested object, and we want to mutate a single property inside of it, things are going to get messy:
+And it is. But let me disappoint you once again. If we have a deeply nested object, and we want to mutate a single property inside it, things are going to get messy:
 
 ```js
 const oldPerson = {name: 'Ismo',
@@ -347,7 +347,7 @@ We have learned that vanilla JavaScript offers tools we can use to encourage imm
 
 ## 3rd Party Tools
 
-If you are building a web frontend application, you are probably using a state management library, such as [Redux](https://redux.js.org) or [Vuex](https://vuex.vuejs.org). These kind of libraries definitely make our lives easier by wrapping the state of the entire application into a _single source of truth_ and ensuring modifications to the state occur only through the services provided by the library - usually immutably.
+If you are building a web frontend application, you are probably using a state management library, such as [Redux](https://redux.js.org) or [Vuex](https://vuex.vuejs.org). These libraries definitely make our lives easier by wrapping the state of the entire application into a _single source of truth_ and ensuring modifications to the state occur only through the services provided by the library - usually immutably.
 
 These libraries do not, however, completely solve the mutability problem for us. Even if you keep your application state encapsuled in these libraries (and trust that they prevent harmful data mutations), you probably still work with a lot of data that is never stored or touched by these libraries. This kind of data can come from an external source, such as from the web server, or you might introduce it by yourself while doing some calculations. We need another solution for working with this type of data.
 
@@ -368,7 +368,7 @@ console.log(newPerson) // ImmutableJS map containing  { name: 'Seppo', age: 50 }
 
 _Great! I'm going to replace all objects and arrays with ImmutableJS data structures!_
 
-If it only was that simple. The main issue with these kind of libraries is typically that data structures are not backwards-compatible with plain JavaScript. These types can only be handled by the library's own API, and for everything else, you need to convert data back to plain JavaScript types and then back to ImmutableJS format. Depending on the context, this can be either a frustrating repetitive process or not a problem at all.
+If it only was that simple. The main issue with libraries like this is typically that data structures are not backwards-compatible with plain JavaScript. These types can only be handled by the library's own API, and for everything else, you need to convert data back to plain JavaScript types and then back to ImmutableJS format. Depending on the context, this can be either a frustrating repetitive process or not a problem at all.
 
 There is also another library that promises to tackle this problem: [seamless-immutable](https://github.com/rtfeldman/seamless-immutable). Internally it uses JavaScript features like `Object.freeze` and `Object.defineProperty` to create data structures that are immutable, but also backwards-compatible with normal arrays and objects. Creating immutable things should be as easy as wrapping them with `Immutable`. A bit like wrapping things with `deepFreeze` like we did earlier.
 
@@ -448,4 +448,4 @@ So, which solution should we use to encourage immutability and avoid accidental 
 
 For me, it sounds like a good idea to stick with plain old JavaScript types (objects and arrays) for compatibility, possibly deep freezing them in critical places, and simply avoid mutating them as much as possible. The vanilla `...` operator and the new global `structuredClone` function help with this, but one can also use libraries such as [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [Ramda](https://ramdajs.com/) to make immutable data modifications easier. [ImmerJS](https://immerjs.github.io/immer/) is also good if you want to use the standard data modification methods JavaScript already offers and you possibly don't care about functional programming that much. In the future, I hope that new JavaScript types [Record and Tuple](https://github.com/tc39/proposal-record-tuple) will provide us a built-in standard for working with immutable data. 
 
-And, of course, you can always do yourself a favor a learn a bit of [ClojureScript](https://clojurescript.org), which has immutability already built-in. ;)
+And, of course, you can always do yourself a favor and learn a bit of [ClojureScript](https://clojurescript.org), which has immutability already built-in. ;)
