@@ -33,6 +33,9 @@ In JavaScript, primitive types like numbers, strings and booleans are **immutabl
 let oldString = 'Hello';
 // Let's try to modify oldString by transforming the text to uppercase
 let newString = oldString.toUpperCase();
+
+console.log(newString); // 'HELLO'
+console.log(oldString); // 'Hello'
 ```
 
 After this, `newString` contains the modified text `'HELLO'`, but `oldString` still contains the original text `'Hello'`. This means that `toUpperCase` method did not mutate the original string, instead it returned a **new modified copy**.
@@ -42,19 +45,14 @@ The same thing happens if you assign a string into a new variable:
 ```js
 let oldString = 'Hello';
 let newString = oldString; // This creates a copy of 'Hello'
-newString = 'World';
+
+newString.toUpperCase();
+
+console.log(newString); // 'Hello'
+console.log(oldString); // 'Hello'
 ```
 
-After this, `newString` contains the text `'World'`, but `oldString` still contains the original text `'Hello'`. We did not modify it, because `newString` got a **copy of it**! 
-
-_Hold on, can't I just modify 'Hello' to something else by assigning a new value into its variable?_
-
-```js
-let oldString = 'Hello';
-oldString = 'Hello world!';
-```
-
-This doesn't actually change the string `'Hello'` _itself_. Instead, we create a **new string**, which is a modified version of the original text, and assign it to `oldString`. See, when working with immutable data, we never change the data itself, we just create new versions.
+After this, both strings contain the word `'Hello'`. How is that? When we assign a primitive value into a variable, we actually create a copy of it. Also, as we have seen, `toUpperCase` does not mutate the original string, but it returns a copy. In this example, the returned copy is not saved anywhere, so `newString` still contains the original text `'Hello'`.
 
 ## Mutability
 
@@ -76,7 +74,7 @@ newArray.push('Hello world');
 console.log(oldArray); // Oops, both arrays now have the string 'Hello world'.
 ```
 
-Objects and arrays in JavaScript are so called _reference types_. We cannot make copies of them as easily as with primitive types, we simple create a **new reference** to the original data. If we make modifications to our "copies", we actually mutate both values.
+Objects and arrays in JavaScript are so called _reference types_. We cannot make copies of them as easily as with primitive types, we simply create a **new reference** to the original data. If we make modifications to our "copies", we actually mutate both values.
 
 _So... why is this a problem?_
 
