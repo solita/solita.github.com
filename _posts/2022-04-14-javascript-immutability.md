@@ -46,13 +46,14 @@ The same thing happens if you assign a string into a new variable:
 let oldString = 'Hello';
 let newString = oldString; // This creates a copy of 'Hello'
 
+oldString.toUpperCase();
 newString.toUpperCase();
 
 console.log(newString); // 'Hello'
 console.log(oldString); // 'Hello'
 ```
 
-After this, both strings contain the word `'Hello'`. How is that? When we assign a primitive value into a variable, we actually create a copy of it. Also, as we have seen, `toUpperCase` does not mutate the original string, but it returns a copy. In this example, the returned copy is not saved anywhere, so `newString` still contains the original text `'Hello'`.
+After this, both variables contain the word `'Hello'`. How is that? When we assign a primitive value into a variable, we actually create a copy of it. Also, as we have seen, `toUpperCase` does not mutate the original string, but it returns a copy. In this example, the returned copies are not saved anywhere, so both variables still contains the original text `'Hello'`.
 
 ## Mutability
 
