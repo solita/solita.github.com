@@ -12,7 +12,7 @@ tags:
  - ImmutableJS
  - seamless-immutable
  - lodash/fp
- - Rambda
+ - Ramda
 ---
 
 One of my colleagues once said that programming is just moving data from one place to another. From a database to a server, from the server to a client, from an application state to pixels on the screen. This data is rarely presented in one form: it needs to be modified, transformed, merged and split in order to be useful in different layers of an application.
