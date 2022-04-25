@@ -220,8 +220,8 @@ a.d.e = 666; // Error: Cannot assign to 'e' because it is a read-only property
 Things may still be better in the future. There is a proposal of introducing new types for JavaScript: [Record and Tuple](https://github.com/tc39/proposal-record-tuple). These are deeply immutable structures built-in to JavaScript. They are also primitive types, which means that we can use the `===` operator to _structurally_ compare the equality of them, something we cannot easily do with vanilla JavaScript objects and arrays. Using these new types seems easy since the new types can be introuced using a preceding `#` modifier:
 
 ```js
-const myRecord = #{ a: 1, b: 2 } // Object-like data strcuture
-const myTuple = #[1, 2] // Array-like data strcuture
+const myRecord = #{ a: 1, b: 2 } // Object-like data structure
+const myTuple = #[1, 2] // Array-like data structure
 
 // Built-in operations always return a new copy
 
