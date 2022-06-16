@@ -15,7 +15,7 @@ tags:
   - Heureka
 ---
 
-**[Me, myself and AI](https://www.heureka.fi/nayttely/tekoaly/)** is a new artificial intelligence themed science exhibition at the Finnish science centre **[Heureka](https://www.heureka.fi/)**. **Solita** was one of the partners for Heureka in developing the exhibition during the past year.
+**[Me, myself and AI](https://www.heureka.fi/nayttely/tekoaly/)** is a new artificial intelligence themed science exhibition at the Finnish science centre **[Heureka](https://www.heureka.fi/)**. **Solita** was one of the partners for Heureka in planning, concepting and developing the exhibition during the past two years.
 
 In this post, I'll share some musings about implementing a piece of software that you can find in the exhibition.
 
