@@ -26,7 +26,7 @@ I had the chance to take part in the exhibition development during this spring a
 In the backstory, an absent-minded researcher built this app for herself. She'd use it to locate her important things before going for a trip. Exhibition visitors get to use the app and help the researcher to pack.
 
 ![Early stage testing setup](/img/edutainment-with-ai/early-stage-testing-environment.png)
-_R&D version of the exhibition item_
+_R&D version of the exhibition item. Photo: Sampsa Piira / Heureka_
 
 In the concept phase it was clear that we want to use a real-time object detection solution. With rather tight time budget for development (roughly two weeks), we agreed to use a stock pre-trained model. Retraining with specific objects was an option to consider if necessary.
 
@@ -79,7 +79,7 @@ A science centre exhibition is designed to be an experience to remember. For our
 The solution to this was to add an goal to the app that visitors would figure out themselves with some minimal hints. The exhibition item consists of a table with many objects on it. Some of these objects were chosen to be targets for the game. All detected objects are annotated with a frame and object class text, and the target objects have a progress circle in the frame. To "collect" a target object, the visitor has to try to keep it steadily positioned in the on the screen until the progress circle fills up and gets checked. The target objects are also shown on the UI with icons that show the progress in tandem with the annotation. This implementation makes it easy to recognize the desired action, when the first target object progress animation shows up.
 
 ![Testing the award screen](/img/edutainment-with-ai/testing-the-reward-screen.png)
-_Testing the award screen_
+_Testing the award screen. Photo: Roger Sandell / Heureka_
 
 The YOLO models are customarily trained with [the COCO dataset](https://cocodataset.org/#home) to detect 80 common cbjects in context. Our application displays a detection frame for all the 80 object classes, and five specific objects were chosen as target objects. Selection criteria was that item should support the backstory and have a steady detection rate on the exhibition floor. Also the target object set is configurable in the app, as long as the object is from the COCO dataset.
 
