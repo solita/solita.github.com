@@ -9,9 +9,9 @@ tags:
   - AI
   - Machine Learning
   - iOS
-  - Swift
-  - Mobile Software
-  - OSS
+  - Mobile
+  - Gamification
+  - Open Source
   - Heureka
 ---
 
@@ -36,12 +36,14 @@ There are several object-detection models around for identifying items from imag
 
 If you need to do it real-time for several objects at the same time, there is not much competition for YOLO. This name comes from the original research paper: [You Only Look Once - Unified, Real-Time Object Detection](https://arxiv.org/pdf/1506.02640v5.pdf). The gist of this model is that it can locate objects and classify them in an image very fast in one single neural network pass. This makes it a good option for any application that requires object detection from live video feed.
 
-![YOLO model](https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png)
-_Yolo model results on a photograph (source: [Joseph Redmon's website](https://pjreddie.com/darknet/yolo/))_
+![YOLO model results](/img/edutainment-with-ai/tunnistin-screenshot.jpeg)
+_YOLO model results in the application_
 
 **Joseph Redmon** published the the original YOLO model paper in 2016\. Since then, many individuals and organisations have worked hard to improve the model and make it easier to use. This work has made it possible for companies like Apple to bundle a version of YOLO model into their own machine learning frameworks. The [Core ML models](https://developer.apple.com/machine-learning/models/) published by Apple include three variants of YOLOv3. For this app I used the smallest one to keep the app lightweight and fast.
 
-I did some quick web research for alternatives to YOLOv3 and bumped into a company called [Ultralytics](https://ultralytics.com/). They have built a version of YOLO ([YOLOv5](https://github.com/ultralytics/yolov5)) that is specifically designed for portability and ease of use in different environments. This model had good results in my test, so I proposed to include it in the app. Use of this GPL3 licensed model would dictate that the source code of the application has to be released with the same license. This was OK with Heureka, so we went forward with both models. In the final app, model selection is configurable between YOLOv3 and YOLOv5.
+I did some quick web research for alternatives to YOLOv3 and bumped into a company called [Ultralytics](https://ultralytics.com/). They have built a version of YOLO ([YOLOv5](https://github.com/ultralytics/yolov5)) that has been designed for portability and ease of use in different programming environments. This model seemed to have very good detection rates in general, so I proposed to include it in the app as an alternative. Use of this **GPL3** licensed model would dictate that the source code of the application has to be released with the same license. This was OK with Heureka, so I went on with integrating the new model with the application. For a detailed view of the model differences, you can refer to an article [comparing YOLO v3, v4 and v5 for Autonomous Landing Spot Detection in Faulty UAVs](https://www.mdpi.com/1424-8220/22/2/464). **TLDR;** the more recent model has generally higher mean average precision (mAP) while the older has a higher framerate.
+
+In the field tests done by me and the Heureka team each model yielded slightly better results over the other depending on the selected target objects, so both are available in the final app. The default configuration runs with YOLOv5.
 
 ## Working with device orientations
 
@@ -64,7 +66,7 @@ Another important decision is whether to go for 3rd party frameworks or not. I'm
 The iOS platform frameworks used are `CoreMotion` for detecting when the device is idle and when it is taken into use again, `AVFoundation` for capturing the camera feed, `Vision` for image preprocessing and running inference with the model, and `Combine` for game events.
 
 ![Application class diagram](/img/edutainment-with-ai/application-class-diagram.png)
-<br/>_Application Class Diagram. Best experienced together with the code._
+<br/>_Application Class Diagram. Best experienced together with the code (see repository link in the closing chapter)._
 
 Finally, one of the project requirements was that application parameters should be configurable. Expectation was that Heureka exhibition team can change certain application settings like timers, graphics and languages in the app without the need to rebuild and review. For this, I designed a simple `JSON` configuration with the required fields.
 
