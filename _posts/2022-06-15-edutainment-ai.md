@@ -95,4 +95,4 @@ A pre-trained model can stretch to a variety of scenarios. You don't always have
 
 ## Where can I get it?
 
-The app is in AppStore through Apple School Manager program under Heureka's account. This means that you won't find it in the public AppStore search. You can go visit the [Me, myself & AI](https://www.heureka.fi/nayttely/tekoaly/) exhibition to check it out in the environment that it was designed for - or go to https://github.com/solita-internal/heureka-objektintunnistin and build a version for yourself!
+The app is in AppStore through Apple School Manager program under Heureka's account. This means that you won't find it in the public AppStore search. You can go visit the [Me, myself & AI](https://www.heureka.fi/nayttely/tekoaly/) exhibition to check it out in the environment that it was designed for - or go to [github.com/solita/heureka-objektintunnistin](https://github.com/solita/heureka-objektintunnistin) and build a version for yourself!
