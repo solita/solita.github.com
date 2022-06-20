@@ -2,7 +2,7 @@
 layout: post
 title: Edutainment with AI
 author: aleksi.sitomaniemi
-date: 2016-06-22 15:45:00 +0200
+date: 2016-06-22 08:00:00 +0200
 excerpt: During the spring of 2022 I had a chance to take part in the development of an exhibition item for Heureka, the Finnish science centre. The key idea was to use an image recognition AI model and build a small iOS game application around it. In this post, I will share some notes about the process and details of implementing this app.
 
 tags:
