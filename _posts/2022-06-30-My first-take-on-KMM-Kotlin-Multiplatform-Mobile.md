@@ -17,11 +17,9 @@ tags:
 
 ## Backstory
 
-In order to finish the Dev Academy I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to a freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own.
+In order to finish the Dev Academy I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to a freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done in a very proffessional fashion. ( TODO WRITE MORE STUFF HERE)
 
 On the initial project kick off discussion, my mentor and I have decided that to mix things up a little I should develop the app in a technology that I am not super familiar with. After talking over several different possibilities we settled with KMM - Kotlin Multiplatform Mobile. Some of the reasons behind this decision were: my familiarity with Native Android Development and the fact that KMM is just an emerging technology and what's new is exciting and worth exploring.
-
-
 
 ## KMM
 
@@ -39,9 +37,48 @@ On top of that, KMM also lets us decide how much of the actual code we want to s
 
 ## Okay… we get it, but how does that work in practice?
 
-Alright, so the project that gave me opportunity to test KMM in practice was Dev Notary. A simple application that lets developers create notes, documentations or memos and interact with them. Basic CRUD with addition of sharing the notes with other users. App requirements were simple: • Authentication • Managing a note: create, read, edit, delete, share • Restore notes • List, sort, search notes
+KMM project is made of 3 modules: Android, iOS and shared module. Code in shared module can be called by Android or iOS module, and naturally code in platform related modules cannot be called in shared module. In other words shared module is available for the other modules but not other way around. 
+![Project structure](/img/kmm-my-first-take/package-structure.png)
 
-In order to get this done properly I’ve decided to give myself a day to research other Kotlin Multiplatform Mobile projects, to learn from them, get some inspiration and only after that start planning my killer app. Thanks to that investigation, I’ve realized that I can actually share quite a lot of code between both platforms. So, I decided that in order to test this untamed technology I should try to share as much code as I possibly can.
+In shared module most of the code is written in commonMain package however, sometimes our shared code cannot work without platform dependent stuff. That's why in shared module we have androidMain and iosMain packages. In case of developing the platform depended code in shared module we must use KMM specific Kotlin mechanism of expected and actual declarations. The simplest example is already generated for us by KMM plugin while creating a project: 
+
+
+In shared module we create class without any implementation code
+
+```
+expect class Platform() {
+   val platform: String
+}
+```
+
+And then in each platform module by using actual keyword we provide the actual implementation of expected code. 
+
+In Android module:
+
+```
+actual class Platform actual constructor() {
+    actual val platform: String = "Android ${android.os.Build.VERSION.SDK_INT}"
+}
+```
+
+
+In iOS module:
+
+```
+actual class Platform actual constructor() {
+    actual val platform: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+}
+```
+
+## My implementation
+
+Alright, so the project that gave me opportunity to test KMM in practice was Dev Notary. A simple application that lets developers create notes, documentations or memos and interact with them. Basic CRUD with addition of sharing the notes with other users. App requirements were simple:
+- Authentication
+- Managing a note: create, read, edit, delete, share
+- Restore notes
+- List, sort, search 
+
+In order to get this done properly I’ve decided to give myself a day to research other Kotlin Multiplatform Mobile projects, to learn from them, get some inspiration and only after that start planning my app. Thanks to that investigation, I’ve realized that I can actually share quite a lot of code between both platforms. After some planning it was decided that in order to test this untamed technology I should try to share as much code as I possibly can.
 
 While looking for possible libraries that could make my expedition easier, I’ve found a library that implements Firebase SDK with pure Kotlin and therefore, enables usage of Firebase directly from shared module. Excellent! For local database I’ve decided to use safest option SQLDelight and for key value pairs multiplatform settings. Additionally, I’ve picked Kodein DI for dependency injection, Multiplatform UUID for well... UUIDs and several other libraries for minor tasks.
 
@@ -49,117 +86,22 @@ Okay but how to keep all this code separated and neat so that it's easily testab
 
 ![Architecture diagram](/img/kmm-my-first-take/architecture.png)
 
+I could have shown here the actual code snippets from my application so that You could see how KMM actually gets done but by doing this, this post would become extremely long and probably dull for most readers. Instead, I'll demonstrate some gifs of the application to show that it actually works smoothly and I'll link the [repository](https://github.com/solita-michalguspiel/DevNotary) so whoever's curious can look into the code. I recommend having a look at implementation of shared module [iOS package](https://github.com/solita-michalguspiel/DevNotary/tree/main/shared/src/iosMain/kotlin/com/solita/devnotary) and [Android package](https://github.com/solita-michalguspiel/DevNotary/tree/main/shared/src/androidMain/kotlin/com/solita/devnotary) to get a grasp of expect/actual mechanism. In case of Dev Notary I have used it in order to implement iOS working ViewModel, timer and ISO8601 date formatting.
 
-Alright so in order to give you a grasp of how KMM project looks like in practice I've decided to show few implementations of features that have shared as well as native code.
+## Application
 
-## Email link authentication:
+![Running application](/img/kmm-my-first-take/creating-note.gif)
+*Creating notes*
 
+![Sharing note](/img/kmm-my-first-take/sharing-note.gif)
+*Sharing notes*
 
-### Common module:
+## Looking back
 
-```
-    override suspend fun sendEmailLink(email: String): Flow<Response<Boolean>> = flow {
-        val actionCodeSettings = ActionCodeSettings(
-            url = APP_URL,
-            canHandleCodeInApp = true,
-            dynamicLinkDomain = "devnotary.page.link",
-            androidPackageName = AndroidPackageName(
-                packageName = ANDROID_PACKAGE_NAME,
-                installIfNotAvailable = true
-            ), iOSBundleId = IOS_BUNDLE_ID
-        )
-        try {
-            emit(Response.Loading)
-            auth.sendSignInLinkToEmail(email, actionCodeSettings)
-            emit(Response.Success(true))
-        } catch (e: Exception) {
-            println(e.message ?: ERROR_MESSAGE)
-            emit(Response.Error(e.message ?: ERROR_MESSAGE))
-        }
-    }
-
-    override suspend fun signInWithEmailLink(
-        email: String,
-        emailLink: String
-    ): Flow<Response<Boolean>> = channelFlow {
-        if (!auth.isSignInWithEmailLink(emailLink)) {
-            send(Response.Error(ERROR_MESSAGE))
-        } else {
-            try {
-                send(Response.Loading)
-                val authResult = auth.signInWithEmailLink(email, emailLink)
-                createUserDocumentIfNotExist(email, authResult.user!!.uid).collect {
-                    send(it)
-                }
-            } catch (e: Exception) {
-                send(Response.Error(e.message ?: ERROR_MESSAGE))
-            }
-        }
-    }
-
-```
-
-The implementation of AuthRepository is responsible for sending an email authentication link as well as handling the sign in flow.
-
-While the native implementation have to only call the function to get a sign in link and while app is launched handle the sign in link. Handling sign in link happens like this:
-
-### Android: 
-
-```
-
- if (signInIntent.data.toString() != Constants.NULL &&
-        userAuthState.value !is Response.Success<*>
-    ) {
-        authViewModel.signInWithLink(signInIntent.data.toString())
-        signInIntent = Intent(Constants.NULL)
-    }
-
-```
-
-### and iOS:
-
-```
-
-    func scene(_ scene: UIScene, continue userActivity: NSUserActivity){
-        if let incomingURL = userActivity.webpageURL{
-            DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) { dynamicLink, error in
-                guard error == nil else{
-                    return
-                }
-                if let dynamicLink = dynamicLink {
-                    handleIncomingDynamicLink(dynamicLink)
-                }
-            }
-           
-        }
-    }
-
-func handleIncomingDynamicLink(_ dynamicLink : DynamicLink){
-    let authViewModel = iosDI().getAuthViewModel()
-    guard let url = dynamicLink.url else{
-        return
-    }
-    authViewModel.signInWithLink(intent: url.absoluteString)
-}
-
-
-```
-
-
+Since my expertise lays in Android, development was done Android first. At the very beginning there were some configuration issues caused by KMM, adding one library dependency resulted in breaking other dependencies, there were mysterious errors while building projects and whatnot. Despite those, development of shared codebase and Android application went relatively effectively. First big blocker was encountered after starting development of iOS application, since I had no knowledge of iOS development and KMM didn't work exactly as I imagined it. I had to slightly adjust shared module while learning Swift, SwiftUI and iOS development in general. This slowed the process significantlly. However, I want to emphasize that development of Android application with KMM wasn't any different than doing completely Native Android App, despite some bumps with configuration of course. What was great though was that in order to create iOS app, I only had to implement the UI. After implementing "AddNoteView" and "NotesListView" for iOS it just worked out of the box. It felt that it could be super effortless only if I would have experience of iOS development. 
 
 
 ## References 
 
-### Further reading:
-
- https://kotlinlang.org/lp/mobile/
-
-### Projects reasearched beforehand: 
-
-https://kotlinlang.org/docs/multiplatform-mobile-samples.html
-
-### Some of used libraries:
-
-https://github.com/cashapp/sqldelight
-
-https://github.com/GitLiveApp/firebase-kotlin-sdk 
+ - [KMM](https://kotlinlang.org/lp/mobile/)
+ - [List of sample projects](https://kotlinlang.org/docs/multiplatform-mobile-samples.html)
