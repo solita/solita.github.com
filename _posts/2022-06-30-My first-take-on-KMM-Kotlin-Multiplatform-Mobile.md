@@ -2,7 +2,7 @@
 layout: post
 title: My first take on KMM - Kotlin Multiplatform Mobile
 author: michal.guspiel, denzilferreira
-date: 2022-7-27 16:00:00 +0200
+date: 2022-06-30 16:00:00 +0200
 excerpt: As for a first project and practice assignment in Solita I've had explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
 
 tags:
@@ -109,5 +109,5 @@ Since my expertise lays in Android, development was done Android first. At the v
 
 ## References 
 
- - [KMM](https://kotlinlang.org/lp/mobile/)
  - [List of sample projects](https://kotlinlang.org/docs/multiplatform-mobile-samples.html)
+ - [Dev Notary source code](https://github.com/solita-michalguspiel/DevNotary)
