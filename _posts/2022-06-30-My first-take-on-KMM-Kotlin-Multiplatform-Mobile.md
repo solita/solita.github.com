@@ -13,11 +13,12 @@ tags:
   - Kotlin MultiPlatform Mobile
   - iOS
   - Swift
+  - Dev Academy
 ---
 
 ## Backstory
 
-In order to finish the Dev Academy I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to a freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done in a very proffessional fashion. ( TODO WRITE MORE STUFF HERE)
+In order to finish the Dev Academy I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to a freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done in a very proffessional fashion and is a great way to kickoff start for a new software designer.
 
 On the initial project kick off discussion, my mentor and I have decided that to mix things up a little I should develop the app in a technology that I am not super familiar with. After talking over several different possibilities we settled with KMM - Kotlin Multiplatform Mobile. Some of the reasons behind this decision were: my familiarity with Native Android Development and the fact that KMM is just an emerging technology and what's new is exciting and worth exploring.
 
