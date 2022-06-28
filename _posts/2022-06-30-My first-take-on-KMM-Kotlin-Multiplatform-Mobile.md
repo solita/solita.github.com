@@ -3,7 +3,7 @@ layout: post
 title: My first take on KMM - Kotlin Multiplatform Mobile
 author: michal.guspiel, denzilferreira
 date: 2022-06-30 16:00:00 +0200
-excerpt: As for a first project and practice assignment in Solita I've had explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
+excerpt: As for a first project and practice assignment in Solita I've explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
 
 tags:
   - KMM
@@ -18,7 +18,7 @@ tags:
 
 # Preface
 
-In order to finish the Dev Academy, I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to a freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done in a very proffessional fashion and is a great way to kickoff start for a new software designer.
+In order to finish the Dev Academy, I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done carefully and is a great way to kickoff start for a new software designer.
 
 On the initial project kick-off meeting, my mentor and I have decided that to mix things up a little I should develop the app in a technology that I am not super familiar with. After going over several different possibilities, we settled with Kotlin Multiplatform Mobile (KMM). Some of the reasons behind this decision were: 1) my familiarity with Native Android Development and 2) KMM is an exciting and emerging technology worth exploring for a streamlined mobile development team.
 
@@ -28,7 +28,7 @@ On the initial project kick-off meeting, my mentor and I have decided that to mi
 
 ## Slicing apps into layers of concern
 
-The way to create an applications with KMM is to develop one shared codebase for business logic and then separate codebases for each platform specific features. Separate native codebases are usually for UI, and occasional depending on a case for platform related functionality. This approach doesn’t reduce native performance as Kotlin is compiled to native execution code. KMM saves teams' time and effort as you do not have to write redundant business logic in both apps, nor coordinate between teams for feature parity.
+To create an applications with KMM is to develop one shared codebase for business logic and then separate codebases for each platform specific features. Separate native codebases are usually for UI, and occasionally more, depending on a case for platform related functionality. This approach doesn’t reduce native performance as Kotlin is compiled to native execution code. KMM saves teams' time and effort as you do not have to write redundant business logic in both apps, nor coordinate between teams for feature parity.
 
 ![Native and cross-platform development benefits](/img/kmm-my-first-take/kmm-comparison-table.svg)
 
@@ -40,9 +40,9 @@ In addition, KMM offers flexibility to decide how much of the code is shared bet
 
 KMM project is made of 3 modules: **androidApp** (Android native project and app code), **iosApp** (Xcode native project and app code) and **shared** module (everything that should be shared across both Android and iOS apps). Code in shared module can be called by the Android or iOS modules, and naturally code in platform related modules cannot be called in shared module. An introduction to KMM is available [here](https://docs.google.com/presentation/d/1qVjRuTgEbw7gyF-ETlRnqL_Lk4MeaQGV66zHwQ9gEUU/edit?usp=sharing).
 
-![Practical project structure - DevNotary](/img/kmm-my-first-take/package-structure.png)
+![Practical project structure - Dev Notary](/img/kmm-my-first-take/package-structure.png)
 
-In shared module most of the code is written in commonMain package however, sometimes our shared code cannot work without platform dependent stuff. That's why in shared module we have androidMain and iosMain packages. In case of developing the platform depended code in shared module we must use KMM specific Kotlin mechanism of expected and actual declarations. The simplest example is already generated for us by KMM plugin while creating a project: 
+In **shared** module most of the code is written in **commonMain** package however, sometimes our shared code cannot work without platform dependent stuff. That's why in **shared** module we have **androidMain** and **iosMain** packages. In case of developing the platform depended code in shared module we must use KMM specific Kotlin mechanism of expected and actual declarations. The simplest example is already generated for us by KMM plugin while creating a project: 
 
 
 In **shared** module we create __expect__ classes inside **commonMain**. Think of them as interfaces, without any implementation code, or a template of what should be converted to native code via KMM compilers:
@@ -72,9 +72,9 @@ actual class Platform actual constructor() {
 }
 ```
 
-## My DevNotary implementation
+## My Dev Notary implementation
 
-Alright, so the project that gave me opportunity to test KMM in practice was Dev Notary. You can find the project pitch [here](https://docs.google.com/presentation/d/1iQYibISIREyWV02GtvO5TPkzlbcVgZWi-XdXGsPp_5I/edit?usp=sharing). DevNotary is a simple application that lets developers create notes, documentations or memos and interact with them. Basic CRUD with addition of sharing the notes with other users. The functional requirements were simple:
+Alright, so the project that gave me opportunity to test KMM in practice was Dev Notary. You can find the project pitch [here](https://docs.google.com/presentation/d/1iQYibISIREyWV02GtvO5TPkzlbcVgZWi-XdXGsPp_5I/edit?usp=sharing). Dev Notary is a simple application that lets developers create notes, documentations or memos and interact with them. Basic CRUD with addition of sharing the notes with other users. The functional requirements were simple:
 - Authentication
 - Managing a note: create, read, edit, delete, share
 - Restore notes
