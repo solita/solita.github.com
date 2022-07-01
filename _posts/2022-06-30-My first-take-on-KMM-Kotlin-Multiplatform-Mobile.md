@@ -3,7 +3,7 @@ layout: post
 title: My first take on KMM - Kotlin Multiplatform Mobile
 author: michal.guspiel, denzilferreira
 date: 2022-06-30 16:00:00 +0200
-excerpt: As for a first project and practice assignment in Solita I've explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
+excerpt: As for a first project and practice assignment at Solita, I've explored a new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
 
 tags:
   - KMM
@@ -18,17 +18,17 @@ tags:
 
 # Preface
 
-In order to finish the Dev Academy, I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done carefully and is a great way to kickoff start for a new software designer.
+In order to finish the Dev Academy, I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done carefully and is a great way to bootstrap as a new Software Designer.
 
-On the initial project kick-off meeting, my mentor and I have decided that to mix things up a little I should develop the app in a technology that I am not super familiar with. After going over several different possibilities, we settled with Kotlin Multiplatform Mobile (KMM). Some of the reasons behind this decision were: 1) my familiarity with Native Android Development and 2) KMM is an exciting and emerging technology worth exploring for a streamlined mobile development team.
+On the initial project kick-off meeting, my mentor and I have decided that to mix things up a little. I should develop the app in a technology that I am not super familiar with. After going over several different possibilities, we settled with Kotlin Multiplatform Mobile (KMM). Some of the reasons behind the decision were: 1) my familiarity with Native Android Development and 2) KMM is an exciting and emerging technology worth exploring for a streamlined mobile development team.
 
 # Kotlin Multiplatform Mobile
 
-[Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) (KMM) is a tool developed by JetBrains to simplify iOS and Android app development. Kotlin Multiplatform empowers cross-platform (e.g., mobile, desktop, web) and yet also supports native- development on such platforms. This article focuses on the Mobile side of things.
+[Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) (KMM) is a tool developed by JetBrains to simplify iOS and Android app development. Kotlin Multiplatform empowers cross-platform (e.g., mobile, desktop, web) and yet support native development on such platforms. This article focuses on the mobile side of things.
 
 ## Slicing apps into layers of concern
 
-To create an applications with KMM is to develop one shared codebase for business logic and then separate codebases for each platform specific features. Separate native codebases are usually for UI, and occasionally more, depending on a case for platform related functionality. This approach doesn’t reduce native performance as Kotlin is compiled to native execution code. KMM saves teams' time and effort as you do not have to write redundant business logic in both apps, nor coordinate between teams for feature parity.
+To create an applications with KMM is to develop one shared codebase for business logic and then separate codebases for each platform specific features. Separate native codebases are usually for user interface, and occasionally more depending on needing platform-specific functionality. This approach doesn’t reduce native performance as Kotlin is compiled to native execution code. KMM can save teams' time and effort as you do not have to write redundant business logic in both apps, nor coordinate between teams for feature parity. We could consider a hybrid team, where we leverage each others' experience effectively.
 
 ![Native and cross-platform development benefits](/img/kmm-my-first-take/kmm-comparison-table.svg)
 
@@ -82,11 +82,7 @@ Alright, so the project that gave me opportunity to test KMM in practice was Dev
 
 In order to accomplish this, I’ve decided to give myself a day to research other Kotlin Multiplatform Mobile projects, to learn from them, get some inspiration and only after that start planning my app. Thanks to that investigation, I’ve realized that I can actually share quite a lot of code between both platforms. After some planning it was decided that in order to test this untamed technology I should try to share as much code as I possibly can.
 
-While looking for possible libraries that could make my expedition easier, I’ve found a library that implements Firebase SDK with pure Kotlin and therefore, enables usage of Firebase directly from the shared module! 💪 
-
-As for local database, I’ve decided to use safest option SQLDelight and for key value pairs multiplatform settings. Additionally, I’ve picked Kodein DI for dependency injection, Multiplatform UUID for Universal Unique IDs.
-
-Okay but how to keep all this code separated and neat so that it's easily testable and the presentation layers are not actually dependent on any shared module code? With a MVVM and clean architecture!
+While looking for possible libraries that could make my expedition easier, I’ve found a library that implements Firebase SDK with pure Kotlin and therefore, enables usage of Firebase directly from the shared module! As for local database, I’ve decided to use safest option SQLDelight and for key value pairs multiplatform settings. Additionally, I’ve picked Kodein DI for dependency injection, Multiplatform UUID for Universal Unique IDs. OK... but, how to keep all this code separated and neat so that it's easily testable and the presentation layers are not actually dependent on any shared module code? With a MVVM and clean architecture!
 
 ![Architecture diagram](/img/kmm-my-first-take/architecture.png)
 
