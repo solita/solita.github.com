@@ -18,7 +18,7 @@ tags:
 
 # Preface
 
-In order to finish the Dev Academy, I've had to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done carefully and is a great way to kickoff start for a new software designer.
+In order to finish the Dev Academy, I've to develop an application as my practice assignment. I've been provided a mentor - Denzil Ferreira, whom I was guided by throughout the process. The purpose of practice assignment is to provide to freshly recruited junior developers a safe environment, in which they can work on a small feature of an application or simple application of their own. Moreover, thanks to mentor guidance development gets done carefully and is a great way to kickoff start for a new software designer.
 
 On the initial project kick-off meeting, my mentor and I have decided that to mix things up a little I should develop the app in a technology that I am not super familiar with. After going over several different possibilities, we settled with Kotlin Multiplatform Mobile (KMM). Some of the reasons behind this decision were: 1) my familiarity with Native Android Development and 2) KMM is an exciting and emerging technology worth exploring for a streamlined mobile development team.
 
