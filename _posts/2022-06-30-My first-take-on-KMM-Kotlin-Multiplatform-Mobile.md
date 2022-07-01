@@ -3,7 +3,7 @@ layout: post
 title: My first take on KMM - Kotlin Multiplatform Mobile
 author: michal.guspiel, denzilferreira
 date: 2022-06-30 15:00:00 +0200
-excerpt: As for a first project and practice assignment in Solita I've had explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
+excerpt: As for a first project and practice assignment in Solita I've explored new technology - KMM and created Dev Notary, a simple application that lets users create, modify and share notes between other users.
 
 tags:
   - KMM
