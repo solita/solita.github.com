@@ -15,6 +15,7 @@ If you want to write a post, here's how:
 
    - Name the file with this format: `YYYY-MM-DD-post-name.md`
    - You might want to copy some previous post as a template
+   - If you don't see your blog post, change the date on the file to today or a past date
    - Normally the publication date of the post is read from the filename. In this case the publishing time will show up as 00:00:00. If you want to specify the exact time your post was published, you can add a date field to your post's front matter. In the date field you can specify the publication time in the format `YYYY-MM-DD HH:MM:SS +/-TTTT`. For example:
 
      ```yml
@@ -51,7 +52,6 @@ If you want to write a post, here's how:
 
 #### Tips and tricks
 
-- If you don't see your post, change the date on the file to today - time travelling is not allowed.
 - `./docker/destroy.sh` -> Delete image
 - `./docker/troubleshoot.sh` -> Open bash to container without starting jekyl and compass
 
