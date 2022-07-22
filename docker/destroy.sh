@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o errexit
 
-main () {
+main() {
     docker rmi solita-blag
 }
 
