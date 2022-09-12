@@ -28,7 +28,7 @@ One of the nicest things about state machines is that they are convenient to pre
 
 ![A visual presentation of a state machine representing a simple traffic light](/img/utilizing-state-machines-in-front-end-development/SimpleTrafficLight.png)
 
-The machine can be in three different _states_: `green`, `yellow`, or `red`. It can be in only one of these states at one time. On the left, the little dot with an arrow pointing to the green state marks _the initial state_ of the machine. Meaning that the green state is activated, when the machine is executed.
+In most countries, there's a combined `red-yellow` state, but in this simplified version, the machine has three different _states_: `green`, `yellow`, and `red`. It can be in only one of these states at one time. On the left, the little dot with an arrow pointing to the green state marks _the initial state_ of the machine. Meaning that the green state is activated, when the machine is executed.
 
 The arrows between states are the possible _transitions_. In this very simple machine, every state has only one possible transition. The pill-shaped boxes are _the external inputs_ that trigger the transitions. This machine only has one input called `timer`, that triggers a transition from one state to another. Notice how the same input triggers a transition to a different state based on the current state: when the machine is in the yellow state, `timer` transitions the machine to the red state, and from the red state, it goes to the green state when a new `timer` input occurs.
 
@@ -517,7 +517,7 @@ const SearchForm = () => {
 };
 ```
 
-Cool, now the component's whole state is handled by XState. We have successfully moved the business logic out from the view layer handled by React. We could even move the fetching to be a part of the machine (maybe a reusable sub-machine?).
+Cool, now the component's whole state is handled by XState. We have successfully moved the business logic out from the view layer handled by React. We could even move the fetching to be a part of the machine (maybe a reusable sub-machine?). Adding more features should now be pretty easy, too. If we needed to only allow sending the form, if the `keyword` were at least 3 characters long, we could add a `guard` for the transition from `initial` to `loading`. Or add a transition from `initial` to a new state `readyForSubmitting`, once the conditions are met, and only allow `SEARCH` event on the newly added state.
 
 And by the way, our machine looks like this now:
 
@@ -529,7 +529,7 @@ The `SET_KEYWORD` event assigns the data but doesn't trigger a transition while 
 
 State machines and statecharts are super effective tools when used correctly. I especially like the fact that when using them I'm forced to think about the behavior of the app and describe it before implementing it.
 
-State machines add formalism and make code more robust by making sure there are no impossible states. They can separate business logic from the view layer and are a great way to make reusable logic. They are easy to represent visually, which can drastically help with communicating ideas, for example.
+State machines add formalism and make code more robust by making sure there are no impossible states. They can separate business logic from the view layer and are a great way to make reusable logic. They are easy to represent visually, which can drastically help with communicating ideas, for example. State machines can replace other state management libraries, like Redux, or work alongside them.
 
 On the other hand, state machines require you to think in a new mental model and can sometimes be a little overwhelming. A state machine with hundreds of lines of config code can seem like you are just moving your spaghetti from one plate to another. And you very well might be doing just that, but I still find organizing logic is much easier with state machines.
 
