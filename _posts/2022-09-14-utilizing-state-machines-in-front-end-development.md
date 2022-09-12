@@ -541,3 +541,4 @@ My recommendation: **add state machines to your developer toolbox!** Next time y
 - [statecharts.dev](https://statecharts.dev/) - A great little site about the world of statecharts.
 - [xstate.js.org](https://xstate.js.org) - XState documentation.
 - [xstate-catalogue.com](https://xstate-catalogue.com) - A curated collection of high-quality XState state machines. A great resource for inspiration.
+- [Speed Tester](https://jtiala.github.io/speed-tester/) ([GitHub](https://github.com/jtiala/speed-tester)) - A simple game I made using XState and React. As seen on the TV game show _Speden Spelit_.
