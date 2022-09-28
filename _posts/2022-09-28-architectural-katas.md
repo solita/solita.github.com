@@ -72,7 +72,7 @@ In innovation what matters is quantity over quality, regardless of if you are do
 Quantity means producing as many ideas as possible - both suitable *and* bad!
 Quantity is important because in innovation the best idea is usually a *synthesis of several alternatives*. Stopping after the first solution candidate is likely to miss variations which would make it even better. Keep in mind that there are many different approaches and solutions to a problem.
 Software specialists have the same problem as people in general: if you have a hammer, then all problems look like nails.
-That iswhy in teamwork it is important to encourage the quiet members of a group to bring their own point of view to the table. People have different points of view and different observations, ones which others may have missed.
+That is why in teamwork it is important to encourage the quiet members of a group to bring their own point of view to the table. People have different points of view and different observations, ones which others may have missed.
 
 ### On Architectural Katas
 
