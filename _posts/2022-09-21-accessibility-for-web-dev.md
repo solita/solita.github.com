@@ -12,7 +12,7 @@ tags:
   - software development
 ---
 
-Last week we celebrated the Diversity, Equity, Inclusivity week at Solita, learning more and discussing our differences and biases. The very same week the [React Finland](https://react-finland.fi/) conference took place, in which quite some time was devoted to the topic of accessibility. Great timing, wouldn’t you say? I attended a workshop conducted by [Eevis Panula](https://eevis.codes/), a Certified Professional in Web Accessibility (check out also her talk at the conference!); she inspired me to write this blog. We don’t talk about accessibility enough!
+Recently we celebrated the Diversity, Equity, Inclusivity week at Solita, learning more and discussing our differences and biases. The very same week the [React Finland](https://react-finland.fi/) conference took place, in which quite some time was devoted to the topic of accessibility. Great timing, wouldn’t you say? I attended a workshop conducted by [Eevis Panula](https://eevis.codes/), a Certified Professional in Web Accessibility (check out also her talk at the conference!); she inspired me to write this blog. We don’t talk about accessibility enough!
 
 Let’s start with the basics of what is accessibility, why should we care, how can we help, and what is inspiration porn. Then I’ll dive a little deeper into the practicalities of accessibility testing - both automated and manual.
 
@@ -21,6 +21,7 @@ Let’s start with the basics of what is accessibility, why should we care, how 
 Accessibility (abbreviated to a11y) is designing products, services, environments in a way that people with disabilities can use them - that means both in the physical world and in digital spaces. As developers we will focus on the latter.
 
 What do you picture when you read “people with disabilities”? Very probable that your mind played the stereotypical images of a blind or deaf person, but we have to remember that there are many types of disabilities: cognitive, visual, auditory, motor, mental-health-related, compounded... The biggest group of them, cognitive, is the “invisible” one, which unfortunately makes it so easy for some people to forget.
+
 Another thing to consider is the permanence of the disability; have you ever hurt your hand and had trouble using your daily devices? Or held a cat in your arms so you only had one hand free? You had a disability - temporary and situational, respectively.
 
 One might think of the disabled as a minority. While technically true, this idea hides the fact that it is a huge group in our society. In Finland over 1 million people need digital accessibility, making up close to 20% of the population. Similar numbers appear on the EU level: an estimated 100 million of 447.7 million people in the EU have some form of disability (meaning that this number does not include temporary and situational disabilities). [[source FI](https://www.webaccessibility.fi/accessibility-overview/for-whom-is-accessibility-important/), [source EU](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)]
@@ -31,7 +32,9 @@ First of all, the hopefully obvious - it’s the right thing to do. It just is. 
 
 And even if you don’t believe in the sentence above (we can’t be friends then, I’m afraid), if you’re egoistic - do it for yourself. We all experience situational disabilities like trying to read a map on our phone screen in bright sunlight.
 
-[Evgenia Alefragki wrote already on this blog](https://dev.solita.fi/2020/08/28/accesibility-in-mind.html) about benefits of creating digital services with accessibility in mind right from the beginning - it’s good for designers, it’s good for developers, it’s good for the users (yes, all of them). If you have trouble convincing your manager or clients to not ignore accessibility this time, remind them that they are playing with a big part of their customer base. Not only they can lose those people, but also all their friends and relatives who will hear the stories of how the parallel scroll caused dizziness so bad that the webpage was totally unusable.
+[Evgenia Alefragki wrote already on this blog](https://dev.solita.fi/2020/08/28/accesibility-in-mind.html) about benefits of creating digital services with accessibility in mind right from the beginning - it’s good for designers, it’s good for developers, it’s good for the users (yes, all of them). If you have trouble convincing your manager or clients to not ignore accessibility this time, remind them that they are playing with a big part of their customer base. Not only can they lose those people, but also all their friends and relatives who will hear the stories of how the parallel scroll caused dizziness so bad that the webpage was totally unusable.
+
+You may also think "well, but I know that the tool I'm building will be used by a small, very specific group that I met". First of all, you can't be 100% sure if any user of that group is disabled. Secondly - perfectly working keyboard navigation will also benefit the power users. When talking about accessibility, no-mouse-in-use is stereotypically associated for example with people suffering from Parkinson's, but as usual, there's so much more to it.
 
 Another angle is the legislation and the future of it; right now in the EU the public sector services have to be accessible. Soon a similar law will be issued regarding parts of the private sector as well, for example [e-commerce](https://www.europarl.europa.eu/news/en/headlines/society/20190227STO28989/accessibility-making-products-and-services-in-the-eu-easier-to-use). We can expect similar rules to become applicable in almost all apps and services we’re building, so why not start the process right now?
 In short: it’s a win-win situation. For whoever you’re doing it, they will love you for that.
@@ -76,7 +79,7 @@ Underneath the summary you can find the issues themselves, bunched together tell
 
 The issue details are really descriptive, trying to point out where exactly it happened and suggesting solutions. If you still don’t know what it is about or where the issue is, the two buttons in the top left corner help. One of them is switching to the “Elements” tab and highlights the element affected, and the other one opens aXe rules documentation.
 
-In our case for some reason we forgot to use the semantic <<code>main</code>> tag, hence the issue. If you look at the next problem found, it’s about the same thing, but from a different perspective, so adding the tag in the correct place will fix 23 things at once. Talk about killing twenty-three birds with one stone. Or less murderously in Polish - “making twenty-three roasts with one fire”.
+In our case for some reason we forgot to use the semantic `<main>` tag, hence the issue. If you look at the next problem found, it’s about the same thing, but from a different perspective, so adding the tag in the correct place will fix 23 things at once. Talk about killing twenty-three birds with one stone. Or less murderously in Polish - “making twenty-three roasts with one fire”.
 
 ![Screenshot of aXe DevTools - example of color contrast issue that need a review.](/img/accessibility-testing-for-web-developers/04-potential-issue.png)
 
@@ -84,7 +87,7 @@ aXe also knows its limitations; it marks some of the issues as “needing review
 
 Half of our issues is the chart-label pairs, and the other half is between our app’s primary color and the off-white of the background. Technically the contrast is too low, but if I asked you for your opinion, you’d probably say it’s absolutely fine.
 
-That’s because of the way the contrast is calculated. As a side note, I’m quite excited about the new approach to contrast. Today’s standard calculates it in a way that doesn’t quite take into account the human eye’s color perception, which means for example that a white text on orange background fails the test even though it’s perfectly fine in our human subjective opinion. Lisa Charlotte Muth from Datawrapper writes more about it in their blog (https://blog.datawrapper.de/color-contrast-check-data-vis-wcag-apca/ ) if you’re curious. The new kind of calculations might be included in the WCAG version 3, so in 2-3 years - a bit of a wait still ahead of us.
+That’s because of the way the contrast is calculated. As a side note, I’m quite excited about the new approach to contrast. Today’s standard calculates it in a way that doesn’t quite take into account the human eye’s color perception, which means for example that a white text on orange background fails the test even though it’s perfectly fine in our human subjective opinion. Lisa Charlotte Muth from Datawrapper writes more about it [in their blog](https://blog.datawrapper.de/color-contrast-check-data-vis-wcag-apca/) if you’re curious. The new kind of calculations might be included in the WCAG version 3, so in 2-3 years - a bit of a wait still ahead of us.
 
 
 ## Practically how, part 2 - manual testing
@@ -108,7 +111,9 @@ It’s also essential to set the application language to the correct one - other
 ### Tools:
 - Your own keyboard
 - Screen readers:
-    - [Voice Over](https://webaim.org/articles/voiceover/): built-in in macOS.
+    - [Voice Over](https://webaim.org/articles/voiceover/): built-in in macOS and iOS.
+    - [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1): built-in in Windows 2000 and later.
+    - [NVDA](https://www.nvaccess.org/download/): free program for Windows made by NV Access, a charity and software development company.
     - [Screen Reader / ChromeVox](https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en): built-in in Chromebooks, also available as Chrome extension.
 - [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm): Chrome extension. You can disable JS, CSS, cookies, check your forms, get images’ alts visible for a quicker checkup, and a dozen other things.
 - [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/): an extension for Chrome and Edge having automated checks against around 50 accessibility requirements, tabbing testing help and instructions for manual tests. Easy to create reports!
@@ -154,7 +159,7 @@ As Eevis and many other accessibility advocates say, it’s difficult to compile
 ### The bare minimum for a good start:
 - Run automatic tests - they check headings hierarchy, missing alts, color contrast, missing landmarks, non-unique IDs etc.
 - Headings - they should make sense when used as a table of content of the webpage/service.
-- Buttons are <<code>button</code>>, links are <<code>a</code>> - no <<code>div</code>> used for those purposes!
+- Buttons are `<button>`, links are `<a>` - no `<div>` used for those purposes!
 - Useful alternative texts - empty (but existing!) on decorative images, meaningful text describing meaningful images
 - Keyboard navigation - unplug your mouse, tab through your app (pay extra attention to pop-overs and focus traps), interact especially with links, buttons, inputs incl. checkboxes, radio buttons, dropdowns.
 
