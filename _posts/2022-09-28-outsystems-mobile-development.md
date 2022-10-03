@@ -58,6 +58,7 @@ With experience and proper planning before building the solution, we can address
 
 
  <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Q66yosSHcX5aOvgfbx" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/unitedstatesnavy-leaving-take-off-f35-Q66yosSHcX5aOvgfbx">via GIPHY</a></p>
+ 
 ## References  
  
  - [Rossman story](https://www.outsystems.com/case-studies/rossmann-poland-drug-store-retail-solutions/) 
