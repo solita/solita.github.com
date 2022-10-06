@@ -51,7 +51,7 @@ What has to be mentioned is that application distribution is particularly easy. 
  
 Based on my elaboration, it seems that OutSystems might be a great solution for a project where rapid delivery and low development cost are valued over UI and UX. That's right, OutSystems increase the speed of development significantly. However, claim that it is up to 10 times faster is a bit too optimistic.
 
-We must remember that developing software with OutSystems is still a complex process. It is not only programming itself. OutSystems is not magic. It does not help with service deisgn, UI design, planning, defining product requirements, and specifications. The procedure also invloves thorough testing. The final product must be tested and evaluated as carefully as a traditional software product. 
+We must remember that developing software with OutSystems is still a complex process. It is not only programming itself. OutSystems is not magic. It does not help with service deisgn, UI design, planning, defining product requirements, and specifications. The procedure also involves thorough testing. The final product must be tested and evaluated as carefully as a traditional software product. 
 
 From the developer's perspective, the biggest issue seems to be the unknown, unknown what is impossible to perform with a given technology. Sometimes we might lose some, or even a lot of time trying to achieve something that is undoable. After realizing it, we must adapt and find a good workaround. It is tiresome.  
   
