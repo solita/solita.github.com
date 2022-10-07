@@ -38,7 +38,6 @@ Prototyping and implementing UI gets done super quickly, by bootstraping the UI 
 
 ![Example application](/img/outsystems-mobile-development/example1.png)
 ![Example application](/img/outsystems-mobile-development/example2.png)
-![Example application](/img/outsystems-mobile-development/example3.png)
 
 *Example application - Life Healthcare*
 
