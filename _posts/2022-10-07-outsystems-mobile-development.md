@@ -1,16 +1,14 @@
---- 
-layout: post 
-title: I feel the need, the need for speed - rapid delivery of mobile apps with low code. 
-author: michal.guspiel 
-excerpt: Honest review of OutSystems in the scope of mobile development – a perspective of 
-the mobile developer. 
- 
-tags: 
-  - Lowcode 
-  - Outsystems 
-  - Mobile 
---- 
- 
+---
+layout: post
+title: I feel the need, the need for speed - rapid delivery of mobile apps with low code
+author: michal.guspiel
+excerpt: Honest review of OutSystems in the scope of mobile development – a perspective of the mobile developer.
+tags:
+  - Lowcode
+  - OutSystems
+  - Mobile
+---
+
 The modern world is changing incredibly fast: technology evolves, customer preferences, needs, and wants change, and extraordinary things happen all of the sudden. Businesses must adapt and shift constantly. 
  
 “The pace of change has never been this fast, yet it will never be this slow again” - Justin Trudeau. 
