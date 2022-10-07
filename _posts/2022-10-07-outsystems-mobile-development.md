@@ -31,14 +31,14 @@ Outsystems provides us with a set of tools that enable the development of medium
  
 Prototyping and implementing UI gets done super quickly, by bootstraping the UI elements based on the data model we can create first versions of the UI instantly. Assumptions that in low code development "UI customization is very limited" and "UX is disappointing" are inaccurate. It is true, however, that OutSystems user interface customization was not built with native mobile developers in mind. It is because to enable mobile app development OutSystems utilizes the Cordova framework. It is an open-sourced technology that allows the development of cross-platform applications using standard web technologies - HTML5, CSS3, and JavaScript. Therefore to customize the user interface we must either use provided interface or CSS.
 
-![OutSystems Interface](img/../../img/outsystems-mobile-development/OutSystems1.png)
+![OutSystems Interface](/img/outsystems-mobile-development/OutSystems1.png)
 *OutSystems interface, UI customization section on right side*
 
  Nevertheless, after getting used to CSS it is possible to develop a user interface that is more than bearable for the product that was made with pace and budget as a priority. Certain limitations will decrease the quality of user experience but definitely will not ruin the product. There are always workarounds and some "fancy UI fireworks" can be changed into a different solution that is less fancy but also optimal and practical.  
 
-![Example application](img/../../img/outsystems-mobile-development/example1.png)
-![Example application](img/../../img/outsystems-mobile-development/example2.png)
-![Example application](img/../../img/outsystems-mobile-development/example3.png)
+![Example application](/img/outsystems-mobile-development/example1.png)
+![Example application](/img/outsystems-mobile-development/example2.png)
+![Example application](/img/outsystems-mobile-development/example3.png)
 
 *Example application - Life Healthcare*
 
