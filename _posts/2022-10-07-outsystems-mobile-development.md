@@ -37,7 +37,7 @@ Prototyping and implementing UI gets done super quickly, by bootstraping the UI 
  Nevertheless, after getting used to CSS it is possible to develop a user interface that is more than bearable for the product that was made with pace and budget as a priority. Certain limitations will decrease the quality of user experience but definitely will not ruin the product. There are always workarounds and some "fancy UI fireworks" can be changed into a different solution that is less fancy but also optimal and practical.  
 
 ![Example application](/img/outsystems-mobile-development/example1.png)
-![Example application](/img/outsystems-mobile-development/example2.png)
+![Example application](/img/outsystems-mobile-development/example3.png)
 
 *Example application - Life Healthcare*
 
