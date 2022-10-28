@@ -9,10 +9,11 @@ tags:
   - career development
   - coding
 ---
+The Solita developer [academy](https://www.solita.fi/en/academy/) is a way to kickstart a career in software development. Applying for the academy fall 2022 required to make [a pre-assignemt](https://github.com/solita/dev-academy-2022-fall-exercise). The assignment was based on the Helsinki Capital area city bike journey statistics. We received many great exercises.  
 
-Solita development academy fall 2020 received many great exercises. One surprising thing was that there were few or no tests in many applications. Pre-assignment mentioned tests quite clearly and that makes me wonder why these were skipped. One application mentioned that Solita dev blogs Do's and Dont's of Dev Academy Pre-assignments contained a part: " If you just add tests that don’t test anything, that is just unnecessary code. " The applicant continued that he doesn't know how to code meaningful tests. 
-
-I think that as professional developers we may have forgotten that writing good and useful tests have not been an easy thing to learn - not for me at least. Therefore I present a quick primer based on Solita's fall assignment and how it could be tested.
+One surprising thing was that there were few or no tests in many applications. Pre-assignment mentioned tests quite clearly. After going through the exercises I found some of the exercises mentioned that an applicant had found difficult to make meaningful tests. 
+ 
+I think that as professional developers we may have forgotten that writing good and useful tests have not been an easy thing to learn - not for me at least. Therefore I present a quick primer based on Solita's fall assignment and how it could be tested. The blog post is mainly aimed at beginner developers. 
 
 ## Why do we test?
 First, we should think about the reason why we even bother to write tests. The next three reasons rise to my mind
@@ -85,11 +86,16 @@ One layer to test should be validating inputs from the UI layer. If a server has
 If some sort of dependency injection or mocking can be used then the service call inside the router could be mocked to return syntactically valid data. One option is to populate the persistence using the internal layer via internal API. 
 
 ## Testing UI
-Last some thoughts about testing the UI. There exist few options. First E2E tests could be made with Cypress, Selenium, Playwright, or other browser automation software. These kinds of tests need somehow handle the persistence pre-population where one option is to use the UI to add data and then use that same UI to read. Unfortunately, E2E tests are very easy to break simply by changing the UI. They are also the slowest type of tests.
+Last some thoughts about testing the UI. There exist few options. First E2E tests could be made with [Cypress](https://www.cypress.io/), [Selenium](https://www.selenium.dev/), [Playwright](https://playwright.dev/), or other browser automation software. These kinds of tests need somehow handle the persistence pre-population where one option is to use the UI to add data and then use that same UI to read. Unfortunately, E2E tests are very easy to break simply by changing the UI. They are also the slowest type of tests.
 
-Another option is to test the UI in isolation. React testing library is a good choice for React users. With Mock Service Worker (https://mswjs.io/) it is possible to make quite fast UI tests with mocked backend. 
+Another option is to test the UI in isolation. [React testing library](https://testing-library.com/docs/react-testing-library/intro/) is a good choice for React users. With [Mock Service Worker](https://mswjs.io/) it is possible to make quite fast UI tests with mocked backend. 
 
 Whether Cypress or React testing library is used, it is very preferred to make tests use the UI by finding elements - like buttons - via roles not via data-id or something else hard coded that would make the test fail if the button does not have the required role. Another advantage of using the roles is that the UI is more accessible for screen readers for visually impaired people.
+
+## Structuring the code to make it easier to test
+Some advice may be given on how the code can be made easier to test. One thing is to separate the code that does side effects from the code that does not. Side effectless code that output is fully based on its inputs is idempotent. That means that tests with the same input run always with similar results. If the results of the function are based somehow on the time then the time can be given as a parameter instead of determining the time inside of the function.
+
+Another thing is the structure of the code. Especially if the tests are not written before the code, it is important to structure the code to show clear logic. This makes it much easier to write test scenarios for the code. 
 
 ## Epilogue
 Hopefully, this blog post has given some advice on how applications could be tested. Writing tests can be sometimes tedious thing to do. I find tests also many times very fun to do. I can design an interface for an API by simply writing tests. If using the API from the tests is hard - maybe the API is truly hard to use. 
