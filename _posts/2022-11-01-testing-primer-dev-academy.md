@@ -9,6 +9,7 @@ tags:
   - career development
   - coding
 ---
+
 The Solita developer [academy](https://www.solita.fi/en/academy/) is a way to kickstart a career in software development. Applying for the academy fall 2022 required to make [a pre-assignemt](https://github.com/solita/dev-academy-2022-fall-exercise). The assignment was based on the Helsinki Capital area city bike journey statistics. We received many great exercises.  
 
 One surprising thing was that there were few or no tests in many applications. Pre-assignment mentioned tests quite clearly. After going through the exercises I found some of the exercises mentioned that an applicant had found difficult to make meaningful tests. 
@@ -22,18 +23,25 @@ First, we should think about the reason why we even bother to write tests. The n
 * Tests are part of the documentation. In many cases, tests can be used to find out how libraries/APIs are expected to be used.
 
 ## How we test
+
 Classically tests are split into three main types of tests.
+![paste](/img/testing-primer/Testing_Pyramid.svg)
+(source: Abbe98, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons)
 * Unit tests test software modules in isolation from each other. 
 * Integration tests are used to find out that components/modules work together
 * E2E tests test the whole application - for a web application this could mean testing the application flow with an automated browser
-For small applications - like Solita assignment - it may be quite hard to make a clear difference between integration and unit especially if the application is not split into clear components.
+
+The test types are typically visualized as a testing pyramid where unit tests are at the bottom. The size of the area tells us also how many tests should we have from the different types.
+
+For small applications - like Solita assignment - it may be quite hard to make a clear difference between integration and unit especially if the application is not split into clear components. The term unit may also cause some confusion. Typically in the object-oriented programming unit is a class. In other paradigms, it may be as simple as a simple function.   
+
 
 ## Testing approach
 One good approach to testing is through the requirements. The pre-assignment contained the next requirements
 * The journey and the station data should be parsed, validated, and persisted, short trips should be parsed out
 * The journey list should be paginated
 * For each journey show departure and return stations, covered distance in kilometers and duration in minutes
-* top 5 return and departure stations from a station
+* Top 5 return and departure stations from a station
 
 ## Testing the datasets
 
@@ -44,7 +52,7 @@ Departure time, arrival time, departure station id, departure station name, targ
 
 The datatypes after parsing are: 
 DateTime in ISO format: Departure time, arrival time
-Integer: departure station id,target station id, Duration (sec.)
+Integer: departure station id, target station id, Duration (sec.)
 String:  departure station name, target station name
 
 I would start the testing by creating a simple validation function
@@ -61,7 +69,7 @@ Then I would make bad scenario tests
 The same approach could be used for the station data where the addition coordinates should be validated to be valid geographic coordinates.
 
 ## Testing the persistence layer (internal API)
-Next, I would consider testing some functional requirements like a paginated journey list. In very simple applications the database queries may be implemented inside the routes but a more clean option would be to create some sort of internal API for the application. 
+Next, I would consider testing some functional requirements like a paginated journey list. In very simple applications the database queries may be implemented inside the routes but a more clean option would be to create some sort of internal API for the application. Using the application's API guides us toward testable and modular code with clear APIs.
 
 Whether internal API is implemented or not then first the tester should decide whether the test would test against the actual database or not. In the era of easy Docker, I would prefer using the real database in many cases. The second consideration should be how the DB should be prepopulated for the tests.
 
@@ -88,9 +96,9 @@ If some sort of dependency injection or mocking can be used then the service cal
 ## Testing UI
 Last some thoughts about testing the UI. There exist few options. First E2E tests could be made with [Cypress](https://www.cypress.io/), [Selenium](https://www.selenium.dev/), [Playwright](https://playwright.dev/), or other browser automation software. These kinds of tests need somehow handle the persistence pre-population where one option is to use the UI to add data and then use that same UI to read. Unfortunately, E2E tests are very easy to break simply by changing the UI. They are also the slowest type of tests.
 
-Another option is to test the UI in isolation. [React testing library](https://testing-library.com/docs/react-testing-library/intro/) is a good choice for React users. With [Mock Service Worker](https://mswjs.io/) it is possible to make quite fast UI tests with mocked backend. 
+Another option is to test the UI in isolation. [React testing library](https://testing-library.com/docs/react-testing-library/intro/) is a good choice for React users. Other frameworks have their testing libraries, so there is no excuse not to test. With [Mock Service Worker](https://mswjs.io/) it is possible to make quite fast UI tests with mocked backend.  
 
-Whether Cypress or React testing library is used, it is very preferred to make tests use the UI by finding elements - like buttons - via roles not via data-id or something else hard coded that would make the test fail if the button does not have the required role. Another advantage of using the roles is that the UI is more accessible for screen readers for visually impaired people.
+Whether Cypress or any other library is used, it is very preferred to make tests use the UI by finding elements - like buttons - via roles not via data-id or something else hard coded that would make the test fail if the button does not have the required role. Another advantage of using the roles is that the UI is more accessible for screen readers for visually impaired people.
 
 ## Structuring the code to make it easier to test
 Some advice may be given on how the code can be made easier to test. One thing is to separate the code that does side effects from the code that does not. Side effectless code that output is fully based on its inputs is idempotent. That means that tests with the same input run always with similar results. If the results of the function are based somehow on the time then the time can be given as a parameter instead of determining the time inside of the function.
@@ -99,3 +107,5 @@ Another thing is the structure of the code. Especially if the tests are not writ
 
 ## Epilogue
 Hopefully, this blog post has given some advice on how applications could be tested. Writing tests can be sometimes tedious thing to do. I find tests also many times very fun to do. I can design an interface for an API by simply writing tests. If using the API from the tests is hard - maybe the API is truly hard to use. 
+
+
