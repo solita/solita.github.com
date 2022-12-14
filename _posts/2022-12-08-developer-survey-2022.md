@@ -10,7 +10,7 @@ tags:
 
 ---
 
-The biennial Solita Developer Survey was conducted in 2022 again, now with a participation of almost 300 people. Since 2020, the company headcount has grown with over _nnn_. The early 2022 acquisitions of [**Intellishore**](https://intellishore.dk/) and [**Commentor**](https://commentor.dk/) from Denmark brought in a good one hundred people on board, the rest of the sum is new hires. The survey is targeted to all Solitans who are participating in software development work regardless of their domain of expertise and title.
+The biennial Solita Developer Survey was conducted in 2022 again, now with a participation of almost 300 people. Since the previous survey in 2020, the company has grown significantly (roughly 500 new Solitans since end of 2020 in all the operation domains together). The early 2022 acquisitions of [**Intellishore**](https://intellishore.dk/) and [**Commentor**](https://commentor.dk/) from Denmark brought in a good one hundred people on board, the rest of the sum is new hires. The survey is targeted to all Solitans who are participating in software development work regardless of their domain of expertise and title. 
 
 See the links section at the end of the post for result summaries from the previous survey years.
 
@@ -18,7 +18,7 @@ See the links section at the end of the post for result summaries from the previ
 
 This year, we extended the with separate sections for DevOps, testing & monitoring, and security. We also added some new questions to get more insights in the regular survey content about project setup, language preferences and stacks. In total, this year the survey had 52 questions in 8 sections.
 
-Total respondent count was 286 persons. The geographical distribution covers all Solita office locations in Finland, Sweden, Denmark, Estonia, Germany and Belgium. Roughly 2/3 of the respondents are from Finland.
+Total respondent count was 286 persons (+109 increase from 2020 survey). The geographical distribution covers all Solita office locations in Finland, Sweden, Denmark, Estonia, Germany and Belgium. Roughly 2/3 of the respondents are from Finland.
 
 In the responder facts section, we also asked about team size and co-location. It's worth mentioning that Solita developers very rarely work in solo mode. The most common Solita team size in a project is 2-5 persons, but we also do a lot of projects where teams be up to 10 and more people. Many teams are co-located sharing the same office, some teams work from multiple offices. As a repercussion from the epidemic, about third of the respondents report that they're mostly working remotely from home.
 
@@ -90,9 +90,9 @@ In the mobile context, we have done **iOS**/**Android** apps, some wearable OS a
 
 ## DevOps
 
-For version control, git has swept the floor - in the survey we did not have a single vote for any other version control system. In the VCS service selection, there was more variation. **GitHub** was the most used (Solita is a GH corporate customer). Where the customer has other preferences, we have used [**Azure DevOps Services**](https://azure.microsoft.com/en-us/products/devops/), GitLab and [**BitBucket**](https://bitbucket.org).
+For version control, Git has swept the floor - in the survey we did not have a single vote for any other version control system. In the VCS service selection, there was more variation. **GitHub** was the most used (Solita is a GitHub corporate customer). Where the customer has other preferences, we have used [**Azure DevOps Services**](https://azure.microsoft.com/en-us/products/devops/), GitLab and [**BitBucket**](https://bitbucket.org).
 
-In the devops section we had an open question about the use of git hooks in the daily work. Hooks are quite widely used in Solita projects for various purposes, most often for pre-commit or pre-push code formatting, tests or style checks, but also build pipelines, deployments and posting [**Slack**](https://slack.com/) messages!
+In the DevOps section we had an open question about the use of Git hooks in the daily work. Hooks are quite widely used in Solita projects for various purposes, most often for pre-commit or pre-push code formatting, tests or style checks, but also build pipelines, deployments and posting [**Slack**](https://slack.com/) messages!
 
 The build and deployment pipelines are most often built with either [**Azure Pipelines**](https://azure.microsoft.com/en-us/products/devops/pipelines/) (35%), [**Jenkins**](https://www.jenkins.io/) (28%), or [**GitHub Actions**](https://github.com/features/actions) (20%). Some projects use [**GitLab CI**](https://docs.gitlab.com/ee/ci/) (7%), or do deployments with custom scripting (5%). The rest consists of 4-5 votes per platform in the list of [**CircleCI**](https://circleci.com/), [**BitRise**](https://www.bitrise.io/), [**Octopus Deploy**](https://octopus.com/) and [**TeamCity**](https://www.jetbrains.com/teamcity/).
 
@@ -104,13 +104,13 @@ Majority of the projects have automated deployment of the software to test envir
 
 While in the title catalog in the Solita developer community we do not have many people with dedicated testing roles, we do have proper focus in the maturity and quality of the code that we produce. Our teams contribute in all testing activities from smoke testing to regression/acceptance tests and we also conduct penetration testing and A/B testing for some of our customers.
 
-In the past two years the most used test frameworks are [**Cypress**](https://www.cypress.io/) (31%), [**JUnit**](https://junit.org/junit5/) (30%) and [**Jest**](https://jestjs.io/) (21%). Besides unit testing, UI testing and E2E testing are done with e.g. [**Robot Framework**](https://robotframework.org/), [**Puppeteer**](https://pptr.dev/) and [**Cucumber**](https://cucumber.io/) frameworks.
+In the past two years the most used test frameworks are [**Cypress**](https://www.cypress.io/) for end-to-end (E2E) testing (31%), [**JUnit**](https://junit.org/junit5/) (30%) and [**Jest**](https://jestjs.io/) (21%) for unit testing. Besides these, testing is also done with e.g. [**Robot Framework**](https://robotframework.org/), [**Puppeteer**](https://pptr.dev/) and [**Cucumber**](https://cucumber.io/) frameworks.
 
 Automation is heavily used in the testing. 79% have automated unit tests, 63% integration tests, 48% E2E tests. Around 10% of the respondents indicate that in their projects the automation extends to performance and security testing.
 
 ## Trends & Insights
 
-During the past two years, Solita Developer community has grown significantly both through organic new hires and acquisitions. Particularly **Commentor** from DK joining Solita brought in a merry lot of Microsoft/Azure stack users (and about 70 respondents in the survey). This has an impact on multiple levels, and it shows also in this survey in the response spread for many questions, starting from the most common workstation OS, which tipped towards Windows by a clear margin. Solita's Mobile development has been traditionally Finland-originating endeavour, but with Commentor, we now also have several people working with mobile stacks in Denmark.
+During the past two years, Solita Developer community has grown significantly both through organic new hires and acquisitions. Particularly **Commentor** from Denmark joining Solita brought in a merry lot of Microsoft/Azure stack users (and about 70 respondents in the survey). This has an impact on multiple levels, and it shows also in this survey in the response spread for many questions, starting from the most common workstation OS, which tipped towards Windows by a clear margin. Solita's Mobile development has been traditionally Finland-originating endeavour, but with Commentor, we now also have several people working with mobile stacks in Denmark.
 
 Low-code platforms are something that the 2020 survey did not acknowledge at all. In the past two years, we have seen an increasing demand for low-code solutions in our customer base, and we have started to invest in utilising various low-code platforms in our projects.
 
