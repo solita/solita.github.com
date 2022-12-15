@@ -2,7 +2,7 @@
 layout: post
 title: Solita Developer Survey 2022 - summary of results
 author: aleksi.sitomaniemi
-date: 2022-12-14 08:00:00 +0200
+date: 2022-12-15 08:00:00 +0200
 
 excerpt: >
  The biennial Solita Developer Survey was conducted again in 2022. This time we had almost 300 respondents from all six countries where Solita has offices in. This summary of the survey results provides a view of how we do software development at Solita, what our preferred stacks & languages are and what might be getting more traction in the next projects. 
