@@ -15,13 +15,13 @@ The biennial Solita Developer Survey was conducted in 2022 again, now with the p
 
 See the links section at the end of the post for result summaries from the previous survey years.
 
-## Responder facts
+## Respondent facts
 
 This year, we extended the survey with separate sections for DevOps, testing & monitoring, and security. We also added some new questions to get more insights in the regular survey content about project setup, language preferences and stacks. In total, this year the survey had 52 questions in 8 sections.
 
 Total respondent count was 286 persons (+109 increase from 2020 survey). The geographical distribution covers all Solita office locations in Finland, Sweden, Denmark, Estonia, Germany and Belgium. Roughly 2/3 of the respondents are from Finland.
 
-In the responder facts section, we also asked about team size and co-location. It's worth mentioning that Solita developers very rarely work in solo mode. The most common Solita team size in a project is 2-5 persons, but we also do a lot of projects where teams be up to 10 and more people. Many teams are co-located sharing the same office, some teams work from multiple offices. As a repercussion from the epidemic, about third of the respondents report that they're mostly working remotely from home.
+In the respondent facts section, we also asked about team size and co-location. It's worth mentioning that Solita developers very rarely work in solo mode. The most common Solita team size in a project is 2-5 persons, but we also do a lot of projects where teams be up to 10 and more people. Many teams are co-located sharing the same office, some teams work from multiple offices. As a repercussion from the epidemic, about third of the respondents report that they're mostly working remotely from home.
 
 Most of the survey respondents identify themselves as Full-Stack developers, followed by the roles of Backend developer, Software architect, Frontend developer and DevOps specialist. The rest of the lot splits into different more specific domains of data, cloud, integrations, and mobile & low-code development.
 
