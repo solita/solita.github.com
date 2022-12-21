@@ -7,12 +7,12 @@ excerpt: >
 tags:
  - consulting
  - stress
- -  
+ - learning
 ---
 
 If you're a person who doesn't really react to changes and who can adjust to new situations with a shrug, this post is probably not for you. If, however, you're more like me and you have trouble adapting to big changes and you need conscious effort to calm down, this might be for you.
 
-## How's it been
+## Why there is a need to "keep my cool"
 
 This year is starting to reach its end. I started to reflect how this year had been and what I hope I can do better next year. We had some upheavals in my project a few weeks ago and my work life was being tossed upside down (or at least that's how it felt at the time). Luckily, things weren't that bad (who would've known?!) and I've managed to find my footing again.
 
@@ -22,7 +22,7 @@ This year is starting to reach its end. I started to reflect how this year had b
 
 I do my job with my whole personality. It can be both a positive and a negative thing. When I feel happy and content, I have lots of energy and I'm willing and able to give the work 100 %. I'll be willing to do tasks that are tedious or boring. But the flip side of that coin means that when things get rocky in a project, I feel it strongly and my emotions are all over the place. It takes a while for me to calm down after each upheaval. And if things get really bad (like "this is the last straw" bad) I just stop caring altogether and then my attitude is pretty much ¯\\\_(ツ)_/¯. (And just to be clear, that is not a sustainable situation and not caring is so out of character to me that even the smallest things start to rub me wrong way and it's just a situation bound to get worse and worse.)
 
-When rapid changes happen, it takes a while for me to adjust to the new situation. I wrote something along the lines of "I prefer stability over fast changes" to my cv in Solita's internal cv bank. A colleague who was proofreading it said that it sound like I prefer waterfall development over agile methods. I then realized my colleague and I thought of very different kind of changes. What I had had in my mind at the time of the writing were more along the lines of customer announcing "we're not going to been half you after this sprint, good bye", not if we should try a new kind of retro template this week. In the small everyday situations I can be very flexible (as long as I have some familiar things), but those big "announcements" are really not easy for me to handle.
+When rapid changes happen, it takes a while for me to adjust to the new situation. I wrote something along the lines of "I prefer stability over fast changes" to my cv in Solita's internal cv bank. A colleague who was proofreading it said that it sound like I prefer waterfall development over agile methods. I then realized my colleague and I thought of very different kind of changes. What I had had in my mind at the time of the writing were more along the lines of customer announcing "we're not going to been half you after this sprint, good bye", not if we should try a new kind of retro template this week or maybe try a different kind of approach with planning the sprint. In the small everyday situations I can be very flexible (as long as I have some familiar things), but those big "announcements" that take effect almost immediately are really not easy for me to handle.
 
 I've gotten advice that I should "let things slide" and care less, but that is super hard for me. And if I start to care less, after a while I'll become cynical and not care about anything. I know this is something I should work on, so I'd be able to care up to a point but not too much.
 
@@ -32,9 +32,11 @@ I do not believe the grass is really that much greener elsewhere. Of course, I c
 
 I'm not trying to say working in a non-consultant company is a bad option or that you couldn't be happy there, far from it. I'm just saying that I do not believe it to be a silver bullet that magically makes everything work smoothly.
 
-This is the part where being a consultant is a large company comes in handy. I am not tied to my current project until the end of time. When a project starts to feel like too much (or too little sometimes), I can ask to be rotated to a new project. I get to work with new people, possibly learn a new domain, maybe work with different technologies, all the while staying at the same company. 
+Part of being a consultant is accepting that you might not have a project or a 100 % allocation at all times. In my career I've only faced a situation like that once, it lasted for a couple of months and I was able to do an internal project for a stretch of it. In those moments it's crucial to remember that it's on the company to find you a project, not on you to find one for yourself. But it is still a stressful situation and people react differently. I've tried to learn to be more gentle and forgiving to myself and these kinds of situations are one that puts those lessons to a test. 
 
-At least here at Solita we're offered possibilities to learn. The learning may happen in your daily project work or you can take time from your project to learn what you feel like is important to learn. We have internal courses which anyone can develop and share their knowledge about a subject. There's also links to external materials, like books in O'Reilly's platform. 
+But most of the consultants at Solita are in one or more projects. And working at a large consultant company also has its perks. I am not tied to my current project until the end of time. When a project starts to feel like too much (or too little sometimes), I can ask to be rotated to a new project. I get to work with new people, possibly learn a new domain, maybe work with different technologies, all the while staying at the same company. 
+
+At least here at Solita we're offered plenty of possibilities to learn. The learning may happen in your daily project work or you can take time from your project to learn what you feel like is important to learn. We have internal courses which anyone can develop and share their knowledge about a subject. There's also links to external materials, like books in O'Reilly's platform. And the learning is not restricted to what the company "provides". We're free to pursue what interests us and at least I've not needed to explain to anyone why I've decided to use my time learning something.
 
 ## What keeps me cool (or at least cooler...)
 
