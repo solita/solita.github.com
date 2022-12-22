@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Keeping ones cool as a consultant
+title: Keeping one's cool as a consultant
 author: marja
 excerpt: >
   Some end-of-the-year reflections, some pros and cons of working as a consultant, and practical advice for stressful situations.
