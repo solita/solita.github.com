@@ -121,8 +121,7 @@ and dates as well. The included Lucene `textsearch` operator only works for text
 
 With the introduction in place, it's time to put everything together and build our app.
 This section assumes that you have Elixir and Phoenix Framework installed and ready to go.
-You will also either a working installation of Clojure (JVM + `clj` command line tool) or
-[Docker](https://www.docker.com) to run the XTDB database.
+You will also need Java (17+) to run the XTDB database.
 
 ### Create a new app
 
@@ -132,10 +131,12 @@ Here we don't need it as we use XTDB directly.
 
 ```shell
 mix phx.new xthello --no-ecto
-cd xthello```
+cd xthello
+```
 
 Then we modify `mix.exs` file and include the dependency by adding the
 following line inside deps:
+
 ```elixir
   {:xt, git: "https://github.com/tatut/xtdberl", branch: "main"}
 ```
