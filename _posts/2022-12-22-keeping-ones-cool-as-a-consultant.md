@@ -11,7 +11,7 @@ tags:
  - self-compassion
 ---
 
-If you're a person who doesn't react well to changes and who can adjust to new situations with a shrug, this post is probably not for you. If, however, you're more like me and you have trouble adapting to big and fast changes, this might be for you.
+If you're a person who reacts well to changes and who can adjust to new situations with a shrug, this post is probably not for you. If, however, you're more like me and you have trouble adapting to big and fast changes, this might be for you.
 
 ## Why there is a need to "keep my cool"
 
