@@ -174,8 +174,101 @@ actual use, see documentation on how to configure it properly.
 After starting up the database, you should see the line ```[notice] 1 XTDB node is now available.```
 in your Phoenix console. We are ready for action!
 
+We can now try inserting some persons in the iex console:
 
-... FIXME: next up, explain the full code the a liveview component that shows a Person?
+```elixir
+iex> :xt.put(%Person{id: "demo1", first_name: "Demo", last_name: "User", email: "demo@example.com"})
+{:ok, {9, {:timestamp, 1672669602522}}}
+```
+
+### Making a LiveView component
+
+Now that we have modeled the data we want to store and have the database connected, we are
+ready to make a LiveView component that uses it. Let's make a simple person list that has
+a text input and using the email field.
+
+First, add the line `Person.mapping()` to `lib/xthello.ex` module to automatically register
+the mappings when we start. Then add the line `live "/people", PeopleLive` inside the `"/"` scope
+in `lib/xthello_web/router.ex`.
+
+Then we create a new file `lib/xthello_web/live/people_live.ex` that implements the basic
+LiveView functions.
+
+```elixir
+defmodule XthelloWeb.PeopleLive do
+  use XthelloWeb, :live_view
+
+  def mount(_params, _session, socket) do
+    {:ok, assign(socket, %{results: nil})}
+  end
+
+  def render(assigns) do
+    ~H"""
+    <div>
+      <.search />
+      <.results results={@results} />
+    </div>
+    """
+  end
+
+  def search(assigns) do
+    ~H"""
+    <input type="text" phx-keyup="update_search" phx-debounce="300" placeholder="Search by email"/>
+    """
+  end
+
+  def results(assigns) do
+    case assigns.results do
+      nil -> ~H"<div>Use search above to find people</div>"
+      [] -> ~H"<div>No results found, try something else!</div>"
+      results -> ~H"""
+        <div>
+          <b>Found <%= length(results) %> results!</b>
+          <table>
+            <thead><tr><td>Name</td><td>Email</td></tr></thead>
+            <tbody>
+              <%= for p <- results do %>
+                <.person_row person={p}/>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      """
+    end
+  end
+
+  # Render a person row, simply pattern match all relevant data from assigns
+  def person_row(%{:person => %Person{first_name: first, last_name: last, email: email}} = assigns) do
+    ~H"<tr><td><%= first %> <%= last %></td><td><%= email %></td></tr>"
+  end
+
+  def handle_event("update_search", %{"value" => term}, socket) do
+    # Start search with Lucene wildcard, deferring results to self.
+    # XTDB will send results to this process once they are ready.
+    case String.trim(term) do
+      "" -> {:noreply, assign(socket, :results, nil)}
+      term ->
+        :xt.ql(%Person{email: {:textsearch, term <> "*"}}, [defer: self()])
+        {:noreply, socket}
+    end
+  end
+
+  def handle_info({:ok, _queryid, results}, socket) do
+    # Results are received from XTDB, just assign them.
+    # For simplicity, we don't care about the query id.
+    {:noreply, assign(socket, :results, results)}
+  end
+end
+```
+
+The above code snippet implements the full LiveView component we need for a simple search
+and results table to display the results. It implements the standard `mount` and `render`
+functions as well as the event handling to respond to changes from the web page (`handle_event`)
+and results from the database (`handle_info`). For simplicity, I have included all the markup
+in the same component as as well. In a larger user-interface with more involved HTML markup,
+I would recommend moving those to separate template files.
+
+![The component running](/img/2023-xtdb-phoenix/liveview-people.gif)
 
 
 ## Closing remarks
