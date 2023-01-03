@@ -2,10 +2,13 @@
 layout: post
 title: Using XTDB with Phoenix LiveView
 author: tatut
-excerpt: Immutable Datalog databases are often used in Clojure but other frameworks, like Phoenix LiveView, can benefit from them as well.
+excerpt: >
+  Immutable Datalog databases are often used in Clojure but other frameworks, like Phoenix LiveView, can benefit from them as well.
 tags:
-- Elixir
-- Datalog
+ - Elixir
+ - Phoenix LiveView
+ - Datalog
+ - Functional Programming
 ---
 
 Relational SQL databases are still the "de facto" choice for most new web applications these days,
@@ -117,11 +120,12 @@ and dates as well. The included Lucene `textsearch` operator only works for text
 
 ## Putting it all together
 
-![Happy family ready for business](/img/2023-xtdb-phoenix/all-together.png)
-
 With the introduction in place, it's time to put everything together and build our app.
 This section assumes that you have Elixir and Phoenix Framework installed and ready to go.
 You will also need Java (17+) to run the XTDB database.
+
+![Happy family ready for business](/img/2023-xtdb-phoenix/all-together.png)
+
 
 ### Create a new app
 
@@ -143,14 +147,19 @@ following line inside deps:
 
 Then we run `mix deps.get` to fetch all the dependencies and we are ready to launch!
 
-Launch an interactive shell and the application by using the command: `iex --erl "-sname xthello" -S mix phx.server`.
+Launch an interactive shell and the application by using the command:
+```shell
+iex --erl "-sname xthello@localhost" -S mix phx.server
+```
+
 You should see startup messages and a URL that points you to `http://localhost:4000`.
 You should also see an alert notifying that XTDB is not available. That is fine for now
 as we haven't started that service yet. When we do, the application will reconnect to
 to it.
 
 Verify that you have the app up and running by visiting the local URL above.
-![Index page of a newly created Phoenix app](/img/2023-xtdb-phoenix/index-page.png)
+Check the Phoenix Framework [Up and Running](https://hexdocs.pm/phoenix/up_and_running.html)
+documentation page for more details.
 
 ### Modeling and connecting the database
 
@@ -185,7 +194,7 @@ iex> :xt.put(%Person{id: "demo1", first_name: "Demo", last_name: "User", email: 
 
 Now that we have modeled the data we want to store and have the database connected, we are
 ready to make a LiveView component that uses it. Let's make a simple person list that has
-a text input and using the email field.
+a text input that is used to search people by the email field.
 
 First, add the line `Person.mapping()` to `lib/xthello.ex` module to automatically register
 the mappings when we start. Then add the line `live "/people", PeopleLive` inside the `"/"` scope
@@ -268,16 +277,18 @@ and results from the database (`handle_info`). For simplicity, I have included a
 in the same component as as well. In a larger user-interface with more involved HTML markup,
 I would recommend moving those to separate template files.
 
-![The component running](/img/2023-xtdb-phoenix/liveview-people.gif)
+![The live view running](/img/2023-xtdb-phoenix/liveview-people.gif)
 
+Above we can see the component running, with a few items of test data. We could further improve
+by having a loading indicator, pagination and projection to only fetch the needed fields, but
+let's leave those as exercises for the reader.
 
 ## Closing remarks
 
 In this post we covered a simple Phoenix LiveView component that conveniently reflects
-our database and even updates automatically when the underlying data changes. In my opinion
-this is a very handy way to develop many types of web applications without the need for
-cumbersome Single Page Applications. Many web developers have found a new appreciation for
-Server Side Rendering. See my earlier post about [Ripley](https://dev.solita.fi/2020/06/01/rethinking-the-frontend.html)
+our database. In my opinion this is a very handy way to develop many types of web applications
+without the need for cumbersome single-page applications. Many web developers have found a new
+appreciation for server-side rendering. See my earlier post about [Ripley](https://dev.solita.fi/2020/06/01/rethinking-the-frontend.html)
 which implements a similar approach for Clojure.
 
 There's no denying the popularity of relational databases and SQL, but I think many applications
@@ -285,3 +296,10 @@ will benefit from an approach that provides a more convenient programming model 
 Many people [want to avoid Object-Relational Mapping](https://dev.solita.fi/2021/06/01/why-avoid-an-orm.html)
 and for good reasons. The current crop of Datalog solutions also provide full history which makes the
 complicated "soft delete" patterns in SQL completely unnecessary, further simplifying application code.
+The xtdberl library is still young and there is a lot more that can be done with it, like re-running
+queries when new transactions are made, but XTDB itself is based on battle-tested technology and [used in
+production](https://xtdb.com/solutions/).
+
+My expectation is that 2023 will be a year we see even more web development projects embrace server-side
+rendering instead of full single-page applications, and find that perhaps they don't need the SPA after
+all.
