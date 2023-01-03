@@ -244,9 +244,19 @@ Now that we have modeled the data we want to store and have the database connect
 ready to make a LiveView component that uses it. Let's make a simple person list that has
 a text input that is used to search people by the email field.
 
-First, add the line `Person.mapping()` to `lib/xthello.ex` module to automatically register
-the mappings when we start. Then add the line `live "/people", PeopleLive` inside the `"/"` scope
+First, add the line `Person.mapping()` to `lib/xthello/application.ex` module `start` function to
+automatically register the mappings when we start.
+Then add the line `live "/people", PeopleLive` inside the `"/"` scope
 in `lib/xthello_web/router.ex`.
+
+```elixir
+  scope "/", XthelloWeb do
+    pipe_through :browser
+
+    get "/", PageController, :index
+    live "/people", PeopleLive # Added line
+  end
+```
 
 Then we create a new file `lib/xthello_web/live/people_live.ex` that implements the basic
 LiveView functions.
