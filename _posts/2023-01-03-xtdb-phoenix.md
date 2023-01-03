@@ -215,7 +215,8 @@ You can type `c "lib/model.ex"` in the interactive shell and the code will be co
 and loaded. You can then call `Person.mapping()` to register the mappings for now.
 
 Now that we have everything ready on the Elixir side, we need to go boot up our XTDB node.
-The easiest way to do that is to download a release and run it in demo mode:
+The easiest way to do that is to download a [release](https://github.com/tatut/xtdberl/releases)
+and run it in demo mode:
 
 ```shell
 java -jar xtdberl.jar demo
