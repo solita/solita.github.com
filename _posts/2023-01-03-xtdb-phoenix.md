@@ -232,7 +232,9 @@ in your Phoenix console. We are ready for action!
 We can now try inserting some persons in the iex console:
 
 ```elixir
-iex> :xt.put(%Person{id: "demo1", first_name: "Demo", last_name: "User", email: "demo@example.com"})
+:xt.put(%Person{id: "demo1",
+                first_name: "Demo", last_name: "User",
+                email: "demo@example.com"})
 {:ok, {9, {:timestamp, 1672669602522}}}
 ```
 
