@@ -31,6 +31,8 @@ programming model from the relational "table" view of things and instead focuses
 have attributes. Entities are open in that they can have any attributes without limitations, so
 there is no need to know all the columns beforehand or write migrations to add them.
 
+![SQL table vs Datalog facts](/img/2023-xtdb-phoenix/table-vs-facts.png)
+
 Instead of tables having columns, you have entity attribute value triples (EAV) like
 `[:bob :likes :pizza]` and `[:bob :date-of-birth 1997-04-09]`. Even joins are similarly
 marked by having an attribute value be the identity of another entity.
@@ -51,8 +53,6 @@ To leverage XTDB from the Erlang ecosystem, I wrote a library called [xtdberl](h
 (yes, naming is difficult) that integrates an XTDB node (JVM) to Erlang processes using [jinterface](https://www.erlang.org/doc/apps/jinterface/jinterface_users_guide.html).
 While XTDB does provide an HTTP API, using regular Erlang messaging makes it possible to
 control serialization and hook into the XTDB transaction listeners better.
-
-%%%% tähän joku kuva?
 
 As a good example tells more than a long description, here is how one would use it in Elixir:
 
