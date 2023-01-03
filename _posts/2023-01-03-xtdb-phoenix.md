@@ -129,7 +129,7 @@ You will also need Java (17+) to run the XTDB database.
 
 ### Create a new app
 
-First we initialize a new Phoenix app and remember to use the `--no-ecto` parameter. Ecto
+First, we initialize a new Phoenix app and remember to use the `--no-ecto` parameter. Ecto
 is the Elixir library typically used for interacting with datastores, especially SQL databases.
 Here we don't need it as we use XTDB directly.
 
@@ -153,9 +153,8 @@ iex --erl "-sname xthello@localhost" -S mix phx.server
 ```
 
 You should see startup messages and a URL that points you to `http://localhost:4000`.
-You should also see an alert notifying that XTDB is not available. That is fine for now
-as we haven't started that service yet. When we do, the application will reconnect to
-to it.
+You should also see an alert stating that XTDB is not available. That is fine for now
+as we haven't started that service yet. When we do, the application will reconnect to it.
 
 Verify that you have the app up and running by visiting the local URL above.
 Check the Phoenix Framework [Up and Running](https://hexdocs.pm/phoenix/up_and_running.html)
@@ -163,7 +162,7 @@ documentation page for more details.
 
 ### Modeling and connecting the database
 
-Next, we want to create the datamodel we will be storing and querying. We can use the
+Next, we want to create the data model we will be storing and querying. We can use the
 person structure we used as a sample earlier, just place that in `lib/model.ex`.
 
 You can type `c "lib/model.ex"` in the interactive shell and the code will be compiled
@@ -274,19 +273,19 @@ The above code snippet implements the full LiveView component we need for a simp
 and results table to display the results. It implements the standard `mount` and `render`
 functions as well as the event handling to respond to changes from the web page (`handle_event`)
 and results from the database (`handle_info`). For simplicity, I have included all the markup
-in the same component as as well. In a larger user-interface with more involved HTML markup,
+in the same component as well. In a larger user interface with more involved HTML markup,
 I would recommend moving those to separate template files.
 
 ![The live view running](/img/2023-xtdb-phoenix/liveview-people.gif)
 
 Above we can see the component running, with a few items of test data. We could further improve
-by having a loading indicator, pagination and projection to only fetch the needed fields, but
+by having a loading indicator, pagination, and projection to only fetch the needed fields, but
 let's leave those as exercises for the reader.
 
 ## Closing remarks
 
-In this post we covered a simple Phoenix LiveView component that conveniently reflects
-our database. In my opinion this is a very handy way to develop many types of web applications
+In this post, we covered a simple Phoenix LiveView component that conveniently reflects
+our database. In my opinion, this is a very handy way to develop many types of web applications
 without the need for cumbersome single-page applications. Many web developers have found a new
 appreciation for server-side rendering. See my earlier post about [Ripley](https://dev.solita.fi/2020/06/01/rethinking-the-frontend.html)
 which implements a similar approach for Clojure.
@@ -300,6 +299,6 @@ The xtdberl library is still young and there is a lot more that can be done with
 queries when new transactions are made, but XTDB itself is based on battle-tested technology and [used in
 production](https://xtdb.com/solutions/).
 
-My expectation is that 2023 will be a year we see even more web development projects embrace server-side
+I expect that 2023 will be a year we see even more web development projects embrace server-side
 rendering instead of full single-page applications, and find that perhaps they don't need the SPA after
 all.
