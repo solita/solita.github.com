@@ -17,16 +17,20 @@ related to Datalog databases, like [Datomic](https://www.datomic.com)
 and [XTDB](https://xtdb.com), which provide a different model of programming especially as it relates
 to time.
 
-Datalog need not only be for Clojure programmers, many programming languages can use it, especially ones
-that have good facilities for describing data.
+Datalog need not only be for Clojure programmers, many programming languages can use it, especially
+ones that have good facilities for describing data.
 In this post, I will give a short introduction to a new library that allows using XTDB with the Erlang
-ecosystem (specifically Elixir) and how to integrate that with the popular [Phoenix Framework](https://phoenixframework.org).
-We will briefly introduce Datalog and the library, then create a sample app with a simple
-LiveView component.
+ecosystem. I will use the [Elixir](https://elixir-lang.org/) functional programming language and the
+popular [Phoenix Framework](https://phoenixframework.org) for building web applications in it.
+Elixir language compiles to the same BEAM bytecode as Erlang and can seamlessly interoperate with
+Erlang modules.
 
-## Datalog, what?
+Next, I will briefly introduce Datalog and the library, and then create a sample app with a
+simple LiveView component.
 
-What is datalog then and why should a web developer care about it? Datalog provides a different
+## Datalog briefly
+
+What is Datalog and why should a web developer care about it? Datalog provides a different
 programming model from the relational "table" view of things and instead focuses on entities that
 have attributes. Entities are open in that they can have any attributes without limitations, so
 there is no need to know all the columns beforehand or write migrations to add them.
@@ -35,7 +39,10 @@ there is no need to know all the columns beforehand or write migrations to add t
 
 Instead of tables having columns, you have entity attribute value triples (EAV) like
 `[:bob :likes :pizza]` and `[:bob :date-of-birth 1997-04-09]`. Even joins are similarly
-marked by having an attribute value be the identity of another entity.
+marked by having an attribute value be the identity of another entity. Values can either
+be single values or a collection of values that are stored as separate facts (eg. Bob can
+like multiple things). You can use transaction functions to make any arbitrary checks and ensure
+referential integrity.
 
 One of the best things about XTDB (and Datomic) is that it doesn't update in-place like SQL.
 When you write new data, the old one is still available and you can time-travel to the past
@@ -138,6 +145,45 @@ mix phx.new xthello --no-ecto
 cd xthello
 ```
 
+The above command will create all the files necessary for a template application that we can
+start developing. After running that command, you should have the following directory structure
+created (edited for brevity with `...`):
+
+```
+xthello
+├── README.md
+├── assets ...
+├── config ...
+├── lib
+│   ├── xthello
+│   │   ├── application.ex
+│   │   └── mailer.ex
+│   ├── xthello.ex
+│   ├── xthello_web
+│   │   ├── controllers
+│   │   │   └── page_controller.ex
+│   │   ├── endpoint.ex
+│   │   ├── gettext.ex
+│   │   ├── router.ex
+│   │   ├── telemetry.ex
+│   │   ├── templates
+│   │   │   ├── layout
+│   │   │   │   ├── app.html.heex
+│   │   │   │   ├── live.html.heex
+│   │   │   │   └── root.html.heex
+│   │   │   └── page
+│   │   │       └── index.html.heex
+│   │   └── views
+│   │       ├── error_helpers.ex
+│   │       ├── error_view.ex
+│   │       ├── layout_view.ex
+│   │       └── page_view.ex
+│   └── xthello_web.ex
+├── mix.exs
+├── priv ...
+└── test ...
+```
+
 Then we modify `mix.exs` file and include the dependency by adding the
 following line inside deps:
 
@@ -227,8 +273,13 @@ defmodule XthelloWeb.PeopleLive do
 
   def results(assigns) do
     case assigns.results do
+      # Message to show when no search has been done
       nil -> ~H"<div>Use search above to find people</div>"
+
+      # Message to show when search was done, but returned 0 results
       [] -> ~H"<div>No results found, try something else!</div>"
+
+      # Otherwise show a table of results
       results -> ~H"""
         <div>
           <b>Found <%= length(results) %> results!</b>
