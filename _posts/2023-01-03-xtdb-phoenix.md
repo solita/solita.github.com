@@ -350,9 +350,10 @@ let's leave those as exercises for the reader.
 
 In this post, we covered a simple Phoenix LiveView component that conveniently reflects
 our database. In my opinion, this is a very handy way to develop many types of web applications
-without the need for cumbersome single-page applications. Many web developers have found a new
-appreciation for server-side rendering. See my earlier post about [Ripley](https://dev.solita.fi/2020/06/01/rethinking-the-frontend.html)
-which implements a similar approach for Clojure.
+without the need for cumbersome single-page applications and REST APIs for them. Many web developers
+have found a new appreciation for server-side rendering. See my earlier post about
+[Ripley](https://dev.solita.fi/2020/06/01/rethinking-the-frontend.html) which implements a similar
+approach for Clojure.
 
 There's no denying the popularity of relational databases and SQL, but I think many applications
 will benefit from an approach that provides a more convenient programming model for developers.
