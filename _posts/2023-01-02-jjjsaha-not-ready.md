@@ -2,23 +2,21 @@
 layout: post
 title: Exploring Process Automation opportunities - RPA and low-code application development
 author: jjjsaha
-excerpt: >
+excerpt: I finished my masters' thesis on this subject last year. The research approached the topic from two different angles, RPA and low-code application development. The specific tools studied were Robot Framework and Microsoft Power Platform.
   
 tags:
-  - process automation
-  - business process development
-  - low-code application development
-  - power platform
+  - thesis
+  - RPA
+  - low-code
+  - Robot Framework
+  - Power Platform
 ---
 
-![paste](/img/reinvent2022-whats-new/05-reinvent.jpeg)
-
-
-Last year I finished my masters’ thesis about process automation. The research approached the topic from two different angles, RPA, and low-code application development, more specifically Robot Framework and MS Power Platform. Contrary to the majority of current research material about the topic, this research didn’t focus on the experiences of business owners or IT-specialists, but instead attempted to clarify what kinds of process automation solutions have been created, what kinds of solutions are desired and what kinds of solutions are considered helpful, from the point of view of people working on the processes themselves. Here are the summarized findings of my research.
+Last year I finished my masters’ thesis about process automation. The research approached the topic from two different angles, RPA, and low-code application development, more specifically [Robot Framework](https://robotframework.org/) and [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/). Contrary to the majority of current research material about the topic, this research didn’t focus on the experiences of business owners or IT-specialists, but instead attempted to clarify what kinds of process automation solutions have been created, what kinds of solutions are desired and what kinds of solutions are considered helpful, from the point of view of people working on the processes themselves. Here are the summarized findings of my research.
 
 ## Process automation
 
-Automation in general aims to decrease the necessity of human interaction in different processes. Manufacturing various products has been a target of automation for decades. As technological development has progressed is has become possible to automate repetitive tasks in modern office work as well. Repetitive tasks that follow certain rules and have a significant risk of human error are usually very suitable for process automation. The global business process automation market is expected to grow up to $19,4 billion by 2026.
+Automation in general aims to decrease the necessity of human interaction in different processes. Manufacturing various products has been a target of automation for decades. As technological development has progressed is has become possible to automate repetitive tasks in modern office work as well. Repetitive tasks that follow certain rules and have a significant risk of human error are usually very suitable for process automation. The global business process automation market is expected [to grow up to $19,4 billion by 2026](https://www.marketsandmarkets.com/Market-Reports/business-process-automation-market-197532385.html)
 
 Process automation has not yet become a popular research subject, which is why there are still common misconceptions regarding this subject. Most notably, researchers often refer robotic process automation (RPA) as the one and only form of process automation and state that these two terms as the same. RPA is just one form of process automation since any form of development which reduces the necessity of manual labor can be considered as process automation. This includes system integrations, process planning and software development. RPA has been the most studied form of process automation for few years, which is why it has gained majority of the focus. 
 
@@ -57,19 +55,4 @@ The main reasons preventing this “snowball effect” from happening, is often 
 If one would compare the two different tools mentioned in this research, Robot Framework and Power Platform, there is no definitive answer for which tool would be better for process automation or process development. Both tools have their strengths and weaknesses. When compared, Robot Framework has the advantage of being able to use any existing systems. Power Platform on the other hand is more flexible when creating solutions that require user interaction, for example filling out a form or triggering an automated flow when needed.
 
 
-
-
-
-
-
-
-
-
-## Links
-If you want to read up on previous re:invent blogs and see how they compared, here's a list:
-* [2017](https://dev.solita.fi/2017/12/01/AWS-reinvent-wrap-up.html)
-* [2018](https://dev.solita.fi/2018/12/21/reinvent-2018-first-timer.html)
-* [2019](https://dev.solita.fi/2018/12/21/reinvent-2018-first-timer.html)
-
-If you want to see all top announcements from re:Invent, that can be found [here](https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2022/).
-
+[Full thesis work can be read from here](https://jyx.jyu.fi/bitstream/handle/123456789/82113/URN%3aNBN%3afi%3ajyu-202206303713.pdf?sequence=1&isAllowed=y)
