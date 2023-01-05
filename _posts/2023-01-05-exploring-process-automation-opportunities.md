@@ -12,7 +12,7 @@ tags:
   - Power Platform
 ---
 
-Last year I finished my masters’ thesis about process automation. The research approached the topic from two different angles, RPA, and low-code application development, more specifically [Robot Framework](https://robotframework.org/) and [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/). Contrary to the majority of current research material about the topic, this research didn’t focus on the experiences of business owners or IT-specialists, but instead attempted to clarify what kinds of process automation solutions have been created, what kinds of solutions are desired and what kinds of solutions are considered helpful, from the point of view of people working on the processes themselves. Here are the summarized findings of my research.
+Last year I finished my masters’ thesis about process automation. The research approached the topic from two different angles, Robotic Process Automation (RPA), and low-code application development, more specifically [Robot Framework](https://robotframework.org/) and [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/). Contrary to the majority of current research material about the topic, this research didn’t focus on the experiences of business owners or IT-specialists, but instead attempted to clarify what kinds of process automation solutions have been created, what kinds of solutions are desired and what kinds of solutions are considered helpful, from the point of view of people working on the processes themselves. Here are the summarized findings of my research.
 
 ## Process automation
 
