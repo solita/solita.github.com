@@ -231,7 +231,6 @@ describe encryption.
 
 All right, I revealed everything except how I created my DynamoDB table:
 
-
 ```
 table = client.create_table(
         TableName=table_name,
@@ -264,8 +263,30 @@ table = client.create_table(
 Here I just define my primary (partition/hash + sort/range) keys, 
 NoSQL business as usual.
 
-## That's all, folks!
+And the last most important thing - here is how I generate my wrapping and 
+signing keys, ON PREMISES, and never give them away:
+
+```
+def create_asymmetric_keys():
+    wrapping_key_bytes = JceNameLocalDelegatedKey.generate("RSA", 4096).key
+    signing_key_bytes = JceNameLocalDelegatedKey.generate("SHA512withRSA", 4096).key
+    file_name = 'key_asymm_wrap.bin'
+    with open(file_name, 'wb') as f:
+        f.write(wrapping_key_bytes)
+    os.chmod(file_name, 0o600)
+    file_name = 'key_asymm_sign.bin'
+    with open(file_name, 'wb') as f:
+        f.write(signing_key_bytes)
+    os.chmod(file_name, 0o600)
+```
+This is as simple as possible, for PoC, because in production you need to 
+organize for a proper PKI. Similarly, you may use symmetric keys if you want.
+
+
+## That's All, Folks!
 
 ## Or Not?
 
-## Your Next Friend FHE - Fully Homomorphic Encryption
+## Your Next Friend is FHE - Fully Homomorphic Encryption
+
+Stay tuned.
