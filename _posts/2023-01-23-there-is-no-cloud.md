@@ -1,5 +1,7 @@
 # There Is No Cloud, It's Just Someone Else's Computer
 
+### By Sergei Vorobyov, Solita/Stockholm
+
 This well-known adage unfortunately isn't a joke, and you should
 clearly understand who actually owns (has access to all) your cloud
 data. In most cases, no matter what you do, Big Brother easily
@@ -105,8 +107,7 @@ Just keep the key words "client side encryption in your Googling".
 
 ## Appendix: Python/AWS DynamoDB PoC Implementation
 
-
-You start as usual:
+You start by the usual preamble:
 
 ```
 session = boto3.Session(region_name=AWS_REGION)
@@ -122,7 +123,8 @@ with an asymmetric key:
 cmp = get_wrapped_cmp_asymm('key_asymm')  # my keys are in the files: key_asymm_wrap.bin and key_asymm_sign.bin
 ```
 
-My utility CMP providing function (in another file) is:
+My utility CMP providing function (in another file), where I define 
+asymmetric wrapping and signing keys, is:
 
 ```
 def get_wrapped_cmp_asymm(key_name):
@@ -185,7 +187,7 @@ plaintext_item_1 = {
 encrypted_table.put_item(Item=plaintext_item_1)
 ```
 Note that I put an **unencrypted** item which **transparently** gets encrypted 
-using the `cmp` above, beforte being stored on AWS.
+using the `cmp` above, before being stored on AWS.
 
 Similarly, I transparently get the unencrypted item using:
 
@@ -194,9 +196,8 @@ item = encrypted_table.get_item(Key={'0-pk': 'partition-value-01', '1-sk': '1'})
 ```
 
 Let me reiterate that everything, namely `example` and `numbers` attributes 
-on AWS is getting saved ENCRYPTED.
-
-Let me show what you see on the AWS DynamoDB side:
+on AWS is getting saved ENCRYPTED. To confirm, let us see what we have 
+on the AWS DynamoDB side:
 
 ```
 {
@@ -280,7 +281,8 @@ def create_asymmetric_keys():
     os.chmod(file_name, 0o600)
 ```
 This is as simple as possible, for PoC, because in production you need to 
-organize for a proper PKI. Similarly, you may use symmetric keys if you want.
+organize for a proper PKI. Similarly, you may use symmetric keys instead
+of asymmetric ones if you want.
 
 
 ## That's All, Folks!
