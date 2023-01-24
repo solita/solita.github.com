@@ -1,7 +1,5 @@
 # There Is No Cloud, It's Just Someone Else's Computer
 
-### By Sergei Vorobyov, Solita/Stockholm
-
 This well-known adage unfortunately isn't a joke, and you should
 clearly understand who actually owns (has access to all) your cloud
 data. In most cases, no matter what you do, Big Brother easily
