@@ -48,14 +48,14 @@ After the first speech, we took some different tracks. Teemu listened to Cloud-n
 
 Markus went to listen to the speech about JavaScript frameworks of tomorrow by **Juho Vepsäläinen** of Aalto University. The speech presented first the past and current trends in frameworks but quickly went on to prospects and the idea of Transitional Web Applications (TWAs). The main goal is to minimize the amount of loaded JavaScript and increase the amount of static content on pages, leading to more efficient web applications. Two approaches of these were introduced: the Island Architecture (11ty/is-land, îles, Capri and Astro -frameworks) and Resumability (Qwik-framework), and demos for Astro and Qwik were shown. Juho also presented his Ph.D. project called Gustwind (with side projects), which is using JSON as the building block for web applications.
 
-Next in line for Teemu was a very nice speech about how a Legacy app went to serverless bar by **Sébastien Blanc** from Aiven. It was a humorous story featuring a 13 years old legacy app called Bob which wanted to go cloud and serverless. The story went through very humorously including funny characters like Join the table, Maria, Kafka river etc and ended up in an Aiven product demo, about serverless, Kafka, Kubernetes and autoscaling.
+Next in line for Teemu was a very nice speech about how a Legacy app went to serverless bar by **Sébastien Blanc** from Aiven. It was a humorous story featuring a 13 years old legacy app called Bob which wanted to go cloud and serverless. The story including funny characters like Join the table, Maria, Kafka river etc and ended up in an Aiven product demo, about serverless, Kafka, Kubernetes and autoscaling.
 
 ![paste](/img/2023-fooconf/fooconf2023_5.jpg)
 _Legacy app went to serverless bar by Sébastien Blanc_
 
 Let’s do a thing and call it Foo by **Maaret Pyhäjärvi** was next in line for Markus. It was a speech about how to approach testing, which was defined as “Find (some of) what others may have missed”. The main takeaways from the speech were: testing is the responsibility of the whole team (even a team with designated testers), KNOW the domain where the application will be used (e.g. in clocks number 4 in roman numerals is IIII not IV) and choosing the right level of test coverage. Finally, the speech gave some useful insights from Maaret's own experiences in testing.
 
-After lunch, we both listened to the speech about Security by design by **Daniel Deogun** from OmegaPoint. It was about how to implicitly write safe software by going through the log4j vulnerabilities as an example. We learned that good design mitigates risks but not fully. Good discussion about what is safe and what is not.
+After lunch, we both listened to the speech about Security by design by **Daniel Deogun** from OmegaPoint. It was about how to implicitly write safe software by going through the log4j vulnerabilities as an example. We learned that good design mitigates risks but not fully. There was a good discussion about what is safe and what is not.
 
 ![paste](/img/2023-fooconf/fooconf2023_6.jpg)
 _Security by design by Daniel Deogun_
@@ -64,7 +64,7 @@ Teemu continued with a speech about Apache Pulsar, an event streaming platform b
 
 Markus listened to **Leif Åstrand** from Vaadin about Why and How to build a Collaborative UX. The speech was a presentation of the experiences of Vaadin on how they have tackled the issues when a collaborative UX is needed. Starting with use cases the speech went on to describe the architectural decisions to consider. The speech ended with a discussion about clustering in collaborative apps and how to implement a “distributed system without building a distributed system”. The speech provided good ideas for Markus which might come in handy shortly in his project work.
 
-Next in line for both Teemu and Markus was a speech called Devops that matters by **Melissa McKay** from JFrog. It was a discussion about starting with DevOps from a developer's point of view. Some of the common problems of dev teams and operations were discussed. It was emphasized that DevOps is a mindset from code to deployment and back. The most important takeaway from the speech was that silos should be eliminated! Many useful practical tips were given.
+Next in line for both Teemu and Markus was a speech called Devops that matters by **Melissa McKay** from JFrog. It was a discussion about starting with DevOps from a developer's point of view. Some of the common problems of dev teams and operations were discussed. It was emphasized that DevOps is a mindset from code to deployment and back. The most important takeaway from the speech was that silos should be eliminated! Melissa gave many useful practical tips.
 
 ![paste](/img/2023-fooconf/fooconf2023_7.jpg)
 _Devops that matters by Melissa McKay_
