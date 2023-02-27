@@ -48,7 +48,7 @@ After the first speech, we took some different tracks. Teemu listened to Cloud-n
 
 Markus went to listen to the speech about JavaScript frameworks of tomorrow by **Juho Vepsäläinen** of Aalto University. The speech presented first the past and current trends in frameworks but quickly went on to prospects and the idea of Transitional Web Applications (TWAs). The main goal is to minimize the amount of loaded JavaScript and increase the amount of static content on pages, leading to more efficient web applications. Two approaches of these were introduced: the Island Architecture (11ty/is-land, îles, Capri and Astro -frameworks) and Resumability (Qwik-framework), and demos for Astro and Qwik were shown. Juho also presented his Ph.D. project called Gustwind (with side projects), which is using JSON as the building block for web applications.
 
-Next in line for Teemu was a very nice speech about how a Legacy app went to serverless bar by **Sébastien Blanc** from Aiven. It was a humorous story featuring a 13 years old legacy app called Bob which wanted to go cloud and serverless. The story including funny characters like Join the table, Maria, Kafka river etc and ended up in an Aiven product demo, about serverless, Kafka, Kubernetes and autoscaling.
+Next in line for Teemu was a very nice speech about how a Legacy app went to serverless bar by **Sébastien Blanc** from Aiven. It was a humorous story featuring a 13 years old legacy app called Bob which wanted to go cloud and serverless. The story included funny characters like Join the table, Maria, Kafka river etc and ended up in an Aiven product demo, about serverless, Kafka, Kubernetes and autoscaling.
 
 ![paste](/img/2023-fooconf/fooconf2023_5.jpg)
 _Legacy app went to serverless bar by Sébastien Blanc_
