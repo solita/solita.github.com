@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FooConf 2023 Helsinki
-author: teemupeltola
+author: teepeltola
 excerpt: A blog post about the new emerging Finnish developer conference, FooConf 2023 Helsinki, held 1.2.2023
 tags:
   - fooconf
