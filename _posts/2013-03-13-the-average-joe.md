@@ -3,7 +3,9 @@ layout: post
 title: Our Faces Combined
 author: ruoat
 excerpt: I wanted to check what an average Solita employee looks like. I had images of all Solita employees' faces, OpenCV-library, Python and some free time.
-tags: OpenCV Python Solita
+tags: 
+- OpenCV 
+- Python
 ---
 When a new person joins Solita, they naturally get their photo taken. Recently, we had a company-wide staff photo update, where all the photos were taken in a standardized environment and the resulting photos all have identical lighting, colors, etc. This springed an idea: I could combine the photos and see what an average Solitan would look like.
 

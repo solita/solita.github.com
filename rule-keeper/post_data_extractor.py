@@ -19,19 +19,15 @@ class PostDataExtractor:
     tags_metadata_header = 'tags:'
     current_section = None
 
-    def __init__(self, posts_directory: str):
-        self.posts_directory = posts_directory
-
     def extract_data(self, filepath: str) -> PostData:
-        full_path = self.posts_directory + '/' + filepath
         metadata = []
         filename = basename(filepath)
         content = []
-        with open(full_path, 'r') as file_object:
+        with open(filepath, 'r') as file_object:
             for line_number, line_content in enumerate(file_object):
                 if line_number == 0 and not line_content.startswith('---'):
                     raise RuntimeError(
-                        'File ' + full_path + ' does not have starting metadata section in first line'
+                        'File ' + filepath + ' does not have starting metadata section in first line'
                     )
                 if line_number == 0:
                     continue

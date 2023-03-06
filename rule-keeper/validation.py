@@ -1,53 +1,48 @@
-
-class IMetadataValidator:
-    def validate(self, metadata: dict[str, list[str] | str]) -> list[str]:
-        pass
+from post_data_extractor import PostData
+from typing import Callable
 
 
-class IContentValidator:
-    def validate(self, content: list[str]) -> list[str]:
-        pass
-
-
-class IFilenameValidator:
-    def validate(self, filename: str) -> list[str]:
-        pass
-
-
-class ValidatorExecutor:
-    validator_registry: list[object]
-    validator_type: str
-    errors_list = []
+class ValidationExecutor:
+    validators: list[object]
 
     def __init__(self):
-        self.validator_registry = []
+        self.validators = []
 
-    def register(self, validator: object):
-        pass
-
-
-class MetadataValidatorExecutor(ValidatorExecutor):
-    validator_type = "metadata"
-    validator_registry: list[IMetadataValidator]
-
-    def validate(self, metadata: dict[str, list[str] | str]):
-        for validator in self.validator_registry:
-            self.errors_list[0:0] = validator.validate(metadata)
+    def register(self, validator: object | list[object]):
+        if type(validator) == list:
+            self.validators = self.validators + validator
+        else:
+            self.validators.append(validator)
 
 
-class ContentValidatorExecutor(ValidatorExecutor):
-    validator_type = "content"
-    validator_registry: list[IContentValidator]
+class MetadataValidationExecutor(ValidationExecutor):
+    validators: list[Callable[[dict[str, list[str] | str]], list[str]]]
 
-    def validate(self, content: list[str]):
-        for validator in self.validator_registry:
-            self.errors_list[0:0] = validator.validate(content)
+    def validate(self, post_data: PostData):
+        errors_list = []
+        for validator in self.validators:
+            errors_list[0:0] = validator(post_data.metadata)
+
+        return errors_list
 
 
-class FilenameValidatorExecutor(ValidatorExecutor):
-    validator_type = "filename"
-    validator_registry: list[IFilenameValidator]
+class ContentValidationExecutor(ValidationExecutor):
+    validators: list[Callable[[list[str]], list[str]]]
 
-    def validate(self, filename: str):
-        for validator in self.validator_registry:
-            self.errors_list[0:0] = validator.validate(filename)
+    def validate(self, post_data: PostData):
+        errors_list = []
+        for validator in self.validators:
+            errors_list[0:0] = validator(post_data.content)
+
+        return errors_list
+
+
+class FilenameValidationExecutor(ValidationExecutor):
+    validators: list[Callable[[str], list[str]]]
+
+    def validate(self, post_data: PostData):
+        errors_list = []
+        for validator in self.validators:
+            errors_list[0:0] = validator(post_data.filename)
+
+        return errors_list
