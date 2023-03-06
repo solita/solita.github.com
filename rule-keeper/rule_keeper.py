@@ -38,12 +38,17 @@ class RuleKeeper:
 
             post_data = self.post_data_extractor.extract_data(path.join(lookup_directory, filepath))
 
+            issues = []
             for rule_checker in self.rule_checkers:
-                check_results = rule_checker(post_data)
-                if check_results:
-                    issue_found = True
-                    print(self.WARNING)
-                    [print(issue) for issue in check_results]
-                    print(self.ENDC)
+                issues = issues + rule_checker(post_data)
+
+            if issues:
+                issue_found = True
+                self.print_issues(issues)
 
         return issue_found
+
+    def print_issues(self, issues: list[str]):
+        print(self.WARNING)
+        [print(issue) for issue in issues]
+        print(self.ENDC)
