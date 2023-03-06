@@ -27,8 +27,15 @@ class RuleKeeper:
         pass
 
     def verify_rules(self, lookup_directory: str) -> bool:
-        issue_found = False
+        issue_found = self.check_rules_per_file(lookup_directory)
 
+        for action in self.post_verification_actions:
+            action()
+
+        return issue_found
+
+    def check_rules_per_file(self, lookup_directory: str) -> bool:
+        issue_found = False
         filepaths = os.listdir(lookup_directory)
         for filepath in filepaths:
             if not filepath.endswith('.md'):

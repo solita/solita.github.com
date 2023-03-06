@@ -23,6 +23,8 @@ class PostDataExtractor:
         metadata = []
         filename = basename(filepath)
         content = []
+        self.current_section = None
+
         with open(filepath, 'r') as file_object:
             for line_number, line_content in enumerate(file_object):
                 if line_number == 0 and not line_content.startswith('---'):
