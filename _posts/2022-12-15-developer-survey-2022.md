@@ -15,6 +15,8 @@ The biennial Solita Developer Survey was conducted in 2022 again, now with the p
 
 See the links section at the end of the post for result summaries from the previous survey years.
 
+_Visualisations by Helena Valtonen_
+
 ## Respondent facts
 
 This year, we extended the survey with separate sections for DevOps, testing & monitoring, and security. We also added some new questions to get more insights in the regular survey content about project setup, language preferences and stacks. In total, this year the survey had 52 questions in 8 sections.
@@ -117,7 +119,8 @@ Low-code platforms are something that the 2020 survey did not acknowledge at all
 
 The rise of Kotlin that was already visible in the 2020 survey has become more and more evident, and a lot of our backend projects that would have been done in Java a couple of years ago have now been started with Kotlin instead. With Kotlin Multiplatform, it can be anticipated that use of the language spreads further into different areas.
 
-_Visualisations by Helena Valtonen_
+## Want to join Solita?
+See our open jobs at [www.solita.fi/en/careers/](https://www.solita.fi/en/careers/).
 
 ## Links to previous surveys
 
