@@ -4,8 +4,8 @@ title: Coding with kids
 author: Rinorragi
 excerpt: Sharing my experience about teaching my kids to code
 tags:
-- programming
-- parenthood
+- Programming
+- Parenthood
 - Electronics
 - Python
 - Scratch

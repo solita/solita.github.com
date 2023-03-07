@@ -4,14 +4,14 @@ title: Case aloitepalvelut – Moving closer to Continuous Delivery while updati
 author: bafe
 excerpt: Time to update your infrastructure is also a time to update your deployment pipeline!
 categories:
-- Continuous Delivery
+- Continuous delivery
 - Automation
 tags:
 - Java
-- open source
-- continuous delivery
-- automation
-- deployment pipeline
+- Open source
+- Continuous delivery
+- Automation
+- Deployment pipeline
 - Ansible
 - Jenkins
 ---

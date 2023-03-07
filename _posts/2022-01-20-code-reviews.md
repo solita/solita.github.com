@@ -7,7 +7,7 @@ excerpt: >
   This blog post will give answers to these questions and go deeper into the world of code reviews.
   In the end, there will be also some tips on why code reviews should be small, and why you shouldn't comment too much on code reviews.
 tags:
- - code review
+ - Code review
 ---
 
 Code reviews are something we all have been involved in, and what we do continuously in our projects. We might have mixed feelings about them. Often they feel like just bureaucracy that is required by a manager. Sometimes we want someone to give us feedback on our code. When we see poor code, we might think that we should've reviewed the code better.

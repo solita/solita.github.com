@@ -5,7 +5,7 @@ author: arto
 excerpt: >
   Measuring your EEG with consumer solutions, analyzing it with data science tools, and finally connecting your brain to your environment with a little bit of code. Why I did all this, and what did I learn?
 tags:
- - Software Development
+ - Software development
  - EEG
  - Java
  - Python

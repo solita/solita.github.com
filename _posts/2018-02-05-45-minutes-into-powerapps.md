@@ -4,10 +4,9 @@ title: 45 minutes into Microsoft PowerApps
 author: tomila
 excerpt: Extremely quick look into Microsoft PowerApps and how to use it to create enterprise apps
 tags:
-- microsoft
-- powerapps
-- mobile
-- apps
+- Microsoft
+- Microsoft Power Apps
+- Mobile
 ---
 
 ## Premise and Promise

@@ -4,13 +4,13 @@ author: juhofriman
 title: Crafting React with love
 excerpt: React has been a real game changer in how we think about front-end architecture. I present a simple way of building quite robust and lovable React applications with single source of truth and one directional data flow inspired by re-frame architecture pattern.
 tags:
-- frontend
+- Frontend
 - React
 - Javascript
-- architecture
-- state
-- programming
-- re-frame
+- Architecture
+- State
+- Programming
+- Re-frame
 - ClojureScript
 ---
 

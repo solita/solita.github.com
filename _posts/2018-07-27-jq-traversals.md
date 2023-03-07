@@ -8,13 +8,13 @@ excerpt: >
  several, within a bigger data structure.  Traversals are composable and
  you can do both inspection and updates through them.
 tags:
- - functional programming
- - composability
- - traversal
+ - Functional programming
+ - Composability
+ - Traversal
  - JSON
- - command line
+ - Command line
  - Linux
- - lens
+ - Lens
  - Haskell
 ---
 

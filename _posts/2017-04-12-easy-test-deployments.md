@@ -6,8 +6,8 @@ excerpt: Easy setup of test environments is important for feature branch based d
 tags:
 - CI
 - AWS
-- cloud
-- slack
+- Cloud
+- Slack
 ---
 
 Our project uses a git flow process: a new branch is created for each new feature. The feature is

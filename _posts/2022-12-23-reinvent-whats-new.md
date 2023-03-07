@@ -5,11 +5,11 @@ author: vjkvir
 excerpt: >
   
 tags:
-  - aws
+  - AWS
   - re:Invent
-  - cloud
-  - conference
-  - workshop
+  - Cloud
+  - Conference
+  - Workshop
 ---
 
 ![paste](/img/reinvent2022-whats-new/05-reinvent.jpeg)

@@ -4,10 +4,10 @@ title: A Machine Learning Example For Business
 author: mikaelahonen
 excerpt: A practical example of predictive machine learning. Targeted for business people who want to harness machine learning for business but also understand how it actually works.
 tags:
-- machine learning
-- business
-- predictive analytics
-- data science
+- Machine learning
+- Business
+- Predictive analytics
+- Data science
 ---
 
 ## Introduction

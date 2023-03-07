@@ -5,10 +5,10 @@ author: arto
 excerpt: >
   Machine Learning is a wide field, and Reinforcement Learning is a very interesting part of it. I chose to learn something new by starting to train a Deepracer car to autonomously drive around a track, as fast as possible. This blog tells how I got started with AWS Deepracer, and what I learned about reinforcement learning.
 tags:
- - Software Development
+ - Software development
  - AI
- - Machine Learning
- - Competence Development
+ - Machine learning
+ - Competence development
 ---
 
 ![AWS Deepracer car with stereo vision](/img/reinforcement-learning-deepracer/deepracer_without_shell.jpg)

@@ -4,10 +4,10 @@ title: Customizing Episerver content delivery API.
 author: demonru
 excerpt: It was my first project with the use of Episerver as a Headless CMS. Episerver CMS supports such mode but requires some customization for the exact needs. 
 categories: 
-- Episerver
+- EPiServer
 tags:
-- Episerver
-- Api
+- EPiServer
+- API
 - CMS
 - DOTNET
 ---

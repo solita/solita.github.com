@@ -4,9 +4,9 @@ title: Raiders of the lost entropy
 author: lokori
 excerpt: When entropy runs low, things are amiss. What, why and how to rectify the situation.
 tags:
-- entropy
-- randomness
-- random number
+- Entropy
+- Randomness
+- Random number
 - PRNG
 - rngd
 - Haveged

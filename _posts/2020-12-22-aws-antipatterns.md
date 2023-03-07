@@ -6,7 +6,7 @@ excerpt: >
   Cloud platforms offer unprecedented agility, innovation, and speed. Yet I see the same mistakes being repeated over and over again. This blog post is a collection of some of the pitfalls we unknowingly fall into.
 tags:
  - AWS
- - Best Practices
+ - Best practices
  - Lessons Learned
  - Antipatterns
  - Security

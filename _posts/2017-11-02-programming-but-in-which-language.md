@@ -4,10 +4,10 @@ title: Programming - but in Which Language?
 author: riikkanen
 excerpt: This time the language options discussed are English and Finnish. Should I write a method called 'addApplication' or 'lisaaHakemus' ('hakemus' being 'application' in Finnish)?
 tags:
-- programming
-- domain
-- language
-- culture
+- Programming
+- Domain
+- Language
+- Culture
 ---
 
 Usually there is a debate over which programming language the project should use. Is Clojure better than Java? Should we use Python? Even JavaScript? This time we do not care what the programming language is, but what language is used to describe the domain. Should all the code be in English like _addApplication_, or should method names and variables be in Finnish like _lisaaHakemus_? This is a relevant question, when we, mostly Finnish speaking developers, build a software to a Finnish customer. 

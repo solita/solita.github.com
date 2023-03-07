@@ -6,8 +6,8 @@ excerpt:  Having a system that allows easily creating test instances from featur
 tags:
 - CI
 - AWS
-- cloud
-- slack
+- Cloud
+- Slack
 - CircleCI
 - GitHub API
 ---

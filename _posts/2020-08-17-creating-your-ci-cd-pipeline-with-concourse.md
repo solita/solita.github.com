@@ -8,8 +8,8 @@ excerpt: >
 tags:
  - Concourse CI
  - Build pipeline
- - Continuous Integration
- - Continuous Delivery
+ - Continuous integration
+ - Continuous delivery
  - DevOps
 ---
 

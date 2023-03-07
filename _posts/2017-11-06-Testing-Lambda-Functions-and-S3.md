@@ -8,8 +8,8 @@ tags:
 - Lambda
 - S3
 - Testing
-- Node.JS
-- integration
+- Node.js
+- Integration
 - Serverless
 ---
 

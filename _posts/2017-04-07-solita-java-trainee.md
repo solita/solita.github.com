@@ -6,8 +6,8 @@ excerpt: Solita Java Trainee recruitment program from a participant's point of v
 tags:
 - Solita
 - Java
-- recruitment
-- training
+- Recruitment
+- Training
 ---
 Solita started a [Java Trainee recruitment program](https://www.solita.fi/solita-kaynnistaa-javaritarien-rekrytointiohjelman/) in November 2016. This is a story of how it all happened from one trainee's perspective.
 

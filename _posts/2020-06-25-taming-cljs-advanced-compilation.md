@@ -11,7 +11,7 @@ tags:
  - ClojureScript
  - Closure Compiler
  - Advanced Compilation
- - Best Practices
+ - Best practices
 ---
 
 

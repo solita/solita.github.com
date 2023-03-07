@@ -5,13 +5,13 @@ author: Rinorragi
 date: 2016-10-10 15:45:00 +0200
 excerpt: What happened in the second Episerver developer meetup held in Helsinki
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
 - DevOps
-- performance
-- meetup
+- Performance
+- Meetup
 ---
 Solita organized a meetup for Finnish Episerver developers in Helsinki on the 29th of September. The meetup consisted of food, beer and presentations. The event was a successor to the spring's Episerver dev meetup and was as fun and cozy as the first one. This time we had a bit more time in the end for the networking than last time!
 

@@ -4,10 +4,10 @@ title: Architectural Katas
 author: tommi.kenakkala
 excerpt: The fun of learning Software Architecture design skills together across teams!
 tags:
-  - software architecture
-  - software design
+  - Software architecture
+  - Software design
   - Software engineering
-  - Software Development
+  - Software development
   - Ways of working
 ---
 

@@ -5,7 +5,7 @@ author: hjhamala
 excerpt: ClojureScript is a valid alternative for backend development besides browser development. In this post I will explain how to create a simple server using Shadow CLJS as a compilation tool, Macchiato as the server software and Reitit as a Ring router. 
 tags:
 - ClojureScript
-- Node.Js
+- Node.js
 - Macchiato
 - Shadow-CLJS
 - Reitit

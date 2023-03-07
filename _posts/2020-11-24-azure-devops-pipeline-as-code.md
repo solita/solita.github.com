@@ -7,9 +7,10 @@ excerpt: >
   This blog post will go through the basics of how to create a build pipeline as code in YAML and gives some tips on where to get help to write YAML pipelines.
   If you're not yet familiar with YAML pipelines, I consider reading this and try them.
 tags:
+ - Azure
  - Azure DevOps
  - DevOps
- - continuous integration
+ - Continuous integration
  - Build pipeline
  - CI
 ---

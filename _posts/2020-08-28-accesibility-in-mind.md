@@ -5,8 +5,8 @@ author: jalef
 excerpt: >
   Accessibility is a requirement for plenty of projects nowdays - especially ones developed for the public sector. But why implement accessibility only when asked, instead of starting designing and developing with accessibility in mind? 
 tags:
- - accessibility
- - frontend
+ - Accessibility
+ - Frontend
  - UI/UX
 ---
 

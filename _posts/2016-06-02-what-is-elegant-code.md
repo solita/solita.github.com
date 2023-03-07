@@ -10,17 +10,17 @@ excerpt: >
   about things that make code easier to produce, read, understand and
   maintain irrespectible of the programming culture.
 tags:
-- brevity
-- simplicity
-- complexity
-- maintainability
-- productivity
-- culture
-- computer science
-- functional programming
-- graph
-- programming
-- software design
+- Brevity
+- Simplicity
+- Complexity
+- Maintainability
+- Productivity
+- Culture
+- Computer science
+- Functional programming
+- Graph
+- Programming
+- Software design
 ---
 
 Many of my fellow coders, both colleagues and friends, have recently discussed a lot the writing of elegant code and how important it is that your code is elegant.  Of course, this is a very welcome development of attitudes.  However, it still bugs me sometimes: what do all these people _mean_ by elegant code?

@@ -4,12 +4,12 @@ title: Episerver developer meetup at Helsinki
 author: Rinorragi
 excerpt: What happened in the first Episerver developer meetup held in Helsinki
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
-- security
-- meetup
+- Security
+- Meetup
 ---
 Last week Episerver organized a meetup for Finnish developers in Helsinki. Meetup consisted of pizza, beer and presentations. I loved the meetup and the format was a perfect match to have a cozy atmosphere around the Episerver topic. Only thing that could have been better (next time maybe?) would be to have more time at the end for the networking! Which just means that the actual event was great success! 
 

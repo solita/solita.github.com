@@ -5,13 +5,13 @@ title: >
 author: jarzka
 excerpt: How the ClojureScript stack was born and evolved over time in Harja project.
 tags:
-- clojure
-- clojurescript
-- frontend
-- reagent
-- tuck
-- specql
-- stylefy
+- Clojure
+- Clojurescript
+- Frontend
+- Reagent
+- Tuck
+- Specql
+- Stylefy
 ---
 
 Frontend applications tend to be unique; every single one of them is built differently with different technologies and software stack. The lack of a standard approach requires us, software developers, to re-think the stack every time a new project begins. In big and long projects, it is almost a given that the used technology stack will become at least partially obsolete before the application hits production state. But things do not have to be this way. This is a story of how we created a frontend stack for the Harja project and how we have been able to keep it fresh as time goes on.
