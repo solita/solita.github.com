@@ -1,40 +1,33 @@
 from post_data_extractor import PostDataExtractor, PostData
-from typing import Callable
+from typing import Callable, NotRequired, TypedDict
 from os import path
 import os
 
 
-class RuleKeeper:
-    WARNING = '\033[93m'
-    ENDC = '\033[0m'
+class RuleCheckResults(TypedDict):
+    warnings: NotRequired[list[str]]
+    errors: NotRequired[list[str]]
+    recommendations: NotRequired[list[str]]
 
-    rule_checkers: list[Callable[[PostData], list[str]]] = []
-    post_verification_actions: list[Callable[[], list[str]]]
+class RuleKeeper:
+    rule_checkers: list[Callable[[PostData], RuleCheckResults]] = []
     post_data_extractor: PostDataExtractor
-    error_found = False
+    results_printer: Callable[[RuleCheckResults], None]
 
     def __init__(
             self,
             post_data_extractor: PostDataExtractor,
-            rule_checkers: list[Callable[[PostData], list[str]]],
-            post_verification_actions: list[Callable[[], list[str]]]
+            rule_checkers: list[Callable[[PostData], RuleCheckResults]],
+            results_printer: Callable[[RuleCheckResults], None]
     ):
         self.post_data_extractor = post_data_extractor
         self.rule_checkers = rule_checkers
-        self.post_verification_actions = post_verification_actions
+        self.results_printer = results_printer
 
     def feed_tag_cleaner(self, post_data: PostData):
         pass
 
-    def verify_rules(self, lookup_directory: str) -> bool:
-        issue_found = self.check_rules_per_file(lookup_directory)
-
-        for action in self.post_verification_actions:
-            action()
-
-        return issue_found
-
-    def check_rules_per_file(self, lookup_directory: str) -> bool:
+    def check_rules_for_files(self, lookup_directory: str) -> bool:
         issue_found = False
         filepaths = os.listdir(lookup_directory)
         for filepath in filepaths:
@@ -45,17 +38,29 @@ class RuleKeeper:
 
             post_data = self.post_data_extractor.extract_data(path.join(lookup_directory, filepath))
 
-            issues = []
-            for rule_checker in self.rule_checkers:
-                issues = issues + rule_checker(post_data)
+            issue_found_in_file = self.execute_rule_checkers(post_data)
 
-            if issues:
+            if issue_found_in_file:
                 issue_found = True
-                self.print_issues(issues)
 
         return issue_found
 
-    def print_issues(self, issues: list[str]):
-        print(self.WARNING)
-        [print(issue) for issue in issues]
-        print(self.ENDC)
+    def execute_rule_checkers(self, post_data: PostData) -> bool:
+        any_error_found = False
+        all_results: RuleCheckResults = ({'errors': [], 'warnings': [], 'recommendations': []})
+
+        for rule_checker in self.rule_checkers:
+            checker_results = rule_checker(post_data)
+            if checker_results.keys():
+                empty_array = []
+                all_results = dict(
+                    (key, all_results.get(key, empty_array) + checker_results.get(key, empty_array))
+                    for key in all_results.keys()
+                )
+
+            if 'errors' in checker_results and checker_results['errors']:
+                any_error_found = True
+
+        self.results_printer(all_results)
+
+        return any_error_found
