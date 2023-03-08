@@ -16,11 +16,11 @@ class ExistingTagsSuggester:
         return {}
 
 
-class RelatedTagsSuggester:
-    tag_relations: dict[list[str]]
+class KeyTagsSuggester:
+    key_tags: dict[list[str]]
 
-    def __init__(self, tag_relations):
-        self.tag_relations = tag_relations
+    def __init__(self, key_tags):
+        self.key_tags = key_tags
 
     def suggest_related_tags(self, post_data: PostData) -> RuleCheckResults:
         if 'tags' not in post_data.metadata:
@@ -28,11 +28,12 @@ class RelatedTagsSuggester:
 
         post_tags = post_data.metadata['tags']
 
-        tags_to_suggest = []
+        unique_content_words = set("\n".join(post_data.content).split(' '))
 
-        for parent_tag in self.tag_relations.keys():
-            if self.does_any_post_tag_have_a_relation(self.tag_relations[parent_tag], post_tags):
-                tags_to_suggest.append(parent_tag)
+        tags_to_suggest = []
+        for key_tag in self.key_tags:
+            if key_tag in unique_content_words and key_tag not in post_tags:
+                tags_to_suggest.append(key_tag)
 
         if tags_to_suggest:
             return {
@@ -45,11 +46,3 @@ class RelatedTagsSuggester:
             }
 
         return {}
-
-    def does_any_post_tag_have_a_relation(self, children_tags: list[str], post_tags: list[str]) -> bool:
-        for post_tag in post_tags:
-            for children_tag in children_tags:
-                # we have "NULL" post tag in single article, which is then parsed to None,
-                # resulting in everything to fail
-                if post_tag and post_tag in children_tag:
-                    return True
