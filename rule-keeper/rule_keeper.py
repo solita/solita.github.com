@@ -1,7 +1,5 @@
 from post_data_extractor import PostDataExtractor, PostData
 from typing import Callable, NotRequired, TypedDict
-from os import path
-import os
 
 
 class RuleCheckResults(TypedDict):
@@ -27,16 +25,15 @@ class RuleKeeper:
     def feed_tag_cleaner(self, post_data: PostData):
         pass
 
-    def check_rules_for_files(self, lookup_directory: str) -> bool:
+    def check_rules_for_files(self, files_to_check: list[str]) -> bool:
         issue_found = False
-        filepaths = os.listdir(lookup_directory)
-        for filepath in filepaths:
+        for filepath in files_to_check:
             if not filepath.endswith('.md'):
                 continue
 
             print('Checking file: ' + filepath)
 
-            post_data = self.post_data_extractor.extract_data(path.join(lookup_directory, filepath))
+            post_data = self.post_data_extractor.extract_data(filepath)
 
             issue_found_in_file = self.execute_rule_checkers(post_data)
 

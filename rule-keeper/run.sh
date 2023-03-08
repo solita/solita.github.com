@@ -8,6 +8,4 @@ then
   docker build -t $CONTAINER_NAME $SCRIPTPATH -f $SCRIPTPATH/Dockerfile-rule-keeper
 fi
 
-docker run \
--v ${SCRIPTPATH}:/usr/src/app \
--v ${SCRIPTPATH}/../_posts:/usr/src/app/_posts $CONTAINER_NAME
+docker run -v ${SCRIPTPATH}/..:/usr/src/app $CONTAINER_NAME
