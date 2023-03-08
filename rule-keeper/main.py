@@ -1,6 +1,6 @@
 from validation import ContentValidationExecutor, FilenameValidationExecutor, MetadataValidationExecutor
 from post_data_extractor import PostDataExtractor
-from tags_cleaner import TagsCleaner
+from tag_suggester import ExistingTagsSuggester
 from filename_validators import filename_starts_with_a_date
 from rule_keeper import RuleKeeper
 
@@ -15,7 +15,7 @@ metadata_validation_executor.register([])
 content_validation_executor = ContentValidationExecutor()
 content_validation_executor.register([])
 
-tags_cleaner = TagsCleaner()
+existing_tags_suggester = ExistingTagsSuggester(posts_directory)
 
 rule_keeper = RuleKeeper(
     post_data_extractor=PostDataExtractor(),
@@ -23,8 +23,8 @@ rule_keeper = RuleKeeper(
         filename_validation_executor.validate,
         metadata_validation_executor.validate,
         content_validation_executor.validate,
-        tags_cleaner.collect_tags,
+        existing_tags_suggester.suggest_tags,
     ],
-    post_verification_actions=[tags_cleaner.suggest_tag_unification]
+    post_verification_actions=[]
 )
 rule_keeper.verify_rules(posts_directory)
