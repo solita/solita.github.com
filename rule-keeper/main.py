@@ -1,11 +1,12 @@
 import git.diff
 
 from post_data_extractor import PostDataExtractor
-from tag_suggester import ExistingTagsSuggester, suggest_related_tags
+from tag_suggester import ExistingTagsSuggester, RelatedTagsSuggester
 from validators import filename_starts_with_a_date
 from rule_keeper import RuleKeeper
 from printer import print_results
 from git import Repo
+from json import load
 
 posts_directory = '_posts'
 
@@ -31,14 +32,20 @@ def find_files_to_check(path_prefix: str):
     ]
 
 
+def load_tags_relations():
+    with open('./rule-keeper/tags_relations.json', 'r') as file:
+        return load(file)
+
+
 existing_tags_suggester = ExistingTagsSuggester('./' + posts_directory)
+related_tags_suggester = RelatedTagsSuggester(load_tags_relations())
 
 rule_keeper = RuleKeeper(
     post_data_extractor=PostDataExtractor(),
     rule_checkers=[
         filename_starts_with_a_date,
         existing_tags_suggester.suggest_tags,
-        suggest_related_tags
+        related_tags_suggester.suggest_related_tags,
     ],
     results_printer=print_results,
 )
