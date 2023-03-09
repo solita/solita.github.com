@@ -1,17 +1,42 @@
 from post_data_extractor import PostData
 from rule_keeper import RuleCheckResults
+import jellyfish
 
 
 class ExistingTagsSuggester:
     all_tags = set()
-    lookup_directory: str
+    existing_tags: list[str]
 
-    def __init__(self, lookup_directory: str):
-        self.lookup_directory = lookup_directory
+    def __init__(self, existing_tags: list[str]):
+        self.existing_tags = existing_tags
+        print(jellyfish.hamming_distance('potato', 'patoto'))
+        print(jellyfish.damerau_levenshtein_distance('potato', 'patoto'))
+        print(jellyfish.jaro_similarity('potato', 'patoto'))
+        print(jellyfish.levenshtein_distance('potato', 'patoto'))
+        print(jellyfish.jaro_winkler_similarity('potato', 'patoto'))
 
     def suggest_tags(self, post_data: PostData) -> RuleCheckResults:
         if 'tags' not in post_data.metadata:
             return {}
+
+        tags_suggestions = []
+
+        for new_post_tag in post_data.metadata['tags']:
+            for existing_tag in self.existing_tags:
+                if new_post_tag \
+                        and existing_tag \
+                        and jellyfish.jaro_similarity(new_post_tag, existing_tag) >= 0.90 \
+                        and jellyfish.jaro_similarity(new_post_tag, existing_tag) != 1:
+                    tags_suggestions.append(
+                        'Tag "'
+                        + new_post_tag
+                        + '" looks similar to existing tag "'
+                        + existing_tag
+                        + '". Consider changing it to the existing one'
+                    )
+
+        if tags_suggestions:
+            return {'recommendations': tags_suggestions}
 
         return {}
 
