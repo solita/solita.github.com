@@ -3,7 +3,7 @@ import os
 import git.diff
 
 from post_data_extractor import PostDataExtractor
-from tag_suggester import ExistingTagsSuggester, KeyTagsSuggester
+from tag_suggesters import ExistingTagsSuggester, KeyTagsSuggester
 from validators import filename_starts_with_a_date
 from rule_keeper import RuleKeeper
 from printer import print_results
