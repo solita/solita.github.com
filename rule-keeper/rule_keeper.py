@@ -11,13 +11,13 @@ class RuleCheckResults(TypedDict):
 class RuleKeeper:
     rule_checkers: list[Callable[[PostData], RuleCheckResults]] = []
     post_data_extractor: PostDataExtractor
-    results_printer: Callable[[RuleCheckResults], None]
+    results_printer: Callable[[str, RuleCheckResults], None]
 
     def __init__(
             self,
             post_data_extractor: PostDataExtractor,
             rule_checkers: list[Callable[[PostData], RuleCheckResults]],
-            results_printer: Callable[[RuleCheckResults], None]
+            results_printer: Callable[[str, RuleCheckResults], None]
     ):
         self.post_data_extractor = post_data_extractor
         self.rule_checkers = rule_checkers
@@ -32,18 +32,16 @@ class RuleKeeper:
             if not filepath.endswith('.md'):
                 continue
 
-            print('Checking file: ' + filepath)
-
             post_data = self.post_data_extractor.extract_data(filepath)
 
-            issue_found_in_file = self.execute_rule_checkers(post_data)
+            issue_found_in_file = self.execute_rule_checkers(filepath, post_data)
 
             if issue_found_in_file:
                 issue_found = True
 
         return issue_found
 
-    def execute_rule_checkers(self, post_data: PostData) -> bool:
+    def execute_rule_checkers(self, filepath: str, post_data: PostData) -> bool:
         any_error_found = False
         all_results: RuleCheckResults = ({'errors': [], 'warnings': [], 'recommendations': []})
 
@@ -59,6 +57,6 @@ class RuleKeeper:
             if 'errors' in checker_results and checker_results['errors']:
                 any_error_found = True
 
-        self.results_printer(all_results)
+        self.results_printer(filepath, all_results)
 
         return any_error_found

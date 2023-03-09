@@ -58,9 +58,7 @@ class KeyTagsSuggester:
         if tags_to_suggest:
             return {
                 'recommendations': [
-                    'Following tags would be recommended to add to the post '
-                    + post_data.filename
-                    + ": \n- "
+                    "Following tags would be recommended to add to the post: \n- "
                     + "\n- ".join(tags_to_suggest)
                 ]
             }
