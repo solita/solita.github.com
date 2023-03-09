@@ -6,7 +6,7 @@ excerpt: React has been a real game changer in how we think about front-end arch
 tags:
 - Frontend
 - React
-- Javascript
+- JavaScript
 - Architecture
 - State
 - Programming

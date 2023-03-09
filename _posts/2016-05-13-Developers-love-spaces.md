@@ -8,7 +8,7 @@ categories:
 tags: 
 - Java
 - Clojure 
-- Javascript
+- JavaScript
 - Development
 - Culture
 - Solita

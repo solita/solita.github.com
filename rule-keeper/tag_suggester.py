@@ -9,11 +9,6 @@ class ExistingTagsSuggester:
 
     def __init__(self, existing_tags: list[str]):
         self.existing_tags = existing_tags
-        print(jellyfish.hamming_distance('potato', 'patoto'))
-        print(jellyfish.damerau_levenshtein_distance('potato', 'patoto'))
-        print(jellyfish.jaro_similarity('potato', 'patoto'))
-        print(jellyfish.levenshtein_distance('potato', 'patoto'))
-        print(jellyfish.jaro_winkler_similarity('potato', 'patoto'))
 
     def suggest_tags(self, post_data: PostData) -> RuleCheckResults:
         if 'tags' not in post_data.metadata:

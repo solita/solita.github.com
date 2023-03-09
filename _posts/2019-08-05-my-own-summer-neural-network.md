@@ -4,9 +4,9 @@ title: My Own Summer Neural Network
 author: juhofriman
 excerpt: As a summer vacation experiment, I made a simple game and tried to teach an AI to play the game purely on visual input. It turned out to be one of the most fun and educational project I have ever done.
 tags:
-- Neural Networks
-- Machine Learning
-- Deep Learning
+- Neural network
+- Machine learning
+- Deep learning
 - TensorFlow
 - AI
 ---

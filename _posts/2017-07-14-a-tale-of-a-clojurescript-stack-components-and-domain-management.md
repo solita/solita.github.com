@@ -6,7 +6,7 @@ author: jarzka
 excerpt: How the ClojureScript stack was born and evolved over time in Harja project.
 tags:
 - Clojure
-- Clojurescript
+- ClojureScript
 - Frontend
 - Reagent
 - Tuck
