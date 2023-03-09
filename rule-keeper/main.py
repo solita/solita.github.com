@@ -1,7 +1,4 @@
 import os
-
-import git.diff
-
 from post_data_extractor import PostDataExtractor
 from tag_suggesters import ExistingTagsSuggester, KeyTagsSuggester
 from validators import filename_starts_with_a_date
@@ -54,7 +51,7 @@ def find_existing_tags(
     return existing_tags
 
 
-def load_tags_relations():
+def load_key_tags():
     with open('./rule-keeper/key_tags.json', 'r') as file:
         return load(file)
 
@@ -66,7 +63,7 @@ existing_tags_suggester = ExistingTagsSuggester(
     find_existing_tags(post_data_extractor, './' + posts_directory, file_paths_to_check)
 )
 
-key_tags_suggester = KeyTagsSuggester(load_tags_relations())
+key_tags_suggester = KeyTagsSuggester(load_key_tags())
 
 rule_keeper = RuleKeeper(
     post_data_extractor=post_data_extractor,

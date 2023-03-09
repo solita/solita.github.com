@@ -31,6 +31,7 @@ class PostDataExtractor:
                     raise RuntimeError(
                         'File ' + filepath + ' does not have starting metadata section in first line'
                     )
+
                 if line_number == 0:
                     continue
 
