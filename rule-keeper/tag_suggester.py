@@ -37,7 +37,7 @@ class ExistingTagsSuggester:
 
 
 class KeyTagsSuggester:
-    key_tags: dict[list[str]]
+    key_tags: list[str]
 
     def __init__(self, key_tags):
         self.key_tags = key_tags
@@ -46,7 +46,7 @@ class KeyTagsSuggester:
         if 'tags' not in post_data.metadata:
             return {}
 
-        post_tags = post_data.metadata['tags']
+        post_tags: list[str] = post_data.metadata['tags']
 
         unique_content_words = set("\n".join(post_data.content).split(' '))
 

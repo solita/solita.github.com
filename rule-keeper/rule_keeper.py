@@ -7,6 +7,7 @@ class RuleCheckResults(TypedDict):
     errors: NotRequired[list[str]]
     recommendations: NotRequired[list[str]]
 
+
 class RuleKeeper:
     rule_checkers: list[Callable[[PostData], RuleCheckResults]] = []
     post_data_extractor: PostDataExtractor
