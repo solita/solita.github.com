@@ -1,28 +1,50 @@
-from git import Repo
+from git import Repo, DiffIndex
 from typing import NamedTuple
 from os.path import basename
 from yaml import load, Loader
 
 
-def find_upsert_posts(posts_path_prefix: str) -> list[str]:
-    repository = Repo('.')
-    current_branch_commits = repository.head.commit.tree
-    master_branch_commits = repository.commit('master')
-    diff_index = master_branch_commits.diff(current_branch_commits)
-    file_paths = []
+class PostsRepository:
+    def find_new_posts_identifiers(self) -> list[str]:
+        pass
 
-    # Collection all new files
-    for file in diff_index.iter_change_type('A'):
-        file_paths.append(file)
+    def find_modified_posts_identifiers(self) -> list[str]:
+        pass
 
-    # Collection all modified files
-    for file in diff_index.iter_change_type('M'):
-        file_paths.append(file)
 
-    return [
-        file_path.b_path for file_path in file_paths
-        if file_path.b_path.startswith(posts_path_prefix) and file_path.b_path.endswith('.md')
-    ]
+class GitPostsRepository(PostsRepository):
+    posts_path_prefix: str
+    branches_diff: DiffIndex
+
+    def __init__(self, repository_location: str, posts_path_prefix: str):
+        self.posts_path_prefix = posts_path_prefix
+        repository = Repo(repository_location)
+        current_branch_commits = repository.head.commit.tree
+        master_branch_commits = repository.commit('master')
+        self.branches_diff = master_branch_commits.diff(current_branch_commits)
+
+    def find_modified_posts_identifiers(self) -> list[str]:
+        file_paths = []
+
+        # Collection all new files
+        for file in self.branches_diff.iter_change_type('M'):
+            if self.is_file_a_post_file(file.b_path):
+                file_paths.append(file.b_path)
+
+        return file_paths
+
+    def find_new_posts_identifiers(self) -> list[str]:
+        file_paths = []
+
+        # Collection all new files
+        for file in self.branches_diff.iter_change_type('A'):
+            if self.is_file_a_post_file(file.b_path):
+                file_paths.append(file)
+
+        return file_paths
+
+    def is_file_a_post_file(self, file_path: str):
+        return file_path.startswith(self.posts_path_prefix) and file_path.endswith('.md')
 
 
 class PostData(NamedTuple):
