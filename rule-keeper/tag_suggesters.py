@@ -6,18 +6,12 @@ import os
 
 def find_existing_tags(
         data_extractor: PostDataExtractor,
-        posts_source_directory: str,
-        post_files_to_omit: list[str]
+        post_filepaths_to_extract_tags_from: list[str],
 ) -> list[str]:
-    filenames_to_omit = [os.path.basename(post_file_path) for post_file_path in post_files_to_omit]
-
     existing_tags = []
 
-    for filename in os.listdir(posts_source_directory):
-        if filename in filenames_to_omit:
-            continue
-
-        post_data = data_extractor.extract_data(os.path.join(posts_source_directory, filename))
+    for filepath in post_filepaths_to_extract_tags_from:
+        post_data = data_extractor.extract_data(filepath)
         if 'tags' in post_data.metadata:
             existing_tags = existing_tags + post_data.metadata['tags']
 

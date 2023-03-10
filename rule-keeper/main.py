@@ -5,6 +5,7 @@ from rule_keeper import RuleKeeper
 from printer import print_results
 from post import GitPostsRepository
 from json import load
+import os
 
 posts_directory = '_posts'
 
@@ -19,7 +20,14 @@ posts_provider = GitPostsRepository('.', posts_directory + '/')
 upserted_posts_identifiers = posts_provider.find_new_posts_identifiers() + posts_provider.find_modified_posts_identifiers()
 
 existing_tags_suggester = ExistingTagsSuggester(
-    find_existing_tags(post_data_extractor, './' + posts_directory, upserted_posts_identifiers)
+    find_existing_tags(
+        post_data_extractor,
+        [
+            filepath for filepath in
+            [os.path.join(posts_directory, filename) for filename in os.listdir(posts_directory)]
+            if filepath not in upserted_posts_identifiers
+        ],
+    )
 )
 
 key_tags_suggester = KeyTagsSuggester(load_key_tags())
