@@ -1,6 +1,6 @@
 import re
 from rule_keeper import RuleCheckResults
-from post_data_extractor import PostData
+from post import PostData
 
 
 def filename_starts_with_a_date(post_data: PostData) -> RuleCheckResults:

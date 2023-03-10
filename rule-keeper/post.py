@@ -1,6 +1,28 @@
+from git import Repo
 from typing import NamedTuple
 from os.path import basename
 from yaml import load, Loader
+
+
+def find_upsert_posts(posts_path_prefix: str) -> list[str]:
+    repository = Repo('.')
+    current_branch_commits = repository.head.commit.tree
+    master_branch_commits = repository.commit('master')
+    diff_index = master_branch_commits.diff(current_branch_commits)
+    file_paths = []
+
+    # Collection all new files
+    for file in diff_index.iter_change_type('A'):
+        file_paths.append(file)
+
+    # Collection all modified files
+    for file in diff_index.iter_change_type('M'):
+        file_paths.append(file)
+
+    return [
+        file_path.b_path for file_path in file_paths
+        if file_path.b_path.startswith(posts_path_prefix) and file_path.b_path.endswith('.md')
+    ]
 
 
 class PostData(NamedTuple):

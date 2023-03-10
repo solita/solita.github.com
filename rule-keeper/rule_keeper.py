@@ -1,4 +1,4 @@
-from post_data_extractor import PostDataExtractor, PostData
+from post import PostDataExtractor, PostData
 from typing import Callable, NotRequired, TypedDict
 
 
