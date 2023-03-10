@@ -8,14 +8,14 @@ This script takes care ensuring quality of posts created by Solitans
 
 ## Running
 
-To run the script, ensure you do it on Linux/Mac and you have installed Docker.
+To run the script, ensure you have installed Docker.
 
 Then, while your terminal session is in root directory of the project, execute following command:
 
-`./rule-keeper/run.sh`
+`docker compose -f ./rule-keeper/docker-compose.yml run checker`
 
-It will build docker image with needed Python version and all dependencies, and then run it to check all added and
-modified post files in your current branch.
+It will scan all files added and modified in current branch, if those are different comparing to what is in the master
+branch
 
 ## Writing more checks
 
@@ -70,8 +70,16 @@ rule_keeper = RuleKeeper(
         filename_starts_with_a_date,
         existing_tags_suggester.suggest_tags,
         key_tags_suggester.suggest_related_tags,
-        # Add new validator/tag suggester here
+        # Add another validator/tag suggester here
     ],
     results_printer=print_results,
 )
 ```
+
+## Testing
+
+To run the script, ensure you have installed Docker.
+
+Then, while your terminal session is in root directory of the project, execute following command:
+
+`docker compose -f ./rule-keeper/docker-compose.yml run tests`

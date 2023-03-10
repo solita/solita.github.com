@@ -1,2 +1,3 @@
-Dockerfile-rule-keeper
-run.sh
+Dockerfile
+docker-compose.yml
+README.md
