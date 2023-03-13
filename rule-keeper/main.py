@@ -1,5 +1,5 @@
 from post import PostDataExtractor
-from tag_suggesters import ExistingTagsSuggester, KeyTagsSuggester, find_existing_tags
+from tag_recommender import ExistingTagsRecommender, KeyTagsRecommender, find_existing_tags
 from validators import filename_starts_with_a_date
 from rule_keeper import RuleKeeper
 from printer import print_results
@@ -19,25 +19,26 @@ post_data_extractor = PostDataExtractor()
 posts_provider = GitPostsRepository('.', posts_directory + '/')
 upserted_posts_identifiers = posts_provider.find_new_posts_identifiers() + posts_provider.find_modified_posts_identifiers()
 
-existing_tags_suggester = ExistingTagsSuggester(
-    find_existing_tags(
-        post_data_extractor,
-        [
-            filepath for filepath in
-            [os.path.join(posts_directory, filename) for filename in os.listdir(posts_directory)]
-            if filepath not in upserted_posts_identifiers
-        ],
-    )
+existing_tags_recommender = ExistingTagsRecommender(
+    set(
+        find_existing_tags(
+            post_data_extractor,
+            [
+                filepath for filepath in
+                [os.path.join(posts_directory, filename) for filename in os.listdir(posts_directory)]
+                if filepath not in upserted_posts_identifiers
+            ],
+        ))
 )
 
-key_tags_suggester = KeyTagsSuggester(load_key_tags())
+key_tags_recommender = KeyTagsRecommender(load_key_tags())
 
 rule_keeper = RuleKeeper(
     post_data_extractor=post_data_extractor,
     rule_checkers=[
         filename_starts_with_a_date,
-        existing_tags_suggester.suggest_tags,
-        key_tags_suggester.suggest_related_tags,
+        existing_tags_recommender.recommend_tags,
+        key_tags_recommender.recommend_tags,
     ],
     results_printer=print_results,
 )

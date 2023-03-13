@@ -4,7 +4,7 @@ This script takes care ensuring quality of posts created by Solitans
 
 - Validate filename, content and metadata of post
 - Recommend tags based on post content
-- Suggest tags which could be corrected to use existing one
+- Recommends tags which could be corrected to use existing one
 
 ## Running
 
@@ -19,7 +19,7 @@ branch
 
 ## Writing more checks
 
-You are welcome to create more validators and/or tag suggesters.
+You are welcome to create more validators and/or tag recommender.
 
 To create one, create function or class method with following signature:
 
@@ -57,7 +57,7 @@ class RuleCheckResults(TypedDict):
     recommendations: NotRequired[list[str]]
 ```
 
-Check files `validators.py` and `tag_suggesters.py` for examples.
+Check files `validators.py` and `tag_recommender.py` for examples.
 
 When mentioned class/function is created, add it to the `main.py` under list of `rule_checkers` of RuleKeeper
 initialization.
@@ -68,9 +68,9 @@ rule_keeper = RuleKeeper(
     post_data_extractor=post_data_extractor,
     rule_checkers=[
         filename_starts_with_a_date,
-        existing_tags_suggester.suggest_tags,
-        key_tags_suggester.suggest_related_tags,
-        # Add another validator/tag suggester here
+        existing_tags_recommender.recommend_tags,
+        key_tags_recommender.recommend_tags,
+        # Add another validator/tag recommender here
     ],
     results_printer=print_results,
 )
