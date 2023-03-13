@@ -1,7 +1,7 @@
 from git import Repo, DiffIndex
 from typing import NamedTuple
 from os.path import basename
-from yaml import load, Loader
+from yaml import load, Loader, scanner
 
 
 class PostsRepository:
@@ -73,7 +73,7 @@ class PostDataExtractor:
             for line_number, line_content in enumerate(file_object):
                 if line_number == 0 and not line_content.startswith('---'):
                     raise RuntimeError(
-                        'File ' + filepath + ' does not have starting metadata section in first line'
+                        'File {} does not have starting metadata section in first line'.format(filepath)
                     )
 
                 if line_number == 0:
@@ -85,9 +85,19 @@ class PostDataExtractor:
                     case self.metadata_section_name:
                         metadata.append(line_content)
                     case self.content_section_name:
-                        content.append(line_content)
+                        content.append(line_content.strip())
 
-        return PostData(metadata=self.parse_metadata(metadata), filename=filename, content=content)
+        try:
+            return PostData(metadata=self.parse_metadata(metadata), filename=filename, content=content)
+        except scanner.ScannerError:
+            if self.current_section == self.metadata_section_name:
+                raise RuntimeError(
+                    'File {} metadata could not be parsed. File does not seem to close metadata.'.format(filepath)
+                )
+            else:
+                raise RuntimeError(
+                    'File {} metadata could not be parsed. Metadata might be invalid.'.format(filepath)
+                )
 
     def parse_metadata(self, metadata: list[str]) -> dict[str, list[str] | str]:
         return load(''.join(metadata), Loader)
