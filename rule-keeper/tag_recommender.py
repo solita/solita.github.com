@@ -34,7 +34,7 @@ class ExistingTagsRecommender:
             for existing_tag in self.existing_tags:
                 if new_post_tag and existing_tag and self.are_tags_similar(existing_tag, new_post_tag):
                     tags_recommendations.append(
-                        'Tag {} looks similar to existing tag {}. Consider changing it to the existing one'.format(
+                        'Tag "{}" looks similar to existing tag "{}". Consider changing it to the existing one'.format(
                             new_post_tag,
                             existing_tag
                         )
@@ -73,7 +73,7 @@ class KeyTagsRecommender:
             return {
                 'recommendations': [
                     'Following tags would be recommended to add to the post: {}'.format(
-                        "\n- ".join(tags_recommendations)
+                        "\n  - ".join(tags_recommendations)
                     )
                 ]
             }

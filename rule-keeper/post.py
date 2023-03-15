@@ -31,6 +31,10 @@ class GitPostsRepository(PostsRepository):
             if self.is_file_a_post_file(file.b_path):
                 file_paths.append(file.b_path)
 
+        for file in self.branches_diff.iter_change_type('R'):
+            if self.is_file_a_post_file(file.b_path):
+                file_paths.append(file.b_path)
+
         return file_paths
 
     def find_new_posts_identifiers(self) -> list[str]:
@@ -39,7 +43,7 @@ class GitPostsRepository(PostsRepository):
         # Collection all new files
         for file in self.branches_diff.iter_change_type('A'):
             if self.is_file_a_post_file(file.b_path):
-                file_paths.append(file)
+                file_paths.append(file.b_path)
 
         return file_paths
 

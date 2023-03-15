@@ -27,6 +27,9 @@ class RuleKeeper:
         pass
 
     def check_rules_for_files(self, files_to_check: list[str]) -> bool:
+        if not files_to_check:
+            print('There was no files to check')
+
         issue_found = False
         for filepath in files_to_check:
             if not filepath.endswith('.md'):

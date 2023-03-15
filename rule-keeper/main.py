@@ -2,7 +2,7 @@ from post import PostDataExtractor
 from tag_recommender import ExistingTagsRecommender, KeyTagsRecommender, find_existing_tags
 from validators import filename_starts_with_a_date
 from rule_keeper import RuleKeeper
-from printer import print_results
+from printer import Printer
 from post import GitPostsRepository
 from json import load
 import os
@@ -40,7 +40,7 @@ rule_keeper = RuleKeeper(
         existing_tags_recommender.recommend_tags,
         key_tags_recommender.recommend_tags,
     ],
-    results_printer=print_results,
+    results_printer=Printer().print,
 )
 error_found = rule_keeper.check_rules_for_files(upserted_posts_identifiers)
 
