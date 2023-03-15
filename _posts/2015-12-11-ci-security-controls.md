@@ -4,11 +4,11 @@ title: Security controls in continuous integration
 author: Rinorragi
 excerpt: Solita was at Need 4 Speed Rovaniemi and talked about continuous integration security controls among other things. 
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
-- security
+- Security
 ---
 Continuous integration and continuous delivery have been trendy topics lately. Among other things it is necessary to take care of security in your development process. I want to share few ideas how you can enhance your security in continuous integration in EPiServer CMS projects. [Need for speed](http://www.n4s.fi/en/) is a Finnish foundation and its purpose is to find new ways to deliver real time value for customers of Finnish software companies. There was a Q4 review this week at Rovaniemi and my blog post will be about [my presentation](http://www.slideshare.net/Solita_Oy/continuous-integration-and-security-testing-with-net?related=1) at there. 
 

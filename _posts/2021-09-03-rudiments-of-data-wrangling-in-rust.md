@@ -7,9 +7,9 @@ excerpt: >
   for systems programming, but there is nothing stopping us from
   enjoying it for basic data wrangling tasks like those often done in Python.
 tags:
- - rust
- - data
- - programming
+ - Rust
+ - Data
+ - Programming
 ---
 
 The [Rust](https://www.rust-lang.org) programming 

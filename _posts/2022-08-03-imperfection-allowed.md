@@ -5,12 +5,12 @@ author: eveliinal
 excerpt: >
   Some developers manage a beautiful, steadily upward-sloping career trajectory. I didn't. Do you ever feel like that? Check out my tale of reviving the dev within after stalling professionally.
 tags:
-  - boreout
-  - career development
-  - culture
-  - impostor syndrome
-  - personal growth
-  - psychological safety
+  - Boreout
+  - Career development
+  - Culture
+  - Impostor syndrome
+  - Personal growth
+  - Psychological safety
 ---
 
 Ever feel like everyone except you manages to navigate the choppy waters of building and maintaining a career in professional software development? These high achievers sail from strength to strength, propelled along by a clear map, a well-calibrated compass, along with ample reserves of knowledge, skills, and self-confidence. Whereas you're stuck on a rocky shore, unsure of where exactly you are and where you should be going. Apprehensive that you don't have what it takes to reach the high seas.

@@ -5,7 +5,7 @@ author: denzilferreira
 excerpt: >
   Creating a mobile app is usually tasked to two distinct teams, working in tandem to produce the same experience for Android & iOS users. What if I told you that there is a platform in town that offers a shortcut to create a mobile app in record time, simultaneously on Android, iOS, and maybe beyond towards a web, and as a desktop app?
 tags:
- - Software Development
+ - Software development
  - Dart
  - Flutter
 ---

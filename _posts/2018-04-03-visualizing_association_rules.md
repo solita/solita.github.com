@@ -4,10 +4,10 @@ title: Visualizing large association rulesets with force-directed graph drawing 
 author: mirvato
 excerpt: Drawing graphs on thousand association rules
 tags:
-- association analysis
-- machine learning
-- data science
-- visualization
+- Association analysis
+- Machine learning
+- Data science
+- Visualization
 ---
 
 Data mining and data exploration is an essential part of data science work. Sometimes a business case needs looking for relationships and co-occurrences among the data. Association rule analysis (also known as associate rule discovery, market basket analysis, co-occurrence grouping) is an unsupervised data mining technique for determining relations among variables in large databases. These relations are called association rules.

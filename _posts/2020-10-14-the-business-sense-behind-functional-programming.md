@@ -5,7 +5,7 @@ author: jalef
 excerpt: >
   Functional Programming has risen in popularity among developers, but non-technical people still consider it to be too scientific. In this article we try to present the advantages of Functional Programming in a non-technical approach and explain why it makes sense businesswise.
 tags:
- - Functional Programming
+ - Functional programming
 ---
 
 The Functional Programming (FP) paradigm has been enjoying a resurgence in developer circles for more than five years now. Its advocates however have faced difficulty making the case for FP when management sits across the table. Usually, the typical FP advocacy piece drowns the business advantages of FP in technical terms, and the audience tunes out. In this article, we strive to avoid this pitfall and ground the case for FP in the real world of profitability and risk.

@@ -4,8 +4,8 @@ title: We Are Developers
 author: arto
 excerpt: A tale of a conference trip to We Are Developers in Vienna
 tags:
-- conference
-- developers
+- Conference
+- Developers
 - AI
 ---
 

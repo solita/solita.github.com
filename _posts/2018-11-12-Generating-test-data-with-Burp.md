@@ -5,10 +5,10 @@ author: lokori
 excerpt: While Burp suite is fundamentally a tool for penetration testers and security researchers, it has other uses too. A developer can use it to neatly generate a bunch of test data.
 tags:
 - Burp
-- hacking
-- software security
-- testing
-- test data
+- Hacking
+- Software security
+- Testing
+- Test data
 ---
 
 

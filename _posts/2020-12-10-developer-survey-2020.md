@@ -5,7 +5,7 @@ author: juholei
 excerpt: >
   We conducted a developer survey to find out what technologies we use in the year 2020 and what may lie in the future.
 tags:
- - Software Development
+ - Software development
 
 ---
 

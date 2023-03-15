@@ -4,8 +4,8 @@ title: Snapshots of Buggy Black Boxes
 author: mpajunen
 excerpt: Snapshot testing has been gaining popularity in frontend development. Could it be useful for testing legacy code as well?
 tags:
-- legacy code
-- testing
+- Legacy code
+- Testing
 ---
 
 Snapshot tests have recently become popular in testing UI components. We tried snapshots in testing legacy code.

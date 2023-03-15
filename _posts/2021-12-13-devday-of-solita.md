@@ -4,8 +4,8 @@ title: The DevDay of Solita - See the pictures!
 author: riikkanen
 excerpt: The DevDay of Solita is something many people wait eagerly for each year. What kind of event it is and why on Earth people are willing to travel even from Oulu to spend a day and night together with colleagues in Sappee. Let's find out!
 tags:
-- culture
-- developer-culture
+- Culture
+- Developer culture
 ---
 
 On the 12th of November 2021, about 200 Solitans from the development unit gathered in Sappee, a ski resort located in Pälkäne, Finland. There wasn't even snow at that time. What's the story behind this yearly event called DevDay and why it's so popular?

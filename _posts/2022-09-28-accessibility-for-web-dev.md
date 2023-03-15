@@ -5,11 +5,11 @@ author: bea94k
 excerpt: >
   Nowadays we hear more and more about the importance of equity and inclusion. The developers can do their part by taking care of the accessibility of apps and services they create. Let's have a look at the what-why-how of accessibility in web development, including practical tools and a mini-checklist.
 tags:
-  - accessibility
-  - best practice
-  - web development
-  - frontend
-  - software development
+  - Accessibility
+  - Best practices
+  - Web development
+  - Frontend
+  - Software development
 ---
 
 Recently we celebrated the Diversity, Equity, Inclusivity week at Solita, learning more and discussing our differences and biases. The very same week the [React Finland](https://react-finland.fi/) conference took place, in which quite some time was devoted to the topic of accessibility. Great timing, wouldn’t you say? I attended a workshop conducted by [Eevis Panula](https://eevis.codes/), a Certified Professional in Web Accessibility (check out also her talk at the conference!); she inspired me to write this blog. We don’t talk about accessibility enough!

@@ -5,9 +5,9 @@ author: tuulik
 excerpt: >
   What does programming feel like? How is the emotional life of a coder? Let's talk about our feelings.
 tags:
- - programming
+ - Programming
  - Soft Skills
- - Software Development
+ - Software development
 ---
 
 ![This is fine](/img/emotional-code/this-is-fine.jpeg)

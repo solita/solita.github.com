@@ -9,16 +9,16 @@ excerpt: >
  valuable experience.  The important thing is to get a maximum amount of
  experience.
 tags:
-- automation
-- development
-- feedback
-- continuous delivery
-- maintainability
-- open source
-- prototyping
-- software development process
-- procurement
-- tendering
+- Automation
+- Development
+- Feedback
+- Continuous delivery
+- Maintainability
+- Open source
+- Prototyping
+- Software development process
+- Procurement
+- Tendering
 ---
 
 This essay is a developer's opinion to a topic that has been beaten to

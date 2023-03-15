@@ -2,10 +2,10 @@
 layout: post
 title: What is DevSec
 author: Rinorragi, lokori
-excerpt: DevSec is a emerging trend to move developers closer to security experts, akin to DevOps. In this blog post we argue that this is necessary and how this will improve security, while simultaneously lowering the costs. We wil also cover how to do this in practice.
+excerpt: DevSec is an emerging trend to move developers closer to security experts, akin to DevOps. In this blog post we argue that this is necessary and how this will improve security, while simultaneously lowering the costs. We wil also cover how to do this in practice.
 tags:  
 - DevSec
-- security
+- Security
 - DevOps
 ---
 

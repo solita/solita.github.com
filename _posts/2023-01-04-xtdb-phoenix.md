@@ -8,7 +8,7 @@ tags:
  - Elixir
  - Phoenix LiveView
  - Datalog
- - Functional Programming
+ - Functional programming
 ---
 
 Relational SQL databases are still the "de facto" choice for most new web applications these days,

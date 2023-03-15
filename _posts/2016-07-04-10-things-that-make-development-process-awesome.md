@@ -4,9 +4,9 @@ title: 10 Things That Make Development Process Awesome
 author: jarzka
 excerpt: What takes software development from being merely enjoyable to awesome?
 tags:
-- software development process
-- testing
-- culture
+- Software development process
+- Testing
+- Culture
 ---
 
 Software development is enjoyable, but there are many little things that can make the difference between it being enjoyable and awesome. Many of these are related to the working methods used in the project. At Solita, project teams are relatively free to make their own choices regarding software development methods they use. In this article, I want to share some of the methods we have used in [Harja](https://github.com/finnishtransportagency/harja) project. Some of these might seem obvious, but having been in software projects where none of these things were applied I can appreciate their presence. So here goes!

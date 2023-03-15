@@ -5,9 +5,9 @@ author: massimo
 excerpt: >
   Your fancy front-end framework won't print unescaped HTML. But what if it does after the next update? To protect your app, you need security layers. Like an onion, each layer means more tears for the attacker. HTTP security headers form one of these layers. Here are the essential security headers for every non-trivial site.
 tags:
-- infosec
-- software security
-- devsecops
+- InfoSec
+- Software security
+- DevSecOps
 ---
 
 Defense in depth as defined by Wikipedia is a:

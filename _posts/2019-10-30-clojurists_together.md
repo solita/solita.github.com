@@ -6,7 +6,7 @@ excerpt: Clojurists Together is an organisation dedicated to funding and support
 tags:
 - Clojure
 - ClojureScript
-- open source
+- Open source
 ---
 
 > Clojurists Together is an organisation run by Clojars, dedicated to funding and supporting open source software, infrastructure, and documentation that is important to the Clojure and ClojureScript community.

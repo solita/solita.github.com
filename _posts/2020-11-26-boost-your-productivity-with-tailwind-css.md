@@ -4,8 +4,8 @@ title: Boost your productivity with Tailwind CSS
 author: tuk
 excerpt: Tailwind CSS has proven its worth, and it's time you adopt it into your front-end toolkit. Let this post be your first step in doing so.
 tags:
- - Software Development
- - frontend
+ - Software development
+ - Frontend
  - CSS
 ---
 

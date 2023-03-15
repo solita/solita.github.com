@@ -4,10 +4,10 @@ title: The Everchanging Software Development Process
 author: mikkoronkkomaki
 excerpt: Why and how software development should be viewed as something that's under constant change.  
 tags:
-- software processes
-- methodologies
-- autonomy
-- agile retrospectives
+- Software processes
+- Methodologies
+- Autonomy
+- Agile retrospectives
 ---
 
 Especially among us software developers, "process" is some what of a curse word in many occasions. Personally I find that in most of those cases this repulsion is justified. Mainly because what processes mean to many people working in the field mean, is something that basically just hinders everyday work, something that has been dictated from above and that the people with boots on the ground have little to no possibility to affect.

@@ -4,7 +4,7 @@ title: Solita Developer Manifesto
 author: Kauko
 excerpt: An attempt at putting to words what makes Solita a great place to work, and what is expected of developers, new and old alike.
 tags:
-- culture
+- Culture
 - Solita
 ---
 

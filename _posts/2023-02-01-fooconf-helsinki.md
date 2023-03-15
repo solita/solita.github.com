@@ -4,12 +4,12 @@ title: FooConf 2023 Helsinki
 author: teepeltola
 excerpt: A blog post about the new emerging Finnish developer conference, FooConf 2023 Helsinki, held 1.2.2023
 tags:
-  - fooconf
-  - software architecture
-  - cloud
+  - fooConf
+  - Software architecture
+  - Cloud
   - DevOps
-  - cloud native
-  - conference
+  - Cloud native
+  - Conference
 ---
 
 ## Arriving

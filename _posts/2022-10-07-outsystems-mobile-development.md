@@ -4,7 +4,7 @@ title: I feel the need, the need for speed - rapid delivery of mobile apps with 
 author: michal.guspiel
 excerpt: Honest review of OutSystems in the scope of mobile development – a perspective of the mobile developer.
 tags:
-  - Lowcode
+  - Low-code
   - OutSystems
   - Mobile
 ---

@@ -4,9 +4,9 @@ title: Isolated integration testing with Clojure and Postgres
 author: ilmoraunio
 excerpt: We take a look at a magical feature in Postgres and a derived potential solution to reduce the chattiness of Clojure integration test reports.
 tags: 
-- clojure
-- testing
-- postgres
+- Clojure
+- Testing
+- PostgreSQL
 ---
 I've been trying to create isolated integration tests in my hobby project to validate that my inserts work inside my database layer. I wanted to see if I could minimize the chattiness of my integration test suite, and to quicken the guesswork of what's breaking my tests. While the solution hasn't been battle-tested out in the real world, it has been initially promising. Let's check it out.
 

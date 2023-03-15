@@ -5,7 +5,7 @@ author: aleksei
 excerpt: Learning Ansible when you have little experience with scripting or programming might seem a complicated task. Here are my tips and tricks in learning Ansible.
 tags:
 - Ansible
-- automation
+- Automation
 - DevOps
 ---
 

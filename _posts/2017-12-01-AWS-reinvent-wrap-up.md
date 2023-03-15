@@ -6,7 +6,7 @@ excerpt: Calling all the builders out there! You build it! You run it! And you a
 tags:
 - AWS
 - re:Invent
-- cloud
+- Cloud
 ---
 
 Chaos. Chaos is the best word to describe this insanely large scale event taking place in an artificial city built in the middle of the desert - Las Vegas! At first, the event just felt bit too much for a small-town boy like myself, but when you just free your mind and go with the flow, and don't even try to attend to all the sessions, you might just get your head up to the cloud.

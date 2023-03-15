@@ -5,9 +5,9 @@ author: Rinorragi
 date: 2017-03-01 17:20:00 +0200
 excerpt: Tips how to achieve Azure certifications
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
 - DevOps
 - Azure

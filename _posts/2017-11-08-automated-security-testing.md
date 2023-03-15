@@ -5,7 +5,7 @@ author: lokori
 excerpt: How to implement a security pipeline and automate security testing? This post covers a PoC, which you can use as a template to implement your own solution.
 tags:  
 - DevSec
-- security
+- Security
 - DevOps
 - DevSecOps
 - OWASP

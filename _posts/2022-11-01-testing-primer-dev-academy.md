@@ -5,9 +5,9 @@ author: hjhamala
 excerpt: >
   
 tags:
-  - testing
-  - career development
-  - coding
+  - Testing
+  - Career development
+  - Coding
 ---
 
 The Solita developer [academy](https://www.solita.fi/en/academy/) is a way to kickstart a career in software development. Applying for the academy fall 2022 required to make [a pre-assignemt](https://github.com/solita/dev-academy-2022-fall-exercise). The assignment was based on the Helsinki Capital area city bike journey statistics. We received many great exercises.  

@@ -5,12 +5,12 @@ author: vesala
 excerpt: >
   We are all human. No amount of professionalism and specialization can change that. We feel human things and sometimes those things become disorders. Although I really like my work, weirdly enough, my biggest obstacle has been dealing with boredom. Find out my insights and avoidance strategies in combatting boreout syndrome, the lesser-known sibling of burnout.
 tags:
-  - personal growth
-  - boreout
-  - psychology
-  - mental disorder
-  - impostor syndrome
-  - burnout
+  - Personal growth
+  - Boreout
+  - Psychology
+  - Mental disorder
+  - Impostor syndrome
+  - Burnout
 ---
 
 Every working hour feels like an eternity. After your workday, you wallow in complete listlessness. Thinking about tomorrow brings a feeling of dread and eternal repetition. Ever had days like that? I have, but there is an aspect that bothers me in admitting it.

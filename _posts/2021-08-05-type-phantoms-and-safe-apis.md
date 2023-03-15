@@ -6,7 +6,7 @@ excerpt: >
     Writing both frontend and backend of a web application in TypeScript allows using common model
     type definitions in both. Let's explore one technique to make the API calls type-safe as well.
 tags:
-    - Api
+    - API
     - TypeScript
 ---
 

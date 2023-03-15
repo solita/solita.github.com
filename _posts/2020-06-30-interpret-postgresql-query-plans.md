@@ -4,11 +4,10 @@ title: Understand Your PostgreSQL Query Plans for Performance Gains
 author: jarnovayrynen
 excerpt: A real-life example of how to read PostgreSQL query plan (EXPLAIN ANALYZE) and act upon it for better performance and end-user experience
 tags:
-- Postgres
 - PostgreSQL
-- query plan
-- performance
-- databases
+- Query plan
+- Performance
+- Database
 ---
 We all know the frustration when we just stop using a software feature because some action is taking too long. Quite often the reason for slowness can be pinpointed in the data retrieval from the underlying database. In this practical real-life example, we show some tips on how to analyze a PostgreSQL query plan to make related database queries much faster.
 

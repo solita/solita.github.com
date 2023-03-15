@@ -9,7 +9,7 @@ tags:
  - Spring
  - WebFlux
  - Project Reactor
- - reactive
+ - Reactive
 ---
 
 # What is Spring WebFlux?

@@ -5,10 +5,10 @@ author: vili
 excerpt: >
   You might have noticed that for a while now technical debt has been on the lips of everyone. Do you believe that your organization is lacking technical debt? Are your competitors shadowing over you with their mountains of technical debt? Have you been searching for a quick fix to ramp up your technical debt creation? If the answer is yes, look no further!
 tags:
-- technical debt
-- software development
-- project management
-- best practice
+- Technical debt
+- Software development
+- Project management
+- Best practices
 ---
 
 You might have noticed that for a while now technical debt has been on the lips of everyone.

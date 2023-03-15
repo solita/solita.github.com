@@ -10,7 +10,7 @@ tags:
 - Lambda
 - Serverless
 - Best practices
-- Node.JS
+- Node.js
 ---
 
 
