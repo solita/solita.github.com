@@ -1,0 +1,22 @@
+name: Test rule-keeper and check post validity and tags recommendations
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+      - name: Fetch history of master branch
+        run: git fetch origin master:master --depth=1
+      - name: Test Rule Keeper
+        run: docker compose -f ./rule-keeper/docker-compose.yml run tests
+      - name: Test content
+        run: docker compose -f ./rule-keeper/docker-compose.yml run checker
