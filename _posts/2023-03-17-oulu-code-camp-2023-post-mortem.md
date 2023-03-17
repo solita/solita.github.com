@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beers, bots and black friday - Solita Code Camp 2023
+title: Beers, Bots and Black Friday - Solita Code Camp 2023
 author: jlansineva
 excerpt: >
   Oulu Solitans gathered for fun, hacking, drinks and sauna at Solita Code Camp 2023. Code was written, both good and bad. What worked, what didn't? Here's my story. 
@@ -8,6 +8,7 @@ tags:
  - code camp
  - fun
  - hacking
+ - hackathon
  - sauna
  - beer
  - after work
