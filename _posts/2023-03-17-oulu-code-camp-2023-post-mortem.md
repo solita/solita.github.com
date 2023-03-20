@@ -15,7 +15,7 @@ tags:
  - programming
 ---
 
-At Solita we have a long-standing tradition of code camps - that is to say, [the previous event](https://dev.solita.fi/2012/11/23/codecamp) of the kind was held seven years ago. Can’t hurry a good thing too much. Here, a code camp is sort of a hackathon, a gathering of devs hacking away at some task, with a focus on Fun. At Oulu, we were located at Tervatoppila Saunamaailma (Saunaworld), in a nice cozy cottage-like atmosphere - just 10 minutes drive from the centrum. Of course, the saunas were booked as well to wash off the hacker’s blood, sweat, and tears - that’s a given. We also had catering and, most importantly, drinks. 
+At Solita we have a long-standing tradition of code camps - [with records dating back to 2012](https://dev.solita.fi/2012/11/23/codecamp). Last event of the kind was held seven years ago, but like fine wine, a good thing can't be rushed. Here, a code camp is sort of a hackathon, a gathering of devs hacking away at some task, with a focus on Fun. At Oulu, we were located at Tervatoppila Saunamaailma (Saunaworld), in a nice cozy cottage-like atmosphere - just 10 minutes drive from the centrum. Of course, the saunas were booked as well to wash off the hacker’s blood, sweat, and tears - that’s a given. We also had catering and, most importantly, drinks. 
 
 [![The venue frontyard](/img/code-camp-2023-oulu/thumb-frontyard.jpg)](/img/code-camp-2023-oulu/full/frontyard.jpg)
 *Frontyard of Saunamaailma*
