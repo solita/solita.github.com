@@ -9,9 +9,9 @@ excerpt: >
 tags:
  - Development
  - ClojureScript
- - Closure Compiler
- - Advanced Compilation
- - Best Practices
+ - Closure compiler
+ - Advanced compilation
+ - Best practices
 ---
 
 

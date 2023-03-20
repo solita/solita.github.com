@@ -9,11 +9,11 @@ excerpt: >
   trends in CD, and I hope that we will gradually see at least some
   semi-standard practices emerge.
 tags:
-- continuous delivery
-- continuous integration
-- deployment pipeline
-- meetup
-- culture
+- Continuous delivery
+- Continuous integration
+- Deployment pipeline
+- Meetup
+- Culture
 ---
 
 In January, Solita hosted two meetups whose themes fall under the general category of *continuous delivery*.  Both of these meetups were centered around particular tools, one of them being the [Ansible Helsinki](https://www.meetup.com/Ansible-Helsinki/events/235535175/) meetup and the other, the [Docker Helsinki](https://www.meetup.com/Docker-Helsinki/events/235753507/) meetup with a general topic of "running Docker in production".  It was a rewarding experience for me personally to have these motivated, enthusiastic people in our premises discussing interesting technical topics, and I thank the presenters and participants for making these meetups happen.

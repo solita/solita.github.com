@@ -8,9 +8,9 @@ categories:
 tags: 
 - Java
 - Clojure 
-- Javascript
-- development
-- culture
+- JavaScript
+- Development
+- Culture
 - Solita
 ---
 

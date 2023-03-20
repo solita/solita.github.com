@@ -5,9 +5,9 @@ author: vesala
 excerpt: Functional programming comes with a plethora of jargon. Let us delve deeper into the technique called currying.
 tags:
   - JavaScript
-  - functional programming
-  - currying
-  - functional composition
+  - Functional programming
+  - Currying
+  - Functional composition
 ---
 
 # Spice... what? (What are curried functions and how to implement them in JavaScript?)

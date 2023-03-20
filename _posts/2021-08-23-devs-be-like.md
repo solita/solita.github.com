@@ -5,10 +5,10 @@ author: marja
 excerpt: >
   Is the (work) life of a developer just coding? Do we all spend our free time exploring new programming languages or other related stuff?
 tags:
- - continuous learning
- - personal growth
- - career development
- - programming
+ - Continuous learning
+ - Personal growth
+ - Career development
+ - Programming
 ---
 
 What are developers like? Are we all like that Hollywood stereotype? You know the one about Silicon Valley nerds. That we live and breathe to code, non-developers have to constantly remind us to "speak English and not jargon", how we do nothing but code from morning till night, no matter if we are getting paid for it or not. 

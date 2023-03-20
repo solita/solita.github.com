@@ -5,8 +5,8 @@ title: >
 author: riikkanen
 excerpt: The pictures used in recruitment advertisements always show a partial glimpse of everyday life in Solita. A little more in this minority report.
 tags:
-- culture
-- recruitment
+- Culture
+- Recruitment
 ---
 
 We got feedback that the pictures used in the recruitment advertisements give a little biased picture of typical employee at Solita. They show mostly about 30 years old white males. Well, that is true, because I think at least the majority of developers in Solita are about 30 year old white males. Of course, in reality there are plenty of us, some of us are even female, all in different looking bodies. The pictures in the advertisements are not a statement what a typical developer should look or be like. Skills, personality, and how Solita-like you are, are the things that really matter. ([One true story](http://dev.solita.fi/2017/04/07/solita-java-trainee.html))

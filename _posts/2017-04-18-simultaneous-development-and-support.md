@@ -4,9 +4,9 @@ title: Simultaneous Development and Support
 author: jarnovayrynen
 excerpt: How our team improved simultaneous new development and end user support
 tags:
-- software development process
-- iterative development
-- support
+- Software development process
+- Iterative development
+- Support
 ---
 
 After a major production release a software team may become overwhelmed with customer feedback. Investigating defect reports, communication with end users and related bug fixing may hinder development of new features for a long time if not handled properly. This article presents how we tackled this issue in Solita’s Harja project.

@@ -4,9 +4,9 @@ author: HannuToi
 title: Continuous delivery for Product Owners and UX designers
 excerpt: Continuous Delivery is powerful tool for UX designers and Product Owners. 
 tags:
-- user experience
-- product owner
-- continuous delivery
+- User experience
+- Product owner
+- Continuous delivery
 ---
 
 It’s fun to create product and service concepts. You can use your imagination and come up with great ideas for products and their features. You can even go all out and try to validate those ideas with real users using html and paper prototypes,. Emphasizing “try”.  Even at the best possible scenario you will be guesstimating based on your expertise, user’s feelings or your clients opinions. And based on this guesstimation you will be making some of the biggest decisions on your project.

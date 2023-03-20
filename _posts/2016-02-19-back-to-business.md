@@ -6,16 +6,16 @@ excerpt: Turning from a mother into a software developer. A normal day for me.
 categories: 
 - normipäivä
 tags:
-- normipäivä
-- normal day
-- programming
+- Normipäivä
+- Normal day
+- Programming
 - Java
 - Solita
 - Git
 - Jira
 - IntelliJ IDEA
-- parenthood
-- business logic
+- Parenthood
+- Business logic
 ---
 
 ## From a Mother into a Software Developer

@@ -5,7 +5,7 @@ author: arto
 excerpt: >
   Using tools to increase effectiveness has been a long-standing trend in the software development community. Latest wave comes in form of GPT-3, OpenAI, and ultimately GitHub Copilot. Let's try to answer the question: Can AI write your code?
 tags:
- - Software Development
+ - Software development
  - AI
  - GPT-3
  - OpenAI

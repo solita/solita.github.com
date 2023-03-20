@@ -4,10 +4,10 @@ title: Why are deep learning models so popular?
 author: jessevuorinen
 excerpt: Thoughts on why deep learning models are popular, and some tips on how to get started with them.
 tags:
-- data science
-- neural network
-- supervised learning
-- artificial intelligence
+- Data science
+- Neural network
+- Supervised learning
+- Artificial intelligence
 ---
 
 Deep learning (i.e. big neural networks) plays a central role in the ongoing boom of artificial intelligence and data science. Last year, a partly neural network based AI beat a human grandmaster for the first time in Go, a complex board game. Judging by the hype, it feels like deep neural networks can be found in every other state-of-the-art AI solution. In practice they have their downsides, but although they are not the be-all-end-all of machine learning algorithms, neural networks are versatile and useful. In our client projects, we have leveraged deep learning in image recognition and multivariate time series forecasting tasks, for example. What qualities make neural networks efficient?

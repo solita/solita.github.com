@@ -5,9 +5,9 @@ author: eerohe
 excerpt: >
   What are transducers and why should I care? Here's an attempt to answer that question.
 tags:
- - clojure
- - transducers
- - programming
+ - Clojure
+ - Transducers
+ - Programming
 ---
 
 So you're a Clojure programmer and you need to apply many transformation steps to a collection of items. Like, for example, you have a big list of things, and you need to remove some of them, transform others, then remove duplicates. What do you do?

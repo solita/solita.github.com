@@ -4,11 +4,11 @@ title: Solving Disobey 2019 puzzle with PowerShell!
 author: Rinorragi
 excerpt: I was able to claim my hacker badge for Disobey 2019 mainly using PowerShell.
 tags:
-- disobey
-- hacking
-- infosec
-- software security
-- devsecops
+- Disobey
+- Hacking
+- InfoSec
+- Software security
+- DevSecOps
 - PowerShell
 ---
 

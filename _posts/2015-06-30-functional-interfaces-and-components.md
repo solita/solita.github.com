@@ -6,7 +6,7 @@ excerpt: Functional programming encourages the use of data and functions instead
 tags:
 - Clojure
 - ClojureScript
-- functional programming
+- Functional programming
 ---
 
 Reusability of code is something most programmers would probably agree is a good thing. At least on a small scale.

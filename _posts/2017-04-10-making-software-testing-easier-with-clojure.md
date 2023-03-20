@@ -4,9 +4,9 @@ title: Making Software Testing Easier with Clojure
 author: jarzka
 excerpt: Introducing 4 things in Clojure that can reduce the hassle of writing automated software tests.
 tags:
-- clojure
-- clojurescript
-- software testing
+- Clojure
+- ClojureScript
+- Software testing
 ---
 
 Your shiny new feature is almost complete. All you need to do is to make sure that a few corner cases work properly by writing a few more automated tests. But knowing the hassle it is to setup the tests and mock components, you are not very excited. Sound familiar? Obviously, it should not be this way; testing should not be more difficult than writing production code. I want to talk about 4 things in Clojure that have made writing automatic software tests a bit easier and enjoyable. And if you are not using Clojure (yet), you might get some new ideas to adopt to your current toolset.

@@ -4,7 +4,7 @@ title: Writing automated tests for EPiServer websites
 author: riipah
 excerpt: What to test on the server side and how to test code interacting with the content repository
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
 ---
 

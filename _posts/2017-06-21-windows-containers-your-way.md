@@ -5,10 +5,10 @@ author: tommiraunio
 date: 2017-06-21 14:00:00 +0200
 excerpt: Windows Containers for .NET developers. State in 2017.
 tags:
-- windows containers
-- docker
+- Windows containers
+- Docker
 - DOTNET
-- Msbuild
+- MSBuild
 ---
 
 **This year Solita sent a two-man strike team to Microsoft Build at Seattle in the beginning of May. There were a lot of takeaways from the conference, but what I found most intriguing was the arrival of Docker Containers to the Windows ecosystem. At Build there were not only conference sessions but also an additional pre-day that focused only on Windows Containers. In the Linux ecosystem, Docker containers have been gaining popularity rapidly and now Windows Containers aim to follow suit. In this post, I'll share my view as a .NET developer on Windows Containers.**

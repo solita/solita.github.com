@@ -5,7 +5,7 @@ author: tepsley
 excerpt: >
   After January 31, 2022, Docker Desktop will require a paid subscription. Here you can find instructions for running Docker on WSL2 under Windows without Docker Desktop (target distributions being Debian & Ubuntu).
 tags:
-  - Software Development
+  - Software development
   - Docker
   - Docker Desktop
   - Windows

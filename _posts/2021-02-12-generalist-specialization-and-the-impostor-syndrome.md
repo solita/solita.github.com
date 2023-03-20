@@ -5,7 +5,7 @@ author: arto
 excerpt: >
   Impostor syndrome is a common visitor in our profession. We are often in charge of shaping the world of the future, while boldly going to new, unknown areas. In this article I'll touch on what is impostor syndrome, how to recognize it, what to do about it, and how it relates to being a generalist.
 tags:
- - Software Development
+ - Software development
  - Impostor syndrome
 ---
 

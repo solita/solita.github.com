@@ -4,9 +4,9 @@ title: Quick Tips for App Developers on Surviving with Unreliable Network
 author: jarzka
 excerpt: Things that you, as an application developer, can do to make your app feel more stable even if the underlying network is unreliable.
 tags:
-- clojure
-- clojurescript
-- network programming
+- Clojure
+- ClojureScript
+- Network programming
 ---
 
 You cannot always choose where your application will be hosted. Sometimes the network infrastructure can be unreliable, meaning that network requests can at times take a long time to complete and requests will fail at random rates. Even if these problems could not be prevented from happening, luckily we, as application developers, have some tricks we can use to make our applications *feel* more stable in unreliable network. And even if your network infrastucture is solid, it is not guaranteed that occasional communication failures will not happen, as illustrated in [Two Generals Problem](https://en.wikipedia.org/wiki/Two_Generals%27_Problem). Thus, these quick tips, targeted mainly at single page web application and mobile application developers, will probably help your application appear more stable and responsive for your end users.

@@ -7,9 +7,9 @@ tags:
 - REST
 - ClamAV
 - Virus
-- virus scanner
-- testing
-- microservices
+- Virus scanner
+- Testing
+- Microservices
 ---
 
 Every time we deal with user supplied content, such as file attachments, we must take precautions

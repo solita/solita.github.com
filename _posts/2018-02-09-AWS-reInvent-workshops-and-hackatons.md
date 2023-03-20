@@ -6,8 +6,8 @@ excerpt: AWS re:Invent contains several workshops and hackathons. Here are some 
 tags:
 - AWS
 - re:Invent
-- hackathon
-- workshop
+- Hackathon
+- Workshop
 ---
 
 ## Why workshops and hackathons?

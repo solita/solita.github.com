@@ -4,10 +4,10 @@ author: riipah
 title: Things to be aware of while integrating Active Directory with Episerver
 excerpt: Episerver comes with built-in functionality for AD integration, but while working on the integration I ran into multiple issues that would likely affect others as well, so I compiled those issues and their solutions into a blog post
 categories: 
-- Episerver
+- EPiServer
 tags:
-- programming
-- Episerver
+- Programming
+- EPiServer
 - Active Directory
 - LDAP
 - DOTNET

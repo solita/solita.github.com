@@ -5,11 +5,11 @@ author: lokori
 excerpt: Let's explore the art of Black Hat Programming, which is anything but your regular professional software development. How to exploit security vulnerabilities using Python like a pro?
 tags:
 - Python
-- hacking
-- infosec
-- software security
-- devsecops
-- exploit
+- Hacking
+- InfoSec
+- Software security
+- DevSecOps
+- Exploit
 ---
 
 

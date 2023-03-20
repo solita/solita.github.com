@@ -6,14 +6,14 @@ excerpt: >
  Slush is taking place right now.  The very peculiar culture there has
  two roots, which not always meet.
 tags:
-- culture
+- Culture
 - Slush
-- maintainability
-- open source
-- productisation
-- prototyping
-- hacker
-- startup
+- Maintainability
+- Open source
+- Productisation
+- Prototyping
+- Hacker
+- Startup
 ---
 
 I'm probably not the only one who, as a hacker, finds the business oriented culture of the startup ecosystem somewhat questionable.  It's not as if everybody involved in business were corrupted, airheaded or evil.  It is just that it's really hard to stay true and keep a level attitude when it's about money.  When you have to think about the productisation and monetisation of your great idea, both the idea and its original values are easily lost.  Simply because there's often no time to keep up both.

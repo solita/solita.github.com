@@ -4,6 +4,7 @@ title: Using AWS CodePipeline as CI/CD solution for MuleSoft Apps
 author: atteheino
 excerpt: Thoughts on using AWS Developer Tools to replace Jenkins as the CI/CD solution for MuleSoft Apps to be deployd to CloudHub
 tags:
+ - AWS
  - AWS CodeCommit
  - AWS CodePipeline
  - AWS CodeBuild

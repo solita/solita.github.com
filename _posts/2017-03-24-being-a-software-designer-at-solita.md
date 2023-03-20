@@ -5,9 +5,9 @@ author: jesperin
 excerpt: Developing made easy without a hassle.
 tags: 
 - Solita
-- professional development
-- culture
-- development
+- Professional development
+- Culture
+- Development
 ---
 I have been working for three years now as a Software Designer at Solita. During this time I have been involved in six different projects and I’m happy to say that they’ve all been different in regards of nature and my own role. In this post I will tell you how I experience Solita from the Software Designer’s perspective.
 

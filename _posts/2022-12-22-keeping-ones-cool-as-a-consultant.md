@@ -5,10 +5,10 @@ author: marja
 excerpt: >
   Some end-of-the-year reflections, some pros and cons of working as a consultant, and practical advice for stressful situations.
 tags:
- - consulting
- - stress
- - learning
- - self-compassion
+ - Consulting
+ - Stress
+ - Learning
+ - Self-compassion
 ---
 
 If you're a person who reacts well to changes and who can adjust to new situations with a shrug, this post is probably not for you. If, however, you're more like me and you have trouble adapting to big and fast changes, this might be for you.

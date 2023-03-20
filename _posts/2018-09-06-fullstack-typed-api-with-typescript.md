@@ -7,7 +7,7 @@ excerpt: >
   and the backend. Here's how to use it to ensure consistent API calls between
   the frontend and the backend.
 tags:
- - Api
+ - API
  - Full stack
  - TypeScript
 ---

@@ -10,12 +10,12 @@ excerpt: >
   all.  That is the case where we want to have a varying number of WHERE
   conditions in a database query.
 tags:
-- programming
+- Programming
 - Clojure
 - SQL
-- security
-- simplicity
-- orthogonality
+- Security
+- Simplicity
+- Orthogonality
 - Python
 ---
 

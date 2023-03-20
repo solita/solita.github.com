@@ -7,12 +7,12 @@ excerpt: >
   A peek into automated e2e-testing in a software project with Wicket Page Tester and JBehave/Selenium.
 tags:
 - Java
-- testing
-- e2e testing
+- Testing
+- E2E testing
 - JBehave
 - Wicket
 - Selenium
-- programming
+- Programming
 ---
 
 The software project concerned started in the beginning of autumn 2010. I had the honor to work in the project as a full stack developer from its beginning to June 2014 when my maternity leave began. The project's goal was to renew a 30 years old, technically outdated registry and everything attached to it, such as the user inteface and all the integrations. After three years of hard work the application was taken into use in production. The project is still alive and kicking, in maintenance mode with some feature developement.

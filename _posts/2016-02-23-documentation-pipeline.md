@@ -6,16 +6,16 @@ excerpt: Going beyond continous delivery, we want to automate documentation and 
 categories: 
 - future software development
 tags:
-- continuous delivery
-- documentation pipeline
+- Continuous delivery
+- Documentation pipeline
 - Travis CI
 - AWS
 - S3
-- database
-- automated documentation
+- Database
+- Automated documentation
 - Schemaspy
-- open development
-- open source
+- Open development
+- Open source
 ---
 
 ## Documentation pipeline

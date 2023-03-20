@@ -8,8 +8,8 @@ tags:
 - Java 9
 - Java EE
 - JavaOne
-- architecture
-- programming
+- Architecture
+- Programming
 ---
 
 Perhaps the biggest event for anyone who works on Java systems is the annual [Java One](https://www.oracle.com/javaone/)  conference in San Francisco. It's been the event where tens of thousands of people gather together to hear about latest news, rumors, hear the war stories of people who've done either similar, or very very different projects than you have, and generally to just absorb the wild atmosphere of the Silicon Valley.

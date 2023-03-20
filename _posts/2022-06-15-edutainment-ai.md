@@ -7,11 +7,11 @@ excerpt: During the spring of 2022 I had a chance to take part in the developmen
 
 tags:
   - AI
-  - Machine Learning
+  - Machine learning
   - iOS
   - Mobile
   - Gamification
-  - Open Source
+  - Open source
   - Heureka
 ---
 

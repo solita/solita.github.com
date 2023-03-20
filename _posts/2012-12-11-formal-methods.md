@@ -6,9 +6,9 @@ excerpt: To write great programs, one needs to know the theory of programming. H
 tags: 
 - NP
 - Turing
-- graph
-- algorithm
-- computer science
+- Graph
+- Algorithm
+- Computer science
 ---
 
 ### Practical programming over theory of programming? ###

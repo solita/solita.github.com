@@ -8,7 +8,7 @@ excerpt: >
 tags:
  - Testing
  - Performance
- - Software Development
+ - Software development
 ---
 
 In this article, I'll introduce you to a performance testing tool called [Locust](https://locust.io/).

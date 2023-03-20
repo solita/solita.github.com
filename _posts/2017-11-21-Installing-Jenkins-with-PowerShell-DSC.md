@@ -5,9 +5,9 @@ author: Rinorragi
 date: 2017-11-21 15:40:00 +0200
 excerpt: How to use PowerShell DSC in installing your continuous integration server.
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
 - DevOps
 - PowerShell

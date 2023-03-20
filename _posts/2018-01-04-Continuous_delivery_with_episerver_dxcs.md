@@ -5,9 +5,9 @@ author: Rinorragi
 date: 2018-01-04 09:00:00 +0200
 excerpt: How to do continuous delivery with the Episerver Digital Experience Cloud Service. 
 categories: 
-- Episerver
+- EPiServer
 tags: 
-- Episerver 
+- EPiServer 
 - DOTNET 
 - DevOps
 - DevSecOps
@@ -15,9 +15,9 @@ tags:
 - PowerShell
 - Jenkins
 - CI
-- continuous delivery
-- continuous deployment
-- continuous integration
+- Continuous delivery
+- Continuous deployment
+- Continuous integration
 ---
 I have put a lot of hours into building up a continuous delivery environment which I can be proud of. I already wrote [in my previous blog](http://dev.solita.fi/episerver/2017/11/21/Installing-Jenkins-with-PowerShell-DSC.html) about how to setup a Jenkins for this purpose. It was a ground work where we start building in this blog post. This blog post is about how to do continuous Delivery with Episerver Digital Experiance Cloud Service but nothing stops you to use this information in some other place.
 

@@ -5,9 +5,9 @@ author: jjjsaha
 excerpt: I finished my master's thesis on this subject last year. The research approached the topic from two different angles, RPA, and low-code application development. The specific tools studied were Robot Framework and Microsoft Power Platform.
   
 tags:
-  - thesis
+  - Thesis
   - RPA
-  - low-code
+  - Low-code
   - Robot Framework
   - Power Platform
 ---

@@ -4,9 +4,9 @@ title: How to implement a secure software development lifecycle
 author: Rinorragi
 excerpt: Sharing my experience and thoughts about implementing a secure software development lifecycle
 tags:
-- infosec
-- software security
-- devsecops
+- InfoSec
+- Software security
+- DevSecOps
 ---
 
 ## What is the Secure Software Development Lifecycle
