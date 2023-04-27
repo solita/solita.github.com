@@ -113,8 +113,8 @@ When executing a program we need some context. In this case we need the current 
 "turtle" (X, Y), the color of the pen and the current angle the turtle is facing.
 
 We can model this state as a compound term of `t(X,Y,Color,Ang)`.
-Then we have to define the grammar rules for the commands. For this example I will use SVG elements
-to draw and append each picture part to an existing DOM node.
+Then we have to define the grammar rules for the commands. For this example I will use HTML Canvas
+element 2D context to draw the picture.
 
 ```prolog
 % Basic DCG state helper nonterminals
