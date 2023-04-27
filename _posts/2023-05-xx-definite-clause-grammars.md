@@ -6,7 +6,7 @@ excerpt: >
     We all know Prolog is great for text processing, but Definite Clause Grammars (DCGs) have much
     more power. DCGs are also great for implementing procedural algorithms.
 tags:
- - prolog
+ - Prolog
 ---
 
 Prolog is now over 50 years old and most people know it from some university course on logic
