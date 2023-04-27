@@ -14,13 +14,13 @@ programming. Despite its relative obscurity outside logic programming Prolog can
 general purpose programming language and implementations exist for most environments (either
 natively or through JavaScript).
 
-In this post I will focus on using Definite Clause Grammars (DCGs) for parsing and interpreting a
-toy Logo like language for creating programmatic graphics. I will not delve on the background of
+In this post, I will focus on using Definite Clause Grammars (DCGs) for parsing and interpreting a
+toy Logo-like language for creating programmatic graphics. I will not delve into the background of
 DCGs. For more information on it, see the [Wikipedia page](https://en.wikipedia.org/wiki/Definite_clause_grammar)
 and watch the excellent [video](https://www.youtube.com/watch?v=CvLsVfq6cks) on Markus Triska's
 The Power of Prolog youtube channel.
 
-In this post we are using the open source [SWI-Prolog](https://www.swi-prolog.org) implementation.
+In this post we are using the open-source [SWI-Prolog](https://www.swi-prolog.org) implementation.
 See the end of the post for a link to the full code.
 
 ## Say the magic phrase
@@ -50,8 +50,8 @@ Now we can move to a more substantial grammar.
 
 ## A toy Logo language
 
-Logo is an educational programming language which many people will remember from turtle graphics.
-We define a toy Logo like language that can be used to create graphics programmatically.
+Logo is an educational programming language that many people will remember from turtle graphics.
+We define a toy Logo-like language that can be used to create graphics programmatically.
 
 Turtle graphics are usually defined by having an implicit current position and direction and issuing
 commands that move from the current position.
@@ -66,10 +66,10 @@ This language, while not a real programming language yet, is enough to create so
 
 ## Defining the grammar rules
 
-Next we need to define the nonterminals that make up the grammar of our language.
+Next, we need to define the nonterminals that make up the grammar of our language.
 We start with the topmost rule to parse a list of commands which we will call `turtle`.
 
-In the rules comma is read as "and then" and the vertical bar as alternative.
+In the rules, comma is read as "and then" and the vertical bar as alternatives.
 The `blanks` rule is any amount of whitespace characters.
 
 ```prolog
@@ -86,9 +86,9 @@ repeat(repeat(N,Cmds)) --> "repeat", blanks, integer(N), blanks, "[", turtle(Cmd
 ```
 
 This grammar states that a turtle program has possibly some blanks then a command, possibly more
-blanks and then more commands. Empty input means an empty list of commands.
+blanks, and then more commands. Empty input means an empty list of commands.
 
-Then we define a command as an alternatives of the different commands and each command as its own
+Then we define a command as alternatives of the different commands clauses and each command as its own
 nonterminal. The commands repeat the name because we want to define the Prolog compound terms that
 make up the parsed data.
 
@@ -98,22 +98,22 @@ We can use this phrase to parse a simple program:
 T = [repeat(5, [fd(25), rt(144)])] .
 ```
 
-Now we can clearly see the parsed representation of the program. We are ready to do something with
+Now we can see the parsed representation of the program. We are ready to do something with
 this program. Can you guess what the above snippet will draw?
 
 
 ## Executing the program
 
 The power of DCGs is not limited to just parsing text, but we can model a stateful process by modeling
-the relation between the previous state and the next state. We can use the semicontext notation to
+the relationship between the previous state and the next state. We can use the semicontext notation to
 define the next state as the remaining list. The semicontext notation allows us to pass arguments
 implicitly (like monads).
 
-When executing a program we need some context. In this case we need the current position of our
-"turtle" (X, Y), the color of the pen and the current angle the turtle is facing.
+When executing a program we need some context. In this case, we need the current position of our
+"turtle" (X, Y), the color of the pen, and the current angle the turtle is facing.
 
 We can model this state as a compound term of `t(X,Y,Color,Ang)`.
-Then we have to define the grammar rules for the commands. For this example I will use HTML Canvas
+Then we have to define the grammar rules for the commands. For this example, I will use HTML Canvas
 element 2D context to draw the picture.
 
 ```prolog
@@ -159,7 +159,7 @@ order and define a separate clause for each of the commands. The `fd` is the mos
 one as it does some JS interop to call `<canvas>` element context (which we define on the
 host HTML page).
 
-The pen and rt just define the relation between the previous and next states. Even without
+The pen and rt just define the relationship between the previous and next states. Even without
 any mutable state, the code looks quite nice and simple.
 
 ```prolog
@@ -191,13 +191,17 @@ A minimalist clock face:
 
 ## Further work and conclusions
 
-In this post we created a simple parser and interpreter for a toy Logo like language.
+In this post, we created a simple parser and interpreter for a toy Logo-like language.
 
 You could easily add more commands and programming language features (like variables and
-arithmetic expression) to make it more like a "real" programming language. We also didn't
+arithmetic expressions) to make it more like a "real" programming language. We also didn't
 do any error handling. Any parse syntax errors will just fail the `run` goal.
 
-But even as it stands, this shows that DCGs are a very powerful feature of Prolog.
+Another avenue of extension would be making the interpretation more abstract. You could give a
+template goal to do the actual drawing. This way you could extend to different rendering engines
+like SVG elements or PDFs.
+
+But even as it stands, this hopefully shows that DCGs are a very powerful feature of Prolog.
 
 In this post we used [SWI-Prolog WASM](https://www.swi-prolog.org/pldoc/man?section=wasm) build and
 its JS interop features. There are also other implementations that can be used in the browser,
