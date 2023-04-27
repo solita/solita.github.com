@@ -16,7 +16,7 @@ natively or through JavaScript).
 
 In this post I will focus on using Definite Clause Grammars (DCGs) for parsing and interpreting a
 toy Logo like language for creating programmatic graphics. I will not delve on the background of
-DCGs. For more information on it, see the [Wikipedia page]((https://en.wikipedia.org/wiki/Definite_clause_grammar)
+DCGs. For more information on it, see the [Wikipedia page](https://en.wikipedia.org/wiki/Definite_clause_grammar)
 and watch the excellent [video](https://www.youtube.com/watch?v=CvLsVfq6cks) on Markus Triska's
 The Power of Prolog youtube channel.
 
