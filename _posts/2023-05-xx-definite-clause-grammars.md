@@ -179,11 +179,13 @@ Now we are ready to run our program example from before. Did you guess what it i
 
 Yes, you guessed correctly, you get a star!
 
-Here are some more stars:
+Here are a couple of more examples:
 
+A circle of starts:
 ![toy logo many stars](/img/2023-dcg/toy-logo-many-stars.png)
 `pen 250 50 50 repeat 6 [ repeat 5 [ fd 50 rt 144 ] fd 50 rt 60]`
 
+A minimalist clock face:
 ![toy logo clock face](/img/2023-dcg/toy-logo-clock-face.png)
 `repeat 120 [ fd 3 rt 3 ] rt 90 fd 60 rt 30 fd 30`
 
