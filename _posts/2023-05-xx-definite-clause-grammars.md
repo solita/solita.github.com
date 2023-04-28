@@ -11,7 +11,7 @@ tags:
 
 Prolog is now over 50 years old and most people know it from some university course on logic
 programming. Despite its relative obscurity outside logic programming Prolog can be used as a
-general purpose programming language and implementations exist for most environments (either
+general-purpose programming language and implementations exist for most environments (either
 natively or through JavaScript).
 
 In this post, I will focus on using Definite Clause Grammars (DCGs) for parsing and interpreting a
