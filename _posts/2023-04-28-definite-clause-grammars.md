@@ -20,7 +20,7 @@ DCGs. For more information on it, see the [Wikipedia page](https://en.wikipedia.
 and watch the excellent [video](https://www.youtube.com/watch?v=CvLsVfq6cks) on Markus Triska's
 The Power of Prolog youtube channel.
 
-In this post we are using the open-source [SWI-Prolog](https://www.swi-prolog.org) implementation.
+In this post, we are using the open-source [SWI-Prolog](https://www.swi-prolog.org) implementation.
 See the end of the post for a link to the full code.
 
 ## Say the magic phrase
