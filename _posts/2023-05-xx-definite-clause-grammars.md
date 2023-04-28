@@ -181,7 +181,7 @@ Yes, you guessed correctly, you get a star!
 
 Here are a couple of more examples:
 
-A circle of starts:
+A circle of stars:
 ![toy logo many stars](/img/2023-dcg/toy-logo-many-stars.png)
 `pen 250 50 50 repeat 6 [ repeat 5 [ fd 50 rt 144 ] fd 50 rt 60]`
 
