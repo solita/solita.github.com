@@ -203,7 +203,7 @@ like SVG elements or PDFs.
 
 But even as it stands, this hopefully shows that DCGs are a very powerful feature of Prolog.
 
-In this post we used [SWI-Prolog WASM](https://www.swi-prolog.org/pldoc/man?section=wasm) build and
+In this post, we used [SWI-Prolog WASM](https://www.swi-prolog.org/pldoc/man?section=wasm) build and
 its JS interop features. There are also other implementations that can be used in the browser,
 especially [Tau Prolog](http://tau-prolog.org) which is written in JavaScript. Some details of the
 interop and DCG libraries differ between implementations, so check the documentation.
