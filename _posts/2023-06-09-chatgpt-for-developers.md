@@ -24,6 +24,8 @@ Imagine you've stepped into unfamiliar territory with a new programming language
 
 ChatGPT is that translator. It understands mainstream languages like Python, Java, and C++, as well as less common ones like Haskell, Lisp, Mumps, and even Commodore 64 Basic. Need help with a Bash script or decoding regex? ChatGPT is on it.
 
+![Generating regular expressions](/img/chatgpt-for-developer/generate_regex.png)
+
 By analyzing vast amounts of text data from the web, ChatGPT generates code sequences that mimic the insights of experienced coders. Stuck on a JavaScript function? ChatGPT can help. Unsatisfied with the result? Ask for a rewrite. It's like having a tireless coding partner, always ready to help.
 
 If you're a Python master suddenly thrown into a Ruby project, you can ask ChatGPT questions like "How does array iteration work in Ruby?" or "What's the Ruby equivalent of Python’s list comprehension?" If you're having trouble with your code or tools, ChatGPT is there to offer guidance.
@@ -39,6 +41,10 @@ A developer's job isn't just about coding. We also design, debug, test, document
 Have you ever felt lost in a maze of undocumented code? ChatGPT can help by turning cryptic code into understandable narratives. Need to write test code? Ask ChatGPT to create tests based on a draft specification, then refine the tests until they meet your needs.
 
 Planning to refactor? ChatGPT can assist. With a simple "refactor this code" command, it can transform your code into a neater version. You can also tailor its approach by giving specific instructions like "refactor this code in a more functional manner."
+
+Need some specifications or database models to start iterating the solution? ChatGPT can help with that too. Just ask it to generate a database model or a specification based on your requirements. It can even generate a basic UI and the first POC for your app. Perhaps you could do with some synthesized test data that is not too far from the real thing?
+
+![Generating test data](/img/chatgpt-for-developer/generate_test_data.png)
 
 And if you have Java code that you need to translate into Python, ChatGPT's multilingual abilities can help save precious time. It's particularly useful for translating code written in languages you don't use often.
 
@@ -56,11 +62,15 @@ Just as you would do with a human assistant, ensure you give clear and detailed 
 
 Tokens are like words - units that the AI model reads in sections. Using larger token limits allows you to provide more context for ChatGPT to work with. But remember, both your inputs and the model's outputs count towards these limits. Providing plenty of context can result in more detailed and accurate responses.
 
+Note: Currently the GPT-4 model has much larger token limits available than the older GPT-3 model. There has also been some plans to raise the token limits to crazy numbers like a million. Of course tokens cost resources, and thus money to use, so there's something to be said also for being concise and using summaries for cost optimization purposes. You have to find the right balance between the two.
+
 ### Explore the OpenAI Playground
 
 While ChatGPT is great for natural language interfaces, the OpenAI Playground offers a more technical and flexible platform to harness AI's capabilities. The Playground allows you to adjust parameters like temperature and max tokens, enabling you to fine-tune the interaction for the best results.
 
-And there's also the API to build your own tools.
+![OpenAI Playground](/img/chatgpt-for-developer/openai_playground.png)
+
+And there's also the API to build your own tools. Using the API, you can of course integrate ChatGPT into your own applications, but you can also build your own tools to help you with your work. For example, you could build assistant chatbots, a tool that generates test data for you, or a tool that generates documentation for your code. I'm sure we'll see more of these offerings in the future.
 
 ### Keep Iterating
 
@@ -99,3 +109,9 @@ ChatGPT is a powerful tool that can help you become a more productive and effici
 While you should stay cautious about the use of sensitive or proprietary data and source code, you should keep up to date with these trends and tooling, and be ready to adapt to the future of AI in software development. This means even better tooling to boost your work and productivity and raise the abstraction level of producing good quality software solutions faster.
 
 Currently, there's a lot going on in the AI space, and it's hard to predict what the future holds. But if I had to hazard a guess, I would say we will see the models get lighter and more compact, cheaper to use, and more accessible to everyone. This would mean being able to embed these capabilities into your own solutions easier and being able to control the data and privacy aspects better. This has already begun, but it will only get better from here.
+
+## Some useful links and references
+
+- <https://www.solita.fi/en/generative-ai/>
+- <https://openai.com/blog/chatgpt>
+- <https://azure.microsoft.com/en-in/products/cognitive-services/openai-service/>
