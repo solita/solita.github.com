@@ -115,3 +115,5 @@ Currently, there's a lot going on in the AI space, and it's hard to predict what
 - <https://www.solita.fi/en/generative-ai/>
 - <https://openai.com/blog/chatgpt>
 - <https://azure.microsoft.com/en-in/products/cognitive-services/openai-service/>
+- <https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/2804309>
+- <https://www.trendmicro.com/en_fi/devops/23/e/chatgpt-security-vulnerabilities.html>
