@@ -112,12 +112,12 @@ After reading this, you should have a basic knowledge of what accessibility is a
 
 The internet is full of resources to help you. There are plenty of videos on YouTube to explain accessibility (I like Africa Kenyah's videos, for example [Intro to Web Accessibility for Web Developers](https://www.youtube.com/watch?v=nUBpmGHxDro)). There are also lots of blog posts and articles to help you.
 
-### Some links
-
-These are also worth checking out:
+### Some links to documentations or resources
 
 - Basic stuff explained: [Web accessibility in Wikipedia](https://en.wikipedia.org/wiki/Web_accessibility)
+- [MDN's A11y documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
 - Information about HTML elements and attributes: [MDN's HTML documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - Information about Accessible Rich Internet Applications (ARIA): [MDN's ARIA documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 - [A11y collective's courses and trainings](https://www.a11y-collective.com/)
+- [WebAIM's color contrast checker](https://webaim.org/resources/contrastchecker/)
 - [WCAG 2.1 guidelines](https://www.w3.org/TR/2018/REC-WCAG21-20180605)
