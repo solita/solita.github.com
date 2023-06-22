@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Basic web accessibility
+title: How to get started with web accessibility
 author: marja
 excerpt: >
-  A look into what web accessibility is and how it should be taken into account.
+  A look into what web accessibility is and some concrete tips on how to get started with it.
 tags:
  - Accessibility
  - Testing
@@ -14,11 +14,13 @@ In this post, I will go through what accessibility is, why it matters, and expla
 
 ## What is accessibility
 
-![A screenshot from an online dictionary showing the word accessibility with pronunciation instructions](/img/basic-web-accessibility/accessibility.png)
-
 Accessibility might mean different things. First of all, it might be about the accessibility of the physical world. It relates to questions like "Is everyone able to reach a certain place, whether or not they use a wheelchair or a walking stick?" or "Is everyone able to find their way if they do not hear or see?" 
 
 Secondly, (web) accessibility is about designing and creating web services and sites that are accessible by all. Different types of disabilities can be **permanent** (e.g. blindness, deafness, physical disability), **temporary** (e.g. an injury, or after a medical procedure), or **situational** (e.g. needing captions on a video because you're in a loud environment). Web accessibility might relate to questions like "Is everyone able to interact with a web page if they only use a keyboard to navigate?" or "Is everyone able to reach their goal on the page if they use a screen reader?" or "Does everyone have a good enough device to use the web page?" In this text, I'm focusing on web accessibility and will refer to it as accessibility.
+
+![A photo of eye glasses in front of monitors showing code](/img/how-to-get-started-with-web-accessibility/pexels-kevin-ku-577585.jpg)
+
+> Photo from Pexels by [Kevin Ku](https://www.pexels.com/@kevin-ku-92347/)
 
 ## Why you should care
 
@@ -48,9 +50,13 @@ Text on the web page needs to have a contrast of 4.5:1 compared to the backgroun
 
 There are plenty of tools online to help you check the contrast between two colours. If the colour of the background varies, the contrast requirement needs to be met with all of the shades in the background.
 
+> This screenshot is from adidas.com's front page. The contrast between the concrete-looking background and the white text is only 1.62:1. (The contrast tool I am using is [Contraste](https://contrasteapp.com/).)
+
+![A screenshot from adidas.com where white text is shown on top of a picture with too low contrast difference](/img/how-to-get-started-with-web-accessibility/adidas.png)
+
 ### Links without context
 
-Many screen reader users might only go through the links on a page to find what they are looking for ([WCAG 2.1 criterion for link context](https://www.w3.org/TR/2018/REC-WCAG21-20180605/#link-purpose-in-context)). So link with texts like "here" or "read more" are no use to them. Go where? Read more about what?
+Many screen reader users might only go through the links on a page to find what they are looking for ([WCAG 2.1 criterion for link context](https://www.w3.org/TR/2018/REC-WCAG21-20180605/#link-purpose-in-context)). So links with text like "here" or "read more" are of no use to them. Go where? Read more about what?
 
 Link texts should always have the context with them. "Here" could be "Contact information" and "read more" could be "Privacy policy". If an unclear link text is needed, an aria-label needs to be added.
 
@@ -86,9 +92,13 @@ Some users are only able to navigate web pages with their keyboard. Some choose 
 
 Pay extra attention to dropdowns, and hamburger menus. The latter might not be reachable at all without some fixes. Dropdowns might have a search functionality in them and that adds even more things to bear in mind when developing and testing them.
 
+> This screenshot is from boozt.com. I was using Voiceover on Mac as a screen reader and navigating with my keyboard. I wanted to click on the "Only necessary cookies" button. But that was not possible using only the keyboard. The keyboard focus moved from "Cookie policy" to "Privacy policy" (that's what you'd expect). Then it jumped to "Analytics" (wat?). From there it went to "Marketing" and then finally "Cookie settings". That was the end of the road. At no point were the "Only necessary cookies" or "Accept all cookies" active.
+
+![A screenshot from boozt.com. It is showing a cookie consent dialog which has a keyboard trap](/img/how-to-get-started-with-web-accessibility/boozt.png)
+
 ## Automatic testing to the rescue?
 
-Automatic accessibility testing can be a big help. It will help you find many basic errors. There are many tools for automatic testing, for example [WAVE Evaluation Tool](https://wave.webaim.org/extension/) by WebAIM, Google Chrome's [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en), and [aXe Devtools](https://www.deque.com/axe/devtools/).
+Automatic accessibility testing can be a big help. It will help you find many basic errors. There are many tools for automatic testing, for example [WAVE Evaluation Tool](https://wave.webaim.org/extension/) by WebAIM, Google Chrome's [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en), [Pa11y](https://pa11y.org/), and [aXe Devtools](https://www.deque.com/axe/devtools/).
 
 But you should bear in mind, that none of these tools will catch everything. And none of them understands the text on your page. There might be no semantic accessibility issues but they cannot check if the text content is understandable. People with cognitive disabilities require clear and to-the-point content on the page. They might be indifferent to inconsistent heading levels or missing alternative texts but vague or wordy texts can be a deal breaker.
 
@@ -101,3 +111,13 @@ One thing to remember is that it is possible to build a perfectly accessible pag
 After reading this, you should have a basic knowledge of what accessibility is and why it matters. You also have some understanding of what to be on the lookout for to tackle some of the common accessibility issues. 
 
 The internet is full of resources to help you. There are plenty of videos on YouTube to explain accessibility (I like Africa Kenyah's videos, for example [Intro to Web Accessibility for Web Developers](https://www.youtube.com/watch?v=nUBpmGHxDro)). There are also lots of blog posts and articles to help you.
+
+### Some links
+
+These are also worth checking out:
+
+- Basic stuff explained: [Web accessibility in Wikipedia](https://en.wikipedia.org/wiki/Web_accessibility)
+- Information about HTML elements and attributes: [MDN's HTML documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- Information about Accessible Rich Internet Applications (ARIA): [MDN's ARIA documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+- [A11y collective's courses and trainings](https://www.a11y-collective.com/)
+- [WCAG 2.1 guidelines](https://www.w3.org/TR/2018/REC-WCAG21-20180605)
