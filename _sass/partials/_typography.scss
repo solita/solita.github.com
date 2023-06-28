@@ -229,6 +229,7 @@ h5 {
 a {
   color: $brand-red;
   text-decoration: none;
+  font-weight: 600;
 
   &:hover {
     @include link-hover;
@@ -309,8 +310,8 @@ caption {
 }
 
 blockquote {
-  border-left: 2px solid #bbb;
-  color: #888;
+  border-left: 2px solid $brand-red;
+  color: $brand-gray80;
   margin: 0 0 1.6em;
   padding-left: 2em;
 }
