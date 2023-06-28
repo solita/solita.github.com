@@ -20,11 +20,6 @@
         }
     }
     
-    &:focus {
-        outline: thin dotted;
-        outline-offset: -2px;
-    }
-    
     &__svg {
         position: relative;
         height: 2rem;
