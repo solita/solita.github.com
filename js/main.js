@@ -34,7 +34,7 @@
 
             avatar.render({}, directives);
             avatar.attr('href', url);
-            avatar.attr('aria-hidden', true)
+            avatar.attr('aria-hidden', true);
             $this.prepend(avatar);
         });
     });
