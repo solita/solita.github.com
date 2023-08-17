@@ -37,11 +37,11 @@ We want to thank Sami for the good work he did with the challenging topic!
 
 The literature review conducted as the first step of the thesis work revealed that there is scarce research on low-code platforms and their security. Therefore, a novel method for assessing ASVS compliance was developed. Two decision trees were created, one for each of the two ASVS levels. See Figures 1 and 2 below.
 
-![Figure 1](ASVSLevel1.png)
+![Figure 1](/img/outsystems-asvs/ASVSLevel1.png)
 
 Figure 1
 
-![Figure 2](ASVSLevel2.png)
+![Figure 2](/img/outsystems-asvs/ASVSLevel2.png)
 
 Figure 2
 
