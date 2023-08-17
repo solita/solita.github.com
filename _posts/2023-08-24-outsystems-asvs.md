@@ -78,5 +78,5 @@ The direct impact of the results can be seen in how Solita will use OutSystems i
 
 [3] [https://success.outsystems.com/support/security/develop_secure_outsystems_apps/how_outsystems_helps_you_address_owasp_top_10/](https://success.outsystems.com/support/security/develop_secure_outsystems_apps/how_outsystems_helps_you_address_owasp_top_10/) 
 
-[4] [https://www.utupub.fi/bitstream/handle/10024/173528/Spets_Sami_DI.pdf](https://www.utupub.fi/bitstream/handle/10024/173528/Spets_Sami_DI.pdf).
+[4] [https://www.utupub.fi/bitstream/handle/10024/173528/Spets_Sami_DI.pdf](https://www.utupub.fi/bitstream/handle/10024/173528/Spets_Sami_DI.pdf)
 
