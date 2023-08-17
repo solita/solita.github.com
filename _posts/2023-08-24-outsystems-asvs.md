@@ -11,7 +11,7 @@ tags:
  - ASVS
 ---
 
-This post comprises two parts: an introduction, giving the Solita context by Martti Ala-Rantala, and the presentation of the thesis, by Sami Spets. For the published thesis, see [4].
+This post comprises two parts: an introduction, giving the Solita context by Martti Ala-Rantala, and the presentation of the thesis, by Sami Spets, [savasp@utu.fi](mailto:savasp@utu.fi). For the published thesis, see [4].
 
 ## Introduction
 
