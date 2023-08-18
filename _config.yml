@@ -10,6 +10,14 @@ kramdown:
   input: GFM
 
 authors:
+  samispets: 
+    Name: Sami Spets
+    email: d27f82f9b8b689530c6ccb5e720657b4
+    url: https://www.utu.fi/en
+  Hubmara:
+    name: Martti Ala-Rantala
+    email: 42703b821c12ab3885266fa90099bffa
+    url: http://www.solita.fi
   jarno:
     name: Jarno Peltoniemi
     email: 30bad10249ad7938521a26ea1cafcd8a
