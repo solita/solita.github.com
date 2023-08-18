@@ -16,7 +16,9 @@ jobs:
           ref: ${{ github.ref }}
       - name: Fetch history of master branch
         run: git fetch origin master:master --depth=1
+      - name: Build docker image
+        run: docker build ./rule-keeper/ -t rule-keeper
       - name: Test Rule Keeper
-        run: docker compose -f ./rule-keeper/docker-compose.yml run tests
+        run: docker run -v ./rule-keeper:/usr/src/app:ro rule-keeper python -m unittest
       - name: Test content
-        run: docker compose -f ./rule-keeper/docker-compose.yml run checker
+        run: docker run -v .:/usr/src/app:ro rule-keeper  python rule-keeper/main.py
