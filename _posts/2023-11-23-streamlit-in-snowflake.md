@@ -4,8 +4,8 @@ title: Unveiling the Power of Streamlit in Snowflake - A Guide to Hosting Intera
 author: erikkronberg
 excerpt: Creating and hosting Streamlit applications in Snowflake, a comprehensive guide
 tags:
- - snowflake
- - streamlit
+ - Snowflake
+ - Streamlit
  - OpenAI
  - Prompting
 ---
