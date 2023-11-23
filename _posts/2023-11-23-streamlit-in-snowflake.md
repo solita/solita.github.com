@@ -6,6 +6,8 @@ excerpt: Creating and hosting Streamlit applications in Snowflake, a comprehensi
 tags:
  - snowflake
  - streamlit
+ - OpenAI
+ - Prompting
 ---
 Streamlit, an open-source Python library for creating custom 
 web apps, particularly shines in machine learning and data 
