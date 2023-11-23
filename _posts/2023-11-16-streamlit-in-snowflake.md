@@ -17,7 +17,7 @@ It also opens up the avenue for users which are not that tech-savy to
 view, filter and and even query data with natural language (with the help of LLMs) 
 through the power of Streamlit.
 
-# Streamlit and Snowflake Integration: The Final Piece in a Complete Data Platform Puzzle?
+## Streamlit and Snowflake Integration: The Final Piece in a Complete Data Platform Puzzle?
 
 Streamlit's recent integration into Snowflake has opened up 
 exciting opportunities for data visualization and interactivity 
@@ -27,14 +27,17 @@ now also covered the AI & machine learning demand. But one important
 aspect when working with data is also to visualize and make it easy 
 to interact with. To tackle this Snowflake has put their money on Streamlit 
 which they believe will take their data platform to the next 
-level. This blog post explores the potential and current limitations of 
+level. 
+
+
+This blog post explores the potential and current limitations of 
 hosting Streamlit apps in Snowflake during its public preview, and
 an introduction on how you yourself can create your first Streamlit 
 application which utilize an LLM-model from OpenAI.
 
 
 
-## Key points before diving in
+### Key points before diving in
 - As Streamlit in Snowflake still only is in public preview 
 there are some limitations. This unfortunatly means that not 
 all features are supported, see the full list here [Unsupported Streamlit Features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations#unsupported-streamlit-features)
@@ -56,39 +59,42 @@ CREATE STREAMLIT, and CREATE STAGE privileges. For
 viewing a Streamlit app, specific privileges within a 
 Snowflake account are essential.
 
-# Building your first MULTI-PAGE Streamlit Application in Snowflake
+## Building your first MULTI-PAGE Streamlit Application in Snowflake
 
 When creating a Streamlit application in Snowflake you can 
 either create it using Snowsight or by uploading your files to a
 Snowflake internal stage and the creating a Streamlit object
 using SQL. As we also want to use a function that sends data to OpenAIs 
 servers we first need to create a Snowflake User Defined Function, UDF, 
-that has an External Access Integration for traffic to OpenAI. We can 
-do this easily in four steps in Snowflake. One important thing is that 
+that has an External Access Integration for traffic to OpenAI. 
+We can do this easily in four steps in Snowflake. 
+
+
+One important thing is that 
 you will need admin access for your Snowflake database and an OpenAI API 
 key to do this.
 
-### Step 1 - Create a Secret object for OpenAI API key
+**Step 1 - Create a Secret object for OpenAI API key**
 ```
 CREATE OR REPLACE SECRET dash_open_ai_api
     TYPE = GENERIC_STRING
     SECRET_STRING = 'YOUR_OPENAI_API_KEY';
 ```
-### Step 2 - Create a Network Rule object
+**Step 2 - Create a Network Rule object**
 ```
 CREATE OR REPLACE NETWORK RULE dash_apis_network_rule
  MODE = EGRESS
  TYPE = HOST_PORT
  VALUE_LIST = ('api.openai.com');
 ```
-### Step 3 - Create an External Access Integration object
+**Step 3 - Create an External Access Integration object**
 ```
 CREATE OR REPLACE EXTERNAL ACCESS INTEGRATION dash_external_access_int
  ALLOWED_NETWORK_RULES = (dash_apis_network_rule)
  ALLOWED_AUTHENTICATION_SECRETS = (dash_open_ai_api)
  ENABLED = true;
 ```
-### Step 4 - Create a UDF with your External Access Integration and your Python code
+**Step 4 - Create a UDF with your External Access Integration and your Python code**
 ```
 CREATE OR REPLACE FUNCTION YOUR_DB.YOUR_SCHEMA.YOUR_FUNCTION("dict_1" VARCHAR(16777216), "dict_2" VARCHAR(16777216))
 RETURNS VARCHAR(16777216)
@@ -110,14 +116,12 @@ def complete_me(dict_1,dict_2):
     return response.choices[0].message["content"]
 ';
 ```
-<br>
 Now that we have an UDF with an External Access Integration our next 
 step is to implement this into a Streamlit application locally before
 we can upload anything to our Snowflake Internal Stage. In the next steps 
 we will go over the actual Streamlit application that we will then host on 
 Snowflake. 
 
-<br>
 When creating Streamlit applications you need to follow a specific 
 directory structure. You'll need a main folder, in this case we'll
 name it "Streamlit" and in this folder you will place your main file,
@@ -128,17 +132,12 @@ folder we also create another folder named "pages", here we will place
 our other pages which are not the main page. Which in our case will only
 be one file. So in the end your directory structure should look like this.
 
-<br>
-
 ```
 └── streamlit/
     └── Home_Page.py
     └── pages/
          └── LLM_Control_Panel.py
 ```
-
-<br>
-
 The Home_Page.py will be the main page were you can generate 
 your prompt via an user interface that calls on our Snowflake UDF which 
 has access to OpenAI and returns and displays the result. 
@@ -191,7 +190,6 @@ if __name__ == '__main__':
     main()
 
 ```
-<br>
 
 The second file will have functionalties so that you modify the chat 
 user interface and also the prompt that you send to OpenAI. 
@@ -281,7 +279,6 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-<br>
 
 ## Loading Streamlit Application into Snowflake Internal Stage
 
@@ -300,15 +297,12 @@ PUT file:///<path_to_your_root_folder>/<internal_stage_name>/Home_Page.py @strea
 PUT file:///<path_to_your_root_folder>/<internal_stage_name>/pages/LLM_Control_Panel.py @streamlit_db.steamlit_schema.streamlit_stage/pages/ overwrite=true auto_compress=false;
 ```
 
-<br>
 When we have succesfully uploaded our files into our Snowflake 
 internal stage we can then create our Streamlit object using SQL. 
 Here we only need to add the name of the application, the root 
 location which is our Snowflake internal stage, the main file 
 which in this case is the home_page.py file and also which 
 warehouse we want to use. Se an example of this SQL query below.
-
-<br>
 
 ```
 CREATE STREAMLIT name_of_application
@@ -326,7 +320,7 @@ You can now visit it via the Streamlit tab in Snowsight and try it out.
 ![](/img/streamlit-in-snowflake/application_in_snowflake.png)
 
 
-# Concluding Thoughts on Streamlit in Snowflake
+## Concluding Thoughts on Streamlit in Snowflake
 
 Streamlit's integration into Snowflake marks a significant 
 advancement in data visualization and interaction capabilities 
