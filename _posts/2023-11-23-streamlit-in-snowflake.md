@@ -66,7 +66,10 @@ Snowflake account are essential.
 When creating a Streamlit application in Snowflake you can 
 either create it using Snowsight or by uploading your files to a
 Snowflake internal stage and the creating a Streamlit object
-using SQL. As we also want to use a function that sends data to OpenAIs 
+using SQL. 
+<br>But if you want to create multi-page applications 
+you can only do this by uploading via internal stage. As we also want 
+to use a function that sends data to OpenAIs 
 servers we first need to create a Snowflake User Defined Function, UDF, 
 that has an External Access Integration for traffic to OpenAI. 
 We can do this easily in four steps in Snowflake. 
