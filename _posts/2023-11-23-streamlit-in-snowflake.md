@@ -319,7 +319,7 @@ QUERY_WAREHOUSE = my_warehouse;
 
 You can now visit it via the Streamlit tab in Snowsight and try it out.
 
-![](/img/streamlit-in-snowflake/application_in_snowflake.png)
+![](/img/streamlit-in-snowflake/streamlit-in-snowflake.gif)
 
 
 ## Concluding Thoughts on Streamlit in Snowflake
