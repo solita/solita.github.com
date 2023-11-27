@@ -49,8 +49,8 @@ in the future.
 - You can also use your favorite python packages for Streamlit in Snowflake
 with the little exception that they need to be in the Snowflake Anaconda Channel,
 you can see which packages are available and what version here [Snowflake Conda Channel](https://repo.anaconda.com/pkgs/snowflake/)
-- As of now only Azure Snowflake accounts have access to 
-Streamlit in Snowflake, AWS and GCP will be rolled out in 
+- As of now only AWS Snowflake accounts have access to 
+Streamlit in Snowflake, Azure and GCP will be rolled out in 
 the coming months.
 - You need to accept Anaconda's terms of service for your 
 Snowflake account and also configure your firewall to 
@@ -331,7 +331,7 @@ Streamlit's integration into Snowflake marks a significant
 advancement in data visualization and interaction capabilities 
 within Snowflake. The potential for dynamic, interactive 
 applications is vast. Future developments, including broader 
-AWS and GCP account integrations, promise to add even more functionality.
+Azure and GCP account integrations, promise to add even more functionality.
 However at this early stage, there are a lot of functionalties missing..
 To list a few here are some examples of things I hope will change in the future.
 
