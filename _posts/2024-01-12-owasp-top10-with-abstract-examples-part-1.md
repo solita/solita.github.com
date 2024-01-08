@@ -24,7 +24,7 @@ Not surprisingly, cyber security should be taken more seriously now than ever. S
 
 ![Infra in cyber weather](/img/2024-01-owasp-top-10/0_cyber_weather_2.jpg)
 
-Does this say more about the global cyber situation or the bad code we produce? Who is to blame here? Juhani Eronen, the leading expert at Traficom's Cybersecurity Center [stated](https://www.kyberturvallisuuskeskus.fi/fi/ajankohtaista/miten-ohjelmistokehityksen-turvallisuutta-voidaan-kehittaa-tuore-selvitys-kartoitti), "*According to our observations, poor software quality is one of the biggest security problems.*" 
+Does this say more about the global cyber situation or the bad code we produce? Who is to blame here? Juhani Eronen, the leading expert at Traficom's Cybersecurity Center [stated](https://www.kyberturvallisuuskeskus.fi/fi/ajankohtaista/miten-ohjelmistokehityksen-turvallisuutta-voidaan-kehittaa-tuore-selvitys-kartoitti), "*According to our observations, poor software quality is one of the biggest security problems.*". [TrafiCom](https://www.traficom.fi/en) is the Finnish agency that ensures the functioning of the country's traffic and communications. They have a National [Cyber Security Center](https://www.kyberturvallisuuskeskus.fi/en) that monitors and develops the security of communication networks and produces a situational picture of information security.
 
 Ok let's admit this. The quality of the software has definitely deteriorated. Maybe it's a business that's being pushed forward more enthusiastically, or maybe AI tools are increasingly being adopted on the attacker side. The bottom line is that we who work on products can at least try to do our part in this fight by spreading the word and improving our skills.
 
