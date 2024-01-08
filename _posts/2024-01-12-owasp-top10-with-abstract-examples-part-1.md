@@ -46,7 +46,7 @@ But how to boost up security culture? There are many people working on one produ
 
 There are many good checklists and tables for improving project and product safety (eg [ASVS](https://owasp.org/www-project-application-security-verification-standard/) and [SAMM](https://owaspsamm.org/)). One of these lists is the well-known list from our dear good friend [Open Worldwide Application Security Project top 10](https://owasp.org/www-project-top-ten/).
 
-OWASP is a non-profit foundation dedicated to improving software security. Every two years, they provide a list of the most critical security risks for web applications. The 2023 version is in the release candidate stage and this blog post focuses on the 2021 list risks. You can also increase your motivation by reading Riika's awesome blog post [Why a developer should know OWASP](https://dev.solita.fi/2020/12/15/why-developer-should-know-owasp.html).
+OWASP is a non-profit foundation dedicated to improving software security. Every two years, they provide a list of the most critical security risks for web applications. The 2023 version is in the release candidate stage and this blog post focuses on the 2021 list risks. You can also increase your motivation by reading Riikka's awesome blog post [Why a developer should know OWASP](https://dev.solita.fi/2020/12/15/why-developer-should-know-owasp.html).
 
 These problems still occur from time to time, so this topic is important. When we take this matter seriously, we don't just save project money. We're improving the security of our service integration points, which in turn boosts national security overall. Of course, risks cannot be completely eliminated, but you can try to prevent their occurrence and impact as small as possible.
 
