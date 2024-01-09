@@ -40,6 +40,13 @@ If you want to write a post, here's how:
 7. Ask someone to review your post
 8. Publish by merging the branch
 
+## Understanding how the deploy works
+
+There are no workflows in this repo for it - Github builtin Jekyll based workflows
+as part of the Github Pages support. You can learn more about it at
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
+or in the Actions run logs that show which actions are being invoked (to see eg Jekyll and Ruby versions involved).
+
 ## Running the site locally
 
 ### Option A: Running the site in a container (recommended)
@@ -72,7 +79,7 @@ If you want to write a post, here's how:
 ### Option C: Running with local Ruby installation
 
 1. Navigate to your working directory and make sure you are running a comatible version of Ruby with `ruby -v`
-2. `gem install bundler`
+2. `gem install bundler -v 2.4.22`
 3. `bundle install`
 4. `bundle exec jekyll serve --watch`
 5. The blog should now be live at [localhost:4000](http://localhost:4000)
