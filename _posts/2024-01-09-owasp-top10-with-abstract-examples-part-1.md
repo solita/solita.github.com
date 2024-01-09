@@ -74,8 +74,6 @@ From the perspective of the scenario, the customer should indeed place an order,
 
 The purpose of encryption is to protect sensitive information from unauthorized eyes. Sensitive data can be data or system commands. Once data integrity is gone, we can no longer trust it. Someone may have tampered with it or private sensitive information may have been leaked to a third party. This problem is called [cryptographic failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/).
 
-What if a customer driving through has to shout the order from far away and around the corner? On the other side, there may be some sneaky guy who shouts his own additions to the order or changes the entire order. The cashier cannot tell if the order is legitimate or not.
-
 Imagine if we gave our order to some random guy who would take the order to the counter. Of course we wouldn't trust that random guy. He might change the order on the way.
 
 ### The fix
