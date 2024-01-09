@@ -42,7 +42,7 @@ If you want to write a post, here's how:
 
 ## Understanding how the deploy works
 
-There are no workflows in this repo for it - Github builtin Jekyll based workflows
+There are no workflows in this repo for the deploy - Github has builtin Jekyll based workflows
 as part of the Github Pages support. You can learn more about it at
 https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
 or in the Actions run logs that show which actions are being invoked (to see eg Jekyll and Ruby versions involved).
