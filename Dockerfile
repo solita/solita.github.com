@@ -1,4 +1,4 @@
-FROM ruby:2.7.3
+FROM ruby:3.1
 
 RUN mkdir /solita-blag
 WORKDIR /solita-blag
