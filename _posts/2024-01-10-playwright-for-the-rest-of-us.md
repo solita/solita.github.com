@@ -10,19 +10,19 @@ tags:
  - Testing
 ---
 
-[Playwright](https://playwright.dev) is a great tool for browser based testing. We use it in many of
+[Playwright](https://playwright.dev) is a great tool for browser-based testing. We use it in many of
 our projects and I personally like it a lot. Unluckily it only supports some *niche* programming
-languages like Java, Python, JavaScript and C#... but does not have support for the OG of OO: Smalltalk.
+languages like Java, Python, JavaScript, and C#... but does not have support for the OG of OO: Smalltalk.
 
 To rectify this glaring omission, I decided to create my own bindings.
 
 ## The plan
 
-Obviously it is easiest to start with one of the existing languages and add a layer on top of that.
+Obviously, it is easiest to start with one of the existing languages and add a layer on top of that.
 I wanted to make this as general as possible, so I decided to create a host program that wraps the
 existing API and exposes the functionality to clients.
 
-JSON is pretty ubiquituous these days and most languages will have either a builtin or easily available
+JSON is pretty ubiquitous these days and most languages will have either built-in or easily available
 libraries to handle the format. I considered building an [OpenAPI](https://www.openapis.org) but the
 stateless nature didn't seem like a good idea for such a chatty use case... there will be lots of
 messages going through and a constant connection seemed more appropriate. I still wanted to stay
@@ -32,8 +32,8 @@ within HTTP tooling so WebSockets seemed like a good fit.
 
 After I had the approach selected, the program came about pretty easily and got the name [pows](https://github.com/tatut/pows)
 for Playwright over WebSocket. It is implemented in Clojure using the [Playwright Java](https://playwright.dev/java/)
-bindings. It implements many of the Playwright Locator action commands (like click, fill, check and so on)
-as well as the LocatorAssertions (like hasCount, hasClass, hasText etc) as simple commands that can
+bindings. It implements many of the Playwright Locator action commands (like click, fill, check, and so on)
+as well as the LocatorAssertions (like hasCount, hasClass, hasText, etc) as simple commands that can
 be invoked with a JSON object.
 
 The protocol is command & response, the client sends a command and waits for the response to it.
@@ -64,8 +64,8 @@ Screenshot of a playground session using the library.
 
 Now that we have the library we need some finishing touches, mainly creating a [SUnit](https://sunit.sourceforge.net)
 `PowsTestCase` class that can be used as the superclass of any tests that need Playwright. The class
-will handle automatic setup and teardown of a pows connection for each test method.
-With that in place our test methods look like:
+will handle automatic setup and teardown of a Pows connection for each test method.
+With that in place, our test methods look like:
 
 ```smalltalk
 testCounter
@@ -78,12 +78,12 @@ testCounter
   locate: 'div.counter' assert: [ :l | l hasText: '-1' ]
 ```
 
-## Conclusion
+## Closing words
 
 Smalltalk is a very nice and concise OO language and Pharo is a modern integrated environment
 for it.
-Playwright is one of the best tools for programmatic browser testing these days and with pows
+Playwright is one of the best tools for programmatic browser testing these days and with Pows
 it can be made to work with any technology that has support for JSON and WebSockets.
 
 I made these libraries to scratch my own itch as side projects.
-Hopefully someone else can also benefit from them.
+Hopefully, someone else can also benefit from them.
