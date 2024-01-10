@@ -51,7 +51,7 @@ command line WebSocket tool.
 ## Bridging the gap
 
 Once the host program was ready, all that was needed was to create a Smalltalk library that uses it.
-This library is named [pharo-Pows](https://github.com/tatut/pharo-Pows) and support
+This library is named [pharo-Pows](https://github.com/tatut/pharo-Pows) and supports
 [Pharo](https://pharo.org) Smalltalk.
 
 The basic idea of the library is to model a Playwright connection that allows navigating to a URL
