@@ -100,4 +100,4 @@ From an example point of view, we should try to replace the stupid cashier with 
 ----
 
 
-Above, we covered the three most common web application risks using abstract, non-technical examples. The rest of the risks will come soon in part 2.
+Above, we covered the three most common web application risks using abstract, non-technical examples. You can continue reading for risks 4-10 in [part 2](https://dev.solita.fi/2024/01/16/owasp-top10-with-abstract-examples-part-2.html) of the blog post.
