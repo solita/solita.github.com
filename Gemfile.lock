@@ -273,6 +273,7 @@ PLATFORMS
 DEPENDENCIES
   compass
   github-pages
+  webrick
 
 BUNDLED WITH
    2.3.18
