@@ -20,7 +20,7 @@ This is the second part of our [OWASP top 10](https://owasp.org/Top10/) explanat
 
 ## 4 Insecure Design
 
-Applications can be designed with care and safety in mind from the beginning or with the fastest possible return in mind. Unfortunately, the latter mostly means that data security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, application layers or the network can be taken into account in the design. Fixing these later is expensive.
+Applications can be designed with care and safety in mind from the beginning or with the fastest possible return of investment in mind. Unfortunately, the latter mostly means that information security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, application layers or the network can be taken into account in the design. Fixing these later is expensive.
 
 ![Insecure design](/img/2024-01-owasp-top-10/4_insecure_design_3.jpg)
 
@@ -42,7 +42,7 @@ One configuration error is when an employee forgets to lock the restaurant door 
 
 As technology develops, we have more and more things to configure. Forgetting to set something up correctly is a common human error. For this reason, we should also use automated tests to detect these security configuration errors. We should also try to do things right from the start. Opening the firewall just because it's the fastest way to get things done is tempting, but the wrong move. Using default passwords in systems should also be made impossible.
 
-If customers could shout orders directly to the kitchen while doing business, things could get messy pretty quickly. The checkout should be built in such a way that bypassing the correct user interface, the cashier, is not possible. Also, the kitchen staff must only take orders from a certain gate, through the restaurant workers.
+If customers could shout orders directly to the kitchen while doing business, things could get messy pretty quickly. The checkout should be built in such a way that bypassing the correct user interface, the cashier, is not possible. Also, the kitchen staff must only take orders from a certain route, through the restaurant workers.
 
 ## 6 Vulnerable and Outdated Components
 
@@ -72,7 +72,7 @@ The drive through restaurant in our example should improve the process so that c
 
 ## 8 Software and Data Integrity Failures
 
-[Integrity failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) mean that we cannot fully trust the data, library or software we have. Has someone changed the resource we're loading or the libraries we're using? What about our own source code? Is the data intact and not manipulated somehow? Has our secret been revealed to customers, perhaps through serialization errors?
+[Integrity failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) mean that we cannot fully trust the data, library or software we have. Has someone changed the resource we're loading or the libraries we're using? What about our own source code? Is the data intact and not manipulated somehow? Has our secrets been revealed to users, perhaps through serialization errors?
 
 Let's imagine that the order process works internally with pieces of paper. If the kitchen doesn't pay attention to the origin of the order papers, someone can slip the order under the kitchen door and write on the order that the food should be delivered through the back door, no questions asked. Another breach of integrity would be if the cashier blurted out all the restaurant's secrets to the customer, whether they asked or not.
 
@@ -91,7 +91,7 @@ Let's assume that our restaurant would not properly monitor what is happening. T
 
 ### The fix
 
-When we use our services and applications, we should have a good view of how they work and who uses them with what rights. Tracking should be used to provide insight into the status of our services. Is it healthy, struggling or down. By logging in, on the other hand, strange anomalies and suspicious user actions can be detected.
+When we use our services and applications, we should have a good view of how they work and who uses them with what rights. Tracking should be used to provide insight into the status of our services. Is it healthy, struggling or down. Logging can be also used to detect strange anomalies and suspicious user actions.
 
 ![Logging and monitoring](/img/2024-01-owasp-top-10/9_logging.jpg)
 
