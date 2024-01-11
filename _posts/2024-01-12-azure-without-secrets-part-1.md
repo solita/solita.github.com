@@ -39,14 +39,19 @@ Script requirements:
 ```bash
 #!/usr/bin/env bash
 
-# Uses currently active subscription
+# CONFIGURATION
+# Use currently active subscription or you can set the subscription ID here manually
 SUBSCRIPTION_ID=$(az account show --query "id" --output tsv)
 
+# Change this
+SUBJECT=repo:my-org/my-repo:environment:Development
+
+# Check whether these make sense in your scenario
 APP_NAME=github-actions
 ROLE=Contributor
-SUBJECT=repo:my-org/my-repo:environment:Development
 SCOPE=/subscriptions/$SUBSCRIPTION_ID
 
+# ACTUAL SCRIPT
 # Create app registration
 APPLICATION_ID=$(az ad app create --display-name $APP_NAME --query "appId" --output tsv)
 
