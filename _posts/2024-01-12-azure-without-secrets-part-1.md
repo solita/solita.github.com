@@ -24,17 +24,17 @@ The token is a regular JSON Web Token (JWT), where subject (sub) claim plays key
 ## 1. Create app registration and assign roles
 This can be done in different ways, for example, in [Azure Portal](https://portal.azure.com/) by using Azure CLI. But I've prepared a bash script that will do all of the steps listed below. The script can be found further down. You just need to set the SUBJECT value. Also, you should check whether APP_NAME, ROLE and SCOPE make sense in your scenario. You might want to limit the scope to a resource group, for example.
 
-1. Create an app registration with some name, which represents your CI/CD pipeline in this case. Leave other settings default.
+1. [Create an app registration](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) with some name, which represents your CI/CD pipeline in this case. Leave other settings default.
 2. Create a service principal for the app registration (if you create app registration in Azure Portal or Entra admin center, this is done for you automatically). Service principal is required because role assignments can only be assigned to identities and app registration doesn't have an *identity*. Service principal acts an identity for the app registration.
-3. Configure *Federated credentials* for the app registration. You can find *Federated credentials* tab next to *Certificates* and *Client secrets* tabs when you open the app registration.
-4. Assign role(s) to service principal. If you're unsure, *Contributor* role is a good starting point.
+3. [Configure *Federated credentials*](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#github-actions) for the app registration. You can find *Federated credentials* tab next to *Certificates* and *Client secrets* tabs when you open the app registration.
+4. [Assign role(s) to service principal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition#step-1-identify-the-needed-scope). If you're unsure, *Contributor* role is a good starting point.
 
 Script requirements:
-- Azure CLI needs to be installed
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) needs to be installed
 - You're logged in to Azure CLI
 - You have rights to create app registrations (you have e.g. Application Developer Entra role)
 - You have rights to assign Azure roles (you have e.g. Role Based Access Control Administrator Azure role)
-- jq needs to be installed
+- [jq](https://jqlang.github.io/jq/download/) needs to be installed (for handling JSON)
 
 ```bash
 #!/usr/bin/env bash
@@ -123,7 +123,7 @@ Entra admin center and Azure Portal both have nice tool for forming subjects bas
 ![Screenshot of Entra admin center federated credential creation form](/img/azure-without-secrets-part-1/entra-federated-credential-subject.png)
 
 ## It's not just Azure and GitHub
-GitHub also has well documented examples of using OIDC in other services as well, not just Azure. And even better, you can fetch the JWT manually, enabling you to use it on any service because you're not limited to GitHub Actions available in the marketplace.
+GitHub also has well documented examples (e.g. [AWS](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) and [GCP](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)) of using OIDC in other services as well, not just Azure. And even better, you can fetch the JWT manually, enabling you to use it on any service because you're not limited to GitHub Actions available in the marketplace.
 
 And turning this the other way around, you can also do this in, for example, GitLab. It provides similar mechanism for fetching JWT for OIDC authentication.
 
