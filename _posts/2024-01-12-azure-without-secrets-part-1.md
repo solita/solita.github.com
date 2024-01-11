@@ -14,7 +14,7 @@ Often in software development we need to access other resources, be it database 
 
 But there's another way! Azure and many of its resources can be used without secrets. In this blog I'll tell you how to login to Azure CLI in GitHub Actions workflow without secrets. The focus of this post is on providing an example and less on the explanation part, however, that can't be completely avoided.
 
-Before we get into the actual content it's good to make a distinction here; when I talk about secrets, I mean passwords, client secrets and certificates. Not subscription IDs, application IDs, database server addresses or such. Though we usually keep them safe, they themselves shouldn't provide malicious user access to the resource without a secret. So, we still need those values to identify the target resource, but we can get rid of passwords and client secrets. No more rotating secrets, yay!
+Before we get into the actual content it's good to make a distinction here; when I talk about secrets, I mean passwords, client secrets and certificates. Not subscription IDs, application IDs, database server addresses or such. Though we usually keep database server addresses etc. safe, they themselves shouldn't provide malicious user access to the resource without a secret. So, we still need database server addresses etc. to identify target resources, but we can get rid of passwords and client secrets. No more rotating secrets, yay!
 
 ## Before getting started
 Azure CLI login in workflow run without secrets is done quite similarly as with secrets; app registration and service principal are needed but a token is passed instead of a client secret.
