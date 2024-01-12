@@ -84,7 +84,7 @@ echo ApplicationtID $APPLICATION_ID
 I know I said we're getting rid of secrets, but let's keep subscription IDs etc. safe anyway.
 
 1. Find tenant ID, subscription ID and client ID (application ID) values. You can find the values in the last three lines printed by the script.
-2. Store those values are GitHub Actions secrets with names *AZURE_TENANT_ID*, *AZURE_SUBSCRIPTION_ID* and *AZURE_CLIENT_ID*.
+2. Store those values as GitHub Actions secrets with names *AZURE_TENANT_ID*, *AZURE_SUBSCRIPTION_ID* and *AZURE_CLIENT_ID*.
 
 ## 3. Configure GitHub Actions workflow
 Here we're going to use [Azure Login](https://github.com/marketplace/actions/azure-login) Action. After the login step you can use az commands or other actions which require Azure CLI login, like [Deploy ARM Template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) or [Deploy Azure Web App](https://github.com/marketplace/actions/azure-webapp).
