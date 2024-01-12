@@ -125,7 +125,7 @@ Entra admin center and Azure Portal both have nice tool for forming subjects bas
 ## It's not just Azure and GitHub
 GitHub also has well documented examples (e.g. [AWS](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) and [GCP](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)) of using OIDC in other services as well, not just Azure. And even better, you can [fetch the JWT manually](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#updating-your-actions-for-oidc), enabling you to use it on any service because you're not limited to GitHub Actions available in the marketplace.
 
-And turning this the other way around, you can also do this in, for example, [GitLab]((https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens)). It provides similar mechanism for fetching JWT for OIDC authentication.
+And turning this the other way around, you can also do this in, for example, [GitLab](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens). It provides similar mechanism for fetching JWT for OIDC authentication.
 
 ## What's next
 When using Azure, you can also get rid of many other secrets as well. You can for example authenticate to Azure Blob Storage or Cosmos DB without secrets using managed identities and role-based access control. More on that in another blog post.
