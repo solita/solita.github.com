@@ -20,7 +20,7 @@ This is the second part of our [OWASP top 10](https://owasp.org/Top10/) explanat
 
 ## 4 Insecure Design
 
-Applications can be designed with care and safety in mind from the beginning or with the fastest possible return of investment in mind. Unfortunately, the latter mostly means that information security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, application layers or the network can be considered in the design. Fixing these later is expensive.
+Applications can be designed with care and safety in mind from the beginning or with the fastest possible return on investment in mind. Unfortunately, the latter mostly means that information security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, the application architecture, how system and network layers are implemented, must be considered in the design. Fixing these later is expensive.
 
 ![Insecure design](/img/2024-01-owasp-top-10/4_insecure_design_3.jpg)
 
