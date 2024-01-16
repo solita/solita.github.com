@@ -3,7 +3,7 @@ layout: post
 title: OWASP top ten 2021 explained with non-technical examples, </br>Part 1
 author: petteri.poyhtari
 excerpt: >
-   How could we better make the most typical risks of web applications aware of all project personnel, in order to improve the quality of the entire web infrastructure. Part 1 blog post about OWASP top 10 with physical world analogies.
+   How could we make the most typical risks of web applications aware of all project personnel, to improve the quality of the entire web infrastructure? Part 1 blog post about OWASP top 10 with physical world analogies.
 tags:
  - DevSecOps
  - InfoSec
@@ -32,11 +32,11 @@ TrafiCom's report [The state of software security 2023](https://www.kyberturvall
 
 ## Motivation
 
-Not taking cyber security seriously can backfire in many ways. The average cost of a data breach in the United States between August 2019 and April 2020 was more than [$8.6 million](https://www.ibm.com/reports/data-breach). The same IBM report states that organizations that tested their accident prevention plan saved about $2 million on average. Why are the numbers so high? That's because data breaches don't just affect sales. These days, companies have to deal with regulatory fines, legal costs, operational downtime, and last but not least, reputational damage. In the worst case scenario, the organization's information can be encrypted, inaccessible to the organization, or eventually completely public.
+Not taking cyber security seriously can backfire in many ways. The average cost of a data breach in the United States between August 2019 and April 2020 was more than [$8.6 million](https://www.ibm.com/reports/data-breach). The same IBM report states that organizations that tested their accident prevention plan saved about $2 million on average. Why are the numbers so high? That's because data breaches don't just affect sales. These days, companies have to deal with [regulatory fines](https://gdpr-info.eu/issues/fines-penalties/), legal costs, operational downtime, and last but not least, reputational damage. In the worst case scenario, the organization's information can be encrypted, inaccessible to the organization, or eventually completely public.
 
-Someone could say that we are such a small operator that we are not interested in attackers. This can no longer be trusted, as attackers have discovered that small companies also have a smaller security budget. Because of this, they are also an easier target. There are also examples of this. Perhaps the most famous of these are [NotPetya and Maersk](https://en.wikipedia.org/wiki/2017_Ukraine_ransomware_attacks). The weakest link in the chain was found and the virus spread, partly by accident, to the information systems of a large company through the product of the smaller MeDoc accounting firm.
+Someone could say that we are such a small player that attackers are not interested in us. This can no longer be trusted, as attackers have discovered that small companies also have a smaller security budget. Because of this, they are also easier targets. There are also examples of this. Perhaps the most famous of these are [NotPetya and Maersk](https://en.wikipedia.org/wiki/2017_Ukraine_ransomware_attacks). The weakest link in the chain was found and the virus spread, partly by accident, to the information systems of a large company through the product of the smaller MeDoc accounting firm.
 
-Usually project funds are in the hands of non-tech people. The dilemma is how to distribute information about the importance of information security to non-technical staff or also people, who have just started their career as a developer. When the project decision-makers understand the importance of information security from the beginning of the project, less investment is needed to achieve a high level of security.
+Usually, project funds are in the hands of non-tech people. The dilemma is how to distribute information about the importance of information security to non-technical staff or also people, who have just started their career as a developer. When the project decision-makers understand the importance of information security from the beginning of the project, less investment is needed to achieve a high level of security.
 
 But how to boost up security culture? There are many people working on one product in different roles, so we just have to start eating this elephant in small pieces. We could start by being aware of the most common vulnerabilities that we might make in projects and product code. This is what we are doing right here, right now.
 
@@ -74,7 +74,7 @@ From the perspective of the scenario, the customer should indeed place an order,
 
 The purpose of encryption is to protect sensitive information from unauthorized eyes. Sensitive data can be data or system commands. Once data integrity is gone, we can no longer trust it. Someone may have tampered with it or private sensitive information may have been leaked to a third party. This problem is called [cryptographic failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/).
 
-Imagine if we gave our order to some random guy who would take the order to the counter. Of course we wouldn't trust that random guy. He might change the order on the way.
+Imagine if we gave our order to some random guy who would take the order to the counter. Of course, we wouldn't trust that random guy. He might change the order on the way.
 
 ### The fix
 
@@ -100,4 +100,4 @@ From an example point of view, we should try to replace the stupid cashier with 
 ----
 
 
-Above, we covered the three most common web application risks using abstract, non-technical examples. The rest of the risks will come soon in part 2.
+Above, we covered the three most common web application risks using abstract, non-technical examples. You can continue reading for risks 4-10 in [part 2](https://dev.solita.fi/2024/01/16/owasp-top10-with-abstract-examples-part-2.html) of the blog post.
