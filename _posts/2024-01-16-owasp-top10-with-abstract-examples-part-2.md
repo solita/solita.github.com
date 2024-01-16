@@ -3,7 +3,7 @@ layout: post
 title: OWASP top ten 2021 explained with non-technical examples, </br>Part 2
 author: petteri.poyhtari
 excerpt: >
-   How could we better make the most typical risks of web applications aware of all project personnel, in order to improve the quality of the entire web infrastructure. Part 2 blog post about OWASP top 10 with physical world analogies.
+   How could we make the most typical risks of web applications aware of all project personnel, to improve the quality of the entire web infrastructure? Part 2 blog post about OWASP top 10 with physical world analogies.
 tags:
  - DevSecOps
  - InfoSec
@@ -20,7 +20,7 @@ This is the second part of our [OWASP top 10](https://owasp.org/Top10/) explanat
 
 ## 4 Insecure Design
 
-Applications can be designed with care and safety in mind from the beginning or with the fastest possible return of investment in mind. Unfortunately, the latter mostly means that information security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, application layers or the network can be taken into account in the design. Fixing these later is expensive.
+Applications can be designed with care and safety in mind from the beginning or with the fastest possible return of investment in mind. Unfortunately, the latter mostly means that information security gives way to "more important features". [Insecure design](https://owasp.org/Top10/A04_2021-Insecure_Design/) means that security is not built in, but is added afterwards when the product is ready enough. This fails in most cases and is more expensive. Since it is more expensive to do, it is either hardly done or not done at all. For example, application layers or the network can be considered in the design. Fixing these later is expensive.
 
 ![Insecure design](/img/2024-01-owasp-top-10/4_insecure_design_3.jpg)
 
@@ -34,7 +34,7 @@ In our example, business owners should know how to run a business in this kind o
 
 ## 5 Security Misconfiguration
 
-Most of the [security misconfigurations](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) are done by accident, but deliberately weakening protections, such as closing a firewall or leaving unnecessary network ports open, are also done on purpose. Forgetting to close unnecessary features or apis, leaking dangerous information in error messages, using default credentials and not segmenting the network are also good examples of security mistakes.
+Most of the [security misconfigurations](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) are done by accident, but deliberately weakening protections, such as closing a firewall or leaving unnecessary network ports open, are also done on purpose. Forgetting to close unnecessary features or APIs, leaking dangerous information in error messages, using default credentials and not segmenting the network are also good examples of security mistakes.
 
 One configuration error is when an employee forgets to lock the restaurant door when leaving the building at night. Anyone walking by could get in just by trying the handle. Or perhaps a better example is that a temporary hole has been made next to the door during the restaurant renovation. When the renovation was done, they forgot to close it. Also, what if the customer could shout orders directly to the kitchen, completely bypassing the cashier.
 
@@ -54,13 +54,13 @@ What if the lock on the restaurant door in our example was the best that money c
 
 ### The fix
 
-We live in a constantly changing world, and people often make mistakes. This means we can no longer fire and forget our products. Although our product should be bulletproof, maybe some library we use is not. One solution is to monitor product and library updates and update them whenever possible. Getting rid of unused libraries and functionalities also helps a lot. It is good practice to automate this task as part of the release pipeline, for example.
+We live in a constantly changing world, and people often make mistakes. This means we can no longer fire and forget our products. Although our product should be bulletproof, maybe some library we use is not. One solution is to monitor product and library updates and update them whenever possible. Getting rid of unused libraries and functionalities also helps a lot. It is also good practice to automate this task as part of the release pipeline. Read more of autometed security testing from [Antti's blog post](https://dev.solita.fi/2017/11/08/automated-security-testing.html).
 
 The restaurant should somehow try to automate the maintenance procedures. They should have a list of the tools they use and some kind of communication channel to the manufacturer so that information about the tools gets to the restaurant. The inspection of locks and other equipment should also be done regularly using a checklist.
 
 ## 7 Identification and Authentication Failures
 
-[Authentication problems](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/) revolve very strongly around the fact that a user does not have the right to do the actions that they do. Whether it happened by accident or on purpose. This could happen when the system mixes user id’s or sessions, gives too many rights to some users or fails to remove rights when needed. Also allowing brute forcing will usually lead to unauthenticated actions.
+[Authentication problems](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/) revolve very strongly around the fact that a user does not have the right to do the actions that they do. Whether it happened by accident or on purpose. This could happen when the system mixes user IDs or sessions, gives too many rights to some users or fails to remove rights when needed. Also allowing brute forcing will usually lead to unauthenticated actions.
 
 Imagine if one customer places an order, picks it up, drives away and the next customer can buy at the expense of the previous customer. It would also be problematic if one customer could repeatedly ask the cashier about the companies that have an account in the restaurant in order to get their own purchases to a company's account. If drive through customer orders are mixed, we are talking about identification failures. The mixing of purchase transactions would also be worrisome.
 
@@ -72,7 +72,7 @@ The drive through restaurant in our example should improve the process so that c
 
 ## 8 Software and Data Integrity Failures
 
-[Integrity failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) mean that we cannot fully trust the data, library or software we have. Has someone changed the resource we're loading or the libraries we're using? What about our own source code? Is the data intact and not manipulated somehow? Has our secrets been revealed to users, perhaps through serialization errors?
+[Integrity failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) mean that we cannot fully trust the data, library or software we have. Has someone changed the resource we're loading or the libraries we're using? What about our own source code? Is the data intact and not manipulated somehow? Have our secrets been revealed to users, perhaps through serialization errors?
 
 Let's imagine that the order process works internally with pieces of paper. If the kitchen doesn't pay attention to the origin of the order papers, someone can slip the order under the kitchen door and write on the order that the food should be delivered through the back door, no questions asked. Another breach of integrity would be if the cashier blurted out all the restaurant's secrets to the customer, whether they asked or not.
 
@@ -80,7 +80,7 @@ Let's imagine that the order process works internally with pieces of paper. If t
 
 We should somehow try to raise the trust factor of our data and libraries. We could scan the products we use for common vulnerabilities and fix them when patches are available. We should also enforce digital signatures to ensure that updated information and code are only installed from trusted sources.
 
-In our example, shaking up the cash register and kitchen staff would be in place. They shouldn't rely on random order notes in the kitchen. especially if they are found in suspicious places like the floor. Also, the cashier should not leak / overflow information to a random customer, but stick strictly to taking orders.
+In our example, shaking up the cash register and kitchen staff would be in place. They shouldn't rely on random order notes in the kitchen. especially if they are found in suspicious places like the floor. Also, the cashier should not leak or overflow information to a random customer, but stick strictly to taking orders.
 
 
 ## 9 Security Logging and Monitoring Failures
@@ -95,13 +95,13 @@ When we use our services and applications, we should have a good view of how the
 
 ![Logging and monitoring](/img/2024-01-owasp-top-10/9_logging.jpg)
 
-Surveillance cameras should be added to the driving lane to detect vandalism and abuse. Purchase transactions should also be recorded at a level that would enable the management of the company. The cash register should also increase communication with the kitchen so that possible errors are understood and corrective measures are implemented.
+Surveillance cameras should be added to the driving lane to detect vandalism and abuse. Purchase transactions should also be recorded at a level that enables the daily business to be run. Not just to the level required by law. The cash register should also increase communication with the kitchen so that possible errors are understood and corrective measures are implemented.
 
 ## 10 Server-Side Request Forgery
 
 [Server-side request forgery](https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/) (SSRF) occurs when the server fails to validate the user-supplied URL to an external resource. A bad request can go to some third-party service or local file system with extended permissions.
 
-Let's assume that the customer could influence the kitchen to get a steak from the more expensive restaurant next door. The steak is then paid for cheaper and the restaurant loses money. It would also be bad if a customer in the driving lane directs the payment request to the next customer in line and speeds away.
+Assume that the customer could somehow change the behavior of the kitchen staff when making a regular order. If the kitchen staff blindly follows the order, they could be told to pick up the ordered steak from the more expensive restaurant next door. The steak is then paid for cheaper and the restaurant loses money. It would also be bad if a customer in the driving lane directs the payment request to the next customer in line and speeds away.
 
 ### The fix
 
