@@ -2,7 +2,7 @@
 layout: post
 title: Using Azure without secrets, Part 2
 author: mattipulkkinen
-excerpt: Utilizing managed identities when authenticating to a resource in Azure instead of a secret value.
+excerpt: Utilizing managed identities and role-based access control instead of a secret value when authenticating to a Azure resource.
 tags:
  - Azure
  - Secrets
