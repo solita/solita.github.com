@@ -128,7 +128,7 @@ GitHub also has well documented examples (e.g. [AWS](https://docs.github.com/en/
 And turning this the other way around, you can also do this in, for example, [GitLab](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens). It provides similar mechanism for fetching JWT for OIDC authentication.
 
 ## What's next
-When using Azure, you can also get rid of many other secrets as well. You can for example authenticate to Azure Blob Storage or Cosmos DB without secrets using managed identities and role-based access control. More on that in [part 2](https://dev.solita.fi/2024/01/31/azure-without-secrets-part-2.html).
+When using Azure, you can also get rid of many other secrets as well. You can for example authenticate to Azure Blob Storage or Cosmos DB without secrets using managed identities and role-based access control. More on that in [part 2](https://dev.solita.fi/2024/01/25/azure-without-secrets-part-2.html).
 
 ## Sources
 - [Workload identity federation by Microsoft](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation)
