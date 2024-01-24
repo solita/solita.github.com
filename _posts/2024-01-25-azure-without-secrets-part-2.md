@@ -2,7 +2,7 @@
 layout: post
 title: Using Azure without secrets, Part 2
 author: mattipulkkinen
-excerpt: Utilizing managed identities and role-based access control instead of a secret value when authenticating to a Azure resource.
+excerpt: Utilizing managed identity and role-based access control instead of a secret value when authenticating to a Azure resource.
 tags:
  - Azure
  - Secrets
@@ -10,7 +10,7 @@ tags:
  - Role-based access control
 ---
 
-In the [first part](https://dev.solita.fi/2024/01/12/azure-without-secrets-part-1.html), I described how to use Azure CLI in GitHub Actions workflow runs or more generally in CI/CD pipeline runs. However, that leaves us with plenty of secrets (passwords, client secrets and certificates) because we still need to authenticate to database servers, blob storages and such. Authenticating to those without secrets requires a different approach, namely managed identities and role-based access control (RBAC).
+In the [first part](https://dev.solita.fi/2024/01/12/azure-without-secrets-part-1.html), I described how to use Azure CLI in GitHub Actions workflow runs or more generally in CI/CD pipeline runs. However, that leaves us with plenty of secrets (passwords, client secrets and certificates) because we still need to authenticate to database servers, blob storages and such. Authenticating to those without secrets requires a different approach, namely managed identity and role-based access control (RBAC).
 
 In this post, I'll demonstrate how to enable system-assigned managed identity for Azure App Service and then utilize it in three different examples. The examples demonstrate reading blob data from Azure Storage account, accessing Azure SQL Database and authenticating Azure Functions to Service Bus for queue trigger. In the examples, I'll be using .NET 8 (C#), [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep) and [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli).
 
@@ -19,7 +19,7 @@ The necessary steps for each of the examples are quite similar; enable managed i
 ## Why do we need managed identity?
 Let's take an example; we have an application hosted in Azure App Service that needs to read blobs from a storage account. In Azure, there are multiple ways to grant access to read blobs: shared key, shared access signature and RBAC. Since we want to get rid of managing secrets, that leaves us with just the RBAC.
 
-RBAC works by assigning roles to identities. There are three required values when assigning a role: who (identity), what rights (role) and to which resources (scope). By selecting these values carefully, we can grant just the right level of access to resources and follow the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). The problem with RBAC is that roles can only be assigned to identities. And App Service is a compute resource, it doesn't have an identity by default.
+RBAC works by assigning roles to identities. Three values are required when assigning a role: who (identity), what rights (role) and to which resources (scope). By selecting these values carefully, we can grant just the right level of access to resources and follow the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). The problem with RBAC is that roles can only be assigned to identities. And App Service is a compute resource, it doesn't have an identity by default.
 
 That's where [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) comes in. It enables us to give an Azure resource an identity and thus, the ability to grant access through role assignments. There are two types of managed identities; system-assigned and user-assigned. In this post, we'll focus only on system-assigned managed identities.
 
@@ -73,7 +73,7 @@ resource blobDataContributorRoleAssignment 'Microsoft.Authorization/roleAssignme
 }
 ```
 
-Role assignment name must be unique, a guid, and should be deterministic to avoid being created multiple times. To achieve that we can use the [guid function](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-string#guid). Using that we can easily fulfill the requirements by passing role, principal and scope as parameters.
+Role assignment name must be unique, a guid, and should be deterministic to avoid being created multiple times. We can use the [guid function](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-string#guid) to achieve that. To fulfill the requirements and avoid a collision, we should pass role, principal and scope as parameters.
 
 Role assignment can also be done in Azure Portal, [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition#step-1-identify-the-needed-scope) are instructions for that.
 
@@ -82,7 +82,7 @@ It's also good to note that **you need to grant yourself rights as well**. Even 
 ### Code changes
 
 #### Add blob storage endpoint to the configuration
-First, we need to store the blob storage endpoint address somewhere. I put it in two places; for localhost development, I put it in the `appsettings.Development.json` and for the app service, I put it in the app settings using Bicep.
+First, we need to store the blob storage endpoint address somewhere. I put it in two places; for localhost development, I put it in the `appsettings.Development.json` and for the App Service, I put it in the app settings using Bicep.
 ```json
 {
   "BlobEndpoint": "https://storageaccountnamehere.blob.core.windows.net/",
@@ -120,7 +120,7 @@ dotnet add package Azure.Storage.Blobs
 ```
 
 #### Inject client and access blob storage
-The only thing left is to inject the client through dependency injection in `Program.cs` and then utilize it. Since we already have created a container (`data`) and we want to list and read blobs in that container, we're going to inject `BlobContainerClient`. `BlobContainerClient` has different constructors, but we'll use the one that accepts container `Uri` and `TokenCredential`.
+The only thing left is to inject the client through dependency injection in `Program.cs` and then utilize it. Since we already have created a container (`data`) and we want to list and read blobs in that container, we're going to add `BlobContainerClient`  injection. `BlobContainerClient` has different constructors, but we'll use the one that accepts container `Uri` and `TokenCredential`.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -157,7 +157,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 In this example I'll show you how to use identity-based authentication to access data in Azure SQL Database. Granting access to SQL databases is a bit different compared to other examples. We can't use RBAC, because there are no data plane roles for SQL databases. Instead, we need to create a database user for the managed identity and grant database access to that user.
 
 ### Set Entra ID authenticated admin
-First, we need to add an Entra ID authenticated database admin. We need this because only Entra ID logged-in admins can create database users that utilize Entra ID authentication. It can be done by adding a separate *adminstrators* resource in Bicep. I added az commands for getting values for the current Azure CLI logged-in user.
+First, we need to add an Entra ID authenticated database admin. We need this because only Entra ID logged-in admins can create Entra ID authenticated database users. Adding the admin can be done by adding a separate *adminstrators* resource in Bicep. I added az commands for getting values for the current Azure CLI logged-in user.
 
 ```bicep
 resource sqlServerAdminstrators 'Microsoft.Sql/servers/administrators@2021-11-01' = {
@@ -228,7 +228,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
 When creating material for this blog post I created a sample database model for a phonebook application. It had only one table with three columns; ID, person's name and phone number. I left it out of this post in addition to applying the database changes, as there are no differences compared to password-based authentication. However, here are links on how to do those things: [create a database model](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli#create-the-model), [install tools for database updates and apply changes](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli#create-the-database).
 
 #### Inject data context and access the database
-Configure data context to use right database client and connection string
+Configure data context to use the right database client and connection string
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
@@ -350,7 +350,7 @@ resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
 ```
 
 ### Disable key-based auth (optional)
-You can disable key-based authentication by setting `disableLocalAuth` *true* in the service bus namespace resource under `properties` in Bicep.
+You can disable key-based authentication by setting `disableLocalAuth` *true* in the Service Bus namespace resource under `properties` in Bicep.
 
 ```bicep
 resource serviceBus 'Microsoft.ServiceBus/namespaces@2021-11-01' = {
@@ -371,7 +371,7 @@ In addition to that, even more resources support managed identities. You can, fo
 But wait, there's more! C# isn't the only supported language, the Azure Identity library is available for at least Java, JavaScript, Python and Go as well.
 
 ## Closing words
-In this post, I demonstrated how to use system-assigned managed identity to access Azure resources. As you noticed, even though the basic structure of utilizing managed identity and RBAC is the same, each of the services has its little quirks. To get to know these quirks, you need to read the documentation carefully and do some digging. And some scenarios are just not supported (yet). But even if it takes a little more time, I think it's worth it. When you don't have manage secrets, there's one less place to make mistakes. Especially, when mistakes can be extremely costly.
+In this post, I demonstrated how to use system-assigned managed identity to access Azure resources. As you noticed, even though the basic structure of utilizing managed identity and RBAC is the same, each of the services has its little quirks. To get to know these quirks, you need to read the documentation carefully and do some digging. And some scenarios are just not supported (yet). But even if it takes a little more time, I think it's worth it. When you don't have to manage secrets, there's one less place to make possibly costly mistakes.
 
 ## Further reading
 - [What are managed identities for Azure resources?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
