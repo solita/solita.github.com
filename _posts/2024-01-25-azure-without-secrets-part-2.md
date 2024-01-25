@@ -110,7 +110,11 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
 ```
 
 #### Add NuGet packages
-We need two packages; `Azure.Storage.Blobs` and `Azure.Identity`. `Azure.Storage.Blobs` provides the Azure storage blob client implementations. `Azure.Identity` allows us to create a `DefaultAzureCredential` object, which inherits the `TokenCredential` class. Different Azure client classes accept a `TokenCredential` object as a parameter, which is then used as a token provider.
+We need two packages:
+- `Azure.Storage.Blobs` and
+- `Azure.Identity`
+
+`Azure.Storage.Blobs` provides the Azure storage blob client implementations. `Azure.Identity` allows us to create a `DefaultAzureCredential` object, which inherits the `TokenCredential` class. Different Azure client classes accept a `TokenCredential` object as a parameter, which is then used as a token provider.
 
 `DefaultAzureCredential` checks different options, whether you've logged in to Azure CLI, Visual Studio or some other supported application, and then utilizes that identity. It also checks whether the host has managed identity enabled and that's what makes this work in Azure. A complete list of credentials it tries can be found [here](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet#definition). **Remember to log in to at least one of the listed applications for localhost development to work!**
 
