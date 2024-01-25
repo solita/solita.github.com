@@ -75,7 +75,7 @@ resource blobDataContributorRoleAssignment 'Microsoft.Authorization/roleAssignme
 
 Role assignment name must be unique, a guid, and should be deterministic to avoid being created multiple times. We can use the [guid function](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-string#guid) to achieve that. To fulfill the requirements and avoid a collision, we should pass role, principal and scope as parameters.
 
-Role assignment can also be done in Azure Portal, [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition#step-1-identify-the-needed-scope) are instructions for that.
+Role assignment can also be done in Azure Portal. [Here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition#step-1-identify-the-needed-scope) are instructions for that.
 
 It's also good to note that **you need to grant yourself rights as well**. Even if you are the owner of the subscription, **by default, you don't have access to data plane operations**.
 
