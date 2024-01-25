@@ -82,7 +82,7 @@ It's also good to note that **you need to grant yourself rights as well**. Even 
 ### Code changes
 
 #### Add blob storage endpoint to the configuration
-First, we need to store the blob storage endpoint address somewhere. I put it in two places; for localhost development, I put it in the `appsettings.Development.json` and for the App Service, I put it in the app settings using Bicep.
+First, we need to store the blob storage endpoint address somewhere. I put it in two places; for localhost development, I put it in the `appsettings.Development.json` and for the App Service, I put it in the app settings using Bicep. Using `appsettings.Development.json` is okay because we're not storing a complete connection string with a secret value, but just the endpoint address. For storing secrets in a development environment you should use [other methods](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
 ```json
 {
   "BlobEndpoint": "https://storageaccountnamehere.blob.core.windows.net/",
