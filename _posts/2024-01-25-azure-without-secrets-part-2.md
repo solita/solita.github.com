@@ -176,8 +176,11 @@ resource sqlServerAdminstrators 'Microsoft.Sql/servers/administrators@2021-11-01
 Next, we need to create the database user and grant it access rights. Here are the steps to do that:
 
 1. Connect to the SQL database (not master) with the Entra ID authenticated admin.
-2. Create a user for the managed identity's service principal using the following command (notice that the brackets are required): `CREATE USER [app-service-name] FROM EXTERNAL PROVIDER`
-3. Grants access rights to the newly created user. For example, to grant read and write access, run the following commands: `ALTER ROLE db_datareader ADD MEMBER [app-service-name]` and `ALTER ROLE db_datawriter ADD MEMBER [app-service-name]`
+2. Create a user for the managed identity's service principal using the following command (notice that the brackets are required):
+    - `CREATE USER [app-service-name] FROM EXTERNAL PROVIDER`
+3. Grants access rights to the newly created user. For example, to grant read and write access, run the following commands:
+    - `ALTER ROLE db_datareader ADD MEMBER [app-service-name]`
+    - `ALTER ROLE db_datawriter ADD MEMBER [app-service-name]`
 
 More detailed instructions can be found [here](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/tutorial-windows-vm-access-sql?source=recommendations#create-contained-user).
 
