@@ -378,7 +378,7 @@ In addition to that, even more resources support managed identities. You can, fo
 But wait, there's more! C# isn't the only supported language, the Azure Identity library is available for at least Java, JavaScript, Python and Go as well.
 
 ## Closing words
-In this post, I demonstrated how to use system-assigned managed identity to access Azure resources. As you noticed, even though the basic structure of utilizing managed identity and RBAC is the same, each of the services has its little quirks. To get to know these quirks, you need to read the documentation carefully and do some digging. And some scenarios are just not supported (yet). But even if it takes a little more time, I think it's worth it. When you don't have to manage secrets, there's one less place to make possibly costly mistakes.
+In this post, I demonstrated how to use system-assigned managed identity to access Azure resources. As you noticed, even though the basic structure of utilizing managed identity and RBAC is the same, each of the services has its little quirks. To get to know these quirks, you need to read the documentation carefully and do some digging. But even if it takes a little more time, I think it's worth it. When you don't have to manage secrets, there's one less place to make possibly costly mistakes.
 
 ## Further reading
 - [What are managed identities for Azure resources?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
