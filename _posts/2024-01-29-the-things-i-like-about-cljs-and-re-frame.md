@@ -346,7 +346,7 @@ In a perfect world, this would leave the E2E tests with merely the responsibilit
 
 This setup still has its pain points especially when it comes to build tools and when you're "working on the edges of the ecosystem", e.g. with interop with other JS stuff. For example, I've had my fair share of swearing under my breath when fighting with NPM issues. 
 
-Though once I've gotten past those and been inside the "fluffy functional world", I found this setup to be among the least painful SPA setups that I've come across.     
+Though once I've gotten past those and been inside the "fluffy functional world", I found this to be among the least painful SPA setups that I've come across.     
 
 
  
