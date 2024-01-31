@@ -12,6 +12,8 @@ tags:
 ---
 
 ### Disclaimer
+This post presumes, you've got preliminary knowledge of Clojure as a language, and it's basic tools, such as the REPL. 
+
 I've spent most of my 16 years in the field working in the backend side of things, so I'm not savvy on the latest and greatest of front end frameworks and tools. So like, cut me some slack here. 
 
 I'm also very aware that the cool kids are doing server side rendering like it's 2003. Time truly is a flat circle.
