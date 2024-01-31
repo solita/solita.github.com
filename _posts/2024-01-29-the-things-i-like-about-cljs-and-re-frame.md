@@ -1,9 +1,9 @@
 ---
 layout: post
 title: The things I like about ClojureScript and Re-Frame
-author: mikko.ronkkomaki
+author: mikkoronkkomaki
 excerpt: >
-   A short list of things that make me personally glad about working with ClojureScript and Re-Frame in the front end
+   A short list of things that make me glad about working with ClojureScript and Re-Frame in the front end
 tags:
  - Front End
  - Clojure
@@ -20,7 +20,7 @@ A lot of the things I'll go over are a result of a cooperation with my colleague
 
 ## Introduction
 
-For the past 6 years or so the bulk of my front end development has been done using [ClojureScript](https://clojurescript.org/) and [Re-Frame](https://github.com/day8/re-frame). Before that, I spent a few years working on a project that used "bare bones" [Reagent](https://github.com/reagent-project/reagent). ...and before that it was mostly JQuery, Knockout, etc. and some other stuff that I'm not particularly proud of. 
+For the past 6 years or so the bulk of my front end development has been done using [ClojureScript](https://clojurescript.org/) and [Re-Frame](https://github.com/day8/re-frame). Before that, I spent a few years working on a project that used "bare bones" [Reagent](https://github.com/reagent-project/reagent). Before that it was mostly JQuery, Knockout, etc. and some other stuff that I'm not particularly proud of. 
 
 In the early days, I've had 3 major gripes working with the front end that could be summed up to:
 1. Complex frameworks, with tons of new concepts, bizarre work flows etc.
@@ -75,7 +75,7 @@ Reagent component library developed by the Velho alliance.
 Or maybe I should refer this chapters as scarcity of them. This is one of the main selling points of this setup for me. Basically the only things you need to know are the following:
 
 #### 1. App state 
-Also known as "db" with Re-Frame. Re-Frame takes all the app state and stores it in a so-called "big atom". The main issue I had working with just Reagent was that it doesn't take long for the application state to blow up all over the place, making it development and testing a real pain. 
+Also known as "db" with Re-Frame. Re-Frame takes all the app state and stores it in a so-called big atom. The main issue I had working with just Reagent was that it doesn't take long for the application state to blow up all over the place, making it development and testing a real pain. 
 With re-frame, you have it neatly stored in a single place.
 
 #### 2. Subscriptions
