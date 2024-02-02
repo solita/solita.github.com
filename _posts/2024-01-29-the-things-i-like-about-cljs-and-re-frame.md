@@ -98,7 +98,7 @@ Olive Hine has a good [blog post](https://www.juxt.pro/blog/cljs-apps/) that tou
 After a very long time of pondering with a number of different colleagues, I really find the following structure neat and somewhat easy to maintain and expand over:
 
 #### Routes 
-I've use Metosins [Reitit](https://github.com/metosin/reitit) in my exmple project, that tie up a view to a URL quite nicely. Nothing fancy here. It's merely where most things kick off. 
+I've used Metosin's [Reitit](https://github.com/metosin/reitit) in my example project, that tie up a view to a URL quite nicely. Nothing fancy here. It's merely where most things kick off. 
 
 ```
 (ns tuhoaja666.routes
