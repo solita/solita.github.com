@@ -14,14 +14,14 @@ tags:
 ### Disclaimer
 This post presumes, you've got preliminary knowledge of Clojure as a language, and it's basic tools, such as the REPL.
 
-A lot of the things I'll go over are a result of a cooperation with my colleague Tuomas Rinne. He's had a profound impact on the way I work with the aforementioned tools. He's been the one to introduce me to a lot of the stuff here, so he might as well be him writing this post too. Just to give credit where credit is due.
+A lot of the things I'll go over are a result of a cooperation with my colleague Tuomas Rinne. He's had a profound impact on the way I work with the aforementioned tools. He's been the one to introduce me to a lot of the stuff here, so it might as well be him writing this post too. Just to give credit where credit is due.
 
 ## Introduction
 
 For the past 6 years or so the bulk of my front end development has been done using [ClojureScript](https://clojurescript.org/) and [Re-Frame](https://github.com/day8/re-frame). Before that, I spent a few years working on a project that used "bare bones" [Reagent](https://github.com/reagent-project/reagent). Before that it was mostly JQuery, Knockout, etc. and some other stuff that I'm not particularly proud of. 
 
 In the early days, I've had 3 major gripes working with the front end that could be summed up to:
-1. Complex frameworks, with tons of new concepts, bizarre work flows etc.
+1. Complex frameworks, with tons of new concepts, bizarre workflows etc.
 2. Poor workflows during development
 3. Poor testability
 
@@ -55,11 +55,11 @@ ClojureScript build tool used in this project. Handles integration with NPM, liv
 
 ### [Reagent](https://github.com/reagent-project/reagent)
 
-Simple interface for ClojureScript to React. Enables writing React-components using ClojureScript functions. Instead of the Reacts "not quite HTML" uses Hiccup, which is representated via Clojure basic datastructures (maps and vectors).
+Simple interface for ClojureScript to React. Enables writing React-components using ClojureScript functions. Instead of the React's "not quite HTML" uses Hiccup, which represents HTML via Clojure basic datastructures (maps and vectors).
 
 ### [Re-Frame](https://github.com/day8/re-frame)
 
-ClojureScript frontend framework. "Last in the chain", meaning it builds on Reagent and enables building React components. Alters the React basic paradigm a bit. Basically Re-Frame events are the only means for mutating the app state and views react to them via subscriptions.
+ClojureScript frontend framework. "Last in the chain", meaning it builds on Reagent and enables building React components. Alters the React basic paradigm a bit. Basically Re-Frame events are the only means for mutating the appstate and views react to them via subscriptions.
 
 ### [Stylefy](https://github.com/Jarzka/stylefy)
 CLJS-library made by our very own Jari Hanhela, which enables writing CSS styles as Clojure data and attaching them to Reagent components.
@@ -72,18 +72,20 @@ Reagent component library developed by the Velho alliance.
 
 Or maybe I should refer this chapters as scarcity of them. This is one of the main selling points of this setup for me. Basically the only things you need to know are the following:
 
-#### 1. App state 
-Also known as "db" with Re-Frame. Re-Frame takes all the app state and stores it in a so-called big atom. The main issue I had working with just Reagent was that it doesn't take long for the application state to blow up all over the place, making it development and testing a real pain. 
+#### 1. Appstate 
+Also known as "db" with Re-Frame. Re-Frame takes all the appstate and stores it in a so-called big atom. The main issue I had working with just Reagent was that it doesn't take long for the application state to blow up all over the place, making development and testing a real pain. 
 With re-frame, you have it neatly stored in a single place.
 
 #### 2. Subscriptions
-To put it short, subscriptions simply are a way to get the state out to your views. They react to changes in the appstate. They can be composed or calculated on the fly.
+To put it short, subscriptions simply are a way to get the state out to your views. They provide the portion of the appstate that a single component or view is interested in a format that suits its needs. 
+
+Subscriptions react to changes in the appstate. Subscriptions can be composed number of other subscriptions or calculated on the fly. They limit the data that is visible for the UI component and thus affects on re-rendering components only when needed.
 
 #### 3. Events
-Whereas subscriptions are away of getting the state out, events are away of mutating the state.
+Whereas subscriptions are away of getting the state out, events are away of getting user input from the UI and mutating the appstate (db) in event handlers. For side effects (handling local storage, HTTP request etc.) there is a concept of effects in Re-Frame but that is out of scope of this post.
 
 #### 4. Views
-Basically React-components written using [Hiccup](https://github.com/weavejester/hiccup). These components get react to subscriptions and mutate the state via events.
+Basically React-components written using [Hiccup](https://github.com/weavejester/hiccup). These components react changes in the appstate via subscriptions by re-rendering themselves and cause affect changes the state via events.
 
 And that's basically it. Obviously you need to have something to work with e.g. routing, styling etc. but these four concepts will get you surprisingly far. 
 
@@ -260,9 +262,9 @@ The model resembles a C header file. Basically "introducing a single view". Usua
 (s/def ::clause (s/coll-of ::literal))
 ```
 
-This is pretty handy, when you have global var which usage can be easily traced. In addition to help keep your app state in order, it's quite convenient to just build your path as a vector and just conjoin stuff to it. This structure goes nicely hand in hand when using the [Re-Frame 10x](https://github.com/day8/re-frame-10x) debugging tools.
+This is pretty handy, when you have global var which usage can be easily traced. In addition to help keep your appstate in order, it's quite convenient to just build your path as a vector and just conjoin stuff to it. This structure goes nicely hand in hand when using the [Re-Frame 10x](https://github.com/day8/re-frame-10x) debugging tools.
 
-Also schemas, in this case Clojure specs, are stored here. They are used to define the datastructures used by this view and this part of the neighbourhood in the app state.  
+Also schemas, in this case Clojure specs, are stored here. They are used to define the datastructures used by this view and this part of the neighbourhood in the appstate.  
 
 ##### The controller
                                                                                                                                                                                                                      
@@ -287,11 +289,11 @@ This is where the actual calculation happens. The controller defines the impleme
 (re-frame/reg-event-fx calculator-model/evaluate evaluate)
 ```
 
-For testing purposes and for keeping up with general hygiene, it's a good practise to deliberately separate your event and subscription definitions from the actual functions that they implement. I'll get back to it later on.
+For testing purposes and for keeping up with general hygiene, it's a good practice to deliberately separate your event and subscription definitions from the actual functions that they implement. I'll get back to it later on.
 
 ## The REPL and debugging
 
-Having a full-fledged REPL when working on front end for me has been just simply put wonderful. ShadowCLJS provides this out of the box. Being able to tap in to a long work flow e.g. with context capture has made debugging some hairy cases so much more nicer.
+Having a full-fledged REPL when working on front end for me has been just simply put wonderful. ShadowCLJS provides this out of the box. Being able to tap in to a long workflow e.g. with context capture has made debugging some hairy cases so much more nicer.
 
 E.g. If we were to have a problem with our example when evaluating a clause, we could just easily take function that implements the events functionality and def it's params to a global var like so:
 ```
@@ -308,7 +310,7 @@ E.g. If we were to have a problem with our example when evaluating a clause, we 
       {:previous-value (first clause)}
       (rest clause))))
 ```
-So now we could just start debugging away merrily the body of that function. This might not seem much, but with long and complex workflows, this has kept me sane in a number of case. Yes I know, there's the browser console, but it's just not the same.
+So now we could just start debugging away merrily the body of that function. This means in addition just viewing the last params of the function, you can simply run the body of the function with the last parameters it was called with over and over again and see how it works. This might not seem much, but with long and complex workflows, this has kept me sane in a number of case. Yes I know, there's the browser console, but it's just not the same.
 
 What's great about this approach is that it provides inputs and outputs for unit tests right to your doorstep. Just add assertions.
 
@@ -316,11 +318,11 @@ What's great about this approach is that it provides inputs and outputs for unit
 
 Related to the previous chapter, what's great is that the same REPL setup can also be used for your tests. That provides one with the very same tools for developing and debugging your tests, which I've found to be really handy. ShadowCLJS provides a test runner, that you can jack up your REPL into. 
 
-As said earlier, if you manage to squeeze your view components, event and subscription implementations into pure functions, it makes writing unit tests for them very pleasant. 
+As said earlier, if you manage to squeeze your view components, event and subscription implementations into pure functions, it makes writing unit tests for them very pleasant. This is also one of the key points of the way that's the prevailing idea behind in the previous chapters that define an app structure. Having a clear and concise division of responsibilities and strive to boil most things down to pure functions and basic datastructures, at least in my experience, make testing a hell of a lot easier.     
 
-Still I think the key selling point for me has been Re-Frames testing tools. Time after time I've been struggling with E2E tests. The tools change (Cypress, TestCafe and what have you) but the problems still persist. I've started to wonder whether the problem isn't so much that the tools themselves a crap, rather than that they are set up against an impossible foe and used incorrectly.
+Still I think the key selling point for me has been Re-Frame's testing tools. Time after time I've been struggling with E2E tests. The tools change (Cypress, TestCafe and what have you) but the problems still persist. I've started to wonder whether the problem isn't so much that the tools themselves are crap, rather than that they are set up against an impossible foe and used incorrectly.
 
-Consider the following tests that utilizes the Re-Frames `run-test-sync`
+Consider the following tests that utilizes the Re-Frame's `run-test-sync`
 
 ```
 (deftest calculation
