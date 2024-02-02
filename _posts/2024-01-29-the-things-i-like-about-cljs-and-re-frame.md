@@ -84,7 +84,7 @@ To put it short, subscriptions simply are a way to get the state out to your vie
 Subscriptions react to changes in the appstate. Subscriptions can be composed number of other subscriptions or calculated on the fly. They limit the data that is visible for the UI component and thus affects on re-rendering components only when needed.
 
 #### 3. Events
-Whereas subscriptions are away of getting the state out, events are away of getting user input from the UI and mutating the appstate (db) in event handlers. For side effects (handling local storage, HTTP request etc.) there is a concept of effects in Re-Frame but that is out of scope of this post.
+Whereas subscriptions are a way of getting the state out, events are a way of getting user input from the UI and mutating the appstate (db) in event handlers. For side effects (handling local storage, HTTP request etc.) there is a concept of effects in Re-Frame but that is out of scope of this post.
 
 #### 4. Views
 Basically React-components written using [Hiccup](https://github.com/weavejester/hiccup). These components react changes in the appstate via subscriptions by re-rendering themselves and cause affect changes the state via events.
