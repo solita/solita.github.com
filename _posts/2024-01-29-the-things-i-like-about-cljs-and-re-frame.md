@@ -59,7 +59,9 @@ Simple interface for ClojureScript to React. Enables writing React-components us
 
 ### [Re-Frame](https://github.com/day8/re-frame)
 
-ClojureScript frontend framework. "Last in the chain", meaning it builds on Reagent and enables building React components. Alters the React basic paradigm a bit. Basically Re-Frame events are the only means for mutating the appstate and views react to them via subscriptions.
+ClojureScript frontend framework. "Last in the chain", meaning it builds on Reagent and enables building React components. Alters the React basic paradigm a bit. Basically Re-Frame events are the only means for mutating the appstate and views react to them via subscriptions. 
+
+One of the main selling points of Re-Frame is its data-oriented design. This design choice is key for making the application using the Re-Frame framework more testable by steering implementation towards more pure functions and keeping side effects at a minimum and isolated in specific places to make the application more testable.
 
 ### [Stylefy](https://github.com/Jarzka/stylefy)
 CLJS-library made by our very own Jari Hanhela, which enables writing CSS styles as Clojure data and attaching them to Reagent components.
