@@ -100,7 +100,7 @@ After a very long time of pondering with a number of different colleagues, I rea
 #### Routes 
 I've used Metosin's [Reitit](https://github.com/metosin/reitit) in my example project, that tie up a view to a URL quite nicely. Nothing fancy here. It's merely where most things kick off. 
 
-```
+```clojure
 (ns tuhoaja666.routes
   (:require [tuhoaja666.calculator.view :as calculator-view]
             [tuhoaja666.history.view :as history-view]))
@@ -122,7 +122,7 @@ The rest of the structure follows somewhat in the vein of a traditional MVC mode
 ##### The view
 
 The views that the routes tie into are functions that return hiccup, that then on renders into react components. In their simplest form, they can look something like this: 
-```
+```clojure
 (ns tuhoaja666.calculator.view
   (:require [re-frame.core :as re-frame]
             [stylefy.core :as stylefy]
@@ -185,7 +185,7 @@ As said before, they merely define HTML tags, get their data via subscriptions a
 
 I've also liked to move all style specific code into a separate file just to keep things as tidy as possible. As mentioned earlier, I've used Stylefy in this project. It mainly just creates inline CSS. So the styles for the previous view look like the following:
 
-```
+```clojure
 (ns tuhoaja666.calculator.styles
   (:require [velho-ds.tokens.font :as font]
             [velho-ds.tokens.font-size :as font-size]))
@@ -236,7 +236,7 @@ In case you haven't already picked up on it, what's being used here are just map
 
 The model resembles a C header file. Basically "introducing a single view". Usually what finds it's way here is paths within the db, subscriptions, events and specs. So all the stuff that you need to refer to when working with a single view.
 
-```
+```clojure
 (ns tuhoaja666.calculator.model
   (:require [cljs.spec.alpha :as s]))
 
@@ -272,14 +272,14 @@ Also schemas, in this case Clojure specs, are stored here. They are used to defi
                                                                                                                                                                                                                      
 This is where the actual calculation happens. The controller defines the implementation of the subscriptions and events introduced in the model file.
 
-```
+```clojure
 (defn current-value [db]
   (get-in db calculator-model/current-value-path))
 
 (re-frame/reg-sub calculator-model/current-value  current-value)
 ```
 
-```
+```clojure
 (defn evaluate [{:keys [db]} _]
   (let [clause (conj (vec (get-in db calculator-model/clause-path))
                      (get-in db calculator-model/current-value-path))
@@ -298,7 +298,7 @@ For testing purposes and for keeping up with general hygiene, it's a good practi
 Having a full-fledged REPL when working on front end for me has been just simply put wonderful. ShadowCLJS provides this out of the box. Being able to tap in to a long workflow e.g. with context capture has made debugging some hairy cases so much more nicer.
 
 E.g. If we were to have a problem with our example when evaluating a clause, we could just easily take function that implements the events functionality and def it's params to a global var like so:
-```
+```clojure
 (defn evaluate-clause [clause]
   (assert (s/valid? ::calculator-model/clause clause)
           (str "Invalid clause. Will not evaluate: " (s/explain-str ::calculator-model/clause clause)))
@@ -326,7 +326,7 @@ Still I think the key selling point for me has been Re-Frame's testing tools. Ti
 
 Consider the following tests that utilizes the Re-Frame's `run-test-sync`
 
-```
+```clojure
 (deftest calculation
   (rf-test/run-test-sync
     (let [current-value (rf/subscribe [calculator-model/current-value])]
