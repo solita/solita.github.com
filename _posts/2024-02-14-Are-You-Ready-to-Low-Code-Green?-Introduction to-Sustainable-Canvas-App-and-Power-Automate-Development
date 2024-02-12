@@ -7,18 +7,19 @@ excerpt: >
 tags:
  - Green Coding
  - Canvas App
+ - Power App
  - Power Platform
  - Power Automate
 ---
 
-![Illustartion of how green software divedes to energt effiency, hardware effiency and carbon awarness](/img/2024-Power-Platform/Green%20Sofware%20Principles.png)
+![Illustration of how green software divides to energy efficiency, hardware efficiency and carbon awareness](/img/2024-Power-Platform/Green%20Sofware%20Principles.png)
 > Picture: [Green Software Foundation](https://learn.greensoftware.foundation/introduction)
 
 The ICT sector (including data centers, communication networks, and user devices) is estimated to account for [around 4-6% of global electricity usage.](https://post.parliament.uk/research-briefings/post-pn-0677/) When discussing CO2 or greenhouse gas emissions, the ICT sector's emissions primarily stem from electricity consumption. As an app developer, I don’t have the power to dictate the type of electricity end-users or data centers use; therefore, I should focus on reducing the energy consumption of the app.
 
-When working with the Power Platform, one might easily think that developers can't do much. The platform takes care of most things like scaling, data savings, and cloud servers. Here, green coding comes into play.
+When working with [the Power Platform](https://powerplatform.microsoft.com/en-us/what-is-power-platform/), one might easily think that developers can't do much. The platform takes care of most things like scaling, data savings, and cloud servers. Here, green coding comes into play.
 
-Green coding is a method of coding that aims to minimize the energy required to process lines of code. While there are no studies available on the efficiency of Power FX (if I were to speculate, there might not be much to brag about it, given that high-level coding languages, like JavaScript, are not typically the most efficient), and we lack the ability to select the language in Canvas apps, our attention should be directed towards enhancing the energy efficiency of our apps through alternative means.
+Green coding is a method of coding that aims to minimize the energy required to process lines of code. While there are no studies available on the efficiency of [Power FX](https://learn.microsoft.com/en-us/power-platform/power-fx/overview) (if I were to speculate, there might not be much to brag about it, given that high-level coding languages, like JavaScript, are not typically the most efficient), and we lack the ability to select the language in Canvas apps, our attention should be directed towards enhancing the energy efficiency of our apps through alternative means.
 
 When improving carbon and energy efficiency, developers should aim to emit the least amount of carbon possible and use the least amount of energy possible. While studying for the Green Software for Practitioners exam, I became familiar with the six principles of green software. I decided to focus on the efficiency side of these principles and found a way to divide them into four different points:
 
@@ -35,7 +36,7 @@ When improving carbon and energy efficiency, developers should aim to emit the l
 ![Photo of Powerplatform icons: Power Apps, Power Automate, Power FX, Power Platform and Dataverse](/img/2024-Power-Platform/Power%20Platform%20products.png)
 >   Power Platform products included in discussion
 
-When developing a Canvas app or Power Automate, it's easy to forget to limit the amount of transferrable data. There's a temptation to fetch data "just in case" for the app. Canvas App uses OData and API requests to transfer data via connectors. Therefore, limiting the amount of data transferred from the data source is key to improving efficiency.
+When developing [Canvas Apps](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/getting-started) or Power Automates, it's easy to forget to limit the amount of transferrable data. There's a temptation to fetch data "just in case" for the app. Canvas App uses OData and API requests to transfer data via connectors. Therefore, limiting the amount of data transferred from the data source is key to improving efficiency.
 
 In the Canvas app and Power Automate context, I believe the following checkups are in place:
 
@@ -112,7 +113,7 @@ But a girl can dream of a greener future. Could Microsoft provide an eco-mode fe
 
 # Closing words and learning content
 
-"Hopefully, this has provided you with new ideas for finding greener ways to low code. As development progresses towards more sustainable software, we anticipate the emergence of additional best practices and automated solutions to further reduce carbon emissions and energy consumption in Power Platform solutions.
+Hopefully, this has provided you with new ideas for finding greener ways to low code. As development progresses towards more sustainable software, we anticipate the emergence of additional best practices and automated solutions to further reduce carbon emissions and energy consumption in Power Platform solutions.
 
 If you're interested, here is more information about the subject.
 
