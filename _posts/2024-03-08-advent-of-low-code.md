@@ -3,7 +3,7 @@ layout: post
 title: Advent of Low-code - Solving Advent of Code 2023 with OutSystems
 author: rogerwanamo
 excerpt: >
-   OutSystems is a low-code platform that promises lightning fast development with less coding, but how well will it do when we pit it against tasks that require more complex algorithms?
+   OutSystems is a low-code platform that promises lightning-fast development with less coding, but how well will it do when we pit it against tasks that require more complex algorithms?
 tags:
  - Low-code
  - OutSystems
