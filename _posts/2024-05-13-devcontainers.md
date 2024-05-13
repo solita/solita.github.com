@@ -13,7 +13,7 @@ tags:
 
 ## Devcontainers: Goodbye to dependency hassle
 
-Every time a developer start on a project they need to go through the process of setting up a development environment. This can be a smooth half day work, or an installation / googling frenzy for a week, specially for legacy code.  
+Every time a developer starts on a project they need to go through the process of setting up a development environment. This can be a smooth half day work, or an installation / googling frenzy for a week, especially for legacy code.  
 
 This is where devcontainers could be a helper.
 
@@ -55,7 +55,7 @@ Devcontainers supports a lot of different IDEs and extensions. Here are some exa
 
 How to test: Get [code](https://github.com/MikaelStr/DevContainerRESTBackend) from git, launch VSCode (Ext. Devcontainer) . Ready!
 
-Devcontainer file uses a "ms-dotnettools.csharp" extension wich is a C# extension provided by Microsoft. This extension provides features like IntelliSense, code navigation, and debugging support for C# code.
+Devcontainer file uses a "ms-dotnettools.csharp" extension which is a C# extension provided by Microsoft. This extension provides features like IntelliSense, code navigation, and debugging support for C# code.
 ```
 {
     "name": "ASP.NET Core",
@@ -74,6 +74,6 @@ The devcontainer could be verified in a step in the CI / CD. This way keeping it
 
 ## Last words
 
-I hope this article will help you tackle some of the challenges that comes with setting up new development environments.
+I hope this article will help you tackle some of the challenges that come with setting up new development environments.
 
 [Here](https://devblogs.microsoft.com/ise/dev-containers/) is a good post to start from if you want to learn more.
