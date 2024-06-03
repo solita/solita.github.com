@@ -2,7 +2,7 @@
 layout: post
 title: Visual testing with Storybook
 author: juholei
-excerpt: ????
+excerpt: Turn your Storybook stories into visual tests with Storybook Test Runner
 tags:
   - Storybook
   - Testing
@@ -13,13 +13,12 @@ UI components, document their usage and develop them in isolation. For a new pro
 tool. It simplifies development by providing a clear view of the UI components in the project and their usage. It also
 allows you to quickly develop new components or even views without having to consider how to integrate them to the
 actual application and constantly navigate to them during the development. Instead, you simply create a new story for
-your component, develop it in the browser by looking at it in Storybook, and integrate it into the actual code when
-ready.
+your component and develop it in the browser using Storybook. Once ready, you can integrate it into the actual code.
 
 All of that is enough of itself to make Storybook a must-have tool, but did you know it can also be used for testing?
-Storybook has developed a service called [Chromatic](https://www.chromatic.com/) for visual testing. It offers a lot of
-features such as automatic testing in multiple browsers, but as a SaaS product, it may not be possible to use it in all
-projects or it might feel like an overkill. In this blog post, I will introduce another
+Storybook developers have created a service called [Chromatic](https://www.chromatic.com/) for visual testing. It offers
+a lot of features such as automatic testing in multiple browsers, but as a SaaS product, it may not be possible to use
+it in all projects or it might feel like an overkill. In this blog post, I will introduce another
 option, [Storybook Test Runner](https://storybook.js.org/docs/writing-tests/test-runner). With it, all your stories turn
 automatically into tests. And with a little bit of setup, they also turn into visual tests.
 
@@ -100,8 +99,8 @@ const config: TestRunnerConfig = {
 export default config;
 ```
 
-The snapshot functionality uses jest-image-snapshot, so for this to work you need to install
-it `npm i jest-image-snapshot --save-dev`.
+The snapshot functionality uses jest-image-snapshot, a Jest matcher that performs image comparisons using pixel
+matching. To use this, you need to install it with `npm i jest-image-snapshot --save-dev`.
 
 With the first run the test runner generates the image snapshots under `__snapshots__` directory. The snapshots are
 screenshots of the stories taken from the Storybook page.
@@ -115,12 +114,13 @@ middle a diff output of the two.
 
 ![Diff output of a failed visual test](/img/storybook-visual-testing/diff-output.png)
 
-If the test fails, you now need to determine if the change was intended. If it was not intentional, then you need to fix
-the problem. If the test was intentional, you need to update the snapshot to match the new look of the component /
-story. This can be done by running storybook-test runner again with an update flag: `test-storybook --updateSnapshot`.
+If the test fails, you need to determine whether the change was intentional. If it was not intentional, then you need to
+fix the problem. If the change was intentional, you need to update the snapshot to match the new look of the component
+or story. This can be done by running storybook-test runner again with an update
+flag: `test-storybook --updateSnapshot`.
 You probably should add that as an npm script to your package json as follows:
 
-````
+```
 "test-storybook:update": "test-storybook --updateSnapshot"
 ```
 
@@ -128,15 +128,25 @@ After updating the snapshots, you just commit the changes.
 
 ## CI, Operating Systems, Browser Versions, and All the Other Ugly Stuff
 
-If this sounded simple and easy, fear not, it's starting to get complicated. The setup we have now works on your computer. When you commit your snapshots and another developer or CI system then runs the tests, it's likely they will fail. This is the stuff the Storybook Test Runner image snapshot documentation fails to mention.
+If this sounded simple and easy, fear not, it's starting to get complicated. The setup we have now works on your
+computer. When you commit your snapshots and another developer or CI system then runs the tests, it's likely they will
+fail. This is the stuff the Storybook Test Runner image snapshot documentation fails to mention.
 
-It's logical if you think about it for a minute: Different operating systems and even browser versions render native html elements like buttons, selects, etc. and fonts differently. This means that image snapshots created on macOS are deemed to differ from those created on Linux or Windows.
+It's logical if you think about it for a minute: Different operating systems and even browser versions render native
+html elements like buttons, selects, etc. and fonts differently. This means that image snapshots created on macOS are
+deemed to differ from those created on Linux or Windows.
 
-To make them always match no matter who or what runs the tests, we can run the tests in Docker. As the tests are ran in Playwright, the logical base image for this purpose is the ready-made Playwright image from Microsoft which contains all the browsers needed. To make it easier to use Storybook Test Runner inside a container, it's best to create some bash scripts.
+To make them always match no matter who or what runs the tests, we can run the tests in Docker. As the tests are ran in
+Playwright, the logical base image for this purpose is the ready-made Playwright image from Microsoft which contains all
+the browsers needed. To make it easier to use Storybook Test Runner inside a container, it's best to create some bash
+scripts.
 
-First, let's create a script that handles creating the container, building the Docker image and creating the container, running the tests inside the container, copying the test results out of the container and finally getting rid of the container.
+First, let's create a script that handles creating the container, building the Docker image and creating the container,
+running the tests inside the container, copying the test results out of the container and finally getting rid of the
+container.
 
 run-visual-tests-in-docker.sh:
+
 ```
 #!/usr/bin/env bash
 set -u
@@ -182,7 +192,9 @@ COPY ./ ./
 RUN npm run storybook:build
 ```
 
-When building the image, we copy our project contents to it and build the storybook. Then we can use docker run to run the tests inside a container using the image. To make things easier with copying things in and out of the container, you should probably create bash scripts to run the tests.
+When building the image, we copy our project contents to it and build the storybook. Then we can use docker run to run
+the tests inside a container using the image. To make things easier with copying things in and out of the container, you
+should probably create bash scripts to run the tests.
 
 Finally, the last piece is run-visual-tests.sh which is executed in the Docker container:
 
@@ -202,6 +214,17 @@ npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx wait-on http://127.0.0.1:6006 && $test_command"
 ```
 
-This script starts a webserver to serve the previously built storybook and then runs the test command to execute the test. run-visual-tests-in-docker.sh takes the optional parameter `update` which is passed all the way here to this script. Without this parameter, the script only runs the tests. With the parameter, the snapshots are updated. Test results diffs and updated snapshots are then copied to the host machine after the execution.
+This script starts a webserver to serve the previously built storybook and then runs the test command to execute the
+test. run-visual-tests-in-docker.sh takes the optional parameter `update` which is passed all the way here to this
+script. Without this parameter, the script only runs the tests. With the parameter, the snapshots are updated. Test
+results diffs and updated snapshots are then copied to the host machine after the execution.
 
-Now when running the tests with `./run-visual-tests-in-docker.sh` runs the tests with the same output no matter what the OS on the developer computer is and your new Storybook-based visual tests pass (or fail) as they should in CI. 
+Now, running the tests with `./run-visual-tests-in-docker.sh` will produce the same output regardless of the operating
+system on the developer's computer. This ensures that your new Storybook-based visual tests pass (or fail) as expected
+in the CI environment.
+
+In conclusion, Storybook is not only a powerful tool for developing and documenting UI components, but can also be used
+as a visual testing tool.
+With Storybook Test Runner and jest-image-snapshot, we can automate visual testing and reduce the risk of visual
+regressions and. While the initial setup with Docker might seem complex, the benefits of automated visual tests in CI
+outweigh the setup costs once it's up and running.
