@@ -13,7 +13,8 @@ tags:
 ---
 
 [Storybook](https://storybook.js.org/) is a tool for frontend development which allows you to provide interactive
-examples of your UI components in an easy to browse interface. For a new project, I now consider it a must-have
+examples of your UI components in an easy to browse interface. Storybook can be used with React, Vue, Svelte, Angular,
+Web Components, plain HTML and other frontend frameworks/libraries. For a new project, I now consider it a must-have
 tool. It simplifies development by providing a clear view of the UI components in the project and their usage. It also
 allows you to quickly develop new components or even views without having to consider how to integrate them to the
 actual application and constantly navigate to them during the development. Instead, you simply create a new story for
