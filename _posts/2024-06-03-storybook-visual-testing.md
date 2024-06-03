@@ -8,15 +8,15 @@ tags:
   - Testing
 ---
 
-[Storybook](https://storybook.js.org/) is a tool for frontend development which allows you to provide examples of your UI components, document their usage and develop them in isolation. For a new project, I would nowadays consider it as a must-have tool, as it makes developing so much easier when you can easily see what UI components the project has and how they are used. It also allows you to quickly develop new components or even views without having to consider how to integrate them to the actual application and constantly navigate to them during the development. Instead, you just create a new story for your new component, open that in the browser and develop it there until it's time to use it in the actual code.
+[Storybook](https://storybook.js.org/) is a tool for frontend development which allows you to provide examples of your UI components, document their usage and develop them in isolation. For a new project, I now consider it a must-have tool. It simplifies development by providing a clear view of the UI components in the project and their usage. It also allows you to quickly develop new components or even views without having to consider how to integrate them to the actual application and constantly navigate to them during the development. Instead, you simply create a new story for your component, develop it in the browser by looking at it in Storybook, and integrate it into the actual code when ready.
 
-All of that is enough of itself to make Storybook a must-have tool, but did you know it can also be used for testing? Storybook has developed a service called [Chromatic](https://www.chromatic.com/) for visual testing. It offers a lot of features such as automatic testing in multiple browsers, but as a SaaS product, it may not be possible to use it in all projects or it might feel like an overkill. The other option, which I will introduce in this blog post, is [Storybook Test Runner](https://storybook.js.org/docs/writing-tests/test-runner). With it, all your stories turn automatically into tests. And with a little bit of setup, they also turn into visual tests.
+All of that is enough of itself to make Storybook a must-have tool, but did you know it can also be used for testing? Storybook has developed a service called [Chromatic](https://www.chromatic.com/) for visual testing. It offers a lot of features such as automatic testing in multiple browsers, but as a SaaS product, it may not be possible to use it in all projects or it might feel like an overkill. In this blog post, I will introduce another option, [Storybook Test Runner](https://storybook.js.org/docs/writing-tests/test-runner). With it, all your stories turn automatically into tests. And with a little bit of setup, they also turn into visual tests.
 
 ## Storybook Test Runner
 
 Storybook Test Runner, as their documentation says, turns all of your stories into executable tests. Behind the scenes, it uses [Jest](https://jestjs.io/) as a test runner and [Playwright](https://playwright.dev/) as the environment where the tests are executed. The setup is straight-forward, assuming you are already using Storybook.
 
-Install Storybook Test Runner
+Install Storybook Test Runner with the command
 
 ```
 npm install @storybook/test-runner --save-dev
@@ -31,7 +31,7 @@ and add it to your npm scripts in package.json:
 }
 ```
 
-After doing this, start your Storybook like you would normally do and then run `npm run test-storybook`. It should now run your stories as tests. What this basically means is that the test runner renders your stories and if any errors, exceptions or such occur, the test fails. If the story renders without any errors, the test passes.
+After this, start your Storybook as usual and run `npm run test-storybook`. It should now run your stories as tests. Essentially, the test runner renders your stories, and if any errors or exceptions occur, the test fails. If the story renders without any errors, the test passes.
 
 The output looks like normal Jest test output:
 
@@ -41,7 +41,7 @@ If a story has some errors in it, the output shows that a test called smokeTest 
 
 ![smokeTest of H1 component story withText failed](/img/storybook-visual-testing/normal-failure.png)
 
-This is easy enough to add to your project already using Storyboot that unless your project already has a high test coverage for your component code otherwise, I think it's worth adding to your project and CI/CD pipelines.
+This is easy enough to add to your project already using Storybook that unless your project already has a high test coverage for your component code otherwise, I think it's worth adding to your project and CI/CD pipelines.
 
 
 ## Turning the tests into visual tests
