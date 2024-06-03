@@ -4,8 +4,12 @@ title: Visual testing with Storybook
 author: juholei
 excerpt: Turn your Storybook stories into visual tests with Storybook Test Runner
 tags:
+  - Frontend
   - Storybook
   - Testing
+  - Automation
+  - Test Automation
+
 ---
 
 [Storybook](https://storybook.js.org/) is a tool for frontend development which allows you to provide interactive
