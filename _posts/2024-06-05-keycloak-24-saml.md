@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Keycloak 24 and suomi.fi login with a single certificate
+title: Debugging Keycloak and suomi.fi
 author: topipoh
 excerpt: Since version 24, Keycloak refuses to decrypt SAML assertions using a signing certificate. This is how we worked around it.
 tags:
