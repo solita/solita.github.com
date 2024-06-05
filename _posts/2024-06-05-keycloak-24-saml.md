@@ -16,8 +16,8 @@ We worked around this by adding the same certificate to Keycloak as an encryptio
 This can be done using the Web UI or `kcadm.sh` with a JSON payload.
 
 ## Background
-Like many others, our system uses [Keycloak](https://www.keycloak.org/) to implement [suomi.fi](https://www.suomi.fi/) 
-Single Sign-On with AWS Cognito. Read more about this setup from [our cloud blog](https://cloud.solita.fi/en/integrating-aws-cognito-with-suomi-fi-and-others-eidas-services-via-saml-interface/).
+Like many others, our AWS based system uses [Keycloak](https://www.keycloak.org/) to implement [suomi.fi](https://www.suomi.fi/) 
+Single Sign-On. Read more about this setup from [our cloud blog](https://cloud.solita.fi/en/integrating-aws-cognito-with-suomi-fi-and-others-eidas-services-via-saml-interface/).
 
 ## Problem
 It was supposed to be a routine upgrade from Keycloak 23 to 24. I had not worked with Keycloak before, but we have good 
