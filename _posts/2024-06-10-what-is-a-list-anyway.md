@@ -4,18 +4,18 @@ title: What is a list anyway?
 author: tatut
 excerpt: >
   Programmers work with lists every day, but what are they?
-  Take a look at some wisdom of the ancients on how to properly
-  work with lists.
+  Take a look at some wisdom of the ancients on how to work
+  with lists properly.
 tags:
  - Prolog
  - LISP
 ---
 
 As programmers, we work with lists all day every day... any time you have more than one of something,
-you will most likely make a list. Having nothing or having one of something can be thought of as
+you will most likely make a list. Having nothing or having one of something can be considered
 special cases... and the common case is to have `N` somethings.
 
-Because lists are so ubiquitous, all higher level programming languages provide types or classes to
+Because lists are so ubiquitous, all higher-level programming languages provide types or classes to
 work with lists, this usually includes creating lists, selecting items from lists, processing the
 items of a list and so on.
 
@@ -26,7 +26,7 @@ that a list boils down to simply a pair of values: an element and a pointer to t
 In LISP this is called the *cons cell* and its slots are called [CAR and CDR](https://en.wikipedia.org/wiki/CAR_and_CDR)
 respectively.
 
-So we can clearly see that "a list" is not a thing in and of itself, but rather an amalgamation of
+So we can see that "a list" is not a thing in and of itself, but rather an amalgamation of
 cons cells. Many Object Oriented programming languages, like Java, provide a [List class](https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/List.html)
 which differs from the original lispy view of things and models the whole instead of the part.
 
@@ -37,7 +37,7 @@ All examples work with the free [SWI-Prolog](https://www.swi-prolog.org) impleme
 
 ## List basics
 
-Prolog, like LISP and many other languages, has a builtin syntax for lists. Prolog uses square brackets
+Prolog, like LISP and many other languages, has a built-in syntax for lists. Prolog uses square brackets
 and commas:
 
 ```prolog
@@ -77,8 +77,8 @@ false
 
 ## Basic utilities
 
-What do we usually do with a list? Well we need to go through its items, for example to do something
-for each item. We must of course be able to create new lists and take apart lists.
+What do we usually do with a list? Well, we need to go through its items, for example, to do something
+for each item. We must be able to create new lists and take apart lists.
 
 To map a goal to each element we can use `maplist`:
 
@@ -100,7 +100,7 @@ true.
 ```
 
 Next, let's define relational versions of the usual list functions: drop (remove N items from front)
-and take (take only the N first items of list).
+and take (take only the N first items of the list).
 
 ```prolog
 drop(0, Lst, Lst).
@@ -111,11 +111,11 @@ drop(N, [_|Rest], Out) :-
 ```
 
 Above you can see we define two clauses. The first states that when dropping 0 elements
-from a list, the output list is the same list. The second states that for a positive
-number N, the first element of the input list is discarded and then a recursive clause
+from a list, the output list is the list itself. The second states that for a positive
+number N, the first element of the input list is discarded, and then a recursive clause
 is added for N-1.
 
-Similarly we can define take as:
+Similarly, we can define take as:
 ```prolog
 take(0, _, []).
 take(N, [I|Items], [I|Taken]) :-
@@ -127,7 +127,7 @@ take(N, [I|Items], [I|Taken]) :-
 Again we have a recursive definition with a base case of taking zero items, but here
 the output of taking zero items from anything is the empty list.
 
-We can use both of these definitions like:
+We can now use both of these definitions:
 ```prolog
 ?- drop(2, [1,2,3,4], Dropped).
 Dropped = [3, 4].
@@ -151,7 +151,7 @@ Input = [_, _, _, 1, 2, 3].
 ```
 
 We can state that the result of dropping N items is the list `[1,2,3]` and Prolog
-will give us the possible input lists, but obviously all the items before will be
+will give us the possible input lists, but all the items before will be
 placeholders that can refer to anything.
 
 But we can further constrain the list and state that all numbers are between 1 and 3 to
@@ -182,7 +182,7 @@ Input = [3, 3, 3, 1, 2, 3].
 
 ## Enter append
 
-Of course a language must also have a way to concatenate lists. For this we have `append` which comes
+Of course, a language must also have a way to concatenate lists. For this, we have `append` which comes
 in two forms: append two lists to get a third one and append a list of lists to get all of them concatenated.
 
 ```prolog
@@ -241,12 +241,12 @@ F = "John"
 
 Another common example is an environment bindings mapping (like in an interpreter). You can easily
 overwrite a key by appending a new mapping to the front of the list. Because lists are just cons cells,
-we can just create a new cell that contains the new mapping and points to the old list. Very efficient.
+we can create a new cell that contains the new mapping and points to the old list. Very efficient.
 We also don't need to remove anything when we exit, just keep using the old unchanged list.
 
 ## Closing thoughts
 
 Lists are more than just a type of object. I hope you can see why Lisp and Prolog (and many other functional
 programming languages) use lists heavily. They become very handy if the language includes direct syntax
-for creating and destructuring lists. Many pattern matching languages also allow easy destructuring into
-head and tail of a list.
+for creating and destructuring lists. Many pattern-matching languages also allow easy destructuring into
+the head and tail of a list.
