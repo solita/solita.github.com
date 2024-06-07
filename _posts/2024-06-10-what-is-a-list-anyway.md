@@ -196,7 +196,7 @@ All = [1, 2, 3, 4, 5, 6].
 Pretty simple... a utility found in most languages.
 What if I told you that the above utilities of `drop` and `take` aren't needed
 because we have `append`? How can appending lists be used to split them apart, I hear you ask.
-Remember that we are describing a relation between the parameters, so can do drop and take like:
+Remember that we are describing a relation between the parameters, so we can do drop and take like:
 
 ```prolog
 ?- length(Dropped, 3), append(_, Dropped, [1,2,3,4,5,6]).
