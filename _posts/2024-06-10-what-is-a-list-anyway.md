@@ -133,7 +133,7 @@ We can now use both of these definitions:
 Dropped = [3, 4].
 
 ?- take(3, [42, 1, 2, 3, 4], Taken).
-Taken = [41, 1, 2].
+Taken = [42, 1, 2].
 ```
 
 As these are relations, can we run them the other way? Yes, somewhat.
