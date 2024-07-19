@@ -40,6 +40,20 @@ If you want to write a post, here's how:
 7. Ask someone to review your post
 8. Publish by merging the branch
 
+### Formatting tips
+
+#### Double curlies
+
+To render double curly braces (`{{...text...}}`) in post content, you must surround it with raw-tags:
+
+```md
+{%- raw -%}
+printf("Hello, {{foo}}", foo)
+{% endraw %}
+```
+
+[More info in Jekyll docs](https://jekyllrb.com/docs/liquid/tags/#code-snippet-highlighting).
+
 ## Understanding how the deploy works
 
 There are no workflows in this repo for the deploy - Github has builtin Jekyll based workflows
