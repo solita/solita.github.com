@@ -95,6 +95,7 @@ Important parts here are:
 - Set the environment if you configured the federated credential subject to contain it.
 
 ```yaml
+{%- raw -%}
 ...
 
 jobs:
@@ -113,6 +114,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Show current account
         run: az account show
+{% endraw %}
 ```
 
 And that's it.
