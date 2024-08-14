@@ -17,7 +17,9 @@ Server Sent Events or SSE is a “server push” styled real-time communication 
 While both SSE and WebSocket are used for 'real-time' communication, one of the fundamental differences lies in directionality. WebSocket allows for both the client and server to send data between each other bidirectionally, whereas SSE as one can infer from the name only allows the server to send data to the client, hence unidirectional. WebSocket can transfer either binary data or unicode text, but SSE is only limited to text which has its own mime type (`text/event-stream`). Also the underlying technology for each of these are also different. SSE uses the HTTP protocol (supports both HTTP/1.1 and HTTP/2) and WebSocket, on the hand, uses its own WebSocket protocol. This makes the set up for SSE simpler than WebSocket with less overhead and blends in well with any other regular HTTP endpoints. Furthermore, SSE inherits standard HTTP security features including Same-Origin Policy enforcement by browsers, whereas WebSocket uses its own protocol which doesn't inherently restrict origins, requiring careful server-side implementation to prevent potential cross-origin attacks.
 
 ### Use Cases and Good-to-Knows
-Based on the discussion up to now, a conclusion can be drawn that SSE is best suited in cases where realtime communication between a client and server is necessary but the client does not need to send any information back the server itself. For example, the state of a process running on the server that the client needs to be aware but has no need to send any data back simultaneously can be a good case for the use of SSE. Both the server and the client can also terminate the request at any time and termination can be handled accordingly. In implementing SSE, the client subscribes to the stream using the [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) Web API.  The data sent over follows the [Event stream format](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). This will make more sense after the demo. Finally, it is worth noting that, SSE allows for automatic reconnection, which allows the client to retry connecting to the server in case the connection is disrupted in a exponential backoff manner and if connection is reestablished, server can resume sending from the last sent event, resulting in no loss of events. This is thanks to EventSource keeping track of event IDs and on a successful reconnection sending the last event ID. The number of retry attempts can be modified at the start. 
+Based on the discussion up to now, a conclusion can be drawn that SSE is best suited in cases where realtime communication between a client and server is necessary but the client does not need to send any information back the server itself. For example, the state of a process running on the server that the client needs to be aware but has no need to send any data back simultaneously can be a good case for the use of SSE. Both the server and the client can also terminate the request at any time and termination can be handled accordingly. In implementing SSE, the client subscribes to the stream using the [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) Web API.  The data sent over follows the [Event stream format](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). This will make more sense after the demo. 
+
+Finally, it is worth noting that, SSE allows for automatic reconnection, which makes the client retry connecting with the server using an exponential backoff algorithm in case the connection is disrupted and if connection is reestablished, server can resume sending from the last sent event, resulting in no loss of events due to connection disruption. This is thanks to `EventSource` keeping track of event IDs and on a successful reconnection sending the last event ID. Also, the number of retry attempts can be modified at the start of the connection by setting the `retry` field in the response header.
 
 ### Demo
 
@@ -51,7 +53,7 @@ Now it’s time for the demonstration. Let’s start with our client. Here’s a
 </html>
 ```
 
-Implementing the server side logic for SSE is possible in most common server side programming languages and frameworks. For now, I will demonstrate with a Node.js and Express framework. Let’s see the code in `server.js` file: 
+Implementing the server side logic for SSE is possible in most common server side programming languages and frameworks. For now, I will demonstrate with a Node.js script using the Express framework which is a bit of an overkill to be honest. Anyway, let’s see the code in `server.js` file: 
 
 **Server:**
 
@@ -90,10 +92,10 @@ app.listen(PORT, () => {
 });
 ```
 
-Assuming the `index.html` file is available at the same level, it is being served at the root. If the node dependency is available, running `node server.js` should start the server on [`localhost:8080`](http://localhost:8080) and you should be able to see message being received on the client side in every `2s` interval. Like so:
+Assuming the `index.html` file is available at the same level, it will be served at the root. If the node dependencies are available, running `node server.js` should start the server on [`localhost:8080`](http://localhost:8080) and you should be able to see messages being received on the client side in every `2s` interval. Like so:
 
 ![image.png](/img/2024-server-sent-events/image.png)
 
-As you can see, it takes very little effort implement SSE on the server side, essentially just setting necessary headers, sending the data, and handling termination if needed.  
+As you can see, it takes very little effort to implement SSE on the server side - essentially just setting necessary headers, sending the data, and handling termination if needed.  
 
-I understand this a rather simple and somewhat contrived example, but the idea was to give a gentle introduction to SSE to the readers. Perhaps, now you will consider SSE if you need one-directional real time communication from your server with your browser client. Thanks for reading!
+I understand this a rather simple and somewhat contrived example, but the idea was to give a gentle introduction to SSE to the readers. Perhaps, now you will consider SSE if you need one-directional real time communication from your server to your browser client. Thanks for reading!
