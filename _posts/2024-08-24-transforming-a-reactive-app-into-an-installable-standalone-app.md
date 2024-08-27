@@ -27,7 +27,7 @@ The first hurdle was ensuring that users could install the app directly from the
 
 Below are the steps to Transform a Reactive App into a Standalone App:
 
-| ![step1](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step1.png) | ![step2](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step2.png) | ![step3](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step3.png) |
+| ![step1](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step1.png) | ![step2](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step3.png) | ![step3](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/step2.png) |
 | ----------------------------------- | ----------------------------------- | ------------------------------------------- |
 | Standalone Mode removes browser UI elements like the address bar and navigation controls, creating a full-screen experience.                            | A custom launch Icon ensures that web app is visually represented on the user's home screen just like a native app.                            | The next step to make your Web App more native-like is to replace the dull, white launch screen with your own image or a custom splash screen.                                     |
 
@@ -53,7 +53,7 @@ By following these steps, you ensure that the manifest file is properly integrat
 
 ### Utilize SEO Utils on Steroids Library
 
-The SEO Utils on Steroids Library is utilized to append all necessary HTML elements to the head section of the application. This includes essential details such as the location of the manifest file, iOS splash screen images, launch icons, and the preferred theme color. 
+The SEOUtils on Steroids library simplifies SEO and PWA configuration within OutSystems. The library is utilized to append all necessary HTML elements to the head section of the application. This includes essential details such as the location of the manifest file, iOS splash screen images, launch icons, and the preferred theme color. 
 To include the meta tag in your application, follow these steps:
    1. Add the Library “SEOUtilsinSteroids” from the ODC Portal.
    2. In Service Studio, select the “Logic” tab and add the System Event “onApplicationReady”.
@@ -86,7 +86,7 @@ Add splash Screen  | "theme_color": "#9f3d8f", "background_color": "#9f3d8f", "i
 ![Fullscreen Meta Tag Integration via SEOUtilsonSteroids Library](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/meta_tag_SEOLib.png)
 >   3. Fullscreen Meta Tag Integration via SEOUtilsonSteroids Library
 
-![Setting Display Properties in the Manifest File](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/meta_tag_JS.png)
+![Setting Display Properties in the Manifest File](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/manifest_file.png)
 >   4. Setting Display Properties in the Manifest File
 
 ![Splash Screen Link Tag Integration via JavaScript](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/meta_tag_JS.png)
@@ -95,7 +95,7 @@ Add splash Screen  | "theme_color": "#9f3d8f", "background_color": "#9f3d8f", "i
 ## Updating & Debugging the Manifest File
 
 
-![Debug Manifest File](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/meta_tag_JS.png)
+![Debug Manifest File](/img/transforming-a-reactive-app-into-an-installable-standalone-app-with-OutSystems/manifest_console.png)
 >   6. Debug Manifest File
 
 To ensure the manifest is set up correctly, you can use Inspector in Chrome browser, follow these steps:
@@ -127,7 +127,7 @@ https://github.com/user-attachments/assets/6dd3a6fb-7b35-486b-bef3-62fda3c4bf84
 
 ## Final Thoughts
 
-As I wrapped up the project, I realized this journey was more than just making a web app installable—it was about pushing the boundaries of what OutSystems can truly do. Creating an installable app for both iOS and Android revealed the nuanced challenges each platform presents. While the core concepts of installability remain consistent, the implementation details vary. With Android, the process was relatively straightforward, thanks to its strong support for web app installability and fullscreen mode. iOS, however, required a bit more finesse. We had to dive into custom configurations, like adding specific meta tags, tailoring splash screens for different devices, and tweaking HTML/CSS to ensure a smooth, fullscreen launch. This mix of low-code simplicity and custom configurations enabled us to bridge the gap and create the desired user experience.
+As I wrapped up the project, I realized this journey was more than just making a web app installable—it was about pushing the boundaries of what OutSystems can truly do. Creating an installable app for both iOS and Android revealed the nuanced challenges each platform presents. While the core concepts of installability remain consistent, the implementation details vary. With Android, the process was relatively straightforward, thanks to its strong support for web app manifest, which allowed configuring installability and fullscreen mode. iOS, however, required a bit more finesse. We had to dive into custom configurations, like adding specific meta tags, tailoring splash screens for different devices, and tweaking HTML/CSS to ensure a smooth, fullscreen launch. This mix of low-code simplicity and custom configurations enabled us to bridge the gap and create the desired user experience.
 
 Hearing the product owner's feedback—“I’m very happy with the quality. It looks and works as intended”—was incredibly gratifying. It validated not only the success of the project but also the potential of low-code platforms like OutSystems to deliver high-quality, native-like experiences. However, this achievement wouldn't have been possible without the invaluable support of Raimo Ilkka and Anna-Mari Vanhanen. Their dedication to testing the app on iOS, their patience through countless test requests, installations, and iterations, truly made a world of difference in shaping the final product.
 
