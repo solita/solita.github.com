@@ -3,11 +3,12 @@ layout: post
 title: Transforming a Reactive App into an Installable Standalone App- Journey with OutSystems
 author: shamshadakther
 excerpt: >
-   Curious how to transform your web app into a native-like installable app in OutSystems? Discover how to create a fullscreen, distraction-free experience with our guide.
+   Curious how to turn your reactive web app into a native-like installable app? Dive into our guide to learn how to craft a standalone, fullscreen experience using OutSystems and bring your app closer to a true native feel.
 tags:
  - Low-code
  - OutSystems
  - Reactive Web Apps
+ - Progressive Web Apps (PWA)
  - Installable Standalone App
 ---
 
