@@ -129,7 +129,11 @@ https://github.com/user-attachments/assets/6dd3a6fb-7b35-486b-bef3-62fda3c4bf84
 
 As I wrapped up the project, I realized this journey was more than just making a web app installable—it was about pushing the boundaries of what OutSystems can truly do. Creating an installable app for both iOS and Android revealed the nuanced challenges each platform presents. While the core concepts of installability remain consistent, the implementation details vary. With Android, the process was relatively straightforward, thanks to its strong support for web app manifest, which allowed configuring installability and fullscreen mode. iOS, however, required a bit more finesse. We had to dive into custom configurations, like adding specific meta tags, tailoring splash screens for different devices, and tweaking HTML/CSS to ensure a smooth, fullscreen launch. This mix of low-code simplicity and custom configurations enabled us to bridge the gap and create the desired user experience.
 
-IN the end, hearing the product owner's feedback—“I’m very happy with the quality. It looks and works as intended”—was incredibly gratifying. It validated not only the success of the project but also the potential of low-code platforms like OutSystems to deliver high-quality, native-like experiences. However, this achievement wouldn't have been possible without the invaluable support of Raimo Ilkka and Anna-Mari Vanhanen. Their dedication to testing the app on iOS, their patience through countless test requests, installations, and iterations, truly made a world of difference in shaping the final product.
+In the end, hearing the product owner's feedback—
+
+> “I’m very happy with the quality. It looks and works as intended.” 
+
+— was incredibly gratifying. It validated not only the success of the project but also the potential of low-code platforms like OutSystems to deliver high-quality, native-like experiences. However, this achievement wouldn't have been possible without the invaluable support of Raimo Ilkka and Anna-Mari Vanhanen. Their dedication to testing the app on iOS, their patience through countless test requests, installations, and iterations, truly made a world of difference in shaping the final product.
 
 ## References
 
