@@ -20,7 +20,7 @@ toc: true
 ---
 
 ![An illustrative diagram of an user interfacing with a software
-project](/img/2024-07-22-the-x-files/excalidraw.png)
+project](/img/2024-09-05-the-x-files/excalidraw.png)
 
 ## Build systems: The bane of engineers' existence.
 {:.no_toc}
@@ -123,7 +123,7 @@ $ ./build/app
 
 ## Setting the stage: A shell script
 
-![Bash logo](/img/2024-07-22-the-x-files/bash-full_colored_dark.png)
+![Bash logo](/img/2024-09-05-the-x-files/bash-full_colored_dark.png)
 
 So we have some environment variables, some specific arguments, and some file names to remember.
 The logical thing to do is to wrap it all in a script so we don't have to remember these specifics
@@ -232,7 +232,7 @@ Are there better alternatives? Something a bit more user and maintainer-friendly
 
 ## I don't want to have a degree in Bash (Makefiles)
 
-![A GNU head icon](/img/2024-07-22-the-x-files/heckert_gnu.png)
+![A GNU head icon](/img/2024-09-05-the-x-files/heckert_gnu.png)
 
 The next most common thing is probably [GNU Make](https://www.gnu.org/software/make/).
 
@@ -338,7 +338,7 @@ tracking?
 
 ## Just do it (justfiles)
 
-![Just icon](/img/2024-07-22-the-x-files/just-icon.png)
+![Just icon](/img/2024-09-05-the-x-files/just-icon.png)
 
 Enter [justfiles](https://github.com/casey/just).
 
@@ -433,7 +433,7 @@ Why yes, of course, you can, we are living in the age of YAML. Your CI/CD is pro
 YAML, your microservices are probably already defined in YAML, majority of your other configuration
 is probably already in YAML.
 
-![Task logo](/img/2024-07-22-the-x-files/task-logo.png)
+![Task logo](/img/2024-09-05-the-x-files/task-logo.png)
 
 Enter [Taskfiles](https://taskfile.dev/).
 
@@ -551,7 +551,7 @@ in the full power of the operating system?
 
 ## Total control (Magefiles)
 
-![Mage icon](/img/2024-07-22-the-x-files/mage-icon.png)
+![Mage icon](/img/2024-09-05-the-x-files/mage-icon.png)
 
 Enter [Magefiles](https://magefile.org/).
 
@@ -851,7 +851,7 @@ What if we didn't manage a pile of Dockerfiles and had a single file to rule the
 
 ## The new kid on the block (Earthfiles)
 
-![Earthly banner](/img/2024-07-22-the-x-files/earthly-banner.png)
+![Earthly banner](/img/2024-09-05-the-x-files/earthly-banner.png)
 
 Here comes [Earthly](https://earthly.dev/), shaking the world up with Earthfiles.
 
@@ -1006,7 +1006,7 @@ workstations and the CI runners seamless.
 
 ## This is all cool and all, but what about CI?
 
-![GitHub Logomark](/img/2024-07-22-the-x-files/github-mark.png)
+![GitHub Logomark](/img/2024-09-05-the-x-files/github-mark.png)
 
 Each of the examples laid out above comes with some sort of dependency. Most dependencies can be
 handled in Docker but using one of these build systems would require you to update your standard
