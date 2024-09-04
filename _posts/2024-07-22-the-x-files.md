@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The X-Files - Or which project interface to pick?
+title: The X-Files - Or which build system to pick?
 author: petterizit
 excerpt: >
   Is the grass greener on the other side or are
@@ -29,7 +29,7 @@ Most projects have a developer interface, be it a "`start.sh`", a "`make dev`"
 or even some incantations to copy-paste from the README. These interfaces tend to (d)evolve
 into bespoke monstrosities that start to teeter on the line of "if it works, don't touch it".
 These interfaces are also an important of the SDLC pipeline, as they remove discrepancies
-between the developer workstations and CI, both using the same interface.
+between the developer workstations and CI, both using the same exact steps to reach a result.
 
 You have probably seen a Bash script or a Makefile that looks like the content of some arcane
 scrolls and have no idea how it works, why it has to be like that, and why the heck does it not
@@ -46,7 +46,7 @@ for some options...
 
 ...but you have no idea why you would pick one over another. Well, I tried them all out to see
 what works and what doesn't. Follow along to see what might suit your use case the best. In this
-blog post we will replicate close to 1:1 copies of scripts and Makefiles used as project interfaces
+blog post we will replicate close to 1:1 copies of scripts and Makefiles used as a build system
 to see a side-by-side comparison. This means it will be a bit lengthy and contain a decent bit of
 code (about 2500 of the 5000 or so words), so strap in!
 
@@ -240,8 +240,8 @@ The next most common thing is probably [GNU Make](https://www.gnu.org/software/m
 program from the program's source files.
 
 Make is primarily for building software incrementally with dependency tracking in place, but the
-modern world likes to use Make as a project interface. **That's also perfectly fine**, but it
-requires some extra hacking, such as
+modern world also likes to use Make as a generic way to interface with a software project. **That's
+also perfectly fine**, but it requires some extra hacking, such as
 [`.PHONY` targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html) and
 stringing together commands with `&&` as every line is being run in a separate shell.
 
@@ -323,7 +323,7 @@ That's already a lot more readable and maintainable but it is still quite noisy 
 That "run anywhere" QOL is now just a single line, but not that much easier to decipher than the 15
 lines in the shell script.
 
-This is probably quite close to the usual Makefile you see as a project interface in the wild.
+This is probably quite close to the usual Makefile you would see used as a build system in the wild.
 
 Now we can easily test and build our project with `make` or even build for Windows with
 `make build GOOS=windows`. Pretty handy.
@@ -410,7 +410,7 @@ It's almost 1:1 with a Makefile of the same degree. You can spot some goodies if
 - `@recipes`: Invert `@` suppression and instead only print commands with `@`.
 - `[confirm]`: Ask user y/n input before proceeding.
 
-That's a pretty nice project interface if you ask me. No fuss, just do the thing I want to do, get
+That's a pretty neat build system if you ask me. No fuss, just do the thing I want to do, get
 on with the day, that's all. I also like how strings are clearly strings, denoted by quotation.
 
 Usage is the same as the Makefile, *just* replace `make` with `just`. If we don't know the recipe,
@@ -445,7 +445,7 @@ CI pipelines. Even if you haven't, YAML is quite simple to read, write, and unde
 ([until it isn't](https://noyaml.com/)).
 
 Taskfiles support dependency tracking so you can skip unnecessary tasks and still get a simple
-project interface. It's not a workflow orchestration system though, so it lacks some features you
+build system. It's not a workflow orchestration system though, so it lacks some features you
 might be used to from the pipeline YAMLs. For example, you cannot make clear and importable
 parametrized "template jobs" with expected inputs and outputs. You can hack around it with
 environment, though. Taskfiles can still be imported similarly as in other build systems so you can
@@ -535,7 +535,7 @@ conditionals (and you can probably use YAML anchors to keep it DRY). Taskfiles a
 power of the Go templating language so you can make quite complex templates if required.
 
 Now we can just `task <some task>` and be off to the races. If we don't know what task we want to
-run, we get a nice interface for free:
+run, we get a nice helper for free:
 
 ```terminal
 $ task --list
@@ -745,7 +745,7 @@ the build process, creating a contract. It can also lead to better or more appro
 of build systems when one does not have to fear if changing the pipeline code breaks something.
 Building robust validation is much easier with a proper programming language.
 
-Mage also gives us a clear interface in case we forget what our targets do:
+Mage also gives us a clear helper in case we forget what our targets do:
 
 ```terminal
 $ mage -l
@@ -831,7 +831,7 @@ Using the Go image to build our application, we can then package it in a minimal
 Both the build and the application runs on any system with Docker installed and the final
 distribution size is around 15 megabytes.
 
-Now we can extend our project interface (e.g. Makefile) with something like the following:
+Now we can extend our build tooling (e.g. Makefile) with something like the following:
 
 ```make
 docker: docker-build docker-run
@@ -1130,7 +1130,7 @@ Maybe the following comparison between each option might help you to make a deci
 | Mage          | Mage and Go (but can be compiled) | Go              | Yes (but not for free) | 4/5        | 3/5        | 2/5      | No        |
 | Earthly       | Docker only                       | Dockerfile-like | Yes                    | **5/5**    | 4/5        | 3/5      | Opt-out   |
 
-If you care about the author's personal opinion, I will keep using what the organization I'm
+If you care about the author's personal choice, I will keep using what the organization I'm
 working with is using already, but give Earthfiles and justfiles a fair chance in my personal
 projects. I might give Mage a go if I'm building something with Go (pun not intended, heh).
 
