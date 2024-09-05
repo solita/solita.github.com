@@ -10,7 +10,7 @@ kramdown:
   input: GFM
 
 authors:
-  samispets: 
+  samispets:
     name: Sami Spets
     email: d27f82f9b8b689530c6ccb5e720657b4
     url: https://www.utu.fi/en
@@ -430,3 +430,8 @@ authors:
     name: Shamsur Chowdhury
     email: 0e83f8fcdcb601b93e33de6df572e065
     url: https://www.linkedin.com/in/shamsurchowdhury/
+  petterizit:
+    name: Petteri Zitting
+    email: 2b9d6ea1faadc6e7cc8e37b9500a4c51
+    url: https://www.linkedin.com/in/petteri-zitting-354b31299/
+
