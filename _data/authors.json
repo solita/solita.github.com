@@ -1,0 +1,4 @@
+[
+    ["run: bb authors.clj" ["to", "generate", "real", "content"]]
+    ["authorname" ["_posts/some-post.md", "_posts/another-post.md"]]
+]
