@@ -1,0 +1,15 @@
+---
+layout: default
+title: Authors
+---
+
+{% assign authors = site.data.authors %}
+{% for author in authors %}
+<h2 class='author-header' id="{{author.handle}}">
+  <a href="{{author.url}}">{{ author.name }}</a></h2>
+  <ul class="author-posts">
+    {% for post in author.posts %}
+      <li><a href="{{post.url}}">{{post.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
