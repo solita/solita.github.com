@@ -1,4 +1,6 @@
-[
-    ["run: bb authors.clj" ["to", "generate", "real", "content"]]
-    ["authorname" ["_posts/some-post.md", "_posts/another-post.md"]]
-]
+[{"name":   "run: bb authors.clj",
+  "email":  "to generate this content",
+  "url":    "example.com",
+  "handle": "authors",
+  "posts":  [{"title":"We have always been at war with Eastasia",
+              "url":"/1984/04/21/war-with-eastasia.html"}]}]
