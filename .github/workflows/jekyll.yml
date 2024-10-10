@@ -35,6 +35,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1 # uses version from .ruby-version file by default
+      - name: setup babashka
+        uses: DeLaGuardo/setup-clojure@12.5
+        with:
+          bb: latest
+      - name: generate authors data
+        run: bb authors.clj
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4

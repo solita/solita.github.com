@@ -1,0 +1,16 @@
+---
+layout: default
+title: Authors
+---
+
+{% assign authors = site.data.authors %}
+{% for author in authors %}
+  <h2 class='author-header' id="{{ author[0] | slugify }}-ref">{{ author[0] }}</h2>
+  <ul class="author-posts">
+    {% assign pages_list = tag[1] %}
+
+    {% for post in author[1] %}
+      <li><a href="{{post.post | absolute_url}}">{{post.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
