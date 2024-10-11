@@ -85,6 +85,7 @@ Add new identity provider of type `SAML v2.0`:
   _(Must be an URL, but it does not need to actually exist. This will identify the service in Suomi.fi and must be globally unique.)_
 - Use entity descriptor: `true`
 - SAML entity descriptor: `https://static.apro.tunnistus.fi/static/metadata/idp-metadata.xml`
+  ([IDP metadata addresses](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/5eaab63f85880b00f6428e84) at the bottom of the page)
 
 _(Don't save yet, we want to tweak the settings first a bit)_
 
@@ -95,7 +96,7 @@ We'll configure the identity provider to use social security number (SSN) to ide
 Switch **Use entity descriptor** off and edit the following values:
 
 - Principal type: `Attribute [Name]`
-- Principal attribute: `urn:oid:1.2.246.21`
+- Principal attribute: `urn:oid:1.2.246.21` (see [Attributes of the identified user](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590ad07b14bbb10001966f50))
 - Want Assertions signed: `true`
 - Want Assertions encrypted: `true`
 - Encryption Algorithm: `RSA-OAEP` _(matches the configured encryption key)_
@@ -104,7 +105,7 @@ Switch **Use entity descriptor** off and edit the following values:
 
 ### Attribute mappers
 
-We can extract user information from the identity provided by Suomi.fi with attribute mappers. Let's add a few.
+We can extract user information from the [identity provided by Suomi.fi](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590ad07b14bbb10001966f50) with attribute mappers. Let's add a few.
 
 Open the Keycloak admin console, choose your realm and go to **Identity providers** > **Suomi.fi** > **Mappers**.
 
@@ -141,26 +142,22 @@ Add new mapper:
 
 ![Attribute mappers](/img/2024-keycloak-suomifi-from-scratch/last-name-mapper.png)
 
-Relevant Suomi.fi support articles:
-- [IDP metadata addresses](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/5eaab63f85880b00f6428e84) (at the bottom of the page)
-- [Attributes of the identified user](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590ad07b14bbb10001966f50)
-
 ## Service provider metadata
-Keycloak generates a service provider metadata but Suomi.fi has its own special requirements for the metadata.
-I've found that it's usually easiest to just create the metadata manually based on the Suomi.fi example metadata.
+Keycloak generates a service provider metadata but Suomi.fi has its own [special requirements for the metadata](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590adae814bbb10001966f53).
+I've found that it's usually easiest to just create the metadata manually based on the [Suomi.fi example metadata](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/5a814d109ea47311bfd599a3).
 
 There are a few things in the metadata we'll need to customize:
 - `EntityDescriptor` element's `entityID` attribute uniquely identifies the application. Must equal **Service provider entity ID** in Keycloak IDP settings.
 - `UIInfo` element contains a description of the environment. These are visible to the end user.
 - `SPSSODescriptor`element contains certificates as `KeyDescriptor`elements. We use separate certificates for `use="signing"` and `use="encryption"` but it's also possible to use one certificate for both purposes.
 - `SingleLogoutService` and `AssertionConsumerService` elements' `Location` attribute is the redirect address of the service provider (Keycloak). Must equal **Redirect URI** in Keycloak IDP settings.
-- `AttributeConsumingService` element contains the service provider name (which be different from the one in `UIInfo` element) and the attributes of the identified user that we want to request.
+- `AttributeConsumingService` element contains the service provider name (which can be different from the one in `UIInfo` element) and the attributes of the identified user that we want to request.
 - `Organization` element contains organization info.
 - `ContactPerson` elements contain contact information. At least technical contact information is mandatory.
 
 ### Example metadata 
 
-A minimal example of a working metadata (using the "suppea tietosisältö" set of user attributes). Things to customize are marked with `CHANGE_ME`.
+A minimal example of a working metadata (using the "suppea tietosisältö" set of [user attributes](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590ad07b14bbb10001966f50)). Things to customize are marked with `CHANGE_ME`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -252,19 +249,12 @@ A minimal example of a working metadata (using the "suppea tietosisältö" set o
 </md:EntityDescriptor>
 ```
 
-Relevant Suomi.fi support articles:
-- [Suomi.fi example metadata](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/5a814d109ea47311bfd599a3)
-- [Metadata contents explained](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590adae814bbb10001966f53)
-- [Attributes of identified user](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/590ad07b14bbb10001966f50)
-
 ### Upload metadata 
-The prepared metadata must be uploaded to [Suomi.fi Palveluhallinta](https://palveluhallinta.suomi.fi). Do it through your proxy (usually the client) or do it yourself, if you've been authorized.
+The prepared metadata must be uploaded to [Suomi.fi Palveluhallinta](https://palveluhallinta.suomi.fi). Do it through your proxy (usually the client) or [do it yourself](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/59ddf073002aa00072b71d0b), if you've been authorized.
 
 After the metadata has been approved and published, we should be good to go for testing.
 
 ![Published metadata](/img/2024-keycloak-suomifi-from-scratch/published-metadata.png)
-
-Relevant Suomi.fi support article: [Instructions for using Palveluhallinta](https://palveluhallinta.suomi.fi/fi/tuki/artikkelit/59ddf073002aa00072b71d0b)
 
 ## Testing
 
@@ -277,3 +267,13 @@ We left the user's email address out of the attributes and in this case, Keycloa
 ![Keycloak wants your email](/img/2024-keycloak-suomifi-from-scratch/keycloak-email.png)
 
 You'll probably want to configure this (and many other things) differently but that is a story for another time.
+
+## Closing thoughts
+
+This all might seem very complicated at first, but after you've practiced it a couple of times, you'll find it's not rocket science.
+The biggest hurdle for me personally was the loose coupling between the Keycloak identity provider configuration and the service provider metadata for Suomi.fi. 
+I hope this post clarifies the connection between the two and provides a useful reference for future projects.
+
+### Disclaimer
+
+Suomi.fi is launching a new [dedicated site for developers](https://kehittajille.suomi.fi/etusivu) on October 30th, 2024 and the links to support articles in this guide might or might not work after that.
