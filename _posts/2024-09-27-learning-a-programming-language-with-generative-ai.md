@@ -12,16 +12,16 @@ tags:
 
 # Background
 
-Generative artificial intelligence, or GenAI, is one of the biggest hypes in the software industry. With the introduction of applications like ChatGPT, AI-algorithms can produce text, generate images and even motion pictures and music. Due to the trends, there has been many discussions how GenAI may affect software development. How can it be utilized for example for coding, learning new tools and frameworks, code reviewing? 
+Generative artificial intelligence, or GenAI, is one of the biggest hypes in the software industry. With the introduction of applications like ChatGPT, AI-algorithms can produce text, generate images and even motion pictures and music. Due to the trends, there have been many discussions how GenAI may affect software development. How can it be utilized,for example for coding, learning new tools and frameworks, code reviewing? 
 
 ![A genAI-created picture of a robot coding](/img/2024-09-27-learning-a-programming-language-with-generative-ai/coding-robot.png)
 
-In the GenAI-twin project, we wanted to find out these things. For the period of March-September 2024, we started to develop a full stack application in C# with .NET and React with the help of GenAI. In that way we were able to get a picture of how GenAI can affect software development.
+In the GenAI-twin project, we wanted to find out these things. For the period of March-September 2024, we started to develop a full stack application in C# with .NET and React with the help of GenAI. In that way, we were able to get a picture of how GenAI can affect software development.
 
-As a part of the journey, we also wanted to find out how GenAI can be utilized for learning a new programming language or framework. Myself as a junior developer, I did not have any prior knowledge of neither C# or .NET and was assigned with the task.
+As a part of the journey, we also wanted to find out how GenAI can be utilized for learning a new programming language or framework. Myself as a junior developer, I did not have any prior knowledge of neither C# nor .NET and was assigned with the task.
 
 Even though there are several GenAI-tools for coding, I decided to use ChatGPT since the purpose was to learn, rather than just develop. GenAI-tools for coding, like Cursor or Codeium, are used for giving suggestions for code rather than explain concepts and theory.
-With ChatGPT, I could ask questions about the code as well as theory behind C# and .NET.
+With ChatGPT, I could ask questions about the code as well as the theory behind C# and .NET.
 
 # The first application
 
@@ -35,17 +35,17 @@ After finishing the first application, I continued to develop and learn with the
 
 Now and then it generated not working and non-coherent code. Because of that I could not rely solely on ChatGPT but also had to google certain subjects as well as reading code documentation.
 
-In the end however, the user story was implemented as it was supposed to be, although the implementation might not have been the best possible.
+In the end, however, the user story was implemented as it was supposed to be, although the implementation might not have been the best possible.
 
 # The learning experience
 
-Now and then, talking with ChatGPT might feel like having a conversation with a real person. Something that has come to my mind more than once is the Turing test. For a recap, it states that a machine can be seen as intelligent as a human, if it can engage in a conversation without being detected as a machine.  I would say that the test might now be considered as succeeded. ChatGPT can engage in a conversation by answering questions. The answers are usually grammatically correct and remind of human generated text.  And like when asking questions from a real person, the answers are not always true. The risk with a succeeding Turing test is that one might have the illusion of conversing with a human but forget that humans make mistakes. On the other hand, as it is not asking own questions, a discussion with ChatGPT may not be a conversation in the traditional form. 
+Now and then, talking with ChatGPT might feel like having a conversation with a real person. Something that has come to my mind more than once is the Turing test. For a recap, it states that a machine can be seen as intelligent as a human, if it can engage in a conversation without being detected as a machine.  I would say that the test might now be considered as succeeded. ChatGPT can engage in a conversation by answering questions. The answers are usually grammatically correct and remind of human generated text.  And like when asking questions from a real person, the answers are not always true. The risk with a succeeding Turing test is that one might have the illusion of conversing with a human but forget that humans make mistakes. On the other hand, as it is not asking any own questions, a discussion with ChatGPT may not be a conversation in the traditional form. 
 
 ![The turing tes](/img/2024-09-27-learning-a-programming-language-with-generative-ai/turing-test.png)
 
 # How to learn with GenAI
 
-Myself I used a learning by doing approach. There are however many ways one can learn with GenAI. Another way to learn a new programming language could be to step by step letting ChatGPT talk about the language in question, including its syntax, variables, typing, data structures and so on. I, however, would not find this approach useful as there are already online-documentation and books for most programming languages that can be used in the traditional way, and that are also reliable. Regardless of the way, there are some practices that are good to take into consideration:
+Myself, I used a learning by doing approach. There are however, many ways one can learn with GenAI. Another way to learn a new programming language could be to step by step letting ChatGPT talk about the language in question, including its syntax, variables, typing, data structures and so on. I, however, would not find this approach useful as there are already online-documentation and books for most programming languages that can be used in the traditional way, and that are also reliable. Regardless of the way, there are some practices that are good to take into consideration:
 
 - ChatGPT is probably the best option for learning. AI-tools for coding do not explain and tell theory and concepts as well as ChatGPT
 - If using ChatGPT, it is preferable to use the paid version and create a customized agent. That will be trained to focus as much as possible on the subject in question.
