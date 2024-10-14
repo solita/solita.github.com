@@ -35,15 +35,19 @@ to a jekyll page link:
                    (for [author authors]
                      {:title title :author author :url (file->relative-url f)}))))
        (group-by :author)
-       (map (fn [[author posts]]
-              ;; sort by date (part of filename)
-              (assoc (author-by-handle author)
-                     :handle author
-                     :posts (->> posts
-                                 (map #(dissoc % :author))
-                                 (sort-by :url)
-                                 reverse))))
-       (sort-by (comp count :posts))
+       (keep (fn [[author posts]]
+               ;; Only include author who has author info in config
+               (when-let [author-info (author-by-handle author)]
+                 (merge author-info
+                        {:handle author
+                         :posts (->> posts
+                                     (map #(dissoc % :author))
+                                     ;; Sort posts by URL (which starts with date)
+                                     (sort-by :url)
+                                     reverse)}))))
+       ;; Sort by number of posts and latest post URL
+       (sort-by (juxt (comp count :posts)
+                      (comp :url first :posts)))
        reverse))
 
 (spit "_data/authors.json" (json/generate-string author->posts))
