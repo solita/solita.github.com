@@ -8,10 +8,14 @@
   _posts/1984-04-21-war-with-eurasia.md
 
 to a jekyll page link:
-  /1984/04/21/war-with-eurasia.html"
+  /1984/04/21/war-with-eurasia.html
+
+  Converts any spaces to dashes
+"
   [f]
   (apply format "/%s/%s/%s/%s.html"
-         (drop 1 (re-find #"^(\d+)-(\d+)-(\d+)-(.*).md$" (.getName f)))))
+         (drop 1 (re-find #"^(\d+)-(\d+)-(\d+)-(.*).md$"
+                          (str/replace (.getName f) " " "-")))))
 
 (def author-by-handle
   (let [authors (-> "_config.yml" slurp yaml/parse-string :authors)]
