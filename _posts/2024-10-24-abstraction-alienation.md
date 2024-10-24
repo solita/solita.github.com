@@ -53,7 +53,7 @@ Ultimately, I hope that after reading this you’ll have a word and a concept yo
 
 And maybe we should consider abstracting less.
 
-More on this topic:
+**More on this topic:**
 
 [Linguistic relativity](https://en.wikipedia.org/wiki/Linguistic_relativity)
 
