@@ -1,3 +1,15 @@
+---
+layout: post
+title: Abstraction alienation
+author: larituomisto
+excerpt: >
+  When abstractions become alienating
+tags:
+ - Abstraction
+ - Linguistics
+ - Alienation
+---
+
 This post is inspired by a discussion at work about the meaning of the word **expressiveness** as it relates to software development. It got me thinking and reading a lot.
 
 The [original post](https://www.tuomistolari.net/blog/2024/10/14/abstraction-alienation) can be found here.
