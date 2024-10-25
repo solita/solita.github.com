@@ -36,7 +36,7 @@ For many, the most important thing in software development is the programming la
 
 When it comes to databases, PostgreSQL keeps the lead with a good margin. We also see cloud-based managed databases gain popularity, such as Azure SQL and Amazon Aurora. Oracle, MongoDB and MariaDB were in decline. 
 
-[![Programming Language Popularity Trend Between 2022 and 2024](/img/developer-survey-2024/solita_programming_languages_popularity_between_2022_and_2024.png)](/img/developer-survey-2024/solita_programming_languages_popularity_between_2022_and_2024.png)]
+[![Programming Language Popularity Trend Between 2022 and 2024](/img/developer-survey-2024/solita_programming_languages_popularity_between_2022_and_2024.png)](/img/developer-survey-2024/solita_programming_languages_popularity_between_2022_and_2024.png)
 
 ## CI/CD Pipelines, Deployments and DevOps
 To ensure stress-free (and almost bug-free) releases, you need proper continuous integration and deployment pipelines. Here we see a major, yet not unexpected, shift: Jenkins has given way to cloud-based solutions from the pole position to number four. Azure DevOps and GitHub Actions have taken the undisputed lead, followed by Gitlab CI. This reflects in wider adoption of cloud-based environments generally. When many of our customers shift their operations from on-prem to cloud, it also impacts the tooling used for CI, packaging and deployment.
