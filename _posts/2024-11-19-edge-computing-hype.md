@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Edge computing, what and where is it?
-author: MSasurinen
+author: msasurinen
 excerpt: >
   An introduction to edge computing
 tags:
@@ -12,14 +12,14 @@ tags:
 The aim of this blog is to dip our tows into the world of edge computing.  This is the first part of a blog series where I want to introduce the concept, talk about the benefits and go through some of the tools and technologies available. 
 Having said that, I first want to make a small definition exercise
 
-# Far edge, near edge, fog and mist so many places where you can compute
+# Far edge, near edge, fog and mist, so many places where you can compute
 
 As with any concept, definitions tend to get quite granular and nuanced as we dig deeper, and the concept itself matures.  In this case, at least a couple terms have emerged. **"The edge”** refers to the networks edge devices, this could be an individual sensor, a device or a machine. This is sometimes referred to as **far edge** and **mist** computing.
 Processing of data that happens on dedicated compute resources is referenced as **fog** computing. In other words, fog computing introduces a new layer between the edge device and the cloud. Fog computing is also referred to as the **near edge** (as it is closest to the cloud). 
 The definitions vary a bit by industry and by source. 
 The important thing is that both aim for the same thing. They aim to move computing closer to the device layer, thus reducing latency, reliance on internet connectivity and bandwidth requirements. Also, some security concerns can be mitigated by keeping data local.
 
-![Edge computing layers, Modified from: https://www.sciencedirect.com/science/article/pii/S1383762118306349#fig0009](\img\2024-edge-computing\iot-pyramid.jpg)
+![Edge computing layers, Modified from: https://www.sciencedirect.com/science/article/pii/S1383762118306349#fig0009](/img/2024-edge-computing/iot-pyramid.jpg)
 
 Having said all of that, for the sake of this blog, I don’t think we would benefit from this rather nuanced distinction, so I will stick to the simpler definition and refer to any computing done “below” the cloud as “the edge”. So, computing on a sensor, on a dedicated industrial computer, locally residing cluster or on mobile machinery all falls under the umbrella of “edge computing”.
 
