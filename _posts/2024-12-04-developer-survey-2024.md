@@ -31,7 +31,7 @@ In the software industry, it's essential to keep one's skills relevant. Usually,
 ## OS, IDE and Tooling
 When it comes to building something, you need proper tools. The ones you know, the ones you trust, or the ones you would like to learn. As the leading operating system, Windows had a 48% share, followed by Mac 43% and Linux 9%. The most popular Linux distribution was Ubuntu, as usual. The most used IDE/editor was Visual Studio Code with 61%, followed by IntelliJ IDEA with 45%. A developer can use more than one IDE, depending on the work context. Some of our hard-core developers have always had tough discussions between Vim vs. Emacs - this time, Vim beat this race with 28 vs. 11 users.
 
-[![Code editor or IDE of choice at Solita in 2024](/img/developer-survey-2024/developer-survey-2024/DEV_survey_2024-ide.png)](/img/developer-survey-2024/DEV_survey_2024-ide.png)
+[![Code editor or IDE of choice at Solita in 2024](/img/developer-survey-2024/DEV_survey_2024-ide.png)](/img/developer-survey-2024/DEV_survey_2024-ide.png)
 
 ## Programming Languages and Software Stacks
 For many, the most important thing in software development is the programming language. Some feel they are all just tools, while others are passionate and would not like to switch their favorite language at any cost. In 2024, our most popular language to work with was C# with 28%, followed by TypeScript at 15%, Kotlin at 11%, Java at 10%, Clojure at 7% and Python at 6%. There is a difference with the most liked and most used programming language too: the reality is that the most used one was SQL with 63% (almost all applications have a database) - also frontend behemoths with TypeScript at 61% and JavaScript at 60% were among top three most used ones. Interestingly, 2024 is the first time TypeScript has surpassed plain JavaScript - we expect this trend to continue. Also, C#, Go and Swift saw rising adoption.
@@ -60,7 +60,7 @@ For the first time, our survey also had a section called Developer Experience, o
 - I feel comfortable asking my teammates for help
 - Support from the project lead (e.g. priorities and decision-making)
 
-[![What developers value in Developer Experience at Solita in 2024](/img/developer-survey-2024/developer-survey-2024/DEV_survey_2024-developer_experience.png)](/img/developer-survey-2024/DEV_survey_2024-developer_experience.png)
+[![What developers value in Developer Experience at Solita in 2024](/img/developer-survey-2024/DEV_survey_2024-developer_experience.png)](/img/developer-survey-2024/DEV_survey_2024-developer_experience.png)
 
 ## Career Opportunities at Solita
 We seek constantly more people who enjoy solving customer problems with tech and are eager to develop their skills
