@@ -3,7 +3,6 @@ layout: post
 title: How We Feel about Tech, DevX and GenAI - Solita Developer Survey 2024 Results
 author: jarnovayrynen
 date: 2024-12-04 08:00:00 +0200
-
 excerpt: >
   The Solita Developer Survey was conducted again in 2024. This time 322 Solitans from six countries shared their preferences regarding technologies, processes and tooling.  This summary of the survey results shows which tech is hot and which is not in Solita in 2024. 
 tags:
@@ -16,7 +15,6 @@ tags:
   - Generative AI
   - Developer Experience
   - DevX
-
 ---
 
 It is time to review the latest Solita Developer Survey results again! In this posting, we'll examine the tools, technologies and processes we use to do our daily work at Solita.
@@ -45,7 +43,7 @@ When it comes to databases, PostgreSQL keeps the lead with a good margin. We als
 To ensure stress-free (and almost bug-free) releases, you need proper continuous integration and deployment pipelines. Here we see a major, yet not unexpected, shift: Jenkins has given way to cloud-based solutions from the pole position to number four. Azure DevOps and GitHub Actions have taken the undisputed lead, followed by Gitlab CI. This is reflected in the wider adoption of cloud-based environments generally. When many of our customers shift their operations from on-prem to the cloud, it also impacts the tooling used for CI, packaging and deployment.
 
 ## Testing, Monitoring and Security
-While public cloud solutions gain popularity, also the willingness to invest in testing, monitoring and security increases. This can be seen in the results of our survey as well. In test automation maturity, the biggest winner is automated security tests almost doubling its adoption to 13% of respondents. On the monitoring side, almost all items saw a mall rise, such as client-side error logging, performance monitoring, automated alerts and audit logs. In general, this probably stems from customers' higher awareness of possible risks if logging, monitoring or security are neglected.
+While public cloud solutions gain popularity, also the willingness to invest in testing, monitoring and security increases. This can be seen in the results of our survey as well. In test automation maturity, the biggest winner is automated security tests almost doubling its adoption to 13% of respondents. On the monitoring side, almost all items saw a small rise, such as client-side error logging, performance monitoring, automated alerts and audit logs. In general, this probably stems from customers' higher awareness of possible risks if logging, monitoring or security are neglected.
 
 ## Generative AI - Adoption Rate and Usage
 Generative AI, or GenAI, continues to be a hot topic in our industry. Solita has made a conscious effort to increase the competencies in this area; both in the tooling and [the capabilities we use to help our customers](https://www.solita.fi/generative-ai-in-software-development/). We all must become more aware and learn about these capabilities as they develop at a fast rate. Current production-level solutions rely very much on human-in-the-loop, but more agentic and autonomous applications are being explored by various industries. 38% of the respondents use GenAI daily and 26% weekly, so you can say most of us do use GenAI in our daily work. The methods vary, depending on the needs, personal know-how and even customer policies. We have internal discussion channels and info sessions on various GenAI methods and possibilities to play around with them in sandbox environments. The most popular GenAI services were GenAI chats (90%), GitHub CoPilot 59% and image creators such as Dall-E (27%). But many people go beyond these: things like OpenAI API, LLMs and neural networks, and M365 Copilot are reported to be used by many. GenAI is used for example to help decision-making, code autocompletion, aid in creating test code, explain errors and automate routine tasks.
