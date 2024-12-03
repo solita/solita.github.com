@@ -68,7 +68,7 @@ further. You'll find our open jobs at [www.solita.fi/en/careers/](https://www.so
 
 The tech landscape evolves quite fast. To better understand how time has shaped our preferences, we recommend you read
 also the previous survey postings.
-*
+
 * [**Solita Developer Survey 2022**](https://dev.solita.fi/2022/12/15/developer-survey-2022.html)
 * [**Solita Developer Survey 2020**](https://dev.solita.fi/2020/12/10/developer-survey-2020.html)
 * [**Solita Developer Survey 2016**](https://dev.solita.fi/java/2016/05/13/Developers-love-spaces.html)
