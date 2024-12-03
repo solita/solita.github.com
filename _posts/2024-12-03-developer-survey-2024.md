@@ -2,7 +2,7 @@
 layout: post
 title: How We Feel about Tech, DevX and GenAI - Solita Developer Survey 2024 Results
 author: jarnovayrynen
-date: 2024-12-04 08:00:00 +0200
+date: 2024-12-03 08:00:00 +0200
 excerpt: >
   The Solita Developer Survey was conducted again in 2024. This time 322 Solitans from six countries shared their preferences regarding technologies, processes and tooling.  This summary of the survey results shows which tech is hot and which is not in Solita in 2024. 
 tags:
