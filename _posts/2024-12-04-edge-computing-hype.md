@@ -7,6 +7,7 @@ excerpt: >
 tags:
  - Edge computing
  - Iot
+ - Intelligent Devices 
 ---
 
 The aim of this blog is to dip our tows into the world of edge computing.  This is the first part of a blog series where I want to introduce the concept, talk about the benefits and go through some of the tools and technologies available. 
@@ -19,7 +20,8 @@ Processing of data that happens on dedicated compute resources is referenced as 
 The definitions vary a bit by industry and by source. 
 The important thing is that both aim for the same thing. They aim to move computing closer to the device layer, thus reducing latency, reliance on internet connectivity and bandwidth requirements. Also, some security concerns can be mitigated by keeping data local.
 
-![Edge computing layers, Modified from: https://www.sciencedirect.com/science/article/pii/S1383762118306349#fig0009](/img/2024-edge-computing/iot-pyramid.jpg)
+![Edge computing layers](/img/2024-edge-computing/iot-pyramid.jpg)
+*Edge computing layers, Modified from: https://www.sciencedirect.com/science/article/pii/S1383762118306349#fig0009*
 
 Having said all of that, for the sake of this blog, I don’t think we would benefit from this rather nuanced distinction, so I will stick to the simpler definition and refer to any computing done “below” the cloud as “the edge”. So, computing on a sensor, on a dedicated industrial computer, locally residing cluster or on mobile machinery all falls under the umbrella of “edge computing”.
 
