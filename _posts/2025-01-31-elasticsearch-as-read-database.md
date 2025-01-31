@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Elasticsearch as read only database
+title: Elasticsearch as read database
 author: villephamalainen
 excerpt: >
-  Elasticsearch is a powerful, open-source search and analytics engine. It was initially released in 2010 and has since been adopted widely. Solita has a long history of using Elasticsearch and has found good use cases for it. One of them is using Elasticsearch as a read only database on top of traditional SQL database. This architecture has the benefit of modeling full domain relations to the SQL database and getting the lightning-fast searches from Elasticsearch where needed.
+  Elasticsearch is a powerful, open-source search and analytics engine. It was initially released in 2010 and has since been adopted widely. Solita has a long history of using Elasticsearch and has found good use cases for it. One of them is using Elasticsearch as a read database on top of traditional SQL database. This architecture has the benefit of modeling full domain relations to the SQL database and getting the lightning-fast searches from Elasticsearch where needed.
 tags:
   - Software Architecture
   - Software development
@@ -14,7 +14,7 @@ tags:
   - C#
 ---
 
-**Elasticsearch is a powerful, open-source search and analytics engine. It was initially released in 2010 and has since been adopted widely <sup>[1]</sup>. Solita has a long history of using Elasticsearch and has found good use cases for it. One of them is using Elasticsearch as a read only database on top of traditional SQL database. This architecture has the benefit of modeling full domain relations to the SQL database and getting the lightning-fast searches from Elasticsearch where needed.**
+**Elasticsearch is a powerful, open-source search and analytics engine. It was initially released in 2010 and has since been adopted widely <sup>[1]</sup>. Solita has a long history of using Elasticsearch and has found good use cases for it. One of them is using Elasticsearch as a read database on top of traditional SQL database. This architecture has the benefit of modeling full domain relations to the SQL database and getting the lightning-fast searches from Elasticsearch where needed.**
 
 I was personally introduced to Elasticsearch three years ago when I started working at Solita. My first and only project in Solita so far heavily relies on Elasticsearch. When I started in the project, I did not understand why it was used and what the tradeoffs were. Since then, I have learned a lot about Elasticsearch. In this post I would like to explain some of the tradeoffs and put some actual numbers on them as well. But first, I would like to briefly explain the technologies I'm talking about.
 
@@ -59,17 +59,17 @@ Elasticsearch: Excels in full-text search and real-time analytics, making it sui
 SQL Server: Optimized for transaction processing and complex queries on structured data, providing robust performance for OLTP workloads.
 
 **Use Cases**<br>
-Elasticsearch: Best suited for log and event data analysis, real-time application monitoring, and security analytics.<br>
+Elasticsearch: Best suited for full-text search, log and event data analysis, real-time application monitoring, and security analytics.<br>
 SQL Server: Ideal for transaction processing, business intelligence, data warehousing, and enterprise applications. <sup>[5], [6]</sup>
 
 ## Architecture
 
 Now that we have covered the basics let’s get back to my use case.
-In many applications it is typical to use just one SQL database for everything. This is a very simple setup, and it works well in many cases, especially with small applications. When the application userbase gets a little bigger or the application uses search heavily this setup might start to slow down. In these cases, it might be a good time to start thinking about different approaches.
+In many applications it is typical to use just one SQL database for everything. This is a very simple setup, and it works well in many cases, especially with small applications. When the application gets bigger or the application uses search heavily this setup might start to slow down. In these cases, it might be a good time to start thinking about different approaches.
 
-The approach we have used is using Elasticsearch as a read only database. This means that data is always first written to the SQL database and after that synchronized to Elasticsearch. You can then choose where to use Elasticsearch and where SQL database for reading. Elasticsearch is typically used for complex queries or ones that are used the most often. When Elasticsearch is used on top of SQL database it provides performance improvements and the ability to have different abstractions to the underlying data. You can for example optimize the data structure for the use case in Elasticsearch.
+The approach we have used is using Elasticsearch as a read database. This means that data is always first written to the SQL database and after that synchronized to Elasticsearch. You can then choose where to use Elasticsearch and where SQL database for reading. Elasticsearch is typically used for complex queries or ones that are used the most often. When Elasticsearch is used on top of SQL database it provides performance improvements and the ability to have different abstractions to the underlying data. You can for example optimize the data structure for the use case in Elasticsearch.
 
-[![Figure 1: Simplified version of the architecture](/img/2025-elasticsearch-as-read-only-database/read-only-architecture.png)](/img/2025-elasticsearch-as-read-only-database/read-only-architecture.png)<br>
+[![Figure 1: Simplified version of the architecture](/img/2025-elasticsearch-as-read-database/read-architecture.png)](/img/2025-elasticsearch-as-read-database/read-architecture.png)<br>
 *Figure 1: Simplified version of the architecture*
 
 On the other hand, this setup is not without its downsides. Having two databases is much more complex than just using one. Synchronizing data between the two requires development effort and is a potential source of bugs. It is done with custom code as there is no out-of-the-box solution for it. In addition, synchronization takes a little bit of time, so the data is not instantly available in Elasticsearch after writing to SQL database. Additionally, the development is much harder when you need to learn how to use two different databases.
@@ -78,7 +78,7 @@ In my project we are using Elasticsearch quite extensively. It has been a great 
 
 ## Test setup
 
-I created a new ASP .NET Core 8 project with connections to local SQL Server and Elasticsearch (using docker). The code can be found [here](https://github.com/solita/sqlserver-vs-elasticsearch). The project contains a very simple test entity with just 3 properties which are written and read from the database. All the read tests were done with 100k entities in the database. Write tests were done to empty database.
+I created a new ASP .NET Core 8 project with connections to local SQL Server (version 2019) and Elasticsearch (version 7.11.0). Both of the databases were running in docker. The code can be found [here](https://github.com/solita/sqlserver-vs-elasticsearch). The project contains a very simple test entity with just 3 properties which are written and read from the database. All the read tests were done with 100k entities in the database. Write tests were done to empty database.
 The tests were done with bombardier <sup>[7]</sup>. Read tests were made with 5 simultaneous connections and 100 requests. Write tests were made with 1 simultaneous connection and 5 requests. All tests were made with a powerful modern laptop.
 
 Tests included:
@@ -91,17 +91,17 @@ Tests included:
 
 The results are divided into three different figures. In Figure 1 an average latency is seen for each test with standard deviation. In Figure 2 an average request per second is seen for each test with standard deviation. In Figure 3 CPU percentage usage is seen for one write test. Memory usage is not shown because it was static and very similar for both databases.
 
-[![Figure 2: Latency comparison (milliseconds). Lower is better.](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-latency.png)](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-latency.png)<br>
+[![Figure 2: Latency comparison (milliseconds). Lower is better.](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-latency.png)](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-latency.png)<br>
 *Figure 2: Latency comparison (milliseconds). Lower is better.*
 
 As seen from Figure 2 the most difference was seen in search test. Elasticsearch performed close to 40 times faster than SQL Server. Reading difference was closer but still almost twice as fast with Elasticsearch. Writing was quite close, more on that later.
 
-[![Figure 3: Requests per second comparison. Higher is better.](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-requests.png)](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-requests.png)<br>
+[![Figure 3: Requests per second comparison. Higher is better.](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-requests.png)](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-requests.png)<br>
 *Figure 3: Requests per second comparison. Higher is better.*
 
 Requests per second follow the same pattern as latency and Elasticsearch performed better in each of the tests.
 
-[![Figure 4: Write CPU comparison.](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-cpu.png)](/img/2025-elasticsearch-as-read-only-database/elasticsearch-vs-sqlserver-cpu.png)<br>
+[![Figure 4: Write CPU comparison.](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-cpu.png)](/img/2025-elasticsearch-as-read-database/elasticsearch-vs-sqlserver-cpu.png)<br>
 *Figure 4: Write CPU comparison.*
 
 As seen from the CPU comparison Elasticsearch uses multiple cores when writing and SQL server does not. Writing speed might be more even with a single core instance.
@@ -110,9 +110,9 @@ As seen from the CPU comparison Elasticsearch uses multiple cores when writing a
 
 As can be seen from the results, Elasticsearch performed better in all of the tests. I am not surprised by this but the amount of the difference in search speed did surprise me a bit. Applying the architecture we have really has its benefits. You should also realize that when the architecture performs better it might translate into lower costs of hardware or cloud components. I think I can also see this in my project since the required cloud resources for each component are very small.
 
-Applying architecture with Elasticsearch as read only database does wonders for performance in some areas. But it does have its drawbacks as well. The databases need to be kept in synchronization with each other. There is also the cost of development time and complexity of this type of architecture.
+Applying architecture with Elasticsearch as read database does wonders for performance in some areas. But it does have its drawbacks as well. The databases need to be kept in synchronization with each other. There is also the cost of development time and complexity of this type of architecture.
 
-Last, I would like to offer some use cases where we have found Elasticsearch to be worth it. Obviously if you need to search from large amounts of data, Elasticsearch is really good. One use case we stumbled into is real time dashboards. It might be quite taxing for SQL database to offer this, and caching is a bit problematic if the data changes frequently. But Elasticsearch seems to be a very good solution for that.
+Last, I would like to offer some use cases where we have found Elasticsearch to be worth it. Obviously if you need to search from large amounts of data, Elasticsearch is really good. Another use case we have found it very useful is real time dashboards. It might be quite taxing for SQL database to offer this, and caching is a bit problematic if the data changes frequently. But Elasticsearch seems to be a very good solution for that.
 
 ## References
 
