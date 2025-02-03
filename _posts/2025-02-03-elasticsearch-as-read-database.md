@@ -23,7 +23,7 @@ I was personally introduced to Elasticsearch three years ago when I started work
 Elasticsearch is a distributed search and analytics engine built on top of Apache Lucene. It is designed for speed and scalability, making it ideal for handling large volumes of data in near real-time. Elasticsearch is part of the [Elastic Stack](https://www.elastic.co/elastic-stack), which includes tools like [Kibana](https://www.elastic.co/kibana) for visualization, [Logstash](https://www.elastic.co/logstash) for data processing, and [Beats](https://www.elastic.co/beats) for data shipping.
 
 Key Features of Elasticsearch:
-- Primary Search Engine: Multiple tools to build any search solution and possibility to integration with generative AI.
+- Primary Search Engine: Multiple tools to build any search solution and possibility to integrate with generative AI.
 -	Full-Text Search: Optimized for fast and relevant full-text searches.
 -	Scalability: Horizontally scalable with support for data sharding and replication.
 -	Real-Time Analytics: Capable of performing complex queries and aggregations in near real-time.
@@ -113,7 +113,7 @@ As can be seen from the results, Elasticsearch performed better in all of the te
 
 Applying architecture with Elasticsearch as read database does wonders for performance in some areas. But it does have its drawbacks as well. The databases need to be kept in synchronization with each other. There is also the cost of development time and complexity of this type of architecture.
 
-I should point out as well that the tests were not very extensive and you might get different results in some cases. I used the databases pretty much out of the box and there is definitely configuration options you can do for both of them. See for example [Full-Text Search for SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/search/full-text-search?view=sql-server-ver16). Further research could be done on specific use cases.
+I should point out as well that the tests were not very extensive, and you might get different results in some cases. I used the databases pretty much out of the box and there are configuration options you can do for both of them. See for example [Full-Text Search for SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/search/full-text-search?view=sql-server-ver16). Further research could be done on specific use cases.
 
 Last, I would like to offer some use cases where we have found Elasticsearch to be worth it. Obviously if you need to search from large amounts of data, Elasticsearch is really good. Another use case we have found it very useful is real time dashboards. It might be quite taxing for SQL database to offer this, and caching is a bit problematic if the data changes frequently. But Elasticsearch seems to be a very good solution for that.
 
