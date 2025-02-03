@@ -23,6 +23,7 @@ I was personally introduced to Elasticsearch three years ago when I started work
 Elasticsearch is a distributed search and analytics engine built on top of Apache Lucene. It is designed for speed and scalability, making it ideal for handling large volumes of data in near real-time. Elasticsearch is part of the [Elastic Stack](https://www.elastic.co/elastic-stack), which includes tools like [Kibana](https://www.elastic.co/kibana) for visualization, [Logstash](https://www.elastic.co/logstash) for data processing, and [Beats](https://www.elastic.co/beats) for data shipping.
 
 Key Features of Elasticsearch:
+- Primary Search Engine: Multiple tools to build any search solution and possibility to integration with generative AI.
 -	Full-Text Search: Optimized for fast and relevant full-text searches.
 -	Scalability: Horizontally scalable with support for data sharding and replication.
 -	Real-Time Analytics: Capable of performing complex queries and aggregations in near real-time.
