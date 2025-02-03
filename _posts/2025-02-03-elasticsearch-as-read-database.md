@@ -113,6 +113,8 @@ As can be seen from the results, Elasticsearch performed better in all of the te
 
 Applying architecture with Elasticsearch as read database does wonders for performance in some areas. But it does have its drawbacks as well. The databases need to be kept in synchronization with each other. There is also the cost of development time and complexity of this type of architecture.
 
+I should point out as well that the tests were not very extensive and you might get different results in some cases. I used the databases pretty much out of the box and there is definitely configuration options you can do for both of them. See for example [Full-Text Search for SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/search/full-text-search?view=sql-server-ver16). Further research could be done on specific use cases.
+
 Last, I would like to offer some use cases where we have found Elasticsearch to be worth it. Obviously if you need to search from large amounts of data, Elasticsearch is really good. Another use case we have found it very useful is real time dashboards. It might be quite taxing for SQL database to offer this, and caching is a bit problematic if the data changes frequently. But Elasticsearch seems to be a very good solution for that.
 
 ## References
