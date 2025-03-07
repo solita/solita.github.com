@@ -174,7 +174,7 @@ $ emcc -o todo.html                                                      \
 ```
 
 This will compile our app and create 3 files:
-* `todo.js` contains escripten JS integration code
+* `todo.js` contains emscripten JS integration code
 * `todo.wasm` the compiled WebAssembly binary
 * `todo.html` HTML page for the application
 
