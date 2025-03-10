@@ -16,15 +16,15 @@ It is undeniably that C makes the world go around, being the implementation
 language for such "minor" things as the [Linux kernel](https://git.kernel.org/), [sqlite](https://sqlite.org/index.html), and [many](https://github.com/python/cpython) [programming](https://github.com/ruby/ruby) [language](https://github.com/SWI-Prolog/swipl-devel) [runtimes](https://github.com/Perl/perl5).
 
 Although C was used in the early web through [Common Gateway Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface),
-it has never been the go to language for web development, especially not on the front-end!
+it has never been the go-to language for web development, especially not on the front end!
 
 With WebAssembly we can run any native code in the browser, so it is time to try
-making a client side webapp in (mostly) pure C. In this post, we will make the
-traditional simple todo-list application.
+making a client-side web app in (mostly) pure C. In this post, we will make the
+traditional simple to-do-list application.
 
 ## HTML generation
 
-The first obvious step is generating some HTML. There are text templating solutions
+The first obvious step is generating some HTML. There are text-templating solutions
 for C, but I want to avoid any dependencies so we'll roll our own.
 
 We can have a static buffer that all rendering is done to:
@@ -35,7 +35,7 @@ char _html_memory[HTML_MAX_MEMORY];
 char *_html_out;
 ```
 
-Then we can have utilities to output things like tag start, attributes and tag end.
+Then we can have utilities to output things like tag start, attributes, and tag end.
 ```c
 void tag_start(const char *name);
 void tag_end(const char *name);
@@ -56,7 +56,7 @@ Then we can finish things by adding some convenience macros:
   }
 ```
 
-This allows us to write HTML generation code that looks like:
+This allows us to write HTML generation code that looks like this:
 ```c
   tag("div", {
       attr_s("class", "todo-form");
@@ -69,18 +69,18 @@ This allows us to write HTML generation code that looks like:
 
 It ain't exactly pretty like [hiccup](https://github.com/weavejester/hiccup) or [JSX](https://react.dev/learn/writing-markup-with-jsx),
 but if you squint hard enough you can kind of see the HTML structure.
-You can see the HTML generating code on GitHub: [`html.c`](https://github.com/tatut/todoC/blob/main/html.c)
+You can see the HTML-generating code on GitHub: [`html.c`](https://github.com/tatut/todoC/blob/main/html.c)
 
 ## Data model and state management
 
 Next up is modeling and managing the data. What we want again is something simple,
 especially as we need to manage memory manually.
 
-We can model the `Todo` as C struct, containing the index, label and completion
+We can model the `Todo` as C struct, containing the index, label, and completion
 status of the item as well as links to previous and next entries.
 We could use a [dynamic array](https://www.geeksforgeeks.org/dynamic-array-in-c/)
-to store the data, but again we will just have a statically allocated pool with 1024
-entries. If anyone has more things on their todo-list, they need better software to
+to store the data, but again we will have a statically allocated pool with 1024
+entries. If anyone has more things on their to-do-list, they need better software to
 manage it anyway!
 
 ```c
@@ -103,7 +103,7 @@ int num_todos = 0;           // number of active todos
 ```
 
 The purpose of having the index is that we can modify any item by just looking
-it up from the `todo_memory` and manipulate it. The doubly linked list is to
+it up from the `todo_memory` and manipulating it. The doubly linked list is to
 maintain the order.
 
 We initially add all todos to the `free_todos` list. When we add a todo we take the
@@ -154,12 +154,12 @@ void add_todo(char *data) {
 }
 ```
 
-Deletion returns the Todo back to the front of the `free_todos` list.
+Deletion returns the Todo to the front of the `free_todos` list.
 You can view the full code on GitHub: [`todo.c`](https://github.com/tatut/todoC/blob/main/todo.c)
 
 ## Compiling and integrating
 
-We have rendering and data management, next we need to hook this up to a page
+After we have rendering and data management we are ready to hook this up to a page
 and have some JS bindings.
 
 For compilation we use [emscripten](https://emscripten.org) which will also create
@@ -191,13 +191,13 @@ function add_todo(label) {
 See emscripten documentation for [interacting with code](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html)
 for more details.
 
-Once we have the app compiled, we can serve it locally with a simple HTTP server.
+Once the app is compiled, we can serve it locally with a simple HTTP server.
 
 ![see it in action](/img/2025-cing-the-web/todoC.gif)
 
 ## Further work
 
-There's lots more that could be done, but I'll leave these as an excercise for the reader.
+There's lots more that could be done, but I'll leave these as an exercise for the reader.
 
 *TodoMVC*
 
