@@ -201,7 +201,7 @@ There's lots more that could be done, but I'll leave these as an exercise for th
 
 *TodoMVC*
 
-The app could be styled according to the TodoMVC app and the full functionality added.
+The app could be styled according to the [TodoMVC](https://todomvc.com) app and the full functionality added.
 
 *Persistent storage*
 
