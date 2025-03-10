@@ -18,8 +18,11 @@ language for such "minor" things as the [Linux kernel](https://git.kernel.org/),
 Although C was used in the early web through [Common Gateway Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface),
 it has never been the go-to language for web development, especially not on the front end!
 
-With WebAssembly we can run any native code in the browser, so it is time to try
-making a client-side web app in (mostly) pure C. In this post, we will make the
+Compared to JS [WebAssembly](https://webassembly.org) provides a much lower level virtual machine in
+the browser that can be used as a compilation target for any native code.
+There are [many languages](https://github.com/appcypher/awesome-wasm-langs) that have a WebAssembly 
+port.
+It is time to try making a client-side web app in (mostly) pure C. In this post, we will make the
 traditional simple to-do-list application.
 
 ## HTML generation
