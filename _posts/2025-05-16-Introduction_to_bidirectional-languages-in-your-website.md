@@ -46,7 +46,7 @@ Let's see what happens when I change the language without doing anything with RT
 
 ![[simple website 2.png]](/img/2025-05-16-introduction-to-bidirectional-languages-in-your-website/2.png)
 
-Not as bad as you would think, but there are a few things that are wrong here. The header should be flipped, and the names `Ninni` and `Eino` beside the pictures should be aligned to the left side.
+Not as bad as you would think, but there are a few things that are wrong here. The header should be flipped, and the names `Ninni` and `Eino` beside the pictures should be aligned to the right side.
 
 Fortunately, there is a quick fix for this. We can set the directionality for the elements using the `dir` attribute. We can set it on specific elements, but for this case we want it on the whole html.
 
