@@ -1,3 +1,15 @@
+---
+layout: post
+title: Introduction to bidirectional languages in your website
+author: Kami Nasri
+excerpt: >
+  What is RTL? LTR? What are Bidirectional languages? Let's take a look and see how to make your website support these languages.
+tags:
+  - RTL
+  - Frontend
+  - Localization
+---
+
 # Introduction to bidirectional languages in your website
 
 ## What are bidirectional languages?
@@ -61,7 +73,11 @@ Everything is now flipped correctly and we are finished here right? Well there s
 
 ### Margin and padding
 
-If we take a closer look we can see that the margins and paddings aren't flipped when the directionality changes. When creating a website with support for both directionalities you should avoid using `margin` and `padding`. Instead we should use `margin-inline-start`, `margin-inline-end, `
+If we take a closer look we can see that the margins and paddings aren't flipped when the directionality changes.
+
+There are out-of-the-box solutions that deals with margins and padding etc. automatically such as [rtlcss](https://rtlcss.com/learn/) and [tailwindcss-rtl](https://www.npmjs.com/package/tailwindcss-rtl). For demonstration purposes I will show you how to deal with them manually.
+
+When creating a website with support for both directionalities you should avoid using `margin` and `padding`. Instead we should use `margin-inline-start`, `margin-inline-end`,
 `padding-inline-start` and `padding-inline-start` which aligns items depending on the directionality.
 
 [Tailwind](https://tailwindcss.com/blog/tailwindcss-v3) offers RTL and LTR modifiers which can be used.
@@ -80,11 +96,11 @@ I didn't translate this text just to demonstrate this special case when having L
 
 ### Neutral characters
 
-Some Unicode characters are not associated with some directionality e.g. numbers and punctuation. These characters are considered to be weak or neutral. The [Unicode bidirectional algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics) usually handles these situations but not always.
+Some Unicode characters are not associated with some directionality e.g. numbers and punctuation. These characters are considered to be weak or neutral. The [Unicode bidirectional algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics) usually handles these situations automatically by looking the characters around the neutral or weak character but not always.
 
 In this case the text is in English but the language is set to Farsi and the base direction is RTL. This is why the exclamation mark is on the left side.
 
-We can fix this by using [bidirectional isolate element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi) `<bdi>` instead of e.g. `p` but as for now this isn't supported on Safari browser. The other way is to set the directionality on the element that contains LTR text.
+We can fix this by using [bidirectional isolate element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi) `<bdi>` instead of e.g. `p` but as for now this isn't supported on Safari browsers. The other way is to set the directionality on the element that contains LTR text.
 
 ```html
 <p dir="ltr" className="self-center text-sm text-primary">{t("ltr_text")}</p>
