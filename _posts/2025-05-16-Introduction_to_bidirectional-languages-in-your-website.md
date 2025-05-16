@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to bidirectional languages on your website
-author: Kami Nasri
+author: snufkind
 excerpt: >
   What is RTL? LTR? What are Bidirectional languages? Let's take a look and see how to make your website support these languages.
 tags:
@@ -9,8 +9,6 @@ tags:
   - Frontend
   - Localization
 ---
-
-# Introduction to bidirectional languages in your website
 
 ## What are bidirectional languages?
 
