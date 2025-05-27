@@ -12,11 +12,15 @@ tags:
   - OIDC
 ---
 
-I've been learning Kubernetes. I started with an on-premises single-node cluster and later moved on to Azure Kubernetes Service (AKS). Setting up a basic setup in both was quite straightforward, and I got a simple web API hosted rather quickly.
+I've been learning Kubernetes. I started with an on-premises single-node cluster and later moved on to Azure Kubernetes Service (AKS). While setting up workload identity based authentication without secrets for a pod in AKS, I began to wonder: could use a similar approach with other Kubernetes clusters? Could I set up something similar on my on-premises Kubernetes cluster?
 
-Next, I needed to figure out how to access Azure resources from an AKS pod. I used Cosmos DB as a target resource and wanted to access it without secrets, as I was pretty confident there was a way to do it without them. [Microsoft Entra Workload ID](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) seems to be that way. There are good [instructions](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster) on what needs to be done, both in Kubernetes and in Azure. I didn't follow the instructions to the letter, as they used Azure CLI and Azure Key Vault as the target resource, and I mostly used the Azure portal and wanted to access Cosmos DB.
+Identity-based authentication has several advantages:
 
-While setting up the user-assigned managed identity federated credentials, I noticed you can set any _issuer_, _subject_, and _audience_. That got me thinking, could I use this with any token provider? Could I use this with my on-premises Kubernetes cluster? [_Use Microsoft Entra Workload ID with AKS_ page](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) states that _Microsoft Entra Workload ID uses [Service Account Token Volume Projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection)..., to enable pods to use a Kubernetes identity._ So, I went looking into the AKS-hosted pod and found the token file that was used for authentication. Could I configure that to my on-premises cluster as well, and would Entra ID actually allow me to use those tokens to authenticate the workload?
+- There's no need to pass or maintain secrets (reducing the risk of leaking an access key)
+- Access tokens have a much shorter lifetime (a leaked token expires sooner)
+- It enables granting granular access rights
+
+[_Use Microsoft Entra Workload ID with AKS_ page](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) states that _Microsoft Entra Workload ID uses [Service Account Token Volume Projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection)..., to enable pods to use a Kubernetes identity._ Could I configure that on my on-premises cluster as well, and would Entra ID allow me to use those tokens to authenticate the workload?
 
 ## Getting started
 
