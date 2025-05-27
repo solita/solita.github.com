@@ -118,11 +118,11 @@ spec:
 
 ## Configure Azure user-assigned managed identity
 
-Three things needed to be done in Azure. First, I created a user-assigned managed identity. You can also use an app registration and a service principal, but I used a managed identity.
+To grant access to Cosmos DB, you need an identity that can be authorized. On the Azure side, I created and configured a workload identity. This workload identity can either be a user-assigned managed identity or an app registration with a service principal. I chose to create a managed identity, which can be created as any other Azure resource.
 
 Then, I assigned my Cosmos DB instance-scoped _Cosmos DB Built-in Data Contributor_ role to the managed identity. Microsoft has [instructions](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-grant-data-plane-access) for that. Unfortunately, you still can't list or assign Cosmos DB data plane roles from the Azure portal, but you need to use either CLI or IaC.
 
-Finally, I configured a _Federated credential_ for the user-assigned managed identity. This allows any system to authenticate as that identity, as long as it provides a valid token with the right _issuer_, _subject_, and _audience_. Adding the federated credential happens from the user-assigned managed identity resource, there's a _Federated credentials_ item under _Settings_, and then click _Add Credential_. From the dropdown menu, you can select from a couple of options, one of which is _Kubernetes accessing Azure resources_. I used that because it forms the _subject_ automatically from my _(Kubernetes) Namespace_ and _Service Account (name)_ inputs.
+Finally, I configured a _Federated credential_ for the user-assigned managed identity. This allows any system to authenticate as that identity, as long as it provides a valid token with the right _issuer_, _subject_, and _audience_. Federated credential can be added from the user-assigned managed identity resource, there's a _Federated credentials_ item under _Settings_, and then click _Add Credential_. From the dropdown menu, you can select from a couple of options, one of which is _Kubernetes accessing Azure resources_. I used that because it forms the _subject_ automatically from my _(Kubernetes) Namespace_ and _Service Account (name)_ inputs.
 
 ![Kubernetes accessing Azure resources form](/img/2025-on-prem-kube-to-azure/add-federated-credential-kube.png)
 
