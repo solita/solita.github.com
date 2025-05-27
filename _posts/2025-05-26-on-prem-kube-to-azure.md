@@ -128,9 +128,18 @@ Finally, I configured a _Federated credential_ for the user-assigned managed ide
 
 ## Necessary code changes
 
-I actually wouldn't have needed to do any code changes, since I already had the following code from my AKS experiment:
+There's only one thing you need to change in code. Instead of providing a key for the `CosmosClient`, you provide credentials that can be used get an authentication token. In practice, the changes should look like something like this:
 
 ```javascript
+// old
+const client = new CosmosClient({
+  endpoint: process.env.COSMOS_ENDPOINT,
+  key: process.env.COSMOS_KEY,
+});
+```
+
+```javascript
+// new
 const credential = new DefaultAzureCredential();
 const client = new CosmosClient({
   aadCredentials: credential,
