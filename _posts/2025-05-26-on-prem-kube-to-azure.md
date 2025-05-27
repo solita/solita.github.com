@@ -32,7 +32,13 @@ I used a single-node [k0s](https://docs.k0sproject.io/) cluster for an on-premis
 
 I started by getting a pod running with a projected service account token, to see the actual contents of a token, not the examples from the Internet. The Kubernetes [service account token projection page](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#launch-a-pod-using-service-account-token-projection) has an almost-ready YAML, I just needed to create the service account too. YAML for the service account was available on the same page.
 
-The token (decoded token payload below, irrelevant properties removed) looked the same as in the examples. So, from a cluster configuration point of view, all I need to change is the _issuer_ (_iss_). Based on the OpenID Connect (OIDC) [spec](https://openid.net/specs/openid-connect-discovery-1_0.html#IssuerDiscovery), the value can be any URL address, as long as it has https scheme, has no query or fragment part in it, and you're able to host content under that. The address may contain a path component, e.g., _https://domain.tld/tenant1_ is allowed. The **cluster doesn't need to be hosted in that address**! In the AWS instructions, they set the _issuer_ to be an S3 bucket, as that's one easy way to host relevant documents.
+The token (decoded token payload below, irrelevant properties removed) looked the same as in the examples. So, from a cluster configuration point of view, all I need to change is the _issuer_ (_iss_). According to the OpenID Connect (OIDC) [spec](https://openid.net/specs/openid-connect-discovery-1_0.html#IssuerDiscovery), the value can be any URL address, as long as it meets the following requirements:
+
+- It uses the https scheme
+- It doesn't have query or fragment part in it
+- You're able to host content under that
+
+The address may contain a path component, e.g., _https://domain.tld/tenant1_ is allowed. The **cluster doesn't need to be hosted in that address**! In the AWS instructions, they set the _issuer_ to be an S3 bucket, as that's one easy way to host relevant documents.
 
 ```json
 {
