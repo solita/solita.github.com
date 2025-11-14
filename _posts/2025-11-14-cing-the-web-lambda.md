@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C-ing the web part 2: Lambda boogaloo
+title: C-ing the web part 2, Lambda boogaloo
 author: tatut
 excerpt: >
   Last time in this series, we created a web application front end in C.
@@ -219,17 +219,16 @@ $ curl http://localhost:8080/2015-03-31/functions/function/invocations \
 {"npoints": 3, "length": 315.951278}
 ```
 
-See the file `example.c` for more examples, including a counter with state that
-keeps state between calls.
+See the file `example.c` for more examples, including a counter that keeps state between calls.
 
-For deploying to actual AWS environment, see instructions in [AWS documentation site](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html).
+For deploying to actual AWS environment, see instructions in the [AWS documentation site](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html).
 
 ## Caveat and final remarks
 
 C is a low level language and doesn't offer memory safety. You should carefully test any code
 you are exposing over the internet. There are mitigation strategies like fuzzing (using tools like
 [radamsa](https://gitlab.com/akihe/radamsa)), using [AddressSanitizer](https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-fsanitize_003daddress)
-or even compiling with a memory safe C variant [Fil-C](https://fil-c.org).
+or even compiling with the memory-safe C variant [Fil-C](https://fil-c.org).
 
 The upside is that using C can give us small native code that starts up
 and executes fast. This makes it a good fit when you have a Lambda that
