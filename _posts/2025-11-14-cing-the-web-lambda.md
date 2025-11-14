@@ -3,7 +3,7 @@ layout: post
 title: C-ing the web part 2: Lambda boogaloo
 author: tatut
 excerpt: >
-  Last time on in this series we created a web application front end in C.
+  Last time in this series, we created a web application front end in C.
   Now it's time to conquer the back end as well. Let's bring C to serverless
   back end programming by making an AWS Lambda custom runtime.
 tags:
@@ -16,7 +16,7 @@ tags:
 [Last time](https://dev.solita.fi/2025/03/10/cing-the-web.html) we implemented a simple front end
 application in C and compiled it to run in the browser using via WebAssembly.
 
-Now, let's consider the a back end. The traditional way would be to run a C application
+Now, let's consider the back end. The traditional way would be to run a C application
 in a web server like [Apache httpd](https://httpd.apache.org) using the
 [Common Gateway Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface).
     Instead of doing that, let's run our C code inside AWS Lambda using the
@@ -26,7 +26,7 @@ With a custom runtime, you can create serverless functions using any language.
 The custom runtime bootstrap is based on a simple loop that uses HTTP API to:
 - issue a GET request to fetch the next invocation
 - pass it on to the handler for processing
-- issue a POST request to send response (or error) back to client
+- issue a POST request to send a response (or an error) back to the client
 - repeat
 
 To follow along or just try the code yourself, check out the code from the
@@ -35,7 +35,7 @@ To follow along or just try the code yourself, check out the code from the
 
 ## Getting a proper image
 
-For making a custom runtime, we need to compile our C code in an environment that is compatible with
+To make a custom runtime, we need to compile our C code in an environment that is compatible with
 the AWS Lambda image.
 
 The easiest way to do this is to just make our own Docker image for building:
@@ -62,7 +62,7 @@ COPY *.o ${LAMBDA_RUNTIME_DIR}
 
 ## Designing the API
 
-We need some way for our bootstrap to hand off requests to the handler and we want it
+We need some way for our bootstrap to hand off requests to the handler, and we want it
 to be minimal and feel natural from C.
 
 I came up with a simple function interface:
@@ -85,7 +85,7 @@ void *handle_init();
 bool handle(Invocation *inv);
 ```
 
-The handler code may provide a `_init` function that returns arbitrary user data
+The handler code may provide a `_init` function that returns an arbitrary user data
 pointer that is passed along in all invocations. This can be used to initialize
 any libraries or state needed in the actual invocations. The init is only called
 once before handling any events.
@@ -93,8 +93,8 @@ once before handling any events.
 The handler itself takes a pointer to an invocation that contains the received
 data as a raw pointer and a file pointer for writing output.
 
-The incoming data is not parsed in any way, it is up to the handler to make sense
-of it, like parse JSON. See next part.
+The incoming data is not parsed in any way; it is up to the handler to make sense
+of it, like parsing JSON. See next part.
 
 The output is simpler, the handler doesn't need to allocate memory buffers, the
 bootstrap will provide a `FILE*` handle so the handler can simply call functions
@@ -110,7 +110,7 @@ needs to include the `clambda.h` header file and implement the function.
 
 As Lambda is mainly for receiving and sending JSON, we should provide some
 facilities for working with it. C doesn't really have data structures like objects
-builtin and manual memory management makes this more awkward.
+built in, and manual memory management makes this more awkward.
 
 Luckily JSON (as defined by
 [ECMA-404](https://ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf))
@@ -176,7 +176,7 @@ Utilities for that are left as an exercise for the reader.
 
 ## Putting it together
 
-We have the API, the bootstrap and even JSON parsing utilities ready. Let's make
+We have the API, the bootstrap, and even JSON parsing utilities ready. Let's make
 a simple Lambda that analyzes a line and returns how many points it has and its
 length.
 
@@ -205,8 +205,7 @@ bool analyze_line(Invocation *inv) {
 }
 ```
 
-That's all there is to it. To test is locally we can build it We can test it
-locally by running the following commands:
+That's all there is to it. To test it locally, we can build it by running the following commands:
 
 ```shell
 $ make build
@@ -227,12 +226,13 @@ For deploying to actual AWS environment, see instructions in [AWS documentation 
 
 ## Caveat and final remarks
 
-C is quite a low level language and doesn't offer memory safety. You should carefully test any code
+C is a low level language and doesn't offer memory safety. You should carefully test any code
 you are exposing over the internet. There are mitigation strategies like fuzzing (using tools like
 [radamsa](https://gitlab.com/akihe/radamsa)), using [AddressSanitizer](https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-fsanitize_003daddress)
 or even compiling with a memory safe C variant [Fil-C](https://fil-c.org).
 
-The upside is that using C can give us small fast starting and fast executing native code for when
-you have a Lambda that needs to do some heavier processing.
+The upside is that using C can give us small native code that starts up
+and executes fast. This makes it a good fit when you have a Lambda that
+needs to do some heavier processing.
 
 Happy hacking!
