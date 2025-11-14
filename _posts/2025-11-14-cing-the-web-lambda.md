@@ -119,9 +119,9 @@ For memory management, especially strings, we can modify and return pointers to 
 input buffer directly. Those will be valid for the duration of the Lambda handler.
 
 We can use some C preprocessor macro magic to make extracting object fields to
-C structs a little more convenient. This on-demand extraction obviates the need to
-parse the JSON data fully into an in-memory representation. We can just directly
-grab what we need from it.
+C structs a little more convenient. See `json.h` file in the repo for more details.
+This on-demand extraction obviates the need to parse the JSON data fully into an in-memory
+representation. We can just directly grab what we need from it.
 
 Here's an example for extracting a JSON like this:
 ```json
