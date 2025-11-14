@@ -85,9 +85,10 @@ void *handle_init();
 bool handle(Invocation *inv);
 ```
 
-The handler code may provide a `_init` function that returns an arbitrary user data
+The handler code may provide an initialization function that is named by appending
+`_init` to the handler name. The initialization function returns an arbitrary user data
 pointer that is passed along in all invocations. This can be used to initialize
-any libraries or state needed in the actual invocations. The init is only called
+any libraries or state needed in the actual invocations. The initialization is only called
 once before handling any events.
 
 The handler itself takes a pointer to an invocation that contains the received
