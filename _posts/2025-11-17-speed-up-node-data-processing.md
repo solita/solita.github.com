@@ -22,7 +22,7 @@ To make sense of how to optimize performance in Node.js, it is essential to firs
 
 Node's architecture is fundamentally event-driven and single-threaded. This works fine for most web interfaces and servers, but can be seen as a limitation for pure data processing. In simple terms, single-threaded means that only a single JavaScript event or function can be on execution at a time. Even if you put your code in a Promise-returning function, its synchronous parts are still run sequentially and block the event loop from executing other tasks. Luckily, Node.js is still efficient for handling I/O operations such as reading/writing files and handling network traffic. These operations are delegated to run by the underlying system (mainly **libuv thread pool**) and thus do not overload Node's main event loop.
 
-To optimize our Node process, we are going to maximize the performance of parallel I/O operations and also parallelize CPU-bound operations. How much of an increase can we expect? It's difficult to give a precise prediction, as it largely depends on the use case. If numbers must be given, we were able to decrease the processing time of our JSON files from 40 seconds to just 14 seconds by using these techniques.
+To optimize our Node process, we are going to maximize the performance of parallel I/O operations and also parallelize CPU-bound operations. How much of an increase can we expect? It's difficult to give a precise prediction, as it largely depends on the use case. In our case, we start with a processing time of **about 40 seconds**. Let's see how much we can improve it.
 
 ## Processing Data Overview
 
@@ -44,7 +44,7 @@ for (const file of files) {
 }
 ```
 
-Here we do not wait for file writing to complete, but schedule it and immediately continue processing the next file. This looks better from performance perspective, but error checking is still missing and we do not wait for those background operations to complete. Let's fix it:
+Here we do not wait for file writing to complete, but schedule it and immediately continue processing the next file. However, error checking is still missing and we do not wait for those background operations to complete. Let's fix it:
 
 ```js
 const writePromises = [];
@@ -59,7 +59,7 @@ for (const file of files) {
 await Promise.all(writePromises);
 ```
 
-This could work fine, assuming `result` is small and the number of files is limited. However, we have a large number of files to process, so running this would eventually cause many files to be sent to **libuv** to be handled at once. While libuv has some limits of how many write operations it does in parallel by default, the remaining operations are still put into queue — potentially risking high memory peak. We need to act to prevent that.
+This looks better from performance perspective as we are now doing more than one thing at a time, but the gained performance highly depends on how fast `processData` is compared to file writing. If it's slow, we might not gain much benefit at all. We also have a potential memory problem since we are queuing up all write operations to **libuv** at once. If `result` is large and there are many files to process, this could lead to high memory peaks. While **libuv** has some limits of how many write operations it does in parallel by default, the remaining operations are still put into queues. Let's see if we can improve this further using **p-limit**.
 
 ## p-limit
 
@@ -88,7 +88,7 @@ for (const file of files) {
 await Promise.all(tasks);
 ```
 
-In this example, we are limiting the total number of simultatenous file operations, but we are NOT limiting calls to `processData`. This means that eventually all finished `result` objects would be queued to `p-limit`, potentially causing high memory peaks if the `result` object is large.
+In this example, we are limiting the total number of simultaneous file operations, but we are NOT limiting calls to `processData`. This means that eventually all finished `result` objects would be queued to `p-limit`, potentially causing high memory peaks if the `result` object is large.
 
 The can be solved by limiting both data processing and file writing:
 
@@ -100,7 +100,6 @@ const tasks = [];
 for (const file of files) {
   const task = limit(async () => {
     const result = await processData(file);
-    // Start writing the file, but don't await it here
     return fs.promises.writeFile(result.path, result.data);
   });
 
@@ -111,13 +110,13 @@ for (const file of files) {
 await Promise.all(tasks);
 ```
 
-This is starting to look good. Now we are allowing parallel data processing and file writing while still setting a limit of how many `result` objects can created at once. We could stop here, but I want to introduce one more improvement.
+This is starting to look good as we are now allowing parallel data processing and file writing while still setting a limit of how many `result` objects can be created at once. Again, the gained performance largely depends on the relative speed of `processData` and file writing. In our case, this trick decreased the processing time **from 40 seconds to about 30 seconds**.
 
 ## p-limit with Pending Queue
 
 Let's assume there are so many files to be processed that we need to divide them into multiple different processing functions. This would mean that we needed to use p-limit on multiple different places, possibly losing a track of overall concurrency and memory usage. Each `plimit` instance only controls the tasks submitted to it, not the total number of tasks running across all instances. This can easily lead to more tasks executing simultaneously than intended.
 
-To manage this safely, we could use a single global concurrency limiter that all processing functions use, ensuring the total number of active heavy tasks never exceeds your safe threshold.
+To manage this safely, we could use a single global concurrency limiter that all processing functions use, ensuring the total number of active heavy tasks never exceeds your safe threshold. Note that this method might not give actual performance benefits, but it helps to keep memory usage more predictable across the whole application.
 
 Here is an example of introducing a centralized write queue using a single instance of **plimit**. When data has been processed, it can be queued for writing via `enqueueWriteToFile` function. This queue is allowed to hold no more than **eight** pending write operations, setting a clear limit for memory usage in the whole application. If the pending queue is full, the caller is forced to wait until there is free capacity available. Finally, up to **four** write operations are allowed to run in parallel.
 
@@ -178,7 +177,7 @@ async function main() {
 }
 ```
 
-We have now solved the problem of not waiting for each write operation to complete and also avoiding high memory peaks by limiting the number of pending write operations. However, we are still processing data sequentially, one file at a time. To make this more efficient, we are going to look at `worker_threads` module next.
+We have now solved the problem of running both data processing and file writing in parallel while also avoiding high memory peaks by limiting the number of pending write operations. However, we are still processing data sequentially, one file at a time. To make this more efficient, we are going to look at `worker_threads` module next.
 
 ## Worker Threads
 
@@ -358,6 +357,8 @@ async function waitForWorkerTasksToComplete() {
   await pool.terminate();
 }
 ```
+
+By using a worker pool and p-limit together, we were able to reduce the total processing time **from original 40 seconds down to about 14 seconds!** This is a significant improvement, though it comes with increased code complexity and memory usage since each worker has its own memory space and we are keeping processed results in memory until they are written to disk.
 
 ## Tips for Working with Workers
 
