@@ -59,7 +59,7 @@ for (const file of files) {
 await Promise.all(writePromises);
 ```
 
-This looks better from performance perspective as we are now doing more than one thing at a time, but the gained performance highly depends on how fast `processData` is compared to file writing. If it's slow, we might not gain much benefit at all. We also have a potential memory problem since we are queuing up all write operations to **libuv** at once. If `result` is large and there are many files to process, this could lead to high memory peaks. While **libuv** has some limits of how many write operations it does in parallel by default, the remaining operations are still put into queues. Let's see if we can improve this further using **p-limit**.
+This looks better from performance perspective as we are now doing more than one thing at a time, but the gained performance highly depends on how fast `processData` is compared to file writing. If it's slow, we might not gain much benefit at all. We also have a potential memory problem since we are queuing up all write operations to **libuv** at once. If `result` is large and there are many files to process, this could lead to high memory peaks. While **libuv** has some limits of how many write operations it does in parallel by default, the remaining operations are still put into queue. Let's see if we can improve this further using **p-limit**.
 
 ## p-limit
 
@@ -67,7 +67,7 @@ This looks better from performance perspective as we are now doing more than one
 
 Going back to our previous example, what we actually want to do is to run multiple file write operations in parallel and in the background, but avoid running _too many_ to cause high memory peaks. **p-limit** solves this for us by allowing to specify the maximum number of concurrently run promises.
 
-The right amount concurrent operations depends on the use case and the capability of the underlying hardware. I would suggest beginning with a value of 2-6 and finding the sweet spot manually by testing with real-world data.
+The right amount of concurrent operations depends on the use case and the capability of the underlying hardware. I would suggest beginning with a value of 2-6 and finding the sweet spot manually by testing with real-world data.
 
 Let's take a look at how to use **p-limit**, first doing it **incorrectly**.
 
