@@ -8,7 +8,7 @@ tags:
   - Java
   - Spring Boot
   - Monolith
-  - Brancy by Abstraction
+  - Branch by Abstraction
   - Architecture
 ---
 We've been developing and maintaining a Java Spring Boot codebase for the past 15+ years. In the beginning, there was one server (let's call it Foo) and a client UI application. Over the years, this codebase has evolved into a monorepo containing four client UI applications and two server applications (Foo and Bar), all of which share the same database schema. 
