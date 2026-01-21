@@ -7,7 +7,7 @@
 
         var menuToggle = $('#menu-toggle'),
             primaryNav = $('#primary-navigation');
-        
+
         menuToggle.on('click', function(){
             menuToggle.toggleClass('menu-toggle--active');
             primaryNav.css('display', menuToggle.hasClass('menu-toggle--active') ? 'block' : '');
@@ -19,23 +19,9 @@
                 url = authorLink.attr('href'),
                 username = authorLink.text(),
                 email = authorLink.attr('title'),
-                avatar = avatarTemplate.clone(),
+                imgUrl = get_gravatar(email);
 
-                directives = {
-                    img: {
-                        src: function () {
-                            return get_gravatar(email);
-                        },
-                        alt: function () {
-                            return username;
-                        }
-                    }
-                };
-
-            avatar.render({}, directives);
-            avatar.attr('href', url);
-            avatar.attr('aria-hidden', true);
-            $this.prepend(avatar);
+            $this.prepend(`<a href="${url}" class="avatar"><img aria-hidden="true" class="img" src="${imgUrl}" alt="${username}"/></a>`);
         });
     });
 
