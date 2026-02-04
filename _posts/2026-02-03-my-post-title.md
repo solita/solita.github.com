@@ -108,3 +108,20 @@ The world of agentic coding is evolving way too fast for anyone to stay on top o
 It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model.
 
 My advice? Don't chase every new feature. Focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
+
+## Getting started
+
+This is what you need to get going:
+
+1. Get a GitHub Copilot license from [IT Services](https://it.services.solita.fi/support/catalog/items/134)
+2. Install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in VS Code
+3. Log in with your Solita GitHub account
+
+That's it. You should now have the Copilot chat panel on the right side of VS Code. You can switch between Agent and Plan modes using the dropdown, and choose which model to use. In my opinion, the best coding model right now is Claude Opus 4.5.
+
+## Conclusion
+AI-assisted development isn't magic, and it's not going to replace you. It's a tool that enables you to focus on solving the actual problem and helps you save time by automating the coding part.
+
+Start with Planning mode. Give the AI context. Break big problems into smaller ones. Accept that there's a learning curve and your performance takes a hit in the beginning. And when it finally clicks, you realize that the only limiting factor is your imagination.
+
+Now go try it. Try the Plan mode and see what happens, experiment. You can always revert and try again.
