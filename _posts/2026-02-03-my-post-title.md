@@ -15,7 +15,7 @@ tags:
 
 Let's be honest. Those who have embraced AI as part of their daily development work have noticed significant improvements in both speed and quality. So the question is no longer "Is AI useful for coding?" but rather "How do I get the most out of it?"
 
-Why do some developers see tremendous benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development. At my current level, I haven't written a single line of code by hand in a couple of months, yet my speed and quality have only improved.
+Why do some developers see tremendous benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development. These days, I rarely type code by hand - not because I can't, but because prompting has become faster. I still read and understand every line the AI produces. The typing is just automated.
 
 In this blog post, I'll share my personal learnings from this journey and try to extract the most important takeaways in this Prompt Engineering 101 starter guide.
 
@@ -46,8 +46,8 @@ Let me illustrate this with a practical example.
 
 **Better prompt:**
 > Create a new API endpoint for fetching user profiles. 
-> Look at `src/controllers/ProductController.ts` and `src/routes/products.ts` for reference on how we structure our endpoints in this project. 
-> Look at `src/views/UserProfile.tsx` and see what placeholders we are using to deduce what fields should be returned. 
+> Look at `Controllers/ProductController.cs` for reference on how we structure our endpoints and routing attributes. 
+> Look at `ClientApp/src/views/UserProfile.tsx` and see what placeholders we are using to deduce what fields should be returned. 
 > Follow the same patterns for error handling and response formatting.
 
 The second prompt is more effective because it provides the AI with concrete reference points from your actual codebase. Instead of leaving the AI to guess your project's conventions, you're explicitly pointing it to existing implementations. The AI can now read those files, understand your patterns for routing, controller structure, and error handling, and produce code that fits seamlessly into your project. The first prompt would likely result in generic code that follows common conventions from its training data, requiring significant refactoring to match your style.
@@ -69,21 +69,21 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 > I'll help you create a new API endpoint for user profiles. Let me first understand your project structure and conventions.
 >
 > **Gathering context...**
-> - Reading `src/controllers/` to understand your controller patterns
-> - Reading `src/routes/` to see how routes are structured
-> - Reading `src/models/User.ts` to understand the User entity
-> - Reading `src/views/UserProfile.tsx` to see what fields the frontend expects
+> - Reading `Controllers/` to understand your controller patterns and routing attributes
+> - Reading `Models/User.cs` to understand the User entity
+> - Reading `Services/` to see how business logic is structured
+> - Reading `ClientApp/src/views/UserProfile.tsx` to see what fields the frontend expects
 >
 > **⚠️ I noticed something:**
-> `ProductController.ts` uses Redis caching with a 5-minute TTL for GET requests. Since `UserProfile.tsx` fetches this data frequently, I'll apply the same caching strategy to improve performance.
+> `ProductController.cs` uses `IDistributedCache` with a 5-minute TTL for GET requests. Since `UserProfile.tsx` fetches this data frequently, I'll apply the same caching strategy to improve performance.
 >
 > **Here's my plan:**
-> 1. Create `src/controllers/UserController.ts` following the pattern in `ProductController.ts`
-> 2. Add route `/api/users/:id` in `src/routes/users.ts`
-> 3. Return fields: `id`, `name`, `email`, `avatar`, `createdAt` (based on `UserProfile.tsx` usage)
-> 4. Implement Redis caching with 5-minute TTL, same as `ProductController.ts`
-> 5. Use the same `ApiResponse` wrapper and error handling as other controllers
-> 6. Add input validation for the user ID parameter
+> 1. Create `Controllers/UserController.cs` following the pattern in `ProductController.cs`
+> 2. Add route `/api/users/{id}` using `[Route]` and `[HttpGet]` attributes
+> 3. Create `DTOs/UserProfileDto.cs` with fields: `Id`, `Name`, `Email`, `Avatar`, `CreatedAt` (based on `UserProfile.tsx` usage)
+> 4. Implement Redis caching with 5-minute TTL using `IDistributedCache`, same as `ProductController.cs`
+> 5. Use the same `ApiResponse<T>` wrapper and error handling as other controllers
+> 6. Add input validation using FluentValidation
 >
 > **Questions before I proceed:**
 > - Should this endpoint require authentication?
