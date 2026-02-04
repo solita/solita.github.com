@@ -91,11 +91,20 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 >
 > Does this plan look correct?
 
-Now we are cooking! You can see exactly what the agent intends to do before it writes a single line of code. You can answer its questions, refine the plan, and polish it until it's exactly right. In my experience, the agent often catches details I overlooked (like the caching pattern example above), which would have caused inconsistencies later. Now it's just a matter of should you one-shot the whole plan or execute it step by step.
+Now we are cooking! You can see exactly what the agent intends to do before it writes a single line of code. You can answer its questions, refine the plan, and polish it until it's exactly right. In my experience, the agent often catches details I overlooked (like the caching pattern example above), which would have caused inconsistencies later.
+
+## Prompting is a skill
+
+This is what "coding" looks like in my workflow nowadays: going back and forth with the AI to refine the plan until it's right. I get to focus on the big picture, how the pieces fit together, and in the end I design better features, improve the codebase through refactoring, and save time because the code writing is automated.
+
+But getting here wasn't instant. At first, I felt like an idiot when nothing worked. After my initial attempts, I caught myself thinking "I can code faster by hand than fixing the AI's mistakes." It took about two weeks to break even with manual coding, and another few weeks before the new approach truly clicked.
+
+Prompting is a skill just like coding. And like any new skill, you have to accept a small ego hit to make progress. The hardest part isn't learning new syntax or tools. It's letting go of the urge to dive straight into implementation. You have to trust the process: describe the problem clearly, let the AI explore, refine the plan together, and only then execute. Once you've done a day's worth of work in minutes without the AI making a single mistake, you'll never want to go back.
 
 ## How not to get overwhelmed
 
-The world of agentic coding is evolving way too fast for anyone to stay on top of everything that's new.
+The world of agentic coding is evolving way too fast for anyone to stay on top of everything. New concepts emerge constantly: [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction) lets agents connect to databases, APIs, and external tools. [Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) give Copilot specialized capabilities for specific tasks. Multi-agent orchestrators like [Gas Town](https://github.com/steveyegge/gastown) let you coordinate 20-30 Claude Code agents working in parallel with persistent work tracking. And [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) let you create specialized assistants tailored to your workflow.
 
+It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model.
 
-- Multiagent setups, skills, Ralph Loops etc etc etc -> just focus on understanding context
+My advice? Don't chase every new feature. Focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
