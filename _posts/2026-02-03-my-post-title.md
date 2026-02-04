@@ -33,10 +33,33 @@ The result is predictably poor and useless.
 
 When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity." Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simpler tasks, I found it performed remarkably well!
 
-This is the most important lesson in prompt engineering: If you don't know how something should be done, the AI doesn't know either. AI is an eager guessing machine, and without clear guidance, it will simply guess, eagerly.
+This is the most important lesson in prompting: If you don't know how something should be done, the AI doesn't know either. AI is an eager guessing machine, and without clear guidance, it will simply guess, eagerly.
 
-Se pää juttu koko hommassa on tekoälyn contextin ymmärtäminen. 
+## Context Is Everything
 
+The key to effective prompting is understanding how AI context works. While the model is trained on vast amounts of data from across the internet, the context provided in your current chat session carries significantly more weight. I initially assumed that since JavaScript dominates AI training data, the model would perform poorly with other languages. This assumption was incorrect. Once you grasp how context influences output, you can achieve excellent results regardless of programming language or tech stack.
+
+Let me illustrate this with a practical example.
+
+**Example: Bad prompt**
+
+```
+Create a new API endpoint for user profiles.
+```
+
+**Example: Better prompt**
+
+```
+Create a new API endpoint for fetching user profiles. 
+Look at src/controllers/ProductController.ts and src/routes/products.ts 
+for reference on how we structure our endpoints in this project.
+Look at src/views/UserProfile.tsx and see what placeholders we are using to deduce what fields should be returned.
+Follow the same patterns for error handling and response formatting.
+```
+
+The second prompt is more effective because it provides the AI with concrete reference points from your actual codebase. Instead of leaving the AI to guess your project's conventions, you're explicitly pointing it to existing implementations. The AI can now read those files, understand your patterns for routing, controller structure, and error handling, and produce code that fits seamlessly into your project. The first prompt would likely result in generic code that follows common conventions from its training data, requiring significant refactoring to match your style.
+
+Later in this article, I'll show how even the bad example can yield good results by leveraging Planning mode.
 
 ## Getting started
 
@@ -47,6 +70,9 @@ What you need:
 
 
 
-### Subsection
+## Konkreettiset 
 
 More content...
+
+
+- Multiagent setups, skills, frameworks etc etc etc -> just focus on understanding context
