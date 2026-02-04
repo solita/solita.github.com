@@ -93,6 +93,10 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 
 Now we are cooking! You can see exactly what the agent intends to do before it writes a single line of code. You can answer its questions, refine the plan, and polish it until it's exactly right. In my experience, the agent often catches details I overlooked (like the caching pattern example above), which would have caused inconsistencies later.
 
+Planning mode doesn't magically eliminate hallucinations, but it *does* shift the workflow in your favor: it front-loads context gathering, makes assumptions explicit, and gives you a review gate before any code touches your repo.
+
+"But what about the hard stuff - race conditions, complex state machines, security edge cases?" These are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Of course, this assumes you actually understand the problem. My point is: If you know how to solve the problem, AI can too. It's just a matter of breaking it down into smaller pieces the AI can handle.
+
 ## Prompting is a skill
 
 This is what "coding" looks like in my workflow nowadays: going back and forth with the AI to refine the plan until it's right. I get to focus on the big picture, how the pieces fit together, and in the end I design better features, improve the codebase through refactoring, and save time because the code writing is automated.
@@ -122,6 +126,6 @@ That's it. You should now have the Copilot chat panel on the right side of VS Co
 ## Conclusion
 AI-assisted development isn't magic, and it's not going to replace you. It's a tool that enables you to focus on solving the actual problem and helps you save time by automating the coding part.
 
-Start with Planning mode. Give the AI context. Break big problems into smaller ones. Accept that there's a learning curve and your performance takes a hit in the beginning. And when it finally clicks, you realize that the only limiting factor is your imagination.
+Start with Planning mode. Give the AI context. Break big problems into smaller ones. Accept that there's a learning curve and your performance takes a hit in the beginning. And when it finally clicks, the bottleneck moves from typing to thinking.
 
 Now go try it. Try the Plan mode and see what happens, experiment. You can always revert and try again.
