@@ -2,7 +2,7 @@
 layout: post
 title: Prompt Engineering 101
 author: solita-markump
-excerpt: Starter Guide to Prompt Engineering: How to Get Good Results
+excerpt: "Starter Guide to Prompt Engineering: How to Get Good Results"
 tags:
   - AI
   - Generative AI
@@ -17,7 +17,7 @@ Let's be honest. Those who have embraced AI as part of their daily development w
 
 Why do some developers see tremendous benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development.
 
-In this blog post, I'll share my personal learnings from this journey and try to extract the most important takeaways in this Prompt Engineering 101 starter guide.
+In this post, I'll share the key lessons from that journey, and hopefully inspire you to give it (another) try.
 
 ## So What's the Problem?
 
@@ -29,11 +29,13 @@ A common mistake when starting out is asking the AI to solve problems that are t
 
 The result is predictably poor and useless.
 
-When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity." Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simpler tasks, I found it performed remarkably well!
+When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simpler tasks, I found it performed remarkably well!
 
-**This is the most important lesson in prompting:** If you don't know how something should be done, the AI doesn't know either. 
+That mental shift boils down to one rule. Tell, don't ask.
 
-AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions. You can't outsource understanding to the AI.
+This is the most important lesson in prompting: **If you don't know how something should be done, the AI doesn't know either.**
+
+AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
 ## Context Is Everything
 
@@ -44,7 +46,7 @@ Let me illustrate this with a practical example.
 **Bad prompt:**
 > Create a new API endpoint for user profiles.
 
-This prompt would likely result in generic code that follows common conventions from its training data, requiring significant refactoring to match your style.
+This prompt would likely result in unexpected changes across your codebase and generic code based on common conventions from training data.
 
 **Better prompt:**
 > Create a new API endpoint for fetching user profiles. 
@@ -77,7 +79,7 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 > - Reading `ClientApp/src/views/UserProfile.tsx` to see what fields the frontend expects
 >
 > **⚠️ I noticed something:**
-> `ProductController.cs` uses `IDistributedCache` with a 5-minute TTL for GET requests. Since `UserProfile.tsx` fetches this data frequently, I'll apply the same caching strategy to improve performance.
+> Some of your GET endpoints use `IDistributedCache` with a 5-minute TTL. Since user profiles are read frequently but rarely updated, I'll apply the same caching strategy here.
 >
 > **Here's my plan:**
 > 1. Create `Controllers/UserController.cs` following the pattern in `ProductController.cs`
@@ -95,9 +97,16 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 
 Now we are cooking! You can see exactly what the agent intends to do before it writes a single line of code. You can answer its questions, refine the plan, and polish it until it's exactly right. In my experience, the agent often catches details I overlooked (like the caching pattern example above), which would have caused inconsistencies later.
 
-"But what about the hard stuff like race conditions, complex state machines, and security edge cases?" These are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Of course, this assumes you actually understand the problem.
+Here's the magic of context. Once the agent has explored your codebase and built a plan, you don't need to start from scratch for related tasks. The relevant files are already loaded, and the agent remembers what it just did. Your next prompt can be much simpler:
 
-Remember the key lesson from earlier: if you don't know how to solve the problem, the AI doesn't know either. The opposite is true as well. If you understand the solution, the AI can execute it. The challenge is breaking down that complexity into clear, actionable steps.
+**You:**
+> Update `UserProfile.tsx` to call the new endpoint and replace the placeholders with real data.
+
+"What about the hard stuff like race conditions, complex state machines, and security edge cases?" These are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Of course, this assumes you actually understand the problem.
+
+But wait... Earlier I said the problem was giving AI too complex problems to solve. Well, complexity itself isn't the enemy. Unclear complexity is. AI can solve any complex task but the challenge is breaking down that complexity into clear, actionable steps.
+
+Once you get the hang of it, you start developing an intuition for when you can give the AI a broad goal versus when you need to spell out every step.
 
 ## Prompting Is a Skill
 
@@ -105,7 +114,7 @@ This is what "coding" looks like in my workflow nowadays: going back and forth w
 
 But getting here wasn't instant. At first, I felt like an idiot when nothing worked. After my initial attempts, I caught myself thinking "I can code faster by hand than fixing the AI's mistakes." It took about two weeks to break even with manual coding, and another few weeks before the new approach truly clicked.
 
-Prompting is a skill just like coding. And like any new skill, you have to accept a small ego hit to make progress. The hardest part is getting started. You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
+Prompting is a skill just like any other. You have to accept a small ego hit and feel dumb for a bit to make progress. The hardest part is getting started. You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
 
 **The point comes eventually when you realize you've done a day's worth of work in minutes without the AI making a single mistake.** After that, there's no going back.
 
@@ -125,11 +134,9 @@ This is what you need to get going:
 2. Install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in VS Code
 3. Log in with your Solita GitHub account
 
-That's it. You should now have the Copilot chat panel on the right side of VS Code. You can switch between Agent and Plan modes using the dropdown, and choose which model to use. In my opinion, the best coding model right now is Claude Opus 4.5.
+That's it. You should now have the Copilot chat panel on the right side of VS Code. You can switch between Agent and Plan modes using the dropdown, and choose which model to use. In my opinion, the best coding model right now is **Claude Opus 4.5.**
 
 ## Conclusion
 AI-assisted development isn't magic, and it's not going to replace you. It's a tool that enables you to focus on solving the actual problem and helps you save time by automating the coding part.
 
-Start with Planning mode. Give the AI context. Break big problems into smaller ones. Accept that there's a learning curve and your performance takes a hit in the beginning. And when it finally clicks, the bottleneck moves from typing to thinking.
-
-Now go try it. Try the Plan mode and see what happens, experiment. You can always revert and try again.
+Start with Planning mode. Just talk to the agent. Break big problems into smaller ones together with the agent. Accept that there's a learning curve and your performance takes a hit in the beginning. And when it finally clicks, the bottleneck moves from typing to thinking.
