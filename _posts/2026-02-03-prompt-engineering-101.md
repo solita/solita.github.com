@@ -89,7 +89,7 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 >
 > **Questions before I proceed:**
 > - Should this endpoint require authentication?
-> - Do you want pagination for listing multiple users?
+> - Can users view other users' profiles? If so, should we use a separate DTO that omits sensitive fields like email?
 >
 > Does this plan look correct?
 
