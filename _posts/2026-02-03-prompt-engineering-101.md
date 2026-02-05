@@ -29,9 +29,9 @@ A common mistake when starting out is asking the AI to solve problems that are t
 
 The result is predictably poor and useless.
 
-When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simpler tasks, I found it performed remarkably well!
+When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
 
-That mental shift boils down to one rule: Tell, don't ask. **If you don't know how something should be done, the AI doesn't know either.**
+That mental shift boils down to this: Tell, don't ask. **If you don't know how something should be done, the AI doesn't know either.**
 
 AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
@@ -60,7 +60,7 @@ But what if I told you that even the bad prompt can yield excellent results? Ent
 
 I'm a huge advocate of Planning mode. In Agent mode, Copilot immediately starts executing. And since AI is fundamentally a prediction machine, it will confidently keep going even when it's heading in the wrong direction. 
 
-Planning mode, on the other hand, forces the AI to stop, think and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task with good results without going off the rails.
+Planning mode, on the other hand, forces the AI to stop, think and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task without going off the rails.
 
 Let's see how the same "bad prompt" can outperform our carefully crafted "better prompt" when used with Planning mode.
 
@@ -95,10 +95,21 @@ Let's see how the same "bad prompt" can outperform our carefully crafted "better
 
 Now we are cooking! You can see exactly what the agent intends to do before it writes a single line of code. You can answer its questions, refine the plan, and polish it until it's exactly right. In my experience, the agent often catches details I overlooked (like the caching pattern example above), which would have caused inconsistencies later.
 
-Here's the magic of context. Once the agent has explored your codebase and built a plan, you don't need to start from scratch for related tasks. The relevant files are already loaded, and the agent remembers what it just did. Your next prompt can be much simpler:
+Here's the magic of context. Once the agent has explored your codebase and built a plan, you don't need to start from scratch for related tasks. The relevant files are already loaded, and the agent remembers what it just did. Your next prompts can be much simpler:
 
 **You:**
 > Update `UserProfile.tsx` to call the new endpoint and replace the placeholders with real data.
+
+**You:**
+> Add unit tests for the new endpoint. Look at `ProductControllerTests.cs` for reference.
+
+Note here we still need to point the agent to the right file for reference.
+
+**You:**
+> Actually the CreatedAt timestamp is not needed. Remove it from the response dto and from the UI.
+
+**You:**
+> When the user id does not exist we hit 404 but in this case we want to redirect to the front page. Look at `ProductPage.tsx` for example.
 
 "What about the hard stuff like race conditions, complex state machines, and security edge cases?" These are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Of course, this assumes you actually understand the problem.
 
