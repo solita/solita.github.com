@@ -31,7 +31,7 @@ The result is predictably poor and useless.
 
 When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
 
-That mental shift boils down to this: Tell, don't ask. **If you don't know how something should be done, the AI doesn't know either.**
+Here's the thing. **If you don't know how something should be done, the AI doesn't know either.**
 
 AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
@@ -58,7 +58,7 @@ But what if I told you that even the bad prompt can yield excellent results? Ent
 
 ## Just Use Planning Mode
 
-I'm a huge advocate of Planning mode. In Agent mode, Copilot immediately starts executing. And since AI is fundamentally a prediction machine, it will confidently keep going even when it's heading in the wrong direction. 
+I'm a huge advocate of Planning mode. In Agent mode, Copilot immediately starts executing, and often in the wrong direction.
 
 Planning mode, on the other hand, forces the AI to stop, think and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task without going off the rails.
 
@@ -103,7 +103,7 @@ Here's the magic of context. Once the agent has explored your codebase and built
 **You:**
 > Add unit tests for the new endpoint. Look at `ProductControllerTests.cs` for reference.
 
-Note here we still need to point the agent to the right file for reference.
+Notice that we still point the agent to the right reference file when needed.
 
 **You:**
 > Actually the CreatedAt timestamp is not needed. Remove it from the response dto and from the UI.
