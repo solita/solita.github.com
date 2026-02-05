@@ -31,9 +31,7 @@ The result is predictably poor and useless.
 
 When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simpler tasks, I found it performed remarkably well!
 
-That mental shift boils down to one rule. Tell, don't ask.
-
-This is the most important lesson in prompting: **If you don't know how something should be done, the AI doesn't know either.**
+That mental shift boils down to one rule: Tell, don't ask. **If you don't know how something should be done, the AI doesn't know either.**
 
 AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
