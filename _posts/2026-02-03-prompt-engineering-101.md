@@ -148,19 +148,9 @@ Prompting is a skill just like any other. You have to accept a small ego hit and
 
 The world of agentic coding is evolving way too fast for anyone to stay on top of everything. New concepts emerge constantly: [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction) lets agents connect to databases, APIs, and external tools. [Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) give Copilot specialized capabilities for specific tasks. Multi-agent orchestrators like [Gas Town](https://github.com/steveyegge/gastown) let you coordinate 20-30 Claude Code agents working in parallel with persistent work tracking. And [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) let you create specialized assistants tailored to your workflow.
 
-It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And it all boils down to context management: these features are just different ways to feed better instructions to the model.
+It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And it all boils down to context management: these features are just different ways to feed better instructions to the model. That said, model choice does matter. Models have improved dramatically, and in my opinion, **Claude Opus 4.5** is currently the best for coding.
 
 My advice is to tune out the noise. First focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
-
-## Getting Started
-
-This is what you need to get going:
-
-1. Get a GitHub Copilot license from [IT Services](https://it.services.solita.fi/support/catalog/items/134)
-2. Install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in VS Code
-3. Log in with your Solita GitHub account
-
-That's it. You should now have the Copilot chat panel on the right side of VS Code. You can switch between Agent and Plan modes using the dropdown, and choose which model to use. In my opinion, the best coding model right now is **Claude Opus 4.5.**
 
 ## Conclusion
 AI-assisted development isn't magic, and it's not going to replace you. It's a tool that enables you to focus on solving the actual problem and helps you save time by automating the coding part.
