@@ -13,9 +13,9 @@ tags:
   - AI in Development
 ---
 
-Let's be honest. Those who have embraced AI as part of their daily development work have noticed significant improvements in both speed and quality. So the question is no longer "Is AI useful for coding?" but rather "How do I get the most out of it?"
+Let's be honest. Those who have embraced AI as part of their daily development work have noticed significant improvements in both speed and *quality* (yes, we are *not* talking about vibe coding). So the question is no longer "Is AI useful for coding?" but rather "How do I get the most out of it?"
 
-Why do some developers see tremendous benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development.
+Why do some developers see tremendous performance benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development.
 
 In this post, I'll share the key lessons from that journey, and hopefully inspire you to give it (another) try.
 
@@ -30,7 +30,7 @@ A common mistake when starting out is selecting the wrong problem for AI to solv
 3. You go deeper, read more code, debug, and exhaust all your own resources.
 4. You finally ask the AI for help.
 
-You *might* get an idea from the AI but usually the results are poor and useless. So you dismiss the AI and move on.
+You *might* get a useful hint, but more often the results miss the mark entirely. So you dismiss the AI and go back to debugging by hand.
 
 **Better prompt:**
 > I'm debugging a login issue where the app sometimes hangs.
@@ -108,7 +108,7 @@ Now we are cooking! You can see exactly what the agent intends to do before it w
 Here's the magic of context. Once the agent has explored your codebase and built a plan, you don't need to start from scratch for related tasks. The relevant files are already loaded, and the agent remembers what it just did. Your next prompts can be much simpler:
 
 **You:**
-> Update `UserProfile.tsx` to call the new endpoint and replace the placeholders with real data.
+> Update the UI to call the new endpoint and replace the placeholders with real data.
 
 **You:**
 > Add unit tests for the new endpoint. Look at `ProductControllerTests.cs` for reference.
@@ -123,17 +123,17 @@ Here's the magic of context. Once the agent has explored your codebase and built
 
 *"What about the hard stuff like race conditions, complex state machines, and security edge cases?"*
 
-Well... You are not there yet. Automate the code writing on the easy tasks you know how to solve first. AI performs best when you already know what to do. If you know you need to extract this logic as a service and refactor 10 files to use it, let the AI do that. You propably whould have made a copy paste error anyway, or left a missleading comment in.
+Well... You are not there yet. Start by automating the easy tasks you already know how to solve. AI performs best when you can clearly describe the outcome. If you know you need to extract logic into a service and refactor 10 files to use it, let the AI do that and save time. You probably would have made a copy-paste error anyway, or left a misleading comment in.
 
-The complex problems are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Complexity isn't an issue. Unclear complexity is. AI can solve any complex task but the challenge is breaking down that complexity into clear, actionable steps. Again. How would you delegate the task for a junior developer?
+But once you've built that foundation, the complex problems are exactly where good prompting shines. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Complexity isn't the enemy. *Unclear* complexity is. AI can solve any complex task, but the challenge is breaking it down into clear, actionable steps. Ask yourself: how would you delegate this task to a junior developer?
 
 ## Prompting Is a Skill
 
-This is what "coding" looks like in my workflow nowadays: going back and forth with the AI to refine the plan until it's right. I get to focus on the big picture and how the pieces fit together. In the end, I design better features, improve the codebase through refactoring, and save time because the code writing is automated.
+Once you get the hang of it, this is what "coding" looks like for me now. It's going back and forth with the AI to refine the plan until it's right. I get to focus on the big picture and how the pieces fit together. In the end, I design better features, improve the codebase through refactoring, and save time because the code writing is automated.
 
-But getting here wasn't instant. At first, I felt like an idiot when nothing worked. After my initial attempts, I caught myself thinking "I can code faster by hand than fixing the AI's mistakes." It took about two weeks to break even with manual coding, and another few weeks before the new approach truly clicked.
+But getting here wasn't instant. At first, I felt like an idiot when nothing worked. After my initial attempts, I caught myself thinking "I can code faster by hand than fixing the AI's mistakes." It took about two weeks to break even with manual coding, and another few weeks before the new approach finally clicked.
 
-Prompting is a skill just like any other. You have to accept a small ego hit and feel dumb for a bit to make progress. The hardest part is getting started. You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
+Prompting is a skill just like any other. You have to accept a small ego hit and feel dumb for a bit to make progress. The hardest part is getting started **and keep going.** You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
 
 **The point comes eventually when you realize you've done a day's worth of work in minutes without the AI making a single mistake.** After that, there's no going back.
 
@@ -141,7 +141,7 @@ Prompting is a skill just like any other. You have to accept a small ego hit and
 
 The world of agentic coding is evolving way too fast for anyone to stay on top of everything. New concepts emerge constantly: [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction) lets agents connect to databases, APIs, and external tools. [Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) give Copilot specialized capabilities for specific tasks. Multi-agent orchestrators like [Gas Town](https://github.com/steveyegge/gastown) let you coordinate 20-30 Claude Code agents working in parallel with persistent work tracking. And [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) let you create specialized assistants tailored to your workflow.
 
-It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model.
+It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model. It all comes back to context management.
 
 My advice? Don't chase every new feature. Focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
 
