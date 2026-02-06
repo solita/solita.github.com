@@ -30,7 +30,7 @@ A common mistake when starting out is selecting the wrong problem for AI to solv
 3. You go deeper, read more code, debug, and exhaust all your own resources.
 4. You finally ask the AI for help.
 
-You *might* get a useful hint, but more often the results miss the mark entirely. So you dismiss the AI and go back to debugging by hand.
+You *might* get a useful hint, but more often than not, the results miss the mark entirely. So you dismiss the AI and go back to debugging by hand.
 
 **Better prompt:**
 > I'm debugging a login issue where the app sometimes hangs.
@@ -43,9 +43,9 @@ You *might* get a useful hint, but more often the results miss the mark entirely
 > 
 > Analyze the flow and give me suggestions where the issue might be.
 
-When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, *you need to guide the AI like you would instruct a junior developer*, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
+When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, *you need to guide the AI like you would instruct a junior developer*. Once you are skilled enough in prompting, you can treat it more like a peer at the same level as you. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
 
-Here's the thing. **If you don't know how something should be done, the AI doesn't know either.**
+Here's the thing: **if you don't know how something should be done, the AI doesn't know either.**
 
 AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
@@ -77,7 +77,7 @@ But what if I told you that even the bad prompt can yield excellent results? Ent
 
 I'm a huge advocate of Planning mode. In Agent mode, Copilot immediately starts executing, and often in the wrong direction.
 
-Planning mode, on the other hand, forces the AI to stop, think and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task without going off the rails.
+Planning mode, on the other hand, forces the AI to stop, think, and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task without going off the rails.
 
 Let's see how the same "bad prompt" can outperform our carefully crafted "better prompt" when used with Planning mode.
 
@@ -130,7 +130,7 @@ Here's the magic of context. Once the agent has explored your codebase and built
 
 *"What about the hard stuff like race conditions, complex state machines, and security edge cases?"*
 
-Well... You are not there yet. Start by automating the easy tasks you already know how to solve. AI performs best when you can clearly describe the outcome. If you know you need to extract logic into a service and refactor 10 files to use it, let the AI do that and save time. You probably would have made a copy-paste error anyway, or left a misleading comment in.
+Well... you're not there yet. Start by automating the easy tasks you already know how to solve. AI performs best when you can clearly describe the outcome. If you know you need to extract logic into a service and refactor 10 files to use it, let the AI do that and save time. You probably would've made a copy-paste error anyway, or left a misleading comment in.
 
 But once you've built that foundation, the complex problems are exactly where good prompting shines. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Complexity isn't the enemy. *Unclear* complexity is. AI can solve any complex task, but the challenge is breaking it down into clear, actionable steps. Ask yourself: how would you delegate this task to a junior developer?
 
@@ -140,7 +140,7 @@ Once you get the hang of it, this is what "coding" looks like for me now. It's g
 
 But getting here wasn't instant. At first, I felt like an idiot when nothing worked. After my initial attempts, I caught myself thinking "I can code faster by hand than fixing the AI's mistakes." It took about two weeks to break even with manual coding, and another few weeks before the new approach finally clicked.
 
-Prompting is a skill just like any other. You have to accept a small ego hit and feel dumb for a bit to make progress. The hardest part is getting started **and keep going.** You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
+Prompting is a skill just like any other. You have to accept a small ego hit and feel dumb for a bit to make progress. The hardest part is getting started **and keeping going.** You don't yet know how to talk to the agent. Your prompts will fail. You'll redo things. A lot. But with each mistake, you learn what works and what doesn't.
 
 **The point comes eventually when you realize you've done a day's worth of work in minutes without the AI making a single mistake.** After that, there's no going back.
 
@@ -148,7 +148,7 @@ Prompting is a skill just like any other. You have to accept a small ego hit and
 
 The world of agentic coding is evolving way too fast for anyone to stay on top of everything. New concepts emerge constantly: [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction) lets agents connect to databases, APIs, and external tools. [Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) give Copilot specialized capabilities for specific tasks. Multi-agent orchestrators like [Gas Town](https://github.com/steveyegge/gastown) let you coordinate 20-30 Claude Code agents working in parallel with persistent work tracking. And [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) let you create specialized assistants tailored to your workflow.
 
-It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model. It all comes back to context management.
+It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And it all boils down to context management: these features are just different ways to feed better instructions to the model.
 
 My advice is to tune out the noise. First focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
 
