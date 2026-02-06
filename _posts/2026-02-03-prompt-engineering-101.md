@@ -15,7 +15,7 @@ tags:
 
 Let's be honest. Those who have embraced AI as part of their daily development work have noticed significant improvements in both speed and *quality* (yes, we are *not* talking about vibe coding). So the question is no longer "Is AI useful for coding?" but rather "How do I get the most out of it?"
 
-Why do some developers see tremendous performance benefits while others end up with spaghetti code? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development.
+Why do some developers see tremendous benefits while others end up with spaghetti code and hallucinations? I took on a challenge at the end of last year to only work by prompting, in order to learn the ins and outs of AI-assisted development.
 
 In this post, I'll share the key lessons from that journey, and hopefully inspire you to give it (another) try.
 
@@ -34,9 +34,13 @@ You *might* get a useful hint, but more often the results miss the mark entirely
 
 **Better prompt:**
 > I'm debugging a login issue where the app sometimes hangs.
+> 
 > Look at `Services/AuthService.cs`, `Controllers/AuthController.cs` and `Middleware/JwtMiddleware.cs` to understand the login flow.
+> 
 > Look at `Repositories/UserRepository.cs` to see how we fetch the user from db.
+> 
 > Here is our logic in the cache layer: `Services/TokenCacheService.cs`
+> 
 > Analyze the flow and give me suggestions where the issue might be.
 
 When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, *you need to guide the AI like you would instruct a junior developer*, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
@@ -58,8 +62,11 @@ This prompt would likely result in unexpected changes across your codebase and g
 
 **Better prompt:**
 > Create a new API endpoint for fetching user profiles. 
+> 
 > Look at `Controllers/ProductController.cs` for reference on how we structure our endpoints and routing attributes. 
+> 
 > Look at `ClientApp/src/views/UserProfile.tsx` and see what placeholders we are using to deduce what fields should be returned. 
+> 
 > Follow the same patterns for error handling and response formatting.
 
 The second prompt is more effective because it provides the AI with concrete reference points from your actual codebase. Instead of leaving the AI to guess your project's conventions, you're explicitly pointing it to existing implementations. The AI can now read those files, understand your patterns for routing, controller structure, and error handling, and produce code that fits seamlessly into your project. 
@@ -143,7 +150,7 @@ The world of agentic coding is evolving way too fast for anyone to stay on top o
 
 It can feel overwhelming. If I changed my workflow every time a new tool came up, I wouldn't get any work done. And here's the thing: all of these features are ultimately just different ways to feed better instructions to the model. It all comes back to context management.
 
-My advice? Don't chase every new feature. Focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
+My advice is to tune out the noise. First focus on mastering the fundamentals: understanding context, writing clear prompts, and using Planning mode. Once you've nailed those, the advanced features will make much more sense.
 
 ## Getting Started
 
