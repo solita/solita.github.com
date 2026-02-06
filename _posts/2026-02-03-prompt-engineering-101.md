@@ -45,7 +45,7 @@ You *might* get a useful hint, but more often than not, the results miss the mar
 
 When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, *you need to guide the AI like you would instruct a junior developer*. Once you are skilled enough in prompting, you can treat it more like a peer at the same level as you. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
 
-Here's the thing: **if you don't know how something should be done, the AI doesn't know either.**
+Here's the thing: **if you don't know how something should be done, the AI doesn't know either.** Or rather, if you don't know what you want from the AI, how can you expect it to deliver?
 
 AI is fundamentally a guessing machine. Without clear guidance, it will confidently guess and keep guessing. The quality of your output is directly tied to the clarity of your instructions.
 
