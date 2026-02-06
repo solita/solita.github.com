@@ -21,15 +21,25 @@ In this post, I'll share the key lessons from that journey, and hopefully inspir
 
 ## So What's the Problem?
 
-A common mistake when starting out is asking the AI to solve problems that are too complex. I made this mistake myself and have observed many others doing the same. The workflow typically goes something like this:
-1. There's an issue to fix
-2. You debug manually and try to find the root cause
-3. You exhaust all your own resources trying to solve it
-4. You finally ask the AI
+**Bad prompt:**
+> My app hangs when users log in but only sometimes and I've tried everything, can you fix it?
 
-The result is predictably poor and useless.
+A common mistake when starting out is selecting the wrong problem for AI to solve. I made this mistake myself and have observed many others doing the same. The workflow typically goes something like this:
+1. There's an issue to fix.
+2. You try the obvious solution (and it doesn't work).
+3. You go deeper, read more code, debug, and exhaust all your own resources.
+4. You finally ask the AI for help.
 
-When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, you need to guide the AI like you would instruct a junior developer, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
+You *might* get an idea from the AI but usually the results are poor and useless. So you dismiss the AI and move on.
+
+**Better prompt:**
+> I'm debugging a login issue where the app sometimes hangs.
+> Look at `Services/AuthService.cs`, `Controllers/AuthController.cs` and `Middleware/JwtMiddleware.cs` to understand the login flow.
+> Look at `Repositories/UserRepository.cs` to see how we fetch the user from db.
+> Here is our logic in the cache layer: `Services/TokenCacheService.cs`
+> Analyze the flow and give me suggestions where the issue might be.
+
+When I set the prompting challenge for myself, I quickly realized that using AI effectively requires a mental shift away from thinking of it as an "all-knowing entity" or a sparring partner. Instead, *you need to guide the AI like you would instruct a junior developer*, or once you are skilled enough in prompting, a peer at the same level. Once I started giving the agent simple and clear tasks, I found it performed remarkably well!
 
 Here's the thing. **If you don't know how something should be done, the AI doesn't know either.**
 
@@ -39,7 +49,7 @@ AI is fundamentally a guessing machine. Without clear guidance, it will confiden
 
 The key to effective prompting is understanding how AI context works. While the model is trained on vast amounts of data from across the internet, the context provided in your current chat session carries significantly more weight. I initially assumed that since JavaScript dominates AI training data, the model would perform poorly with other languages. This assumption was incorrect. Once you grasp how context influences output, you can achieve excellent results regardless of programming language or tech stack.
 
-Let me illustrate this with a practical example.
+Here is another example:
 
 **Bad prompt:**
 > Create a new API endpoint for user profiles.
@@ -103,7 +113,7 @@ Here's the magic of context. Once the agent has explored your codebase and built
 **You:**
 > Add unit tests for the new endpoint. Look at `ProductControllerTests.cs` for reference.
 
-Notice that we still point the agent to the right reference file when needed.
+*Notice that we still point the agent to the right reference file when needed.*
 
 **You:**
 > Actually the CreatedAt timestamp is not needed. Remove it from the response dto and from the UI.
@@ -111,11 +121,11 @@ Notice that we still point the agent to the right reference file when needed.
 **You:**
 > When the user id does not exist we hit 404 but in this case we want to redirect to the front page. Look at `ProductPage.tsx` for example.
 
-"What about the hard stuff like race conditions, complex state machines, and security edge cases?" These are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Of course, this assumes you actually understand the problem.
+*"What about the hard stuff like race conditions, complex state machines, and security edge cases?"*
 
-But wait... Earlier I said the problem was giving AI too complex problems to solve. Well, complexity itself isn't the enemy. Unclear complexity is. AI can solve any complex task but the challenge is breaking down that complexity into clear, actionable steps.
+Well... You are not there yet. Automate the code writing on the easy tasks you know how to solve first. AI performs best when you already know what to do. If you know you need to extract this logic as a service and refactor 10 files to use it, let the AI do that. You propably whould have made a copy paste error anyway, or left a missleading comment in.
 
-Once you get the hang of it, you start developing an intuition for when you can give the AI a broad goal versus when you need to spell out every step.
+The complex problems are exactly where good prompting matters most. The AI struggles when you're vague, but if you can enumerate the edge cases, describe the state transitions, or specify the security requirements, it handles them remarkably well. Complexity isn't an issue. Unclear complexity is. AI can solve any complex task but the challenge is breaking down that complexity into clear, actionable steps. Again. How would you delegate the task for a junior developer?
 
 ## Prompting Is a Skill
 
