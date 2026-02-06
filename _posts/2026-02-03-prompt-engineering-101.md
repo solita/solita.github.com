@@ -128,6 +128,8 @@ Here's the magic of context. Once the agent has explored your codebase and built
 **You:**
 > When the user id does not exist we hit 404 but in this case we want to redirect to the front page. Look at `ProductPage.tsx` for example.
 
+A word of warning about [context rot](https://research.trychroma.com/context-rot). AI memory behaves a lot like human memory: it retains what was discussed at the beginning and end of a conversation, but the middle gets hazy. If you keep going in the same chat session for too long, the agent becomes overwhelmed with too much information and starts getting confused. A good habit is to start a fresh chat session for each new feature, keeping the context focused on the task at hand.
+
 *"What about the hard stuff like race conditions, complex state machines, and security edge cases?"*
 
 Well... you're not there yet. Start by automating the easy tasks you already know how to solve. AI performs best when you can clearly describe the outcome. If you know you need to extract logic into a service and refactor 10 files to use it, let the AI do that and save time. You probably would've made a copy-paste error anyway, or left a misleading comment in.
