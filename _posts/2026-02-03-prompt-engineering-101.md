@@ -75,7 +75,7 @@ But what if I told you that even the bad prompt can yield excellent results? Ent
 
 ## Just Use Planning Mode
 
-I'm a huge advocate of Planning mode. In Agent mode, Copilot immediately starts executing, and often in the wrong direction.
+I'm a huge advocate of Copilot's Planning mode. In Agent mode, Copilot eagerly starts executing, often in the wrong direction.
 
 Planning mode, on the other hand, forces the AI to stop, think, and *explore the codebase* first. It creates a step-by-step plan of what it *intends* to do and asks for clarifying questions. This simple change makes a massive difference. You can catch misunderstandings early, redirect the approach, or refine your requirements before any code is written. And most importantly, it automatically loads exactly the files and references it needs into context so it can complete the task without going off the rails.
 
