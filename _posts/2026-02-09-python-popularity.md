@@ -5,15 +5,10 @@ author: solita-jonte
 excerpt: >
   Python runs everything from LEGO to NASA missions — yet most enterprises still hesitate to bet their core systems on it. This post digs into that paradox: how Python became the world's most popular language, why it's still seen as too risky for serious production, and what changes within once you treat it as a friend instead of an enemy.
 tags:
-  - python in production
-  - python performance
-  - enterprise software development
-  - software architecture
-  - backend development
-  - dynamic typing
-  - performance optimization
-  - programming languages
-  - software engineering best practices
+  - python
+  - production
+  - optimization
+  - enterprise
 ---
 I'm biased toward Python for many reasons. I'm also one of the few who've watched my own Python scripts place *$1.5M* worth of asset orders in my personal brokerage account — but that's a story for another time. The
 point is: I trust Python with systems where mistakes are expensive.
@@ -30,8 +25,8 @@ primary choice in [academia](https://dl.acm.org/doi/pdf/10.1145/3626252.3630761)
 and even [my local uni](https://www.chalmers.se/utbildning/dina-studier/hitta-kurs-och-programplaner/kursplaner/TDA548/) now use Python for their introductory courses. At Google and Amazon, it's a first-class language,
 and the other cloud providers (Microsoft, IBM, Oracle, etc.) fully support it for serverless and their other APIs.
 
-For many students and professionals — myself included — the low barrier to entry and high productivity, without any safety net, is love at first sight. I *really* enjoy writing Python code: I'm able to focus on the
-problem at hand, and can ignore all formalism. And the freedom! Oh boy, the freedom.
+For many students and professionals — myself included — the low barrier to entry and high productivity, without any safety net (like type checks), is love at first sight. I *really* enjoy writing Python code: I'm able
+to focus on the problem at hand, and can ignore all formalism. And the freedom! Oh boy, the freedom.
 
 For ML and AI tasks, Python is the default language. TensorFlow, PyTorch, Pandas, and scikit-learn all effectively require you to jump through hoops to use anything else.
 
@@ -90,8 +85,6 @@ what to code our enterprise systems in.
 own employer, only [6% prefer Python](https://dev.solita.fi/2024/12/03/developer-survey-2024.html) over other languages. From talking to developers, I believe that the main reason for the dislike is that people feel
 it's "like Java but error-prone and slow." To which the response should be: [if my grandmother had wheels, she would have been a bike](https://www.youtube.com/watch?v=A-RfHC91Ewc).
 
-![Grandmother is a bike](/img/2026-02-python-pop-prod/bicycle-grandma.jpg)
-
 But of course, there is a kernel of truth to that. On the other hand, nobody avoids knives because "that's what Jack the Ripper used." I say: better to learn how to use a knife, and use it with caution. And I realize
 that no amount of preaching is going to move the needle even one bit. Which also tells me that you, dear choir, who've made it this far are part of the few Chosen Ones.
 
@@ -110,6 +103,8 @@ Nobody who's deciding on a language for their platform:
 1. And then goes back in time to pick Python as their foundation.
 
 By the time you've climbed that ladder of understanding, the choices have already been made. Python is the chicken, and nobody's the egg.
+
+![The ladder of understanding](/img/2026-02-python-pop-prod/ladder-of-understanding.jpg)
 
 Many people realize Python is highly productive, but very few know it can be highly performant. Most people get off the ladder way before they see that Python can be suitable for production.
 
