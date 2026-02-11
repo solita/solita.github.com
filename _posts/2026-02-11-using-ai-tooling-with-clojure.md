@@ -45,7 +45,7 @@ code to read, in a easy to reason about format too.
 ## Clojure MCP boosts Agentic development workflows
 
 The REPL driven workflow speeds up the feedback cycle in normal
-development modes. *R*ead *E*val *P*rint *L*oop is a concept in many programming languages in the LISP family such as Common Lisp, Scheme and Clojure. It allows the developer to tap into and evaluate code in a running instance of the application they are developing. With good editor integration, this allows smooth and frictionless testing of the code under development in an interactive workflow.
+development modes. **R**ead **E**val **P**rint **L**oop is a concept in many programming languages in the LISP family such as Common Lisp, Scheme and Clojure. It allows the developer to tap into and evaluate code in a running instance of the application they are developing. With good editor integration, this allows smooth and frictionless testing of the code under development in an interactive workflow.
 
 With the addition of [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction)
 agents have gained access to a lot of tooling. In May 2025 Bruce
