@@ -204,6 +204,10 @@ One doesn't usually have to use any of the more powerful and expensive models to
 
 I think methods like this make it easy to embed LLM enabled functionalities in Clojure applications, giving them capabilities that are normally very hard to implement using traditional methods.
 
+**DISCLAIMER**
+
+If you were to implement the above example in your application as is, you'd be sending personal data to OpenAI. As developers, we should always consider the larger implications. You can deploy models locally in your region and keep data residency and processing within the EU region for example with using [Solita's FunctionAI in UpCloud](https://www.solita.fi/news/solita-brings-functionai-to-upcloud-enabling-a-full-eu-sovereign-ai-platform/) or other service providers.
+
 ## Further reading
 
 If you're new to agentic development, [Prompt engineering 101](https://dev.solita.fi/2026/02/10/prompt-engineering-101.html) is a great starter for how to get past the first hurdles.
