@@ -11,15 +11,15 @@ tags:
   - Architecture
 ---
 
-I'm not your typical LinkedIn AI Bro; I'm usually the skeptic in the room. But what I want to discuss in this blog is something I genuinely believe is part of the future.
+I've been working with Solitaire MCP plugin servers since last autumn. It's been a privilege to work with such an interesting technology, which could really be the first versions of a standardized framework for how we make queries to data sources. Reasoning models are useful, when a search logic needs to be more than pattern matching and profiled data. In addition, we can enable actions like Reservations and Orders directly within the same interface. By leveraging reasoning models, we can create a much smoother and more capable user experience. 
 
-I've been working with Solitaire MCP Servers since last autumn. It's been a privilege to work with such an interesting technology, which could really be the first versions of a standardized framework for how we make queries to data sources. Reasoning models are useful, when a search logic needs to be more than pattern matching and profiled data. Beyond just searching, we can enable actions like Reservations and Orders directly within the same interface. By leveraging reasoning models, we can create a much smoother and more capable user experience. 
+I'm not your everyday LinkedIn AI Bro; I'm usually the skeptic in the room. But what I want to discuss in this blog is something I genuinely believe is part of the future.
 
 ## Introduction: What is MCP?
 
 If you've been working with large language models (LLMs) lately, you've probably noticed a recurring challenge: how do you give these powerful AI systems access to your data, tools, and services in a reliable and standardized way? Every integration seems to require custom code, special handling, and maintenance overhead. Prompting with ChatGPT might require hand-picking documents that you add as attachment for enhanced context everytime you open a new conversation.
 
-Enter the **Model Context Protocol (MCP)** – an open protocol that standardizes how applications provide context to LLMs. Think of it as a universal adapter that allows language models to connect to any data source, API, or tool through a common interface. 
+Enter the **Model Context Protocol (MCP)** an open protocol that standardizes how applications provide context to LLMs. Think of it as a universal adapter that allows language models to connect to any data source, API, or tool through a common interface. 
 
 MCP was developed by Anthropic and released as an open standard, designed to solve the fragmentation problem in AI integrations. Instead of building custom integrations for every data source you want to connect to your LLM, MCP provides a unified way for applications to expose their capabilities to AI systems.
 
@@ -27,13 +27,11 @@ MCP was developed by Anthropic and released as an open standard, designed to sol
 
 At its core, MCP follows a following concept:
 
-- **Language Model (LM)**: The reasoning part that understands and generates text – like Claude, GPT-4, or any other LLM
+- **Language Model (LM)**: The reasoning part that understands and generates text, like Claude, GPT-4, or any other LLM
 - **MCP Server**: A standardized interface that exposes data, tools, or capabilities to the language model
 - **MCP Client**: The application that orchestrates communication between the LM and MCP servers
 
 The magic happens when you connect these pieces. The MCP server wraps your data source (database, API, file system, etc.) and exposes it through a standardized protocol. The language model can then interact with this data naturally, asking questions, retrieving information, or performing actions – all through a uniform interface. The MCP Server exposes tools to the Client LM, including detailed descriptions that help the model reason about which tool to call based on the user's prompt. 
-
-["Cheese burger comic here"]
 
 Instead of writing custom integration code for each data source, you write one MCP server, and any MCP-compatible client can use it. This dramatically reduces complexity and increases reusability.
 
@@ -45,10 +43,10 @@ The possibilities with MCP are extensive. Here are some compelling use cases:
 Connect your LLM to internal documentation, wikis, or knowledge bases. Employees can ask natural language questions and get answers grounded in your organization's specific information. Solitaire forexample.
 
 ### **Flight Information System** *(Our Example)*
-In this blog post, we'll explore a practical example: a flight information system. We'll create an MCP server that provides access to flight data – departures, arrivals, cost, gate information. This demonstrates how MCP can transform static data into an interactive, queryable service that responds to natural language.
+In this blog post, we'll explore a practical example: a flight information system. We'll create an MCP server that provides access to flight data; departures, arrivals, cost, gate information. This demonstrates how MCP can transform static data into an interactive, queryable service that responds to natural language.
 
 ### **Multi-Source Intelligence**
-The real power emerges when you connect multiple plugin-like MCP servers simultaneously. Imagine an assistant that can query your calendar, email, project management tool, and documentation – all in a single conversation, providing synthesized insights across systems.
+The real power emerges when you connect multiple plugin-like MCP servers simultaneously. Imagine an assistant that can query your calendar, read/create tickets from your favorite project management tool, and update documentation, all in a single conversation, providing synthesized insights across systems.
 
 ## Implementation: Building an MCP Server
 
@@ -56,35 +54,35 @@ Let's walk through building a practical MCP server in Python. We'll create a fli
 
 ### Setting Up the Environment
 
-```python
-# TODO: Add Python code for MCP server implementation
-# This section will include:
-# - Required dependencies and installation
-# - Basic MCP server setup
-# - Flight data model definition
-# - Tool/resource exposure
-# - Server initialization and connection handling
-```
+Before we dive into the example, you need to have Docker installed and some kind of LM implementation that supports MCP Server connections. I'm using [LM Studio](https://lmstudio.ai/) but you can choose to use whatever tool you wish. 
 
-### Server Implementation
+Clone [this](https://github.com/JanneTuhkanen/FlightsMCP) repository to your environment. There is a Dockerfile included and a shell script to setup the MCP Server for you.
 
-```python
-# TODO: Add complete flight information MCP server code
-# Including:
-# - Flight data structures
-# - MCP tools for querying flights
-# - Search and filter capabilities
-# - Response formatting
-```
+Now, run run_dockerized.sh and wait until the Docker has finished.
 
-### Testing the Server
+Once Docker is finished setting up. We can connect to our mcp server from our LM settings. For LM Studio, you can setup the connection from top right Program -> Install (on Integrations panel) -> Edit mcp.json.
 
-```python
-# TODO: Add code for testing the MCP server
-# - Client connection example
-# - Sample queries
-# - Result handling
-```
+Add the flights mcp server to the settings like this.
+{
+  "mcpServers": {
+    "flights-mcp-server": {
+      "url": "http://127.0.0.1:8000/mcp"
+    }
+  }
+}
+Now you should have connection open to the FlightsMCP server.
+
+# Lets get promting
+
+I'm using OpenAI's gpt-oss model. Feel free to select same model for testing our MCP Server.
+
+![Promting](/img/mcp-what-and-how/promt.png)
+
+As you can see, it thinks it should call /flights endpoint since its an available tool for us to use. Click "Proceed" to give LM permission to call this tool.
+
+![Flights being listed](/img/mcp-what-and-how/promt-result.png)
+
+What happens, it gets the full json as a response and reasons with our promt that it needs to filter flights except to Oslo.
 
 ## Under the Hood: How MCP Works
 
@@ -103,7 +101,7 @@ MCP follows a client-server architecture:
 
 3. **Transport Layer**: MCP supports multiple transport mechanisms:
    - **stdio**: Communication through standard input/output (great for local processes)
-   - **HTTP with SSE**: Server-Sent Events for remote connections
+   - **HTTP with SSE (deprecated)**: Server-Sent Events for remote connections, th
    - **WebSocket**: For bidirectional streaming communication
 
 ### JSON-RPC: The Communication Protocol
@@ -165,35 +163,11 @@ Here's what a typical MCP interaction looks like:
   "id": 3,
   "method": "tools/call",
   "params": {
-    "name": "search_flights",
-    "arguments": {
-      "destination": "HEL",
-      "date": "2026-01-25"
-    }
+    "name": "flights",
+    "arguments": {}
   }
 }
 ```
-
-### Lifecycle and Connection Management
-
-An MCP session follows this lifecycle:
-
-1. **Connection Establishment**: Client initiates connection via chosen transport
-2. **Initialization**: Capability negotiation through `initialize` request/response
-3. **Active Session**: Client can list and invoke resources/tools/prompts
-4. **Graceful Shutdown**: Either party can close the connection with proper cleanup
-
-The protocol includes built-in error handling, allowing servers to return structured error responses that clients can handle appropriately.
-
-### Security Considerations
-
-Since MCP servers can provide access to sensitive data and operations, security is crucial:
-
-- **Authentication**: Implement proper authentication mechanisms for remote connections
-- **Authorization**: Validate that clients have permission to access specific resources or tools
-- **Input Validation**: Always validate and sanitize inputs from tool calls
-- **Rate Limiting**: Protect against abuse by implementing rate limits
-- **Audit Logging**: Track what data is accessed and what actions are performed
 
 ## Closing Thoughts
 
@@ -203,7 +177,7 @@ What makes MCP particularly exciting is its potential for composability. As more
 
 However, MCP is still young. The ecosystem is growing, but many tools and services don't yet have MCP servers. There are also ongoing discussions about best practices, security patterns, and protocol extensions. If you're building AI applications, now is an excellent time to get involved – whether by creating MCP servers for your services, contributing to the specification, or simply experimenting with the possibilities.
 
-### Getting Started
+### Further exploration
 
 If you're interested in exploring MCP further:
 
