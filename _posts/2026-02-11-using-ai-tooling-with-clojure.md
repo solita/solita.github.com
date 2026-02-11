@@ -33,14 +33,14 @@ immutable data structures, easy to use literal representations of the
 most common collection types (lists, vectors, sets and maps) and a very
 regular syntax. A typical Clojure program has way less ceremony and
 boilerplate, not to mention weird quirks to deal with compared to many
-more programming languages such as Java, C#, Typescript or Python
+more programming languages such as Java, C#, Typescript or Python.
 
 This means that large language models have less to deal with when
 reading or writing Clojure code. We have some evidence in Martin
 Alderson's article that Clojure is [token efficient](https://martinalderson.com/posts/which-programming-languages-are-most-token-efficient/) compared to most other popular programming languages.
 
 When we author code with generative AI tools, a developer reviewing it has less
-code to read, in a easy to reason about format too.
+code to read in a format that easy to reason about.
 
 ## Clojure MCP boosts Agentic development workflows
 
@@ -50,7 +50,7 @@ development modes. **R**ead **E**val **P**rint **L**oop is a concept in many pro
 With the addition of [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction)
 agents have gained access to a lot of tooling. In May 2025 Bruce
 Hauman announced his [Clojure MCP](https://github.com/bhauman/clojure-mcp)
-that provides an MCP that provides agents access to the REPL. Now
+that provides agents access to the REPL. Now
 AI agents such as Claude Code, Copilot CLI and others can reach inside
 the application as it is being developed, try code changes live, look
 at the internal state of the application and benefit from all of the
@@ -87,7 +87,7 @@ analyze source code, logs and stacktraces.
 
 As a developer, we can also connect to the same REPL as the coding
 agent, making it easy to step in and aid the agent when it gets
-stuck. In my workflows, I might look at the code the Agent produced
+stuck. In my workflows, I might look at the code the agent produced
 and test it in the REPL as well, make changes as required and instruct
 the agent to read what I did. This gives another collaborative
 dimension to standard prompting techniques that are normally
@@ -97,7 +97,7 @@ associated with generative AI development.
 
 Generating and analyzing code with AI tooling is just one way
 to apply AI in software development. As developers, we should
-understand the potential for embedding AI functinality at the
+understand the potential for embedding AI functionality at the
 application level too. LLMs seem to be good at understanding my
 intentions, even if they don't necessarily produce the right
 results. One possibility is to take input provided by a human and
@@ -121,14 +121,14 @@ What if we could avoid all that and have the request routed
 automatically to the right backlog? Enter OpenAI's [Requests API](https://developers.openai.com/api/reference/resources/responses/methods/create)
 which can handle text, image and various file inputs to generate text
 or JSON outputs. The *json_schema* response format is interesting in
-particular, because we can express the desired result format in a
+particular because we can express the desired result format in a
 manner that we can then use to process the response programmatically
 down the line.
 
-In Clojure world, we often use [Malli](https://github.com/metosin/malli) to define our data models. We
+In the Clojure world, we often use [Malli](https://github.com/metosin/malli) to define our data models. We
 can use `malli.json-schema` to transform our malli schemas into
-json_schema that the endpoint understands, and then use
-`malli.transform` to translate the response from json back to Clojure
+JSON schema that the endpoint understands, and then use
+`malli.transform` to translate the response from JSON back to Clojure
 data.
 
 A [similar idea](https://gist.github.com/ikitommi/e643713719c3620f943ef34086451c69)
@@ -200,13 +200,14 @@ Note that the choice of model can have a big effect on your output!
 ;      :phone "555-1343"}}
 ```
 
+Notice how the model was able to process the human input that contained typos and informal, broken language.
 One doesn't usually have to use any of the more powerful and expensive models to do this level of work. The older *json_object* response format has some capabilities and supports even lighter models. See [OpenAI's documentation](https://developers.openai.com/api/docs/guides/structured-outputs) for reference.
 
-I think methods like this make it easy to embed LLM enabled functionalities in Clojure applications, giving them capabilities that are normally very hard to implement using traditional methods.
+I think methods like this make it easy to embed LLM-enabled functionality in Clojure applications, giving them capabilities that are normally very hard to implement using traditional methods.
 
 **DISCLAIMER**
 
-If you were to implement the above example in your application as is, you'd be sending personal data to OpenAI. As developers, we should always consider the larger implications. You can deploy models locally in your region and keep data residency and processing within the EU region for example with using [Solita's FunctionAI in UpCloud](https://www.solita.fi/news/solita-brings-functionai-to-upcloud-enabling-a-full-eu-sovereign-ai-platform/) or other service providers.
+If you were to implement the above example in your application as is, you'd be sending personal data to OpenAI. As developers, we should always consider the larger implications. You can deploy models locally in your region and keep data residency and processing within the EU region for example by using [Solita's FunctionAI in UpCloud](https://www.solita.fi/news/solita-brings-functionai-to-upcloud-enabling-a-full-eu-sovereign-ai-platform/) or other service providers.
 
 ## Further reading
 
