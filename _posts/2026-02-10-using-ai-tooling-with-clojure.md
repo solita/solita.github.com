@@ -45,9 +45,11 @@ code to read, in a easy to reason about format too.
 ## Clojure MCP boosts Agentic development workflows
 
 The REPL driven workflow speeds up the feedback cycle in normal
-development modes. With the addition of [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction)
+development modes. *R*ead *E*val *P*rint *L*oop is a concept in many programming languages in the LISP family such as Common Lisp, Scheme and Clojure. It allows the developer to tap into and evaluate code in a running instance of the application they are developing. With good editor integration, this allows smooth and frictionless testing of the code under development in an interactive workflow.
+
+With the addition of [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction)
 agents have gained access to a lot of tooling. In May 2025 Bruce
-Hauman announced is [Clojure MCP](https://github.com/bhauman/clojure-mcp)
+Hauman announced his [Clojure MCP](https://github.com/bhauman/clojure-mcp)
 that provides an MCP that provides agents access to the REPL. Now
 AI agents such as Claude Code, Copilot CLI and others can reach inside
 the application as it is being developed, try code changes live, look
