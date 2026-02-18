@@ -37,7 +37,7 @@ The working flow shifts towards something my friend Tuomo Ala-Vannesluoma captur
 
 Seniority is not needed as much in the future. Already, I can optimize databases better than ever or create nicer frontends by myself — with the help of LLMs. Areas that previously required deep specialization are now within reach.
 
-The good point is that the customer gets more for the same price — and maybe the customer can even do some things by themselves. As a taxpayer, that is a welcome development.
+The good point is that the customer gets more for the same price — and maybe the customer can even do some things by themselves. I work a lot for the public sector, so this productivity increase is something I appreciate as a taxpayer too.
 
 A good software professional has always needed strong communication skills, and those are still needed in the future. But maybe it is just not as rewarding to communicate with agents...
 
@@ -97,7 +97,7 @@ The fundamental change
 Productivity improves
 
 * The Seniority is not needed in the future so much. Already, I can optimize database better than ever or could create nicer frontend by myself, with the help of LLMs.
-* The good point is that the customer gets more with the same price and maybe it can do something by itself. That is good as a tax payer
+* The good point is that the customer gets more with the same price and maybe it can do something by itself. I am working a lot for the public sector. That productivity increase is good as a tax payer
 * Good software professional has good communication skills and they are still needed in the future. Maybe it is just not so rewarding to communicate with agents...
 * The Software Architect's job is not ending. I just have been in very hands on role, coding much. In the future I might not have that luxury. I need to concentrate on producing diagrams and presentations more, of course with LLM!
 * I don't want to sound a doomer. Change is inevitable and I need to adapt. There is not purpose to miss old times. I need to find fun from something else than writing code. Shall I find? At least the big change is fun to be part of and get powers I never had.
