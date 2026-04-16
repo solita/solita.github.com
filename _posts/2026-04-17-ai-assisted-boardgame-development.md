@@ -52,7 +52,7 @@ With the rules in structured markdown, I started building agents. The main agent
 
 The first subagent was the rules generator. I wrote `agent-makerules.md` with detailed instructions: read all the game source files and compiles them into a single, coherent rulebook with a table of contents, include directives for appendices, and pagebreak annotations for PDF output.
 
-The the card generator came next. `agent-makecards.md` was also tricky to get right since I had to be very strict since the agent kept inventing it's own rules and inventing novel ways to allocate build points. But when it started working it read the card construction rules, read the dice mechanics, read the pirate theme word list, then generated Level 1,2 and 3 cards with specific distributions to make each card set balanced. The agent reads the game files as shared context so every generated card is mechanically consistent.
+The card generator came next. `agent-makecards.md` was also tricky to get right since I had to be very strict since the agent kept inventing it's own rules and inventing novel ways to allocate build points. But when it started working it read the card construction rules, read the dice mechanics, read the pirate theme word list, then generated Level 1,2 and 3 cards with specific distributions to make each card set balanced. The agent reads the game files as shared context so every generated card is mechanically consistent.
 
 Then I needed to turn markdown into something people could actually use. This is where Claude became indispensable. Together, we started to build skills:
 
