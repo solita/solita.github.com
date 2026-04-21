@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An experiment in AI-augmented board game design"
-author: Roblun
+author: roblun
 excerpt: >
   I like creating games. Board games, card games, dice games — the kind you spread across a table with friends and argue about rules for twenty minutes before anyone actually plays. But I have a problem that every hobby designer knows well: I get stuck.
   So I had a thought: what if I approached this differently? What if instead of doing everything myself and burning out halfway through, I tried to use AI as a genuine collaborator? Not just "ask Claude to write some flavour text" but actually build an agentic workflow — where AI agents have defined roles, shared context, and can generate real, usable output.
@@ -98,7 +98,7 @@ The next logical step is to make a publishing sub-agent that handles all of this
 
 ## Diagram of the solution
 
-![diagram.jpg](../img/2026-04-ai-assisted-boardgame-development/diagram.jpg)
+![diagram.jpg](/img/2026-04-ai-assisted-boardgame-development/diagram.jpg)
 
 ---
 
