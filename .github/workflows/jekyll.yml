@@ -32,18 +32,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1 # uses version from .ruby-version file by default
+        uses: ruby/setup-ruby@v1.306.0 # uses version from .ruby-version file by default
       - name: setup babashka
-        uses: DeLaGuardo/setup-clojure@12.5
+        uses: DeLaGuardo/setup-clojure@13.6.0
         with:
           bb: latest
       - name: generate authors data
         run: bb authors.clj
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6.0.0
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
@@ -54,7 +54,7 @@ jobs:
           JEKYLL_ENV: production
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
 
   # Deployment job
   deploy:
@@ -66,4 +66,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.0
