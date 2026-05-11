@@ -11,39 +11,32 @@ on:
   push:
     branches: ["master"]
 
+  pull_request:
+    branches: ["master"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1 # uses version from .ruby-version file by default
+        uses: ruby/setup-ruby@v1.306.0 # uses version from .ruby-version file by default
       - name: setup babashka
-        uses: DeLaGuardo/setup-clojure@12.5
+        uses: DeLaGuardo/setup-clojure@13.6.0
         with:
           bb: latest
       - name: generate authors data
         run: bb authors.clj
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6.0.0
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
@@ -53,11 +46,19 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Upload artifact
+        if: github.ref == 'refs/heads/master'
         # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
 
   # Deployment job
   deploy:
+    if: github.ref == 'refs/heads/master'
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -66,4 +67,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.0
