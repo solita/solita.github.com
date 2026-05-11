@@ -89,7 +89,7 @@ We manually reviewed the ported code and its tests until our feeling was strong 
 
 The main motivation of switching the generator's technology was to gain performance benefits that were simply impossible to get with the old implementation. This goal was clearly reached, so the only question remains: did we manage to create a port that’s just as high-quality as if it had been written from scratch?
 
-As mentioned, there were numerous small problems in the first version of the ported code. The initial port was ready in a single work day, but cleaning, refactoring, testing and reviewing the whole thing took a couple of weeks of work. Despite this, the AI-generated code was still a much better starting point than trying to port everything manually. Of course, it would have been best to implement it this way right from the start, but I'm quite happy with the end result we got by porting the existing code with AI.
+As mentioned, there were numerous small problems in the first version of the ported code. The initial port was ready in a single work day, but cleaning, refactoring, testing and reviewing the whole thing took a couple of weeks of work. Despite this, the AI-generated code was still a much better starting point than trying to re-create the whole thing manually from scratch. Of course, it would have been best to implement it this way right from the start, but I'm quite happy with the end result we got by porting the existing code with AI.
 
 ## Conclusion
 
