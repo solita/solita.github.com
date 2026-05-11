@@ -54,7 +54,7 @@ At this point, it was clear that the new system was functioning, so it was time 
 - **Non-idiomatic code.** The ported code was technically functional but not particularly "Java-like". For example, the AI had ported our manually written number formatting logic directly from TypeScript to Java even if there was built-in support for such formatting directly in Java. AI just didn't dare to take advantage of it.
 - **Accidental bug discovery.** Perhaps the most "entertaining" finding was that the porting process revealed bugs in the original implementation! For example, the original generator was creating a few unnecessary pages with empty content. I noticed this when I was arguing with the AI about generation rules that differed from the original. It turned out the AI had independently changed the rules — not something I knew I wanted, but this time it was actually correct!
 
-Despite these problems, the most significant finding was that logical errors were almost nonexistent in the ported code: there were only a few and they were easy to fix. It seems that AI is pretty good at porting code between languages and keeping the result functionally equivalent.
+Despite these problems, the most significant finding was that logical errors were almost nonexistent in the ported generator code: there were only a few and they were easy to fix. It seems that AI is pretty good at porting code between languages and keeping the result functionally equivalent. Also our Astro components, which are essentially simple HTML templates, were cleanly converted to JTE code without any major issues.
 
 I'm not sure whether addressing every possible issue in the initial prompt would have produced a perfect result. After all, it's easy to tell an AI not to make mistakes, but since porting a system to another technology is a lengthy process, the AI might not "remember" to follow every instruction at every step. Duplication and dead code can also happen by accident when ported code is being refactored. Thus, I believe the initial port — even if working — should only be treated as a starting point towards the final version.
 
@@ -84,6 +84,12 @@ Despite all the automated code reviewing, I feel that human code review still re
 As mentioned previously, our plan was to import not only the generator code itself, but also its tests. Some tests were written in Playwright which did not need porting at all since we could just run them normally against the new generated output. Still, there were many unit tests originally written in TypeScript for Vitest and now ported to Java that obviously needed human observation. Green tests mean nothing if they do not test the right things.
 
 We manually reviewed the ported code and its tests until our feeling was strong enough that the result was merge-ready. When an issue was found, we investigated whether a similar issue was also found elsewhere in the ported codebase (with and without the help of AI) and very often found multiple things to fix. This helped create certainty that most of our findings were fixed throughout the whole ported codebase, not just in a single file.
+
+## Verdict
+
+The main motivation of switching the generator's technology was to gain performance benefits that were simply impossible to get with the old implementation. This goal was clearly reached, so the only question remains: did we manage to create a port that’s just as high-quality as if it had been written from scratch?
+
+As mentioned, there were numerous small problems in the first version of the ported code. The initial port was ready in a single work day, but cleaning, refactoring and reviewing the whole thing took a couple of weeks of work. Despite this, the AI-generated code was still a much better starting point than trying to port everything manually. I'm quite happy with the end result we got with this approach.
 
 ## Conclusion
 
