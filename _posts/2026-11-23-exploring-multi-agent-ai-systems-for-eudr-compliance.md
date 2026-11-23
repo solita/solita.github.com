@@ -12,7 +12,7 @@ tags:
 
 ---
 
-Few months ago, I completed my master’s thesis, “Exploring the Potential of Multi-Agent AI Systems for EUDR Compliance” where I explored how Multi-Agent AI Systems could support ecosystemic data exchange across multi-tier supply chains to support compliance with the European Union Deforestation Regulation (EUDR).
+A few months ago, I completed my master’s thesis, “Exploring the Potential of Multi-Agent AI Systems for EUDR Compliance” where I explored how Multi-Agent AI Systems could support ecosystemic data exchange across multi-tier supply chains to support compliance with the European Union Deforestation Regulation (EUDR).
 
 The work brought together supply-chain traceability, ecosystemic data, interoperability, autonomous AI agents, and multi-agent systems.
 
@@ -20,7 +20,7 @@ Here is a closer look at what I explored, what I built, and what the evaluation 
 
 ## EUDR Compliance
 
-The EUDR introduces mandatory traceability requirements for certain commodities placed on the EU market, with the objective of ensuring that products are deforestation-free and legally produced. A key part of the regulation is the due diligence, where the operators need to gather information about the products and their origin, including the country of production and the geolocation of the land where commodities were produced. The production activities must also comply with relevant laws and regulations in the producing country.
+The [EUDR](https://environment.ec.europa.eu/topics/forests/deforestation/eu-deforestation-regulation-eudr_en) is designed to address deforestation linked to global supply chains and reduce European Union’s contribution to forest degradation. It introduces mandatory traceability requirements for high risk commodities placed on the EU market, with the objective of ensuring that products are deforestation-free and legally produced. A key part of the regulation is the due diligence, where the operators need to gather information about the products and their origin, including the country of production and the geolocation of the land where commodities were produced. The production activities must also comply with relevant laws and regulations in the producing country.
 
 This creates a significant data requirement across the supply chain. A supply chain can involve many producers, aggregators, processors, logistics providers, exporters and importers. Information required for compliance is therefore distributed across multiple tiers and stakeholders.
 
@@ -30,17 +30,19 @@ The thesis identified that effective EUDR compliance requires different types of
 
 Supply chains are distributed environments by nature and different organizations can use different systems, data formats and technologies to store information. There are several challenges affecting the data exchange and traceability, including: fragmented data systems, lack of standardization, limited visibility beyond first-tier suppliers, different technological capabilities among stakeholders, manual data-processing activities, and concerns around sharing commercially sensitive information.
 
-These challenges make it difficult to achieve end-to-end traceability across multiple supply-chain tiers. The thesis therefore focused on a key research question:
+These challenges make it difficult to achieve end-to-end traceability across multiple supply-chain tiers. The literature review examined existing approaches to supply-chain traceability, including blockchain-based, IoT-enabled and mobile-based solutions, as well as other digital traceability systems. While these approaches offer potential benefits for improving supply-chain tracking, the reviewed studies also highlight practical limitations, including interoperability, scalability, infrastructure and implementation challenges.
+
+Multi-Agent Systems, in turn, offer an approach that aligns with the distributed nature of supply chains. They consist of interacting agents with defined roles and responsibilities, and can facilitate communication, coordination and the integration of distributed knowledge across independent business entities.
+
+The thesis therefore focused on a key research question:
 
 <p><em>How can Multi-Agent AI Systems contribute to interoperable and traceable ecosystemic data exchange among supply-chain stakeholders?</em></p>
 
 ## From supply chain actors to AI agents
 
-A Multi-Agent System consists of several agents performing tasks according to defined roles and responsibilities. Multi-Agent Systems are particularly well suited to supply chains, which operate as distributed networks of independent business entities.
+A Multi-Agent System consists of several agents performing specialized tasks according to defined roles and responsibilities. Given the distributed nature of supply chains, the proposed approach represents different supply-chain actors and stages through specialized agents, with each agent responsible for tasks associated with its respective role. The reference architecture includes: Producer Agent, Aggregator Agent, Processor Agent, Logistics Agent, Importer Agent, ERP Data Extraction Agent, Document Data Extraction Agent and a Guard Agent. The agents participate in a sequential multi-agent workflow, exchanging information through a shared and standardized JSON data structure.
 
-The proposed approach therefore represents different supply-chain stages through specialized agents. The reference architecture includes: Producer Agent, Aggregator Agent, Processor Agent, Logistics Agent, Importer Agent, ERP Data Extraction Agent, Document Data Extraction Agent and a Guard Agent. The agents participate in a sequential multi-agent workflow, exchanging information through a shared and standardized JSON data structure.
-
-<img src="/img/2026-11-17-exploring-multi-agent-ai-systems-for-eudr-compliance/multi-agent-architecture.png" alt="Refrence architecture of the proposed multi-agent system" style="width: 90%; height: auto; display: block; margin: 0 auto;" />
+<img src="/img/2026-11-exploring-multi-agent-ai-systems-for-eudr-compliance/multi-agent-architecture.png" alt="Refrence architecture of the proposed multi-agent system" style="width: 90%; height: auto; display: block; margin: 0 auto;" />
 
 ## A unified data structure
 
@@ -67,7 +69,7 @@ This supply chain consists of several stages. Oil palm is initially harvested by
 
 Palm oil products can start with information about its production locations and harvest, move to a mill where its source is recorded, and then continue through processing and logistics with new batch and shipment references. At the importer stage, these pieces of information can be brought together to provide the traceability view across the different stages.
 
-<img src="/img/2026-11-17-exploring-multi-agent-ai-systems-for-eudr-compliance/use-case.png" alt="Palm oil compliance process for EUDR" style="width: 90%; height: auto; display: block; margin: 0 auto;" />
+<img src="/img/2026-11-exploring-multi-agent-ai-systems-for-eudr-compliance/use-case.png" alt="Palm oil compliance process for EUDR" style="width: 90%; height: auto; display: block; margin: 0 auto;" />
 
 ##  Building the prototype
 
